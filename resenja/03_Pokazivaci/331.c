@@ -15,7 +15,7 @@ int main()
   /* Trag matice */
   double trag = 0;
 
-  printf("Unesite broj vrsta i broj kolona matrice: ");
+  printf("Unesite broj vrsta i broj kolona matrice:\n ");
   scanf("%d%d", &n, &m);
 
   /* Dinamicki se alocira prostor za n pokazivaca na double */

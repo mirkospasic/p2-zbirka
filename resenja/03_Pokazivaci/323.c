@@ -92,13 +92,13 @@ int main(int argc, char *argv[])
     for (j = 0; j < n; j++)
       scanf("%d", &m[i][j]);
 
-  printf("Najveci element matrice na sporednoj dijagonali je %d.\n",
+  printf("Najveci element sporedne dijagonale je %d.\n",
          max_sporedna_dijagonala(m, n));
 
-  printf("Indeks kolone koja sadrzi najmanji element matrice %d.\n",
+  printf("Indeks kolone sa najmanjim elementom je %d.\n",
          indeks_min(m, n));
 
-  printf("Indeks vrste koja sadrzi najveci element matrice %d.\n",
+  printf("Indeks vrste sa najvecim elementom je %d.\n",
          indeks_max(m, n));
 
   printf("Broj negativnih elemenata matrice je %d.\n",

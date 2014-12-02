@@ -28,7 +28,7 @@ int main()
   int m, n, i, j;
   int **matrica = NULL;
 
-  printf("Unesite broj vrsta i broj kolona matrice: ");
+  printf("Unesite broj vrsta i broj kolona matrice:\n ");
   scanf("%d %d", &n, &m);
 
   /* Alocira se prostor za niz pokazivaca na vrste matrice */

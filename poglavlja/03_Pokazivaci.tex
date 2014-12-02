@@ -149,39 +149,40 @@ Zadatak rešiti:
 Od korisnika sa ulaza tražiti da izabere da li koje od ova dva
 rešenja treba koristiti prilikom ispisa.
 
-\begin{maxitest}
+\begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out prvi 2. treci -4}#
 
 #\naslovInt#
-#\izlaz{Broj prihvacenih argumenata komandne linije je 5.}#
-#\izlaz{Kako zelite da ispisete argumente, koriscenjem}#
-#\izlaz{indeksne ili pokazivacke sintakse (I ili P)?} \ulaz{I}#
+#\izlaz{Broj argumenata komandne linije je 5.}#
+#\izlaz{Kako zelite da ispisete argumente,}# 
+#\izlaz{koriscenjem indeksne ili pokazivacke}# 
+#\izlaz{sintakse (I ili P)?} \ulaz{I}#
 #\izlaz{Argumenti komandne linije su:}#
 #\izlaz{0 ./a.out}#
 #\izlaz{1 prvi}#
 #\izlaz{2 2.}#
 #\izlaz{3 treci}#
 #\izlaz{4 -4}#
-#\izlaz{Pocetna slova argumenata komandne linije su:}#
+#\izlaz{Pocetna slova argumenata komandne linije:}#
 #\izlaz{. p 2 t -}#
 \end{upotreba}
-\end{maxitest}
-
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{upotreba}{2}
 #\poziv{./a.out}#
 
 #\naslovInt#
-#\izlaz{Broj prihvacenih argumenata komandne linije je 1.}#
-#\izlaz{Kako zelite da ispisete argumente, koriscenjem}#
-#\izlaz{indeksne ili pokazivacke sintakse (I ili P)?} \ulaz{P}#
+#\izlaz{Broj argumenata komandne linije je 1.}#
+#\izlaz{Kako zelite da ispisete argumente,}# 
+#\izlaz{koriscenjem indeksne ili pokazivacke}# 
+#\izlaz{sintakse (I ili P)?} \ulaz{P}#
 #\izlaz{Argumenti komandne linije su:}#
 #\izlaz{0 ./a.out}#
-#\izlaz{Pocetna slova argumenata komandne linije su:}#
+#\izlaz{Pocetna slova argumenata komandne linije:}#
 #\izlaz{.}#
 \end{upotreba}
-\end{maxitest}
+\end{miditest}
 
 \linkresenje{304}
 \end{Exercise}
@@ -502,7 +503,7 @@ se dimenzija $n$ ($0 < n \leq 32$) zadaje kao argument
 komandne linije. Na standardni izlaz ispisati rezultat primene prethodno
 napisanih funkcija. 
 
-\begin{maxitest}
+\begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out 3}#
 
@@ -511,14 +512,13 @@ napisanih funkcija.
 #\ulaz{1 2 3}#
 #\ulaz{-4 -5 -6}#
 #\ulaz{7 8 9}#
-#\izlaz{Najveci element matrice na sporednoj dijagonali je 7.}#
-#\izlaz{Indeks kolone koja sadrzi najmanji element matrice 2.}#
-#\izlaz{Indeks vrste koja sadrzi najveci element matrice 2.}#
+#\izlaz{Najveci element sporedne dijagonale je 7.}#
+#\izlaz{Indeks kolone sa najmanjim elementom je 2.}#
+#\izlaz{Indeks vrste sa najvecim elementom je 2.}#
 #\izlaz{Broj negativnih elemenata matrice je 3.}#
 \end{upotreba}
-\end{maxitest}
-
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{upotreba}{2}
 #\poziv{./a.out 4}#
 
@@ -528,12 +528,12 @@ napisanih funkcija.
 #\ulaz{-5 -6 -7 -8}#
 #\ulaz{-9 -10 -11 -12}#
 #\ulaz{-13 -14 -15 -16}#
-#\izlaz{Najveci element matrice na sporednoj dijagonali je -4.}#
-#\izlaz{Indeks kolone koja sadrzi najmanji element matrice 3.}#
-#\izlaz{Indeks vrste koja sadrzi najveci element matrice 0.}#
+#\izlaz{Najveci element sporedne dijagonale je -4.}#
+#\izlaz{Indeks kolone sa najmanjim elementom je 3.}#
+#\izlaz{Indeks vrste sa najvecim elementom je 0.}#
 #\izlaz{Broj negativnih elemenata matrice je 16.}#
 \end{upotreba}
-\end{maxitest}
+\end{miditest}
 
 \linkresenje{323}
 \end{Exercise}
@@ -854,7 +854,7 @@ učitava iz datoteke čije se ime zadaje kao argument komandne linije.
 U datoteci se nalazi prvo dimenzija matrice, a zatim redom elementi matrice.
 
 
-\begin{maxitest}
+\begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out matrica.txt}#
 
@@ -863,15 +863,22 @@ U datoteci se nalazi prvo dimenzija matrice, a zatim redom elementi matrice.
 #\datoteka{1.1 -2.2 3.3}#
 #\datoteka{-4.4 5.5 -6.6}#
 #\datoteka{7.7 -8.8 9.9}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{test2}{1}
+
+
 
 #\naslovInt#
-#\izlaz{Zbir apsolutnih vrednosti ispod sporedne dijagonale je 25.30.}#
+#\izlaz{Zbir apsolutnih vrednosti ispod }#
+#\izlaz{sporedne dijagonale je 25.30.}#
 #\izlaz{Transformisana matrica je:}#
 #\izlaz{1.10 -1.10 1.65}#
 #\izlaz{-8.80 5.50 -3.30}#
 #\izlaz{15.40 -17.60 9.90}#
-\end{upotreba}
-\end{maxitest}
+\end{test2}
+\end{miditest}
 
 \linkresenje{337}
 \end{Exercise}
@@ -910,7 +917,6 @@ matricu ispisati na standardni izlaz.
 
 
 #\naslovInt#
-#\izlaz{Trazena matrica je:}#
 #\izlaz{1.1 -2.2 3.3}#
 #\izlaz{-1.1 2.2 -3.3}#
 #\izlaz{-4.4 5.5 -6.6}#
@@ -961,7 +967,7 @@ Dobijene podatke ispisati na standardni izlaz. \napomena{Za
 realokaciju memorije koristiti \kckod{realloc()} funkciju.}
 
 
-\begin{maxitest}
+\begin{miditest}
 \begin{upotreba}{1}
 #\naslovDat{slicice.txt}#
 #\datoteka{3 Brazil}#
@@ -971,12 +977,19 @@ realokaciju memorije koristiti \kckod{realloc()} funkciju.}
 #\datoteka{2 Engleska}#
 #\datoteka{4 Engleska}#
 #\datoteka{5 Brazil}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{test2}{1}
+
+
 
 #\naslovInt#
 #\izlaz{Petru ukupno nedostaje 7 slicica.}#
-#\izlaz{Reprezentacija za koju je sakupio najmanji broj slicica je Brazil.}#
-\end{upotreba}
-\end{maxitest}
+#\izlaz{Reprezentacija za koju je sakupio}#
+#\izlaz{najmanji broj slicica je Brazil.}#
+\end{test2}
+\end{miditest}
 \end{Exercise}
 %\begin{Answer}[ref=340]
 %\includecode{resenja/03_Pokazivaci/340.c}
@@ -996,12 +1009,39 @@ površine. Pretpostavka je da će mnogougao biti konveksan.
 #\datoteka{1 -1}#
 #\datoteka{1 1}#
 #\datoteka{-1 1}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{test2}{1}
+
+
 
 #\naslovInt#
 #\izlaz{U datoteci su zadata temena cetvorougla.}#
 #\izlaz{Obim je 8.}#
 #\izlaz{Povrsina je 4.}#
+\end{test2}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovDat{temena.txt}#
+#\datoteka{-1.75 -1.5}#
+#\datoteka{3 1.5}#
+#\datoteka{2.2 3.1}#
+#\datoteka{-2 4}#
+#\datoteka{-4.1 1}#
 \end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{test2}{1}
+
+
+
+#\naslovInt#
+#\izlaz{U datoteci su zadata temena petougla.}#
+#\izlaz{Obim je 18.80.}#
+#\izlaz{Povrsina je 22.59.}#
+\end{test2}
 \end{miditest}
 \end{Exercise}
 %\begin{Answer}[ref=341]
@@ -1079,8 +1119,16 @@ $$ lim_{x \rightarrow a} f(x) = lim_{n \rightarrow \infty} f(a + \frac{1}{n})$$
 \begin{upotreba}{1}
 #\naslovInt#
 #\izlaz{Unesite ime funkcije, n i a:}#
-#\ulaz{tan 1.570795 10000}#
-#\izlaz{Limes funkcije tan je -10134.5.}#
+#\ulaz{tan 10000 1.570795}#
+#\izlaz{Limes funkcije tan je -10134.46.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite ime funkcije, n i a:}#
+#\ulaz{cos 5000 0.25}#
+#\izlaz{Limes funkcije cos je 0.97.}#
 \end{upotreba}
 \end{miditest}
 \end{Exercise}
@@ -1107,6 +1155,14 @@ ulaza kao i ime funkcije iz zaglavlja
 #\izlaz{Vrednost integrala je 0.645931.}#
 \end{upotreba}
 \end{miditest}
+\begin{miditest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite ime funkcije, n, a i b:}#
+#\ulaz{sin 10000 -5.2 2.1}#
+#\izlaz{Vrednost integrala je 0.973993.}#
+\end{upotreba}
+\end{miditest}
 \end{Exercise}
 %\begin{Answer}[ref=347]
 %\includecode{resenja/03_Pokazivaci/347.c}
@@ -1129,6 +1185,14 @@ argumente komandne linije prihvata ime funkcije iz zaglavlja
 #\izlaz{Unesite ime funkcije, n, a i b:}#
 #\ulaz{sin 100 -1.0 3.0}#
 #\izlaz{Vrednost integrala je 1.530295.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite ime funkcije, n, a i b:}#
+#\ulaz{tan 5000 -4.1 -2.3}#
+#\izlaz{Vrednost integrala je -0.147640.}#
 \end{upotreba}
 \end{miditest}
 \end{Exercise}

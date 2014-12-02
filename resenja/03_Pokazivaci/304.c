@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
   int i;
   char tip_ispisa;
 
-  printf("Broj prihvacenih argumenata komandne linije je %d.\n",
+  printf("Broj argumenata komandne linije je %d.\n",
          argc);
 
   printf("Kako zelite da ispisete argumente, ");
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     argc = i;
   }
 
-  printf("Pocetna slova argumenata komandne linije su:\n");
+  printf("Pocetna slova argumenata komandne linije:\n");
   if (tip_ispisa == 'I') {
     /* koristeci indeksnu sintaksu */
     for (i = 0; i < argc; i++)

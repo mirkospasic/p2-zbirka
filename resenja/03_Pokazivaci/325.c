@@ -75,7 +75,7 @@ int main()
   int a[MAX_V][MAX_K];
   int m, n;
 
-  printf("Unesite broj vrsta i broj kolona matrice: ");
+  printf("Unesite broj vrsta i broj kolona matrice:\n");
   scanf("%d %d", &n, &m);
 
   if (n > MAX_V || n <= 0 || m > MAX_K || m <= 0) {
