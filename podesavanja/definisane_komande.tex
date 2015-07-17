@@ -1,0 +1,51 @@
+
+
+
+
+
+\def\chaptername{}
+%\def\contentsname{Садржај}
+%\def\tablename{Табела}
+%\def\figurename{Слика}
+%\def\bibname{Литература}
+\def\bibname{Literatura}
+%\def\figurename{Слика}
+%\def\appendixname{Додатак}
+
+
+%\newtheorem{zadatak}{Zadatak}[chapter]
+%\newtheorem{resenje}{Rešenje}[chapter]
+
+
+
+\newenvironment{ckod}
+{\verbatim}
+{\endverbatim}
+
+
+\def\ExerciseName{Zadatak }
+\def\AnswerName{Rešenje }
+
+\renewcommand{\ExerciseHeader}{{\textbf{
+\ExerciseName \ExerciseHeaderNB \ExerciseHeaderTitle
+\ExerciseHeaderOrigin\medskip}}}
+
+\renewcommand{\AnswerHeader}{{\textbf{
+\AnswerName \ExerciseHeaderNB \ExerciseHeaderTitle
+\medskip}}}
+
+
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\footnotesize,
+ %
+ frame=lines,  % top and bottom rule only
+ framesep=2em, % separation between frame and text
+ rulecolor=\color{gray},
+ %
+% label=\fbox{\color{black}data.txt},
+% labelposition=topline,
+ %
+% commandchars=\|\(\), % escape character and argument delimiters for
+                      % commands within the verbatim
+ commentchar=*        % comment character
+}
