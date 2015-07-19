@@ -5,8 +5,6 @@
 \input{podesavanja/paketi.tex}
 \input{podesavanja/definisane_komande.tex}
 
-
-
 \begin{document}
 
 \pagenumbering{roman}
@@ -14,15 +12,11 @@
 \input{poglavlja/P1_naslovna.tex}
 \input{poglavlja/P2_predgovor.tex}
 
+\input{podesavanja/stil_strane.tex}
 \tableofcontents
 
 \pagenumbering{arabic}
 \setcounter{page}{1}
-
-
-
-
-
 
 \input{poglavlja/01_Rekurzija.tex}
 \input{poglavlja/02_Bitovi.tex}
@@ -34,9 +28,10 @@
 \input{poglavlja/08_Razno.tex}
 \input{poglavlja/09_IspitniRokovi.tex}
 
-
 \bibliography{zbirka} 
 \bibliographystyle{plain}
 \addcontentsline{toc}{chapter}{Literatura}
+
+\lstlistoflistings
 
 \end{document}
