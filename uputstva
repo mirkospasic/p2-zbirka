@@ -12,18 +12,30 @@ stil_strane.tex --- sluzi za podesavanje izlgeda dokumenta
 definisane_komande.tex --- ovde su definisana razna okruzenja koja cemo koristiti
 paketi.tex --- ukljucivanje potrebnih paketa u dokument
 
-2. Direktorijum resenja sadrzi poddirektorijume za .c fajlove za svako poglavlje (tj Mirko nije kreirao sve poddirektorijume, to cemo vec dodati).
-Predlazem sledecu konvenciju imenovanja resenja: trocifreni brojevi pri cemu prva cifra oznacava oblast kojoj zadatak pripada (npr 1 za rekurziju, 2 za bitove, 3 za pokazivace...). Iako znam da ce se redosled zadataka menjati i da je to neminovno, ovo mi ipak deluje kao najjednostavnija i najurednija ideja. Ako neko ima bolju ideju, neka javi.
+2. Direktorijum resenja sadrzi poddirektorijume za .c fajlove za svako 
+poglavlje (tj Mirko nije kreirao sve poddirektorijume, to cemo vec dodati).
+Predlazem sledecu konvenciju imenovanja resenja: trocifreni brojevi pri cemu 
+prva cifra oznacava oblast kojoj zadatak pripada (npr 1 za rekurziju, 2 za 
+bitove, 3 za pokazivace...). Iako znam da ce se redosled zadataka menjati i da 
+je to neminovno, ovo mi ipak deluje kao najjednostavnija i najurednija ideja. 
+Ako neko ima bolju ideju, neka javi.
 
-3. Direktorijum poglavlja sadrzi vise .tex datoteka, tj za svaku oblast po jednu, plus posebnu .tex datoteku za naslovnu stranu i za predgovor
+3. Direktorijum poglavlja sadrzi vise .tex datoteka, tj za svaku oblast po 
+jednu, plus posebnu .tex datoteku za naslovnu stranu i za predgovor
 Svako ce, u skladu sa svojom oblascu, menjati ove fajlove.
 
-Najpre bih sve zamolila da koriste nasa slova, tj š, č, ć, đ, ž a ne one kuke tj \v{s} i slicno koje cine tekst u tex formatu tesko citljivim. Nadam se da to nije nikome problem, sa sa find-replace se moze sve lako srediti ukoliko u tekucim verzijama imate ovu zastarelu varijantu.
+Najpre bih sve zamolila da koriste nasa slova, tj š, č, ć, đ, ž a ne one 
+kuke tj \v{s} i slicno koje cine tekst u tex formatu tesko citljivim. Nadam se 
+da to nije nikome problem, sa sa find-replace se moze sve lako srediti ukoliko 
+u tekucim verzijama imate ovu zastarelu varijantu.
 
 Svaki zadatak pisete na sledeci nacin --- primer iz drugog poglavlja:
 
 \begin{Exercise}[label=201]
-Napisati funkciju \kckod{int Broj01(unsigned int n)} koja za dati broj \argf{n} vraća \argf{1} ako u njegovom binarnom zapisu ima više jednica nego nula, a inače vraća \argf{0}.  Napisati program koji tu funkciju testira za broj koji se zadaje sa standardnog ulaza.
+Napisati funkciju \kckod{int Broj01(unsigned int n)} koja za dati broj 
+\argf{n} vraća \argf{1} ako u njegovom binarnom zapisu ima više jednica nego 
+nula, a inače vraća \argf{0}.  Napisati program koji tu funkciju testira za 
+broj koji se zadaje sa standardnog ulaza.
 
 \begin{minitest}
 \begin{test}{Test 1}
@@ -58,19 +70,36 @@ Izlaz:  0
 \end{Answer}
 
 
-Okruzenje Exercise treba da obuhvati tekst zadatka, tj izmedju \begin{Exercise} i \end{Exercise}.
-Labela treba da bude jedinstvena, predlazem da i to budu redom brojevi, gde prvi broj odgovara broju poglavlja. Labela i ref omogucavaju da se sa resenja klikne i vrati na zadatak.
+Okruzenje Exercise treba da obuhvati tekst zadatka, tj izmedju \begin{Exercise} 
+i \end{Exercise}.
+Labela treba da bude jedinstvena, predlazem da i to budu redom brojevi, gde 
+prvi broj odgovara broju poglavlja. Labela i ref omogucavaju da se sa resenja 
+klikne i vrati na zadatak.
 
-Postoje i druge stvari koje mogu sa se navedu u okviru uglastih zagrada (npr da se naznaci da je zadatak tezi, pa da se na osnovu toga generise zvezdica i takve neke stvari, ali otom potom). Koga intresuje vise ovo okruzenje, moze detalja da pogleda na
+Postoje i druge stvari koje mogu sa se navedu u okviru uglastih zagrada (npr 
+da se naznaci da je zadatak tezi, pa da se na osnovu toga generise zvezdica i 
+takve neke stvari, ali otom potom). Koga intresuje vise ovo okruzenje, moze 
+detalja da pogleda na
 http://ctan.mirror.ac.za/macros/latex/contrib/exercise/exercise.pdf
 
-\kckod je komanda koju sam ja definisala i koja je skracenica od KratakCKod. Trenutno je to definisano kao najobicniji texttt, ali ukoliko budemo zeleli to da menjamo ili podesavamo, ovako je najzgodnije. 
+\kckod je komanda koju sam ja definisala i koja je skracenica od KratakCKod. 
+Trenutno je to definisano kao najobicniji texttt, ali ukoliko budemo zeleli to 
+da menjamo ili podesavamo, ovako je najzgodnije. 
 
 n, 1 i 0 su u okviru komande \argf (skraceno od argument funkcije).
 
-Test primeri su u okruzenju test. Tu se jos navodi u okviru {} ime testa, tj rec Test i redni broj. Okruzenje test je u okviru okruzenja minitest. Pokusala sam da to objedinim ali nazalost tako nesto nije moguce, pa mora duplo da se kuca. Minitest je zapravo zamena za minipage sa predefinisanom sirinom. Definisala sam i miditest i maxitest, u zavisnosti od sirine koja je za test potrebna. Ideja je da testove mozemo da slazemo jedan uz drugi, kao i da svi koristimo fiksne duzine, zato sam navela ove tri velicine, mada je to, naravno, fleksibilno,   
+Test primeri su u okruzenju test. Tu se jos navodi u okviru {} ime testa, tj 
+rec Test i redni broj. Okruzenje test je u okviru okruzenja minitest. Pokusala 
+sam da to objedinim ali nazalost tako nesto nije moguce, pa mora duplo da se 
+kuca. Minitest je zapravo zamena za minipage sa predefinisanom sirinom. 
+Definisala sam i miditest i maxitest, u zavisnosti od sirine koja je za test 
+potrebna. Ideja je da testove mozemo da slazemo jedan uz drugi, kao i da svi 
+koristimo fiksne duzine, zato sam navela ove tri velicine, mada je to, naravno, 
+fleksibilno,   
 
-Okruzenje Answer se koristi samo da se oznaci rešenje zadatka, i tu imamo uključivanje C koda iz odgovarajuće datoteke rešenja. Dakle taj deo bi trebao da je uvek isti, sem sto se ref i ime datoteke koja se ubacuje razlikuju. 
+Okruzenje Answer se koristi samo da se oznaci rešenje zadatka, i tu imamo 
+uključivanje C koda iz odgovarajuće datoteke rešenja. Dakle taj deo bi trebao 
+da je uvek isti, sem sto se ref i ime datoteke koja se ubacuje razlikuju. 
 Koristi se \includecode komanda za ubacivanje.
 
 
