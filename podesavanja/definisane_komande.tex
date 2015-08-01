@@ -5,6 +5,7 @@
 
 \newcommand\kckod[1]{\texttt{#1}}        % kratak c kod
 \newcommand\argf[1]{\texttt{#1}}         % argument funkcije
+\newcommand\komentar[1]{\textcolor{red}{#1}}         % komentar
 
 
 %Detalji se mogu naci na
@@ -38,7 +39,7 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
  stringstyle=\color{mymauve},     % string literal style
  tabsize=2,	                   % sets default tabsize to 2 spaces
- title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+% title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 
 
@@ -73,7 +74,7 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 % belowcaptionskip=1\baselineskip,
 % breaklines=true,
  frame=L,
- backgroundcolor=\color{yellow},
+ backgroundcolor=\color{white},
 % xleftmargin=\parindent,
  language=C,
  showstringspaces=false,
@@ -94,11 +95,11 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 {\end{minipage}}
 
 \newenvironment{miditest}
-{\begin{minipage}{70mm}}
+{\begin{minipage}{90mm}}
 {\end{minipage}}
 
 \newenvironment{maxitest}
-{\begin{minipage}{110mm}}
+{\begin{minipage}{150mm}}
 {\end{minipage}}
 
 
@@ -130,3 +131,4 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 }
 
 
+\setenumerate[0]{label=(\alph*)}

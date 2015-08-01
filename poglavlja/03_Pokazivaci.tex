@@ -1,8 +1,853 @@
-
 \chapter{Pokazivači}
 
-\section{Zadaci}
+\section{Pokazivači i aritmetika sa pokazivačima}
 
+
+\begin{Exercise}[label=301]
+Za dati celobrojni niz dimenzije $n$, napisati funkcije koje
+obrću njegove elemente:
+\begin{enumerate}
+\item korišćenjem indeksne sintakse,
+\item korišćenjem pokazivačke sintakse.
+\end{enumerate}
+Napisati program koji testira napisane funkcije. Sa standardnog
+ulaza učitati dimenziju niza $n$ ($n \leq 100$), a zatim
+elemente niza. Prikazati sadržaj niza pre i posle poziva
+funkcije za obrtanje elemenata niza.
+\end{Exercise}
+\begin{Answer}[ref=301]
+\includecode{resenja/03_Pokazivaci/301.c}
+\end{Answer}
+
+\begin{Exercise}[label=302]
+Dat je celobrojni niz dimenzije $n$. 
+\begin{enumerate}
+\item Napisati funkciju \kckod{zbir} koja izračunava zbir elemenata niza.
+\item Napisati funkciju \kckod{proizvod} koja izračunava proizvod elemenata niza.
+\item Napisati funkciju \kckod{min\_element}  koja izračunava najmanji elemenat niza.
+\item Napisati funkciju \kckod{max\_element}  koja izračunava najveći elemenat niza.
+\end{enumerate}
+Napisati program koji testira napisane funkcije. Sa standardnog
+ulaza učitati dimenziju $n$ 
+($0 < n \leq 100$) celobrojong
+niza, a zatim i elemente niza. Na standardni izlaz ispisati
+rezultat primene svake od napisanih funkcija nad učitanim
+nizom.
+\end{Exercise}
+\begin{Answer}[ref=302]
+\includecode{resenja/03_Pokazivaci/302.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=303]
+Korišćenjem pokazivačke sintakse, napisati funkciju koja
+vrednosti elemenata u prvoj polovini niza povećava za jedan, a u
+drugoj polovini smanjuje za jedan. Ukoliko niz ima neparan broj
+elemenata, onda vrednost srednjeg elementa niza ostaviti
+nepromenjenim. Napisati program koji testira napisanu funkciju. Sa
+standardnog ulaza učitati dimenziju $n$ ($0 \le n \leq 100$)
+celobrojong niza, a zatim i elemente niza. Na standardni izlaz
+ispisati rezultat primene svake od napisanih funkcija nad
+učitanim nizom.
+\end{Exercise}
+\begin{Answer}[ref=303]
+\includecode{resenja/03_Pokazivaci/303.c}
+\end{Answer}
+
+\begin{Exercise}[label=304]
+Napisati program koji ispisuje broj prihvaćenih argumenata
+komandne linije, a zatim i same argumenate kojima prethode njihovi
+redni brojevi.
+\end{Exercise}
+\begin{Answer}[ref=304]
+\includecode{resenja/03_Pokazivaci/304.c}
+\end{Answer}
+
+\begin{Exercise}[label=305]
+Korišćenjem pokazivačke sintakse, napisati funkciju koja
+za datu nisku ispituje da li je palindrom. Napisati program koji
+vrši prebrojavanje argumenata komandne linije koji su
+palindromi.
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Poziv:  ./a.out programiranje anavolimilovana topot ana anagram t
+Izlaz:  4
+\end{test}
+\end{maxitest}
+\end{Exercise}
+\begin{Answer}[ref=305]
+\includecode{resenja/03_Pokazivaci/305.c}
+\end{Answer}
+
+\begin{Exercise}[label=306]
+Napisati program koji kao prvi argument komandne linije prihvata
+putanju do datoteke za koju treba proveriti koliko reči ima
+$n$ karaktera, gde se $n$ zadaje kao drugi argument
+komandne linije. U zadatku ne koristiti ugrađene funkcije za
+rad sa niskama, već implementirati svoje koristeći
+pokazivačku sintaksu.
+
+\begin{miditest}
+\begin{test}{Test 1}
+Poziv:    ./a.out fajl.txt 1
+Datoteka: Ovo je sadrzaj datoteke i u 
+          njoj ima reci koje imaju 
+          1 karakter
+Izlaz:    2
+\end{test}
+\end{miditest}
+
+\end{Exercise}
+\begin{Answer}[ref=306]
+\includecode{resenja/03_Pokazivaci/306.c}
+\end{Answer}
+
+\begin{Exercise}[label=307]
+Napisati program koji kao prvi argument komandne linije prihvata
+putanju do datoteke za koju treba proveriti koliko reči ima
+zadati sufiks (ili prefiks), koji se zadaje kao drugi argument
+komandne linije. Program je neophodno pozvati sa jednom od opcija
+\kckod{-s} ili \kckod{-p} u zavisnosti od čega treba proveriti
+koliko reči ima zadati sufiks (ili prefiks). U zadatku ne
+koristiti ugrađene funkcije za rad sa niskama, već
+implementirati svoje koristeći pokazivačku sintaksu.
+
+\begin{miditest}
+\begin{test}{Test 1}
+Poziv:    ./a.out fajl.txt ke -s
+Datoteka: Ovo je sadrzaj datoteke 
+          i u njoj ima reci koje se 
+          zavrsavaju na ke
+Izlaz:    2
+\end{test}
+\end{miditest}
+\end{Exercise}
+\begin{Answer}[ref=307]
+\includecode{resenja/03_Pokazivaci/307.c}
+\end{Answer}
+
+\begin{Exercise}[label=308]
+\komentar{Milena: Ovo bi trebalo da ide u deo o rekurziji?}
+Napisati rekurzivnu funkciju za određivanje
+najveće cifre u oktalnom zapisu
+neoznačenog celog broja korišćenjem bitskih operatora.
+Uputstvo: binarne cifre grupisati u podgrupe od po tri cifre,
+počev od bitova najmanje težine.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:  5
+Izlaz: 5
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:  125
+Izlaz: 7
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:  8
+Izlaz: 1
+\end{test}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{Test 4}
+Ulaz:  10
+Izlaz: 2
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=308]
+\includecode{resenja/03_Pokazivaci/308.c}
+\end{Answer}
+
+\begin{Exercise}[label=309]
+\komentar{Milena: Ovo bi trebalo da ide u deo o rekurziji?}
+Napisati rekurzivnu funkciju za određivanje (dekadne vrednosti)
+najveće cifre u heksadekadnom zapisu neoznačenog celog broja
+korišćenjem bitskih operatora. Uputstvo: binarne cifre
+grupisati u podgrupe od po četiri cifre, počev od bitova
+najmanje težine.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:  5
+Izlaz: 5
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:  16
+Izlaz: 1
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:  18
+Izlaz: 2
+\end{test}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{Test 4}
+Ulaz:  165
+Izlaz: 10
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=309]
+\includecode{resenja/03_Pokazivaci/309.c}
+\end{Answer}
+
+\begin{Exercise}[label=310]
+\komentar{Milena: Ovo bi trebalo da ide u pretraživanje/sortiranje?}
+Napisati funkciju koja u rastuće sortiranom nizu celih brojeva
+binarnom pretragom pronalazi prvi element veći od nule i kao
+rezultat vraća njegovu poziciju u nizu. Ukoliko nema elemenata
+većih od nule, funkcija kao rezultat vraća \argf{-1}. Napisati
+program koji testira ovu funkciju za niz elemenata koji se
+učitavaju sa standardnog ulaza. Niz neće biti duži od
+$256$, i njegovi elementi se unose sve do kraja ulaza.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:  -151 -44 5 
+       12 13 15
+Izlaz: 2
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:  -100 -15 -11 
+       -8 -7 -5
+Izlaz: -1
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:  -100 -15 0 13 
+       155 124 258 
+       315 516 7000
+Izlaz: 3
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=310]
+\includecode{resenja/03_Pokazivaci/310.c}
+\end{Answer}
+
+\begin{Exercise}[label=311]
+\komentar{Milena: Ovo bi trebalo da ide u pretraživanje/sortiranje?}
+Napisati funkciju koja u opadajuće sortiranom nizu celih brojeva
+binarnom pretragom pronalazi prvi element manji od nule i kao
+rezultat vraća njegovu poziciju u nizu. Ukoliko nema elemenata
+manjih od nule, funkcija kao rezultat vraća \argf{-1}. Napisati
+program koji testira ovu funkciju za niz elemenata koji se
+učitavaju sa standardnog ulaza. Niz neće biti duži od
+$256$, i njegovi elementi se unose sve do kraja ulaza.
+
+\begin{miditest}
+\begin{test}{Test 1}
+Ulaz:   151 44 5 -12 -13 -15
+Izlaz: 3
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{Test 2}
+Ulaz:  100 55 15 0 -15 -124 -155 
+       -258 -315 -516 -7000
+Izlaz: 4
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{Test 3}
+Ulaz:   100 15 11 8 7 5 4 3 2
+Izlaz: -1
+\end{test}
+\end{miditest}
+\end{Exercise}
+\begin{Answer}[ref=311]
+\includecode{resenja/03_Pokazivaci/311.c}
+\end{Answer}
+
+\begin{Exercise}[label=312]
+\komentar{Milena: Ovo bi trebalo da ide u pretraživanje/sortiranje?}
+Struktura \kckod{Student} čuva podatke o broju
+indeksa studenta i poenima sa kolokvijuma, pri čemu su
+brojevi indeksa i poeni sa kolokvijuma celi brojevi. Napisati
+program koji učitava podatke o studentima iz datoteke
+,,kolokvijum.txt`` u kojoj se nalazi najviše $500$ zapisa
+o studentima. Sortirati ovaj niz studenata po broju poena
+opadajuće, a ako više studenata ima isti broj poena, onda po
+broju indeksa rastuće. Ispisati sortiran niz studenata na
+standardni izlaz.
+
+\begin{miditest}
+\begin{test}{Test 1}
+Kolokvijum.txt:   20140015 25
+                  20140115 24
+                  20130250 3
+                  20140001 4
+                  20140038 25
+Izlaz:            20140015 25
+                  20140038 25
+                  20140115 24
+                  20140001 4
+                  20130250 3
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{Test 2}
+Kolokvijum.txt:   20140015 25
+                  20110010 12
+                  20140105 0
+                  20120110 13
+Izlaz:            20140015 25
+                  20120110 13
+                  20110010 12
+                  20140105 0
+\end{test}
+\end{miditest}
+\end{Exercise}
+\begin{Answer}[ref=312]
+\includecode{resenja/03_Pokazivaci/312.c}
+\end{Answer}
+
+\begin{Exercise}[label=313]
+Napisati strukturu \kckod{Student} koja čuva podatke o broju
+indeksa studenta i broju poena osvojenih na testu. Pretpostaviti
+da su brojevi indeksa celi brojevi, a poeni sa testa realni
+brojevi. Napisati program koji učitava podatke o studentima iz
+datoteke ,,studenti.txt`` u kojoj se nalazi najviše $100$
+zapisa o studentima. Sortirati ovaj niz studenata po broju poena
+rastuće, a ako više studenata ima isti broj poena, onda po
+broju indeksa opadajuće. Ispisati sortiran niz studenata na
+standardni izlaz.
+
+\begin{miditest}
+\begin{test}{Test 1}
+Kolokvijum.txt:   20140015 4.5
+                  20130115 4.5
+                  20140250 3.4
+                  20110304 1.2
+Izlaz:            20110304 1.2
+                  20140250 3.4
+                  20140015 4.5
+                  20130115 4.5
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{Test 2}
+Kolokvijum.txt:   20130015 9.5
+                  20130010 9.5
+                  20090103 0.5
+                  20140005 10.0
+                  20140120 1.3
+                  20140038 2.5
+Izlaz:            20090103 0.5
+                  20140120 1.3
+                  20140038 2.5
+                  20130015 9.5
+                  20130010 9.5
+                  20140005 10.0
+\end{test}
+\end{miditest}
+\end{Exercise}
+\begin{Answer}[ref=313]
+\includecode{resenja/03_Pokazivaci/313.c}
+\end{Answer}
+
+\section{Višedimenzioni nizovi}
+
+\begin{Exercise}[label=314]
+Data je kvadratna matrica dimenzije $n$.
+\begin{enumerate}
+\item Napisati funkciju koja izračunava trag matrice.
+\item Napisati funkciju koja izračunava euklidsku normu matrice.
+\item Napisati funkciju koja izračunava gornju vandijagonalnu normu matrice.
+\end{enumerate}
+Napisati program koji testira napisane funkcije. Sa standardnog
+ulaza učitati dimanziju kvadratne matrice $n$
+($0<n\leq 100$), a zatim i elemente matrice. Na standardni izlaz
+ispisati rezultat primene svake od napisanih funkcija nad
+učitanom matricom.
+\end{Exercise}
+\begin{Answer}[ref=314]
+\includecode{resenja/03_Pokazivaci/314.c}
+\end{Answer}
+
+\begin{Exercise}[label=315]
+Date su dve kvadratne matrice istih dimenzija $n$. 
+\begin{enumerate}
+\item Napisati funkciju koja proverava da li su matrice jednake.
+\item Napisati funkciju koja izračunava zbir matrica.
+\item Napisati funkciju koja izračunava proizvod matrica.
+\end{enumerate}
+Napisati program koji testira napisane funkcije. Sa standardnog
+ulaza učitati dimanziju kvadratnih matrica $n$
+($0<n\leq 100$), a zatim i elemente matrica. Na standardni izlaz
+ispisati rezultat primene svake od napisanih funkcija nad
+učitanim matricama.
+
+\begin{minitest}
+
+\begin{test}{Test 1}
+Ulaz:   3
+        1 2 3
+        1 2 3
+        1 2 3
+        1 2 3
+        1 2 3
+        1 2 3
+Izlaz:  da
+        2 4 6
+        2 4 6
+        2 4 6
+        6 12 18
+        6 12 18
+        6 12 18
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=315]
+\includecode{resenja/03_Pokazivaci/315.c}
+\end{Answer}
+
+%\begin{Exercise}[label=320]
+%Napisati program u kom se definiše i inicijalizuje kvadratna matrica dimenzije \argf{5} a zatim se
+%njeni elementi spiralno ispisuju na standardni izlaz.
+%\end{Exercise}
+%\begin{Answer}[ref=320]
+%\includecode{resenja/03_Pokazivaci/320.c}
+%\end{Answer}
+
+\begin{Exercise}[label=322]
+Relacija se može predstaviti kvadratnom matricom nula i
+jedinica na sledeći način: dva elementa $i$ i $j$
+su u relaciji ukoliko se u preseku $i$-te vrste i $j$-te
+kolone matrice nalazi broj $1$, a nisu u relaciji ukoliko se
+tu nalazi broj $0$. 
+\begin{enumerate}
+\item Napisati funkciju koja proverava da li je relacija zadata matricom refleksivna.
+\item Napisati funkciju koja proverava da li je relacija zadata matricom simetrična.
+\item Napisati funkciju koja proverava da li je relacija zadata matricom tranzitivna.
+\item Napisati funkciju koja određuje refleksivno zatvorenje relacije (najmanju refleksivnu relaciju koja sadrži datu).
+\item Napisati funkciju koja određuje simetrično zatvorenje relacije (najmanju simetričnu relaciju koja sadrži datu).
+\item Napisati funkciju koja određuje refleksivno-tranzitivno zatvorenje relacije (najmanju refleksivnu i tranzitivnu relaciju
+koja sadrži datu)(Napomena: koristiti Varšalov algoritam).
+\end{enumerate}
+Napisati program koji učitava matricu iz datoteke čije se ime zadaje kao prvi argument komandne linije.
+U prvoj liniji datoteke nalazi se dimenzija matrice $n$ ($0<n\leq 64$), a potom i sami elementi matrice.
+Na standardni izlaz ispisati rezultat testiranja napisanih funkcija.
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Datoteka:  4
+           1 0 0 0
+           0 1 1 0
+           0 0 1 0
+           0 0 0 0
+Izlaz:     refleksivnost: ne
+           simetricnost: ne
+           tranzitivnost: da
+           refleksivno zatvorenje:
+           1 0 0 0
+           0 1 1 0
+           0 0 1 0
+           0 0 0 1
+           simetricno zatvorenje:
+           1 0 0 0
+           0 1 1 0
+           0 1 1 0
+           0 0 0 0
+           refleksivno-tranzitivno zatvorenje:
+           1 0 0 0
+           0 1 1 0
+           0 0 1 0
+           0 0 0 1
+\end{test}
+\end{maxitest}
+\end{Exercise}
+\begin{Answer}[ref=322]
+\includecode{resenja/03_Pokazivaci/322.c}
+\end{Answer}
+
+\begin{Exercise}[label=323]
+Data je kvadratna matrica dimenzije $n$.
+\begin{enumerate}
+\item Napisati funkciju koja određuje najveći element matrice na sporednoj dijagonali.
+\item Napisati funkciju koja određuje indeks kolone koja sadrži najmanji element matrice.
+\item Napisati funkciju koja određuje indeks vrste koja sadrži najveći element matrice.
+\item Napisati funkciju koja određuje broj negativnih elemenata matrice.
+\end{enumerate}
+Napisati program koji testira napisane funkcije. Sa standardnog
+ulaza učitati elemente celobrojne kvadratne matrice čija
+se dimenzija $n$ ($0<n\leq 32$) zadaje kao argument
+komandne linije.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Poziv:  ./a.out 3
+Ulaz:   1 2 3
+        -4 -5 -6
+        7 8 9
+Izlaz:  7 2 2 3
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=323]
+\includecode{resenja/03_Pokazivaci/323.c}
+\end{Answer}
+
+\begin{Exercise}[label=324]
+Napisati funkciju kojom se proverava da li je zadata kvadratna
+matrica dimenzije $n$ ortonormirana. Matrica je ortonormirana
+ako je skalarni proizvod svakog para različitih vrsta jednak
+nuli, a skalarni proizvod vrste sa samom sobom jednak jedinici.
+Napisati program koji testira napisanu funkciju. Sa standardnog
+ulaza učitati dimenziju celobrojne kvadratne matrice $n$
+($n \leq 32$), a zatim i njene elemente. Na standardni izlaz
+ispisati rezultat primene napisane funkcije na učitanu
+matricu.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:  4
+       1 0 0 0
+       0 1 0 0
+       0 0 1 0
+       0 0 0 1
+Izlaz: da
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:  3
+       1 2 3
+       5 6 7
+       1 4 2
+Izlaz: ne
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=324]
+\includecode{resenja/03_Pokazivaci/324.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=325]
+Data je matrica dimenzije $n \times m$.
+\begin{enumerate}
+\item Napsiati funkciju koja učitava elemente matrice sa standardnog ulaza
+\item Napsiati funkciju koja na standardni izlaz spiralno ispisuje elemente matrice.
+\end{enumerate}
+Napisati program koji testira napisane funkcije. Sa standardnog
+ulaza učitati dimenzije matrice $n$ ($0<n\leq 10$) i
+$m$ ($0<n\leq 10$), a zatim i elemente matrice (pozivom gore
+napisane funkcije). Na standardni izlaz spiralno ispisati elemente
+učitane matrice.
+\end{Exercise}
+\begin{Answer}[ref=325]
+\includecode{resenja/03_Pokazivaci/325.c}
+\end{Answer}
+
+\begin{Exercise}[label=326]
+\komentar{Milena: Ovo bi trebalo da ide u pretraživanje/sortiranje?}
+Napisati funkciju koja vrši leksikografsko opadajuće
+sortiranje niza niski (pretpostaviti da ima najvise $1000$
+niski, od kojih svaka ima najvise $30$ karaktera). Napisati
+program koji testira rad napisane funkcije. Niske  učitati iz
+datoteke ,,niske.txt`` (prva linija datoteke sadrži broj niski,
+a svaka sledeća po jednu nisku). Na standardni izlaz ispisati
+leksikografski opadajuće sortirane niske.
+\end{Exercise}
+\begin{Answer}[ref=326]
+\includecode{resenja/03_Pokazivaci/326.c}
+\end{Answer}
+
+\begin{Exercise}[label=327]
+Napisati funkciju koja izračunava $k$-ti stepen kvadratne
+matrice dimenzije $n$ ($n \leq 32$). Napisati program koji
+testira napisanu funkciju. Sa standardnog ulaza učitati
+dimenziju celobrojne matrice $n$, elemente matrice i stepen
+$k$ ($0<k\leq 10$). Na standardni izlaz ispisati rezultat
+primene napisane funkcije. Napomena: voditi računa da se
+prilikom stepenovanja matrice izvrši što manji broj
+množenja.
+
+\begin{miditest}
+\begin{test}{Test 1}
+Ulaz:  3
+       1 2 3
+       4 5 6
+       7 8 9
+       8
+Izlaz: 510008400 626654232 743300064
+       1154967822 1419124617 1683281412
+       1799927244 2211595002 2623262760
+\end{test}
+\end{miditest}
+\end{Exercise}
+\begin{Answer}[ref=327]
+\includecode{resenja/03_Pokazivaci/327.c}
+\end{Answer}
+
+\section{Dinamička alokacija memorije}
+
+\begin{Exercise}[label=328]
+Napisati program koji sa standardnog ulaza učitava niz celih
+brojeva a zatim na standardni izlaz ispisuje ove brojeve u
+obrnutom poretku. Ne praviti nikakavo ograničenje za dimenziju
+niza.
+\end{Exercise}
+\begin{Answer}[ref=328]
+\includecode{resenja/03_Pokazivaci/328.c}
+\end{Answer}
+
+\begin{Exercise}[label=329]
+Napisati funkciju koja kao rezultat vraća nisku koja se dobija
+nadovezivanjem dve niske, bez promene njihovog sadržaja.
+Napisati program koji testira rad napisane funkcije. Sa
+standardnog ulaza učitati dve niske karaktera. Na standardni
+izlaz ispisati nisku koja se dobija njihovim nadovezivanjem.
+\end{Exercise}
+\begin{Answer}[ref=329]
+\includecode{resenja/03_Pokazivaci/329.c}
+\end{Answer}
+
+\begin{Exercise}[label=330]
+Napisati program koji sa standardnog ulaza učitava niz celih
+brojeva. Brojevi se unose sve dok se ne unese nula. Ne praviti
+nikakve pretpostavke o dimenziji niza. Na standardni izlaz
+ispisati ovaj niz brojeva u obrnutom poretku. Zadatak uraditi na dva načina:
+\begin{enumerate}
+\item realokaciju memorije niza vršiti korišćenjem \kckod{malloc()} funkcije,
+\item realokaciju memorije niza vršiti korišćenjem \kckod{realloc()} funkcije.
+\end{enumerate}
+\end{Exercise}
+\begin{Answer}[ref=330]
+\includecode{resenja/03_Pokazivaci/330.c}
+\end{Answer}
+
+\begin{Exercise}[label=331]
+Napisati program koji sa standardnog ulaza učitava matricu
+celih brojeva. Prvo se učitavaju dimenzije matrice $n$ i
+$m$ (ne praviti nikakve pretpostavke o njihovoj veličini),
+a zatim i elementi matrice. Na standardni izlaz ispisati trag
+matrice.
+\end{Exercise}
+\begin{Answer}[ref=331]
+\includecode{resenja/03_Pokazivaci/331.c}
+\end{Answer}
+
+\begin{Exercise}[label=332]
+Data je celobrojna matrica dimenzije $n \times m$ napisati:
+\begin{enumerate}
+\item Napisati funkciju koja vrši učitavanje matrice sa standardnog ulaza.
+\item Napisati funkciju koja ispisuje elemente ispod glavne dijagonale matrice.
+\end{enumerate}
+Napisati program koji testira napisane funkcije. Sa standardnog
+ulaza učitati $n$ i $m$ (ne praviti nikakve
+pretpostavke o njihovoj veličini), zatim učitati elemente
+matrice i na standardni izlaz ispisati elemente ispod glavne
+dijagonale matrice.
+
+\end{Exercise}
+\begin{Answer}[ref=332]
+\includecode{resenja/03_Pokazivaci/332.c}
+\end{Answer}
+
+\begin{Exercise}[label=333]
+\komentar{Milena: Ovo bi trebalo da ide u pretraživanje/sortiranje?}
+U datoteci ,,pesme.txt`` nalaze se informacije o gledanosti pesama
+na Youtube-u. 
+Format datoteke sa informacijama je sledeći:
+\begin{itemize}
+\item U prvoj liniji datoteke može i ne mora da se nalazi ukupan broj pesama prisutnih u datoteci.
+\item Svaki naredni red datoteke sadrži
+informacije o gledanosti pesama u formatu \kckod{izvodjac - naslov, brojGledanja}. 
+\end{itemize}
+Napisati program koji učitava
+informacije o pesmama i vrši sortiranje pesama u zavisnosti od
+argumenata komandne linije na sledeći način:
+\begin{itemize}
+\item nema opcija, sortiranje se vrši po broju gledanja;
+\item prisutna je opcija \kckod{-i}, sortiranje se vrši po imenima izvođača;
+\item prisutna je opcija \kckod{-n}, sortiranje se vrši po naslovu pesama.
+\end{itemize}
+Na standardni izlaz ispisati informacije o pesmama sortirane na opisan način.
+
+\begin{enumerate}
+\item Uraditi zadatak uz pretpostavku da 
+je maksimalna dužina imena izvođača $20$ karaktera, a imena naslova pesme $50$ kraraktera.
+\item Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini imena izvođača i naslova pesme.
+\end{enumerate}
+
+
+%Napomena: ukoliko se u datoteci ,,pesme.txt`` ne nalaze informacije o ukupnom broju pesama, koristiti realociranje memorije.
+
+\begin{miditest}
+\begin{test}{Test 1}
+Poziv: ./a.out
+Datoteka:  5
+           Ana - Nebo, 2342
+           Laza - Oblaci, 29
+           Pera - Ptice, 327
+           Jelena - Sunce, 92321
+           Mika - Kisa, 5341
+Izlaz:     Jelena - Sunce, 92321
+           Mika - Kisa, 5341
+           Ana - Nebo, 2342
+           Pera - Ptice, 327
+           Laza - Oblaci, 29
+\end{test}
+\end{miditest}
+\end{Exercise}
+\begin{Answer}[ref=333]
+\includecode{resenja/03_Pokazivaci/333.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=336]
+Za zadatu matricu dimenzije $n \times m$ napisati funkciju koja
+izračunava redni broj kolone matrice čiji je zbir
+maksimalan. Napisati program koji testira ovu funkciju. Sa
+standardnog ulaza učitati dimenzije matrice $n$ i
+$m$, a zatim elemente matrice. 
+
+\end{Exercise}
+\begin{Answer}[ref=336]
+\includecode{resenja/03_Pokazivaci/336.c}
+\end{Answer}
+
+\begin{Exercise}[label=337]
+Za zadatu kvadratnu matricu dimenzije $n$ napisati funkciju
+koja menja njen sadržaj tako što polovi elemente iznad
+glavne dijagonale, duplira elemente ispod glavne dijagonale, dok
+elemente na glavnoj dijagonali ostavlja nepromenjene. Napisati
+program koji testira ovu funkciju za vrednosti koje se
+učitavaju iz datoteke ,,matrica.txt``. U datoteci se nalazi
+prvo dimenzija matrice, a zatim redom elementi matrice.
+\end{Exercise}
+\begin{Answer}[ref=337]
+\includecode{resenja/03_Pokazivaci/337.c}
+\end{Answer}
+
+\begin{Exercise}[label=338]
+Za zadatu kvadratnu matricu dimenzije $n$ napisati funkciju
+koja izračunava zbir apsolutnih vrednosti matrice ispod
+sporedne dijagonale. Napisati program koji testira ovu funkciju za
+vrednosti koje se učitavaju iz datoteke čije se ime zadaje
+kao argument komandne linije. U datoteci se nalazi prvo dimenzija
+matrice, a zatim redom elementi matrice.
+\end{Exercise}
+\begin{Answer}[ref=338]
+\includecode{resenja/03_Pokazivaci/338.c}
+\end{Answer}
+
+\begin{Exercise}[label=339]
+Za zadatu kvadratnu matricu dimenzije $n$ napisati funkciju
+koja vrši sortiranje vrsta matrice, rastuće na osnovu sume
+elemenata u vrsti. Napisati program koji testira ovu funkciju. Sa
+standardnog ulaza se prvo unosi dimenzija matrice, a zatim redom
+elementi matrice. Rezultujuću matricu ispisati na standardni
+izlaz.
+\end{Exercise}
+\begin{Answer}[ref=339]
+\includecode{resenja/03_Pokazivaci/339.c}
+\end{Answer}
+
+\begin{Exercise}[label=340]
+Petar sakuplja sličice igrača za predstojeće Svetsko
+prvenstvo u fudbalu. U datoteci ,,slicice.txt`` se nalaze
+informacije o sličicama koje mu nedostaju u formatu:
+\kckod{redni\_broj\_sličice
+ime\_reprezentacije\_kojoj\_sličica\_pripada}. Pomozite Petru
+da otkrije koliko mu sličica ukupno nedostaje, kao i da
+pronađe ime reprezentacije čijih sličica ima najmanje.
+Dobijene podatke ispisati na standardni izlaz. Napomena: za
+realokaciju memorije koristiti \kckod{realloc()} funkciju.
+\end{Exercise}
+\begin{Answer}[ref=340]
+\includecode{resenja/03_Pokazivaci/340.c}
+\end{Answer}
+
+\begin{Exercise}[label=341]
+U datoteci ,,temena.txt`` se nalaze tačke koje predstavljaju
+temena nekog $n$-tougla. Napisati program koji na osnovu
+sadržaja datoteke na standardni izlaz ispisuje o kom
+$n$-touglu je reč, a zatim i vrednosti njegovog obima i
+površine. Pretpostavka je da će mnogougao biti konveksan.
+\end{Exercise}
+\begin{Answer}[ref=341]
+\includecode{resenja/03_Pokazivaci/341.c}
+\end{Answer}
+
+\begin{Exercise}[label=342]
+Napisati program koji na osnovu dve matrice dimenzija $m \times n$
+formira matricu dimenzije $2 \cdot m \times n$ tako što
+naizmenično kombinuje jednu vrstu prve matrice i jednu vrstu
+druge matrice. Matirce su zapisane u datoteci ,,matrice.txt``. U
+prvom redu se nalaze dimenzije matrica $m$ i $n$, u
+narednih $m$ redova se nalaze vrste prve matrice, a u
+narednih $m$ redova vrste druge matrice. Rezultujuću
+matricu ispisati na standardni izlaz.
+\end{Exercise}
+\begin{Answer}[ref=342]
+\includecode{resenja/03_Pokazivaci/342.c}
+\end{Answer}
+
+\begin{Exercise}[label=343]
+Za zadatu kvadratnu matricu dimenzije $n$ napisati funkciju
+koja sortira kolone matrice, opadajuće, na osnovu vrednosti
+prvog elementa u koloni.
+
+Napisati program koji testira ovu funkciju. Sa standardnog ulaza
+se prvo unosi dimenzija matrice, a zatim redom elementi matrice.
+Rezultujuću matricu ispisati na standardni izlaz.
+\end{Exercise}
+\begin{Answer}[ref=343]
+\includecode{resenja/03_Pokazivaci/343.c}
+\end{Answer}
+
+\begin{Exercise}[label=344]
+Na ulazu se zadaje niz celih brojeva čiji se unos završava nulom.
+Napisati funkciju koja od zadatog niza formira matricu tako da
+prva vrsta odgovara unetom nizu, a svaka naredna se dobija
+cikličkim pomeranjem elemenata niza za jednu poziciju ulevo.
+
+Napisati program koji testira ovu funkciju. Sa standardnog ulaza
+se prvo unosi dimenzija matrice, a zatim redom elementi matrice.
+Rezultujuću matricu ispisati na standardni izlaz.
+\end{Exercise}
+\begin{Answer}[ref=344]
+\includecode{resenja/03_Pokazivaci/344.c}
+\end{Answer}
+
+\section{Pokazivači na funkcije}
+
+\komentar{Milena: ovde nedostaju razni zadaci}
+\begin{Exercise}[label=345]
+Napisati program koji tabelarno štampa vrednosti proizvoljne realne funkcije sa jednim realnim
+argumentom, odnosno izračunava i ispisuje
+vrednosti date funkcije na diskretnoj ekvidistantnoj mreži od
+$n$ tačaka intervala $[a, b]$. Realni brojevi
+$a$ i $b$ ($a<b$) kao i ceo broj $n$
+($n \geq 2$) se učitavaju sa standardnog ulaza. Ime funkcije
+se zadaje kao argument komandne linije (\kckod{sin}, \kckod{cos}, \kckod{tan}, \kckod{atan},
+\kckod{acos}, \kckod{asin}, \kckod{exp}, \kckod{log}, \kckod{log10}, \kckod{sqrt}, \kckod{floor}, \kckod{ceil}, \kckod{sqr}).
+\end{Exercise}
+\begin{Answer}[ref=345]
+\includecode{resenja/03_Pokazivaci/345.c}
+\end{Answer}
 
 \section{Rešenja}
 \shipoutAnswer
