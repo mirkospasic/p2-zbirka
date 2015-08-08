@@ -1,6 +1,8 @@
 #include<stdio.h>
 
 int main(){
-  printf("Hello bitovi!\n"); /* Da li komentari rade čćžš*/
+  int a, b;
+  printf("Hello bitovi!\n"); /* Da li komentari rade čćžšđ*/
+  if(a>b) a++;
   return 0;
 }

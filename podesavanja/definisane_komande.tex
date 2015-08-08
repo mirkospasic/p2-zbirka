@@ -14,21 +14,20 @@
 \definecolor{mygray}{rgb}{0.5,0.5,0.5} 
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
-\lstset{ %https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+%https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\lstset{ 
 backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
  breaklines=true,                 % sets automatic line breaking
  captionpos=b,                    % sets the caption-position to bottom
  commentstyle=\color{mygreen},    % comment style
- deletekeywords={...},            % if you want to delete keywords from the given language
  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
  frame=single,	                   % adds a frame around the code
  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
  keywordstyle=\color{blue},       % keyword style
- language=Octave,                 % the language of the code
- otherkeywords={*,...},            % if you want to add more keywords to the set
+ language=C,                 % the language of the code
  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
  numbersep=5pt,                   % how far the line-numbers are from the code
  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
@@ -39,30 +38,34 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
  stringstyle=\color{mymauve},     % string literal style
  tabsize=2,	                   % sets default tabsize to 2 spaces
-% title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
+
+
+
 
 
 \lstdefinestyle{customc}{
  belowcaptionskip=1\baselineskip,
  breaklines=true,
-% frame=L,
  xleftmargin=\parindent,
  language=C,
  showstringspaces=false,
+ commentstyle=\color{blue}\ttfamily,
+ morecomment=[l][\color{magenta}]{\#},
  basicstyle=\footnotesize\ttfamily,
- keywordstyle=\bfseries\color{green!40!black},
- commentstyle=\itshape\color{purple!40!black},
- identifierstyle=\color{blue},
- stringstyle=\color{orange},
+ keywordstyle=\bfseries\color{green!40!black}\ttfamily\textbf,
+ identifierstyle=\bfseries\color{black}\ttfamily,
+ stringstyle=\bfseries\color{magenta}\ttfamily,
 }
 
 \newcommand{\includecode}[1]{\lstinputlisting[language=C,style=customc]{#1}}
 
-%TODO dodati podršku za Đ i đ
+\def\d{{\fontencoding{T1}\selectfont\dj}}
+\def\D{{\fontencoding{T1}\selectfont\DJ}}
+
 \lstset{literate=
- {č}{{\v{c}}}1 {ć}{{\'{c}}}1 {š}{{\v{s}}}1 {ž}{{\v{z}}}1  
- {Č}{{\v{C}}}1 {Ć}{{\'{C}}}1 {Š}{{\v{S}}}1 {Ž}{{\v{Z}}}1  
+ {č}{{\v{c}}}1 {ć}{{\'{c}}}1 {š}{{\v{s}}}1 {ž}{{\v{z}}}1 {đ}{{\d}}1 
+ {Č}{{\v{C}}}1 {Ć}{{\'{C}}}1 {Š}{{\v{S}}}1 {Ž}{{\v{Z}}}1 {Đ}{{\D}}1  
 }
 
 \newenvironment{ckod}
