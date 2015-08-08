@@ -3,6 +3,296 @@
 
 \section{Zadaci}
 
+\subsection*{Programiranje 2, praktični deo ispita, jun 2015.}
+
+
+\begin{Exercise}[label=901]
+
+Kao argument komandne linije zadaje se ime ulazne datoteke u kojoj se nalaze niske. U prvoj liniji datoteke nalazi se informacija o broju niski, a zatim u narednim linijama po jedna niska ne duža od \argf{50} karaktera.
+  
+Napisati program u kojem se dinamički alocira memorija za zadati niz niski, a zatim se na standardnom izlazu u redosledu suprotnom od redosleda čitanja ispisuju sve niske koje počinju velikim slovom. 
+
+U slučaju pojave bilo kakve greške na standardnom izlazu ispisati vrednost \argf{-1} i prekinuti izvršavanje programa.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Sadržaj datoteke:  
+ 5                             
+ Programiranje	                               
+ Matematika		                         
+ 12345
+ dInAmiCnArEc
+ Ispit
+Izlaz:           
+ Ispit                                                                
+ Matematika
+ Programiranje
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Sadržaj datoteke:               
+  2                                             
+  maksimalano               
+  poena
+Izlaz:         
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Problem: 
+  datoteka 
+   ne postoji
+Izlaz:    
+  -1       
+\end{test}
+\end{minitest}
+
+
+\end{Exercise}
+\begin{Answer}[ref=901]
+\includecode{resenja/09_IspitniRokovi/901.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=902]
+
+Data je biblioteka za rad sa binarnim pretrazivačkim stablima čiji čvorovi sadrže cele brojeve. 
+Napisati funkciju   \kckod{int sumirajN (Cvor * koren, int n)}
+koja izračunava zbir svih čvorova koji se nalaze na $n$-tom nivou stabla (koren se nalazi na nultom nivou, njegova deca na prvom nivou i tako redom). 
+Ispravnost napisane funkcije testirati na osnovu zadate  \kckod{main} funkcije i biblioteke za rad sa pretraživačkim stablima.
+
+Napisati program koji sa standardnog ulaza učitava najpre prirodan broj $n$, a potom i brojeve sve do pojave nule koje smešta u stablo i ispisuje rezultat pozivanja funkcije \kckod{prebrojN} za broj $n$ i tako kreirano stablo. U slučaju greške na standardni izlaz za grešku ispisati \argf{-1}.
+
+
+\begin{minitest}
+\begin{test}{Test 1}
+ Ulaz:                                                        
+  2 8 10 3 6 14 13 7 4 0     
+ Izlaz:                                                  
+  20                                                        
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:	                               
+ 0 50 14 5 2 4 56 8 52 7 1 0            
+Izlaz:                               
+ 50                               
+\end{test}
+\end{minitest}
+
+
+\end{Exercise}
+\begin{Answer}[ref=902]
+\includecode{resenja/09_IspitniRokovi/902.c}
+\includecode{resenja/09_IspitniRokovi/902stabla.c}
+\includecode{resenja/09_IspitniRokovi/902stabla.h}
+\end{Answer}
+
+\begin{Exercise}[label=903]
+Sa standardnog ulaza učitava se broj vrsta i broj kolona celobrojne matrice $A$, a zatim i elementi matrice $A$. Napisati program koji će ispisati indeks kolone u kojoj se nalazi najviše negativnih elemenata. Ukoliko postoji više takvih kolona, ispisati indeks prve kolone. Može se pretpostaviti da je broj vrsta i broj kolona manji od \argf{50}. U slučaju greške ispisati vrednost \argf{-1} na standardni izlaz za greške. 
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:                         
+  4                             
+  5                                                               
+  1  2  3  4  5               
+ -1  2 -3  4 -5                
+ -5 -4 -3 -2  1               
+ -1  0  0  0  0 
+ Izlaz:                         
+  0                                                    
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:                         
+ 2                               
+ 3                                 
+ 0 0 -5
+ 1 2 -4
+Izlaz:   
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:                         
+ -2
+Izlaz (na stderr):
+ -1
+\end{test}
+\end{minitest}
+
+
+\end{Exercise}
+\begin{Answer}[ref=903]
+\includecode{resenja/09_IspitniRokovi/903.c}
+\end{Answer}
+
+\subsection*{Programiranje 2, praktični deo ispita, jul 2015.}
+
+
+\begin{Exercise}[label=904]
+
+ Napisati program koji kao prvi arugment komandne linije prima ime dokumenta u kome treba prebrojati sva pojavljivanja tražene niske (bez preklapanja) koja se navodi kao drugi argument komandne linije (iskoristiti funkciju standardne biblioteke \kckod{strstr}). U slučaju
+  bilo kakve greške ispisati \argf{-1} na standardni izlaz za greške.
+  Pretpostaviti da linije datoteke neće biti duže od \argf{127}
+  karaktera.\\
+  Potpis funkcije strstr:\\
+  \kckod{char *strstr(const char *haystack, const char *needle);}\\
+  Funkcija traži prvo pojavljivanje podniske needle u nisci
+  haystack, i vraća pokazivač na početak podniske, ili
+  NULL ako podniska nije pronađena.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Poziv:  ./a.out fajl.txt test          
+Datoteka:   Ovo je test primer.     
+        U njemu se rec test javlja
+        vise puta. testtesttest
+Izlaz:  5                       
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Poziv:   ./a.out      
+Izlaz  (na stderr):  -1       
+\end{test}
+\end{minitest}
+
+
+\begin{minitest}
+\begin{test}{Test 3}
+Poziv:  ./a.out fajl.txt .    
+Datoteka:   (prazna)      
+Izlaz:    0                 
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 4}
+Poziv:   ./a.out fajl.txt foo
+Datoteka:   (ne postoji)      
+Izlaz (na stderr):    -1                 
+\end{test}
+\end{minitest}
+
+
+\end{Exercise}
+\begin{Answer}[ref=904]
+%\includecode{resenja/09_IspitniRokovi/904.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=905]
+
+Na početku datoteke ''trouglovi.txt'' nalazi se broj trouglova čije su koordinate temena zapisane u nastavku datoteke. Napisati
+  program koji učitva trouglove, i ispisuje ih na standardni izlaz
+  sortirane po površini opadajuće (koristiti Heronov obrazac: 
+  $P = \sqrt{s*(s-a)*(s-b)*(s-c)}$, gde je $s$ poluobim trougla). U slučaju bilo kakve greške ispisati \argf{-1} na standardni izlaz za greške. Ne praviti nikave pretpostavke o broju trouglova u datoteci, i proveriti da li je datoteka ispravno zadata.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Datoteka:  4                         
+           0 0 0 1.2 1 0          
+           0.3 0.3 0.5 0.5 0.9 1
+           -2 0 0 0 0 1
+           2 0 2 2 -1 -1
+
+Izlaz:     2 0 2 2 -1 -1             
+           -2 0 0 0 0 1
+           0 0 0 1.2 1 0
+           0.3 0.3 0.5 0.5 0.9 1                                                   
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Datoteka:  3             
+          1.2 3.2 1.1 4.3
+
+Izlaz:     -1                                            
+\end{test}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{Test 3}
+Datoteka:   (nema datoteke)
+
+Izlaz:     -1                                            
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 4}
+Datoteka:   0
+
+Izlaz:                                                 
+\end{test}
+\end{minitest}
+\end{Exercise}
+
+\begin{Answer}[ref=905]
+%\includecode{resenja/09_IspitniRokovi/905.c}
+%\includecode{resenja/09_IspitniRokovi/905stabla.c}
+%\includecode{resenja/09_IspitniRokovi/905stabla.h}  
+\end{Answer}
+
+\begin{Exercise}[label=906]
+  Data je biblioteka za rad sa binarnim pretraživačkim stablima
+  celih brojeba. Napisati funkciju\\ 
+\kckod{int f3(Cvor *koren, int n)}\\
+  koja u datom stablu prebrojava čvorove na $n$-tom nivou, koji
+  imaju tačno jednog potomka. Pretpostaviti da se koren nalazi na
+  nivou \argf{0}. Ispravnost napisane funkcije testirati na osnovu zadate
+  \kckod{main} funkcije i biblioteke za rad sa stablima.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:   
+ 1 5 3 6 1 4 7 9    
+Izlaz:  
+ 1                                                            
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:   
+ 2 5 3 6 1 0 4 7 9  
+Izlaz:  
+ 2          
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:  
+ 0 4 2 5   
+Izlaz: 
+ 0       
+\end{test}
+\end{minitest}
+
+
+\begin{minitest}
+\begin{test}{Test 4}
+Ulaz:  
+  3
+Izlaz: 
+ 0       
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 5}
+Ulaz:  
+  -1 4 5 1 7 
+Izlaz: 
+ 0       
+\end{test}
+\end{minitest}
+
+\end{Exercise}
+\begin{Answer}[ref=906]
+%\includecode{resenja/09_IspitniRokovi/906.c}
+\end{Answer}
 
 \section{Rešenja}
 \shipoutAnswer
