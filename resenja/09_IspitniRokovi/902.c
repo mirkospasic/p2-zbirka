@@ -42,7 +42,7 @@ int main(){
     /* Ispisujemo rezultat rada tražene funkcije */
     printf("%d\n", sumirajN(koren,nivo));
     
-    /* Oslobadjamo memoriju */
+    /* Oslobađamo memoriju */
     oslobodi_stablo(&koren);
     
     

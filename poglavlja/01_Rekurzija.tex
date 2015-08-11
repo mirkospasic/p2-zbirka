@@ -4,40 +4,373 @@
 \section{Zadaci}
 
 \begin{Exercise}[label=101]
-  Napisati program Hello.
+Napisati rekurzivnu funkciju koja sumira elemente niza celih brojeva.  Napisati program koji testira napisane funkcije. Sa standardnog ulaza učitati dimenziju $n$  ($0 < n \leq 100$) celobrojong
+niza, a zatim i elemente niza. Na standardni izlaz ispisati
+rezultat primene napisane funkcije nad učitanim
+nizom.
+%Napisati program koji testira napisanu funkciju za niz \argf{10, 2, 3, 45, 21}.
 \end{Exercise}
 \begin{Answer}[ref=101]
 \includecode{resenja/01_Rekurzija/101.c}
 \end{Answer}
 
 \begin{Exercise}[label=102]
-  Napisati program Hello.
+ Napisati rekurzivnu funkciju koja izracunava  $x^k$,  za dati realni broj $x$ i prirodan broj $k$. Napisati program koji testira napisanu funkciju tako što računa $2^{10}$.
 \end{Exercise}
 \begin{Answer}[ref=102]
-\includecode{resenja/01_Rekurzija/101.c}
+\includecode{resenja/01_Rekurzija/102.c}
 \end{Answer}
 
 
 \begin{Exercise}[label=103]
-  Napisati program Hello.
+\komentar{Nina: Ovaj zadatak treba posle poglavlja o bitovima. Možda napraviti podpoglavlje u poglavlju Bitovi da se odvoje oni zadaci koji se odnose i na rekurziju.}
+Napisati rekurzivnu funkciju vraća broj bitova koji su postavljeni na 1, u binarnoj reprezentaciji njenog celobrojnog argumenta.  Napisati program koji testira napisanu funkciju za brojeve \argf{127,128,0x00FF00FF,0xFFFFFFFF}.
+  
+  Dodatak za vežbu: \emph{Ispratiti stanje na sistemskom steku u toku izvršavanja jednog poziva funkcije.}
 \end{Exercise}
 \begin{Answer}[ref=103]
-\includecode{resenja/01_Rekurzija/101.c}
+\includecode{resenja/01_Rekurzija/103.c}
 \end{Answer}
 
 \begin{Exercise}[label=104]
-  Napisati program Hello.
+ Napisati rekurzivnu funkciju koja proverava da li je broj cifara nekog broja paran ili neparan. Napisati program koji testira napisanu funkciju tako što se za broj učitan sa standardnog ispisuje da li je paran ili neparan.
+ \emph{Napomena: koristiti uzajamnu (posrednu) rekurziju.}
 \end{Exercise}
 \begin{Answer}[ref=104]
-\includecode{resenja/01_Rekurzija/101.c}
+%\includecode{resenja/01_Rekurzija/104.c}
 \end{Answer}
 
 \begin{Exercise}[label=105]
-  Napisati program Hello.
+  Napisati repno-rekurzivnu funkciju koja izračunava $n!$. Napisati program koji testira napisanu funkciju za poizvoljan broj $n$ ($n \le 12$) unet sa standardnog ulaza.
 \end{Exercise}
 \begin{Answer}[ref=105]
-\includecode{resenja/01_Rekurzija/101.c}
+%\includecode{resenja/01_Rekurzija/105.c}
 \end{Answer}
+
+
+\begin{Exercise}[label=106]
+ Napisati rekurzivnu funkciju koja računa $n$-ti element u nizu, čiji se elementi računaju na osnovu sledećih rekurentnih relacija:\\
+ $F(0) = 0$\\
+ $F(1) = 1$\\
+ $F(n) = a* F(n-1) + b*F(n-2)$\\
+ Napisati funkciju tako da se problemi manje dimenzije rešavaju samo jedan put.
+\end{Exercise}
+\begin{Answer}[ref=106]
+%\includecode{resenja/01_Rekurzija/106.c}
+\end{Answer}
+
+\begin{Exercise}[label=107]
+Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,n\}$. Napisati program koji testira napisanu funkciju za poizvoljan prirodan broj $n$ ($n \le 50$) unet sa standardnog ulaza.
+\end{Exercise}
+\begin{Answer}[ref=107]
+%\includecode{resenja/01_Rekurzija/107.c}
+\end{Answer}
+
+\begin{Exercise}[label=108]
+\begin{itemize}
+\item[a)] Napisati rekurzivnu funkciju koja izračunava $d_n$ kao sumu elemenata n-te hipotenuze Paskalovog trougla.
+\item[b)] Napisati rekurzivnu funkciju koja izračunava vrednost polja \argf{(i, j)}.
+\end{itemize}
+ Paskalov trougao se dobija tako što mu je svako polje
+(izuzev 0-te vrste i 0-kolone) zbir jednog polja levo i
+jednog polja iznad.
+\begin{verbatim}
+               1
+             1   1
+           1   2   1
+         1   3   3   1
+       1   4   6   4   1
+     1   5   10  10  5  1
+\end{verbatim}
+
+\end{Exercise}
+\begin{Answer}[ref=108]
+%\includecode{resenja/01_Rekurzija/108.c}
+\end{Answer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zadaci sa praktikuma - obavezni zadaci 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{Exercise}[label=109]
+Napisati rekurzivnu funkciju koja određuje maksimum niza
+  celih brojeva. Napisati program koji testira ovu funkciju, za niz
+  koji se učitava sa standardnog ulaza. Niz neće biti duži od \argf{256}, i
+  njegovi elementi se unose sve do kraja ulaza.
+  
+\begin{miditest}
+\begin{test}{Test 1}
+Ulaz:   3 2 1 4 21    
+Izlaz:  21              
+\end{test}
+\end{miditest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:   2 -1 0 -5 -10
+Izlaz:  2                
+\end{test}
+\end{minitest}
+
+\begin{miditest}
+\begin{test}{Test 3}
+Ulaz:  1 11 3 5 8 1    
+Izlaz:  11
+\end{test}
+\end{miditest}
+\begin{minitest}
+\begin{test}{Test 4}
+Ulaz:   5
+Izlaz:  5
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=109]
+%\includecode{resenja/01_Rekurzija/109.c}
+\end{Answer}
+
+\begin{Exercise}[label=110]
+Napisati rekurzivnu funkciju koja izračunava skalarni
+  proizvod dva data vektora.  Napisati program koji testira ovu
+  funkciju, za nizove koji se učitavaju sa standardnog ulaza. Du\v
+  zina neće biti veća od \argf{256}. Prvo se unosi dimenzija nizova, a
+  zatim i sami njihovi elementi.
+  
+\begin{miditest}
+\begin{test}{Test 1}
+Ulaz:    3 1 2 3 1 2 3 
+Izlaz:   14                 
+\end{test}
+\end{miditest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:   2 3 5 2 6       
+Izlaz:   36              
+\end{test}
+\end{minitest}
+
+
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:   0
+Izlaz:   0
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=110]
+%\includecode{resenja/01_Rekurzija/110.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=111]
+Napisati rekurzivnu funkciju koja sabira dekadne cifre datog
+  celog broja $x$. Napisati program koji testira ovu funkciju, za broj
+  koji se učitava sa standardnog ulaza.
+  
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:    123  
+Izlaz:   6 
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:    23156    
+Izlaz:   17 
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:   1432
+Izlaz:   10        
+\end{test}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{Test 4}
+Ulaz:   1       
+Izlaz:  1       
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 5}
+Ulaz:   0
+Izlaz:  0
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=111]
+%\includecode{resenja/01_Rekurzija/111.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=112]
+Napisati rekurzivnu funkciju koja računa broj pojavljivanja
+  elementa $x$ u nizu $a$ dužine $n$. Napisati program koji testira
+  ovu funkciju, za $x$ i niz koji se učitavaju sa standardnog
+  ulaza. Niz neće biti duži od \argf{256}. Prvo se unosi $x$, za zatim
+  elementi niza sve do kraja ulaza.
+  
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:    4 1 2 3 4     
+Izlaz:   1              
+\end{test}
+\end{minitest}
+\begin{miditest}
+\begin{test}{Test 2}
+Ulaz:   11 3 2 11 14 11 43 1      
+Izlaz:   2                      
+\end{test}
+\end{miditest}
+
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:  1 3 21 5 6
+Izlaz:  0    
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=112]
+%\includecode{resenja/01_Rekurzija/112.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=113]
+Napisati rekurzivnu funkciju koja ispituje da li je data niska
+  palindrom. Napisati program koji testira ovu funkciju. Pretposatviti
+  da niska neće biti duža od \argf{32}, i da se unosi sa standardnog
+  ulaza.
+  
+\begin{miditest}
+\begin{test}{Test 1}
+Ulaz:    programiranje    
+Izlaz:   ne                   
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Ulaz:    anavolimilovana 
+Izlaz:   da                   
+\end{test}
+\end{miditest}
+
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:    a        
+Izlaz:   da 
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 4}
+Ulaz:    aba   
+Izlaz:   da 
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test }
+Ulaz:    aa
+Izlaz:   da 
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=113]
+%\includecode{resenja/01_Rekurzija/113.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=114]
+Napisati rekurzivnu funkciju kojom se proverava da li su tri
+  zadata broja uzastopni članovi niza. Potom, napisati program koji
+  je testira. Sa standardnog ulaza se unose najpre tri tražena
+  broja, a zatim elementi niza, sve do kraja ulaza. Pretpostaviti da
+  ih neće biti više od \argf{256}.
+  
+\begin{miditest}
+\begin{test}{Test 1}
+Ulaz:     1 2 3 4 1 2 3 4 5 
+Izlaz:    da                     
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Ulaz:     1 2 3 11 1 2 4 3 6 
+Izlaz:    ne                    
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{Test 3}
+Ulaz:     1 2 3 1 2
+Izlaz:    ne 
+\end{test}
+\end{miditest}
+\end{Exercise}
+\begin{Answer}[ref=114]
+%\includecode{resenja/01_Rekurzija/114.c}
+\end{Answer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zadaci sa praktikuma - dodatni zadaci - oni nemaju rešenja
+% možda \subsection{Dodatni zadaci} ili zadaci za vezbu
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{Exercise}[label=115]
+\komentar{Nina: Ovaj bi trebalo da ide u razne zadatke ili u okviru poglavlja sa bitovima.}
+
+Napisati rekurzivnu funkciju koja štampa bitovsku
+  reprezentaciju neoznačenog celog broja, i program koji je
+  testira za ulaz koji se zadaje sa standardnog ulaza.
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:       10                                 
+Izlaz:      00000000000000000000000000001010                    
+\end{test}
+\end{maxitest}
+\end{Exercise}
+%\begin{Answer}[ref=115]
+%\includecode{resenja/01_Rekurzija/115.c}
+%\end{Answer}
+
+\begin{Exercise}[label=116]
+Napisati rekurzivnu funkciju koja prikazuje sve varijacije sa
+   ponavljanjem dužine $n$ skupa $\{a, b\}$, i program koji je
+   testira, za $n$ koje se učitava sa standardnog ulaza.
+
+\begin{miditest}
+\begin{test}{Test 1}
+Ulaz:    3
+Izlaz:   a a a
+         a a b
+         a b a
+         a b b
+         b a a
+         b a b
+         b b a
+         b b b
+\end{test}
+\end{miditest}
+\end{Exercise}
+%\begin{Answer}[ref=116]
+%\includecode{resenja/01_Rekurzija/116.c}
+%\end{Answer}
+
+\begin{Exercise}[label=117]
+Modifikacija problema "Hanojskih kula": Data su četiri
+  vertikalna štapa, na jednom se nalazi n diskova poluprečnika
+  $1$,$2$,$3$,... do $n$, tako da se najveći nalazi na dnu, a
+  najmanji na vrhu. Ostala tri štapa su prazna. Potrebno je
+  premestiti diskove na drugi štap tako da budu u istom redosledu,
+  premestajući jedan po jedan disk, pri čemu se ni u jednom
+  trenutku ne sme staviti veći disk preko manjeg, pri čemu se
+  preostala dva štapa koriste kao pomoćni štapovi prilikom
+  premeštanja.
+
+\end{Exercise}
+%\begin{Answer}[ref=117]
+%\includecode{resenja/01_Rekurzija/117.c}
+%\end{Answer}
+
 
 \section{Rešenja}
 \shipoutAnswer

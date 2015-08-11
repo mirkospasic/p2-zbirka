@@ -17,11 +17,11 @@ Cvor* napravi_cvor(int b ) {
 
 
 void oslobodi_stablo(Cvor** adresa_korena)  {
-      /* Prazno stablo i nema šta da se oslobadja */
+      /* Prazno stablo i nema šta da se oslobađa */
     if( *adresa_korena == NULL)
         return;
     
-    /* Rekurzivno oslobadjamo najpre levo, a onda i desno podstablo*/
+    /* Rekurzivno oslobađamo najpre levo, a onda i desno podstablo*/
     if( (*adresa_korena)->levo ) 
         oslobodi_stablo(&(*adresa_korena)->levo);
     if( (*adresa_korena)->desno) 
@@ -48,7 +48,7 @@ void dodaj_u_stablo(Cvor** adresa_korena, int broj) {
         return;
     }
         
-    /* Brojeve smeštamo u uredjeno binarno stablo, pa 
+    /* Brojeve smeštamo u uređeno binarno stablo, pa 
     ako je broj koji ubacujemo manji od broja koji je u korenu  */
     if( broj < (*adresa_korena)->broj)         /* dodajemo u levo podstablo */
         dodaj_u_stablo(&(*adresa_korena)->levo, broj);

@@ -57,7 +57,7 @@ int main(int argc, char* argv[]){
         }        
     }
     
-    /* Oslobadjamo memoriju koju smo dinamički alocirali. */
+    /* Oslobađamo memoriju koju smo dinamički alocirali. */
     for(i=0; i<n; i++){
         free(linije[i]);                
     }

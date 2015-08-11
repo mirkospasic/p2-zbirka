@@ -6,6 +6,78 @@
 
 
 \begin{Exercise}[label=201]
+Napisati:
+\begin{enumerate}
+\item funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu celog broja $x$.
+\item program koja testira funkciju \kckod{print\_bits} za proizvoljne brojeve.
+\end{enumerate}
+\end{Exercise}
+\begin{Answer}[ref=201]
+\includecode{resenja/02_Bitovi/201.c}
+\end{Answer}
+
+\begin{Exercise}[label=202]
+ Napisati funkciju koja broji bitove postavljene na \argf{1} u zapisu broja $x$. Napisati program koji testira tu funkciju za broj \argf{0xABCDE123}.
+\end{Exercise}
+\begin{Answer}[ref=202]
+%\includecode{resenja/02_Bitovi/202.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=203]
+Napisati:
+\begin{enumerate}
+\item funkciju koja određuje najveći broj koji se može zapisati istim binarnim ciframa kao dati broj.
+\item funkciju koja određuje najmanji broj koji se može zapisati istim binarnim ciframa kao dati broj.
+\item program koji testira prethodno napisane funkcije.
+\end{enumerate}
+\end{Exercise}
+\begin{Answer}[ref=203]
+%\includecode{resenja/02_Bitovi/203.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=204]
+Napisati:
+\begin{enumerate}
+\item funkciju funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ postave na \argf{0}.
+\item funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ postave na \argf{1}.
+\item funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ i vraća ih kao bitove najmanje težine rezultata.
+\item funkciju koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
+\item funkciju koja vraća broj koji se dobija invertovanjem $n$ bitova broja $x$ počevši od pozicije $p$.
+\item program koji testira prethodno napisane funkcije.
+\end{enumerate}
+\end{Exercise}
+\begin{Answer}[ref=204]
+%\includecode{resenja/02_Bitovi/204.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=205]
+Napisati:
+\begin{enumerate}
+\item funkciju funkciju koja određuje broj koji se dobija rotiranjem u levo datog celog broja.
+\item funkciju koja određuje broj koji se dobija rotiranjem u desno datog celog neoznacenog broja. 
+\item funkciju koja određuje broj koji se dobija rotiranjem u desno datog celog broja.
+\item program koji testira prethodno napisane funkcije.
+\end{enumerate}
+\end{Exercise}
+\begin{Answer}[ref=205]
+%\includecode{resenja/02_Bitovi/205.c}
+\end{Answer}
+
+\begin{Exercise}[label=206]
+Napisati funkciju koja određuje ceo broj čiji binarni zapis je slika u ogledalu binarnog zapisa argumenta funkcije, a potom i program koji testira datu funkciju za argument \argf{0xABCDE123}.
+\end{Exercise}
+\begin{Answer}[ref=206]
+%\includecode{resenja/02_Bitovi/206.c}
+\end{Answer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zadaci sa praktikuma - obavezni zadaci 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{Exercise}[label=207]
 Napisati funkciju \kckod{int Broj01(unsigned int n)} koja za dati broj \argf{n} vraća \argf{1} ako u njegovom binarnom zapisu ima više jednica nego nula, a inače vraća \argf{0}.  Napisati program koji tu funkciju testira za broj koji se zadaje sa standardnog ulaza.
 
 \begin{minitest}
@@ -34,27 +106,180 @@ Izlaz:  0
 \end{test}
 \end{minitest}
 
-
 \end{Exercise}
-\begin{Answer}[ref=201]
-\includecode{resenja/02_Bitovi/201.c}
+\begin{Answer}[ref=207]
+%\includecode{resenja/02_Bitovi/207.c}
 \end{Answer}
 
-\begin{Exercise}[label=202]
-  Napisati program Hello bitovi.
+\begin{Exercise}[label=208]
+Napisati funkciju koja broji koliko se puta kombinacija
+  \argf{11} (dve uzastopne jedinice) pojavljuje u binarnom zapisu
+  celog neoznačenog broja $x$. Tri uzastopne jedinice se broje
+  dva puta.  Napisati program koji tu funkciju testira za broj koji se
+  zadaje sa standardnog ulaza.
+  
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:   11  
+Izlaz:  1    
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:   1024
+Izlaz:  0 
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:   2147377146
+Izlaz:  22
+\end{test}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{Test 4}
+Ulaz:   1111111115
+Izlaz:  6 
+\end{test}
+\end{minitest}
 \end{Exercise}
-\begin{Answer}[ref=202]
-\includecode{resenja/02_Bitovi/201.c}
+\begin{Answer}[ref=208]
+%\includecode{resenja/02_Bitovi/208.c}
 \end{Answer}
 
 
-\begin{Exercise}[label=203]
-  Napisati program Hello bitovi.
+%%%
+%Ovaj 209.c nema resenje za sad...
+%%%
+\begin{Exercise}[label=209]
+Napisati program koji sa standardnog ulaza učitava pozitivan
+  ceo broj, a na standardni izlaz ispisuje vrednost tog broja sa
+  razmenjenim vrednostima bitova na pozicijama $i$,
+  $j$. Pozicije $i$, $j$ se učitavaju kao parametri
+  komandne linije. Smatrati da je krajnji desni bit binarne
+  reprezentacije \argf{0}-ti bit. Pri rešavanju nije dozvoljeno koristiti
+  pomoćni niz niti aritmetičke operatore +,-,/,*,\%.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Poziv:  ./a.out 1 2 
+Ulaz:   11             
+Izlaz:  13            
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Poziv: ./a.out 1 2
+Ulaz:   1024     
+Izlaz:  1024        
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Poziv: ./a.out 12 12
+Ulaz:   12345
+Izlaz:  12345
+\end{test}
+\end{minitest}
 \end{Exercise}
-\begin{Answer}[ref=203]
-\includecode{resenja/02_Bitovi/201.c}
+\begin{Answer}[ref=209]
+%\includecode{resenja/02_Bitovi/209.c}
 \end{Answer}
 
+\begin{Exercise}[label=210]
+  Napisati funkciju koja na osnovu neoznačenog broja $x$
+  formira nisku $s$ koja sadrži heksadekadni zapis broja
+  $x$, koristeći algoritam za brzo prevođenje binarnog u
+  heksadekadni zapis (svake $4$ binarne cifre se zamenjuju jednom
+  odgovarajućom heksadekadnom cifrom).  Napisati program koji tu
+  funkciju testira za broj koji se zadaje sa standardnog ulaza.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:   11             
+Izlaz:  0000000B      
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:  1024        
+Izlaz: 00000400  
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:  12345
+Izlaz: 00003039
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=210]
+%\includecode{resenja/02_Bitovi/210.c}
+\end{Answer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zadaci sa praktikuma - dodatni zadaci - oni nemaju rešenja
+% možda \subsection{Dodatni zadaci} ili zadaci za vežbu
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{Exercise}[label=211]
+  Napisati funkciju koja za dva data neoznačena broja $x$
+  i $y$ invertuje u podatku $x$ one bitove koji se poklapaju
+  sa odgovarajućim bitovima u broju $y$. Ostali bitovi ostaju
+  nepromenjeni.  Napisati program koji tu funkciju testira za brojeve
+  koji se zadaju sa standardnog ulaza.
+  
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:   123 10        
+Izlaz:  4294967285    
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:  3251 0    
+Izlaz: 4294967295    
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:   12541 1024
+Izlaz:  4294966271
+\end{test}
+\end{minitest}
+\end{Exercise}
+\begin{Answer}[ref=211]
+%\includecode{resenja/02_Bitovi/211.c}
+\end{Answer}
+
+\begin{Exercise}[label=212]
+Napisati funkciju koja računa koliko petica bi imao ceo
+  neoznačen broj $x$ u oktalnom zapisu. Napisati program koji
+  tu funkciju testira za broj koji se zadaje sa standardnog ulaza.
+  
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:   123        
+Izlaz:  0             
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:   3245      
+Izlaz:  2              
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:   100328
+Izlaz:  1
+\end{test}
+\end{minitest}  
+\end{Exercise}
+\begin{Answer}[ref=212]
+%\includecode{resenja/02_Bitovi/212.c}
+\end{Answer}
 
 
 \section{Rešenja}
