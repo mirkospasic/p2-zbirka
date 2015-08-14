@@ -1,7 +1,481 @@
-
 \chapter{Sortiranje}
 
 \section{Zadaci}
+
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=501]
+  U datom nizu brojeva prona\'ci dva koja su na najmanjem
+  rastojanju. Niz se zadaje sa standardnog ulaza, sve do kraja ulaza,
+  i ne\' ce imati vi\v se od 256 elemenata. (uputstvo: prvo sortirati
+  niz). Na izlaz ispisati njihovu razliku.
+  
+  \begin{miditest}
+    \begin{test}{Test 1}
+      Ulaz:   23 64 123 76 22 7
+      Izlaz:  1
+    \end{test}
+  \end{miditest}
+  
+  \begin{miditest}
+    \begin{test}{Test 2}
+      Ulaz:   21 654 65 123 65 12 61
+      Izlaz:  0
+    \end{test}
+  \end{miditest}
+  
+\end{Exercise}
+
+\begin{Answer}[ref=501]
+  \includecode{resenja/05_Sortiranje/501.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=502]
+  Napisati funkciju koja sortira slova unutar niske
+  karaktera. Napisati program koji proverava da li su dve niske
+  karaktera anagrami. Dve niske su anagrami ako se sastoje od istog
+  broja istih karaktera. Niske se zadaju sa standardnog ulaza, i ne\'
+  ce biti du\v ze od 128 karaktera.
+  
+  \begin{miditest}
+    \begin{test}{Test 1}
+      Ulaz:   anagram ramgana
+      Izlaz:  jesu
+    \end{test}
+  \end{miditest}
+  \begin{miditest}
+    \begin{test}{Test 2}
+      Ulaz:   anagram anagrm
+      Izlaz:  nisu
+    \end{test}
+  \end{miditest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=502]
+%  \includecode{resenja/05_Sortiranje/502.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=503]
+  Napisati program koji pronalazi broj koji se najvi\v{s}e puta
+  pojavljivao u datom nizu (uputstvo: prvo sortirati niz a zatim
+  na\'ci najdu\v{z}u sekvencu jednakih elemenata). Niz se zadaje sa
+  standardnog ulaza sve do kraja ulaza, i ne\' ce biti du\v zi od 256
+  elemenata.
+  
+  \begin{miditest}
+    \begin{test}{Test 1}
+      Ulaz:   4 23 5 2 4 6 7 34 6 4 5
+      Izlaz:  4
+    \end{test}
+  \end{miditest}
+  \begin{miditest}
+    \begin{test}{Test 2}
+      Ulaz:   2 4 6 2 6 7 99 1
+      Izlaz:  2
+    \end{test}
+  \end{miditest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=503]
+%  \includecode{resenja/05_Sortiranje/503.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=504]
+  Napisati funkciju koja proverava da li u datom nizu postoje dva
+  elementa kojima je zbir zadati ceo broj (uputstvo: prvo sortirati
+  niz). Napisati i program koji testira ovu funkciju, u kome se prvo
+  u\v citava pomenuti broj, pa zatim niz ne ve\' ce du\v zine od 256
+  sve do kraja ulaza.
+  
+  \begin{miditest}
+    \begin{test}{Test 1}
+      Ulaz:   34 134 4 1 6 30 23
+      Izlaz:  da
+    \end{test}
+  \end{miditest}
+  \begin{miditest}
+    \begin{test}{Test 2}
+      Ulaz:   12 53 1 43 3 56 13
+      Izlaz:  ne
+    \end{test}
+  \end{miditest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=504]
+%  \includecode{resenja/05_Sortiranje/504.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=505]
+  Napisati funkciju koja prima dva sortirana niza, i na osnovu
+  njih pravi novi sortirani niz koji koji sadr\v zi elemente oba niza
+\begin{verbatim}
+int merge(int *niz1, int dim1, int *niz2, int dim2, int *niz3, int dim3);
+\end{verbatim}
+Tre\' ca dimenzija predstavlja veli\v cinu niza u koji se sme\v sta
+rezultat. Ako je ona manja od potrebne du\v zine, funkcija vra\' ca
+-1, kao indikator neuspeha, ina\v ce vra\' ca 0. Napisati i program
+koji testira funkciju, u kome se nizovi unose sa standardnog ulaza,
+sve dok se ne unese 0.
+  
+  \begin{miditest}
+    \begin{test}{Test 1}
+      Ulaz:   3 6 7 11 14 35 0 3 5 8 0
+      Izlaz:  3 3 5 6 7 8 11 14 35
+    \end{test}
+  \end{miditest}
+  
+  \begin{miditest}
+    \begin{test}{Test 1}
+      Ulaz:   1 4 7 0 9 11 23 54 75 0
+      Izlaz:  1 4 7 9 11 23 54 75
+    \end{test}
+  \end{miditest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=505]
+%  \includecode{resenja/05_Sortiranje/505.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=506]
+  Napraviti biblioteku ,,sort.h'' i ,,sort.c'' koja implementira
+  algoritme sortiranja nizova celih brojeva. Biblioteka treba da
+  sadr\v zi bubble, insertion i shell sort. Upotrebiti biblioteku kako
+  bi se napravilo pore\dj enje efikasnosti razli\v citih algoritama
+  sortiranja. Efikasnost meriti na slu\v cajno generisanim nizovima,
+  na ve\' c sortiranim nizovima i na naopako sortiranim
+  nizovima. Izbor algoritma, veli\v cine i po\v cetnog rasporeda
+  elemenata niza birati kroz argumente komandne linije.  Vreme meriti
+  programom \verb|time|. Analizirati porast vremena sa porastom
+  dimenzije $n$. Porediti vremena za razli\v cite implementacije istog
+  algoritma (iterativna i rekurzivna).  
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=506]
+%  \includecode{resenja/05_Sortiranje/506.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=507]
+  Napisati funkcije koje sortiraju niz struktura ta\v{c}aka na
+  osnovu
+\begin{enumerate}
+\item njihovog rastojanja od koordinatnog po\v{c}etka.
+\item x koordinate date ta\v{c}ke.
+\item y koordinate date ta\v{c}ke.
+\end{enumerate}
+Napisati program koji u\v{c}itava niz ta\v{c}aka iz datoteke \v{c}ije
+se ime zadaje kao argument komandne linije, i u zavisnosti od
+prisutnih opcija u komandnoj liniji, sortira ta\v{c}ke po jednom od
+prethodna tri kriterijuma i rezultat upisuje u datoteku \v{c}ije se
+ime zadaje kao drugi argument komandne linije. U ulaznoj datoteci nije
+zadato vi\v{s}e od 100 ta\v{c}aka.
+  
+  \begin{miditest}
+    \begin{test}{Test 1}
+Poziv:  a.out -x tacke.txt sorttacke.txt
+Ulazna datoteka:   3 4
+                   11 6
+                   7 3
+                   2 82
+                   -1 6
+Izlazna datoteka:  -1 6
+                   2 82
+                   3 4
+                   7 3
+                   11 6
+    \end{test}
+  \end{miditest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=507]
+%  \includecode{resenja/05_Sortiranje/507.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=508]
+  Definisana je struktura podataka
+\begin{verbatim}
+typedef struct dete
+{
+      char ime[MAX_IME];
+      char prezime[MAX_IME];
+      unsigned godiste;
+} Dete;
+\end{verbatim}
+Napisati funkciju koja srotira niz dece po godi\v{s}tu, a kada su deca
+istog godi\v{s}ta, tada ih sortirati leksikografski po prezimenu i
+imenu. Napisati program koji u\v{c}itava podatke o deci koji se nalaze
+u datoteci \v{c}ije se ime zadaje kao prvi argument komandne linije,
+sortira ih i sortirani niz upisuje u datoteku \v{s}ije se ime zadaje
+kao drugi argument komandne linije. Pretpostaviti da u ulaznoj
+datoteci nisu zadati podaci o vi\v{s}e od 100 dece.
+  
+  \begin{maxitest}
+    \begin{test}{Test 1}
+Poziv: ./a.out ulaz.txt izlaz.txt
+Ulazna datoteka:                 Izlazna datoteka:
+Petar Petrovic 2007              Marija Antic 2007
+Milica Antonic 2008              Ana Petrovic 2007
+Ana Petrovic 2007                Petar Petrovic 2007
+Ivana Ivanovic 2009              Milica Antonic 2008
+Dragana Markovic 2010            Ivana Ivanovic 2009
+Marija Antic 2007                Dragana Markovic 2010
+    \end{test}
+  \end{maxitest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=508]
+%  \includecode{resenja/05_Sortiranje/508.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=509]
+  Napisati funkciju koja sortira niz niski po broju suglasnika u
+  niski, ukoliko re\v{c}i imaju isti broj suglasnika tada po
+  du\v{z}ini niske, a ukoliko su i du\v{z}ine jednake tada
+  leksikografski.  Napisati program koji testira ovu funkciju za niske
+  koje se zadaju u datoteci \verb|niske.txt|.  Pretpostaviti da u nizu
+  nema vi\v{s}e od 100 elemenata, kao da svaka niska sadr\v{z}i
+  najvi\v{s}e 20 karaktera.
+  
+  \begin{maxitest}
+    \begin{test}{Test 1}
+Ulazna datoteka:
+ana petar andjela milos nikola aleksandar ljubica matej milica
+Izlaz:
+ana matej milos petar milica nikola andjela ljubica aleksandar
+    \end{test}
+  \end{maxitest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=509]
+%  \includecode{resenja/05_Sortiranje/509.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=510]
+  Razmatrajmo dve operacije: operacija U je unos novog broja $x$, a
+  operacija N odre\dj ivanje $n$-tog po veli\v cini od unetih
+  brojeva. Implementirati program koji izvr\v sava ove operacije (Mo\v
+  ze postojati najvi\v se 100000 operacija unosa, a uneti elementi se
+  mogu ponavljati, pri \v cemu se i ponavljanja ra\v cunaju prilikom
+  brojanja). Napomena: brojeve \v cuvati u sortiranom nizu i svaki
+  naredni element umetati na svoje mesto. Optimizovati program,
+  ukoliko se zna da ne\' ce biti vi\v se od 500 razli\v citih unetih
+  brojeva.
+  
+  \begin{maxitest}
+    \begin{test}{Test 1}
+Ulaz: U 2 U 0 U 6 U 4 N 1 U 8 N 2 N 5 U 2 N 3 N 5
+Izlaz: 0 2 8 2 6
+    \end{test}
+  \end{maxitest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=510]
+%  \includecode{resenja/05_Sortiranje/510.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=511]
+  Sa dve susedne stranice pravougaone livade dve grupe krtica
+  istovremeno kre\' cu da kopaju tunele (jedna grupa na gore, a
+  druga na desno). Krtica prestaje da kopa ukoliko nai\dj e na ve\'
+  c iskopan tunel (npr. krticu A zaustavlja krtica C, krticu C i D
+  zaustavlja krtica B, a krticu B zaustavlja krtica E). Za svaku
+  krticu se zna udaljenost od \' co\v ska livade i brzina kojom
+  kopa.
+\begin{verbatim}
+     |EEEEEEEEEE
+     |      B
+     |DDDDDDB 
+     |      B
+     |CCCCCCB
+     |   A  B
+     |___A__B_______________
+\end{verbatim}
+Napisati program koji odre\dj uje koliko dugo svaka krtica kopa. Unose
+se broj krtica u obe grupe, a zatim udaljenost i brzina za svaku
+krticu. Izlaz je vreme za svaku krticu prikazano na dve decimale (-1
+ukoliko se ne zaustavlja) u istom redosledu u kojem su krtice unete.
+
+  \begin{miditest}
+    \begin{test}{Test 1}
+      Ulaz:          Izlaz:
+      2 3            1.12
+      1   4          0.88
+      2   5.1        -1.00
+      4.5 3.6        1.00
+      1   1          -1.00
+      5   0.5
+    \end{test}
+  \end{miditest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=511]
+%  \includecode{resenja/05_Sortiranje/511.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=512]
+  \v Sef u restoranu je neuredan i pala\v cinke koje ispe\v ce
+  ne sla\v ze redom po veli\v cini. Konobar pre serviranja mora da
+  sortira pala\v cinke po veli\v cini, a jedina operacija koju sme
+  da izvodi je da obrne deo pala\v cinki. Na primer:
+\begin{verbatim}
+    3    5    2    1
+    4    4    1__  2
+    5__  3    3    3
+    1    1    4    4
+    2    2__  5    5
+\end{verbatim}
+Napisati program koji u najvi\v se $2n-3$ okretanja sortira u\v
+citani niz. (Uputstvo: imitirati selection sort i u svakom koraku
+dovesti jednu pala\v cinku na svoje mesto kori\v s\' cenjem
+najvi\v se dva okretanja.)
+    
+\end{Exercise}
+
+%\begin{Answer}[ref=512]
+%  \includecode{resenja/05_Sortiranje/512.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=513]
+  Napisati program koji sa standardnog ulaza u\v citava dva
+  stringa, \verb|s| i \verb|t| (du\v zine manje od 20 karaktera),
+  sortira nizove njihovih karaktera (bibliote\v ckom \verb|qsort|
+  funkcijom), ispituje i \v stampa da li su \verb|s| i \verb|t|
+  anagrami. (dva stringa su anagrami ako su sastavljeni od potpuno
+  istih slova, samo razli\v cito raspore\dj enih)
+  
+  \begin{miditest}
+    \begin{test}{Test 1}
+Ulaz:   vrata vatra
+Izlaz:  jesu
+    \end{test}
+  \end{miditest}
+  \begin{miditest}
+    \begin{test}{Test 2}
+Ulaz:   qsort bsearch
+Izlaz:  nisu
+    \end{test}
+  \end{miditest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=513]
+%  \includecode{resenja/05_Sortiranje/513.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=514]
+  Napisati program koji sa standardnog ulaza u\v citava prvo ceo broj
+  $n$ ($n <= 10$) a zatim niz $S$ od $n$ stringova (maksimalna du\v
+  zina stringa je $20$ karaktera). Sortirati niz $S$ (bibliote\v{c}kom
+  funkcijom \verb|qsort|) i proveriti da li u njemu ima identi\v{c}nih
+  stringova.
+  
+  \begin{miditest}
+    \begin{test}{Test 1}
+      Ulaz:   4 prog search sort search
+      Izlaz:  ima
+    \end{test}
+  \end{miditest}
+  \begin{miditest}
+    \begin{test}{Test 2}
+      Ulaz:   3 test kol ispit
+      Izlaz:  nema
+    \end{test}
+  \end{miditest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=514]
+%  \includecode{resenja/05_Sortiranje/514.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=515]
+  Datoteka \texttt{studenti.txt} sadr\v zi spisak studenata. Za svakog
+  studenta poznat je nalog na Alas-u (oblika npr. \texttt{mr97125},
+  \texttt{mm09001}), ime i prezime i broj poena. Napisati program koji
+  sortira (kori\v s\' cenjem funkcije \verb|qsort|) studente po broju
+  poena (ukoliko je prisutna opcija \verb"-p") ili po nalogu (ukoliko
+  je prisutna opcija \verb"-n"). Studenti se po nalogu sortiraju tako
+  \v sto se sortiraju na osnovu godine, zatim na osnovu smera, i na
+  kraju na osnovu broja indeksa. Ukoliko je u komandnoj liniji uz
+  opciju \verb"-n" naveden i nalog nekog studenta, funkcijom
+  \verb|bsearch| potra\v ziti i prijaviti broj poena studenta sa tim
+  nalogom. Sortirane studente upisati u datoteku $izlaz.txt$.
+  
+  \begin{maxitest}
+    \begin{test}{Test 1}
+Poziv: ./a.out -n mm13321
+Datoteka:                         Izlaz:
+mr14123 Marko Antic 20            mm13321 Marija Radic 12
+mm13321 Marija Radic 12
+ml13011 Ivana Mitrovic 19
+ml13066 Pera Simic 15
+mv14003 Jovan Jovanovic 17
+    \end{test}
+  \end{maxitest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=515]
+%  \includecode{resenja/05_Sortiranje/515.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=516]
+Definisana je struktura:
+\begin{verbatim}
+     typedef struct { int dan; int mesec; int godina; } Datum;
+\end{verbatim}
+
+Napisati funkciju koja poredi dva datuma i program koji u\v{c}itava
+datume iz datoteke koja se zadaje kao prvi argument komandne linije
+(ne vi\v{s}e od 100 datuma), sortira ih pozivaju\'ci funkciju
+\verb|qsort| iz standardne biblioteke i potom pozivanjem funkcije
+\verb|bsearch| iz standardne biblioteke proverava da li datumi u\v
+citani sa standardnog ulaza (sve do kraja ulaza) postoje me\dj u
+prethodno unetim datumima.
+  
+  \begin{maxitest}
+    \begin{test}{Test 1}
+Poziv: ./a.out datoteka.txt
+Datoteka:  1.1.2013       Ulaz:  13.12.2016     Izlaz:  postoji
+           13.12.2016            10.5.2015              ne postoji
+           11.11.2011            5.2.2009               postoji
+           3.5.2015
+           5.2.2009
+    \end{test}
+  \end{maxitest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=516]
+%  \includecode{resenja/05_Sortiranje/516.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+
 
 
 \section{Rešenja}
