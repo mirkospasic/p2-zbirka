@@ -103,4 +103,23 @@ da je uvek isti, sem sto se ref i ime datoteke koja se ubacuje razlikuju.
 Koristi se \includecode komanda za ubacivanje.
 
 
+1) Zadatke koji se testiraju konstantama bih preformulisala u 
+zadatke koji se testiraju vrednostima koje se unose sa standardnog ulaza.
+2) Zadatke koji se sastoje iz vise delova bih formulisala nalik na prva 
+dva zadatka kod visedimenzionih nizova ili bih razdvojila u vise manjih 
+zadataka, ukoliko je to negde prirodnije. 
+Naime, Filip me je naucio da su njega lektori naucili da nabrajanje ne sme 
+da narusava strukturu recenice i da je naredno nabrajanje oblika:
+
+Napisati:
+a) funkciju koja .... i na kraju tacka.
+b) funkciju koja .... i na kraju tacka.
+c) funkciju koja .... i na kraju tacka.
+
+nije ispravno jer ne moze jedna recenica da se nastavlja na tri mesta. 
+U skladu sa time, drzala bih se formulacija koje su u skladu sa 
+pravilima srpskog jezika (primere takvih formulacija videcete kod pokazivaca
+i visedimenzionih nizova).
+
+
 

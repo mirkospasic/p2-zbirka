@@ -128,7 +128,7 @@ Izlaz:    2
 \end{Answer}
 
 \begin{Exercise}[label=308]
-\komentar{Milena: Ovo bi trebalo da ide u deo o rekurziji?}
+\komentar{Milena: Ovo bi trebalo da ide u deo o bitskim operatorima?}
 Napisati rekurzivnu funkciju za određivanje
 najveće cifre u oktalnom zapisu
 neoznačenog celog broja korišćenjem bitskih operatora.
@@ -166,7 +166,7 @@ Izlaz: 2
 \end{Answer}
 
 \begin{Exercise}[label=309]
-\komentar{Milena: Ovo bi trebalo da ide u deo o rekurziji?}
+\komentar{Milena: Ovo bi trebalo da ide u deo o bitskim operatorima?}
 Napisati rekurzivnu funkciju za određivanje (dekadne vrednosti)
 najveće cifre u heksadekadnom zapisu neoznačenog celog broja
 korišćenjem bitskih operatora. Uputstvo: binarne cifre
@@ -834,7 +834,6 @@ Rezultujuću matricu ispisati na standardni izlaz.
 
 \section{Pokazivači na funkcije}
 
-\komentar{Milena: ovde nedostaju razni zadaci}
 \begin{Exercise}[label=345]
 Napisati program koji tabelarno štampa vrednosti proizvoljne realne funkcije sa jednim realnim
 argumentom, odnosno izračunava i ispisuje
@@ -848,6 +847,60 @@ se zadaje kao argument komandne linije (\kckod{sin}, \kckod{cos}, \kckod{tan}, \
 \begin{Answer}[ref=345]
 \includecode{resenja/03_Pokazivaci/345.c}
 \end{Answer}
+
+
+\begin{Exercise}[label=346]
+Napisati funkciju koja izračunava limes funkcije \kckod{f(x)} u   
+tački $a$. Adresa funkcije \kckod{f} čiji se limes računa
+se prenosi kao parametar funkciji za računanje limesa.  Limes se
+računa sledećom aproksimacijom (vrednosti $n$ i $a$ uneti sa
+standardnog ulaza kao i ime funkcije):
+$$ lim_{x \rightarrow a} f(x) = lim_{n \rightarrow \infty} f(a + \frac{1}{n})$$
+\begin{miditest}
+\begin{test}{Test 1}
+Ulaz:   tan 1.570795 10000
+Izlaz:  -10134.5
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Ulaz:   log 0 1000000
+Izlaz:  -13.81551
+\end{test}
+\end{miditest}
+\end{Exercise}
+\begin{Answer}[ref=346]
+\includecode{resenja/03_Pokazivaci/346.c}
+\end{Answer}
+
+\begin{Exercise}[label=347]
+Napisati funkciju koja određuje integral funkcije \kckod{f(x)} na
+intervalu $[a, b]$.  Adresa funkcije \kckod{f} se prenosi kao
+parametar. Integral se računa prema formuli:
+$$ \int_{a}^{b} f(x) = h \cdot (\frac{f(a)+f(b)}{2} + \Sigma_{i=1}^{n}
+f(a+i \cdot h))$$ 
+Vrednost $h$ se izračunava po formuli $h = (b-a)/n$, dok se vrednosti $n$, $a$ i $b$ unose sa standardnog
+ulaza kao i ime funkcije iz zaglavlja
+\kckod{math.h}. Na standardni izlaz ispisati vrednost integrala.
+\end{Exercise}
+\begin{Answer}[ref=347]
+\includecode{resenja/03_Pokazivaci/347.c}
+\end{Answer}
+
+\begin{Exercise}[label=348]
+Napisati funkciju koja približno izračunava integral      
+funkcije \kckod{f(x)} na intervalu $[a, b]$. Funkcija \kckod{f} se prosleđuje
+kao parametar, a integral se procenjuje po Simpsonovoj formuli:
+$$I = \frac{h}{3}\left(f(a) + 4 \sum_{i=1}^{n/2}f(a+(2i-1)h) + 2  
+\sum_{i=1}^{n/2-1}f(a+2ih) + f(b)\right)$$ 
+Granice intervala i $n$ su argumenti funkcije. Napisati program, koji kao
+argumente komandne linije prihvata ime funkcije iz zaglavlja
+\kckod{math.h}, krajeve intervala pretrage i $n$, a na standardni izlaz ispisuje vrednost odgovarajućeg integrala.
+\end{Exercise}
+\begin{Answer}[ref=348]
+\includecode{resenja/03_Pokazivaci/348.c}
+\end{Answer}
+
 
 \section{Rešenja}
 \shipoutAnswer
