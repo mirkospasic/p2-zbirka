@@ -2,6 +2,321 @@
 \chapter{Liste}
 
 \section{Zadaci}
+  % mozda iscepkati ove zadatke na pod zadatke <a svako popunjavanje
+  %   i za pretraživanje
+
+\begin{Exercise}[label=601]
+Napisati program koji testira korišćenje jednostruko povezane liste kao 
+dinamičke strukture podataka unošenjem celih brojeva sa standardnog ulaza i 
+njihovim smeštanjem u listu. 
+Unošenje novih brojeva u listu se prekida učitavanjem kraja ulaza (EOF) sa 
+standardnog ulaza. Svako dodavanje novog broja u listu praćeno je ispisivanjem 
+trenutnog sadržaja liste. 
+\begin{enumerate}
+ \item Napisati funkciju koja dodaje nov elemenat na početak liste.
+ \item Napisati funkciju koja dodaje nov elemenat na kraj liste.
+ \item Napisati funkciju koja dodaje nov elemenat u listu tako da lista ostane rastuće sortirana.
+ \item Napisati funkciju koja oslobađa memoriju koju je zauzela lista.
+ \item Napisati funkciju koja pretražuje listu za elementom koji ima vrednost koja je argument funkcije.
+ \item Napisati funkciju koja briše sve elemente u listi koji imaju vrednost koja je argument funkcije.
+\end{enumerate}
+Sve funkcije za rad sa listom treba da budu iterativne.
+\end{Exercise}
+\begin{Answer}[ref=601]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=602]
+Prethodni zadatak uraditi tako da sve funkcije za rad sa listom budu rekurzivne.
+\end{Exercise}
+\begin{Answer}[ref=602]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=603]
+Napisati program koji testira korišćenje dvostruko povezane liste kao 
+dinamičke strukture podataka unošenjem celih brojeva sa standardnog ulaza i 
+njihovim smeštanjem u listu. 
+Unošenje novih brojeva u listu se prekida učitavanjem kraja ulaza (EOF) sa 
+standardnog ulaza. Svako dodavanje novog broja u listu praćeno je ispisivanjem 
+trenutnog sadržaja liste. 
+\begin{enumerate}
+ \item Napisati funkciju koja dodaje nov elemenat na početak liste.
+ \item Napisati funkciju koja dodaje nov elemenat na kraj liste.
+ \item Napisati funkciju koja dodaje nov elemenat u listu tako da lista ostane rastuće sortirana.
+ \item Napisati funkciju koja oslobađa memoriju koju je zauzela lista.
+ \item Napisati funkciju koja pretražuje listu za elementom koji ima vrednost koja je argument funkcije.
+ \item Napisati funkciju koja briše sve elemente u listi koji imaju vrednost koja je argument funkcije.
+\end{enumerate}
+Sve funkcije za rad sa dvostruko povezanom listom treba da budu iterativne.
+\end{Exercise}
+\begin{Answer}[ref=603]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
+
+
+\begin{Exercise}[label=604]
+Napisati program koji proverava ispravnost uparivanja etiketa u HTML datoteci. 
+Za rešenje koristiti stek implementiran korišćenjem listi za smeštanje etiketa.
+
+
+\begin{maxitest}
+    \begin{test}{Test 1}
+Poziv: ./a.out datoteka.html
+Datoteka.html:                                     Izlaz:
+<html>                                             Ispravno
+  <head><title>Primer</title></head>               
+  <body>                                           
+    <h1>Naslov</h1>                                
+    Danas je lep i suncan dan. <br>                
+    A sutra ce biti jos lepsi.     
+    <a link="http://www.google.com"> Link 1</a>    
+    <a link="http://www.math.rs"> Link 2</a>
+  </body>
+</html>
+    \end{test}
+    
+  \begin{test}{Test 2}
+Poziv: ./a.out datoteka.html
+Datoteka.html:                                     Izlaz:
+<html>                                             Neispravno
+  <head><title>Primer</title></head>               
+  <body>  
+</html>
+  \end{test}
+  
+  \begin{test}{Test 3}
+Poziv: ./a.out datoteka.html
+Datoteka.html:                                     Izlaz:
+<html>                                             Neispravno
+  <head><title>Primer</title></head>               
+  <body>  
+  </body>
+  \end{test}
+  
+\end{maxitest}
+
+\end{Exercise}
+\begin{Answer}[ref=604]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=605]
+Napisati program kojim se simulira rad jednog šaltera na kom se prvo zakazuju 
+termini, a potom službenik uslužuje korisnike redom, kako su se prijavljivali.
+Korisnik se prijavljuje unošenjem svog jmbg broja i zahteva. Prijavljivanje korisnika se prekida unošenjem karaktera za kraj ulaza (EOF).
+
+Službenik ima mogućnost da prilikom obrade zahteva odgovorom \kckod{Da} na 
+postavljeno pitanje, korisnika čiji je to bio zahtev vrati natrag na kraj reda.
+Posle svakog 10 usluženog korisnika, službeniku se nudi mogućnost da prekine sa 
+radom, nevezano od broja korisnika koji i dalje čekaju u redu.
+
+Za čuvanje korisničkih zahteva koristiti red implementiran korišćenjem listi.
+\end{Exercise}
+\begin{Answer}[ref=605]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
+
+%%% Obavezni sa praktikuma
+
+\begin{Exercise}[label=606]
+Napisati program koji prebrojava pojavljivanja etiketa (bez atributa) HTML 
+datoteke čije se ime zadaje kao argument komandne linije. Sadržaj rezultujuće 
+liste ispisati na standardni izlaz. Za formiranje liste koristiti strukturu:
+\begin{verbatim} 
+ typedef struct _Element
+ {
+   unsigned broj_pojavljivanja;
+   char etiketa[20];
+   struct _Element *sledeci;
+ } Element;
+\end{verbatim}
+
+\begin{maxitest}
+    \begin{test}{Test 1}
+Poziv: ./a.out datoteka.html
+Datoteka.html:                                     Izlaz:
+<html>                                             a - 4
+  <head><title>Primer</title></head>               br - 1
+  <body>                                           h1 - 2
+    <h1>Naslov</h1>                                body - 2
+    Danas je lep i suncan dan. <br>                title - 2
+    A sutra ce biti jos lepsi.                     head - 2
+    <a link="http://www.google.com"> Link 1</a>    html - 2
+    <a link="http://www.math.rs"> Link 2</a>
+  </body>
+</html>
+    \end{test}
+\end{maxitest}
+
+\end{Exercise}
+\begin{Answer}[ref=606]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
+
+
+\begin{Exercise}[label=607]
+Napisati program koji objedinjuje dve sortirane liste. Funkcija ne treba da 
+kreira nove čvorove, već da samo
+postojeće čvorove preraspodeli. Prva lista se učitava iz datoteke koja se 
+zadaje kao prvi argument komandne
+linije, a druga iz druge. Rezultujuću listu ispisati na standardni izlaz.
+
+\begin{miditest}
+  \begin{test}{Test 1}
+Poziv: ./a.out dat1.txt dat2.txt
+dat1.txt: 2 4 6 10 15
+dat2.txt: 5 6 11 12 14 16
+Izlaz: 2 4 5 6 6 10 11 12 14 15 16
+  \end{test}
+\end{miditest}
+  
+\end{Exercise}
+\begin{Answer}[ref=607]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
+
+
+\begin{Exercise}[label=608]
+Napisati funkciju koja formira listu studenata tako što se podaci o studentima 
+učitavaju iz datoteke čije se ime zadaje kao argument komandne linije. 
+U svakom redu datoteke nalaze se podaci o studentu i to broj indeksa, ime
+i prezime. Napisati rekurzivnu funkciju koja određuje da li neki student pripada listi ili ne.
+Ispisati zatim odgovarajuću poruku i rekurzivno osloboditi memoriju koju je data lista zauzimala.
+Student se traži na osnovu broja indeksa, koji se zadaje sa standardnog ulaza.
+\begin{maxitest}
+    \begin{test}{Test 1}
+Poziv: ./a.out studenti.txt
+Datoteka:                 Ulaz:       Izlaz:
+123/2014 Marko Lukic      3/2014      da: Ana Sokic
+3/2014 Ana Sokic          235/2008    ne
+43/2013 Jelena Ilic       41/2009     da: Marija Zaric
+41/2009 Marija Zaric
+13/2010 Milovan Lazic
+  \end{test}
+\end{maxitest}
+
+\end{Exercise}
+\begin{Answer}[ref=608]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=608]
+Sadržaj datoteke je aritmetički izraz koji može sadržati zagrade \{, [ i (. 
+Napisati program koji učitava sadržaj datoteke i korišćenjem steka 
+utvrđuje da li su zagrade u aritmetičkom izrazu 
+dobro uparene. Program štampa odgovarajuću poruku na standardni izlaz.
+
+\begin{maxitest}
+  \begin{test}{Test 1}
+Datoteka: {[23 + 5344] * (24 - 234)} - 23
+Izlaz:  ispravno
+  \end{test}
+  \begin{test}{Test 2}
+Datoteka: {[23 + 5] * (9 * 2)} - {23}
+Izlaz:  ispravno
+  \end{test}
+  \begin{test}{Test 3}
+Datoteka: {[2 + 54) / (24 * 87)} + (234 + 23)
+Izlaz:  neispravno
+  \end{test}
+\end{maxitest}
+
+\end{Exercise}
+\begin{Answer}[ref=608]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
+%% Dodatni
+
+
+\begin{Exercise}[label=609]
+Neka su date dve jednostruko povezane liste L1 i L2. Napisati funkciju koja od 
+tih lista formira novu listu L koja sadrži alternirajući rasporedene elemente 
+lista L1 i L2 (prvi element iz L1, prvi element iz L2, drugi element L1,
+drugi element L2, itd). Ne formirati nove čvorove, već samo postojeće čvorove 
+rasporediti u jednu listu. Prva lista se učitava iz datoteke koja se zadaje 
+kao prvi argument komandne linije, a druga iz druge. Rezultujuću listu ispisati 
+na standardni izlaz.
+
+\begin{miditest}
+  \begin{test}{Test 1}
+Poziv: ./a.out dat1.txt dat2.txt
+dat1.txt: 2 4 6 10 15
+dat2.txt: 5 6 11 12 14 16
+Izlaz:  2 5 4 6 6 11 10 12 15 14 16
+  \end{test}
+\end{miditest}
+
+\end{Exercise}
+\begin{Answer}[ref=609]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
+
+
+\begin{Exercise}[label=610]
+Data je datotka brojevi.txt koja sadrži cele brojeve, po jedan u svakom redu.
+\begin{enumerate}
+ \item Napisati funkciju koja iz zadate datoteke učitava brojeve i smešta ih u listu.
+ \item Napisati funkciju koja u jednom prolazu kroz zadatu listu celih brojeva 
+pronalazi maximalan strogo rastući podniz.
+ \item Koristeći funkcije pod a) i b) napisati program koji u datoteku 
+Rezultat.txt upisuje nadeni strogo rastući podniz.
+\end{enumerate}
+
+
+\begin{maxitest}
+  \begin{test}{Test 1}
+Ulaz:  brojevi.txt       Izlaz: Rezultat.txt
+       43                            12
+       12                            15
+       15                            16
+       16
+       4
+       2
+       8
+  \end{test}
+\end{maxitest}
+
+\end{Exercise}
+\begin{Answer}[ref=610]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
+
+
+\begin{Exercise}[label=611]
+Grupa od n plesača na kostimima imaju brojeve od 1 do n, redom, u smeru kazaljke na satu.
+Plesači izvode svoju plesnu tačku tako što formiraju krug iz kog najpre izlazi k-ti plesač.
+Odbrojava se počevši od plesača označenog brojem 1 u smeru kretanja kazaljke na satu. 
+Preostali plesači obrazuju manji krug iz kog opet izlazi k-ti plesač. Odbrojavanje počinje od
+sledećeg suseda prethodno izbačenog, opet u smeru kazaljke na satu. Izlasci iz kruga se nastavljaju
+sve dok svi plesači ne budu isključeni. 
+Celi brojevi n, k (k < n) se učitavaju sa standardnog ulaza. Napisati program koji će na standardni 
+izlaz ispisati redne brojeve plesača u redosledu napuštanja kruga. 
+NAPOMENA: Koristiti kružnu listu jer u njoj poslednji element, umesto null 
+pokazivača čuva adresu prvog elementa u listi.
+\begin{maxitest}
+  \begin{test}{Test 1}
+Ulaz: 5 3 
+Izlaz: 3 1 5 2 4
+  \end{test}
+\end{maxitest}
+
+\end{Exercise}
+\begin{Answer}[ref=611]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
 
 
 \section{Rešenja}
