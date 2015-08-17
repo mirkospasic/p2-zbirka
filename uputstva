@@ -122,4 +122,27 @@ pravilima srpskog jezika (primere takvih formulacija videcete kod pokazivaca
 i visedimenzionih nizova).
 
 
+Uputstva za unos resenja
 
+> 1. Kada unosim resenja zadataka sa vezbi, da li da unosim i sve (detaljne)
+> komentare koji tamo stoje ili ne? Ako da, onda bi te komentare trebalo
+> detaljno preformulisati ali bi to zahtevalo zaista puno vremena.
+
+Uzmes zadatak sa vezbi, sredis da je kod u skladu sa zadatkom, sredis mu komentare, testiras resenje da je dobro. Komentari moraju da postoje, u kojoj meri, to je vec stvar ukusa, izbaci sta mislis da treba, ubaci sta mislis da nedostaje.
+
+> 2. Kada pisemo resenje, npr.
+>
+> int main() {
+>    int x;
+> }
+>
+> da li pre int da budu dva blanko znaka ili jedan tab. Kod resenja sa
+> ispitnih rokova, vidim da je Nina stavila tab. Da li da i ja (i svi
+> ostali) tako uradim?
+
+Ujednacavanje stila ispisa koda mislim da treba da uradimo nad celokupnim korpusom resenja uz pomoc nekog alata, tj automatski. Poksaj da se nas sestoro usaglasimo po pitanju stila, blankova i tabova je bespotrebno ogroman posao. Prema tome, skoncentrisi se na na delove pod 1. a ovakve stvari ostavi za narednu fazu i za neki automatski alat.
+
+> 3. Da li da ogranicavamo duzinu reda na neki odredjeni broj karaktera ili
+> ne? Ovo pitanje se odnosi i na komentare i na kod.
+
+Odgovor na ovo je isti kao prethodni - da moracemo da se ogranicimo, ali mislim da ce to moci automatski da se uradi. A mozda i nece (tj hoce sigurno, ali ako se radi automatski pitanje je koliko lepo ce da izgleda), pa nije lose u startu voditi racuna da se ne prelazi 80 karaktera u redu. 
