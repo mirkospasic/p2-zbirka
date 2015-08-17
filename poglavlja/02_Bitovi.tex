@@ -6,18 +6,84 @@
 
 
 \begin{Exercise}[label=201]
-Napisati:
 \begin{enumerate}
-\item funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu celog broja $x$.
-\item program koja testira funkciju \kckod{print\_bits} za proizvoljne brojeve.
+\item Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu celog broja $x$.
+\item Napisati program koja testira funkciju \kckod{print\_bits} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
 \end{enumerate}
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:   0x7F  
+Izlaz:  0000 0000 0000 0000 0000 0000 0111 1111    
+\end{test}
+\end{maxitest}
+
+\begin{maxitest}
+\begin{test}{Test 2}
+Ulaz:   0x80
+Izlaz:  0000 0000 0000 0000 0000 0000 1000 0000 
+\end{test}
+\end{maxitest}
+
+\begin{maxitest}
+\begin{test}{Test 3}
+Ulaz:   0x00FF00FF
+Izlaz:  0000 0000 1111 1111 0000 0000 1111 1111
+\end{test}
+\end{maxitest}
+
+\begin{maxitest}
+\begin{test}{Test 4}
+Ulaz:   0xFFFFFFFF
+Izlaz:  1111 1111 1111 1111 1111 1111 1111 1111 
+\end{test}
+\end{maxitest}
+
+\begin{maxitest}
+\begin{test}{Test }
+Ulaz:   0xABCDE123
+Izlaz:  1010 1011 1100 1101 1110 0001 0010 0011
+\end{test}
+\end{maxitest}
 \end{Exercise}
 \begin{Answer}[ref=201]
-\includecode{resenja/02_Bitovi/201.c}
+%\includecode{resenja/02_Bitovi/201.c}
 \end{Answer}
 
 \begin{Exercise}[label=202]
- Napisati funkciju koja broji bitove postavljene na \argf{1} u zapisu broja $x$. Napisati program koji testira tu funkciju za broj \argf{0xABCDE123}.
+ Napisati funkciju koja broji bitove postavljene na \argf{1} u zapisu broja $x$. Napisati program koji testira tu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:   0x7F  
+Izlaz:  7   
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:   0x80
+Izlaz:  1
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:   0x00FF00FF
+Izlaz:  16
+\end{test}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{Test 4}
+Ulaz:   0xFFFFFFFF
+Izlaz:  32
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 4}
+Ulaz:   0xABCDE123
+Izlaz:  17
+\end{test}
+\end{minitest}
 \end{Exercise}
 \begin{Answer}[ref=202]
 %\includecode{resenja/02_Bitovi/202.c}
@@ -25,12 +91,66 @@ Napisati:
 
 
 \begin{Exercise}[label=203]
-Napisati:
 \begin{enumerate}
-\item funkciju koja određuje najveći broj koji se može zapisati istim binarnim ciframa kao dati broj.
-\item funkciju koja određuje najmanji broj koji se može zapisati istim binarnim ciframa kao dati broj.
-\item program koji testira prethodno napisane funkcije.
+\item Napisati funkciju \kckod{najveci} koja određuje najveći broj koji se može zapisati istim binarnim ciframa kao dati broj i funkciju \kckod{najmanji} koja određuje najmanji broj koji se može zapisati istim binarnim ciframa kao dati broj.
+\item Napisati program koji testira prethodno napisane funkcije tako što prikazuje binarnu reprezentaciju brojeva koji se dobijaju nakon poziva funkcije \kckod{najveci}, ondosno \kckod{najmanji} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu. 
 \end{enumerate}
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:   0x7F  
+Izlaz:  
+ Najveci:
+ 1111 1110 0000 0000 0000 0000 0000 0000  
+ Najmanji:
+ 0000 0000 0000 0000 0000 0000 0111 1110
+\end{test}
+\end{maxitest}
+
+\begin{maxitest}
+\begin{test}{Test 2}
+Ulaz:   0x80
+Izlaz:  
+ Najveci:
+ 1000 0000 0000 0000 0000 0000 0000 0000  
+ Najmanji:
+ 0000 0000 0000 0000 0000 0000 0000 0001
+\end{test}
+\end{maxitest}
+
+\begin{maxitest}
+\begin{test}{Test 3}
+Ulaz:   0x00FF00FF
+Izlaz:  
+ Najveci:
+ 1111 1111 1111 1111 0000 0000 0000 0000  
+ Najmanji:
+ 0000 0000 0000 0000 1111 1111 1111 1111
+\end{test}
+\end{maxitest}
+
+\begin{maxitest}
+\begin{test}{Test 4}
+Ulaz:   0xFFFFFFFF
+Izlaz:  
+ Najveci:
+ 1111 1111 1111 1111 1111 1111 1111 1111   
+ Najmanji:
+ 1111 1111 1111 1111 1111 1111 1111 1111
+\end{test}
+\end{maxitest}
+
+\begin{maxitest}
+\begin{test}{Test 4}
+Ulaz:   0xABCDE123
+Izlaz:  
+ Najveci:
+ 1111 1111 1111 1111 1000 0000 0000 0000  
+ Najmanji:
+ 0000 0000 0000 0001 1111 1111 1111 1111
+\end{test}
+\end{maxitest}
+
 \end{Exercise}
 \begin{Answer}[ref=203]
 %\includecode{resenja/02_Bitovi/203.c}
@@ -38,15 +158,17 @@ Napisati:
 
 
 \begin{Exercise}[label=204]
-Napisati:
+Napisati program za rad sa bitovima.
 \begin{enumerate}
-\item funkciju funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ postave na \argf{0}.
-\item funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ postave na \argf{1}.
-\item funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ i vraća ih kao bitove najmanje težine rezultata.
-\item funkciju koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
-\item funkciju koja vraća broj koji se dobija invertovanjem $n$ bitova broja $x$ počevši od pozicije $p$.
-\item program koji testira prethodno napisane funkcije.
+\item Napisati funkciju funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ postave na \argf{0}.
+\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ postave na \argf{1}.
+\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ i vraća ih kao bitove najmanje težine rezultata.
+\item Napisati funkciju koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
+\item Napisati funkciju koja vraća broj koji se dobija invertovanjem $n$ bitova broja $x$ počevši od pozicije $p$.
+\item Napisati program koji testira prethodno napisane funkcije.
 \end{enumerate}
+Program treba da testira prethodno napisane funkcije nad neoznačenim celim brojem koji se unosi sa standardnog ulaza.
+\emph{Napomena: Pozicije se broje počev od pozicije najnižeg bita, pri čemu se broji od nule .}
 \end{Exercise}
 \begin{Answer}[ref=204]
 %\includecode{resenja/02_Bitovi/204.c}
@@ -54,12 +176,11 @@ Napisati:
 
 
 \begin{Exercise}[label=205]
-Napisati:
 \begin{enumerate}
-\item funkciju funkciju koja određuje broj koji se dobija rotiranjem u levo datog celog broja.
-\item funkciju koja određuje broj koji se dobija rotiranjem u desno datog celog neoznacenog broja. 
-\item funkciju koja određuje broj koji se dobija rotiranjem u desno datog celog broja.
-\item program koji testira prethodno napisane funkcije.
+\item Napisati funkciju funkciju koja određuje broj koji se dobija rotiranjem u levo datog celog broja. Napomena: Rotiranje podrazumeva pomeranje svih bitova za jednu poziciju ulevo, s tim što se bit sa pozicije najviše težine pomera na mesto najmanje težine.
+\item Napisati funkciju koja određuje broj koji se dobija rotiranjem u desno datog celog neoznačenog broja. 
+\item Napisati funkciju koja određuje broj koji se dobija rotiranjem u desno datog celog broja.
+\item Napisati program koji testira prethodno napisane funkcije za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu. 
 \end{enumerate}
 \end{Exercise}
 \begin{Answer}[ref=205]
@@ -67,7 +188,7 @@ Napisati:
 \end{Answer}
 
 \begin{Exercise}[label=206]
-Napisati funkciju koja određuje ceo broj čiji binarni zapis je slika u ogledalu binarnog zapisa argumenta funkcije, a potom i program koji testira datu funkciju za argument \argf{0xABCDE123}.
+Napisati funkciju \kckod{mirror} koja određuje ceo broj čiji binarni zapis je slika u ogledalu binarnog zapisa argumenta funkcije. Napisati i program koji testira datu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu, tako što najpre ispisuje binarnu reprezentaciju unetog broja, a potom i binarnu reprezentaciju broja dobijenog nakon poziva funkcije \kckod{mirror} za uneti broj.
 \end{Exercise}
 \begin{Answer}[ref=206]
 %\includecode{resenja/02_Bitovi/206.c}
@@ -280,6 +401,59 @@ Izlaz:  1
 \begin{Answer}[ref=212]
 %\includecode{resenja/02_Bitovi/212.c}
 \end{Answer}
+
+
+\subsection{Rekurzija i bitovi}
+\begin{Exercise}[label=103]
+%\komentar{Nina: Ovaj zadatak treba posle poglavlja o bitovima. Možda napraviti podpoglavlje u poglavlju Bitovi da se odvoje oni zadaci koji se odnose i na rekurziju.}
+Napisati rekurzivnu funkciju vraća broj bitova koji su postavljeni na 1, u binarnoj reprezentaciji njenog celobrojnog argumenta.  Napisati program koji testira napisanu funkciju za brojeve koji se učitavaju sa standardnog ulaza zadati u heksadekadnom formatu. 
+
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:  0x7F    
+Izlaz:  7             
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:  0x80
+Izlaz:  1         
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:   0x00FF00FF
+Izlaz:  16
+\end{test}
+\begin{test}{Test 4}
+Ulaz:   0xFFFFFFFF       
+Izlaz:  32
+\end{test}
+\end{minitest}  
+% Izbačeno (ne možemo da obezbedimo rešenje) Dodatak za vežbu: \emph{Ispratiti stanje na sistemskom steku u toku izvršavanja jednog poziva funkcije.}
+\end{Exercise}
+\begin{Answer}[ref=103]
+\includecode{resenja/01_Rekurzija/103.c}
+\end{Answer}
+
+\begin{Exercise}[label=115]
+%\komentar{Nina: Ovaj bi trebalo da ide u razne zadatke ili u okviru poglavlja sa bitovima.} Ovaj nema resenje!!!
+
+Napisati rekurzivnu funkciju koja štampa bitovsku
+  reprezentaciju neoznačenog celog broja, i program koji je
+  testira za ulaz koji se zadaje sa standardnog ulaza.
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:       10                                 
+Izlaz:      00000000000000000000000000001010                    
+\end{test}
+\end{maxitest}
+\end{Exercise}
+%\begin{Answer}[ref=115]
+%\includecode{resenja/01_Rekurzija/115.c}
+%\end{Answer}
 
 
 \section{Rešenja}

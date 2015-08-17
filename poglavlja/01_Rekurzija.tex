@@ -15,26 +15,19 @@ nizom.
 \end{Answer}
 
 \begin{Exercise}[label=102]
- Napisati rekurzivnu funkciju koja izracunava  $x^k$,  za dati realni broj $x$ i prirodan broj $k$. Napisati program koji testira napisanu funkciju tako što računa $2^{10}$.
+ Napisati rekurzivnu funkciju koja izračunava  $x^k$,  za dati realni broj $x$ i prirodan broj $k$. Napisati program koji testira napisanu funkciju tako što računa $2^{10}$.
 \end{Exercise}
 \begin{Answer}[ref=102]
 \includecode{resenja/01_Rekurzija/102.c}
 \end{Answer}
 
-
-\begin{Exercise}[label=103]
-\komentar{Nina: Ovaj zadatak treba posle poglavlja o bitovima. Možda napraviti podpoglavlje u poglavlju Bitovi da se odvoje oni zadaci koji se odnose i na rekurziju.}
-Napisati rekurzivnu funkciju vraća broj bitova koji su postavljeni na 1, u binarnoj reprezentaciji njenog celobrojnog argumenta.  Napisati program koji testira napisanu funkciju za brojeve \argf{127,128,0x00FF00FF,0xFFFFFFFF}.
-  
-  Dodatak za vežbu: \emph{Ispratiti stanje na sistemskom steku u toku izvršavanja jednog poziva funkcije.}
-\end{Exercise}
-\begin{Answer}[ref=103]
-\includecode{resenja/01_Rekurzija/103.c}
-\end{Answer}
-
 \begin{Exercise}[label=104]
- Napisati rekurzivnu funkciju koja proverava da li je broj cifara nekog broja paran ili neparan. Napisati program koji testira napisanu funkciju tako što se za broj učitan sa standardnog ispisuje da li je paran ili neparan.
- \emph{Napomena: koristiti uzajamnu (posrednu) rekurziju.}
+ Koristeći uzajamnu (posrednu) rekurziju napisati naredne dve funkcije:
+ \begin{itemize}
+\item fukciju \kckod{paran} koja proverava da li je broj cifara nekog broja paran i vraća 1 ako jeste, a 0 inače;
+\item i fukciju \kckod{neparan} koja vraća 1 ukoliko je broj cifara nekog broja neparan, a 0 inače.
+ \end{itemize}
+ Napisati program koji testira napisanu funkciju tako što seza heksadekadnu vrednost koja se unosi sa standardnogu ulaza ispisuje da li je paran ili neparan.
 \end{Exercise}
 \begin{Answer}[ref=104]
 %\includecode{resenja/01_Rekurzija/104.c}
@@ -49,11 +42,14 @@ Napisati rekurzivnu funkciju vraća broj bitova koji su postavljeni na 1, u bina
 
 
 \begin{Exercise}[label=106]
- Napisati rekurzivnu funkciju koja računa $n$-ti element u nizu, čiji se elementi računaju na osnovu sledećih rekurentnih relacija:\\
+\begin{itemize}
+\item Napisati rekurzivnu funkciju koja računa $n$-ti element u nizu, čiji se elementi računaju na osnovu sledećih rekurentnih relacija:\\
  $F(0) = 0$\\
  $F(1) = 1$\\
- $F(n) = a* F(n-1) + b*F(n-2)$\\
- Napisati funkciju tako da se problemi manje dimenzije rešavaju samo jedan put.
+ $F(n) = a* F(n-1) + b*F(n-2)$.\\
+\item Napisati prethodnu funkciju tako da se problemi manje dimenzije rešavaju samo jedan put.
+\end{itemize}
+  Napisati program koji testira napisane funkcije za poizvoljan broj $n$ ($n \in \mathbb N$) unet sa standardnog ulaza.
 \end{Exercise}
 \begin{Answer}[ref=106]
 %\includecode{resenja/01_Rekurzija/106.c}
@@ -72,7 +68,7 @@ Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,
 \item[b)] Napisati rekurzivnu funkciju koja izračunava vrednost polja \argf{(i, j)}.
 \end{itemize}
  Paskalov trougao se dobija tako što mu je svako polje
-(izuzev 0-te vrste i 0-kolone) zbir jednog polja levo i
+(izuzev jedinica po krajevima) zbir jednog polja levo i
 jednog polja iznad.
 \begin{verbatim}
                1
@@ -104,12 +100,12 @@ Ulaz:   3 2 1 4 21
 Izlaz:  21              
 \end{test}
 \end{miditest}
-\begin{minitest}
+\begin{miditest}
 \begin{test}{Test 2}
 Ulaz:   2 -1 0 -5 -10
 Izlaz:  2                
 \end{test}
-\end{minitest}
+\end{miditest}
 
 \begin{miditest}
 \begin{test}{Test 3}
@@ -207,7 +203,7 @@ Izlaz:  0
 Napisati rekurzivnu funkciju koja računa broj pojavljivanja
   elementa $x$ u nizu $a$ dužine $n$. Napisati program koji testira
   ovu funkciju, za $x$ i niz koji se učitavaju sa standardnog
-  ulaza. Niz neće biti duži od \argf{256}. Prvo se unosi $x$, za zatim
+  ulaza. Niz neće biti duži od \argf{256}. Prvo se unosi $x$, a zatim
   elementi niza sve do kraja ulaza.
   
 \begin{minitest}
@@ -314,23 +310,7 @@ Izlaz:    ne
 % možda \subsection{Dodatni zadaci} ili zadaci za vezbu
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{Exercise}[label=115]
-\komentar{Nina: Ovaj bi trebalo da ide u razne zadatke ili u okviru poglavlja sa bitovima.}
 
-Napisati rekurzivnu funkciju koja štampa bitovsku
-  reprezentaciju neoznačenog celog broja, i program koji je
-  testira za ulaz koji se zadaje sa standardnog ulaza.
-
-\begin{maxitest}
-\begin{test}{Test 1}
-Ulaz:       10                                 
-Izlaz:      00000000000000000000000000001010                    
-\end{test}
-\end{maxitest}
-\end{Exercise}
-%\begin{Answer}[ref=115]
-%\includecode{resenja/01_Rekurzija/115.c}
-%\end{Answer}
 
 \begin{Exercise}[label=116]
 Napisati rekurzivnu funkciju koja prikazuje sve varijacije sa
@@ -356,6 +336,20 @@ Izlaz:   a a a
 %\end{Answer}
 
 \begin{Exercise}[label=117]
+Problema "Hanojske kule": Data su tri
+  vertikalna štapa, na jednom se nalazi n diskova poluprečnika
+  $1$,$2$,$3$,... do $n$, tako da se najveći nalazi na dnu, a
+  najmanji na vrhu. Ostala dva štapa su prazna. Potrebno je
+  premestiti diskove na drugi štap tako da budu u istom redosledu, pri čemu se ni u jednom
+  trenutku ne sme staviti veći disk preko manjeg, a preostali štap se koristi kao pomoćni štapovi prilikom
+  premeštanja.
+
+\end{Exercise}
+%\begin{Answer}[ref=117]
+%\includecode{resenja/01_Rekurzija/117.c}
+%\end{Answer}
+
+\begin{Exercise}[label=118]
 Modifikacija problema "Hanojskih kula": Data su četiri
   vertikalna štapa, na jednom se nalazi n diskova poluprečnika
   $1$,$2$,$3$,... do $n$, tako da se najveći nalazi na dnu, a
@@ -367,8 +361,8 @@ Modifikacija problema "Hanojskih kula": Data su četiri
   premeštanja.
 
 \end{Exercise}
-%\begin{Answer}[ref=117]
-%\includecode{resenja/01_Rekurzija/117.c}
+%\begin{Answer}[ref=118]
+%\includecode{resenja/01_Rekurzija/118.c}
 %\end{Answer}
 
 
