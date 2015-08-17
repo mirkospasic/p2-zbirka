@@ -6,68 +6,99 @@
   %   i za pretraživanje
 
 \begin{Exercise}[label=601]
-Napisati program koji testira korišćenje jednostruko povezane liste kao 
-dinamičke strukture podataka unošenjem celih brojeva sa standardnog ulaza i 
-njihovim smeštanjem u listu. 
-Unošenje novih brojeva u listu se prekida učitavanjem kraja ulaza (EOF) sa 
-standardnog ulaza. Svako dodavanje novog broja u listu praćeno je ispisivanjem 
-trenutnog sadržaja liste. 
+Napisati program koji koristi jednostruko povezanu listu za čuvanje elemenata koji se unose sa standardnog ulaza. Unošenje novih brojeva u listu prekida se učitavanjem kraja ulaza (EOF). Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
 \begin{enumerate}
- \item Napisati funkciju koja dodaje nov elemenat na početak liste.
- \item Napisati funkciju koja dodaje nov elemenat na kraj liste.
- \item Napisati funkciju koja dodaje nov elemenat u listu tako da lista ostane rastuće sortirana.
+\item Definisati strukturu \kckod{Cvor} koja predstavlja čvor liste.
+\item \komentar{Milena:Da li ovde treba dodati i funkciju koja kreira cvor? Nemam resenje kod sebe pa ne znam kako to vec ide, ali mislim da bi trebalo}
+
+ \item Napisati funkciju koja dodaje novi elemenat na početak liste.
+ \item Napisati funkciju koja dodaje novi elemenat na kraj liste.
+ \item \komentar{Milena: Da li bi ovo trebalo izdvojiti u poseban zadatak? Nekako, ako dodajemo na pocetak i kraj, nemamo garanciju sortiranosti liste, tako da mi to nekako deluje da smo dva zadatka strpali u jedan.} Napisati funkciju koja dodaje novi elemenat u listu tako da lista ostane rastuće sortirana.
  \item Napisati funkciju koja oslobađa memoriju koju je zauzela lista.
- \item Napisati funkciju koja pretražuje listu za elementom koji ima vrednost koja je argument funkcije.
+ \item \komentar{Milena: Ova funkcija bi mogla razlicito da se implementira sa pretpostavkom da je lista sortirana i da nije sortirana, i zato mi dodatno deluje da bi ta dva zadatka trebalo razdvojiti} Napisati funkciju koja pretražuje listu za elementom koji ima vrednost koja je argument funkcije.
  \item Napisati funkciju koja briše sve elemente u listi koji imaju vrednost koja je argument funkcije.
-\end{enumerate}
-Sve funkcije za rad sa listom treba da budu iterativne.
+ \item \komentar{Milena: Da li ovde nedostaje funckija koja oslobadja celu memoriju?}
+ \end{enumerate}
+%Sve funkcije za rad sa listom treba da budu iterativne.
+Sve funckije za rad sa listom najpre implementirati iterativno, a zatim i rekurzivno.
 \end{Exercise}
 \begin{Answer}[ref=601]
 \includecode{resenja/06_Liste/601.c}
 \end{Answer}
 
-
+\iffalse
 \begin{Exercise}[label=602]
 Prethodni zadatak uraditi tako da sve funkcije za rad sa listom budu rekurzivne.
 \end{Exercise}
 \begin{Answer}[ref=602]
 \includecode{resenja/06_Liste/601.c}
 \end{Answer}
-
+\fi
 
 \begin{Exercise}[label=603]
-Napisati program koji testira korišćenje dvostruko povezane liste kao 
-dinamičke strukture podataka unošenjem celih brojeva sa standardnog ulaza i 
-njihovim smeštanjem u listu. 
-Unošenje novih brojeva u listu se prekida učitavanjem kraja ulaza (EOF) sa 
-standardnog ulaza. Svako dodavanje novog broja u listu praćeno je ispisivanjem 
-trenutnog sadržaja liste. 
+Napisati program koji koristi dvostruko povezanu listu za čuvanje
+celih brojeva koji se unose sa standardnog ulaza. 
+Unošenje novih brojeva u listu se prekida učitavanjem kraja ulaza (EOF). 
+Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
+\komentar{I ovde isto mozda razdvojiti sortiranost od obične liste.}
 \begin{enumerate}
- \item Napisati funkciju koja dodaje nov elemenat na početak liste.
- \item Napisati funkciju koja dodaje nov elemenat na kraj liste.
- \item Napisati funkciju koja dodaje nov elemenat u listu tako da lista ostane rastuće sortirana.
+ \item Napisati funkciju koja dodaje novi elemenat na početak liste.
+ \item Napisati funkciju koja dodaje novi elemenat na kraj liste.
+ \item Napisati funkciju koja dodaje novi elemenat u listu tako da lista ostane rastuće sortirana.
  \item Napisati funkciju koja oslobađa memoriju koju je zauzela lista.
  \item Napisati funkciju koja pretražuje listu za elementom koji ima vrednost koja je argument funkcije.
  \item Napisati funkciju koja briše sve elemente u listi koji imaju vrednost koja je argument funkcije.
 \end{enumerate}
-Sve funkcije za rad sa dvostruko povezanom listom treba da budu iterativne.
+Sve funckije za rad sa listom implementirati iterativno.
 \end{Exercise}
 \begin{Answer}[ref=603]
 \includecode{resenja/06_Liste/601.c}
 \end{Answer}
 
 
+\begin{Exercise}[label=608]
+Sadržaj datoteke je aritmetički izraz koji može sadržati zagrade \{, [ i (. 
+Napisati program koji učitava sadržaj datoteke i korišćenjem steka 
+utvrđuje da li su zagrade u aritmetičkom izrazu 
+dobro uparene. Program štampa odgovarajuću poruku na standardni izlaz.
+\komentar{Milena: promenjeni test primeri, voditi racuna u resenjima sta se stampa!}
+
+\begin{maxitest}
+  \begin{test}{Test 1}
+Datoteka: {[23 + 5344] * (24 - 234)} - 23
+Izlaz:  Zagrade su ispravno uparene.
+  \end{test}
+\end{maxitest}
+
+\begin{maxitest}
+  \begin{test}{Test 2}
+Datoteka: {[23 + 5] * (9 * 2)} - {23}
+Izlaz:  Zagrade su ispravno uparene.
+  \end{test}
+\end{maxitest}
+
+\begin{maxitest}
+  \begin{test}{Test 3}
+Datoteka: {[2 + 54) / (24 * 87)} + (234 + 23)
+Izlaz:  Zagrade nisu ispravno uparene.
+  \end{test}
+\end{maxitest}
+
+\end{Exercise}
+\begin{Answer}[ref=608]
+\includecode{resenja/06_Liste/601.c}
+\end{Answer}
+
 
 \begin{Exercise}[label=604]
-Napisati program koji proverava ispravnost uparivanja etiketa u HTML datoteci. 
-Za rešenje koristiti stek implementiran korišćenjem listi za smeštanje etiketa.
-
+Napisati program koji proverava ispravnost uparivanja etiketa u HTML datoteci. Ime datoteke se zadaje kao argument komandne linije . \komentar{Milena: A sta ako se ne navede argument komandne linije?}
+Uputstvo: za rešavanje problema koristiti stek implementiran preko listi čiji su čvorovi HTML etikete.
 
 \begin{maxitest}
     \begin{test}{Test 1}
 Poziv: ./a.out datoteka.html
-Datoteka.html:                                     Izlaz:
-<html>                                             Ispravno
+Datoteka.html:                          Izlaz:
+<html>                                  Ispravno uparene etikete.
   <head><title>Primer</title></head>               
   <body>                                           
     <h1>Naslov</h1>                                
@@ -78,25 +109,28 @@ Datoteka.html:                                     Izlaz:
   </body>
 </html>
     \end{test}
-    
+\end{maxitest}
+
+\begin{maxitest}    
   \begin{test}{Test 2}
 Poziv: ./a.out datoteka.html
-Datoteka.html:                                     Izlaz:
-<html>                                             Neispravno
+Datoteka.html:                          Izlaz:
+<html>                                  Neispravno uparene etikete.
   <head><title>Primer</title></head>               
   <body>  
 </html>
   \end{test}
-  
+\end{maxitest}
+
+\begin{maxitest}      
   \begin{test}{Test 3}
 Poziv: ./a.out datoteka.html
-Datoteka.html:                                     Izlaz:
-<html>                                             Neispravno
+Datoteka.html:                          Izlaz:
+<html>                                  Neispravno uparene etikete.
   <head><title>Primer</title></head>               
   <body>  
   </body>
   \end{test}
-  
 \end{maxitest}
 
 \end{Exercise}
@@ -105,15 +139,21 @@ Datoteka.html:                                     Izlaz:
 \end{Answer}
 
 
-\begin{Exercise}[label=605]
-Napisati program kojim se simulira rad jednog šaltera na kom se prvo zakazuju 
-termini, a potom službenik uslužuje korisnike redom, kako su se prijavljivali.
-Korisnik se prijavljuje unošenjem svog jmbg broja i zahteva. Prijavljivanje korisnika se prekida unošenjem karaktera za kraj ulaza (EOF).
 
-Službenik ima mogućnost da prilikom obrade zahteva odgovorom \kckod{Da} na 
-postavljeno pitanje, korisnika čiji je to bio zahtev vrati natrag na kraj reda.
-Posle svakog 10 usluženog korisnika, službeniku se nudi mogućnost da prekine sa 
-radom, nevezano od broja korisnika koji i dalje čekaju u redu.
+\begin{Exercise}[label=605]
+\komentar{Milena: Problem sa ovim zadatkom je sto je program najpre na usluzi korisnicima, a zatim na usluzi sluzbeniku i to nekako zbunjuje u formulaicji. Formulacija mi nije bila jasna bez citanja resenja, pokusala sam da je preciziran, u nastavku je izmenjena formulacija. \\Medjutim, ja i dalje nisam bas zadovoljna i zato predlazem da se formulacija izmeni tako da je program stalno na usluzi sluzbeniku. Program ucitva podatke o prijavljenim korisnicima iz datoteke. Sluzbenik odlucuje da li ce da obradjuje redom korisnike, ili ce u nekim situacijama da odlozi rad sa korisnikom i stavi ga na kraj reda. Program ga uvek pita da na osnovu jmbg-a i zahteva odluci da li ce ga staviti na kraj reda, ako hoce, on ide na kraj reda, ako nece, onda  sluzbenik daje odgovor na zahtev i jmbg, zahtev i odgovor se upisuju u izlaznu datoteku.}
+
+Napisati program kojim se simulira rad jednog šaltera na kojem se prvo zakazuju 
+termini, a potom službenik uslužuje korisnike redom, kako su se prijavljivali.
+
+Korisnik se prijavljuje unošenjem svog \kckod{jmbg} broja (niska koja sadrži $13$ karaktera) i zahteva (niska koja sadrži najviše $999$ karaktera). Prijavljivanje korisnika se prekida unošenjem karaktera za kraj ulaza (\kckod{EOF}).
+
+Službenik redom proziva korisnike čitanjem njihovog \kckod{jmbg} broja, a zatim odlučuje da li 
+korisnika vraća na kraj reda ili ga odmah uslužuje. Službeniku se postavlja pitanje 
+\kckod{Da li korisnika  vracate na kraj reda?} i ukoliko on da odgovor \kckod{Da}, 
+korisnik se vraća na kraj reda. Ukoliko odgovor nije \kckod{Da}, tada službenik čita korisnikov zahtev.  
+Posle svakog $10$ usluženog korisnika, službeniku se nudi 
+mogućnost da prekine sa radom, nevezano od broja korisnika koji i dalje čekaju u redu. 
 
 Za čuvanje korisničkih zahteva koristiti red implementiran korišćenjem listi.
 \end{Exercise}
@@ -125,17 +165,18 @@ Za čuvanje korisničkih zahteva koristiti red implementiran korišćenjem listi
 %%% Obavezni sa praktikuma
 
 \begin{Exercise}[label=606]
-Napisati program koji prebrojava pojavljivanja etiketa (bez atributa) HTML 
-datoteke čije se ime zadaje kao argument komandne linije. Sadržaj rezultujuće 
-liste ispisati na standardni izlaz. Za formiranje liste koristiti strukturu:
-\begin{verbatim} 
+\komentar{Milena: Dodati sta se desava ako nije zadat argument komandne linije ili ako datoteka ne postoji}
+Napisati program koji prebrojava pojavljivanja etiketa HTML 
+datoteke čije se ime zadaje kao argument komandne linije. Rezultat prebrojavanja 
+ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste koristiti strukturu:
+\begin{ckod} 
  typedef struct _Element
  {
    unsigned broj_pojavljivanja;
    char etiketa[20];
    struct _Element *sledeci;
  } Element;
-\end{verbatim}
+\end{ckod}
 
 \begin{maxitest}
     \begin{test}{Test 1}
@@ -162,11 +203,13 @@ Datoteka.html:                                     Izlaz:
 
 
 \begin{Exercise}[label=607]
+\komentar{Milena: i ovde dodati sta ako nema argumenata i ako nema datoteka, kao i u svim ostalim zadacima, a ne bih stalno ovaj komentar ponavljala. Takodje, malo me muci u ovom zadatku sto nema neki smisao. Naime, ako se samo vrsi ucitavanje iz datoteka i ispisivanje, onda su ove liste zapravo visak jer isti rezultat moze da se dobije i bez koriscenja listi. Zato mi fali da program uradi nesto sto ne bi mogao da uradi bez koriscenja listi, npr da na osnovu unetog broja ispisuje svaki n-ti broj rezultujuce liste pa to u nekoj petlji  da korisnik moze da ispisuje za razlicite unete n ili tako nesto... }
+
 Napisati program koji objedinjuje dve sortirane liste. Funkcija ne treba da 
 kreira nove čvorove, već da samo
 postojeće čvorove preraspodeli. Prva lista se učitava iz datoteke koja se 
 zadaje kao prvi argument komandne
-linije, a druga iz druge. Rezultujuću listu ispisati na standardni izlaz.
+linije, a druga iz datoteke čije se ime zadaje kao drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.
 
 \begin{miditest}
   \begin{test}{Test 1}
@@ -208,44 +251,22 @@ Datoteka:                 Ulaz:       Izlaz:
 \includecode{resenja/06_Liste/601.c}
 \end{Answer}
 
+\komentar{Milena: Imamo dva zadatka sa labelom 608!}
 
-\begin{Exercise}[label=608]
-Sadržaj datoteke je aritmetički izraz koji može sadržati zagrade \{, [ i (. 
-Napisati program koji učitava sadržaj datoteke i korišćenjem steka 
-utvrđuje da li su zagrade u aritmetičkom izrazu 
-dobro uparene. Program štampa odgovarajuću poruku na standardni izlaz.
-
-\begin{maxitest}
-  \begin{test}{Test 1}
-Datoteka: {[23 + 5344] * (24 - 234)} - 23
-Izlaz:  ispravno
-  \end{test}
-  \begin{test}{Test 2}
-Datoteka: {[23 + 5] * (9 * 2)} - {23}
-Izlaz:  ispravno
-  \end{test}
-  \begin{test}{Test 3}
-Datoteka: {[2 + 54) / (24 * 87)} + (234 + 23)
-Izlaz:  neispravno
-  \end{test}
-\end{maxitest}
-
-\end{Exercise}
-\begin{Answer}[ref=608]
-\includecode{resenja/06_Liste/601.c}
-\end{Answer}
 
 %% Dodatni
 
 
 \begin{Exercise}[label=609]
 Neka su date dve jednostruko povezane liste L1 i L2. Napisati funkciju koja od 
-tih lista formira novu listu L koja sadrži alternirajući rasporedene elemente 
+tih lista formira novu listu L koja sadrži alternirajući raspoređene elemente 
 lista L1 i L2 (prvi element iz L1, prvi element iz L2, drugi element L1,
 drugi element L2, itd). Ne formirati nove čvorove, već samo postojeće čvorove 
 rasporediti u jednu listu. Prva lista se učitava iz datoteke koja se zadaje 
-kao prvi argument komandne linije, a druga iz druge. Rezultujuću listu ispisati 
-na standardni izlaz.
+kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao 
+drugi argument komandne linije. Rezultujuću listu ispisati 
+na standardni izlaz. \komentar{Milena: Sta ako je neka lita duza? To precizirati. I ovde me muci
+sto nedostaje neki smisao zadatku, nesto sto ne bi moglo da se uradi da nismo kristili liste. }
 
 \begin{miditest}
   \begin{test}{Test 1}
@@ -269,11 +290,11 @@ Data je datotka brojevi.txt koja sadrži cele brojeve, po jedan u svakom redu.
  \item Napisati funkciju koja iz zadate datoteke učitava brojeve i smešta ih u listu.
  \item Napisati funkciju koja u jednom prolazu kroz zadatu listu celih brojeva 
 pronalazi maximalan strogo rastući podniz.
- \item Koristeći funkcije pod a) i b) napisati program koji u datoteku 
-Rezultat.txt upisuje nadeni strogo rastući podniz.
 \end{enumerate}
+Napisati program koji u datoteku \kckod{Rezultat.txt} upisuje nađeni strogo rastući podniz.
+\komentar{Milena: I ovde me muci sto bi zadatak mogao da se resi i bez koriscenja listi... }
 
-
+\komentar{Milena: Prirodni oblik testa ovde bi bio horizontalan, a ne ovako vertikalan.}
 \begin{maxitest}
   \begin{test}{Test 1}
 Ulaz:  brojevi.txt       Izlaz: Rezultat.txt
@@ -303,8 +324,7 @@ sledećeg suseda prethodno izbačenog, opet u smeru kazaljke na satu. Izlasci iz
 sve dok svi plesači ne budu isključeni. 
 Celi brojevi n, k (k < n) se učitavaju sa standardnog ulaza. Napisati program koji će na standardni 
 izlaz ispisati redne brojeve plesača u redosledu napuštanja kruga. 
-NAPOMENA: Koristiti kružnu listu jer u njoj poslednji element, umesto null 
-pokazivača čuva adresu prvog elementa u listi.
+Uputstvo: u implementaciji koristiti kružnu listu.
 \begin{maxitest}
   \begin{test}{Test 1}
 Ulaz: 5 3 
@@ -317,7 +337,7 @@ Izlaz: 3 1 5 2 4
 \includecode{resenja/06_Liste/601.c}
 \end{Answer}
 
-
+\komentar{Milena: Bilo bi lepo dodati i prethodni zadatak u kojem se smer izbacivanja stalno menja, tako da se onda korsti dvostruko povezana kružna lista.}
 
 \section{Rešenja}
 \shipoutAnswer
