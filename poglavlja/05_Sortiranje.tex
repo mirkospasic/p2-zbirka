@@ -144,17 +144,48 @@ Izlaz:  1 4 7 9 11 23 54 75
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=506]
+  Napisati program koji čita sadržaj dve datoteke od kojih svaka
+  sadrži spisak imena i prezimena studenata iz jedne od dve grupe,
+  rastuće sortiran po imenima i kreira jedinstven spisak studenata
+  sortiranih takođe po imenu rastuće.  Program dobija nazive datoteka
+  iz komandne linije, i jedinstven spisak upisuje u datoteku
+  \kckod{ceo-tok.txt}. Pretpostaviti da je ime studenta nije duže od
+  10, a prezime od 15 karaktera.
+
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Poziv: ./a.out prvi-deo.txt drugi-deo.txt
+prvi-deo.txt:          drugi-deo.txt          ceo-tok.txt
+Andrija Petrovic       Aleksandra Cvetic      (TODO)
+Anja Ilic              Bojan Golubovic
+Ivana Markovic         Dragan Markovic
+Lazar Micic            Filip Dukic
+Nenad Brankovic        Ivana Stankovic
+Sofija Filipovic       Marija Stankovic
+Vladimir Savic         Ognjen Peric
+                       Uros Milic
+\end{test}
+\end{maxitest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=506]
+%  \includecode{resenja/05_Sortiranje/506.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=506]
   Napraviti biblioteku \kckod{sort.h} i \kckod{sort.c} koja
   implementira algoritme sortiranja nizova celih brojeva. Biblioteka
-  treba da sadrži bubble, insertion i shell sort. Upotrebiti
-  biblioteku kako bi se napravilo poređenje efikasnosti različitih
-  algoritama sortiranja. Efikasnost meriti na slučajno generisanim
-  nizovima, na već sortiranim nizovima i na naopako sortiranim
-  nizovima. Izbor algoritma, veličine i početnog rasporeda elemenata
-  niza birati kroz argumente komandne linije.  Vreme meriti programom
-  \kckod{time}. Analizirati porast vremena sa porastom dimenzije
-  \argf{n}. Porediti vremena za različite implementacije istog
-  algoritma (iterativna i rekurzivna).
+  treba da sadrži selection, merge, quick, bubble, insertion i shell
+  sort. Upotrebiti biblioteku kako bi se napravilo poređenje
+  efikasnosti različitih algoritama sortiranja. Efikasnost meriti na
+  slučajno generisanim nizovima, na već sortiranim nizovima i na
+  naopako sortiranim nizovima. Izbor algoritma, veličine i početnog
+  rasporeda elemenata niza birati kroz argumente komandne linije.
+  Vreme meriti programom \kckod{time}. Analizirati porast vremena sa
+  porastom dimenzije \argf{n}.
   
 \end{Exercise}
 
@@ -166,27 +197,29 @@ Izlaz:  1 4 7 9 11 23 54 75
 \begin{Exercise}[label=507]
   Napisati funkcije koje sortiraju niz struktura tačaka na
   osnovu sledećih kriterijuma:
-\begin{enumerate}
-\item njihovog rastojanja od koordinatnog početka,
-\item x koordinata tačkaka,
-\item y koordinata tačaka.
-\end{enumerate}
-Napisati program koji učitava niz tačaka iz datoteke čije se ime
-zadaje kao argument komandne linije, i u zavisnosti od prisutnih
-opcija u komandnoj liniji (\argf{-d}, \argf{-x} ili \argf{-y}),
-sortira tačke po jednom od prethodna tri kriterijuma i rezultat
-upisuje u datoteku čije se ime zadaje kao drugi argument komandne
-linije. U ulaznoj datoteci nije zadato više od 128 tačaka.
+  \begin{enumerate}
+  \item njihovog rastojanja od koordinatnog početka,
+  \item x koordinata tačkaka,
+  \item y koordinata tačaka.
+  \end{enumerate}
+  Napisati program koji učitava niz tačaka iz datoteke čije se ime
+  zadaje kao argument komandne linije, i u zavisnosti od prisutnih
+  opcija u komandnoj liniji (\argf{-d}, \argf{-x} ili \argf{-y}),
+  sortira tačke po jednom od prethodna tri kriterijuma i rezultat
+  upisuje u datoteku čije se ime zadaje kao drugi argument komandne
+  linije. U ulaznoj datoteci nije zadato više od 128 tačaka.
   
 \begin{miditest}
 \begin{test}{Test 1}
 Poziv:  a.out -x tacke.txt sorttacke.txt
-Ulazna datoteka:   3 4
+Ulazna datoteka:
+3 4
 11 6
 7 3
 2 82
 -1 6
-Izlazna datoteka:  -1 6
+Izlazna datoteka:
+-1 6
 2 82
 3 4
 7 3
@@ -198,6 +231,37 @@ Izlazna datoteka:  -1 6
 
 %\begin{Answer}[ref=507]
 %  \includecode{resenja/05_Sortiranje/507.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=506]
+  Napisati program koji učitava imena i prezimena građana (najviše
+  njih 1000) iz datoteke \kckod{biracki-spisak.txt}, i kreira biračke
+  spiskove. Jedan birački spisak je sortiran po imenu građana, a drugi
+  po prezimenu. Program treba da ispisuje koliko građana ima isti
+  redni broj u oba biračka spiska. Pretpostaviti da je za ime, odnosno
+  prezime građana dovoljno 15 karaktera.
+
+\begin{miditest}
+\begin{test}{Test 1}
+biracki-spisak.txt:      Izlaz:
+Andrija Petrovic         (TODO)
+Anja Ilic
+Aleksandra Cvetic
+Bojan Golubovic
+Dragan Markovic
+Filip Dukic
+Ivana Stankovic
+Ivana Markovic
+Lazar Micic
+Marija Stankovic    
+\end{test}
+\end{miditest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=506]
+%  \includecode{resenja/05_Sortiranje/506.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -255,6 +319,74 @@ Izlaz:
 ana matej milos petar milica nikola andjela ljubica aleksandar
 \end{test}
 \end{maxitest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=509]
+%  \includecode{resenja/05_Sortiranje/509.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=509]
+  Napisati program koji simulira rad kase u prodavnici. Kupci prilaze
+  kasi, a prodavac unošenjem bar-koda kupljenog proizvoda dodaje
+  njegovu cenu na ukupan račun. Na kraju, program ispisuje ukupnu
+  vrednost svih proizvoda. Sve artikle, zajedno sa bar-kodovima,
+  prozivođačima i cenama učitati iz datoteke
+  \kckod{artikli.txt}. Pretraživanje niza artikala vršiti binarnom
+  pretragom.
+  
+\begin{maxitest}
+\begin{test}{Test 1}
+artikli.txt:                         Ulaz:           Izlaz:
+1001 Keks Jaffa 120                  (TODO)          (TODO)
+2530 Napolitanke Bambi	230
+0023 Medeno_srce Pionir 150
+2145 Pardon Marbo 70
+\end{test}
+\end{maxitest}
+  
+\end{Exercise}
+
+%\begin{Answer}[ref=509]
+%  \includecode{resenja/05_Sortiranje/509.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=509]
+   Napisati program koji iz datoteke \kckod{aktivnost.txt} čita
+   podatke o aktivnosti studenata na praktikumima i na standardni
+   izlaz ispisuje 3 spiska. Na prvom su studenti sortirani
+   leksikografski po imenu rastuće. Na drugom su sortirani po ukupnom
+   broju urađenih zadataka opadajuće, a ukoliko neki studenti imaju
+   isti broj rešenih zadataka sortiraju se po dužini imena rastuće. Na
+   trećem spisku kriterijum sortiranja je broj časova na kojima su
+   bili opadajuće. Ukoliko neki studenti imaju isti broj časova,
+   sortirati ih opadajuće po broju urađenih zadataka, a ukoliko se i
+   on poklapa sortirati po prezimenu opadajuće. U datoteci se nalazi
+   ime, prezime studenta, broj časova na kojima je prisustvovao, kao i
+   ukupan broj urađenih zadataka. Pretpostaviti da studenata neće biti
+   više od 500 i da je za ime studenta dovoljno 20, a za prezime 25
+   karaktera.
+  
+\begin{miditest}
+\begin{test}{Test 1}
+aktivnosti.txt:               Izlaz:
+Aleksandra Cvetic 4 6         (TODO)
+Bojan Golubovic 4 3
+Dragan Markovic 3 5
+Filip Dukic 2 0 
+Ivana Stankovic 3 1
+Marija Stankovic 1 3 
+Ognjen Peric 1 2
+Uros Milic 2 5
+Andrija Petrovic 2 5
+Anja Ilic 3 1
+Ivana Markovic 2 5
+Lazar Micic 1 3
+Nenad Brankovic 2 4
+\end{test}
+\end{miditest}
   
 \end{Exercise}
 
