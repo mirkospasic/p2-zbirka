@@ -15,7 +15,7 @@ nizom.
 \end{Answer}
 
 \begin{Exercise}[label=102]
- Napisati rekurzivnu funkciju koja izračunava  $x^k$,  za dati realni broj $x$ i prirodan broj $k$. Napisati program koji testira napisanu funkciju tako što računa $2^{10}$.
+ Napisati rekurzivnu funkciju koja izračunava  $x^k$,  za dati realni broj $x$ i prirodan broj $k$. Napisati program koji testira napisanu funkciju za vrednosti koje se unose sa standardnog ulaza.
 \end{Exercise}
 \begin{Answer}[ref=102]
 \includecode{resenja/01_Rekurzija/102.c}
@@ -27,14 +27,14 @@ nizom.
 \item fukciju \kckod{paran} koja proverava da li je broj cifara nekog broja paran i vraća 1 ako jeste, a 0 inače;
 \item i fukciju \kckod{neparan} koja vraća 1 ukoliko je broj cifara nekog broja neparan, a 0 inače.
  \end{itemize}
- Napisati program koji testira napisanu funkciju tako što seza heksadekadnu vrednost koja se unosi sa standardnogu ulaza ispisuje da li je paran ili neparan.
+ Napisati program koji testira napisanu funkciju tako što se za heksadekadnu vrednost koja se unosi sa standardnog ulaza ispisuje da li je paran ili neparan.
 \end{Exercise}
 \begin{Answer}[ref=104]
 %\includecode{resenja/01_Rekurzija/104.c}
 \end{Answer}
 
 \begin{Exercise}[label=105]
-  Napisati repno-rekurzivnu funkciju koja izračunava $n!$. Napisati program koji testira napisanu funkciju za poizvoljan broj $n$ ($n \le 12$) unet sa standardnog ulaza.
+  Napisati repno-rekurzivnu funkciju koja izračunava faktorijel broja n. Napisati program koji testira napisanu funkciju za poizvoljan broj $n$ ($n \le 12$) unet sa standardnog ulaza.
 \end{Exercise}
 \begin{Answer}[ref=105]
 %\includecode{resenja/01_Rekurzija/105.c}
@@ -42,13 +42,14 @@ nizom.
 
 
 \begin{Exercise}[label=106]
-\begin{itemize}
-\item Napisati rekurzivnu funkciju koja računa $n$-ti element u nizu, čiji se elementi računaju na osnovu sledećih rekurentnih relacija:\\
- $F(0) = 0$\\
- $F(1) = 1$\\
- $F(n) = a* F(n-1) + b*F(n-2)$.\\
-\item Napisati prethodnu funkciju tako da se problemi manje dimenzije rešavaju samo jedan put.
-\end{itemize}
+Elementi funkcije $F$ izračunavaju se na osnovu sledećih rekurentnih relacija:
+ $$F(0) = 0$$
+ $$F(1) = 1$$
+ $$F(n) = a* F(n-1) + b*F(n-2)$$
+\begin{enumerate}
+\item Napisati rekurzivnu funkciju  koja računa $n$-ti element u nizu $F$.
+\item Napisati rekurzivnu funkciju  koja računa $n$-ti element u nizu $F$ ali tako da se problemi manje dimenzije rešavaju samo jedan put.
+\end{enumerate}
   Napisati program koji testira napisane funkcije za poizvoljan broj $n$ ($n \in \mathbb N$) unet sa standardnog ulaza.
 \end{Exercise}
 \begin{Answer}[ref=106]
@@ -63,10 +64,6 @@ Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,
 \end{Answer}
 
 \begin{Exercise}[label=108]
-\begin{itemize}
-\item[a)] Napisati rekurzivnu funkciju koja izračunava $d_n$ kao sumu elemenata n-te hipotenuze Paskalovog trougla.
-\item[b)] Napisati rekurzivnu funkciju koja izračunava vrednost polja \argf{(i, j)}.
-\end{itemize}
  Paskalov trougao se dobija tako što mu je svako polje
 (izuzev jedinica po krajevima) zbir jednog polja levo i
 jednog polja iznad.
@@ -78,6 +75,10 @@ jednog polja iznad.
        1   4   6   4   1
      1   5   10  10  5  1
 \end{verbatim}
+\begin{enumerate}
+\item Napisati rekurzivnu funkciju koja izračunava $d_n$ kao sumu elemenata n-te hipotenuze Paskalovog trougla.
+\item Napisati rekurzivnu funkciju koja izračunava vrednost polja \argf{(i, j)}. \komentar{Milena: dodati sta je i a sta j tj odakle se broji}
+\end{enumerate}
 
 \end{Exercise}
 \begin{Answer}[ref=108]
@@ -91,7 +92,7 @@ jednog polja iznad.
 \begin{Exercise}[label=109]
 Napisati rekurzivnu funkciju koja određuje maksimum niza
   celih brojeva. Napisati program koji testira ovu funkciju, za niz
-  koji se učitava sa standardnog ulaza. Niz neće biti duži od \argf{256}, i
+  koji se unosi sa standardnog ulaza. Niz neće imati više od $256$ elemenata, i
   njegovi elementi se unose sve do kraja ulaza.
   
 \begin{miditest}
@@ -127,8 +128,7 @@ Izlaz:  5
 \begin{Exercise}[label=110]
 Napisati rekurzivnu funkciju koja izračunava skalarni
   proizvod dva data vektora.  Napisati program koji testira ovu
-  funkciju, za nizove koji se učitavaju sa standardnog ulaza. Du\v
-  zina neće biti veća od \argf{256}. Prvo se unosi dimenzija nizova, a
+  funkciju, za nizove koji se unose sa standardnog ulaza. Nizovi neće imati više od $256$ elemenata. Prvo se unosi dimenzija nizova, a
   zatim i sami njihovi elementi.
   
 \begin{miditest}
@@ -160,7 +160,7 @@ Izlaz:   0
 \begin{Exercise}[label=111]
 Napisati rekurzivnu funkciju koja sabira dekadne cifre datog
   celog broja $x$. Napisati program koji testira ovu funkciju, za broj
-  koji se učitava sa standardnog ulaza.
+  koji se unosi sa standardnog ulaza.
   
 \begin{minitest}
 \begin{test}{Test 1}
@@ -202,8 +202,8 @@ Izlaz:  0
 \begin{Exercise}[label=112]
 Napisati rekurzivnu funkciju koja računa broj pojavljivanja
   elementa $x$ u nizu $a$ dužine $n$. Napisati program koji testira
-  ovu funkciju, za $x$ i niz koji se učitavaju sa standardnog
-  ulaza. Niz neće biti duži od \argf{256}. Prvo se unosi $x$, a zatim
+  ovu funkciju, za $x$ i niz koji se unose sa standardnog
+  ulaza. Niz neće imati više od $256$ elemenata. Prvo se unosi $x$, a zatim
   elementi niza sve do kraja ulaza.
   
 \begin{minitest}
@@ -234,7 +234,7 @@ Izlaz:  0
 \begin{Exercise}[label=113]
 Napisati rekurzivnu funkciju koja ispituje da li je data niska
   palindrom. Napisati program koji testira ovu funkciju. Pretposatviti
-  da niska neće biti duža od \argf{32}, i da se unosi sa standardnog
+  da niska neće neće imati više od $31$ karaktera, i da se unosi sa standardnog
   ulaza.
   
 \begin{miditest}
@@ -279,7 +279,7 @@ Napisati rekurzivnu funkciju kojom se proverava da li su tri
   zadata broja uzastopni članovi niza. Potom, napisati program koji
   je testira. Sa standardnog ulaza se unose najpre tri tražena
   broja, a zatim elementi niza, sve do kraja ulaza. Pretpostaviti da
-  ih neće biti više od \argf{256}.
+neće biti uneto više od $256$ brojeva.
   
 \begin{miditest}
 \begin{test}{Test 1}
@@ -315,7 +315,7 @@ Izlaz:    ne
 \begin{Exercise}[label=116]
 Napisati rekurzivnu funkciju koja prikazuje sve varijacije sa
    ponavljanjem dužine $n$ skupa $\{a, b\}$, i program koji je
-   testira, za $n$ koje se učitava sa standardnog ulaza.
+   testira, za $n$ koje se unosi sa standardnog ulaza.
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -336,13 +336,14 @@ Izlaz:   a a a
 %\end{Answer}
 
 \begin{Exercise}[label=117]
-Problema "Hanojske kule": Data su tri
-  vertikalna štapa, na jednom se nalazi n diskova poluprečnika
+{\em Hanojske kule}: Data su tri
+  vertikalna štapa, na jednom se nalazi $n$ diskova poluprečnika
   $1$,$2$,$3$,... do $n$, tako da se najveći nalazi na dnu, a
   najmanji na vrhu. Ostala dva štapa su prazna. Potrebno je
   premestiti diskove na drugi štap tako da budu u istom redosledu, pri čemu se ni u jednom
-  trenutku ne sme staviti veći disk preko manjeg, a preostali štap se koristi kao pomoćni štapovi prilikom
-  premeštanja.
+  trenutku ne sme staviti veći disk preko manjeg, a preostali štap se koristi kao pomoćni štap prilikom
+  premeštanja. \\
+  Napisati program koji za proizvoljnu vrednost $n$, koja se unosi sa standardnog ulaza, prikazuje proces premeštanja diskova.
 
 \end{Exercise}
 %\begin{Answer}[ref=117]
@@ -350,15 +351,16 @@ Problema "Hanojske kule": Data su tri
 %\end{Answer}
 
 \begin{Exercise}[label=118]
-Modifikacija problema "Hanojskih kula": Data su četiri
-  vertikalna štapa, na jednom se nalazi n diskova poluprečnika
+{\em Modifikacija Hanojskih kula}: Data su četiri
+  vertikalna štapa, na jednom se nalazi $n$ diskova poluprečnika
   $1$,$2$,$3$,... do $n$, tako da se najveći nalazi na dnu, a
   najmanji na vrhu. Ostala tri štapa su prazna. Potrebno je
   premestiti diskove na drugi štap tako da budu u istom redosledu,
   premestajući jedan po jedan disk, pri čemu se ni u jednom
   trenutku ne sme staviti veći disk preko manjeg, pri čemu se
   preostala dva štapa koriste kao pomoćni štapovi prilikom
-  premeštanja.
+  premeštanja.\\
+  Napisati program koji za proizvoljnu vrednost $n$, koja se unosi sa standardnog ulaza, prikazuje proces premeštanja diskova.
 
 \end{Exercise}
 %\begin{Answer}[ref=118]
