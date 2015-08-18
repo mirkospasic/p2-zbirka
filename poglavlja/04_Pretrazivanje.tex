@@ -6,20 +6,15 @@
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=401]
-  Napisati funkcije pretraga nizova.
+  Napisati funkcije pretraga nizova. Svaka funkcija treba da vrati indeks pozicije na kojoj je pronađen traženi element ili broj $-1$ ukoliko element nije pronađen.
   \begin{enumerate}  
-  \item Linearna pretraga niza\\ Napisati funkciju koja pretražuje niz
-    celih brojeva dužine \argf{n}, tražeći u njemu element
-    \argf{x}. Pretraga se vrši prostom iteracijom kroz niz. Ako se
-    element pronađe funkcija vraća indeks pozicije na kojoj je
-    pronađen. Ovaj indeks je uvek nenegativan.  Ako element nije
-    pronađen u nizu, funkcija vraća -1, kao indikator neuspešne
-    pretrage.
-  \item Binarna pretraga niza\\ Napisati funkciju koja traži u
-    sortiranom nizu \argf{a[]} duzine \argf{n} broj \argf{x} i vraća
-    indeks pozicije nađenog elementa ili -1, ako se element ne
-    nalazi u nizu.
-  \item Interpolaciona pretraga
+  \item Napisati funkciju koja vrši linearnu pretragu niza 
+    celih brojeva \argf{a}, dužine \argf{n}, tražeći u njemu broj
+    \argf{x}.  
+  \item Napisati funkciju koja vrši binarnu pretragu
+    sortiranog niza \argf{a}, dužine \argf{n}, tražeći u njemu broj \argf{x}.
+  \item Napisati funkciju koja vrši interpoacionu pretragu
+    sortiranog niza \argf{a}, dužine \argf{n}, tražeći u njemu broj \argf{x}.
   \end{enumerate}
   Napisati i program koji generiše slučajni rastući niz dimenzije
   \argf{n} (prvi argument komandne linije), i u njemu već napisanim
@@ -84,7 +79,7 @@ Indeks: 20140032, Ime i prezime: Dejan Popovic
 \begin{Exercise}[label=403]
   Modifikovati prethodni zadatak tako da tražene funkcije budu
   rekurzivne.
-   
+   \komentar{Milena: Ovde nije jasno koje su to trazene funkcije jer se u prethodnom zadatku ni jedna funkcija ne trazi eksplicitno.}
 \end{Exercise}
 
 %\begin{Answer}[ref=403]
@@ -121,9 +116,9 @@ Izlaz: -0.3 23
 %-----------------------------------------------------------------
 \begin{Exercise}[label=405]
   Napisati funkciju koja određuje nulu funkcije \kckod{cos(x)} na
-  intervalu \argf{[0,2]} metodom polovljenja intervala (napomena:
-  analogija sa binarnom pretragom). Algoritam se završava kada se
-  vrednost kosinusne funkcije razlikuje za najviše 0.001 od 0.
+  intervalu \argf{[0,2]} metodom polovljenja intervala. Algoritam se završava kada se
+  vrednost kosinusne funkcije razlikuje za najviše $0.001$ od nule. Uputstvo: korisiti algoritam analogan algoritmu binarne pretrage.
+  
   
 \begin{minitest}
 \begin{test}{Test 1}
@@ -141,9 +136,9 @@ Izlaz:
 %-----------------------------------------------------------------
 \begin{Exercise}[label=406]
   Napisati funkciju koja u sortiranom nizu nalazi prvi element veći od
-  0 (napomena: primeniti binarnu pretragu). Napisati i program koji
+  0. Napisati i program koji
   testira ovu funkciju za niz elemenata koji se zadaju kao argumenti
-  komandne linije.
+  komandne linije. Uputstvo: primeniti binarnu pretragu.
   
 \begin{miditest}
 \begin{test}{Test 1}
@@ -173,7 +168,7 @@ Izlaz:  4
   brojeva koji se unosi neće biti duži od 1024 elemenata. Prvo se
   unosi broj koji se traži, a zatim sortirani elementi niza sve do
   kraja ulaza.
-  
+  \komentar{Milena: Trebalo bi imati rekurzivnu implementaciju i za prve dve vrste pretrage, a ovaj zadatak bi trebao da ide uz onaj prvi. Takodje, tamo treba naglasiti da su u pitanju iterativne funkcije. }
 \begin{miditest}
 \begin{test}{Test 1}
 Ulaz:   11 2 5 6 8 10 11 23
@@ -200,11 +195,10 @@ Izlaz:  -1
   neoznačenog celog broja, koristeći samo bitske i relacione
   operatore.
   \begin{enumerate}
-  \item Napisati varijantu sa pomeranjem broja udesno dok ne postane 0
-    (linearna složenost).
-  \item Napisati varijantu sa binarnom pretragom (logaritamska složenost).
+  \item Napisati funkciju, linearne složenosti, koja određuje logaritam pomeranjem broja udesno dok ne postane 0.
+  \item Napisati funkciju, logaritmske složenosti, koja određuje logaritam koristeći binarnu pretragu.
   \end{enumerate}
-  
+\komentar{Milena: Nije mi jasno cemu odgovaraju ovi test primer, tj sta je program. Da li program testira samo jednu funkciju ili obe? To nekako treba reci.}  
 \begin{minitest}
 \begin{test}{Test 1}
 Ulaz:       10
@@ -247,7 +241,7 @@ Izlaz:      10
   (neke duži bivaju presečene, a neke ne). Program prvo učitava broj
   \argf{N}, a zatim i same koordinate temena duži. Uputstvo: vršiti
   binarnu pretragu intervala $[0, 90^\circ]$.
-  
+  \komentar{Milena: Ko ovde vrsi sortiranje? Da li nesto na tu temu treba reci u zadatku?}
 \begin{minitest}
 \begin{test}{Test 1}
 Ulaz:
@@ -270,9 +264,9 @@ Izlaz:
   Napisati program u kome se prvo inicijalizuje statički niz struktura
   osoba sa članovima ime i prezime (uređen u rastućem poretku
   prezimena) sa manje od 10 elemenata, a zatim se učitava jedan
-  karakter i pronalazi (bibliotečkom funkcijom \verb|bsearch|) i
+  karakter i pronalazi (bibliotečkom funkcijom \kckod{bsearch}) i
   štampa jedna struktura iz niza osoba čije prezime počinje tim
-  karakterom. Ako takva osoba ne postoji, štampati -1 na standardni
+  karakterom. Ako takva osoba ne postoji, štampati $-1$ na standardni
   izlaz.
 \begin{ckod}
 Osoba niz_osoba[]={{"Mika", "Antic"},
@@ -291,6 +285,7 @@ Izlaz: Dusko Radovic
   
 \end{Exercise}
 
+\komentar{Milena: nesto mi je ovih zadataka sa pretrazivanjem mnogo malo... Ne znam da nismo nesto zaboravili? Kako to da nema ni jedan primer sa lfind? I nesto mi je za bsearch mnogo malo...}
 %\begin{Answer}[ref=410]
 %  \includecode{resenja/04_Pretrazivanje/410.c}
 %\end{Answer}
