@@ -5,10 +5,10 @@
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=501]
-  U datom nizu brojeva pronaći dva koja su na najmanjem
+  U datom nizu brojeva pronaći dva broja koja su na najmanjem
   rastojanju. Niz se zadaje sa standardnog ulaza, sve do kraja ulaza,
-  i neće imati više od 256 elemenata. (uputstvo: prvo sortirati
-  niz). Na izlaz ispisati njihovu razliku.
+  i neće sadržati više od $256$ elemenata. Na izlaz ispisati njihovu razliku.
+Uputstvo: prvo sortirati niz.
   
 \begin{miditest}
 \begin{test}{Test 1}
@@ -32,12 +32,12 @@ Izlaz:  0
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=502]
-  Napisati funkciju koja sortira slova unutar niske
-  karaktera. Napisati program koji proverava da li su dve niske
-  karaktera anagrami. Dve niske su anagrami ako se sastoje od istog
-  broja istih karaktera. Niske se zadaju sa standardnog ulaza, i neće
-  biti duže od 128 karaktera.
-  
+  Dve niske su anagrami ako se sastoje od istog
+  broja istih karaktera. Napisati program koji proverava da li su dve niske
+  karaktera anagrami.  Niske se zadaju sa standardnog ulaza, i neće
+  biti duže od $127$ karaktera.
+Uputstvo: napisati funkciju koja sortira slova unutar niske
+  karaktera, a zatim za sortirane niske proveriti da li su identične.   
 \begin{miditest}
 \begin{test}{Test 1}
 Ulaz:   anagram ramgana
@@ -60,10 +60,10 @@ Izlaz:  nisu
 %-----------------------------------------------------------------
 \begin{Exercise}[label=503]
   Napisati program koji pronalazi broj koji se najviše puta
-  pojavljivao u datom nizu (uputstvo: prvo sortirati niz a zatim
-  naći najdužu sekvencu jednakih elemenata). Niz se zadaje sa
-  standardnog ulaza sve do kraja ulaza, i neće biti duži od 256
-  elemenata.
+  pojavljivao u datom nizu. Niz se zadaje sa
+  standardnog ulaza sve do kraja ulaza, i neće biti duži od $256$
+  elemenata. Uputstvo: prvo sortirati niz, a zatim
+  naći najdužu sekvencu jednakih elemenata.
   
 \begin{miditest}
 \begin{test}{Test 1}
@@ -87,10 +87,10 @@ Izlaz:  2
 %-----------------------------------------------------------------
 \begin{Exercise}[label=504]
   Napisati funkciju koja proverava da li u datom nizu postoje dva
-  elementa kojima je zbir zadati ceo broj (uputstvo: prvo sortirati
-  niz). Napisati i program koji testira ovu funkciju, u kome se prvo
-  učitava pomenuti broj, pa zatim niz ne veće dužine od 256
-  sve do kraja ulaza.
+  elementa kojima je zbir zadati ceo broj. Napisati i program koji testira ovu funkciju. U programu se 
+  prvo učitava broj, a zatim i niz (pretpostaviti da za niz neće biti uneto više od $256$ brojeva). 
+  Elementi niza se unose sve do kraja ulaza. Uputstvo: prvo sortirati
+  niz.
   
 \begin{miditest}
 \begin{test}{Test 1}
@@ -121,7 +121,7 @@ Izlaz:  ne
   vraća -1, kao indikator neuspeha, inače vraća 0. Napisati i program
   koji testira funkciju, u kome se nizovi unose sa standardnog ulaza,
   sve dok se ne unese 0.
-  
+  \komentar{Milena: Ovde nedostaju neke pretpostavke o dimenzijama}
 \begin{miditest}
 \begin{test}{Test 1}
 Ulaz:   3 6 7 11 14 35 0 3 5 8 0
@@ -150,13 +150,15 @@ Izlaz:  1 4 7 9 11 23 54 75
   sortiranih takođe po imenu rastuće.  Program dobija nazive datoteka
   iz komandne linije, i jedinstven spisak upisuje u datoteku
   \kckod{ceo-tok.txt}. Pretpostaviti da je ime studenta nije duže od
-  10, a prezime od 15 karaktera.
+  $10$, a prezime od $15$ karaktera.
 
 
 \begin{maxitest}
 \begin{test}{Test 1}
 Poziv: ./a.out prvi-deo.txt drugi-deo.txt
-prvi-deo.txt:          drugi-deo.txt          ceo-tok.txt
+
+prvi-deo.txt:          drugi-deo.txt:         ceo-tok.txt:
+
 Andrija Petrovic       Aleksandra Cvetic      (TODO)
 Anja Ilic              Bojan Golubovic
 Ivana Markovic         Dragan Markovic
@@ -178,8 +180,9 @@ Vladimir Savic         Ognjen Peric
 \begin{Exercise}[label=507]
   Napraviti biblioteku \kckod{sort.h} i \kckod{sort.c} koja
   implementira algoritme sortiranja nizova celih brojeva. Biblioteka
-  treba da sadrži selection, merge, quick, bubble, insertion i shell
-  sort. Upotrebiti biblioteku kako bi se napravilo poređenje
+  treba da sadrži \kckod{selection}, \kckod{merge}, \kckod{quick}, \kckod{bubble}, 
+  \kckod{insertion} i \kckod{shell sort}. Upotrebiti biblioteku kako 
+  bi se napravilo poređenje
   efikasnosti različitih algoritama sortiranja. Efikasnost meriti na
   slučajno generisanim nizovima, na već sortiranim nizovima i na
   naopako sortiranim nizovima. Izbor algoritma, veličine i početnog
@@ -199,8 +202,8 @@ Vladimir Savic         Ognjen Peric
   osnovu sledećih kriterijuma:
   \begin{enumerate}
   \item njihovog rastojanja od koordinatnog početka,
-  \item x koordinata tačkaka,
-  \item y koordinata tačaka.
+  \item \kckod{x} koordinata tačaka,
+  \item \kckod{y }koordinata tačaka.
   \end{enumerate}
   Napisati program koji učitava niz tačaka iz datoteke čije se ime
   zadaje kao argument komandne linije, i u zavisnosti od prisutnih
@@ -236,11 +239,11 @@ Izlazna datoteka:
 %-----------------------------------------------------------------
 \begin{Exercise}[label=509]
   Napisati program koji učitava imena i prezimena građana (najviše
-  njih 1000) iz datoteke \kckod{biracki-spisak.txt}, i kreira biračke
+  njih $1000$) iz datoteke \kckod{biracki-spisak.txt}, i kreira biračke
   spiskove. Jedan birački spisak je sortiran po imenu građana, a drugi
   po prezimenu. Program treba da ispisuje koliko građana ima isti
   redni broj u oba biračka spiska. Pretpostaviti da je za ime, odnosno
-  prezime građana dovoljno 15 karaktera.
+  prezime građana dovoljno $15$ karaktera.
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -281,7 +284,7 @@ imenu. Napisati program koji učitava podatke o deci koji se nalaze u
 datoteci, čije se ime zadaje kao prvi argument komandne linije,
 sortira ih i sortirani niz upisuje u datoteku čije se ime zadaje kao
 drugi argument komandne linije. Pretpostaviti da u ulaznoj datoteci
-nisu zadati podaci o više od 128 dece.
+nisu zadati podaci o više od $128$ dece.
   
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -308,8 +311,8 @@ Marija Antic 2007                Dragana Markovic 2010
   niski, ukoliko reči imaju isti broj suglasnika tada po dužini niske,
   a ukoliko su i dužine jednake onda leksikografski.  Napisati program
   koji testira ovu funkciju za niske koje se zadaju u datoteci
-  \kckod{niske.txt}.  Pretpostaviti da u nizu nema više od 128
-  elemenata, kao da svaka niska sadrži najviše 32 karaktera.
+  \kckod{niske.txt}.  Pretpostaviti da u nizu nema više od $128$
+  elemenata, kao i da svaka niska sadrži najviše $32$ karaktera.
   
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -354,9 +357,10 @@ artikli.txt:                         Ulaz:           Izlaz:
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=513]
+\komentar{Milena: Ovde je mozda logicnije da se rezultati upusuju u neku datoteku, a ne na stdout?}
    Napisati program koji iz datoteke \kckod{aktivnost.txt} čita
    podatke o aktivnosti studenata na praktikumima i na standardni
-   izlaz ispisuje 3 spiska. Na prvom su studenti sortirani
+   izlaz ispisuje tri spiska. Na prvom su studenti sortirani
    leksikografski po imenu rastuće. Na drugom su sortirani po ukupnom
    broju urađenih zadataka opadajuće, a ukoliko neki studenti imaju
    isti broj rešenih zadataka sortiraju se po dužini imena rastuće. Na
@@ -366,7 +370,7 @@ artikli.txt:                         Ulaz:           Izlaz:
    on poklapa sortirati po prezimenu opadajuće. U datoteci se nalazi
    ime, prezime studenta, broj časova na kojima je prisustvovao, kao i
    ukupan broj urađenih zadataka. Pretpostaviti da studenata neće biti
-   više od 500 i da je za ime studenta dovoljno 20, a za prezime 25
+   više od $500$ i da je za ime studenta dovoljno $20$, a za prezime $25$
    karaktera.
   
 \begin{miditest}
@@ -399,11 +403,11 @@ Nenad Brankovic 2 4
   Razmatrajmo dve operacije: operacija \kckod{U} je unos novog broja
   \kckod{x}, a operacija \kckod{N} određivanje \kckod{n}-tog po
   veličini od unetih brojeva. Implementirati program koji izvršava ove
-  operacije. Može postojati najviše 100000 operacija unosa, a uneti
+  operacije. Može postojati najviše $100000$ operacija unosa, a uneti
   elementi se mogu ponavljati, pri čemu se i ponavljanja računaju
   prilikom brojanja. Napomena: brojeve čuvati u sortiranom nizu i
   svaki naredni element umetati na svoje mesto. Optimizovati program,
-  ukoliko se zna da neće biti više od 500 različitih unetih brojeva.
+  ukoliko se zna da neće biti više od $500$ različitih unetih brojeva.
   
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -420,6 +424,7 @@ Izlaz: 0 2 8 2 6
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=515]\marker*2
+\komentar{Milena: treba naci kako se obelezava tezina u okviru exercise okruzenja}
   Sa dve susedne stranice pravougaone livade dve grupe krtica
   istovremeno kreću da kopaju tunele (jedna grupa na gore, a druga na
   desno). Krtica prestaje da kopa ukoliko naiđe na već iskopan tunel
@@ -440,6 +445,8 @@ Napisati program koji određuje koliko dugo svaka krtica kopa. Unose
 se broj krtica u obe grupe, a zatim udaljenost i brzina za svaku
 krticu. Izlaz je vreme za svaku krticu prikazano na dve decimale (-1
 ukoliko se ne zaustavlja) u istom redosledu u kojem su krtice unete.
+
+\komentar{Milena: Nije mi jasno u kojim jedinicama se unosi brzina, razdaljina i vreme? Znam da to ne utice na resavanje zadatka, ali mi se cini da bi zadatak bio jasniji kada bi se pomenuli neki metri i sekunde? A mozda i ne bi?}
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -465,16 +472,18 @@ Ulaz:          Izlaz:
   po veličini. Konobar pre serviranja mora da sortira palačinke po
   veličini, a jedina operacija koju sme da izvodi je da obrne deo
   palačinki. Na primer:
-\begin{verbatim}
+\begin{ckod}
     3    5    2    1
     4    4    1__  2
     5__  3    3    3
     1    1    4    4
     2    2__  5    5
-\end{verbatim}
+\end{ckod}
+\komentar{Milena: Objasniti sta znaci prethodna slika, sta su brojevi a sta crtice}
+
 Napisati program koji u najviše \kckod{2n-3} okretanja sortira učitani
-niz. (Uputstvo: imitirati selection sort i u svakom koraku dovesti
-jednu palačinku na svoje mesto korišćenjem najviše dva okretanja.)
+niz. Uputstvo: imitirati \kckod{selection sort} i u svakom koraku dovesti
+jednu palačinku na svoje mesto korišćenjem najviše dva okretanja.
     
 \end{Exercise}
 
@@ -490,9 +499,10 @@ jednu palačinku na svoje mesto korišćenjem najviše dva okretanja.)
   celih brojeva (ne veća od 100), a potom i sami elementi
   niza. Upotrebom funkcije \kckod{qsort} sortirati niz u rastućem
   poretku, sa standardnog ulaza učitati broj koji se traži u nizu, pa
-  zatim funkcijama \kckod{bsearch} i \kckod{lfind} pronaći
-  isti. Program treba na kraju da prikaže niz sortiran u rastućem
-  poretku prema broju delilaca.
+  zatim funkcijama \kckod{bsearch} i \kckod{lfind} utvrditi da li se zadati broj 
+  nalazi u nizu i na standardni izlaz ispisati odgovarajuću poruku. 
+  \komentar{Milena: Mislim da bi naredno trebalo da ide u zaseban zadatak jer nema mnogo smisla da sve ovde bude zajedno.}
+  Upotrebom funckcije \kckod{qsort} sortirati niz u rastućem poretku prema broju delilaca.
   
 \begin{miditest}
 \begin{test}{Test 1}
@@ -512,14 +522,14 @@ TODO
    koji sortira niz niski po sledećim kriterijumima:
    \begin{enumerate}
    \item leksikografski,
-   \item po duzini.
+   \item po dužini.
    \end{enumerate}
    Niske se učitavaju iz fajla \kckod{niske.txt}, neće ih biti više od
-   1000, i svaka će biti dužine najviše 30. Proširiti program tako da
+   $1000$, i svaka će biti dužine najviše $30$ karaktera. Proširiti program tako da
    na leksikografski sortiran niz, primeni binarnu pretragu
    (\kckod{bsearch}) prilikom traženja niske unete sa standardnog
    ulaza, a potom linearnu koristeći funkciju \kckod{lfind}.
-  
+  \komentar{Milena: ovde nije jasno da li ce biti dati test primeri biti za prvobitni ili za prosiren zadatak? Treba nekako preformulisati zadatak jer mi je malo nepovezan i nije jasno sta da se radi sa njegovim delovima.}
 \begin{miditest}
 \begin{test}{Test 1}
 TODO
@@ -552,18 +562,18 @@ TODO
 %-----------------------------------------------------------------
 \begin{Exercise}[label=520]
   Napisati program koji korišćenjem bibliotečke funkcije \kckod{qsort}
-  sortira studente prema broju poena sa kolokvijuma. Ukoliko više
+  sortira studente prema broju poena osvojenih na kolokvijumu. Ukoliko više
   studenata ima isti broj bodova, sortirati ih po prezimenu
   leksikografski rastuće. Korisnik potom unosi broj bodova i prikazuje
-  mu se jedan od studenata sa tim brojem bodova, ili poruka ukoliko
+  mu se jedan od studenata sa tim broker bodova, ili poruka ukoliko
   nema takvog. Potom, sa standardnom ulaza, unosi se prezime traženog
   studenta, i prikazuje se osoba sa tim prezimenom, ili poruka da se
   nijedan student tako ne preziva. Za pretraživanje, koristiti
   odgovarajuće bibliotečke funkcije. Podaci o studentima čitaju se iz
-  datoteke koja se programu šalje preko argumenata komandne linije. Za
+  datoteke čije se ime zadaje preko argumenata komandne linije. Za
   svakog studenta u datoteci postoje ime, prezime i bodovi osvojeni na
-  kolokvijumu. Pretpostaviti da neće biti vise od 500 studenata, i da
-  je za ime i prezime svakog studenta dovoljno po 20 karaktera.
+  kolokvijumu. Pretpostaviti da neće biti vise od $500$ studenata, i da
+  je za ime i prezime svakog studenta dovoljno po $20$ karaktera.
   
 \begin{miditest}
 \begin{test}{Test 1}
@@ -580,11 +590,12 @@ TODO
 %-----------------------------------------------------------------
 \begin{Exercise}[label=521]
   Napisati program koji sa standardnog ulaza učitava dva stringa,
-  \argf{s} i \argf{t} (dužine manje od 32 karaktera), sortira nizove
+  \argf{s} i \argf{t} (dužine manje od $32$ karaktera), sortira nizove
   njihovih karaktera (bibliotečkom \kckod{qsort} funkcijom), ispituje
   i štampa da li su \argf{s} i \argf{t} anagrami. (dva stringa su
   anagrami ako su sastavljeni od potpuno istih slova, samo različito
   raspoređenih)
+  \komentar{Milena: Ovakav zadatak je vec bio, ali bez bibliotecke funkcije. Trebalo bi se referisati na njega, kao u zadatku 99, ali sa ref}
   
 \begin{minitest}
 \begin{test}{Test 1}
@@ -608,8 +619,8 @@ Izlaz:  nisu
 %-----------------------------------------------------------------
 \begin{Exercise}[label=522]
   Napisati program koji sa standardnog ulaza učitava prvo ceo broj
-  \argf{n} (\argf{n} <= 10) a zatim niz \argf{S} od \argf{n} stringova
-  (maksimalna dužina stringa je 32 karaktera). Sortirati niz \argf{S}
+  \argf{n} ($n \leq 10$), a zatim niz \argf{S} od \argf{n} stringova
+  (maksimalna dužina stringa je $32$ karaktera). Sortirati niz \argf{S}
   (bibliotečkom funkcijom \kckod{qsort}) i proveriti da li u njemu ima
   identičnih stringova.
   
@@ -672,7 +683,7 @@ mv14003 Jovan Jovanovic 17
   \end{ckod}
   Napisati funkciju koja poredi dva datuma i program koji učitava
   datume iz datoteke koja se zadaje kao prvi argument komandne linije
-  (ne više od 128 datuma), sortira ih pozivajući funkciju
+  (ne više od $128$ datuma), sortira ih pozivajući funkciju
   \kckod{qsort} iz standardne biblioteke i potom pozivanjem funkcije
   \kckod{bsearch} iz standardne biblioteke proverava da li datumi
   učitani sa standardnog ulaza (sve do kraja ulaza) postoje među
