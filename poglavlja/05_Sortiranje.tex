@@ -1,6 +1,5 @@
-\chapter{Sortiranje}
+\section{Sortiranje}
 
-\section{Zadaci}
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -422,54 +421,8 @@ Izlaz: 0 2 8 2 6
 %  \includecode{resenja/05_Sortiranje/514.c}
 %\end{Answer}
 %-----------------------------------------------------------------
-%-----------------------------------------------------------------
-\begin{Exercise}[difficulty=2, label=515]
-  Sa dve susedne stranice pravougaone livade dve grupe krtica
-  istovremeno kreću da kopaju tunele (jedna grupa na gore, a druga na
-  desno). Krtica prestaje da kopa ukoliko naiđe na već iskopan tunel
-  (npr. krticu \argf{A} zaustavlja krtica \argf{C}, krticu \argf{C} i
-  \argf{D} zaustavlja krtica \argf{B}, a krticu \argf{B} zaustavlja
-  krtica \argf{E}). Za svaku krticu se zna udaljenost od ćoška livade
-  i brzina kojom kopa.
-\begin{verbatim}
-     |EEEEEEEEEE
-     |      B
-     |DDDDDDB 
-     |      B
-     |CCCCCCB
-     |   A  B
-     |___A__B_______________
-\end{verbatim}
-Napisati program koji određuje koliko dugo svaka krtica kopa. Unose
-se broj krtica u obe grupe, a zatim udaljenost i brzina za svaku
-krticu. Izlaz je vreme za svaku krticu prikazano na dve decimale (-1
-ukoliko se ne zaustavlja) u istom redosledu u kojem su krtice unete.
 
-\komentar{Milena: Nije mi jasno u kojim jedinicama se unosi brzina,
-  razdaljina i vreme? Znam da to ne utice na resavanje zadatka, ali mi
-  se cini da bi zadatak bio jasniji kada bi se pomenuli neki metri i
-  sekunde? A mozda i ne bi?}  \komentar{Mirko: Bio bi jasniji. Ali sve
-  je malo konfuzno, i ne vidim gde je ovde sortiranje. Ja bih ovaj
-  zadatak mozda izbacio.}
 
-\begin{miditest}
-\begin{test}{Test 1}
-Ulaz:          Izlaz:
-2 3            1.12
-1   4          0.88
-2   5.1        -1.00
-4.5 3.6        1.00
-1   1          -1.00
-5   0.5
-\end{test}
-\end{miditest}
-  
-\end{Exercise}
-
-%\begin{Answer}[ref=515]
-%  \includecode{resenja/05_Sortiranje/515.c}
-%\end{Answer}
-%-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[difficulty=2, label=516]
   Šef u restoranu je neuredan i palačinke koje ispeče ne slaže redom
@@ -501,6 +454,8 @@ okretanja.
 %  \includecode{resenja/05_Sortiranje/516.c}
 %\end{Answer}
 %-----------------------------------------------------------------
+
+\section{Bibliotečke funkcije pretrage i sortiranja}
 %-----------------------------------------------------------------
 \begin{Exercise}[label=517]
   Napisati program koji ilustruje upotrebu bibiliotečkih funkcija za
