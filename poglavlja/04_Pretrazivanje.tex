@@ -26,10 +26,17 @@
   
 \begin{maxitest}
 \begin{test}{Test 1}
-Poziv: ./a.out 1000000 23532
-Izlaz: Element nije pronadjen u nizu linearnom pretragom.
-       Element nije pronadjen u nizu binarnom pretragom.
-       Element nije pronadjen u nizu interpolacionom pretragom.  
+Poziv: ./a.out 1000000 235423
+Izlaz:
+Linearna pretraga
+Element nije u nizu
+---------------------------------
+Binarna pretraga
+Element nije u nizu
+---------------------------------
+Interpolaciona pretraga
+Element nije u nizu
+---------------------------------
 \end{test}
 \end{maxitest}
   
@@ -50,23 +57,34 @@ Izlaz: Element nije pronadjen u nizu linearnom pretragom.
 
 \begin{miditest}
 \begin{test}{Test 1}
-Ulaz:   11 2 5 6 8 10 11 23
-Izlaz:  5
+Ulaz: 11 2 5 6 8 10 11 23
+Izlaz:
+Linearna pretraga
+Pozicija elementa je 5.
+Binarna pretraga
+Pozicija elementa je 5.
+Interpolaciona pretraga
+Pozicija elementa je 5.
 \end{test}
 \end{miditest}
-
 \begin{miditest}
 \begin{test}{Test 2}
-Ulaz:   14 10 32 35 43 66 89 100
-Izlaz:  -1  
+Ulaz: 14 10 32 35 43 66 89 100
+Izlaz:
+Linearna pretraga
+Element se ne nalazi u nizu.
+Binarna pretraga
+Element se ne nalazi u nizu.
+Interpolaciona pretraga
+Element se ne nalazi u nizu.
 \end{test}
 \end{miditest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=402]
-%  \includecode{resenja/04_Pretrazivanje/402.c}
-%\end{Answer}
+\begin{Answer}[ref=402]
+  \includecode{resenja/04_Pretrazivanje/402.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=403]
@@ -78,7 +96,8 @@ Izlaz:  -1
   prikazuju na ekranu.  Zatim, korisnik učitava prezime studenta i
   prikazuju mu se informacije o prvom studentu sa unetim prezimenom.
   Pretrage implementirati u vidu iterativnih funkcija što bolje manje
-  složenosti.
+  složenosti. Pretpostaviti da u datoteci neće biti više od $128$
+  studenata, i da su imena i prezimena svih kraća od $16$ slova.
   
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -91,25 +110,24 @@ Datoteka:
 20140104 Ivan Popovic
 20140187 Vlada Stankovic
 20140234 Darko Brankovic
-Ulaz:
-20140076
-Popovic
-Izlaz:
-Indeks: 20140076, Ime i prezime: Sonja Stevanovic
-Indeks: 20140032, Ime i prezime: Dejan Popovic
+
+Ulaz:           Izlaz:
+
+20140076        Indeks: 20140076, Ime i prezime: Sonja Stevanovic
+Popovic         Indeks: 20140032, Ime i prezime: Dejan Popovic
 \end{test}
 \end{maxitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=403]
-%  \includecode{resenja/04_Pretrazivanje/403.c}
-%\end{Answer}
+\begin{Answer}[ref=403]
+  \includecode{resenja/04_Pretrazivanje/403.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=404]
-  Modifikovati prethodni zadatak tako da tražene funkcije budu
-  rekurzivne.
+  Modifikovati prethodni zadatak \ref{403} tako da tražene funkcije
+  budu rekurzivne.
 \end{Exercise}
 
 %\begin{Answer}[ref=404]
@@ -118,11 +136,12 @@ Indeks: 20140032, Ime i prezime: Dejan Popovic
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=405]
-  U datoteci koja se zadaje kao argument komandne linije, nalaze se
-  koordinate tačaka. U zavisnosti od prisustva opcija komandne linije
-  (\argf{-x} ili \argf{-y}), pronaći onu koja je najbliža \argf{x}
-  (ili \argf{y}) osi, ili koordinatnom početku, ako nije prisutna
-  nijedna opcija. Broj tačaka u datoteci nije unapred poznat.
+  U datoteci koja se zadaje kao prvi argument komandne linije, nalaze
+  se koordinate tačaka. U zavisnosti od prisustva opcija komandne
+  linije (\argf{-x} ili \argf{-y}), pronaći onu koja je najbliža
+  \argf{x} (ili \argf{y}) osi, ili koordinatnom početku, ako nije
+  prisutna nijedna opcija. Pretpostaviti da je broj tačaka u datateci
+  veći od $0$ i ne veći od $1024$.
   
 \begin{miditest}
 \begin{test}{Test 1}
@@ -139,29 +158,31 @@ Izlaz: -0.3 23
   
 \end{Exercise}
 
-%\begin{Answer}[ref=405]
-%  \includecode{resenja/04_Pretrazivanje/405.c}
-%\end{Answer}
+\begin{Answer}[ref=405]
+  \includecode{resenja/04_Pretrazivanje/405.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=406]
   Napisati funkciju koja određuje nulu funkcije \kckod{cos(x)} na
-  intervalu \argf{[0,2]} metodom polovljenja intervala. Algoritam se završava kada se
-  vrednost kosinusne funkcije razlikuje za najviše $0.001$ od nule. Uputstvo: korisiti algoritam analogan algoritmu binarne pretrage.
+  intervalu \argf{[0,2]} metodom polovljenja intervala. Algoritam se
+  završava kada se vrednost kosinusne funkcije razlikuje za najviše
+  $0.001$ od nule. Uputstvo: korisiti algoritam analogan algoritmu
+  binarne pretrage.
   
   
 \begin{minitest}
 \begin{test}{Test 1}
 Izlaz:
-1.571289
+1.57031
 \end{test}
 \end{minitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=406]
-%  \includecode{resenja/04_Pretrazivanje/406.c}
-%\end{Answer}
+\begin{Answer}[ref=406]
+  \includecode{resenja/04_Pretrazivanje/406.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=407]
