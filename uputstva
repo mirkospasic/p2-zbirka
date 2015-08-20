@@ -121,6 +121,9 @@ U skladu sa time, drzala bih se formulacija koje su u skladu sa
 pravilima srpskog jezika (primere takvih formulacija videcete kod pokazivaca
 i visedimenzionih nizova).
 
+Nekim tezim zadacima mozemo dodati zvezdice na ovaj nacin:
+\begin{Exercise}[title={Sortiranje}, difficulty=2, label=401]
+Ovde je dodato i ime zadatku, ako negde bude i tako nesto potrebno.
 
 Uputstva za unos resenja
 
