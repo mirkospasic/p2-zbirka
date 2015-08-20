@@ -10,7 +10,6 @@
 \numberwithin{Answer}{chapter}
 \numberwithin{Exercise}{chapter}
 
-
 %Detalji se mogu naci na
 %https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
 \definecolor{mygreen}{rgb}{0,0.6,0} 
@@ -112,8 +111,10 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 \def\ExerciseName{Zadatak }
 \def\AnswerName{Rešenje }
 
+\def\DifficultyMarker{*}
+
 \renewcommand{\ExerciseHeader}{{\textbf{
-\ExerciseName \ExerciseHeaderNB \ExerciseHeaderTitle
+\ExerciseHeaderDifficulty \ExerciseName \ExerciseHeaderNB \ExerciseHeaderTitle 
 \ExerciseHeaderOrigin}}}
 
 \renewcommand{\AnswerHeader}{{\textbf{
