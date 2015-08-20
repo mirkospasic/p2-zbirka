@@ -130,17 +130,13 @@ Uputstva za unos resenja
 
 Uzmes zadatak sa vezbi, sredis da je kod u skladu sa zadatkom, sredis mu komentare, testiras resenje da je dobro. Komentari moraju da postoje, u kojoj meri, to je vec stvar ukusa, izbaci sta mislis da treba, ubaci sta mislis da nedostaje.
 
-> 2. Kada pisemo resenje, npr.
->
-> int main() {
->    int x;
-> }
->
-> da li pre int da budu dva blanko znaka ili jedan tab. Kod resenja sa
-> ispitnih rokova, vidim da je Nina stavila tab. Da li da i ja (i svi
-> ostali) tako uradim?
-
-Ujednacavanje stila ispisa koda mislim da treba da uradimo nad celokupnim korpusom resenja uz pomoc nekog alata, tj automatski. Poksaj da se nas sestoro usaglasimo po pitanju stila, blankova i tabova je bespotrebno ogroman posao. Prema tome, skoncentrisi se na na delove pod 1. a ovakve stvari ostavi za narednu fazu i za neki automatski alat.
+Formatiranje resenja se radi alatom indent:
+indent -fc1 -fca -kr --no-tabs --line-length65 -i2 *.c
+-fc1 -fca - Formatiraj i komentare
+-kr - Formatiranje kao u knjizi Kernighan&Ritchie
+--no-tabs - Umesto TAB-ova koristimo space-ove (zbog PDF-a)
+--line-length65 - maksimalna duzina linije je 65 (zbog PDF-a)
+-i2 - Podrazumevano uvlacenje je 2 blanko karaktera
 
 > 3. Da li da ogranicavamo duzinu reda na neki odredjeni broj karaktera ili
 > ne? Ovo pitanje se odnosi i na komentare i na kod.
