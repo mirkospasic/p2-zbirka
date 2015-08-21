@@ -25,7 +25,7 @@ int zbir_vrste(int** a, int v, int k)
 }
 
 /* Funkcija sortira vrste matrice na osnovu zbira elemenata
-   u vrsti korisćenjem selection sort algoritma */
+   u vrsti koriscenjem selection sort algoritma */
 void sortiraj_vrste(int** a, int n, int m) 
 {
   int i, j, k, min, tmp;
@@ -120,7 +120,7 @@ int main(int argc, char* argv[])
   /* Pozivamo funkciju koja sortira vrste matrice prema zbiru */
   sortiraj_vrste(a, n, m);
   
-  /* Ispisujemo rezultujuću matricu */
+  /* Ispisujemo rezultujucu matricu */
   printf("Sortirana matrica je:\n");
   ispisi_matricu(a, n, m);
   
