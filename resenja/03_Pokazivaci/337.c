@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-/* Funkcija izvrsava tražene transformacije nad matricom */
+/* Funkcija izvrsava trazene transformacije nad matricom */
 void izmeni (float** a, int n) 
 {
   int i, j;
@@ -110,7 +110,7 @@ int main(int argc, char* argv[])
   float** a;
   int n;
   
- /* Ako korisnik nije uneo tražene argumente, 
+ /* Ako korisnik nije uneo trazene argumente, 
      prijavljujemo gresku */
   if(argc < 2) {
     printf("Greska: ");

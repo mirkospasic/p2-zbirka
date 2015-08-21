@@ -90,7 +90,7 @@ int main()
   // obrni_niz_v2(a,n);
   // obrni_niz_v3(a,n);
      
-  /* Prikazujemo sadržaj niza nakon obrtanja */
+  /* Prikazujemo sadrzaj niza nakon obrtanja */
   for(p = a; p - a < n; p++)
     printf("%d ", *p);    
   printf("\n");

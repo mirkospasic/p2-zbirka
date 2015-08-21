@@ -55,7 +55,7 @@ int prefiks_niske(char *niska, char *prefiks) {
 
 int main(int argc, char **argv) 
 {
-  /* Ako korisnik nije uneo tražene argumente, 
+  /* Ako korisnik nije uneo trazene argumente, 
      prijavljujemo gresku */
   if(argc < 4) {
     printf("Greska: ");
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
   
   /* Proveravamo kojom opcijom je pozvan program a zatim 
      ucitavamo reci iz datoteke brojimo koliko reci 
-	 zadovoljava traženi uslov */
+	 zadovoljava trazeni uslov */
   if(!(poredjenje_niski(*(argv + 3), "-s")))
     while(fscanf(in, "%s", rec) != EOF)
       br += sufiks_niske(rec, *(argv+2));

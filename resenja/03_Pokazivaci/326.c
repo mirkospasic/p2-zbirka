@@ -28,8 +28,8 @@ void sort_leksikografski(char niske[][MAX_DUZINA], int n)
 int main() {
   int i,n;
     
-  /* Deklarisemo niz niski koji može imati najvise MAX_NISKI 
-     elementa od kojih je svaka niska dužine najvise 
+  /* Deklarisemo niz niski koji moze imati najvise MAX_NISKI 
+     elementa od kojih je svaka niska duzine najvise 
      MAX_DUZINA karaktera */
   char niske[MAX_NISKI][MAX_DUZINA];
   FILE *fp;

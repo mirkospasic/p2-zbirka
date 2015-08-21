@@ -35,7 +35,7 @@ void ispisi_matricu_spiralno(int a[][MAX_K], int n, int m)
       printf("%d ",a[i][right]);
         
     /* Pomeramo desnu kolonu za naredni krug ispisa 
-       bliže levom kraju */
+       blize levom kraju */
     right--;
         
     if(krajIspisa(top,bottom,left,right))
@@ -45,7 +45,7 @@ void ispisi_matricu_spiralno(int a[][MAX_K], int n, int m)
     for(j=right; j>=left; j-- )
       printf("%d ",a[bottom][j]);
         
-    /* Podižemo donju vrstu za naredni krug ispisa */ 
+    /* Podizemo donju vrstu za naredni krug ispisa */ 
     bottom--;  
         
     if(krajIspisa(top,bottom,left,right))

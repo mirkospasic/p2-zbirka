@@ -18,7 +18,7 @@ int main(int argc, char **argv)
   int br = 0, i = 0, n;
   FILE *in;
   
-  /* Ako korisnik nije uneo tražene argumente, 
+  /* Ako korisnik nije uneo trazene argumente, 
      prijavljujemo gresku */
   if(argc < 3) {
     printf("Greska: ");
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
   
   n = atoi(*(argv+2));
   
-  /* Broje se reci cija je dužina jednaka broju zadatom drugim 
+  /* Broje se reci cija je duzina jednaka broju zadatom drugim 
      argumentom komandne linije */
   while(fscanf(in, "%s", rec) != EOF)  
     if(duzina(rec) == n)

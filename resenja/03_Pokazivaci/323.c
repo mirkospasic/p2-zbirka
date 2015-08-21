@@ -6,8 +6,8 @@
 int max_sporedna_dijagonala(int m[][MAX], int n) 
 {
   int i, j;
-  /* Tražimo najveci element na sporednoj dijagonali. Za 
-     elemente sporedne dijagonale važi da je zbir indeksa vrste
+  /* Trazimo najveci element na sporednoj dijagonali. Za 
+     elemente sporedne dijagonale vazi da je zbir indeksa vrste
 	 i indeksa kolone jednak n-1. Za pocetnu vrednost maksimuma 
 	 uzimamo element u gornjem desnom uglu */
   int max_na_sporednoj_dijagonali = m[0][n-1];

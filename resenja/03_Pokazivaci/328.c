@@ -6,7 +6,7 @@
    je T tip elemenata niza. Povratnu adresu malloc()-a treba
    pretvoriti iz void * u T *, kako bismo dobili pokazivac
    koji pokazuje na prvi element niza tipa T. Na dalje se
-   elementima može pristupati na isti nacin kao da nam
+   elementima moze pristupati na isti nacin kao da nam
    je dato ime niza (koje se tako i ponasa - kao pokazivac 
    na element tipa T koji je prvi u nizu) */
 int main() 
@@ -27,8 +27,8 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Od ovog trenutka pokazivac "p" možemo da koristimo kao da 
-     je ime niza, odnosno i-tom elementu se može pristupiti 
+  /* Od ovog trenutka pokazivac "p" mozemo da koristimo kao da 
+     je ime niza, odnosno i-tom elementu se moze pristupiti 
      sa p[i] */
 
   /* Unosimo elemente niza */  

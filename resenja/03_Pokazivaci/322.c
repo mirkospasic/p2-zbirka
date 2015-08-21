@@ -12,7 +12,7 @@ int refleksivnost(int m[][MAX], int n)
   int i;
   
   /* Obilazimo glavnu dijagonalu matrice. Za elemente na glavnoj 
-     dijagonali važi da je indeks vrste jednak indeksu kolone */  
+     dijagonali vazi da je indeks vrste jednak indeksu kolone */  
   for(i=0; i<n; i++) {
     if(m[i][i] != 1) 
       return 0;
@@ -22,7 +22,7 @@ int refleksivnost(int m[][MAX], int n)
 }
 
 /* Funkcija odredjuje refleksivno zatvorenje zadate relacije. Ono 
-   je odredjeno matricom koja sadrži sve elemente polazne matrice 
+   je odredjeno matricom koja sadrzi sve elemente polazne matrice 
    dopunjene jedinicama na glavnoj dijagonali */
 void ref_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX]) 
 {
@@ -39,7 +39,7 @@ void ref_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 }
 
 /* Funkcija proverava da li je relacija simetricna. Relacija je 
-   simetricna ako za svaki par elemenata važi: ako je element 
+   simetricna ako za svaki par elemenata vazi: ako je element 
    "i" u relaciji sa elementom "j", onda je i element "j" u 
    relaciji sa elementom "i". Ovakve matrice su simetricne u 
    odnosu na glavnu dijagonalu */
@@ -58,7 +58,7 @@ int simetricnost (int m[][MAX], int n)
 }
 
 /* Funkcija odredjuje simetricno zatvorenje zadate relacije. Ono 
-   je odredjeno matricom koja sadrži sve elemente polazne matrice 
+   je odredjeno matricom koja sadrzi sve elemente polazne matrice 
    dopunjene tako da matrica postane simetricna u odnosu na 
    glavnu dijagonalu */
 void sim_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
@@ -139,7 +139,7 @@ int main(int argc, char* argv[])
   int pomocna[MAX][MAX];
   int n, i, j, k;    
     
- /* Ako korisnik nije uneo tražene argumente, 
+ /* Ako korisnik nije uneo trazene argumente, 
      prijavljujemo gresku */
   if(argc < 2) {
     printf("Greska: ");
@@ -172,7 +172,7 @@ int main(int argc, char* argv[])
     for(j=0; j<n; j++)
       fscanf(ulaz, "%d", &m[i][j]);        
     
-  /* Ispisujemo tražene vrednosti */
+  /* Ispisujemo trazene vrednosti */
   printf("Refleksivnost: %s\n", 
            refleksivnost(m, n) == 1 ? "da" : "ne");
 		   

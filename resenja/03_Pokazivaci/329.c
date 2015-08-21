@@ -5,12 +5,12 @@
 #define MAX 1000
 
 /* NAPOMENA: Primer demonstrira "vracanje nizova iz funkcije". 
-   Ovako nesto se može improvizovati tako sto se u funkciji 
+   Ovako nesto se moze improvizovati tako sto se u funkciji 
    dinamicki kreira niz potrebne velicine, popuni se potrebnim
    informacijama, a zatim se vrati njegova adresa. Imajuci u 
    vidu cinjenicu da dinamicki kreiran objekat ne nestaje 
    kada se izadje iz funkcije koja ga je kreirala, vraceni 
-   pokazivac se kasnije u pozivajucoj funkciji može koristiti 
+   pokazivac se kasnije u pozivajucoj funkciji moze koristiti 
    za pristup "vracenom" nizu. Medjutim, pozivajuca funkcija 
    ima odgovornost i da se brine o dealokaciji istog prostora */
 
@@ -56,11 +56,11 @@ int main() {
   char *s = NULL;
   char s1[MAX], s2[MAX];
 
-  /* Ucitavamo dve niske koje cemo da nadovežemo */
+  /* Ucitavamo dve niske koje cemo da nadovezemo */
   scanf("%s", s1);
   scanf("%s", s2);
 
-  /* Pozivamo funkciju da nadoveže stringove */
+  /* Pozivamo funkciju da nadoveze stringove */
   s = nadovezi(s1, s2);
 
   /* Prikazujemo rezultat */
