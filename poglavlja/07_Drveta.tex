@@ -1,24 +1,23 @@
-%\chapter{Drveta}
-
-\section{Drveta}
+\section{Stabla}
 
 % 1.zadatak
 \begin{Exercise}[label=701]
+Napisati program za rad sa binarnim pretraživačkim stablima.
 \begin{enumerate}
-\item Definisati strukturu \verb|Cvor| kojom se opisuje čvor binarnog pretraživačkog drveta koja sadrži ceo broj \verb|b| i pokazivače \verb|levo| i \verb|desno| redom na levo i desno poddrvo\footnote{U zadacima ove glave u kojima nije eksplicitno naglašen sadržaj čvorova drveta, podrazumevaće se ova struktura.}.
-\item Napisati funkciju \kckod{Cvor* napravi\_cvor(int b)} koja alocira memoriju za novi čvor drveta i vrši njegovu inicijalizaciju zadatim celim brojem \argf{b}.
-\item Napisati funkciju \kckod{Cvor* dodaj\_u\_drvo(Cvor* koren, int b)} koja u drvo sa korenom \argf{koren} dodaje ceo broj \argf{b}.Funkcija vraća pokazivač na novodobijeno drvo.
-\item Napisati funkciju \kckod{Cvor* pretrazi\_drvo(Cvor* koren, int b)} koja proverava da li se ceo broj \argf{b} nalazi u drvetu sa korenom \argf{koren}. Funkcija vraća pokazivač na čvor drveta koji sadrži traženu vrednost ili NULL ukoliko takav čvor ne postoji.
-\item Napisati funkciju \kckod{Cvor* pronadji\_najmanji(Cvor* koren)} koja pronalazi čvor koji sadrži najmanju vrednost u drvetu sa korenom \argf{koren}.
-\item Napisati funkciju \kckod{Cvor* pronadji\_najveci(Cvor* koren)} koja pronalazi čvor koji sadrži najveću vrednost u drvetu sa korenom \argf{koren}.
-\item Napisati funkciju \kckod{Cvor* obrisi\_element(Cvor* koren, int b)} koja briše čvor koji sadrži vrednost \argf{b} iz zadatog drveta sa korenom \argf{koren} i vraća pokazivač na novodobijeno drvo.    
-\item Napisati funkciju \kckod{void ispisi\_drvo\_infiksno(Cvor* koren)} koja infiksno ispisuje sadržaj drveta sa korenom \argf{koren}. Infiksni ispis podrazumeva ispis levog poddrveta, korena, a zatim i desnog poddrveta.
-\item Napisati funkciju \kckod{void ispisi\_drvo\_prefiksno(Cvor* koren)} koja prefiksno ispisuje sadržaj drveta sa korenom \argf{koren}. Prefiksni ispis podrazumeva ispis korena, levog poddrveta, a zatim i desnog poddrveta.
-\item Napisati funkciju \kckod{void ispisi\_drvo\_postfiksno(Cvor* koren)} koja postfiksno ispisuje sadržaj drveta sa korenom \argf{koren}. Postfiksni ispis podrazumeva ispis levog poddrveta, desnog poddrveta, a zatim i korena.
-\item Napisati funkciju \kckod{Cvor* oslobodi\_drvo(Cvor* koren)} koja oslobađa memoriju zauzetu drvetom sa korenom \argf{koren}.
+\item Definisati strukturu \kckod{Cvor} kojom se opisuje čvor binarnog pretraživačkog stabla koja sadrži ceo broj \kckod{b} i pokazivače \kckod{levo} i \kckod{desno} redom na levo i desno podstablo\footnote{U zadacima ove glave u kojima nije eksplicitno naglašen sadržaj čvorova stabla, podrazumevaće se ova struktura.}.
+\item Napisati funkciju \kckod{Cvor* napravi\_cvor(int b)} koja alocira memoriju za novi čvor stabla i vrši njegovu inicijalizaciju zadatim celim brojem \argf{b}.
+\item Napisati funkciju \kckod{void dodaj\_u\_stablo(Cvor** koren, int b)} koja u stablo na koje pokazuje argument \argf{koren} dodaje ceo broj \argf{b}.
+\item Napisati funkciju \kckod{Cvor* pretrazi\_stablo(Cvor* koren, int b)} koja proverava da li se ceo broj \argf{b} nalazi u stablu sa korenom \argf{koren}. Funkcija vraća pokazivač na čvor stabla koji sadrži traženu vrednost ili NULL ukoliko takav čvor ne postoji.
+\item Napisati funkciju \kckod{Cvor* pronadji\_najmanji(Cvor* koren)} koja pronalazi čvor koji sadrži najmanju vrednost u stablu sa korenom \argf{koren}.
+\item Napisati funkciju \kckod{Cvor* pronadji\_najveci(Cvor* koren)} koja pronalazi čvor koji sadrži najveću vrednost u stablu sa korenom \argf{koren}.
+\item Napisati funkciju \kckod{void obrisi\_element(Cvor** koren, int b)} koja briše čvor koji sadrži vrednost \argf{b} iz stabla na koje pokazuje argument \argf{koren}.
+\item Napisati funkciju \kckod{void ispisi\_stablo\_infiksno(Cvor* koren)} koja infiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Infiksni ispis podrazumeva ispis levog podstabla, korena, a zatim i desnog podstabla.
+\item Napisati funkciju \kckod{void ispisi\_stablo\_prefiksno(Cvor* koren)} koja prefiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Prefiksni ispis podrazumeva ispis korena, levog podstabla, a zatim i desnog podstabla.
+\item Napisati funkciju \kckod{void ispisi\_stablo\_postfiksno(Cvor* koren)} koja postfiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Postfiksni ispis podrazumeva ispis levog podstabla, desnog podstabla, a zatim i korena.
+\item Napisati funkciju \kckod{void oslobodi\_stablo(Cvor** koren)} koja oslobađa memoriju zauzetu stablom na koje pokazuje argument \argf{koren}.
 \end{enumerate}
 
-Korišćenjem gorenavedenih funkcija, napisati program koji sa standardnog ulaza učitava cele brojeve sve do kraja ulaza, dodaje ih u binarno pretraživačko drvo i ispisuje ga u svakoj od navedenih notacija. Zatim omogućiti unos još dva cela broja i demonstrirati rad funkcije za pretragu nad prvim unetim brojem i rad funkcije za brisanje elemenata nad drugim unetim brojem. 
+Korišćenjem gorenavedenih funkcija napisati program koji sa standardnog ulaza učitava cele brojeve sve do kraja ulaza, dodaje ih u binarno pretraživačko stablo i ispisuje ga u svakoj od navedenih notacija. Zatim omogućiti unos još dva cela broja i demonstrirati rad funkcije za pretragu nad prvim unetim brojem i rad funkcije za brisanje elemenata nad drugim unetim brojem. 
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -27,9 +26,9 @@ Infiksni ispis: 1 2 7 9 18 32
 Prefiksni ispis: 7 2 1 9 32 18
 Postfiksni ispis: 1 2 18 32 9 7
 Trazi se broj: 11
-Broj se ne nalazi u drvetu!
+Broj se ne nalazi u stablu!
 Brise se broj: 7
-Rezultujuce drvo: 1 2 9 18 32
+Rezultujuce stablo: 1 2 9 18 32
 \end{test}
 \end{maxitest}
 
@@ -40,31 +39,29 @@ Infiksni ispis:  -3 -2 6 8 13 24
 Prefiksni ispis: 8 -2 -3 6 13 24
 Postfiksni ispis: -3 6 -2 24 13 8 
 Trazi se broj: 6
-Broj se nalazi u drvetu!
+Broj se nalazi u stablu!
 Brise se broj: 14
-Rezultujuce drvo: -3 -2 6 8 13 24
+Rezultujuce stablo: -3 -2 6 8 13 24
 \end{test}
 \end{maxitest}
 
 
 \end{Exercise}
 
-
-%\begin{Answer}[ref=701]
+\begin{Answer}[ref=701]
 %\includecode{resenja/07_Drveta/701.c}
-%\end{Answer}
+\end{Answer}
 
 
 
 %2.zadatak
 \begin{Exercise}[label=702]
-Napisati program koji izračunava i na standardnom izlazu ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživackog drveta uređenog leksikografski prema rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku "Nedostaje ime ulazne datoteke!".
+Napisati program koji izračunava i na standardnom izlazu ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživackog stabla uređenog leksikografski prema rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku \kckod{"Nedostaje ime ulazne datoteke!"}.
 
 \begin{miditest}
 \begin{test}{Test 1}
 Ulazna datoteka test.txt:
-Sunce utorak raCunar SUNCE programiranje
-jabuka PROGramiranje sunCE  JABUka
+Sunce utorak raCunar SUNCE programiranje jabuka PROGramiranje sunCE JABUka
 
 Poziv: ./a.out test.txt
 
@@ -92,11 +89,15 @@ zova: 2
 \end{miditest}
 \end{Exercise}
 
+\begin{Answer}[ref=702]
+%\includecode{resenja/07_Drveta/702.c}
+\end{Answer}
+
 %3.zadatak
 
 %4.zadatak
 \begin{Exercise}[label=704]
-U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona, npr. Pera Peric 064/123-4567. Napisati program koji korišćenjem binarnog pretraživačkog drveta implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči \textit{KRAJ}, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od 30 karaktera.  
+U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona, npr. Pera Peric 064/123-4567. Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči \kckod{KRAJ}, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od 30 karaktera.  
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -116,13 +117,16 @@ Broj nije u imeniku!
 Unesite ime i prezime: KRAJ
 \end{test}
 \end{maxitest}
-
 \end{Exercise}
+
+\begin{Answer}[ref=704]
+%\includecode{resenja/07_Drveta/704.c}
+\end{Answer}
 
 
 %5.zadatak
 \begin{Exercise}[label=705]
-U datoteci \textit{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jedne osnovne škole tako što je u svakom redu navedeno ime i prezime učenika (niz najviše 50 karaktera), broj poena na osnovu uspeha (realan broj), broj poena na prijemnom ispitu iz matematike (realan broj) i broj poena na prijemnom ispitu iz maternjeg jezika (realan broj). Za učenika koji u zbiru osvoji manje od 10 poena na oba prijemna ispita smatra se da nije položio prijemni. Napisati program koji na osnovu podataka iz ove datoteke formira i prikazuje rang listu učenika. Rang lista sadrži redni broj učenika, njegovo ime i prezime, broj poena na osnovu uspeha, broj poena na prijemnom ispitu iz matematike, broj poena na prijemnom ispitu iz maternjeg jezika i ukupan broj poena i sortirana je opadajuće po ukupnom broju poena. Na rang listi se prvo navode oni učenici koji su položili prijemni ispit, a potom i učenici koji ga nisu položili. Između ovih dveju grupa učenika postoji i horizontalna linija koja ih vizuelno razdvaja. 
+U datoteci \em{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jedne osnovne škole tako što je u svakom redu navedeno ime i prezime učenika (niz najviše 50 karaktera), broj poena na osnovu uspeha (realan broj), broj poena na prijemnom ispitu iz matematike (realan broj) i broj poena na prijemnom ispitu iz maternjeg jezika (realan broj). Za učenika koji u zbiru osvoji manje od 10 poena na oba prijemna ispita smatra se da nije položio prijemni. Napisati program koji na osnovu podataka iz ove datoteke formira i prikazuje rang listu učenika. Rang lista sadrži redni broj učenika, njegovo ime i prezime, broj poena na osnovu uspeha, broj poena na prijemnom ispitu iz matematike, broj poena na prijemnom ispitu iz maternjeg jezika i ukupan broj poena i sortirana je opadajuće po ukupnom broju poena. Na rang listi se prvo navode oni učenici koji su položili prijemni ispit, a potom i učenici koji ga nisu položili. Između ovih dveju grupa učenika postoji i horizontalna linija koja ih vizuelno razdvaja. 
 \begin{maxitest}
 \begin{test}{Test 1}
 Datoteka prijemni.txt:
@@ -141,13 +145,15 @@ Izlaz:
 5. Jovana Milic 23.3 2 5.6 30.9
 \end{test}
 \end{maxitest}
-
-
 \end{Exercise}
+\begin{Answer}[ref=705]
+%\includecode{resenja/07_Drveta/705.c}
+\end{Answer}
+
 
 %6.zadatak
 \begin{Exercise}[label=706]
-Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije u formatu \textit{Ime Prezime DD.MM.YYYY.} - za svaku osobu po jedna linija datoteke. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj rada. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu DD.MM.YYYY.
+Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije u formatu \em{Ime Prezime DD.MM.YYYY.} - za svaku osobu po jedna linija datoteke. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj rada. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu DD.MM.YYYY.
 \begin{maxitest}
 \begin{test}{Test 1}
 Ulazna datoteka rodjendani.txt:
@@ -167,19 +173,23 @@ Slavljeni: Jovana Milic 05.05.
 Unesite datum: CTRL+D
 \end{test}
 \end{maxitest}
-
 \end{Exercise}
+
+\begin{Answer}[ref=706]
+%\includecode{resenja/07_Drveta/706.c}
+\end{Answer}
+
 
 
 %7.zadatak
 \begin{Exercise}[label=707]
-Dva binarna drveta su identična ako su ista po strukturi i sadržaju tj. ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor* koren1, Cvor* koren2)} koja proverava da li su binarna drveta \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identicna, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih drveta unositi sa standardnog ulaza sve do pojave broja 0.
+Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj. ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor* koren1, Cvor* koren2)} koja proverava da li su binarna stabla \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identična, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih stabla unositi sa standardnog ulaza sve do pojave broja 0.
 
 \begin{maxitest}
 \begin{test}{Test 1}
 Ulaz:
-Prvo drvo: 10 5 15 3 2 4 30 12 14 13 0
-Drugo drvo: 10 15 5 3 4 2 12 14 13 30 0
+Prvo stablo: 10 5 15 3 2 4 30 12 14 13 0
+Drugo stablo: 10 15 5 3 4 2 12 14 13 30 0
 
 Izlaz:
 Jesu identicna.
@@ -189,8 +199,8 @@ Jesu identicna.
 \begin{maxitest}
 \begin{test}{Test 2}
 Ulaz:
-Prvo drvo: 10 5 15 4 3 2 30 12 14 13 0
-Drugo drvo: 10 15 5 3 4 2 12 14 13 30 0
+Prvo stablo: 10 5 15 4 3 2 30 12 14 13 0
+Drugo stablo: 10 15 5 3 4 2 12 14 13 30 0
 
 Izlaz:
 Nisu identicna.
@@ -199,15 +209,20 @@ Nisu identicna.
 
 \end{Exercise}
 
+\begin{Answer}[ref=707]
+%\includecode{resenja/07_Drveta/707.c}
+\end{Answer}
+
+
 %8.zadatak
 \begin{Exercise}[label=708]
-Napisati program koji za dva binarna pretraživačka drveta čiji se elementi zadaju sa standardnog ulaza, sve do kraja ulaza, ispisuje uniju, presek i razliku drveta. 
+Napisati program koji za dva binarna pretraživačka stabla čiji se elementi zadaju sa standardnog ulaza, sve do kraja ulaza, ispisuje uniju, presek i razliku stabla. Unija dva stabala je stablo koje sadrži vrednosti iz oba stabla uračunata tačno po jednom. Presek dva stabala je stablo koje sadrži vrednosti koje se pojavljuju i u prvom i u drugom stablu. Razlika dva stabla je stablo koje sadrži sve vrednosti prvog stabla koje se ne pojavljuju u drugom stablu. 
 
 \begin{miditest}
 \begin{test}{Test 1}
 Ulaz:
-Prvo drvo: 1 7 8 9 2 2
-Drugo drvo: 3 9 6 11 1
+Prvo stablo: 1 7 8 9 2 2
+Drugo stablo: 3 9 6 11 1
 
 Izlaz:
 Unija: 1 2 3 6 7 8 9 11
@@ -218,9 +233,14 @@ Razlika: 2 7 8
 
 \end{Exercise}
 
+\begin{Answer}[ref=708]
+%\includecode{resenja/07_Drveta/708.c}
+\end{Answer}
+
+
 %9.zadatak
 \begin{Exercise}[label=709]
-Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih brojeva \argf{a} dimenzije \argf{n} korišćenjem binarnog pretraživačkog drveta. Napisati i program koji sa standardnog ulaza učitava ceo broj \verb|n| manji od 50 i niz \verb|a| celih brojeva dužine \verb|n|, poziva funkciju \verb|sortiraj| i rezultat ispisuje na standardnom izlazu.  
+Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih brojeva \argf{a} dimenzije \argf{n} korišćenjem binarnog pretraživačkog stabla. Napisati i program koji sa standardnog ulaza učitava ceo broj \argf{n} manji od 50 i niz \argf{a} celih brojeva dužine \argf{n}, poziva funkciju \kckod{sortiraj} i rezultat ispisuje na standardnom izlazu.  
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -244,24 +264,29 @@ Greska: pogresna dimenzija niza!
 \end{maxitest}
 \end{Exercise}
 
+\begin{Answer}[ref=709]
+%\includecode{resenja/07_Drveta/709.c}
+\end{Answer}
+
+
 %10.zadatak
 \begin{Exercise}[label=710]
-Dato je binarno pretraživačko drvo celih brojeva.
+Dato je binarno pretraživačko stablo celih brojeva.
 \begin{enumerate}
-\item Napisati funkciju koja izračunava broj čvorova drveta.
-\item Napisati funkciju koja izračunava broj listova drveta.
-\item Napisati funkciju koja štampa pozitivne vrednosti listova drveta.
-\item Napisati funkciju koja izračunava zbir čvorova drveta.
-\item Napisati funkciju koja izračunava najveći element drveta.
-\item Napisati funkciju koja izračunava dubinu drveta.
-\item Napisati funkciju koja izračunava broj čvorova na $i$-tom nivou drveta.
-\item Napisati funkciju koja ispisuje sve elemente na $i$-tom nivou drveta.
-\item Napisati funkciju koja izračunava maksimalnu vrednost na $i$-tom nivou drveta.
-\item Napisati funkciju koja izračunava zbir čvorova na $i$-tom nivou drveta.
-\item Napisati funkciju koja izračunava zbir svih vrednosti drveta koje su manje ili jednake od date vrednosti $x$.
+\item Napisati funkciju koja izračunava broj čvorova stabla.
+\item Napisati funkciju koja izračunava broj listova stabla.
+\item Napisati funkciju koja štampa pozitivne vrednosti listova stabla.
+\item Napisati funkciju koja izračunava zbir čvorova stabla.
+\item Napisati funkciju koja izračunava najveći element stabla.
+\item Napisati funkciju koja izračunava dubinu stabla.
+\item Napisati funkciju koja izračunava broj čvorova na $i$-tom nivou stabla.
+\item Napisati funkciju koja ispisuje sve elemente na $i$-tom nivou stabla.
+\item Napisati funkciju koja izračunava maksimalnu vrednost na $i$-tom nivou stabla.
+\item Napisati funkciju koja izračunava zbir čvorova na $i$-tom nivou stabla.
+\item Napisati funkciju koja izračunava zbir svih vrednosti stabla koje su manje ili jednake od date vrednosti $x$.
 \end{enumerate}
 
-Napisati program koji testira gorenavedene funkcije. Drvo formirati na osnovu vrednosti koje se unose
+Napisati program koji testira gorenavedene funkcije. Stablo formirati na osnovu vrednosti koje se unose
 sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ pročitati kao argumente komandne linije. 
 
 
@@ -289,17 +314,25 @@ zbir elemenata manjih ili jednakih od 15: 7
 
 \end{Exercise}
 
+\begin{Answer}[ref=710]
+%\includecode{resenja/07_Drveta/710.c}
+\end{Answer}
+
+
 
 %11.zadatak
 
 \begin{Exercise}[label=711]
-Dopuniti prethodni zadatak sledećim zahtevima:
+Dato je binarno pretraživačko stablo celih brojeva.
 \begin{enumerate}
-\item Napisati funkciju koja pronalazi čvor u drvetu sa maksimalnim proizvodom vrednosti iz desnog poddrveta.
-\item Napisati funkciju koja pronalazi čvor u drvetu sa najmanjom sumom vrednosti iz levog poddrveta.
-\item Napisati funkciju  koja štampa sadržaj svih čvorova drveta na putanji od korena do najdubljeg čvora.
-\item Napisati funkciju koja štampa sadržaj svih čvorova drveta na putanji od korena do čvora koji ima najmanju vrednost u drvetu.
+\item Napisati funkciju koja pronalazi čvor u stablu sa maksimalnim proizvodom vrednosti iz desnog podstabla.
+\item Napisati funkciju koja pronalazi čvor u stablu sa najmanjom sumom vrednosti iz levog podstabla.
+\item Napisati funkciju  koja štampa sadržaj svih čvorova stabla na putanji od korena do najdubljeg čvora.
+\item Napisati funkciju koja štampa sadržaj svih čvorova stabla na putanji od korena do čvora koji ima najmanju vrednost u stablu.
 \end{enumerate}
+Napisati program koji testira gorenavedene funkcije. Stablo formirati na osnovu vrednosti koje se unose
+sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ pročitati kao argumente komandne linije. 
+
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -315,13 +348,16 @@ Putanja do najdubljeg cvora: 10 15 12 14 13
 Putanja do najmanjeg cvora: 10 5 3 2
 \end{test}
 \end{maxitest}
-
 \end{Exercise}
+
+\begin{Answer}[ref=711]
+%\includecode{resenja/07_Drveta/711.c}
+\end{Answer}
 
 
 %12.zadatak
 \begin{Exercise}[label=712]
-Napisati program koji ispisuje sadržaj binarnog pretraživačkog drveta po nivoima. 
+Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivoima. 
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -339,16 +375,21 @@ Izlaz:
 
 \end{Exercise}
 
+\begin{Answer}[ref=712]
+%\includecode{resenja/07_Drveta/712.c}
+\end{Answer}
+
+
 
 %13.zadatak
 \begin{Exercise}[label=713]
-Dva binarna stabla su \textit{slična kao u ogledalu} ako su ili oba prazna ili ako oba nisu prazna i levo poddrvo svakog drveta je \textit{slično kao u ogledalu} desnom poddrvetu onog drugog (bitna je struktura drveta, ali ne i njihov sadržaj). Napisati funkciju koja proverava da li su dva binarna pretraživačka drveta \textit{slična kao u ogledalu}, a potom i program koji testira rad funkcije nad drvetima čiji se elementi unose sa standardnog ulaza sve do unosa broja 0 i to redom za prvo drvo, pa zatim i za drugo drvo. 
+Dva binarna stabla su \em{slična kao u ogledalu} ako su ili oba prazna ili ako oba nisu prazna i levo podstablo svakog stabla je \em{slično kao u ogledalu} desnom podstablu onog drugog (bitna je struktura stabala, ali ne i njihov sadržaj). Napisati funkciju koja proverava da li su dva binarna pretraživačka stabla \em{slična kao u ogledalu}, a potom i program koji testira rad funkcije nad stablima čiji se elementi unose sa standardnog ulaza sve do unosa broja 0 i to redom za prvo stablo, pa zatim i za drugo stablo. 
 
 \begin{miditest}
 \begin{test}{Test 1}
 Ulaz: 
-Prvo drvo: 11 20 5 3
-Drugo drvo: 8 14 30 1
+Prvo stablo: 11 20 5 3
+Drugo stablo: 8 14 30 1
 
 Izlaz: 
 Jesu slicna kao u ogledalu.
@@ -358,21 +399,24 @@ Jesu slicna kao u ogledalu.
 \begin{miditest}
 \begin{test}{Test 2}
 Ulaz: 
-Prvo drvo: 11 20 5 3
-Drugo drvo: 8 20 15
+Prvo stablo: 11 20 5 3
+Drugo stablo: 8 20 15
 
 Izlaz: 
 Nisu slicna kao u ogledalu.
 \end{test}
 \end{miditest}
-
 \end{Exercise}
+
+\begin{Answer}[ref=713]
+%\includecode{resenja/07_Drveta/713.c}
+\end{Answer}
 
 
 %14.zadatak
 \begin{Exercise}[label=714]
-AVL-drvo je binarno drvo pretrage kod koga apsolutna razlika visina levog i desnog poddrveta svakog elementa
-nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor* koren)} koja izračunava broj čvorova drveta sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \verb|avl| funkcije za drvo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
+AVL-stablo je binarno stablo pretrage kod koga apsolutna razlika visina levog i desnog podstabla svakog elementa
+nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor* koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod|avl| funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -393,10 +437,14 @@ Izlaz:
 \end{miditest}
 \end{Exercise}
 
+\begin{Answer}[ref=714]
+%\includecode{resenja/07_Drveta/714.c}
+\end{Answer}
+
 
 %15.zadatak
 \begin{Exercise}[label=715]
-Binarno drvo se naziva HEAP ako je kompletno (svaki njegov čvor, izuzev listova, ima i levog i desnog potomka) i za svaki čvor u drvetu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno drvo celih brojeva HEAP. Napisati zatim i glavni program koji ispisuje rezultat $heap$ funkcije za drvo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
+Binarno stablo se naziva HEAP ako je kompletno (svaki njegov čvor, izuzev listova, ima i levog i desnog potomka) i za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno stablo celih brojeva HEAP. Napisati zatim i glavni program koji ispisuje rezultat \kckod{heap} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -408,6 +456,10 @@ Da
 \end{miditest}
 
 \end{Exercise}
+
+\begin{Answer}[ref=715]
+%\includecode{resenja/07_Drveta/715.c}
+\end{Answer}
 
 
 \section{Rešenja}
