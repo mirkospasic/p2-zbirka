@@ -5,19 +5,29 @@
 Napisati program za rad sa binarnim pretraživačkim stablima.
 \begin{enumerate}
 \item Definisati strukturu \kckod{Cvor} kojom se opisuje čvor binarnog pretraživačkog stabla koja sadrži ceo broj \kckod{b} i pokazivače \kckod{levo} i \kckod{desno} redom na levo i desno podstablo\footnote{U zadacima ove glave u kojima nije eksplicitno naglašen sadržaj čvorova stabla, podrazumevaće se ova struktura.}.
+
 \item Napisati funkciju \kckod{Cvor* napravi\_cvor(int b)} koja alocira memoriju za novi čvor stabla i vrši njegovu inicijalizaciju zadatim celim brojem \argf{b}.
+
 \item Napisati funkciju \kckod{void dodaj\_u\_stablo(Cvor** koren, int b)} koja u stablo na koje pokazuje argument \argf{koren} dodaje ceo broj \argf{b}.
+
 \item Napisati funkciju \kckod{Cvor* pretrazi\_stablo(Cvor* koren, int b)} koja proverava da li se ceo broj \argf{b} nalazi u stablu sa korenom \argf{koren}. Funkcija vraća pokazivač na čvor stabla koji sadrži traženu vrednost ili NULL ukoliko takav čvor ne postoji.
-\item Napisati funkciju \kckod{Cvor* pronadji\_najmanji(Cvor* koren)} koja pronalazi čvor koji sadrži najmanju vrednost u stablu sa korenom \argf{koren}.
+
+\item Napisati funkciju \kckod{Cvor* pronadji\_najmanji(Cvor* koren)} koja pronalazi čvor koji sadrži najmanju vrednost u stablu sa korenom \argf{koren}. 
+
 \item Napisati funkciju \kckod{Cvor* pronadji\_najveci(Cvor* koren)} koja pronalazi čvor koji sadrži najveću vrednost u stablu sa korenom \argf{koren}.
+
 \item Napisati funkciju \kckod{void obrisi\_element(Cvor** koren, int b)} koja briše čvor koji sadrži vrednost \argf{b} iz stabla na koje pokazuje argument \argf{koren}.
+
 \item Napisati funkciju \kckod{void ispisi\_stablo\_infiksno(Cvor* koren)} koja infiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Infiksni ispis podrazumeva ispis levog podstabla, korena, a zatim i desnog podstabla.
+
 \item Napisati funkciju \kckod{void ispisi\_stablo\_prefiksno(Cvor* koren)} koja prefiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Prefiksni ispis podrazumeva ispis korena, levog podstabla, a zatim i desnog podstabla.
+
 \item Napisati funkciju \kckod{void ispisi\_stablo\_postfiksno(Cvor* koren)} koja postfiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Postfiksni ispis podrazumeva ispis levog podstabla, desnog podstabla, a zatim i korena.
+
 \item Napisati funkciju \kckod{void oslobodi\_stablo(Cvor** koren)} koja oslobađa memoriju zauzetu stablom na koje pokazuje argument \argf{koren}.
 \end{enumerate}
 
-Korišćenjem gorenavedenih funkcija napisati program koji sa standardnog ulaza učitava cele brojeve sve do kraja ulaza, dodaje ih u binarno pretraživačko stablo i ispisuje ga u svakoj od navedenih notacija. Zatim omogućiti unos još dva cela broja i demonstrirati rad funkcije za pretragu nad prvim unetim brojem i rad funkcije za brisanje elemenata nad drugim unetim brojem. 
+Korišćenjem prethodnih funkcija, napisati program koji sa standardnog ulaza učitava cele brojeve sve do kraja ulaza, dodaje ih u binarno pretraživačko stablo i ispisuje stablo u svakoj od navedenih notacija. Zatim omogućiti unos još dva cela broja i demonstrirati rad funkcije za pretragu nad prvim unetim brojem i rad funkcije za brisanje elemenata nad drugim unetim brojem. 
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -56,14 +66,16 @@ Rezultujuce stablo: -3 -2 6 8 13 24
 
 %2.zadatak
 \begin{Exercise}[label=702]
-Napisati program koji izračunava i na standardnom izlazu ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživackog stabla uređenog leksikografski prema rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku \kckod{"Nedostaje ime ulazne datoteke!"}.
+Napisati program koji izračunava i na standardnom izlazu ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživackog stabla uređenog leksikografski prema rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku \kckod{Nedostaje ime ulazne datoteke!}.
+
+\komentar{Milena: dodati i test primer sa pokretanjem bez ulazne datoteke}
 
 \begin{miditest}
 \begin{test}{Test 1}
+Poziv: ./a.out test.txt
+
 Ulazna datoteka test.txt:
 Sunce utorak raCunar SUNCE programiranje jabuka PROGramiranje sunCE JABUka
-
-Poziv: ./a.out test.txt
 
 Izlaz:
 jabuka: 2
@@ -75,10 +87,10 @@ utorak: 1
 \end{miditest}
 \begin{miditest}
 \begin{test}{Test 2}
+Poziv: ./a.out suma.txt
+
 Ulazna datoteka suma.txt:
 lipa zova hrast ZOVA breza LIPA
-
-Poziv: ./a.out suma.txt
 
 Izlaz:
 breza: 1
@@ -97,18 +109,18 @@ zova: 2
 
 %4.zadatak
 \begin{Exercise}[label=704]
-U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona, npr. Pera Peric 064/123-4567. Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči \kckod{KRAJ}, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od 30 karaktera.  
+U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona, npr.~\kckod{Pera Peric 064/123-4567}. Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči \kckod{KRAJ}, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od $30$ karaktera.  
 
 \begin{maxitest}
 \begin{test}{Test 1}
 Ulazna datoteka imenik.txt:
-Pera Peric 011/3240-987
-Marko Maric 064/1234-987
-Mirko Maric 011/589-333
-Sanja Savkovic 063/321-098
-Zika Zikic 021/759-858
+   Pera Peric 011/3240-987
+   Marko Maric 064/1234-987
+   Mirko Maric 011/589-333
+   Sanja Savkovic 063/321-098
+   Zika Zikic 021/759-858
 
-.....
+
 Unesite ime datoteke: imenik.txt
 Unesite ime i prezime: Pera Peric
 Broj je: 011/3240-987
@@ -126,15 +138,15 @@ Unesite ime i prezime: KRAJ
 
 %5.zadatak
 \begin{Exercise}[label=705]
-U datoteci \em{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jedne osnovne škole tako što je u svakom redu navedeno ime i prezime učenika (niz najviše 50 karaktera), broj poena na osnovu uspeha (realan broj), broj poena na prijemnom ispitu iz matematike (realan broj) i broj poena na prijemnom ispitu iz maternjeg jezika (realan broj). Za učenika koji u zbiru osvoji manje od 10 poena na oba prijemna ispita smatra se da nije položio prijemni. Napisati program koji na osnovu podataka iz ove datoteke formira i prikazuje rang listu učenika. Rang lista sadrži redni broj učenika, njegovo ime i prezime, broj poena na osnovu uspeha, broj poena na prijemnom ispitu iz matematike, broj poena na prijemnom ispitu iz maternjeg jezika i ukupan broj poena i sortirana je opadajuće po ukupnom broju poena. Na rang listi se prvo navode oni učenici koji su položili prijemni ispit, a potom i učenici koji ga nisu položili. Između ovih dveju grupa učenika postoji i horizontalna linija koja ih vizuelno razdvaja. 
+U datoteci \kckod{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jedne osnovne škole tako što je u svakom redu navedeno ime i prezime učenika (niz najviše $50$ karaktera), broj poena na osnovu uspeha (realan broj), broj poena na prijemnom ispitu iz matematike (realan broj) i broj poena na prijemnom ispitu iz maternjeg jezika (realan broj). Za učenika koji u zbiru osvoji manje od $10$ poena na oba prijemna ispita smatra se da nije položio prijemni. Napisati program koji na osnovu podataka iz ove datoteke formira i prikazuje rang listu učenika. Rang lista sadrži redni broj učenika, njegovo ime i prezime, broj poena na osnovu uspeha, broj poena na prijemnom ispitu iz matematike, broj poena na prijemnom ispitu iz maternjeg jezika i ukupan broj poena i sortirana je opadajuće po ukupnom broju poena. Na rang listi se prvo navode oni učenici koji su položili prijemni ispit, a potom i učenici koji ga nisu položili. Između ovih dveju grupa učenika postoji i horizontalna linija koja ih vizuelno razdvaja. 
 \begin{maxitest}
 \begin{test}{Test 1}
 Datoteka prijemni.txt:
-Marko Markovic 45.4 12.3 11         
-Milan Jevremovic 35.2 1.3 9         
-Maja Agic 60 19 20                  
-Nadica Zec 54.2 10 15.8             
-Jovana Milic 23.3 2 5.6
+   Marko Markovic 45.4 12.3 11         
+   Milan Jevremovic 35.2 1.3 9         
+   Maja Agic 60 19 20                  
+   Nadica Zec 54.2 10 15.8             
+   Jovana Milic 23.3 2 5.6
 
 Izlaz:
 1. Maja Agic 60 19 20 99
@@ -153,7 +165,7 @@ Izlaz:
 
 %6.zadatak
 \begin{Exercise}[label=706]
-Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije u formatu \em{Ime Prezime DD.MM.YYYY.} - za svaku osobu po jedna linija datoteke. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj rada. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu DD.MM.YYYY.
+Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije u formatu \kckod{Ime Prezime DD.MM.YYYY.} - za svaku osobu po jedna linija datoteke. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj rada. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu \kckod{DD.MM.YYYY}.
 \begin{maxitest}
 \begin{test}{Test 1}
 Ulazna datoteka rodjendani.txt:
@@ -183,7 +195,7 @@ Unesite datum: CTRL+D
 
 %7.zadatak
 \begin{Exercise}[label=707]
-Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj. ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor* koren1, Cvor* koren2)} koja proverava da li su binarna stabla \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identična, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih stabla unositi sa standardnog ulaza sve do pojave broja 0.
+Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj. ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor* koren1, Cvor* koren2)} koja proverava da li su binarna stabla \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identična, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih stabla unositi sa standardnog ulaza sve do pojave broja $0$.
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -192,7 +204,7 @@ Prvo stablo: 10 5 15 3 2 4 30 12 14 13 0
 Drugo stablo: 10 15 5 3 4 2 12 14 13 30 0
 
 Izlaz:
-Jesu identicna.
+Stabla jesu identicna.
 \end{test}
 \end{maxitest}
 
@@ -203,7 +215,7 @@ Prvo stablo: 10 5 15 4 3 2 30 12 14 13 0
 Drugo stablo: 10 15 5 3 4 2 12 14 13 30 0
 
 Izlaz:
-Nisu identicna.
+Stabla nisu identicna.
 \end{test}
 \end{maxitest}
 
@@ -286,7 +298,7 @@ Dato je binarno pretraživačko stablo celih brojeva.
 \item Napisati funkciju koja izračunava zbir svih vrednosti stabla koje su manje ili jednake od date vrednosti $x$.
 \end{enumerate}
 
-Napisati program koji testira gorenavedene funkcije. Stablo formirati na osnovu vrednosti koje se unose
+Napisati program koji testira prethodne funkcije. Stablo formirati na osnovu vrednosti koje se unose
 sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ pročitati kao argumente komandne linije. 
 
 
@@ -383,7 +395,7 @@ Izlaz:
 
 %13.zadatak
 \begin{Exercise}[label=713]
-Dva binarna stabla su \em{slična kao u ogledalu} ako su ili oba prazna ili ako oba nisu prazna i levo podstablo svakog stabla je \em{slično kao u ogledalu} desnom podstablu onog drugog (bitna je struktura stabala, ali ne i njihov sadržaj). Napisati funkciju koja proverava da li su dva binarna pretraživačka stabla \em{slična kao u ogledalu}, a potom i program koji testira rad funkcije nad stablima čiji se elementi unose sa standardnog ulaza sve do unosa broja 0 i to redom za prvo stablo, pa zatim i za drugo stablo. 
+Dva binarna stabla su {\em slična kao u ogledalu} ako su ili oba prazna ili ako oba nisu prazna i levo podstablo svakog stabla je {\em slično kao u ogledalu} desnom podstablu onog drugog (bitna je struktura stabala, ali ne i njihov sadržaj). Napisati funkciju koja proverava da li su dva binarna pretraživačka stabla {\em slična kao u ogledalu}, a potom i program koji testira rad funkcije nad stablima čiji se elementi unose sa standardnog ulaza sve do unosa broja 0 i to redom za prvo stablo, pa zatim i za drugo stablo. 
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -392,7 +404,7 @@ Prvo stablo: 11 20 5 3
 Drugo stablo: 8 14 30 1
 
 Izlaz: 
-Jesu slicna kao u ogledalu.
+Stabla su slicna kao u ogledalu.
 \end{test}
 \end{miditest}
 
@@ -403,7 +415,7 @@ Prvo stablo: 11 20 5 3
 Drugo stablo: 8 20 15
 
 Izlaz: 
-Nisu slicna kao u ogledalu.
+Stabla nisu slicna kao u ogledalu.
 \end{test}
 \end{miditest}
 \end{Exercise}
@@ -416,7 +428,7 @@ Nisu slicna kao u ogledalu.
 %14.zadatak
 \begin{Exercise}[label=714]
 AVL-stablo je binarno stablo pretrage kod koga apsolutna razlika visina levog i desnog podstabla svakog elementa
-nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor* koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod|avl| funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
+nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor* koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod{avl} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -426,7 +438,6 @@ Izlaz:
 7
 \end{test}
 \end{miditest}
-
 \begin{miditest}
 \begin{test}{Test 2}
 Ulaz: 
