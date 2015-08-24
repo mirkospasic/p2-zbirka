@@ -95,7 +95,12 @@ kuca. Minitest je zapravo zamena za minipage sa predefinisanom sirinom.
 Definisala sam i miditest i maxitest, u zavisnosti od sirine koja je za test 
 potrebna. Ideja je da testove mozemo da slazemo jedan uz drugi, kao i da svi 
 koristimo fiksne duzine, zato sam navela ove tri velicine, mada je to, naravno, 
-fleksibilno,   
+fleksibilno,
+Testove formatirati na ovaj nacin:
+poziv programa
+datoteka i njen sadrzaj ukoliko treba
+ulaz
+izlaz
 
 Okruzenje Answer se koristi samo da se oznaci rešenje zadatka, i tu imamo 
 uključivanje C koda iz odgovarajuće datoteke rešenja. Dakle taj deo bi trebao 
@@ -122,8 +127,17 @@ pravilima srpskog jezika (primere takvih formulacija videcete kod pokazivaca
 i visedimenzionih nizova).
 
 Nekim tezim zadacima mozemo dodati zvezdice na ovaj nacin:
-\begin{Exercise}[title={Sortiranje}, difficulty=2, label=401]
-Ovde je dodato i ime zadatku, ako negde bude i tako nesto potrebno.
+\begin{Exercise}[title={Sortiranje}, difficulty=2, label=401] Ovde je
+dodato i ime zadatku, ako negde bude i tako nesto potrebno.  Ako je
+zadatak tezi, onda difficulty=1, ako je bas tezak, onda difficulty=2.
+Npr \begin{Exercise}[label=401, difficulty=1]
+
+Treba obeleziti i zadatke koji nisu uradjeni, da bi nam to bilo
+preglednije, to cemo, naravno, na kraju obrisati.
+\begin{Exercise}[label=401]\marker+{1}
+Zadatak nije uradjen ali je dato uputstvo
+\begin{Exercise}[label=401]\marker+{2}
+Zadatak nije uradjen i nije dato uputstvo
 
 Uputstva za unos resenja
 
@@ -145,3 +159,12 @@ indent -fc1 -fca -kr --no-tabs --line-length65 -i2 *.c
 > ne? Ovo pitanje se odnosi i na komentare i na kod.
 
 Odgovor na ovo je isti kao prethodni - da moracemo da se ogranicimo, ali mislim da ce to moci automatski da se uradi. A mozda i nece (tj hoce sigurno, ali ako se radi automatski pitanje je koliko lepo ce da izgleda), pa nije lose u startu voditi racuna da se ne prelazi 80 karaktera u redu. 
+
+Terminologija:
+Umesto termina "drvo" koristiti "stablo".
+
+Kod duzih zadataka je moguce podeliti kod u vise datoteka, i u PDF
+ukljuciti samo onu najbitniju, bez nekih standardno potrebnih
+stvari. (ovo se pre svega odnosi na stabla i liste). Obavezno je da se
+zadatak kompilira.
+
