@@ -62,11 +62,13 @@ int main()
   int i, indeks;
 
   /* ucitavamo trazeni broj */
+  printf("Unesite trazeni broj: ");
   scanf("%d", &x);
 
   /* ucitavamo elemente niza sve do kraja ulaza - ocekujemo da
      korisnik pritisne CTRL+D za naznaku kraja */
   i = 0;
+  printf("Unesite sortiran niz elemenata: ");
   while (scanf("%d", &a[i]) == 1) {
     i++;
   }

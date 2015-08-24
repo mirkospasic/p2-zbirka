@@ -398,6 +398,94 @@ Nenad Brankovic 2 4
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
+\begin{Exercise}[label=513]
+U datoteci ,,pesme.txt`` nalaze se informacije o gledanosti pesama na
+Youtube-u. Format datoteke sa informacijama je sledeći:
+\begin{itemize}
+\item U prvoj liniji datoteke se nalazi ukupan broj pesama prisutnih u
+  datoteci.
+\item Svaki naredni red datoteke sadrži informacije o gledanosti
+  pesama u formatu \kckod{izvođač - naslov, broj gledanja}.
+\end{itemize}
+Napisati program koji učitava informacije o pesmama i vrši sortiranje
+pesama u zavisnosti od argumenata komandne linije na sledeći način:
+\begin{itemize}
+\item nema opcija, sortiranje se vrši po broju gledanja;
+\item prisutna je opcija \kckod{-i}, sortiranje se vrši po imenima
+  izvođača;
+\item prisutna je opcija \kckod{-n}, sortiranje se vrši po naslovu
+  pesama.
+\end{itemize}
+Na standardni izlaz ispisati informacije o pesmama sortirane na opisan
+način.
+\begin{enumerate}
+\item Uraditi zadatak uz pretpostavku da je maksimalna dužina imena
+  izvođača $20$ karaktera, a imena naslova pesme $50$ kraraktera.
+\item Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
+  imena izvođača i naslova pesme.
+\end{enumerate}
+\komentar{Jelena: Kako ovde da prikažem rešenje pod a) i b)?}
+\komentar{Milena: Mislim da bi bilo najbolje razdvojiti kod po
+  datotekama i napisati dve main funkcije. Na taj nacin onda
+  nedupliramo dva programa, vec oba ukljucuju zajednicke delove,
+  ukoliko ima dovoljno tih zajednickih delova. Ukoliko ih ima malo,
+  onda svaki zadatak posebno.}
+
+\begin{miditest}
+\begin{test}{Test 1}
+Poziv: ./a.out
+Datoteka:  5
+           Ana - Nebo, 2342
+           Laza - Oblaci, 29
+           Pera - Ptice, 327
+           Jelena - Sunce, 92321
+           Mika - Kisa, 5341
+Izlaz:     Jelena - Sunce, 92321
+           Mika - Kisa, 5341
+           Ana - Nebo, 2342
+           Pera - Ptice, 327
+           Laza - Oblaci, 29
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Poziv: ./a.out -i
+Datoteka:  5
+           Ana - Nebo, 2342
+           Laza - Oblaci, 29
+           Pera - Ptice, 327
+           Jelena - Sunce, 92321
+           Mika - Kisa, 5341
+Izlaz:     Ana - Nebo, 2342
+           Jelena - Sunce, 92321
+           Laza - Oblaci, 29
+           Mika - Kisa, 5341
+           Pera - Ptice, 327
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{Test 3}
+Poziv: ./a.out -n
+Datoteka:  5
+           Ana - Nebo, 2342
+           Laza - Oblaci, 29
+           Pera - Ptice, 327
+           Jelena - Sunce, 92321
+           Mika - Kisa, 5341
+Izlaz:     Mika - Kisa, 5341
+           Ana - Nebo, 2342
+           Laza - Oblaci, 29
+           Pera - Ptice, 327
+           Jelena - Sunce, 92321		   
+\end{test}
+\end{miditest}
+\end{Exercise}
+%\begin{Answer}[ref=513]
+%\includecode{resenja/05_Sortiranje/513.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
 \begin{Exercise}[difficulty=2, label=514]
   Razmatrajmo dve operacije: operacija \kckod{U} je unos novog broja
   \kckod{x}, a operacija \kckod{N} određivanje \kckod{n}-tog po
@@ -686,6 +774,46 @@ Datoteka:            Ulaz:             Izlaz:
 
 %\begin{Answer}[ref=525]
 %  \includecode{resenja/05_Sortiranje/525.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=526]
+  Za zadatu celobrojnu matricu dimenzije $n \times m$ napisati
+  funkciju koja vrši sortiranje vrsta matrice, rastuće na osnovu sume
+  elemenata u vrsti. Napisati program koji testira ovu funkciju. Sa
+  standardnog ulaza se prvo unose dimenzije matrice, a zatim redom
+  elementi matrice. Rezultujuću matricu ispisati na standardni izlaz.
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:  Unesite dimenzije matrice:
+       3 2
+       Unesite elemente matrice:
+       6 -5
+       -4 3
+       2 1
+Izlaz: Sortirana matrica je:
+       -4 3 
+       6 -5 
+       2 1   
+\end{test}
+\end{maxitest}
+\end{Exercise}
+%\begin{Answer}[ref=526]
+%  \includecode{resenja/05_Sortiranje/526.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=343]
+  Za zadatu kvadratnu matricu dimenzije $n$ napisati funkciju koja
+  sortira kolone matrice, opadajuće, na osnovu vrednosti prvog
+  elementa u koloni.  Napisati program koji testira ovu funkciju. Sa
+  standardnog ulaza se prvo unosi dimenzija matrice, a zatim redom
+  elementi matrice.  Rezultujuću matricu ispisati na standardni izlaz.
+\end{Exercise}
+
+%\begin{Answer}[ref=527]
+%  \includecode{resenja/05_Sortiranje/527.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
