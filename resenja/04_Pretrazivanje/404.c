@@ -14,13 +14,13 @@ typedef struct {
 int binarna_pretraga_rekurzivna(Student a[], int levi, int desni,
                                 long x)
 {
-  /* ako je indeks elementa na levom kraju veci od indeksa
+  /* Ako je indeks elementa na levom kraju veci od indeksa
      elementa na desnom kraju dela niza koji se pretrazuje, onda 
      zapravo pretrazujemo prazan deo niza. U praznom nizu nema
      elementa koji trazimo i zato vracamo -1 */
   if (levi > desni)
     return -1;
-  /* racunamo indeks srednjeg elementa */
+  /* Racunamo indeks srednjeg elementa */
   int srednji = (levi + desni) / 2;
   /* Da li je srednji, bas onaj kog trazimo? */
   if (a[srednji].indeks == x) {
@@ -31,7 +31,7 @@ int binarna_pretraga_rekurzivna(Student a[], int levi, int desni,
      niz sortiran po indeksu u rastucem poretku. */
   if (x < a[srednji].indeks)
     return binarna_pretraga_rekurzivna(a, levi, srednji - 1, x);
-  /* inace ga treba traziti u desnoj polovini */
+  /* Inace ga treba traziti u desnoj polovini */
   else
     return binarna_pretraga_rekurzivna(a, srednji + 1, desni, x);
 }

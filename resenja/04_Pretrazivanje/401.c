@@ -3,7 +3,7 @@
 #include <time.h>
 #define MAX 1000000
 
-/* pri prevodjenju program linkovati sa bibliotekom librt opciom 
+/* Pri prevodjenju program linkovati sa bibliotekom librt opciom 
    -lrt zbog funkcije clock_gettime() */
 
 /* Funkcija pretrazuje niz celih brojeva duzine n, trazeci u
@@ -46,7 +46,7 @@ int binarna_pretraga(int a[], int n, int x)
          poziciji srednji */
       return srednji;
   }
-  /* ako nije pronadjen vracamo -1 */
+  /* Ako nije pronadjen vracamo -1 */
   return -1;
 }
 
@@ -80,7 +80,7 @@ int interpolaciona_pretraga(int a[], int n, int x)
         levi +
         ((double) (x - a[levi]) / (a[desni] - a[levi])) *
         (desni - levi);
-    /* NAPOMENA: Indeks srednji je uvek izmedju levi i desni,
+    /* Napomena: Indeks srednji je uvek izmedju levi i desni,
        ali ce verovatno biti blize trazenoj vrednosti nego da
        smo prosto uvek uzimali srednji element. Ovo se moze
        porediti sa pretragom recnika: ako neko trazi rec na
@@ -99,7 +99,7 @@ int interpolaciona_pretraga(int a[], int n, int x)
          poziciji srednji */
       return srednji;
   }
-  /* ako nije pronadjen vracamo -1 */
+  /* Ako nije pronadjen vracamo -1 */
   return -1;
 }
 
@@ -111,7 +111,7 @@ int main(int argc, char **argv)
   struct timespec time1, time2, time3, time4, time5, time6;
   FILE *f;
 
-  /* provera argumenata komandne linije */
+  /* Provera argumenata komandne linije */
   if (argc != 3) {
     fprintf(stderr,
             "koriscenje programa: %s dim_niza trazeni_br\n",
