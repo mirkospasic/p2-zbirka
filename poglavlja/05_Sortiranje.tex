@@ -6,8 +6,8 @@
 \begin{Exercise}[label=501]
   U datom nizu brojeva pronaći dva broja koja su na najmanjem
   rastojanju. Niz se zadaje sa standardnog ulaza, sve do kraja ulaza,
-  i neće sadržati više od $256$ elemenata. Na izlaz ispisati njihovu
-  razliku.  Uputstvo: prvo sortirati niz.
+  i neće sadržati više od $256$ i manje od $2$ elemenata. Na izlaz
+  ispisati njihovu razliku.  Uputstvo: prvo sortirati niz.
   
 \begin{miditest}
 \begin{test}{Test 1}
@@ -53,16 +53,17 @@ Izlaz:  nisu
   
 \end{Exercise}
 
-%\begin{Answer}[ref=502]
-%  \includecode{resenja/05_Sortiranje/502.c}
-%\end{Answer}
+\begin{Answer}[ref=502]
+  \includecode{resenja/05_Sortiranje/502.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=503]
   Napisati program koji pronalazi broj koji se najviše puta
   pojavljivao u datom nizu. Niz se zadaje sa standardnog ulaza sve do
-  kraja ulaza, i neće biti duži od $256$ elemenata. Uputstvo: prvo
-  sortirati niz, a zatim naći najdužu sekvencu jednakih elemenata.
+  kraja ulaza, i neće biti duži od $256$ i kraći od jednog
+  elemenata. Uputstvo: prvo sortirati niz, a zatim naći najdužu
+  sekvencu jednakih elemenata.
   
 \begin{miditest}
 \begin{test}{Test 1}
@@ -79,9 +80,9 @@ Izlaz:  2
   
 \end{Exercise}
 
-%\begin{Answer}[ref=503]
-%  \includecode{resenja/05_Sortiranje/503.c}
-%\end{Answer}
+\begin{Answer}[ref=503]
+  \includecode{resenja/05_Sortiranje/503.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=504]
@@ -107,9 +108,9 @@ Izlaz:  ne
   
 \end{Exercise}
 
-%\begin{Answer}[ref=504]
-%  \includecode{resenja/05_Sortiranje/504.c}
-%\end{Answer}
+\begin{Answer}[ref=504]
+  \includecode{resenja/05_Sortiranje/504.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=505]
@@ -138,9 +139,9 @@ Izlaz:  1 4 7 9 11 23 54 75
   
 \end{Exercise}
 
-%\begin{Answer}[ref=505]
-%  \includecode{resenja/05_Sortiranje/505.c}
-%\end{Answer}
+\begin{Answer}[ref=505]
+  \includecode{resenja/05_Sortiranje/505.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=506]
@@ -156,25 +157,43 @@ Izlaz:  1 4 7 9 11 23 54 75
 \begin{maxitest}
 \begin{test}{Test 1}
 Poziv: ./a.out prvi-deo.txt drugi-deo.txt
+Ulazne datoteke:
+  prvi-deo.txt:          drugi-deo.txt:
 
-prvi-deo.txt:          drugi-deo.txt:         ceo-tok.txt:
+  Andrija Petrovic       Aleksandra Cvetic
+  Anja Ilic              Bojan Golubovic
+  Ivana Markovic         Dragan Markovic
+  Lazar Micic            Filip Dukic
+  Nenad Brankovic        Ivana Stankovic
+  Sofija Filipovic       Marija Stankovic
+  Vladimir Savic         Ognjen Peric
+  Uros Milic
 
-Andrija Petrovic       Aleksandra Cvetic      (TODO)
-Anja Ilic              Bojan Golubovic
-Ivana Markovic         Dragan Markovic
-Lazar Micic            Filip Dukic
-Nenad Brankovic        Ivana Stankovic
-Sofija Filipovic       Marija Stankovic
-Vladimir Savic         Ognjen Peric
-                       Uros Milic
+Izlazna datoteka (ceo-tok.txt):
+  
+  Aleksandra Cvetic
+  Andrija Petrovic
+  Anja Ilic
+  Bojan Golubovic
+  Dragan Markovic
+  Filip Dukic
+  Ivana Stankovic
+  Ivana Markovic
+  Lazar Micic
+  Marija Stankovic
+  Nenad Brankovic
+  Ognjen Peric
+  Sofija Filipovic
+  Uros Milic
+  Vladimir Savic
 \end{test}
 \end{maxitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=506]
-%  \includecode{resenja/05_Sortiranje/506.c}
-%\end{Answer}
+\begin{Answer}[ref=506]
+  \includecode{resenja/05_Sortiranje/506.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=507]
@@ -189,12 +208,43 @@ Vladimir Savic         Ognjen Peric
   niza birati kroz argumente komandne linije.  Vreme meriti programom
   \kckod{time}. Analizirati porast vremena sa porastom dimenzije
   \argf{n}.
-  
+
+\begin{miditest}
+\begin{test}{Upotreba programa 1}
+Poziv: time ./a.out 100000 -i -o
+Izlaz:
+  real    0m17.631s
+  user    0m17.604s
+  sys     0m0.000s
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Upotreba programa 2}
+Poziv: time ./a.out 100000 -b -r
+Izlaz:
+  real    0m0.005s
+  user    0m0.004s
+  sys     0m0.000s
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{Upotreba programa 3}
+Poziv: time ./a.out 100000 -s
+Izlaz:
+  real    0m0.071s
+  user    0m0.068s
+  sys     0m0.000s
+\end{test}
+\end{miditest}
+
 \end{Exercise}
 
-%\begin{Answer}[ref=507]
-%  \includecode{resenja/05_Sortiranje/507.c}
-%\end{Answer}
+\begin{Answer}[ref=507]
+  \includecode{resenja/05_Sortiranje/sort.h}
+  \includecode{resenja/05_Sortiranje/sort.c}
+  \includecode{resenja/05_Sortiranje/507.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=508]
@@ -206,35 +256,53 @@ Vladimir Savic         Ognjen Peric
   \item \kckod{y} koordinata tačaka.
   \end{enumerate}
   Napisati program koji učitava niz tačaka iz datoteke čije se ime
-  zadaje kao argument komandne linije, i u zavisnosti od prisutnih
-  opcija u komandnoj liniji (\argf{-d}, \argf{-x} ili \argf{-y}),
-  sortira tačke po jednom od prethodna tri kriterijuma i rezultat
-  upisuje u datoteku čije se ime zadaje kao drugi argument komandne
-  linije. U ulaznoj datoteci nije zadato više od 128 tačaka.
+  zadaje kao drugi argument komandne linije, i u zavisnosti od
+  prisutnih opcija (prvi argument) u komandnoj liniji (\argf{-o},
+  \argf{-x} ili \argf{-y}), sortira tačke po jednom od prethodna tri
+  kriterijuma i rezultat upisuje u datoteku čije se ime zadaje kao
+  treći argument komandne linije. U ulaznoj datoteci nije zadato više
+  od 128 tačaka.
   
 \begin{miditest}
 \begin{test}{Test 1}
-Poziv:  a.out -x tacke.txt sorttacke.txt
-Ulazna datoteka:
-3 4
-11 6
-7 3
-2 82
--1 6
-Izlazna datoteka:
--1 6
-2 82
-3 4
-7 3
-11 6
+Poziv:  ./a.out -x in.txt out.txt
+Ulazna datoteka (in.txt):
+  3 4
+  11 6
+  7 3
+  2 82
+  -1 6
+Izlazna datoteka (out.txt):
+  -1 6
+  2 82
+  3 4
+  7 3
+  11 6
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Poziv:  ./a.out -o in.txt out.txt
+Ulazna datoteka (on.txt):
+  3 4
+  11 6
+  7 3
+  2 82
+  -1 6
+Izlazna datoteka (out.txt):
+  3 4
+  -1 6
+  7 3
+  11 6
+  2 82
 \end{test}
 \end{miditest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=508]
-%  \includecode{resenja/05_Sortiranje/508.c}
-%\end{Answer}
+\begin{Answer}[ref=508]
+  \includecode{resenja/05_Sortiranje/508.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=509]
@@ -245,27 +313,28 @@ Izlazna datoteka:
   isti redni broj u oba biračka spiska. Pretpostaviti da je za ime,
   odnosno prezime građana dovoljno $15$ karaktera.
 
-\begin{miditest}
+\begin{maxitest}
 \begin{test}{Test 1}
-biracki-spisak.txt:      Izlaz:
-Andrija Petrovic         (TODO)
-Anja Ilic
-Aleksandra Cvetic
-Bojan Golubovic
-Dragan Markovic
-Filip Dukic
-Ivana Stankovic
-Ivana Markovic
-Lazar Micic
-Marija Stankovic    
+Ulazna datoteka (biracki-spisak.txt):
+  Andrija Petrovic
+  Anja Ilic
+  Aleksandra Cvetic
+  Bojan Golubovic
+  Dragan Markovic
+  Filip Dukic
+  Ivana Stankovic
+  Ivana Markovic
+  Lazar Micic
+  Marija Stankovic
+Izlaz: 3
 \end{test}
-\end{miditest}
+\end{maxitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=509]
-%  \includecode{resenja/05_Sortiranje/509.c}
-%\end{Answer}
+\begin{Answer}[ref=509]
+  \includecode{resenja/05_Sortiranje/509.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=510]
@@ -284,20 +353,27 @@ imenu. Napisati program koji učitava podatke o deci koji se nalaze u
 datoteci, čije se ime zadaje kao prvi argument komandne linije,
 sortira ih i sortirani niz upisuje u datoteku čije se ime zadaje kao
 drugi argument komandne linije. Pretpostaviti da u ulaznoj datoteci
-nisu zadati podaci o više od $128$ dece.
+nisu zadati podaci o više od $128$ deteta.
   
-\begin{maxitest}
+\begin{miditest}
 \begin{test}{Test 1}
-Poziv: ./a.out ulaz.txt izlaz.txt
-Ulazna datoteka:                 Izlazna datoteka:
-Petar Petrovic 2007              Marija Antic 2007
-Milica Antonic 2008              Ana Petrovic 2007
-Ana Petrovic 2007                Petar Petrovic 2007
-Ivana Ivanovic 2009              Milica Antonic 2008
-Dragana Markovic 2010            Ivana Ivanovic 2009
-Marija Antic 2007                Dragana Markovic 2010
+Poziv: ./a.out in.txt out.txt
+Ulazna datoteka (in.out):
+  Petar Petrovic 2007
+  Milica Antonic 2008
+  Ana Petrovic 2007
+  Ivana Ivanovic 2009
+  Dragana Markovic 2010
+  Marija Antic 2007
+Izlazna datoteka (out.txt):
+  Marija Antic 2007
+  Ana Petrovic 2007
+  Petar Petrovic 2007
+  Milica Antonic 2008
+  Ivana Ivanovic 2009
+  Dragana Markovic 2010
 \end{test}
-\end{maxitest}
+\end{miditest}
   
 \end{Exercise}
 
@@ -312,22 +388,22 @@ Marija Antic 2007                Dragana Markovic 2010
   a ukoliko su i dužine jednake onda leksikografski.  Napisati program
   koji testira ovu funkciju za niske koje se zadaju u datoteci
   \kckod{niske.txt}.  Pretpostaviti da u nizu nema više od $128$
-  elemenata, kao i da svaka niska sadrži najviše $32$ karaktera.
+  elemenata, kao i da svaka niska sadrži najviše $31$ karakter.
   
 \begin{maxitest}
 \begin{test}{Test 1}
-Ulazna datoteka:
-ana petar andjela milos nikola aleksandar ljubica matej milica
+Ulazna datoteka (niske.txt):
+  ana petar andjela milos nikola aleksandar ljubica matej milica
 Izlaz:
-ana matej milos petar milica nikola andjela ljubica aleksandar
+  ana matej milos petar milica nikola andjela ljubica aleksandar
 \end{test}
 \end{maxitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=511]
-%  \includecode{resenja/05_Sortiranje/511.c}
-%\end{Answer}
+\begin{Answer}[ref=511]
+  \includecode{resenja/05_Sortiranje/511.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=512]
@@ -340,20 +416,56 @@ ana matej milos petar milica nikola andjela ljubica aleksandar
   pretragom.
   
 \begin{maxitest}
-\begin{test}{Test 1}
-artikli.txt:                         Ulaz:           Izlaz:
-1001 Keks Jaffa 120                  (TODO)          (TODO)
-2530 Napolitanke Bambi	230
-0023 Medeno_srce Pionir 150
-2145 Pardon Marbo 70
+\begin{test}{Upotreba programa 1}
+Ulazna datoteka (artikli.txt):
+  1001 Keks Jaffa 120
+  2530 Napolitanke Bambi	230
+  0023 Medeno_srce Pionir 150
+  2145 Pardon Marbo 70
+Interakcija programa:
+  Asortiman:
+  KOD                Naziv artikla     Ime proizvodjaca       Cena
+          23          Medeno_srce               Pionir       150.00
+        1001                 Keks                Jaffa       120.00
+        2145               Pardon                Marbo        70.00
+        2530          Napolitanke                Bambi       230.00
+  ---------------------------
+  - Za kraj za kraj rada kase, pritisnite CTRL+D!
+  - Za nov racun unesite kod artikla!
+  
+  1001
+  	Trazili ste:	Keks Jaffa       120.00
+  Unesite kod artikla [ili 0 za prekid]: 	23
+  	Trazili ste:	Medeno_srce Pionir       150.00
+  Unesite kod artikla [ili 0 za prekid]: 	0
+  
+  	UKUPNO: 270.00 dinara.
+  
+  ---------------------------
+  - Za kraj za kraj rada kase, pritisnite CTRL+D!
+  - Za nov racun unesite kod artikla!
+  
+  232
+  	GRESKA: Ne postoji proizvod sa trazenim kodom!
+  Unesite kod artikla [ili 0 za prekid]: 	2530
+  	Trazili ste:	Napolitanke Bambi       230.00
+  Unesite kod artikla [ili 0 za prekid]: 	0
+  
+  	UKUPNO: 230.00 dinara.
+  
+  ---------------------------
+  - Za kraj za kraj rada kase, pritisnite CTRL+D!
+  - Za nov racun unesite kod artikla!
+  
+  Kraj rada kase!  
 \end{test}
 \end{maxitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=512]
-%  \includecode{resenja/05_Sortiranje/512.c}
-%\end{Answer}
+\begin{Answer}[ref=512]
+  \includecode{resenja/05_Sortiranje/512.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=513]
@@ -372,33 +484,73 @@ artikli.txt:                         Ulaz:           Izlaz:
    zadataka. Pretpostaviti da studenata neće biti više od $500$ i da
    je za ime studenta dovoljno $20$, a za prezime $25$ karaktera.
   
-\begin{miditest}
+\begin{maxitest}
 \begin{test}{Test 1}
-aktivnosti.txt:               Izlaz:
-Aleksandra Cvetic 4 6         (TODO)
-Bojan Golubovic 4 3
-Dragan Markovic 3 5
-Filip Dukic 2 0 
-Ivana Stankovic 3 1
-Marija Stankovic 1 3 
-Ognjen Peric 1 2
-Uros Milic 2 5
-Andrija Petrovic 2 5
-Anja Ilic 3 1
-Ivana Markovic 2 5
-Lazar Micic 1 3
-Nenad Brankovic 2 4
+Ulazna datoteka (aktivnosti.txt):
+  Aleksandra Cvetic 4 6
+  Bojan Golubovic 4 3
+  Dragan Markovic 3 5
+  Ivana Stankovic 3 1
+  Marija Stankovic 1 3
+  Ognjen Peric 1 2
+  Uros Milic 2 5
+  Andrija Petrovic 2 5
+  Anja Ilic 3 1
+  Lazar Micic 1 3
+  Nenad Brankovic 2 4
+Izlazna datoteka (dat1.txt):
+  Studenti sortirani po imenu leksikografski rastuce:
+  Aleksandra Cvetic  4  6
+  Andrija Petrovic  2  5
+  Anja Ilic  3  1
+  Bojan Golubovic  4  3
+  Dragan Markovic  3  5
+  Ivana Stankovic  3  1
+  Lazar Micic  1  3
+  Marija Stankovic  1  3
+  Nenad Brankovic  2  4
+  Ognjen Peric  1  2
+  Uros Milic  2  5
+Izlazna datoteka (dat2.txt):
+  Studenti sortirani po broju zadataka opadajuce,
+  pa po duzini imena rastuce:
+  Aleksandra Cvetic  4  6
+  Uros Milic  2  5
+  Dragan Markovic  3  5
+  Andrija Petrovic  2  5
+  Nenad Brankovic  2  4
+  Lazar Micic  1  3
+  Bojan Golubovic  4  3
+  Marija Stankovic  1  3
+  Ognjen Peric  1  2
+  Anja Ilic  3  1
+  Ivana Stankovic  3  1
+Izlazna datoteka (dat3.txt):
+  Studenti sortirani po prisustvu opadajuce,
+  pa po broju zadataka,
+  pa po prezimenima leksikografski opadajuce:
+  Aleksandra Cvetic  4  6
+  Bojan Golubovic  4  3
+  Dragan Markovic  3  5
+  Ivana Stankovic  3  1
+  Anja Ilic  3  1
+  Andrija Petrovic  2  5
+  Uros Milic  2  5
+  Nenad Brankovic  2  4
+  Marija Stankovic  1  3
+  Lazar Micic  1  3
+  Ognjen Peric  1  2
 \end{test}
-\end{miditest}
+\end{maxitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=513]
-%  \includecode{resenja/05_Sortiranje/513.c}
-%\end{Answer}
+\begin{Answer}[ref=513]
+  \includecode{resenja/05_Sortiranje/513.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=513]
+\begin{Exercise}[label=514]
 U datoteci ,,pesme.txt`` nalaze se informacije o gledanosti pesama na
 Youtube-u. Format datoteke sa informacijama je sledeći:
 \begin{itemize}
@@ -481,12 +633,12 @@ Izlaz:     Mika - Kisa, 5341
 \end{test}
 \end{miditest}
 \end{Exercise}
-%\begin{Answer}[ref=513]
-%\includecode{resenja/05_Sortiranje/513.c}
-%\end{Answer}
+\begin{Answer}[ref=514]
+\includecode{resenja/05_Sortiranje/514.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[difficulty=2, label=514]
+\begin{Exercise}[difficulty=2, label=515]
   Razmatrajmo dve operacije: operacija \kckod{U} je unos novog broja
   \kckod{x}, a operacija \kckod{N} određivanje \kckod{n}-tog po
   veličini od unetih brojeva. Implementirati program koji izvršava ove
@@ -505,12 +657,10 @@ Izlaz: 0 2 8 2 6
   
 \end{Exercise}
 
-%\begin{Answer}[ref=514]
-%  \includecode{resenja/05_Sortiranje/514.c}
+%\begin{Answer}[ref=515]
+%  \includecode{resenja/05_Sortiranje/515.c}
 %\end{Answer}
 %-----------------------------------------------------------------
-
-
 %-----------------------------------------------------------------
 \begin{Exercise}[difficulty=2, label=516]
   Šef u restoranu je neuredan i palačinke koje ispeče ne slaže redom
@@ -542,9 +692,8 @@ okretanja.
 %  \includecode{resenja/05_Sortiranje/516.c}
 %\end{Answer}
 %-----------------------------------------------------------------
-
-\section{Bibliotečke funkcije pretrage i sortiranja}
 %-----------------------------------------------------------------
+\section{Bibliotečke funkcije pretrage i sortiranja}
 \begin{Exercise}[label=517]
   Napisati program koji ilustruje upotrebu bibiliotečkih funkcija za
   pretraživanje i sortiranje nizova, i mogućnost zadavanja različitih
@@ -557,16 +706,41 @@ okretanja.
   odgovarajuću poruku.
   
 \begin{miditest}
-\begin{test}{Test 1}
-TODO
+\begin{test}{Upotreba programa 1}
+Interakcija programa:    
+  Uneti dimenziju niza: 10
+  Uneti elemente niza:
+  5 3 1 6 8 90 34 5 3 432
+  Sortirani niz u rastucem poretku:
+  1 3 3 5 5 6 8 34 90 432 
+  Uneti element koji se trazi u nizu: 34
+  Binarna pretraga: 
+  Element je nadjen na poziciji 7
+  Linearna pretraga (lfind): 
+  Element je nadjen na poziciji 7
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Upotreba programa 2}
+Interakcija programa:
+  Uneti dimenziju niza: 4
+  Uneti elemente niza:
+  4 2 5 7
+  Sortirani niz u rastucem poretku:
+  2 4 5 7 
+  Uneti element koji se trazi u nizu: 3
+  Binarna pretraga: 
+  Elementa nema u nizu!
+  Linearna pretraga (lfind): 
+  Elementa nema u nizu!
 \end{test}
 \end{miditest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=517]
-%  \includecode{resenja/05_Sortiranje/517.c}
-%\end{Answer}
+\begin{Answer}[ref=517]
+  \includecode{resenja/05_Sortiranje/517.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=518]
@@ -576,17 +750,22 @@ TODO
   poretku prema broju delilaca i tako dobijeni niz odštampati na
   standardni izlaz.
   
-\begin{miditest}
-\begin{test}{Test 1}
-TODO
+\begin{maxitest}
+\begin{test}{Upotreba programa 1}
+Interakcija programa:
+  Uneti dimenziju niza: 10
+  Uneti elemente niza:
+  1 2 3 4 5 6 7 8 9 10
+  Sortirani niz u rastucem poretku prema broju delilaca:
+  1 2 3 5 7 4 9 6 8 10  
 \end{test}
-\end{miditest}
+\end{maxitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=518]
-%  \includecode{resenja/05_Sortiranje/518.c}
-%\end{Answer}
+\begin{Answer}[ref=518]
+  \includecode{resenja/05_Sortiranje/518.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=519]
@@ -604,34 +783,37 @@ TODO
    kraju, niske bivaju sortirane po dužini. Rezultate svih sortiranja
    i pretraga ispisati na standardni izlaz.
    
-\begin{miditest}
+\begin{maxitest}
 \begin{test}{Test 1}
-TODO
+Ulazna datoteka (niske.txt):
+  ana petar andjela milos nikola aleksandar ljubica matej milica
+Interakcija programa:
+  Leksikografski sortirane niske:
+  aleksandar ana andjela ljubica matej milica milos nikola petar 
+  Uneti trazenu nisku: matej
+  Niska "matej" je pronadjena u nizu na poziciji 4
+  Niska "matej" je pronadjena u nizu na poziciji 4
+  Niske sortirane po duzini:
+  ana matej milos petar milica nikola andjela ljubica aleksandar
 \end{test}
-\end{miditest}
+\end{maxitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=519]
-%  \includecode{resenja/05_Sortiranje/519.c}
-%\end{Answer}
+\begin{Answer}[ref=519]
+  \includecode{resenja/05_Sortiranje/519.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=520]
   Uraditi prethodni zadatak \ref{519} sa dinamički alociranim niskama,
   i sortiranjem niza pokazivača (umesto niza niski).
   
-\begin{miditest}
-\begin{test}{Test 1}
-TODO
-\end{test}
-\end{miditest}
-  
 \end{Exercise}
 
-%\begin{Answer}[ref=520]
-%  \includecode{resenja/05_Sortiranje/520.c}
-%\end{Answer}
+\begin{Answer}[ref=520]
+  \includecode{resenja/05_Sortiranje/520.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=521]
@@ -639,7 +821,7 @@ TODO
   sortira studente prema broju poena osvojenih na kolokvijumu. Ukoliko
   više studenata ima isti broj bodova, sortirati ih po prezimenu
   leksikografski rastuće. Korisnik potom unosi broj bodova i prikazuje
-  mu se jedan od studenata sa tim broker bodova, ili poruka ukoliko
+  mu se jedan od studenata sa tim brojem bodova, ili poruka ukoliko
   nema takvog. Potom, sa standardnom ulaza, unosi se prezime traženog
   studenta, i prikazuje se osoba sa tim prezimenom, ili poruka da se
   nijedan student tako ne preziva. Za pretraživanje, koristiti
@@ -649,47 +831,67 @@ TODO
   kolokvijumu. Pretpostaviti da neće biti vise od $500$ studenata, i
   da je za ime i prezime svakog studenta dovoljno po $20$ karaktera.
   
-\begin{miditest}
+\begin{maxitest}
 \begin{test}{Test 1}
-TODO
+Poziv:  ./a.out kolokvijum.txt
+Ulazna datoteka (kolokvijum.txt):
+  Aleksandra Cvetic 15
+  Bojan Golubovic 30
+  Dragan Markovic 25
+  Filip Dukic 20 
+  Ivana Stankovic 25
+  Marija Stankovic 15 
+  Ognjen Peric 20
+  Uros Milic 10
+  Andrija Petrovic 0
+  Anja Ilic 5
+  Ivana Markovic 5
+  Lazar Micic 20
+  Nenad Brankovic 15
+Interakcija programa:
+  Studenti sortirani po broju poena opadajuce, pa po prezimenu rastuce:
+  Bojan Golubovic  30
+  Dragan Markovic  25
+  Ivana Stankovic  25
+  Filip Dukic  20
+  Lazar Micic  20
+  Ognjen Peric  20
+  Nenad Brankovic  15
+  Aleksandra Cvetic  15
+  Marija Stankovic  15
+  Uros Milic  10
+  Anja Ilic  5
+  Ivana Markovic  5
+  Andrija Petrovic  0
+  Unesite broj bodova: 20
+  Pronadjen je student sa unetim  brojem bodova: Filip Dukic 20
+  Unesite prezime: Markovic
+  Pronadjen je student sa unetim prezimenom: Dragan Markovic 25
 \end{test}
-\end{miditest}
+\end{maxitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=521]
-%  \includecode{resenja/05_Sortiranje/521.c}
-%\end{Answer}
+\begin{Answer}[ref=521]
+  \includecode{resenja/05_Sortiranje/521.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=522]
   Uraditi zadatak \ref{502}, ali korišćenjem bibliotečke \kckod{qsort}
   funkcije.
   
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:   vrata vatra
-Izlaz:  jesu
-\end{test}
-\end{minitest}
-\begin{miditest}
-\begin{test}{Test 2}
-Ulaz:   qsort bsearch
-Izlaz:  nisu
-\end{test}
-\end{miditest}
-  
 \end{Exercise}
 
-%\begin{Answer}[ref=522]
-%  \includecode{resenja/05_Sortiranje/522.c}
-%\end{Answer}
+\begin{Answer}[ref=522]
+  \includecode{resenja/05_Sortiranje/522.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=523]
   Napisati program koji sa standardnog ulaza učitava prvo ceo broj
   \argf{n} ($n \leq 10$), a zatim niz \argf{S} od \argf{n} stringova
-  (maksimalna dužina stringa je $32$ karaktera). Sortirati niz
+  (maksimalna dužina stringa je $31$ karaktera). Sortirati niz
   \argf{S} (bibliotečkom funkcijom \kckod{qsort}) i proveriti da li u
   njemu ima identičnih stringova.
   
@@ -708,9 +910,9 @@ Izlaz:  nema
   
 \end{Exercise}
 
-%\begin{Answer}[ref=523]
-%  \includecode{resenja/05_Sortiranje/523.c}
-%\end{Answer}
+\begin{Answer}[ref=523]
+  \includecode{resenja/05_Sortiranje/523.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=524]
@@ -721,28 +923,36 @@ Izlaz:  nema
   (ukoliko je prisutna opcija \argf{-p}) ili po nalogu (ukoliko je
   prisutna opcija \argf{-n}). Studenti se po nalogu sortiraju tako što
   se sortiraju na osnovu godine, zatim na osnovu smera, i na kraju na
-  osnovu broja indeksa. Ukoliko je u komandnoj liniji uz opciju
-  \argf{-n} naveden i nalog nekog studenta, funkcijom \kckod{bsearch}
-  potražiti i prijaviti broj poena studenta sa tim nalogom. Sortirane
-  studente upisati u datoteku \kckod{izlaz.txt}.
+  osnovu broja indeksa. Sortirane studente upisati u datoteku
+  \kckod{izlaz.txt}. Ukoliko je u komandnoj liniji uz opciju \argf{-n}
+  naveden i nalog nekog studenta, funkcijom \kckod{bsearch} potražiti
+  i prijaviti broj poena studenta sa tim nalogom.
   
 \begin{maxitest}
 \begin{test}{Test 1}
 Poziv: ./a.out -n mm13321
-Datoteka:                         Izlaz:
-mr14123 Marko Antic 20            mm13321 Marija Radic 12
-mm13321 Marija Radic 12
-ml13011 Ivana Mitrovic 19
-ml13066 Pera Simic 15
-mv14003 Jovan Jovanovic 17
+Ulazna datoteka (studenti.txt):
+  mr14123 Marko Antic 20
+  mm13321 Marija Radic 12
+  ml13011 Ivana Mitrovic 19
+  ml13066 Pera Simic 15
+  mv14003 Jovan Jovanovic 17
+Izlazna datoteka (izlaz.txt):
+  ml13011 Ivana Mitrovic 19
+  ml13066 Pera Simic 15
+  mm13321 Marija Radic 12
+  mr14123 Marko Antic 20
+  mv14003 Jovan Jovanovic 17
+Izlaz:
+  mm13321 Marija Radic 12
 \end{test}
 \end{maxitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=524]
-%  \includecode{resenja/05_Sortiranje/524.c}
-%\end{Answer}
+\begin{Answer}[ref=524]
+  \includecode{resenja/05_Sortiranje/524.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=525]
@@ -786,22 +996,22 @@ Datoteka:            Ulaz:             Izlaz:
 
 \begin{maxitest}
 \begin{test}{Test 1}
-Ulaz:  Unesite dimenzije matrice:
-       3 2
-       Unesite elemente matrice:
-       6 -5
-       -4 3
-       2 1
-Izlaz: Sortirana matrica je:
-       -4 3 
-       6 -5 
-       2 1   
+Interakcija programa:    
+  Unesite dimenzije matrice: 3 2
+  Unesite elemente matrice po vrstama:
+  6 -5
+  -4 3
+  2 1
+  Sortirana matrica je:
+  -4 3 
+  6 -5 
+  2 1   
 \end{test}
 \end{maxitest}
 \end{Exercise}
-%\begin{Answer}[ref=526]
-%  \includecode{resenja/05_Sortiranje/526.c}
-%\end{Answer}
+\begin{Answer}[ref=526]
+  \includecode{resenja/05_Sortiranje/526.c}
+\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=343]
