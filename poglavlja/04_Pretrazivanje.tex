@@ -59,24 +59,24 @@ Element nije u nizu
 \begin{test}{Test 1}
 Ulaz: 11 2 5 6 8 10 11 23
 Izlaz:
-Linearna pretraga
-Pozicija elementa je 5.
-Binarna pretraga
-Pozicija elementa je 5.
-Interpolaciona pretraga
-Pozicija elementa je 5.
+  Linearna pretraga
+  Pozicija elementa je 5.
+  Binarna pretraga
+  Pozicija elementa je 5.
+  Interpolaciona pretraga
+  Pozicija elementa je 5.
 \end{test}
 \end{miditest}
 \begin{miditest}
 \begin{test}{Test 2}
 Ulaz: 14 10 32 35 43 66 89 100
 Izlaz:
-Linearna pretraga
-Element se ne nalazi u nizu.
-Binarna pretraga
-Element se ne nalazi u nizu.
-Interpolaciona pretraga
-Element se ne nalazi u nizu.
+  Linearna pretraga
+  Element se ne nalazi u nizu.
+  Binarna pretraga
+  Element se ne nalazi u nizu.
+  Interpolaciona pretraga
+  Element se ne nalazi u nizu.
 \end{test}
 \end{miditest}
   
@@ -102,19 +102,20 @@ Element se ne nalazi u nizu.
 \begin{maxitest}
 \begin{test}{Test 1}
 Datoteka:
-20140003 Marina Petrovic
-20140012 Stefan Mitrovic
-20140032 Dejan Popovic
-20140049 Mirko Brankovic
-20140076 Sonja Stevanovic
-20140104 Ivan Popovic
-20140187 Vlada Stankovic
-20140234 Darko Brankovic
-
-Ulaz:           Izlaz:
-
-20140076        Indeks: 20140076, Ime i prezime: Sonja Stevanovic
-Popovic         Indeks: 20140032, Ime i prezime: Dejan Popovic
+  20140003 Marina Petrovic
+  20140012 Stefan Mitrovic
+  20140032 Dejan Popovic
+  20140049 Mirko Brankovic
+  20140076 Sonja Stevanovic
+  20140104 Ivan Popovic
+  20140187 Vlada Stankovic
+  20140234 Darko Brankovic
+Ulaz:
+  20140076
+  Popovic
+Izlaz:
+  Indeks: 20140076, Ime i prezime: Sonja Stevanovic
+  Indeks: 20140032, Ime i prezime: Dejan Popovic
 \end{test}
 \end{maxitest}
   
@@ -147,11 +148,11 @@ Popovic         Indeks: 20140032, Ime i prezime: Dejan Popovic
 \begin{test}{Test 1}
 Poziv: ./a.out dat.txt -x
 Datoteka:
-12 53
-2.342 34.1
--0.3 23
--1 23.1
-123.5 756.12
+  12 53
+  2.342 34.1
+  -0.3 23
+  -1 23.1
+  123.5 756.12
 Izlaz: -0.3 23
 \end{test}
 \end{miditest}
@@ -173,8 +174,7 @@ Izlaz: -0.3 23
   
 \begin{minitest}
 \begin{test}{Test 1}
-Izlaz:
-1.57031
+Izlaz: 1.57031
 \end{test}
 \end{minitest}
   
@@ -186,33 +186,79 @@ Izlaz:
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=407]
-  Napisati funkciju koja u sortiranom nizu nalazi prvi element veći od
-  0. Napisati i program koji
-  testira ovu funkciju za niz elemenata koji se zadaju kao argumenti
-  komandne linije. Uputstvo: primeniti binarnu pretragu.
-  
-\begin{miditest}
+Napisati funkciju koja u rastuće sortiranom nizu celih brojeva
+binarnom pretragom pronalazi prvi element veći od nule i kao
+rezultat vraća njegovu poziciju u nizu. Ukoliko nema elemenata
+većih od nule, funkcija kao rezultat vraća \argf{-1}. Napisati
+program koji testira ovu funkciju za niz elemenata koji se
+učitavaju sa standardnog ulaza. Niz neće biti duži od
+$256$, i njegovi elementi se unose sve do kraja ulaza.
+
+\begin{minitest}
 \begin{test}{Test 1}
-Poziv:  ./a.out -43 -24 -5 -2 1 4 6 12
-Izlaz:  1
+Ulaz:  -151 -44 5 
+       12 13 15
+Izlaz: 2
 \end{test}
-\end{miditest}
-
-\begin{miditest}
+\end{minitest}
+\begin{minitest}
 \begin{test}{Test 2}
-Poziv:  ./a.out -32 4 65 123
-Izlaz:  4
+Ulaz:  -100 -15 -11 
+       -8 -7 -5
+Izlaz: -1
 \end{test}
-\end{miditest}
-  
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:  -100 -15 0 13 
+       155 124 258 
+       315 516 7000
+Izlaz: 3
+\end{test}
+\end{minitest}
 \end{Exercise}
-
 %\begin{Answer}[ref=407]
 %  \includecode{resenja/04_Pretrazivanje/407.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=408]
+Napisati funkciju koja u opadajuće sortiranom nizu celih brojeva
+binarnom pretragom pronalazi prvi element manji od nule i kao
+rezultat vraća njegovu poziciju u nizu. Ukoliko nema elemenata
+manjih od nule, funkcija kao rezultat vraća \argf{-1}. Napisati
+program koji testira ovu funkciju za niz elemenata koji se
+učitavaju sa standardnog ulaza. Niz neće biti duži od
+$256$, i njegovi elementi se unose sve do kraja ulaza.
+
+\begin{miditest}
+\begin{test}{Test 1}
+Ulaz:  151 44 5 -12 -13 -15
+Izlaz: 3
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Ulaz:  100 55 15 0 -15 -124 -155 
+       -258 -315 -516 -7000
+Izlaz: 4
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{Test 3}
+Ulaz:  100 15 11 8 7 5 4 3 2
+Izlaz: -1
+\end{test}
+\end{miditest}
+\end{Exercise}
+
+%\begin{Answer}[ref=408]
+%  \includecode{resenja/04_Pretrazivanje/408.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=409]
   Napisati funkciju koja određuje ceo deo logaritma za osnovu 2 datog
   neoznačenog celog broja, koristeći samo bitske i relacione
   operatore.
@@ -227,38 +273,38 @@ Izlaz:  4
   
 \begin{minitest}
 \begin{test}{Test 1}
-Ulaz:       10
-Izlaz:      3 3
+Ulaz:  10
+Izlaz: 3 3
 \end{test}
 \end{minitest}
 \begin{minitest}
 \begin{test}{Test 2}
-Ulaz:       4
-Izlaz:      2 2
+Ulaz:  4
+Izlaz: 2 2
 \end{test}
 \end{minitest}
 \begin{minitest}
 \begin{test}{Test 3}
-Ulaz:       17
-Izlaz:      4 3
+Ulaz:  17
+Izlaz: 4 3
 \end{test}
 \end{minitest}
 
 \begin{minitest}
 \begin{test}{Test 4}
-Ulaz:       1031
-Izlaz:      10 10
+Ulaz:  1031
+Izlaz: 10 10
 \end{test}
 \end{minitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=408]
-%  \includecode{resenja/04_Pretrazivanje/408.c}
+%\begin{Answer}[ref=409]
+%  \includecode{resenja/04_Pretrazivanje/409.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[difficulty=2, label=409]
+\begin{Exercise}[difficulty=2, label=410]
   U prvom kvadrantu dato je $1 \leq \argf{N} \leq 10000$ duži svojim
   koordinatama (duži mogu da se seku, preklapaju, itd.). Napisati
   program koji pronalazi najmanji ugao $0 \leq \alpha \leq 90^\circ$,
@@ -271,22 +317,21 @@ Izlaz:      10 10
 \begin{minitest}
 \begin{test}{Test 1}
 Ulaz:
-2
-2 0 2 1
-1 2 2 2
-Izlaz:
-26.57 
+  2
+  2 0 2 1
+  1 2 2 2
+Izlaz: 26.57 
 \end{test}
 \end{minitest}
   
 \end{Exercise}
 
-%\begin{Answer}[ref=409]
-%  \includecode{resenja/04_Pretrazivanje/409.c}
+%\begin{Answer}[ref=410]
+%  \includecode{resenja/04_Pretrazivanje/410.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=410]
+\begin{Exercise}[label=411]
   Napisati program u kome se prvo inicijalizuje statički niz struktura
   osoba sa članovima ime i prezime (uređen u rastućem poretku
   prezimena) sa manje od 10 elemenata, a zatim se učitava jedan
@@ -311,8 +356,8 @@ Izlaz: Dusko Radovic
   
 \end{Exercise}
 
-%\begin{Answer}[ref=410]
-%  \includecode{resenja/04_Pretrazivanje/410.c}
+%\begin{Answer}[ref=411]
+%  \includecode{resenja/04_Pretrazivanje/411.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
