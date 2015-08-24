@@ -8,7 +8,7 @@
 /* O svakom studentu imamo 3 informacije i njih objedinjujemo u
    strukturu kojom cemo predstavljati svakog studenta. */
 typedef struct {
-  /* indeks mora biti tipa long jer su podaci u datoteci
+  /* Indeks mora biti tipa long jer su podaci u datoteci
      preveliki za int, npr. 20140123 */
   long indeks;
   char ime[MAX_DUZINA];
@@ -47,7 +47,7 @@ int binarna_pretraga(Student a[], int n, long x)
          poziciji srednji */
       return srednji;
   }
-  /* ako nije pronadjen vracamo -1 */
+  /* Ako nije pronadjen vracamo -1 */
   return -1;
 }
 
@@ -55,7 +55,7 @@ int linearna_pretraga(Student a[], int n, char x[])
 {
   int i;
   for (i = 0; i < n; i++)
-    /* poredimo prezime i-tog studenta i poslato x */
+    /* Poredimo prezime i-tog studenta i poslato x */
     if (strcmp(a[i].prezime, x) == 0)
       return i;
   return -1;
