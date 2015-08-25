@@ -63,6 +63,7 @@ Izlaz:  0
 \end{test}
 \end{minitest}
 
+\linkresenje{201}
 
 \end{Exercise}
 \begin{Answer}[ref=201]
@@ -107,6 +108,7 @@ uključivanje C koda iz odgovarajuće datoteke rešenja. Dakle taj deo bi trebao
 da je uvek isti, sem sto se ref i ime datoteke koja se ubacuje razlikuju. 
 Koristi se \includecode komanda za ubacivanje.
 
+\linkresenje - komanda kojom se dodaje link sa zadatka na njegovo resenje
 
 1) Zadatke koji se testiraju konstantama bih preformulisala u 
 zadatke koji se testiraju vrednostima koje se unose sa standardnog ulaza.
