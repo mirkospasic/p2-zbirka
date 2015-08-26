@@ -134,12 +134,6 @@ dodato i ime zadatku, ako negde bude i tako nesto potrebno.  Ako je
 zadatak tezi, onda difficulty=1, ako je bas tezak, onda difficulty=2.
 Npr \begin{Exercise}[label=401, difficulty=1]
 
-Treba obeleziti i zadatke koji nisu uradjeni, da bi nam to bilo
-preglednije, to cemo, naravno, na kraju obrisati.
-\begin{Exercise}[label=401]\marker+{1}
-Zadatak nije uradjen ali je dato uputstvo
-\begin{Exercise}[label=401]\marker+{2}
-Zadatak nije uradjen i nije dato uputstvo
 
 Uputstva za unos resenja
 
