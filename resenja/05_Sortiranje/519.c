@@ -5,31 +5,32 @@
 #define MAX_NISKI 1000
 #define MAX_DUZINA 30
 
-/* Naredne dve funkcije bice koriscene za sortiranje niza nizova 
-   karaktera. Svaka od njih ce biti pozivana za poredjenje dva
-   elementa takvog niza, tj dva niza karaktera. Prilikom poziva
-   ove funkcije za poredjenje, npr i-tog i j-tog elementa slale
-   bi se, kao i inace adrese elemenata. Kako adresa niza i samo
-   ime niza imaju istu vrednost, pa i slanje &niske[i] u pozivu
-   funkcije je isto kao da se salje niske[i] i nije neophodno
-   dalje dereferenciranje da bi se doslo do i-te niske niza. */
-
-/* Funkcija koju koristimo za poredjenje na dve niske iz niza a
-   i b su const void pokazivaci, ali kako mi znamo da cemo ovu
-   funkciju koristiti za poredjenje dve niske iz niza
-   eksplicitno im menjamo tipove u (char *) To je neophodno jer
-   poredimo niske leksikografski i funkciji strcmp moramo
-   proslediti bas char* pokazivace, da bi uporedila 2 niske. */
+/************************************************************
+  Niz nizova karaktera ovog potpisa
+  char niske[3][4];
+  se moze graficki predstaviti ovako:
+  ----------------------------------------------------
+  | a | b | c |\0 || d | e | \0|   || f | g | h | \0||
+  ----------------------------------------------------
+  Dakle kao tri reci (abc, de, fgh), nadovezane jedna na drugu.
+  Za svaku je rezervisano po 4 karaktera ukljucujuci \0.
+  Druga rec sa nalazi na adresi koja je za 4 veca od prve reci,
+  a za 4 manja od adrese na kojoj se nalazi treca rec.
+  Adresa i-te reci je niske[i] i ona je tipa char*.
+  
+  Kako pokazivaci a i b u sledecoj funkciji sadrze adrese
+  elemenata koji trebaju biti uporedjeni, (npr. pri porecenju
+  prve i poslednje reci, pokazivac a ce pokazivati na slovo 'a',
+  a pokazivac b na slovo 'f') kastujemo ih na char*, i pozivamo
+  funkciju strcmp nad njima.
+*************************************************************/
 int poredi_leksikografski(const void *a, const void *b)
 {
   return strcmp((char *) a, (char *) b);
 }
 
-/* Funkcija koju cemo prosledjivati za sortiranje niski po
-   duzini. Dakle a i b ce biti uvek adrese niski koje se porede. 
-   Menjamo im, eksplicitno, tip u char* jer nam treba duzina
-   svake od niski, a to cemo dobiti pozivom funkcije strlen koja 
-   ocekuje bas char * pokazivac. */
+/* Funkcija slicna prethodnoj, osim sto elemente ne uporedjuje
+   leksikografski, vec po duzini */
 int poredi_duzine(const void *a, const void *b)
 {
   return strlen((char *) a) - strlen((char *) b);
