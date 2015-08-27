@@ -4,6 +4,7 @@
 
 #define MAX_ARTIKALA 100000
 
+/* Struktura koja predstavlja jedan artikal */
 typedef struct art {
   long kod;
   char naziv[20];
@@ -11,6 +12,8 @@ typedef struct art {
   float cena;
 } Artikal;
 
+/* Funkcija koja u nizu artikala binarnom pretragom nalazi onaj
+   sa trazenim bar kodom */
 int binarna_pretraga(Artikal a[], int n, long x)
 {
   int levi = 0;
@@ -37,6 +40,7 @@ int binarna_pretraga(Artikal a[], int n, long x)
   return -1;
 }
 
+/* Funkcija koja sortira niz artikala po bar kodovima rastuce */
 void selection_sort(Artikal a[], int n)
 {
   int i, j;
@@ -46,11 +50,8 @@ void selection_sort(Artikal a[], int n)
   for (i = 0; i < n - 1; i++) {
     min = i;
     for (j = i + 1; j < n; j++)
-      /* Sortiranje vrsimo po kodovima i onda i poredjenje
-         vrsimo nad kodovoima */
       if (a[j].kod < a[min].kod)
         min = j;
-
     if (min != i) {
       pom = a[i];
       a[i] = a[min];
@@ -102,9 +103,9 @@ int main()
      izvrsavanja programa, kasnije se isplati jer za brojna
      trazenja artikla mozemo umesto linearne da koristimo
      efikasniju binarnu pretragu. */
-
   selection_sort(asortiman, n);
 
+  /* Ispis stanja u prodavnici */
   printf
       ("Asortiman:\nKOD                Naziv artikla     Ime proizvodjaca       Cena\n");
   for (i = 0; i < n; i++)
@@ -117,11 +118,14 @@ int main()
     printf("---------------------------\n");
     printf("- Za kraj za kraj rada kase, pritisnite CTRL+D!\n");
     printf("- Za nov racun unesite kod artikla!\n\n");
+    /* Unos bar koda provog artikla sledeceg kupca */
     if (scanf("%ld", &kod) == EOF)
       break;
-
+    /* Trenutno racun novog kupca */
     racun = 0;
+    /* Za sve artikle trenutnog kupca */
     while (1) {
+      /* Nalazimo ih u nizu */
       if ((i = binarna_pretraga(asortiman, n, kod)) == -1) {
         printf
             ("\tGRESKA: Ne postoji proizvod sa trazenim kodom!\n");
@@ -129,17 +133,17 @@ int main()
         printf("\tTrazili ste:\t%s %s %12.2f\n",
                asortiman[i].naziv, asortiman[i].proizvodjac,
                asortiman[i].cena);
-
+        /* I dodajemo na ukupan racun */
         racun += asortiman[i].cena;
       }
-
+      /* Unos bar koda sledeceg artikla trenutnog kupca, ili 0
+         ako on nema vise artikla */
       printf("Unesite kod artikla [ili 0 za prekid]: \t");
       scanf("%ld", &kod);
-
       if (kod == 0)
         break;
     }
-
+    /* Stampanje ukupnog racuna trenutnog kupca */
     printf("\n\tUKUPNO: %.2lf dinara.\n\n", racun);
   }
 

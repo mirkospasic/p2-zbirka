@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
+/* Struktura koja predstavlja jednog studenta */
 typedef struct student {
   char nalog[8];
   char ime[21];
@@ -87,7 +88,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke */
+  /* Otvaranje datoteke za citanje */
   in = fopen("studenti.txt", "r");
   if (in == NULL) {
     fprintf(stderr,
@@ -95,6 +96,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
+  /* Otvaranje datoteke za pisanje */
   out = fopen("izlaz.txt", "w");
   if (out == NULL) {
     fprintf(stderr,
@@ -145,7 +147,9 @@ int main(int argc, char **argv)
              nadjen->prezime, nadjen->poeni);
   }
 
+  /* Zatvaranje datoteka */
   fclose(in);
   fclose(out);
+
   return 0;
 }

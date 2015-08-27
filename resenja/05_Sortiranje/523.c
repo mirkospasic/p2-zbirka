@@ -16,9 +16,11 @@ int main()
   int i, n;
   char S[MAX][MAX_DUZINA];
 
+  /* Unos broja niski */
   printf("Unesite broj niski:");
   scanf("%d", &n);
 
+  /* Unos niza niski */
   printf("Unesite niske:\n");
   for (i = 0; i < n; i++)
     scanf("%s", S[i]);
@@ -26,11 +28,14 @@ int main()
   /* Sortiramo niz niski */
   qsort(S, n, MAX_DUZINA * sizeof(char), &uporedi_niske);
 
-  /*******************************
-  printf("Sortirane niske su:\n");
-  for(i = 0; i < n; i++)
-    printf("%s ", S[i]);
-  ********************************/
+  /******************************************************
+    Ovaj deo je iskomentarisan jer se u zadatku ne trazi ispis
+    sortiranih niski. Koriscen je samo u fazi testiranja programa.
+
+    printf("Sortirane niske su:\n");
+    for(i = 0; i < n; i++)
+      printf("%s ", S[i]);
+  *******************************************************/
 
   /* Ako postoje dve iste niske u nizu, onda ce one nakon
      sortiranja niza biti jedna do druge */

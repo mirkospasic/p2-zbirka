@@ -5,12 +5,13 @@
 #define MAX 1000
 #define MAX_DUZINA 16
 
+/* Struktura koja reprezentuje jednog gradjanina */
 typedef struct gr {
   char ime[MAX_DUZINA];
   char prezime[MAX_DUZINA];
 } Gradjanin;
 
-/* Fja sortira niz gradjana rastuce po imenima */
+/* Funkcija sortira niz gradjana rastuce po imenima */
 void sort_ime(Gradjanin a[], int n)
 {
   int i, j;
@@ -24,7 +25,6 @@ void sort_ime(Gradjanin a[], int n)
     for (j = i + 1; j < n; j++)
       if (strcmp(a[j].ime, a[min].ime) < 0)
         min = j;
-
     /* Zamena elemenata na pozicijama (i) i min. Ovo se radi
        samo ako su (i) i min razliciti, inace je nepotrebno. */
     if (min != i) {
@@ -35,10 +35,9 @@ void sort_ime(Gradjanin a[], int n)
   }
 }
 
-/* Fja sortira niz gradjana rastuce po prezimenima */
+/* Funkcija sortira niz gradjana rastuce po prezimenima */
 void sort_prezime(Gradjanin a[], int n)
 {
-
   int i, j;
   int min;
   Gradjanin pom;
@@ -51,7 +50,6 @@ void sort_prezime(Gradjanin a[], int n)
     for (j = i + 1; j < n; j++)
       if (strcmp(a[j].prezime, a[min].prezime) < 0)
         min = j;
-
     /* Zamena elemenata na pozicijama (i) i min. Ovo se radi
        samo ako su (i) i min razliciti, inace je nepotrebno. */
     if (min != i) {
@@ -101,6 +99,9 @@ int main()
   sort_ime(spisak1, n);
 
   /**************************************************
+    Ovaj deo je iskomentarisan jer se u zadatku ne trazi ispis
+    sortiranih nizova. Koriscen je samo u fazi testiranja programa.
+
     printf("Biracki spisak [uredjen prema imenima]:\n");
     for(i=0; i<n; i++)
       printf(" %d. %s %s\n",i,spisak1[i].ime, spisak1[i].prezime);         
@@ -109,6 +110,9 @@ int main()
   sort_prezime(spisak2, n);
 
   /**************************************************
+    Ovaj deo je iskomentarisan jer se u zadatku ne trazi ispis
+    sortiranih nizova. Koriscen je samo u fazi testiranja programa.
+
     printf("Biracki spisak [uredjen prema prezimenima]:\n");
     for(i=0; i<n; i++)
       printf(" %d. %s %s\n",i,spisak2[i].ime, spisak2[i].prezime);         
@@ -124,7 +128,7 @@ int main()
     for(i=0; i<n ;i++)
       if( strcmp(spisak2[i].ime, spisak1[i].ime) == 0 &&
           strcmp(spisak1[i].prezime, spisak2[i].prezime)==0)
-	isti_rbr++;
+    isti_rbr++;
   ***************************************************/
 
   /* Ispis rezultata */

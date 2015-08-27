@@ -5,7 +5,7 @@
 #define MAX_NISKI 1000
 #define MAX_DUZINA 30
 
-/* Fje poredjenja za qsort */
+/* Funkcije poredjenja za qsort */
 int poredi_leksikografski(const void *a, const void *b)
 {
   return strcmp(*(char **) a, *(char **) b);
@@ -16,7 +16,7 @@ int poredi_duzine(const void *a, const void *b)
   return strlen(*(char **) a) - strlen(*(char **) b);
 }
 
-/* Fja poredjenja za bsearch */
+/* Funkcija poredjenja za bsearch */
 int poredi_leksikografski_b(const void *a, const void *b)
 {
   return strcmp((char *) a, *(char **) b);

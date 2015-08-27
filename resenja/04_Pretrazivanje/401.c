@@ -3,8 +3,8 @@
 #include <time.h>
 #define MAX 1000000
 
-/* Pri prevodjenju program linkovati sa bibliotekom librt opciom 
-   -lrt zbog funkcije clock_gettime() */
+/* Pri prevodjenju program linkovati sa bibliotekom librt
+   opcijom -lrt zbog funkcije clock_gettime() */
 
 /* Funkcija pretrazuje niz celih brojeva duzine n, trazeci u
    njemu element x. Pretraga se vrsi prostom iteracijom kroz
@@ -193,6 +193,7 @@ int main(int argc, char **argv)
           (time6.tv_sec - time5.tv_sec) * 1000000000 +
           time6.tv_nsec - time5.tv_nsec);
 
+  /* Zatvaramo datoteku */
   fclose(f);
 
   return 0;

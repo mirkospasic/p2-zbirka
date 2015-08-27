@@ -52,6 +52,7 @@ int main()
     i++;
   n = i;
 
+  /* Sortira se niz */
   selectionSort(a, n);
 
   for (i = 0; i < n; i++)
@@ -63,5 +64,6 @@ int main()
       return 0;
     }
   printf("ne\n");
+
   return 0;
 }

@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
   char trazeno_prezime[MAX_DUZINA];
 
   /* Proveravamo da li nam je korisnik prilikom poziva prosledio 
-     ime_datoteke sa informacijama o studentima */
+     ime datoteke sa informacijama o studentima */
   if (argc != 2) {
     fprintf(stderr,
             "Greska: Program se poziva sa %s ime_datoteke\n",
@@ -108,9 +108,11 @@ int main(int argc, char *argv[])
      zatvaramo */
   fclose(fin);
 
+  /* Unos indeksa koji se binarno trazi u nizu */
   printf("Unesite indeks studenta cije informacije zelite: ");
   scanf("%ld", &trazen_indeks);
   i = binarna_pretraga(dosije, br_studenata, trazen_indeks);
+  /* Rezultat binarne pretrage */
   if (i == -1)
     printf("Ne postoji student sa indeksom %ld\n",
            trazen_indeks);
@@ -118,9 +120,11 @@ int main(int argc, char *argv[])
     printf("Indeks: %ld, Ime i prezime: %s %s\n",
            dosije[i].indeks, dosije[i].ime, dosije[i].prezime);
 
+  /* Unos prezimena koje se linearno trazi u nizu */
   printf("Unesite prezime studenta cije informacije zelite: ");
   scanf("%s", trazeno_prezime);
   i = linearna_pretraga(dosije, br_studenata, trazeno_prezime);
+  /* Rezultat linearne pretrage */
   if (i == -1)
     printf("Ne postoji student sa prezimenom %s\n",
            trazeno_prezime);

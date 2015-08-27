@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* Programu su neophodni argumenti komandne linije */
 int main(int argc, char *argv[])
 {
   FILE *fin1 = NULL, *fin2 = NULL;
@@ -11,12 +10,14 @@ int main(int argc, char *argv[])
   char prezime1[16], prezime2[16];
   int kraj1 = 0, kraj2 = 0;
 
+  /* Ako nema dovoljno arguemenata komandne linije */
   if (argc < 3) {
     fprintf(stderr,
             "koriscenje programa: %s fajl1 fajl2\n", argv[0]);
     exit(EXIT_FAILURE);
   }
 
+  /* Otvaramo datoteku zadatu prvim argumentom komandne linije */
   fin1 = fopen(argv[1], "r");
   if (fin1 == NULL) {
     fprintf(stderr, "Neuspesno otvaranje datoteke %s\n\n",
@@ -24,6 +25,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
+  /* Otvaramo datoteku zadatu drugim argumentom komandne linije */
   fin2 = fopen(argv[2], "r");
   if (fin2 == NULL) {
     fprintf(stderr, "Neuspesno otvaranje datoteke %s\n\n",
@@ -31,6 +33,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
+  /* Otvaranje datoteke za upis rezultata */
   fout = fopen("ceo-tok.txt", "w");
   if (fout == NULL) {
     fprintf(stderr,

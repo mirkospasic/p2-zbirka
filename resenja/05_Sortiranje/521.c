@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
 
   if (nadjen != NULL)
     printf
-        ("Pronadjen je student sa unetim  brojem bodova: %s %s %d\n",
+        ("Pronadjen je student sa unetim brojem bodova: %s %s %d\n",
          nadjen->ime, nadjen->prezime, nadjen->bodovi);
   else
     printf("Nema studenta sa unetim brojem bodova\n");

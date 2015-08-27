@@ -119,6 +119,7 @@ int main(int argc, char *argv[])
   /* Stampamo koordinate trazene tacke */
   printf("%g %g\n", najbliza.x, najbliza.y);
 
+  /* Zatvaramo datoteku */
   fclose(ulaz);
 
   return 0;

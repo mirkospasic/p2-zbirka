@@ -24,7 +24,6 @@ int zbir_vrste(int **a, int v, int m)
   for (i = 0; i < m; i++) {
     zbir += a[v][i];
   }
-
   return zbir;
 }
 
@@ -36,7 +35,6 @@ void sortiraj_vrste(int **a, int n, int m)
 
   for (i = 0; i < n - 1; i++) {
     min = i;
-
     for (j = i + 1; j < n; j++) {
       if (zbir_vrste(a, j, m) < zbir_vrste(a, min, m)) {
         min = j;
@@ -48,7 +46,6 @@ void sortiraj_vrste(int **a, int n, int m)
       a[i] = a[min];
       a[min] = tmp;
     }
-
   }
 }
 
@@ -75,10 +72,9 @@ int **alociraj_memoriju(int n, int m)
 
   a = (int **) malloc(n * sizeof(int *));
   if (a == NULL) {
-    printf("Problem sa alokacijom memorije!\n");
+    fprintf(stderr, "Problem sa alokacijom memorije!\n");
     exit(EXIT_FAILURE);
   }
-
   /* Za svaku vrstu ponaosob */
   for (i = 0; i < n; i++) {
 
@@ -88,7 +84,7 @@ int **alociraj_memoriju(int n, int m)
     /* Proveravamo da li je doslo do greske prilikom alokacije */
     if (a[i] == NULL) {
       /* Ako jeste, ispisujemo poruku */
-      printf("Problem sa alokacijom memorije!\n");
+      fprintf(stderr, "Problem sa alokacijom memorije!\n");
 
       /* I oslobadjamo memoriju zauzetu do ovog koraka */
       for (j = 0; j < i; j++) {
@@ -125,7 +121,6 @@ int main(int argc, char *argv[])
   /* Citamo dimenzije matrice */
   printf("Unesite dimenzije matrice: ");
   scanf("%d %d", &n, &m);
-
 
   /* Alociramo memoriju */
   a = alociraj_memoriju(n, m);

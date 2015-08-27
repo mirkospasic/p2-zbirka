@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
        fscanf(fp, "%s%s%d%d", praktikum[i].ime,
               praktikum[i].prezime, &praktikum[i].prisustvo,
               &praktikum[i].zadaci) != EOF; i++);
-
+  /* Zatvaranje datoteke */
   fclose(fp);
   br_studenata = i;
 
@@ -123,6 +123,7 @@ int main(int argc, char *argv[])
     fprintf(stderr, "Neupesno otvaranje datoteke dat1.txt.\n");
     exit(EXIT_FAILURE);
   }
+  /* Upis niza u datoteku */
   fprintf
       (fp,
        "Studenti sortirani po imenu leksikografski rastuce:\n");
@@ -130,6 +131,7 @@ int main(int argc, char *argv[])
     fprintf(fp, "%s %s  %d  %d\n", praktikum[i].ime,
             praktikum[i].prezime, praktikum[i].prisustvo,
             praktikum[i].zadaci);
+  /* Zatvaranje datoteke */
   fclose(fp);
 
   /* Na drugom su sortirani po ukupnom broju uradjenih zadataka
@@ -141,6 +143,7 @@ int main(int argc, char *argv[])
     fprintf(stderr, "Neupesno otvaranje datoteke dat2.txt.\n");
     exit(EXIT_FAILURE);
   }
+  /* Upis niza u datoteku */
   fprintf(fp,
           "Studenti sortirani po broju zadataka opadajuce,\n");
   fprintf(fp, "pa po duzini imena rastuce:\n");
@@ -148,6 +151,7 @@ int main(int argc, char *argv[])
     fprintf(fp, "%s %s  %d  %d\n", praktikum[i].ime,
             praktikum[i].prezime, praktikum[i].prisustvo,
             praktikum[i].zadaci);
+  /* Zatvaranje datoteke */
   fclose(fp);
 
   /* Na trecem spisku su sortirani po broju casova na kojima su
@@ -162,6 +166,7 @@ int main(int argc, char *argv[])
     fprintf(stderr, "Neupesno otvaranje datoteke dat3.txt.\n");
     exit(EXIT_FAILURE);
   }
+  /* Upis niza u datoteku */
   fprintf(fp, "Studenti sortirani po prisustvu opadajuce,\n");
   fprintf(fp, "pa po broju zadataka,\n");
   fprintf(fp, "pa po prezimenima leksikografski opadajuce:\n");
@@ -169,6 +174,7 @@ int main(int argc, char *argv[])
     fprintf(fp, "%s %s  %d  %d\n", praktikum[i].ime,
             praktikum[i].prezime, praktikum[i].prisustvo,
             praktikum[i].zadaci);
+  /* Zatvaranje datoteke */
   fclose(fp);
 
   return 0;

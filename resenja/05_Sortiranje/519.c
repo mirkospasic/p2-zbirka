@@ -5,15 +5,14 @@
 #define MAX_NISKI 1000
 #define MAX_DUZINA 30
 
-/* Naredne dve funkcije bice koriscenje za sortiranje niza
-   nizova karaktera. Svaka od njih ce biti pozivana za
-   poredjenje dva elementa takvog niza, tj dva niza karaktera.
-   Prilikom poziva ove funkcije za poredjenje, npr i-tog i j-tog 
-   elementa slale bi se, kao i inace adrese elemenata. Kako
-   adresa niza i samo ime niza imaju istu vrednost, pa i slanje
-   &niske[i] u pozivu funkcije je isto kao da se salje niske[i]
-   i nije neophodno dalje dereferenciranje da bi se doslo do
-   i-te niske niza. */
+/* Naredne dve funkcije bice koriscene za sortiranje niza nizova 
+   karaktera. Svaka od njih ce biti pozivana za poredjenje dva
+   elementa takvog niza, tj dva niza karaktera. Prilikom poziva
+   ove funkcije za poredjenje, npr i-tog i j-tog elementa slale
+   bi se, kao i inace adrese elemenata. Kako adresa niza i samo
+   ime niza imaju istu vrednost, pa i slanje &niske[i] u pozivu
+   funkcije je isto kao da se salje niske[i] i nije neophodno
+   dalje dereferenciranje da bi se doslo do i-te niske niza. */
 
 /* Funkcija koju koristimo za poredjenje na dve niske iz niza a
    i b su const void pokazivaci, ali kako mi znamo da cemo ovu

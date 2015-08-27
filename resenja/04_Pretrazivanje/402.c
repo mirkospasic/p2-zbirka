@@ -1,18 +1,29 @@
 #include <stdio.h>
 
-int lin_pretgraga_rek(int a[], int n, int x)
+int lin_pretgraga_rek_sufiks(int a[], int n, int x)
 {
   int tmp;
   /* Izlaz iz rekurzije */
   if (n <= 0)
     return -1;
   /* Ako je prvi element trazeni */
-  if (a[0] == x)                /* if (a[n-1] == x) */
-    return 0;                   /* return n - 1; */
+  if (a[0] == x)
+    return 0;
   /* Pretraga ostatka niza */
-  tmp = lin_pretgraga_rek(a + 1, n - 1, x);
+  tmp = lin_pretgraga_rek_sufiks(a + 1, n - 1, x);
   return tmp < 0 ? tmp : tmp + 1;
-  /* return lin_pretgraga_rek(a, n - 1, x); */
+}
+
+int lin_pretgraga_rek_prefiks(int a[], int n, int x)
+{
+  /* Izlaz iz rekurzije */
+  if (n <= 0)
+    return -1;
+  /* Ako je poslednji element trazeni */
+  if (a[n - 1] == x)
+    return n - 1;
+  /* Pretraga ostatka niza */
+  return lin_pretgraga_rek_prefiks(a, n - 1, x);
 }
 
 int bin_pretgraga_rek(int a[], int l, int d, int x)
@@ -73,13 +84,15 @@ int main()
     i++;
   }
 
+  /* Linearna pretraga */
   printf("Linearna pretraga\n");
-  indeks = lin_pretgraga_rek(a, i, x);
+  indeks = lin_pretgraga_rek_sufiks(a, i, x);
   if (indeks == -1)
     printf("Element se ne nalazi u nizu.\n");
   else
     printf("Pozicija elementa je %d.\n", indeks);
 
+  /* Binarna pretraga */
   printf("Binarna pretraga\n");
   indeks = bin_pretgraga_rek(a, 0, i - 1, x);
   if (indeks == -1)
@@ -87,6 +100,7 @@ int main()
   else
     printf("Pozicija elementa je %d.\n", indeks);
 
+  /* Interpolaciona pretraga */
   printf("Interpolaciona pretraga\n");
   indeks = interp_pretgraga_rek(a, 0, i - 1, x);
   if (indeks == -1)

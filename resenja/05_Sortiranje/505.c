@@ -51,9 +51,10 @@ int main()
     j++;
   }
 
+  /* Poziv trazene funkcije */
   dim3 = merge(niz1, i, niz2, j, niz3, 2 * MAX_DIM);
 
-  /* Ispis */
+  /* Ispis niza */
   for (k = 0; k < dim3; k++)
     printf("%d ", niz3[k]);
   printf("\n");
