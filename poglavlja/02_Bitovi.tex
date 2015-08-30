@@ -2,13 +2,195 @@
 
 \section{Podela koda po datotekama}
 
+\begin{Exercise}[label=001] % I sa vezbi
+Napisati program za rad sa kompleksnim brojevima.
+\begin{enumerate}
+\item Definisati strukturu \kckod{KompleksanBroj} koja predstavlja kompleksan broj i sadrži realan i imaginaran deo kompleksnog broja.
+\item Napisati funkciju \kckod{ucitaj\_kompleksan\_broj} koja učitava kompleksan broj sa standardnog ulaza.
+\item Napisati funkciju \kckod{ispisi\_kompleksan\_broj} koja ispisuje kompleksan broj na standardni izlaz u fomatu (npr. broj čiji je realan deo \argf{2} a imaginarni \argf{-3} ispisati kao $(2-3i)$ na standardni izlaz).
+\item Napisati funkciju \kckod{realan\_deo} koja računa vrednosti realnog dela broja.
+\item Napisati funkciju \kckod{imaginaran\_deo} koja računa vrednosti imaginarnog dela broja.
+\item Napisati funkciju \kckod{moduo} koja računa moduo kompleksnog broja.
+\item Napisati funkciju \kckod{konjugovan} koja računa konjugovano-kompleksni broj svog argumenta.
+\item Napisati funkciju \kckod{saberi} koja sabira dva kompleksna broja.
+\item Napisati funkciju \kckod{oduzmi} koja oduzima dva kompleksna broja.
+\item Napisati funkciju \kckod{mnozi} koja množi dva kompleksna broja.
+\item Napisati funkciju \kckod{argument} koja računa argument kompleksnog broja.
+\end{enumerate}
+Napisati program koji testira prethodno napisane funkcije za dva kompleksna broja $z1$ i $z2$ koja se unose sa standardnog ulaza i ispisuje:
+\begin{enumerate}
+\item realni, imaginarni deo i moduo kompleksnog broja $z1$,
+\item konjugovano kompleksan broj i argument broja $z2$,
+\item zbir, razliku i proizvod brojeva $z1$ i $z2$.
+\end{enumerate}
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:   Unesite realan i imaginaran deo kompleksnog broja: 1 -3 
+          Unesite realan i imaginaran deo kompleksnog broja: -1 4 
+Izlaz:  (1.00 -3.00 i )
+          realan_deo: 1
+          imaginaran_deo: -3.000000
+          moduo 3.162278
+
+          (-1.00 + 4.00 i )
+          Njegov konjugovano kompleksan broj: (-1.00 -4.00 i )
+          Argument kompleksnog broja 1.815775
+
+          (1.00 -3.00 i ) + (-1.00 + 4.00 i )  =  ( 1.00 i )
+          (1.00 -3.00 i ) - (-1.00 + 4.00 i )  =  (2.00 -7.00 i )
+          (1.00 -3.00 i ) * (-1.00 + 4.00 i )  =  (11.00 + 7.00 i ) 
+\end{test}
+\end{maxitest}
+
+\linkresenje{001}
+
+\end{Exercise}
+\begin{Answer}[ref=001]
+\includecode{resenja/02_Bitovi/001.c}
+\end{Answer}
+
+\begin{Exercise}[label=002] % III sa vezbi
+Uraditi prethodni zadatak tako da su sve napisane funkcije za rad sa kompleknim brojevima zajedno sa definicijom strukture \kckod{KompleksanBroj} izdvojene u posebnu biblioteku, dok test program koristi tu biblioteku da za kompleksan broj unet sa standardnog ulaza ispiše polarni oblik unetog broja.
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:   Unesite realan i imaginaran deo kompleksnog broja: -5 2 
+Izlaz:   Polarni oblik kompleksnog broj je 5.39 *  e^i * 2.76
+\end{test}
+\end{maxitest}
+
+\linkresenje{002}
+
+\end{Exercise}
+\begin{Answer}[ref=002]
+\includecode{resenja/02_Bitovi/002/complex.c}
+\includecode{resenja/02_Bitovi/002/complex.h}
+\includecode{resenja/02_Bitovi/002/main.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=003] % sa praktikuma
+Napisati malu biblioteku za rad sa polinomima.
+
+  \begin{enumerate}
+  \item Definisati strukturu \kckod{Polinom} koja predstavlja polinom
+    (stepena najviše 20). Struktura sadrži stepen i niz
+    koeficijenata. (Diskutovati redosled navođenja koeficijenata u
+    nizu).
+  \item Napisati funkciju koja ispisuje polinom na standardni izlaz u
+    što lepšem obliku.
+  \item Napisati funkciju koja učitava polinom sa standardnog
+    ulaza.
+  \item Napisati funkciju za izračunavanje vrednosti polinoma u
+    datoj tački (diskutovati Hornerov algoritam i njegove
+    prednosti).
+  \item Napisati funkciju koja sabira dva polinoma.
+  \item Napisati funkciju koja množi dva polinoma.
+  \end{enumerate}
+
+  Sve vreme, paralelno sa razvojem funkcija, pisati i glavni program
+  koji ih testira.
+  
+  Nakon toga, izdvojiti funkcije u zasebnu datoteku \kckod{polinom.c},
+  a program u \kckod{test-polinom.c}. Prikazati probleme u kompilaciji,
+  poŠto ne postoji više definicija strukture kao ni prototipovi
+  funkcija u \kckod{test-polinom.c}. Diskutovati da dupliranje ovoga u
+  obe C datoteke dovodi do velikih problema prilikom održavanja
+  programa. Uvesti \kckod{polinom.h} kao rešenje i uključiti ga u
+  obe datoteke. Prikazati kreiranje objektne datoteke
+ \kckod{polinom.o}.
+\begin{verbatim}
+gcc -o test-polinom polinom.c test-polinom.c
+\end{verbatim}
+i 
+\begin{verbatim}
+gcc -c polinom.c 
+gcc -c test-polinom.c
+gcc -o test-polinom polinom.o test-polinom.o
+\end{verbatim}
+%
+%''Distri\-bu\-i\-ra\-ti'' datoteke \verb"polinom.h" i \verb"polinom.o"
+%(ne \verb"polinom.c") - na primer premeŠtanjem u novi
+%direktorijum. Napisati novi test program, prevesti ga i povezati.
+
+\begin{maxitest}
+\begin{test}{Upotreba programa 1}
+  Unesite polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):
+  3 1 2 3 4
+  1.00x^3+2.00x^2+3.00x+4.00
+  Unesite tacku u kojoj racunate vrednost polinoma
+  5
+  Vrednost polimoma u tacki je 194.00
+  Unesite drugi polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):
+  2 1 0 1
+  Zbir polinoma 1.00x^3+2.00x^2+3.00x+4.00 i   1.00x^2+1.00 polinoma je :  1.00x^3+3.00x^2+3.00x+5.00  
+  Zbir polinoma 1.00x^3+2.00x^2+3.00x+4.00 i   1.00x^2+1.00 polinoma je :   1.00x^5+2.00x^4+4.00x^3+6.00x^2+3.00x+4
+  Unosite izvod polinoma koji zelite:
+  2
+  2. izvod polinoma 1.00x^3+2.00x^2+3.00x+4.00 je : 6.00x+4.00
+\end{test}
+\end{maxitest}
+
+\linkresenje{003}
+
+\end{Exercise}
+\begin{Answer}[ref=003]
+\includecode{resenja/02_Bitovi/003/polinom.c}
+\includecode{resenja/02_Bitovi/003/polinom.h}
+\includecode{resenja/02_Bitovi/003/main.c}
+\includecode{resenja/02_Bitovi/003/Makefile}
+\end{Answer}
+
+\begin{Exercise}[label=004] % sa praktikuma
+Napraviti biblioteku za rad sa razlomcima.
+
+  \begin{enumerate}
+
+  \item Definisati strukturu za reprezentovanje razlomaka.
+
+  \item Napisati funkcije za učitavanje i ispis razlomaka.
+
+  \item Napisati funkcije koje vraćaju brojilac i imenilac.
+
+  \item Napisati funkciju koja vraća vrednost razlomka kao  \kckod{double}
+    vrednost.
+
+  \item Napisati funkciju koja izračunava recipročnu vrednost
+    razlomka.
+
+  \item Napisati funkciju koja skraćuje dati razlomak.
+
+  \item Napisati funkcije koje sabiraju, oduzimaju, množe i dele
+    dva razlomka.
+
+  \end{enumerate}
+
+Napisati program koji testira prethodne funkcije tako što se sa standardnog ulaza unose dva razlomka \argf{r1} i \argf{r2} i na standardni izlaz se ispisuju skraćeni vrednosti razlomaka koji predstavljaju zbir, razliku, proizvod i količnik razlomka \argf{r1} i recipročne vrednosti razlomka \argf{r2}.
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:   Unesite imenilac i brojilac: 1 2
+          Unesite imenilac i brojilac: 3 1 
+Izlaz:   Zbir je 5/6
+           Razlika je 1/6
+           Proizvod je 1/6
+           Kolicnik je 3/2
+\end{test}
+\end{maxitest}
+
+%\linkresenje{004}
+
+%\end{Exercise}
+%\begin{Answer}[ref=004]
+%%\includecode{resenja/02_Bitovi/004.c}
+%\end{Answer}
+
 \section{Algoritmi za rad sa bitovima}
 
 \begin{Exercise}[label=201]
-\begin{enumerate}
-\item Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu celog broja $x$.
-\item Napisati program koja testira funkciju \kckod{print\_bits} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
-\end{enumerate}
+Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu celog broja $x$. Napisati program koja testira funkciju \kckod{print\_bits} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
+
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -44,9 +226,11 @@ Ulaz:   0xABCDE123
 Izlaz:  1010 1011 1100 1101 1110 0001 0010 0011
 \end{test}
 \end{maxitest}
+
+\linkresenje{201}
 \end{Exercise}
 \begin{Answer}[ref=201]
-%\includecode{resenja/02_Bitovi/201.c}
+\includecode{resenja/02_Bitovi/201.c}
 \end{Answer}
 
 \begin{Exercise}[label=202]
@@ -55,45 +239,51 @@ Izlaz:  1010 1011 1100 1101 1110 0001 0010 0011
 \begin{minitest}
 \begin{test}{Test 1}
 Ulaz:   0x7F  
-Izlaz:  7   
+Izlaz:  
+  Broj bitova u zapisu je  7   
 \end{test}
 \end{minitest}
 \begin{minitest}
 \begin{test}{Test 2}
 Ulaz:   0x80
-Izlaz:  1
+Izlaz:  
+  Broj bitova u zapisu je 1
 \end{test}
 \end{minitest}
 \begin{minitest}
 \begin{test}{Test 3}
 Ulaz:   0x00FF00FF
-Izlaz:  16
+Izlaz:  
+  Broj bitova u zapisu je 16
 \end{test}
 \end{minitest}
 
 \begin{minitest}
 \begin{test}{Test 4}
 Ulaz:   0xFFFFFFFF
-Izlaz:  32
+Izlaz:  
+  Broj bitova u zapisu je 32
 \end{test}
 \end{minitest}
 \begin{minitest}
 \begin{test}{Test 4}
 Ulaz:   0xABCDE123
-Izlaz:  17
+Izlaz:  
+  Broj bitova u zapisu je 17
 \end{test}
 \end{minitest}
+
+\linkresenje{202}
 \end{Exercise}
 \begin{Answer}[ref=202]
-%\includecode{resenja/02_Bitovi/202.c}
+\includecode{resenja/02_Bitovi/202.c}
 \end{Answer}
 
 
 \begin{Exercise}[label=203]
-\begin{enumerate}
-\item Napisati funkciju \kckod{najveci} koja određuje najveći broj koji se može zapisati istim binarnim ciframa kao dati broj i funkciju \kckod{najmanji} koja određuje najmanji broj koji se može zapisati istim binarnim ciframa kao dati broj.
-\item Napisati program koji testira prethodno napisane funkcije tako što prikazuje binarnu reprezentaciju brojeva koji se dobijaju nakon poziva funkcije \kckod{najveci}, ondosno \kckod{najmanji} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu. 
-\end{enumerate}
+Napisati funkciju \kckod{najveci} koja određuje najveći broj koji se može zapisati istim binarnim ciframa kao dati broj i funkciju \kckod{najmanji} koja određuje najmanji broj koji se može zapisati istim binarnim ciframa kao dati broj.
+
+Napisati program koji testira prethodno napisane funkcije tako što prikazuje binarnu reprezentaciju brojeva koji se dobijaju nakon poziva funkcije \kckod{najveci}, ondosno \kckod{najmanji} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu. 
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -150,9 +340,10 @@ Izlaz:
 \end{test}
 \end{maxitest}
 
+\linkresenje{203}
 \end{Exercise}
 \begin{Answer}[ref=203]
-%\includecode{resenja/02_Bitovi/203.c}
+\includecode{resenja/02_Bitovi/203.c}
 \end{Answer}
 
 
@@ -168,29 +359,70 @@ Napisati program za rad sa bitovima.
 \end{enumerate}
 Program treba da testira prethodno napisane funkcije nad neoznačenim celim brojem koji se unosi sa standardnog ulaza.
 \emph{Napomena: Pozicije se broje počev od pozicije najnižeg bita, pri čemu se broji od nule .}
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:   235 5 10 127  
+Izlaz:  
+  Broj   235                          = 00000000000000000000000011101011
+  reset(  235,    5,   10)            = 00000000000000000000000000101011
+  set(  235,    5,   10)              = 00000000000000000000011111101011
+  get_bits(  235,    5,   10)         = 00000000000000000000000000000011
+  y =                             127 = 00000000000000000000000001111111
+  set_n_bits(  235,    5,   10,  127) = 00000000000000000000011111101011
+  invert(  235,    5,   10)           = 00000000000000000000011100101011
+\end{test}
+\end{maxitest}
+
+\linkresenje{204}
 \end{Exercise}
 \begin{Answer}[ref=204]
-%\includecode{resenja/02_Bitovi/204.c}
+\includecode{resenja/02_Bitovi/204.c}
 \end{Answer}
 
 
 \begin{Exercise}[label=205]
+Rotiranje ulevo podrazumeva pomeranje svih bitova za jednu poziciju ulevo, s tim što se bit sa pozicije najviše težine pomera na poziciju najmanje težine. Analogno, rotiranje udesno podrazumeva pomeranje svih bitova za jednu poziciju udesno, s tim što se bit sa pozicije najmanje težine pomera na poziciju najviše težine.
 \begin{enumerate}
-\item Napisati funkciju funkciju koja određuje broj koji se dobija rotiranjem u levo datog celog broja. Napomena: Rotiranje podrazumeva pomeranje svih bitova za jednu poziciju ulevo, s tim što se bit sa pozicije najviše težine pomera na mesto najmanje težine.
-\item Napisati funkciju koja određuje broj koji se dobija rotiranjem u desno datog celog neoznačenog broja. 
-\item Napisati funkciju koja određuje broj koji se dobija rotiranjem u desno datog celog broja.
-\item Napisati program koji testira prethodno napisane funkcije za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu. 
+\item Napisati funkciju \kckod{rotate\_left} koja određuje broj koji se dobija rotiranjem \argf{k} puta u levo datog celog broja \argf{x}. 
+\item Napisati funkciju \kckod{rotate\_right} koja određuje broj koji se dobija rotiranjem \argf{k} puta u desno datog celog neoznačenog broja \argf{x}. 
+\item Napisati funkciju \kckod{rotate\_right\_signed} koja određuje broj koji se dobija rotiranjem \argf{k} puta u desno datog celog broja \argf{x}. 
 \end{enumerate}
+Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i broj \argf{k} koji se sa standardnog ulaza unose u heksadekasnom formatu.
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:   B10011A7 5   
+Izlaz:  
+  x                                      = 10110001000000000001000110100111
+  rotate_left(2969571751,     5)         = 00100000000000100011010011110110
+  rotate_right(2969571751,     5)        = 00111101100010000000000010001101
+  rotate_right_signed(2969571751,     5) = 00111101100010000000000010001101
+\end{test}
+\end{maxitest}
+
+\linkresenje{205}
 \end{Exercise}
 \begin{Answer}[ref=205]
-%\includecode{resenja/02_Bitovi/205.c}
+\includecode{resenja/02_Bitovi/205.c}
 \end{Answer}
 
 \begin{Exercise}[label=206]
 Napisati funkciju \kckod{mirror} koja određuje ceo broj čiji binarni zapis je slika u ogledalu binarnog zapisa argumenta funkcije. Napisati i program koji testira datu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu, tako što najpre ispisuje binarnu reprezentaciju unetog broja, a potom i binarnu reprezentaciju broja dobijenog nakon poziva funkcije \kckod{mirror} za uneti broj.
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:  255   
+Izlaz:  
+  00000000000000000000001001010101
+  10101010010000000000000000000000
+\end{test}
+\end{maxitest}
+
+\linkresenje{206}
 \end{Exercise}
 \begin{Answer}[ref=206]
-%\includecode{resenja/02_Bitovi/206.c}
+\includecode{resenja/02_Bitovi/206.c}
 \end{Answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -226,9 +458,10 @@ Izlaz:  0
 \end{test}
 \end{minitest}
 
+\linkresenje{207}
 \end{Exercise}
 \begin{Answer}[ref=207]
-%\includecode{resenja/02_Bitovi/207.c}
+\includecode{resenja/02_Bitovi/207.c}
 \end{Answer}
 
 \begin{Exercise}[label=208]
@@ -263,16 +496,18 @@ Ulaz:   1111111115
 Izlaz:  6 
 \end{test}
 \end{minitest}
+
+\linkresenje{208}
 \end{Exercise}
 \begin{Answer}[ref=208]
-%\includecode{resenja/02_Bitovi/208.c}
+\includecode{resenja/02_Bitovi/208.c}
 \end{Answer}
 
 
 %%%
 %Ovaj 209.c nema resenje za sad...
 %%%
-\begin{Exercise}[label=209]
+\begin{Exercise}[label=209]\marker+{2}
 Napisati program koji sa standardnog ulaza učitava pozitivan
   ceo broj, a na standardni izlaz ispisuje vrednost tog broja sa
   razmenjenim vrednostima bitova na pozicijama $i$,
@@ -333,9 +568,11 @@ Ulaz:  12345
 Izlaz: 00003039
 \end{test}
 \end{minitest}
+
+\linkresenje{210}
 \end{Exercise}
 \begin{Answer}[ref=210]
-%\includecode{resenja/02_Bitovi/210.c}
+\includecode{resenja/02_Bitovi/210.c}
 \end{Answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -343,7 +580,7 @@ Izlaz: 00003039
 % možda \subsection{Dodatni zadaci} ili zadaci za vežbu
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{Exercise}[label=211]
+\begin{Exercise}[label=211]\marker+{2}
   Napisati funkciju koja za dva data neoznačena broja $x$
   i $y$ invertuje u podatku $x$ one bitove koji se poklapaju
   sa odgovarajućim bitovima u broju $y$. Ostali bitovi ostaju
@@ -373,7 +610,7 @@ Izlaz:  4294966271
 %\includecode{resenja/02_Bitovi/211.c}
 \end{Answer}
 
-\begin{Exercise}[label=212]
+\begin{Exercise}[label=212]\marker+{2}
 Napisati funkciju koja računa koliko petica bi imao ceo
   neoznačen broj $x$ u oktalnom zapisu. Napisati program koji
   tu funkciju testira za broj koji se zadaje sa standardnog ulaza.
@@ -400,135 +637,3 @@ Izlaz:  1
 \begin{Answer}[ref=212]
 %\includecode{resenja/02_Bitovi/212.c}
 \end{Answer}
-
-
-%\subsection{Rekurzija i bitovi}
-\komentar{Milena: Naredne zadatke prebaciti da budu nakon rekurzije.}
-\begin{Exercise}[label=103]
-%\komentar{Nina: Ovaj zadatak treba posle poglavlja o bitovima. Možda napraviti podpoglavlje u poglavlju Bitovi da se odvoje oni zadaci koji se odnose i na rekurziju.}
-Napisati rekurzivnu funkciju vraća broj bitova koji su postavljeni na 1, u binarnoj reprezentaciji njenog celobrojnog argumenta.  Napisati program koji testira napisanu funkciju za brojeve koji se učitavaju sa standardnog ulaza zadati u heksadekadnom formatu. 
-
-
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:  0x7F    
-Izlaz:  7             
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 2}
-Ulaz:  0x80
-Izlaz:  1         
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 3}
-Ulaz:   0x00FF00FF
-Izlaz:  16
-\end{test}
-\begin{test}{Test 4}
-Ulaz:   0xFFFFFFFF       
-Izlaz:  32
-\end{test}
-\end{minitest}  
-% Izbačeno (ne možemo da obezbedimo rešenje) Dodatak za vežbu: \emph{Ispratiti stanje na sistemskom steku u toku izvršavanja jednog poziva funkcije.}
-\end{Exercise}
-\begin{Answer}[ref=103]
-\includecode{resenja/01_Rekurzija/103.c}
-\end{Answer}
-
-\begin{Exercise}[label=115]
-%\komentar{Nina: Ovaj bi trebalo da ide u razne zadatke ili u okviru poglavlja sa bitovima.} Ovaj nema resenje!!!
-
-Napisati rekurzivnu funkciju koja štampa bitovsku
-  reprezentaciju neoznačenog celog broja, i program koji je
-  testira za ulaz koji se zadaje sa standardnog ulaza.
-
-\begin{maxitest}
-\begin{test}{Test 1}
-Ulaz:       10                                 
-Izlaz:      00000000000000000000000000001010                    
-\end{test}
-\end{maxitest}
-\end{Exercise}
-%\begin{Answer}[ref=115]
-%\includecode{resenja/01_Rekurzija/115.c}
-%\end{Answer}
-
-\begin{Exercise}[label=213]%[label=308]
-\komentar{Nina: Ovo je prebaceno iz poglavlja sa pokazivacima.}
-Napisati rekurzivnu funkciju za određivanje
-najveće cifre u oktalnom zapisu
-neoznačenog celog broja korišćenjem bitskih operatora.
-Uputstvo: binarne cifre grupisati u podgrupe od po tri cifre,
-počev od bitova najmanje težine.
-
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:  5
-Izlaz: 5
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 2}
-Ulaz:  125
-Izlaz: 7
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 3}
-Ulaz:  8
-Izlaz: 1
-\end{test}
-\end{minitest}
-
-\begin{minitest}
-\begin{test}{Test 4}
-Ulaz:  10
-Izlaz: 2
-\end{test}
-\end{minitest}
-\end{Exercise}
-\begin{Answer}[ref=213]%[ref=308]
-%\includecode{resenja/02_Bitovi/213.c}%{resenja/03_Pokazivaci/308.c}
-\end{Answer}
-
-\begin{Exercise}[label=214]%[label=309]
-\komentar{Nina: Ovo je prebaceno iz poglavlja sa pokazivacima.}
-Napisati rekurzivnu funkciju za određivanje (dekadne vrednosti)
-najveće cifre u heksadekadnom zapisu neoznačenog celog broja
-korišćenjem bitskih operatora. Uputstvo: binarne cifre
-grupisati u podgrupe od po četiri cifre, počev od bitova
-najmanje težine.
-
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:  5
-Izlaz: 5
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 2}
-Ulaz:  16
-Izlaz: 1
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 3}
-Ulaz:  18
-Izlaz: 2
-\end{test}
-\end{minitest}
-
-\begin{minitest}
-\begin{test}{Test 4}
-Ulaz:  165
-Izlaz: 10
-\end{test}
-\end{minitest}
-\end{Exercise}
-\begin{Answer}[ref=214]%[ref=309]
-%\includecode{resenja/02_Bitovi/214.c}%{resenja/03_Pokazivaci/309.c}
-\end{Answer}
-
-

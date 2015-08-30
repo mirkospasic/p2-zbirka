@@ -1,13 +1,29 @@
-/* 
- Napisati:
-  -  funkciju print_bits koja Stampa bitove u binarnom zapisu celog broja x.
-  - program koji testira print_bits
-*/
-
-
 #include <stdio.h>
 
-/* funkcija prikazuje na standardni ekran binarnu reprezentaciju celog broja u memoriji */
+/* Na primer za x cija binarna reprezentacija izgleda ovako
+ * 10101011110011011110000100100011
+ * 11000100100001111011001111010101
+ */
+
+
+unsigned mirror(unsigned x) {
+    unsigned najnizi_bit;
+    unsigned rezultat = 0;
+    
+    int i;
+    /* Krecemo od najnizeg bita u zapisu broja x i dodajemo ga u rezultat */
+    for(i =0; i < sizeof(x)*8; i++) {
+        najnizi_bit = x & 1;
+        x >>=1;
+        /* Potiskujemo trenutni rezultat ka levom kraju tako svi prethodno postavljeni bitovi dobijaju vecu poziciju, a novi bit postavljamo na najnizu poziciju */
+        rezultat <<= 1;
+        rezultat |= najnizi_bit;
+    }
+    return rezultat;
+}
+
+
+/* Funkcija prikazuje na standardni ekran binarnu reprezentaciju celog broja u memoriji */
 void print_bits( int x)  { 
     unsigned velicina = sizeof(int)*8; 		/* broj bitova celog broja */
     unsigned maska; 	/* maska koju cemo koristiti za "ocitavanje" bitova */
@@ -29,11 +45,17 @@ void print_bits( int x)  {
     putchar('\n');
 }
 
-
 int main() {
-    int broj;
+	int broj;
     scanf("%x", &broj);
-    print_bits(broj);
-        
+	
+	/*Ispisujemo binarnu reprezentaciju unetog broja*/
+    print_bits(broj);   
+    putchar('\n');
+	/*Ispisujemo binarnu reprezentaciju broja dobijenog
+      pozivom funkcije mirror	
+	*/
+    print_bits( mirror(broj));
+    
     return 0;
 }
