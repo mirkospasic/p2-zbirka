@@ -37,7 +37,7 @@
    adresu glave i koju, eventalno, treba azurirati. 
    Sada pozvana funkcija moze interno da preko dobijenog pokazivaca 
    promeni promenljivu pozivajuce funkcije direktno. Npr:
-                funkcija_za_promenu(&pok, ...); 
+   funkcija_za_promenu(&pok, ...); 
 */
 
 /* Struktura koja predstavlja cvor liste */
@@ -81,7 +81,7 @@ void oslobodi_listu(Cvor ** adresa_glave) {
         pomocni = (*adresa_glave)->sledeci;
         free(*adresa_glave);
         /* Sledeci element je nova glava liste */
-	*adresa_glave = pomocni;
+        *adresa_glave = pomocni;
     }
 }
 
@@ -102,22 +102,6 @@ void proveri_alokaciju(Cvor** adresa_glave, Cvor* novi) {
 }
 
 
-
-/* Funkcija dodaje novi cvor na pocetak liste. 
-   Kreira novi cvor koriscenjem funkcije napravi_cvor i uvezuje ga na pocetak */
-void dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj) {
-    /* Kreiramo nov cvor i proveravamo da li je bilo greske pri alokaciji */
-    Cvor *novi = napravi_cvor(broj); 
-    proveri_alokaciju(adresa_glave, novi);
-    
-    /* Uvezujemo novi cvor na pocetak */
-    novi->sledeci = *adresa_glave;
-    /* Nov cvor je sada nova glava liste */
-    *adresa_glave = novi;    
-}
-
-
-
 /* Funkcija pronalazi i vraca pokazivac na poslednji element liste, 
    ili NULL ukoliko je lista prazna */
 Cvor* pronadji_poslednji (Cvor* glava) {
@@ -127,12 +111,13 @@ Cvor* pronadji_poslednji (Cvor* glava) {
         return NULL;
     
     /* Sve dok glava ne pokazuje na cvor koji nema sledeceg, pomeramo pokazivac
-       glava na taj sledeci element. Kada izadjemo iz petlje, 
-       glava ce pokazivati na element liste koji nema sledeceg, 
-       tj. poslednji element liste je. Zato vracamo vrednost pokazivaca glava.
+   glava na taj sledeci element. Kada izadjemo iz petlje, 
+   glava ce pokazivati na element liste
+   koji nema sledeceg, tj, poslednji element liste je. Zato vracamo 
+   vrednost pokazivaca glava.
    
-       glava je argument funkcije i njegove promene nece se odraziti na 
-       vrednost pokazivaca glava  u pozivajucoj funkciji. */
+   glava je argument funkcije i njegove promene nece se odraziti na 
+   vrednost pokazivaca glava  u pozivajucoj funkciji. */
     while (glava->sledeci != NULL)
         glava = glava->sledeci;
     
@@ -140,67 +125,31 @@ Cvor* pronadji_poslednji (Cvor* glava) {
 }
 
 
-/* Funkcija trazi u listi element cija je vrednost jednaka datom broju. 
-   Vraca pokazivac na cvor liste u kome je sadrzan trazeni broj 
-   ili NULL u slucaju da takav element ne postoji u listi. */
-Cvor* pretrazi_listu(Cvor * glava, int broj) {
-    for ( ; glava != NULL; glava = glava->sledeci)
-      /* Pronasli smo*/
-      if (glava->vrednost == broj) 
-	return glava;
-
-    /* Nema trazenog broja u listi i vracamo NULL*/
-    return NULL;
-}
 
 
+/* Funkcija dodaje novi cvor na kraj liste. */
+void dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj) {
+    Cvor *novi = napravi_cvor(broj);
+    /* Proveravamo da li je doslo do greske prilikom alokacije memorije */
+    proveri_alokaciju(adresa_glave, novi);
 
-
-/* Funkcija brise iz liste sve cvorove koji sadrze dati broj.
-   Funkcija azurira pokazivac na glavu liste (koji moze biti 
-   promenjen u slucaju da se obrise stara glava) */
-void obrisi_element(Cvor ** adresa_glave, int broj) {
-    Cvor *tekuci = NULL;
-    Cvor *pomocni = NULL;
-    
-    /* Brisemo sa pocetka liste sve eventualne cvorove
-       koji su jednaki datom broju, i azuriramo pokazivac na glavu */
-    while (*adresa_glave != NULL && (*adresa_glave)->vrednost == broj) {
-        /* Sacuvamo adresu repa liste pre oslobadjanja glave */
-        pomocni = (*adresa_glave)->sledeci; 
-        free(*adresa_glave);
-        *adresa_glave = pomocni;
+    /* U slucaju prazne liste  */
+    if (*adresa_glave == NULL) {
+         /*  Glava nove liste je upravo novi cvor i ujedno i cela lista. 
+	  * Azuriramo vrednost na koju pokazuje adresa_glave i tako azuriramo 
+	  * i pokazivacku promenljivu u pozivajucoj funkciji.  */
+        *adresa_glave = novi; 
+	/* Vracamo se iz funkcije */
+        return;  
     }
-    
-    /* Ako je nakon toga lista ostala prazna prekidamo funkciju */
-    if ( *adresa_glave == NULL)
-        return;
 
-    /* Od ovog trenutka se u svakom koraku nalazimo 
-       na tekucem cvoru koji je razlicit od trazenog
-       broja (kao i svi levo od njega). Poredimo 
-       vrednost sledeceg cvora (ako postoji) sa trazenim
-       brojem i brisemo ga ako je jednak, a prelazimo na
-       sledeci cvor ako je razlicit. Ovaj postupak ponavljamo
-       dok ne dodjemo do poslednjeg cvora. */
-    tekuci = *adresa_glave;
-    while (tekuci->sledeci != NULL)
-        if (tekuci->sledeci->vrednost == broj) { 
-	  /* tekuci->sledeci treba obrisati,
-	     zbog toga sacuvamo njegovu adresu u pomocni */
-            pomocni = tekuci->sledeci;  
-            /* Tekucem preusmerimo pokazivac sledeci 
-	       tako sto preskacemo njegovog trenutnog sledeceg.
-	       Njegov novi sledeci ce biti sledeci od ovog koga brisemo. */
-            tekuci->sledeci = tekuci->sledeci->sledeci;
-	    /* Sada mozemo slobodno i da oslobodimo cvor sa vrednoscu broj */
-            free(pomocni); 
-        } else { 
-	  /* Ne treba brisati sledeceg, prelazimo na sledeci */
-            tekuci = tekuci->sledeci;
-        }
-    return;
+    /* Ako lista nije prazna, pronalazimo poslednji element liste */
+    Cvor* poslednji = pronadji_poslednji(*adresa_glave);
+
+    /* Dodajemo novi cvor na kraj preusmeravanjem pokazivaca */
+    poslednji->sledeci = novi;
 }
+
 
 /* Funkcija prikazuje elemente liste pocev od glave ka kraju liste.
    Ne saljemo joj adresu promenljive koja cuva glavu liste, jer 
@@ -222,44 +171,23 @@ void ispisi_listu(Cvor * glava)
 
 
 
+
 /* Glavni program u kome testiramo sve funkcije za rad sa listama */
 int main() {
     Cvor *glava = NULL;  /* na pocetku imamo praznu listu */
-    Cvor *trazeni = NULL;
     int broj;
 
-    /* Testiramo dodavanje na pocetak*/
-    printf("\nUnesite elemente liste. (za kraj unesite EOF tj. CTRL+D)\n");
+    /* Testiramo dodavanje na kraj liste */
+    printf("\nUnesite elemente liste! (za kraj unesite EOF tj. CTRL+D)\n");
     printf("\n\tLista: ");
     ispisi_listu(glava);
     
-    while(scanf("%d",&broj)>0)
-    {
-        dodaj_na_pocetak_liste(&glava, broj);
+    while(scanf("%d",&broj)>0) {
+        dodaj_na_kraj_liste(&glava, broj);
         printf("\n\tLista: ");
         ispisi_listu(glava);
     }
-
-    printf("\nUnesite element koji se trazi u listi: ");
-    scanf("%d", &broj);
-
-    trazeni=pretrazi_listu(glava, broj);
-    if(trazeni==NULL)
-        printf("Element NIJE u listi!\n");
-    else
-        printf("Trazeni broj %d je u listi!\n", trazeni->vrednost);
-
-
-    /* brisemo elemente iz liste cije polje vrednost je jednako 
-       broju procitanom sa ulaza */
-    printf("\nUnesite element koji se brise iz liste: ");
-    scanf("%d", &broj);
-
-    obrisi_element(&glava, broj);
-
-    printf("Lista nakon brisanja:  ");
-    ispisi_listu(glava);
-
+    
     oslobodi_listu(&glava);
 
     return 0;
