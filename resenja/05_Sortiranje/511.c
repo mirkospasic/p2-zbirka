@@ -31,8 +31,8 @@ int broj_suglasnika(char s[])
   return suglasnici;
 }
 
-/* Funkcija koja sortira reci po zadatom kriterijumu - OPREZ:
-   informacija o duzini reci se mora proslediti zbog pravilnog
+/* Funkcija koja sortira reci po zadatom kriterijumu.
+   Informacija o duzini reci se mora proslediti zbog pravilnog
    upravljanja memorijom */
 void sortiraj_reci(char reci[][MAX_DUZINA_RECI], int n)
 {
@@ -115,6 +115,6 @@ int main()
   /* Zatvaramo datoteku */
   fclose(ulaz);
 
-  /* I zavrsavamo sa programom */
+  /* Zavrsavamo sa programom */
   return 0;
 }

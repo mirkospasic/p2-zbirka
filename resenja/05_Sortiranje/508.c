@@ -149,6 +149,7 @@ int main(int argc, char *argv[])
     /* Ako je u pitanju karakter o, pozivamo funkciju za
        sortiranje po udaljenosti od koorinatnog pocetka */
     sortiraj_po_rastojanju(tacke, n);
+    break;
   }
 
   /* Upisujemo dobijeni niz u izlaznu datoteku */

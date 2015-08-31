@@ -22,9 +22,9 @@ typedef struct {
    dok pretragu po prezimenu moramo vrsiti linearno, jer nemamo
    garancije da postoji uredjenje po prezimenu. */
 
-/* Funkcija trazi u sortiranom nizu a[] duzine n broj x. Vraca
-   indeks pozicije nadjenog elementa ili -1, ako element nije
-   pronadjen */
+/* Funkcija trazi u sortiranom nizu studenata a[] duzine n
+   studenta sa indeksom x. Vraca indeks pozicije nadjenog clana
+   niza ili -1, ako element nije pronadjen */
 int binarna_pretraga(Student a[], int n, long x)
 {
   int levi = 0;
@@ -51,6 +51,7 @@ int binarna_pretraga(Student a[], int n, long x)
   return -1;
 }
 
+/* Linearnom pretragom niza studenata trazimo prezime x */
 int linearna_pretraga(Student a[], int n, char x[])
 {
   int i;

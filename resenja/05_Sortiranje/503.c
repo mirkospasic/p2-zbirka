@@ -44,7 +44,7 @@ int main()
 {
   int a[MAX_DIM], i;
 
-  /* Ucitavaju se element niza sve do kraja ulaza */
+  /* Ucitavaju se elementi niza sve do kraja ulaza */
   i = 0;
   printf("Unesite elemente niza: ");
   while (scanf("%d", &a[i]) != EOF)

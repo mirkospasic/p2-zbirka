@@ -2,6 +2,14 @@
 
 #include "sort.h"
 
+/* Funkcija sortira niz celih brojeva metodom sortiranja
+   izborom. Ideja algoritma je sledeca: U svakoj iteraciji
+   pronalazimo najmanji element i postavljamo ga na pocetak
+   niza. Dakle, u prvoj iteraciji, pronalazimo najmanji element, 
+   i dovodomo ga na nulto mesto u nizu. U i-toj iteraciji
+   najmanjih i elemenata su vec na svojim pozicijama, pa od i+1
+   do n-1 elementa trazimo najmanji, koji dovodimo na i+1
+   poziciju. */
 void selectionsort(int a[], int n)
 {
   int i, j;
@@ -145,7 +153,17 @@ void shellsort(int a[], int n)
 
 #define MAX 1000000
 
-/* Sortiranje ucesljavanjem */
+/* Funkcija sortira niz celih brojeva a[] ucesljavanjem.
+   Sortiranje se vrsi od elementa na poziciji l do onog na
+   poziciji d. Na pocetku, da bismo dobili niz kompletno
+   sortiran, l mora biti 0, a d je jednako poslednjem validnom
+   indeksu u nizu. Funkcija niz podeli na dve polovine, levu i
+   desnu, koje zatim rekurzivno sortira. Od ova dva sortirana
+   podniza, dobijamo sortiran niz ucesljavanjem, tj.
+   istovremenim prolaskom kroz oba niza i izborom trenutnog
+   manjeg elementa koji se smesta u pomocni niz. Na kraju
+   algoritma, sortirani elementi su u pomocnom nizu, koji se
+   kopira u originalni niz. */
 void mergesort(int a[], int l, int d)
 {
   int s;
@@ -178,16 +196,21 @@ void mergesort(int a[], int l, int d)
       b[k++] = a[j++];
   }
 
+  /* U slucaju da se prethodna petlja zavrsila izlaskom
+     promenljive j iz dopustenog opsega u pomocni niz
+     prepisujemo ostatak leve polovine niza */
   while (i <= s)
     b[k++] = a[i++];
 
+  /* U slucaju da se prethodna petlja zavrsila izlaskom
+     promenljive i iz dopustenog opsega u pomocni niz
+     prepisujemo ostatak desne polovine niza */
   while (j <= d)
     b[k++] = a[j++];
 
   /* Prepisujemo "ucesljani" niz u originalni niz */
   for (k = 0, i = l; i <= d; i++, k++)
     a[i] = b[k];
-
 }
 
 /* Funkcija menja mesto i-tom i j-tom elementu niza a */
@@ -199,7 +222,16 @@ void swap(int a[], int i, int j)
 }
 
 
-/* Funkcija sortira deo niza brojeva a izmedju pozicija l i r */
+/* Funkcija sortira deo niza brojeva a izmedju pozicija l i r.
+   Njena ideja sortiranja je izbor jednog elementa niza, koga
+   nazivamo pivot, koga cemo dovesti na svoje mesto. Posle ovog
+   koraka, svi elementi levo od njega bice manji, a svi desno
+   bice veci od njega. Kako smo pivota doveli na svoje mesto,
+   da bismo imali kompletno sortiran niz, treba sortirati
+   elemente levo (manje) od njega, i elemente desno (vece).
+   Kako je dimenzija ova dva podniza manja od dimenzije
+   pocetgnom niza koji je trebalo sortirati, ovaj deo ce za nas
+   uraditi rekurzija. */
 void quicksort(int a[], int l, int r)
 {
   int i, pivot_position;

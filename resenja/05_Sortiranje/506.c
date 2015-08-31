@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
   /* Otvaramo datoteku zadatu prvim argumentom komandne linije */
   fin1 = fopen(argv[1], "r");
   if (fin1 == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n\n",
+    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n",
             argv[1]);
     exit(EXIT_FAILURE);
   }
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
   /* Otvaramo datoteku zadatu drugim argumentom komandne linije */
   fin2 = fopen(argv[2], "r");
   if (fin2 == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n\n",
+    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n",
             argv[2]);
     exit(EXIT_FAILURE);
   }
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
   fout = fopen("ceo-tok.txt", "w");
   if (fout == NULL) {
     fprintf(stderr,
-            "Neuspesno otvaranje datoteke ceo-tok.txt za pisanje\n\n");
+            "Neuspesno otvaranje datoteke ceo-tok.txt za pisanje\n");
     exit(EXIT_FAILURE);
   }
 

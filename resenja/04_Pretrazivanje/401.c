@@ -70,9 +70,8 @@ int interpolaciona_pretraga(int a[], int n, int x)
     /* U suprotnom, x je izmedju a[levi] i a[desni], pa ako su
        a[levi] i a[desni] jednaki, tada je jasno da je x jednako 
        ovim vrednostima, pa vracamo indeks levi (ili indeks
-       desni, sve jedno je).Ova provera je neophodna, zato sto
-       bismo inace prilikom izracunavanja srednji imali deljenje 
-       nulom. */
+       desni. Ova provera je neophodna, zato sto bismo inace
+       prilikom izracunavanja srednji imali deljenje nulom. */
     else if (a[levi] == a[desni])
       return levi;
     /* Racunamo srednji indeks */
