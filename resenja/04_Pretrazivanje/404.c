@@ -73,13 +73,16 @@ int main(int argc, char *argv[])
   long trazen_indeks = 0;
   char trazeno_prezime[MAX_DUZINA];
 
-  if (argc == 1) {
+  /* Proveravamo da li nam je korisnik prilikom poziva prosledio 
+     ime datoteke sa informacijama o studentima */
+  if (argc != 2) {
     fprintf(stderr,
             "Greska: Program se poziva sa %s ime_datoteke\n",
             argv[0]);
     exit(EXIT_FAILURE);
   }
 
+  /* Otvaramo datoteku */
   fin = fopen(argv[1], "r");
   if (fin == NULL) {
     fprintf(stderr,
@@ -88,6 +91,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
+  /* Citamo sve dok imamo red sa informacijama o studentu */
   i = 0;
   while (1) {
     if (i == MAX_STUDENATA)
@@ -100,8 +104,11 @@ int main(int argc, char *argv[])
   }
   br_studenata = i;
 
+  /* Nakon citanja datoteka nam vise nije neophodna i odmah je
+     zatvaramo */
   fclose(fin);
 
+  /* Unos indeksa koji se binarno trazi u nizu */
   printf("Unesite indeks studenta cije informacije zelite: ");
   scanf("%ld", &trazen_indeks);
   i = binarna_pretraga_rekurzivna(dosije, 0, br_studenata - 1,
