@@ -226,12 +226,12 @@ void swap(int a[], int i, int j)
    Njena ideja sortiranja je izbor jednog elementa niza, koga
    nazivamo pivot, koga cemo dovesti na svoje mesto. Posle ovog
    koraka, svi elementi levo od njega bice manji, a svi desno
-   bice veci od njega. Kako smo pivota doveli na svoje mesto,
-   da bismo imali kompletno sortiran niz, treba sortirati
-   elemente levo (manje) od njega, i elemente desno (vece).
-   Kako je dimenzija ova dva podniza manja od dimenzije
-   pocetgnom niza koji je trebalo sortirati, ovaj deo ce za nas
-   uraditi rekurzija. */
+   bice veci od njega. Kako smo pivota doveli na svoje mesto, da 
+   bismo imali kompletno sortiran niz, treba sortirati elemente
+   levo (manje) od njega, i elemente desno (vece). Kako je
+   dimenzija ova dva podniza manja od dimenzije pocetgnom niza
+   koji je trebalo sortirati, ovaj deo ce za nas uraditi
+   rekurzija. */
 void quicksort(int a[], int l, int r)
 {
   int i, pivot_position;

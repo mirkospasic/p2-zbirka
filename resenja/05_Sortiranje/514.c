@@ -61,8 +61,7 @@ int main(int argc, char *argv[])
   /* Pripremamo datoteku za citanje */
   ulaz = fopen("pesme_bez_pretpostavki.txt", "r");
   if (ulaz == NULL) {
-    printf
-        ("Problem sa citanjem datoteke pesme_bez_pretpostavki.txt!\n");
+    printf("Greska pri otvaranju ulazne datoteke!\n");
     return 0;
   }
 
