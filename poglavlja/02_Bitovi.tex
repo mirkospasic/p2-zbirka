@@ -2,6 +2,8 @@
 
 \section{Podela koda po datotekama}
 
+\komentar{Milena: izdovjiti resenja u posebno poglavlje, da ne bude u folderu o bitovima, npr 00\_PodelaPoDatotekama}
+
 \begin{Exercise}[label=001] % I sa vezbi
 Napisati program za rad sa kompleksnim brojevima.
 \begin{enumerate}
@@ -19,7 +21,7 @@ Napisati program za rad sa kompleksnim brojevima.
 \end{enumerate}
 Napisati program koji testira prethodno napisane funkcije za dva kompleksna broja $z1$ i $z2$ koja se unose sa standardnog ulaza i ispisuje:
 \begin{enumerate}
-\item realni, imaginarni deo i moduo kompleksnog broja $z1$,
+\item realni deo, imaginarni deo i moduo kompleksnog broja $z1$,
 \item konjugovano kompleksan broj i argument broja $z2$,
 \item zbir, razliku i proizvod brojeva $z1$ i $z2$.
 \end{enumerate}
@@ -77,29 +79,22 @@ Napisati malu biblioteku za rad sa polinomima.
   \item Definisati strukturu \kckod{Polinom} koja predstavlja polinom
     (stepena najviše 20). Struktura sadrži stepen i niz
     koeficijenata. (Diskutovati redosled navođenja koeficijenata u
-    nizu).
+    nizu). \komentar{Milna: preformulisati u uputstvo ili obrisati - diskusija se ne pominje na drugim mestima}
   \item Napisati funkciju koja ispisuje polinom na standardni izlaz u
     što lepšem obliku.
   \item Napisati funkciju koja učitava polinom sa standardnog
     ulaza.
   \item Napisati funkciju za izračunavanje vrednosti polinoma u
     datoj tački (diskutovati Hornerov algoritam i njegove
-    prednosti).
+    prednosti). \komentar{Milna: preformulisati u uputstvo ili obrisati - diskusija se ne pominje na drugim mestima}
   \item Napisati funkciju koja sabira dva polinoma.
   \item Napisati funkciju koja množi dva polinoma.
   \end{enumerate}
 
-  Sve vreme, paralelno sa razvojem funkcija, pisati i glavni program
-  koji ih testira.
-  
-  Nakon toga, izdvojiti funkcije u zasebnu datoteku \kckod{polinom.c},
-  a program u \kckod{test-polinom.c}. Prikazati probleme u kompilaciji,
-  poŠto ne postoji više definicija strukture kao ni prototipovi
-  funkcija u \kckod{test-polinom.c}. Diskutovati da dupliranje ovoga u
-  obe C datoteke dovodi do velikih problema prilikom održavanja
-  programa. Uvesti \kckod{polinom.h} kao rešenje i uključiti ga u
-  obe datoteke. Prikazati kreiranje objektne datoteke
- \kckod{polinom.o}.
+Napisati program koji testira prethodno napisane funkcije...
+
+\komentar{Dopuniti prethodnu recenicu, a nacin prevodjenja prebaciti u komentar kod resenja, ukoliko to vec nije dato uz resenje prethodnog zadatka.}
+\iffalse
 \begin{verbatim}
 gcc -o test-polinom polinom.c test-polinom.c
 \end{verbatim}
@@ -109,6 +104,7 @@ gcc -c polinom.c
 gcc -c test-polinom.c
 gcc -o test-polinom polinom.o test-polinom.o
 \end{verbatim}
+ \fi
 %
 %''Distri\-bu\-i\-ra\-ti'' datoteke \verb"polinom.h" i \verb"polinom.o"
 %(ne \verb"polinom.c") - na primer premeŠtanjem u novi
@@ -187,6 +183,8 @@ Izlaz:   Zbir je 5/6
 %\end{Answer}
 
 \section{Algoritmi za rad sa bitovima}
+
+\komentar{Milena: izbaci kratke opise zadataka sa pocetka resenja. Izbaci link na make alate. U komentarima imas velika slova na mestma gde su bila nekada nasa slova... Izbegavala bih komentare koji narusavaju citljivost koda, npr komentar na strukturu treba da bude pre strukture a ne u okviru strukture (to je kod polinoma). Print bits je dva puta detaljno komentarisana, dosta je jednom, a i to bi trebalo da bude malo krace. Zadatak 1.6 se ne poklapa sa resenjem. U resenju su date dve funkcije, a to se u tekstu zadatka ne trazi --- mozda bi bilo bolje razdvojiti to u dva zadatka. Zadatak 1.8 ima ponovo komentare za print\_bits, isto i 1.9... Svuda nadalje to obrisati, ostaviti uz funkciju samo kratak komentar tipa "funkcija stampa bitove..." tj tako nesto kratko ali pismeno. Resenje 1.11 --- nedostaje kratak komentar sta radi funkcija Broj01. Isto i u narednom broju parova. Obrisi suvisne nove redove. Toliko za sada... }
 
 \begin{Exercise}[label=201]
 Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu celog broja $x$. Napisati program koja testira funkciju \kckod{print\_bits} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
