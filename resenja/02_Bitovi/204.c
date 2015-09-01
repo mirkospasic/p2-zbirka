@@ -35,7 +35,7 @@ unsigned reset(unsigned x, unsigned n, unsigned p ) {
  *     1010 1011 1100 1101 1110 1111 1110 0111
  */
 unsigned set(unsigned x, unsigned n, unsigned p ) {
-    /* Kako zelimo da samo odreðenih n bitova postavimo na 1, dok ostali treba da ostanu netaknuti.
+    /* Kako zelimo da samo odredjenih n bitova postavimo na 1, dok ostali treba da ostanu netaknuti.
      * Na primer, za n=5 i p=10
      * formiramo masku oblika  0000 0000 0000 0000 0000 0111 1100 0000
      * prateci vrlo slican postupak kao za prethodnu funkciju

@@ -60,6 +60,8 @@ Izlaz:
 	Rezultujuce stablo: -3 -2 6 8 13 24
 \end{test}
 \end{maxitest}
+
+\linkresenje{701}
 \end{Exercise}
 
 \begin{Answer}[ref=701]
@@ -69,9 +71,7 @@ Izlaz:
 
 %2.zadatak
 \begin{Exercise}[label=702]
-Napisati program koji izračunava i na standardnom izlazu ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživackog stabla uređenog leksikografski prema rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku \kckod{Nedostaje ime ulazne datoteke!}.
-
-\komentar{Milena: dodati i test primer sa pokretanjem bez ulazne datoteke}
+Napisati program koji izračunava i na standardnom izlazu ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživackog stabla uređenog leksikografski prema rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku \kckod{Nedostaje ime ulazne datoteke!}. Može se pretpostaviti da dužina reči neće biti veća od 50 karaktera.
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -84,6 +84,8 @@ Izlaz:
 	racunar: 1
 	sunce: 3
 	utorak: 1
+
+	Najcesca rec: sunce (pojavljuje se 3 puta)
 \end{test}
 \end{miditest}
 
@@ -97,6 +99,8 @@ Izlaz:
 	hrast: 1
 	lipa: 2
 	zova: 2
+	
+	Najcesca rec: lipa (pojavljuje se 2 puta)
 \end{test}
 \end{miditest}
 
@@ -108,18 +112,20 @@ Izlaz:
 \end{test}
 \end{miditest}
 
+\linkresenje{702}
+
 \end{Exercise}
 
 
 \begin{Answer}[ref=702]
-%\includecode{resenja/07_Drveta/702.c}
+\includecode{resenja/07_drveta/702.c}
 \end{Answer}
 
 %3.zadatak
 
 %4.zadatak
 \begin{Exercise}[label=704]
-U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona, npr.~\kckod{Pera Peric 064/123-4567}. Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči \kckod{KRAJ}, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od $30$ karaktera.  
+U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona, npr.~\kckod{Pera Peric 064/123-4567}. Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči \kckod{KRAJ}, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od $30$ karaktera, kao i da imenik ne sadrži podatke o osobama sa istim imenom i prezimenom.
 
 \begin{maxitest}
 \begin{test}{Upotreba programa 1}
@@ -143,6 +149,7 @@ Ulaz:
 	Unesite ime i prezime: KRAJ
 \end{test}
 \end{maxitest}
+\linkresenje{704}
 \end{Exercise}
 
 \begin{Answer}[ref=704]
@@ -171,6 +178,8 @@ Izlaz:
 	5. Jovana Milic 23.3 2 5.6 30.9
 \end{test}
 \end{maxitest}
+%\linkresenje{705}
+
 \end{Exercise}
 \begin{Answer}[ref=705]
 %\includecode{resenja/07_Drveta/705.c}
@@ -204,6 +213,7 @@ Ulaz:
 	Unesite datum: CTRL+D
 \end{test}
 \end{maxitest}
+%\linkresenje{706}
 \end{Exercise}
 
 \begin{Answer}[ref=706]
@@ -238,6 +248,7 @@ Izlaz:
 \end{test}
 \end{maxitest}
 
+%\linkresenje{707}
 \end{Exercise}
 
 \begin{Answer}[ref=707]
@@ -261,6 +272,8 @@ Izlaz:
 	Razlika: 2 7 8 
 \end{test}
 \end{miditest}
+
+%\linkresenje{708}
 
 \end{Exercise}
 
@@ -293,6 +306,9 @@ Izlaz:
 	Greska: pogresna dimenzija niza!
 \end{test}
 \end{maxitest}
+
+%\linkresenje{709}
+
 \end{Exercise}
 
 \begin{Answer}[ref=709]
@@ -339,6 +355,8 @@ Izlaz:
 \end{test}
 \end{maxitest}
 
+%\linkresenje{710}
+
 \end{Exercise}
 
 \begin{Answer}[ref=710]
@@ -373,6 +391,7 @@ Izlaz:
 	Putanja do najmanjeg cvora: 10 5 3 2
 \end{test}
 \end{maxitest}
+%\linkresenje{711}
 \end{Exercise}
 
 \begin{Answer}[ref=711]
@@ -398,6 +417,7 @@ Izlaz:
 \end{test}
 \end{maxitest}
 
+%\linkresenje{712}
 \end{Exercise}
 
 \begin{Answer}[ref=712]
@@ -431,6 +451,7 @@ Izlaz:
 	Stabla nisu slicna kao u ogledalu.
 \end{test}
 \end{miditest}
+%\linkresenje{713}
 \end{Exercise}
 
 \begin{Answer}[ref=713]
@@ -461,6 +482,7 @@ Izlaz:
 	6
 \end{test}
 \end{miditest}
+%\linkresenje{714}
 \end{Exercise}
 
 \begin{Answer}[ref=714]
@@ -482,6 +504,7 @@ Izlaz:
 \end{test}
 \end{miditest}
 
+%\linkresenje{715}
 \end{Exercise}
 
 \begin{Answer}[ref=715]
