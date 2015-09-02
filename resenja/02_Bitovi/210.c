@@ -37,15 +37,13 @@ void prevod(unsigned int x, char s[]){
 		/* Vrednost izdvojene cifre */
 		vrednost=x&maska;
 
-		/* Ako je vrednost iz opsega od 0 do 9 odgovarajuci karakter dobijamo dodavanjem ASCII koda '0' */
+		/* Ako je vrednost iz opsega od 0 do 9 odgovarajuci karakter dobijamo dodavanjem ASCII koda '0' 
+		Ako je vrednost iz opsega od 10 do 15 odgovarajuci karakter dobijamo tako sto prvo oduzmemo 10 (dobijamo vrednosti od 0 do 5) pa dodamo ASCII kod  'A'  (time dobijamo slova 'A', 'B', ... 'F')	
+		*/
 		if(vrednost<10){
 			s[i]=vrednost+'0';
 		}
 		else{
-			/* 
-				Ako je vrednost iz opsega od 10 do 15 odgovarajuci karakter dobijamo tako sto prvo oduzmemo 10 
-				(dobijamo vrednosti od 0 do 5) pa dodamo ASCII kod  'A'  (time dobijamo slova 'A', 'B', ... 'F')
-			*/
 			s[i]=vrednost-10+'A';
 		}
 

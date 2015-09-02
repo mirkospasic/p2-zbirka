@@ -11,13 +11,9 @@ unsigned rotate_left(int x, unsigned n) {
     unsigned first_bit_mask = 1 << (sizeof(unsigned)*8 -1);
     int i;
     
-    /* n puta vrsimo rotaciju za jedan bit u levo */
+    /* n puta vrsimo rotaciju za jedan bit u levo. U svakoj iteraciji odredimo prvi bit, a potom pomeramo sadrzaj broja x u levo za 1 i potom najnizi bit postavljamo na vrednost koju je imao prvi bit koji smo istisnuli siftovanjem */
     for( i= 0; i<n; i++) {
-        /* odredujemo prvi bit*/
         first_bit =  x & first_bit_mask;
-        /* pomeramo sadrzaj broja x u levo za 1, a
-         * potom najnizi bit postavljamo na vrednost koju je imao 
-         * prvi bit koji smo istisnuli Siftovanjem */
         x = x<< 1 | first_bit >> (sizeof(unsigned)*8-1);
     }    
     return x;
@@ -32,14 +28,9 @@ unsigned  rotate_right(unsigned x, unsigned n) {
     unsigned last_bit;
     int i;
     
-    /* n puta ponavljamo rotaciju u desno za jedan bit */
+    /* n puta ponavljamo rotaciju u desno za jedan bit. U svakoj iteraciji odredjujemo bit najmanje tezine broja x, zatm tako odredjeni bit siftujemo u levo tako da najnizi bit dode do pozicije najviseg bita  i nakon siftovanja x za 1 u desno postavljamo x-ov najvisi bit na vrednost najnizeg bita. */
     for(i=0; i<n; i++){
-        last_bit = x & 1 ;	/* bit najmanje tezine */
-        
-        /* last_bit siftujemo u levo tako da najnizi bit dode do pozicije najviseg bita  i
-         * nakon Siftovanja x za 1 u desno postavljamo x-ov najvisi bit na vrednost
-         * najnizeg bita.
-         */
+        last_bit = x & 1 ;	
         x = x >> 1 | last_bit << (sizeof(unsigned)*8-1);
     }
 
@@ -51,15 +42,14 @@ int rotate_right_signed(int x, unsigned n) {
     unsigned last_bit;
     int i;
 
-    for(i=0; i<n; i++) {
-        last_bit = x & 1;	/* bit najmanje tezine */
-        
-        /* Kako je x oznacen ceo broj, tada se prilikom Siftovanja u desno 
-         * vrsi aritmeticki sift i cuva se znak broja. Iza tog razloga imamo dva
-         * slucaja u zavisnosti od znaka od x. 
-         * Nije dovoljno da se ova provera izvrsi pre petlje, jer rotiranjem u desno
-         * na mesto najviseg bita moze doci i 0 i 1, nezavisno od pocetnog znaka x.
+	 
+    /* U svakoj iteraciji odredjujemo bit najmanje tezine tj. last_bit. 
+	Kako je x oznacen ceo broj, tada se prilikom siftovanja u desno vrsi aritmeticki sift i cuva se znak broja. Iza tog razloga imamo dva slucaja u zavisnosti od znaka od x. 
+    Nije dovoljno da se ova provera izvrsi pre petlje, jer rotiranjem u desno na mesto najviseg bita moze doci i 0 i 1, nezavisno od pocetnog znaka x.
          */
+    for(i=0; i<n; i++) {
+        last_bit = x & 1;
+       
         if( x<0 )
             /* Siftovanjem u desno broja koji je negativan dobijamo 1 na najvisoj 
              * poziciji.  Na primer ako je x 
@@ -94,20 +84,8 @@ int rotate_right_signed(int x, unsigned n) {
 
 /* Funkcija prikazuje na standardni ekran binarnu reprezentaciju celog broja u memoriji */
 void print_bits( int x)  { 
-    unsigned velicina = sizeof(int)*8; 		/* Broj bitova celog broja */
-    unsigned maska; 	/* Maska koju cemo koristiti za "ocitavanje" bitova */
-    
-    /* Bitove u zapisu broja treba da ispisujemo sa leva na desno, tj od bita najvece tezine ka 
-     * bitu najmanje tezine. Iz tog razloga, za pocetnu vrednost maske uzimamo vrednost 
-     * ciji binarni zapis je takav da je bit najvece tezine 1, a svi ostali nule. 
-     * Nakon toga, u svakoj iteraciji cemo tu jedinicu pomerati u desno, kako bismo ocitali 
-     * naredni bit, gledano s leva na desno. Odgovarajuci karakter, ('0' ili '1'), ispisuje se na ekranu. 
-     *
-     * Zbog siftovanja maske u desno koja na pocetku ima najvisi bit postavljen na 1, 
-     * neophodno je da maska bude neoznacen ceo broj i da se siftovanjem u desno ova 1 
-     * ne bi smatrala znakom i prepisivala, vec da bi nam se svakim siftovanjem  sa levog kraja
-     * binarnog zapisa pojavljivale 0. */
-
+    unsigned velicina = sizeof(int)*8; 		
+    unsigned maska; 	
     for( maska = 1 << (velicina -1); maska!=0 ; maska >>= 1)
         putchar( x & maska ? '1' : '0' );
 
