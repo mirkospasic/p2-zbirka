@@ -2,8 +2,6 @@
 
 \section{Podela koda po datotekama}
 
-\komentar{Milena: izdovjiti resenja u posebno poglavlje, da ne bude u folderu o bitovima, npr 00\_PodelaPoDatotekama}
-
 \begin{Exercise}[label=001] % I sa vezbi
 Napisati program za rad sa kompleksnim brojevima.
 \begin{enumerate}
@@ -89,7 +87,7 @@ Napisati malu biblioteku za rad sa polinomima.
   \item Napisati funkciju koja množi dva polinoma.
   \end{enumerate}
 
-Napisati program koji testira prethodno napisane funkcije tako što se najpre unosi polinom \argf{p} (stepen polinoma, a zatim i koeficijenti), ispisuje se polinom \argf{p} u odgovarajućem obliku. Zatim se od korisnika traži da unese tačka u kojoj se računa vrednost tog polinoma i ispisuje iztačunata vrednost zaokružena na dve decimale. Nakon toga unosi se polinom \argf{q}, a potom se ispisuju zbir i proizvod polinoma \argf{p} i \argf{q}. Na kraju se sa standardnog ulaya unosi broj \argf{n}, a potom se ispisuje \argf{n}-ti izvod polinoma \argf{p}.
+Napisati program koji testira prethodno napisane funkcije tako što se najpre unosi polinom \argf{p} (stepen polinoma, a zatim i koeficijenti), ispisuje se polinom \argf{p} u odgovarajućem obliku. Zatim se od korisnika traži da unese tačka u kojoj se računa vrednost tog polinoma i ispisuje iztačunata vrednost zaokružena na dve decimale. Nakon toga unosi se polinom \argf{q}, a potom se ispisuju zbir i proizvod polinoma \argf{p} i \argf{q}. Na kraju se sa standardnog ulaza unosi broj \argf{n}, a potom se ispisuje \argf{n}-ti izvod polinoma \argf{p}.
 
 \begin{maxitest}
 \begin{test}{Upotreba programa 1}
@@ -164,8 +162,6 @@ Izlaz:   Zbir je 5/6
 %\end{Answer}
 
 \section{Algoritmi za rad sa bitovima}
-
-\komentar{Milena: izbaci kratke opise zadataka sa pocetka resenja. Izbaci link na make alate. U komentarima imas velika slova na mestma gde su bila nekada nasa slova... Izbegavala bih komentare koji narusavaju citljivost koda, npr komentar na strukturu treba da bude pre strukture a ne u okviru strukture (to je kod polinoma). Print bits je dva puta detaljno komentarisana, dosta je jednom, a i to bi trebalo da bude malo krace. Zadatak 1.6 se ne poklapa sa resenjem. U resenju su date dve funkcije, a to se u tekstu zadatka ne trazi --- mozda bi bilo bolje razdvojiti to u dva zadatka. Zadatak 1.8 ima ponovo komentare za print\_bits, isto i 1.9... Svuda nadalje to obrisati, ostaviti uz funkciju samo kratak komentar tipa "funkcija stampa bitove..." tj tako nesto kratko ali pismeno. Resenje 1.11 --- nedostaje kratak komentar sta radi funkcija Broj01. Isto i u narednom broju parova. Obrisi suvisne nove redove. Toliko za sada... }
 
 \begin{Exercise}[label=201]
 Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu celog broja $x$. Napisati program koja testira funkciju \kckod{print\_bits} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
@@ -592,9 +588,9 @@ Izlaz:  4294966271
 \end{test}
 \end{minitest}
 \end{Exercise}
-\begin{Answer}[ref=211]
+%\begin{Answer}[ref=211]
 %\includecode{resenja/02_Bitovi/211.c}
-\end{Answer}
+%\end{Answer}
 
 \begin{Exercise}[label=212]\marker+{2}
 Napisati funkciju koja računa koliko petica bi imao ceo
@@ -620,6 +616,6 @@ Izlaz:  1
 \end{test}
 \end{minitest}  
 \end{Exercise}
-\begin{Answer}[ref=212]
+%\begin{Answer}[ref=212]
 %\includecode{resenja/02_Bitovi/212.c}
-\end{Answer}
+%\end{Answer}

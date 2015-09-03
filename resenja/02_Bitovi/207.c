@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+/* Funkcija vraca 1 ukoliko je u binarnoj reprezentaciji broja n broj jedinica veci od broja nula.
+ U suprotnom funkcij vraca 0 */
 int Broj01(unsigned int n){
 
 	int broj_nula, broj_jedinica;

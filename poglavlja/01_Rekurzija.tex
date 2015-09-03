@@ -1,6 +1,6 @@
 \section{Rekurzija}
 
-\subsection{Rekurzivne funkcije nad brojevima}
+%%%\subsection{Rekurzivne funkcije nad brojevima}
 
 \begin{Exercise}[label=102]
 Napisati rekurzivnu funkciju koja izračunava  $x^k$,  za dati ceo broj $x$ i prirodan broj $k$.
@@ -132,9 +132,7 @@ Izlaz:  0
 %\includecode{resenja/01_Rekurzija/111.c}
 \end{Answer}
 
-
-
-\subsection{Rekurzivne funkcije za rad sa nizovima}
+%%%\subsection{Rekurzivne funkcije za rad sa nizovima}
 
 \begin{Exercise}[label=101]
 Napisati rekurzivnu funkciju koja sumira elemente niza celih brojeva.  Napisati program koji testira napisane funkcije. Sa standardnog ulaza učitati dimenziju $n$  ($0 < n \leq 100$) celobrojnog
@@ -154,10 +152,6 @@ Izlaz: Suma elemenata je 15
 \begin{Answer}[ref=101]
 \includecode{resenja/01_Rekurzija/101.c}
 \end{Answer}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-% Zadaci sa praktikuma - obavezni zadaci 
-%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{Exercise}[label=109]
 Napisati rekurzivnu funkciju koja određuje maksimum niza
@@ -234,7 +228,6 @@ Izlaz:  0
 \end{Answer}
 
 
-
 \begin{Exercise}[label=112]
 Napisati rekurzivnu funkciju \kckod{br\_pojave} 
   koja računa broj pojavljivanja
@@ -303,8 +296,138 @@ Izlaz:    ne
 \includecode{resenja/01_Rekurzija/114.c}
 \end{Answer}
 
+%%%\subsection{Rekurzivne funkcije za rad sa bitovima}
 
-\subsection{Rekurzivne funkcije - razni zadaci}
+\begin{Exercise}[label=103]
+Napisati rekurzivnu funkciju vraća broj bitova koji su postavljeni na 1, u binarnoj reprezentaciji njenog celobrojnog argumenta.  Napisati program koji testira napisanu funkciju za brojeve koji se učitavaju sa standardnog ulaza zadati u heksadekadnom formatu. 
+
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:  0x7F    
+Izlaz:  7             
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:  0x80
+Izlaz:  1         
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:   0x00FF00FF
+Izlaz:  16
+\end{test}
+\begin{test}{Test 4}
+Ulaz:   0xFFFFFFFF       
+Izlaz:  32
+\end{test}
+\end{minitest}  
+
+\linkresenje{103}
+\end{Exercise}
+\begin{Answer}[ref=103]
+\includecode{resenja/01_Rekurzija/103.c}
+\end{Answer}
+
+\begin{Exercise}[label=115]\marker+{2}
+Napisati rekurzivnu funkciju koja štampa bitovsku
+  reprezentaciju neoznačenog celog broja, i program koji je
+  testira za vrednost koja se zadaje sa standardnog ulaza.
+
+\begin{maxitest}
+\begin{test}{Test 1}
+Ulaz:       10                                 
+Izlaz:      00000000000000000000000000001010                    
+\end{test}
+\end{maxitest}
+\end{Exercise}
+%\begin{Answer}[ref=115]
+%\includecode{resenja/01_Rekurzija/115.c}
+%\end{Answer}
+
+\begin{Exercise}[label=119]
+%\komentar{Nina: Ovo je prebaceno iz poglavlja sa pokazivacima.}
+Napisati rekurzivnu funkciju za određivanje
+najveće cifre u oktalnom zapisu
+neoznačenog celog broja korišćenjem bitskih operatora.
+\uputstvo{binarne cifre grupisati u podgrupe od po tri cifre,
+počev od bitova najmanje težine.}
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:  5
+Izlaz: 5
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:  125
+Izlaz: 7
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:  8
+Izlaz: 1
+\end{test}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{Test 4}
+Ulaz:  10
+Izlaz: 2
+\end{test}
+\end{minitest}
+
+\linkresenje{119}
+\end{Exercise}
+\begin{Answer}[ref=119]
+\includecode{resenja/01_Rekurzija/119.c}
+\end{Answer}
+
+\begin{Exercise}[label=120]
+%\komentar{Nina: Ovo je prebaceno iz poglavlja sa pokazivacima.}
+Napisati rekurzivnu funkciju za određivanje (dekadne vrednosti)
+najveće cifre u heksadekadnom zapisu neoznačenog celog broja
+korišćenjem bitskih operatora. \uputstvo{binarne cifre
+grupisati u podgrupe od po četiri cifre, počev od bitova
+najmanje težine.}
+
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz:  5
+Izlaz: 5
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:  16
+Izlaz: 1
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 3}
+Ulaz:  18
+Izlaz: 2
+\end{test}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{Test 4}
+Ulaz:  165
+Izlaz: 10
+\end{test}
+\end{minitest}
+
+\linkresenje{120}
+\end{Exercise}
+\begin{Answer}[ref=120]
+\includecode{resenja/01_Rekurzija/120.c}
+\end{Answer}
+
+%%%\subsection{Rekurzivne funkcije - razni zadaci}
 
 \begin{Exercise}[label=113]
 Napisati rekurzivnu funkciju \kckod{palindrom} koja ispituje da li je data niska
@@ -349,8 +472,6 @@ Izlaz:   da
 \begin{Answer}[ref=113]
 \includecode{resenja/01_Rekurzija/113.c}
 \end{Answer}
-
-
 
 \begin{Exercise}[label=107, difficulty=1]
 Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,n\}$. Napisati program koji testira napisanu funkciju za poizvoljan prirodan broj $n$ ($n \le 50$) unet sa standardnog ulaza.
@@ -490,137 +611,7 @@ Izlaz:   a a a
 %\includecode{resenja/01_Rekurzija/118.c}
 %\end{Answer}
 
-\subsection{Rekurzivne funkcije za rad sa bitovima}
-\komentar{Milena: Naredne zadatke prebaciti da budu nakon rekurzije. Nina: Da li je u redu da budu ovde?}
-\begin{Exercise}[label=103]
-Napisati rekurzivnu funkciju vraća broj bitova koji su postavljeni na 1, u binarnoj reprezentaciji njenog celobrojnog argumenta.  Napisati program koji testira napisanu funkciju za brojeve koji se učitavaju sa standardnog ulaza zadati u heksadekadnom formatu. 
 
-
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:  0x7F    
-Izlaz:  7             
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 2}
-Ulaz:  0x80
-Izlaz:  1         
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 3}
-Ulaz:   0x00FF00FF
-Izlaz:  16
-\end{test}
-\begin{test}{Test 4}
-Ulaz:   0xFFFFFFFF       
-Izlaz:  32
-\end{test}
-\end{minitest}  
-% Izbačeno (ne možemo da obezbedimo rešenje) Dodatak za vežbu: \emph{Ispratiti stanje na sistemskom steku u toku izvršavanja jednog poziva funkcije.}
-
-\linkresenje{103}
-\end{Exercise}
-\begin{Answer}[ref=103]
-\includecode{resenja/01_Rekurzija/103.c}
-\end{Answer}
-
-\begin{Exercise}[label=115]\marker+{2}
-Napisati rekurzivnu funkciju koja štampa bitovsku
-  reprezentaciju neoznačenog celog broja, i program koji je
-  testira za ulaz koji se zadaje sa standardnog ulaza.
-
-\begin{maxitest}
-\begin{test}{Test 1}
-Ulaz:       10                                 
-Izlaz:      00000000000000000000000000001010                    
-\end{test}
-\end{maxitest}
-\end{Exercise}
-%\begin{Answer}[ref=115]
-%\includecode{resenja/01_Rekurzija/115.c}
-%\end{Answer}
-
-\begin{Exercise}[label=119]
-%\komentar{Nina: Ovo je prebaceno iz poglavlja sa pokazivacima.}
-Napisati rekurzivnu funkciju za određivanje
-najveće cifre u oktalnom zapisu
-neoznačenog celog broja korišćenjem bitskih operatora.
-Uputstvo: binarne cifre grupisati u podgrupe od po tri cifre,
-počev od bitova najmanje težine.
-
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:  5
-Izlaz: 5
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 2}
-Ulaz:  125
-Izlaz: 7
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 3}
-Ulaz:  8
-Izlaz: 1
-\end{test}
-\end{minitest}
-
-\begin{minitest}
-\begin{test}{Test 4}
-Ulaz:  10
-Izlaz: 2
-\end{test}
-\end{minitest}
-
-\linkresenje{119}
-\end{Exercise}
-\begin{Answer}[ref=119]
-\includecode{resenja/01_Rekurzija/119.c}
-\end{Answer}
-
-\begin{Exercise}[label=120]
-%\komentar{Nina: Ovo je prebaceno iz poglavlja sa pokazivacima.}
-Napisati rekurzivnu funkciju za određivanje (dekadne vrednosti)
-najveće cifre u heksadekadnom zapisu neoznačenog celog broja
-korišćenjem bitskih operatora. Uputstvo: binarne cifre
-grupisati u podgrupe od po četiri cifre, počev od bitova
-najmanje težine.
-
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:  5
-Izlaz: 5
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 2}
-Ulaz:  16
-Izlaz: 1
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 3}
-Ulaz:  18
-Izlaz: 2
-\end{test}
-\end{minitest}
-
-\begin{minitest}
-\begin{test}{Test 4}
-Ulaz:  165
-Izlaz: 10
-\end{test}
-\end{minitest}
-
-\linkresenje{120}
-\end{Exercise}
-\begin{Answer}[ref=120]
-\includecode{resenja/01_Rekurzija/120.c}
-\end{Answer}
 
 \section{Rešenja}
 \shipoutAnswer

@@ -1,17 +1,6 @@
 #include <stdio.h>
 #define MAX_DIM 1000
 
-/* Bitno!
- * Kad pisemo rekurzivnu funkciju moramo da obezbedimo:
- * - Izlazak iz rekurzije (obicno trivijalnim slucajem).
- * - Rekurzivni poziv kojim se reSava problem manje 
- *   dimenzije.
- * 
- *	Rekurzija nam omogucava pisanje elegantnijih resenja.
- *  Rekurzivne funkcije troSe mnogo vise memorije nego
- *      iterativne koje reSavaju isti problem.
- */
-
 
 /*
  * n==0, suma(a,0) = 0
@@ -56,13 +45,6 @@ int main()
 	for(i=0; i<n; i++)
 		scanf("%d", &a[i]);
 	
-	/*      int a[]={ 10, 2, 3, 45, 21};
-			int n = sizeof(a)/sizeof(int);  
-     * Ovako odredjivanje velicine niza je primenljivo 
-     * samo na nizove koji su definisani i inicijalizovani 
-     * kao u prethodnom redu, navodjenjem elemenata.
-     */
-    
     
     printf("Suma elemenata je %d\n",sumaNiza(a, n));
 	

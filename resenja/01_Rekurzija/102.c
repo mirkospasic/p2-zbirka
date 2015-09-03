@@ -1,20 +1,10 @@
 #include <stdio.h>
-/* Bitno!
- * Kad pisemo rekurzivnu funkciju moramo da obezbedimo:
- * - Izlazak iz rekurzije, rekurzije obicno trivijalnim slucajem.
- * - Rekurzivni poziv kojim se resava problem manje dimenzije.
- * - Rekurzija nam omogucava pisanje elegantnijih resenja.
- * - Rekurzivne funkcije trose mnogo vise memorije nego
- *      iterativne koje resavaju isti problem.
- */
+
 
 /* Iskomentarisan je deo koji se ispisuje svaki put kad se
  * udje u funkciju. Odkomentarisati pozive printf funkcije u 
  * obe funkcije da uocite razliku u broju rekurzivnih poziva 
  * obe verzije.
- * 
- * Kako se menja stanje na sistemskom steku, 
- * dok se funkcija izvrsava?
  */
  
 /*  Linearno resenje se zasniva na cinjenici:  
