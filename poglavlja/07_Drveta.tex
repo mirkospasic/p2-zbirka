@@ -4,7 +4,7 @@
 \begin{Exercise}[label=701]
 Napisati program za rad sa binarnim pretraživačkim stablima.
 \begin{enumerate}
-\item Definisati strukturu \kckod{Cvor} kojom se opisuje čvor binarnog pretraživačkog stabla koja sadrži ceo broj \kckod{broj} i pokazivače \kckod{levo} i \kckod{desno} redom na levo i desno podstablo\footnote{U zadacima ove glave u kojima nije eksplicitno naglašen sadržaj čvorova stabla, podrazumevaće se ova struktura.}.
+\item Definisati strukturu \kckod{Cvor} kojom se opisuje čvor binarnog pretraživačkog stabla koja sadrži ceo broj \kckod{broj} i pokazivače \kckod{levo} i \kckod{desno} redom na levo i desno podstablo.
 
 \item Napisati funkciju \kckod{Cvor* napravi\_cvor(int broj)} koja alocira memoriju za novi čvor stabla i vrši njegovu inicijalizaciju zadatim celim brojem \argf{broj}.
 
@@ -28,6 +28,7 @@ Napisati program za rad sa binarnim pretraživačkim stablima.
 \end{enumerate}
 
 Korišćenjem prethodnih funkcija, napisati program koji sa standardnog ulaza učitava cele brojeve sve do kraja ulaza, dodaje ih u binarno pretraživačko stablo i ispisuje stablo u svakoj od navedenih notacija. Zatim omogućiti unos još dva cela broja i demonstrirati rad funkcije za pretragu nad prvim unetim brojem i rad funkcije za brisanje elemenata nad drugim unetim brojem. 
+\footnote{U zadacima ove glave u kojima se očekuje rad sa stablima celih brojeva, ovaj skup funkcija se može iskoristiti kao mala biblioteka. Zbog toga će u zadacima koji slede, datoteka stabla.h predstavljati popis funkcija biblioteke, a datoteka stabla.c njihove implementacije. Programe koji koriste ovu biblioteku treba prevoditi u skladu sa smernicama iz poglavlja 1.1.}
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -65,7 +66,7 @@ Izlaz:
 \end{Exercise}
 
 \begin{Answer}[ref=701]
-%\includecode{resenja/07_Drveta/701.c}
+\includecode{resenja/07_Drveta/701.c}
 \end{Answer}
 
 
@@ -118,7 +119,7 @@ Izlaz:
 
 
 \begin{Answer}[ref=702]
-\includecode{resenja/07_drveta/702.c}
+\includecode{resenja/07_Drveta/702.c}
 \end{Answer}
 
 %3.zadatak
@@ -153,7 +154,7 @@ Ulaz:
 \end{Exercise}
 
 \begin{Answer}[ref=704]
-%\includecode{resenja/07_Drveta/704.c}
+\includecode{resenja/07_Drveta/704.c}
 \end{Answer}
 
 
@@ -170,19 +171,19 @@ Datoteka prijemni.txt:
    Nadica Zec 54.2 10 15.8             
    Jovana Milic 23.3 2 5.6
 Izlaz:
-	1. Maja Agic 60 19 20 99
-	2. Nadica Zec 54.2 10 15.8 80
-	3. Marko Markovic 45.4 12.3 11 68.7
-	4. Milan Jevremovic 35.2 1.3 9 45.5
+	1. Maja Agic 60.0 19.0 20.0 99.0
+	2. Nadica Zec 54.2 10.0 15.8 80.0
+	3. Marko Markovic 45.4 12.3 11.0 68.7
+	4. Milan Jevremovic 35.2 1.3 9.0 45.5
 	-----------------------------------
-	5. Jovana Milic 23.3 2 5.6 30.9
+	5. Jovana Milic 23.3 2.0 5.6 30.9
 \end{test}
 \end{maxitest}
-%\linkresenje{705}
+\linkresenje{705}
 
 \end{Exercise}
 \begin{Answer}[ref=705]
-%\includecode{resenja/07_Drveta/705.c}
+\includecode{resenja/07_Drveta/705.c}
 \end{Answer}
 
 %6.zadatak
@@ -208,16 +209,16 @@ Izlaz:
 Ulaz:
 	Unesite datum: 01.05.
 Izlaz:	
-	Slavljeni: Jovana Milic 05.05.
+	Slavljenik: Jovana Milic 05.05.
 Ulaz:	
 	Unesite datum: CTRL+D
 \end{test}
 \end{maxitest}
-%\linkresenje{706}
+\linkresenje{706}
 \end{Exercise}
 
 \begin{Answer}[ref=706]
-%\includecode{resenja/07_Drveta/706.c}
+\includecode{resenja/07_Drveta/706.c}
 \end{Answer}
 
 
@@ -248,17 +249,17 @@ Izlaz:
 \end{test}
 \end{maxitest}
 
-%\linkresenje{707}
+\linkresenje{707}
 \end{Exercise}
 
 \begin{Answer}[ref=707]
-%\includecode{resenja/07_Drveta/707.c}
+\includecode{resenja/07_Drveta/707.c}
 \end{Answer}
 
 
 %8.zadatak
 \begin{Exercise}[label=708, difficulty=1]
-Napisati program koji za dva binarna pretraživačka stabla čiji se elementi zadaju sa standardnog ulaza, sve do kraja ulaza, ispisuje uniju, presek i razliku stabla. Unija dva stabala je stablo koje sadrži vrednosti iz oba stabla uračunata tačno po jednom. Presek dva stabala je stablo koje sadrži vrednosti koje se pojavljuju i u prvom i u drugom stablu. Razlika dva stabla je stablo koje sadrži sve vrednosti prvog stabla koje se ne pojavljuju u drugom stablu. 
+Napisati program koji za dva binarna pretraživačka stabla čiji se elementi zadaju sa standardnog ulaza, sve do kraja ulaza, ispisuje uniju, presek i razliku stabla. Unija dva stabala je stablo koje sadrži vrednosti iz oba stabla. Presek dva stabala je stablo koje sadrži vrednosti koje se pojavljuju i u prvom i u drugom stablu. Razlika dva stabla je stablo koje sadrži sve vrednosti prvog stabla koje se ne pojavljuju u drugom stablu. 
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -267,18 +268,18 @@ Ulaz:
 	Prvo stablo: 1 7 8 9 2 2
 	Drugo stablo: 3 9 6 11 1
 Izlaz:
-	Unija: 1 2 3 6 7 8 9 11
+	Unija:  1 1 2 2 3 6 7 8 9 9 11
 	Presek: 1 9 
-	Razlika: 2 7 8 
+	Razlika: 2 2 7 8 
 \end{test}
 \end{miditest}
 
-%\linkresenje{708}
+\linkresenje{708}
 
 \end{Exercise}
 
 \begin{Answer}[ref=708]
-%\includecode{resenja/07_Drveta/708.c}
+\includecode{resenja/07_Drveta/708.c}
 \end{Answer}
 
 
@@ -307,12 +308,12 @@ Izlaz:
 \end{test}
 \end{maxitest}
 
-%\linkresenje{709}
+\linkresenje{709}
 
 \end{Exercise}
 
 \begin{Answer}[ref=709]
-%\includecode{resenja/07_Drveta/709.c}
+\includecode{resenja/07_Drveta/709.c}
 \end{Answer}
 
 
@@ -355,12 +356,12 @@ Izlaz:
 \end{test}
 \end{maxitest}
 
-%\linkresenje{710}
+\linkresenje{710}
 
 \end{Exercise}
 
 \begin{Answer}[ref=710]
-%\includecode{resenja/07_Drveta/710.c}
+\includecode{resenja/07_Drveta/710.c}
 \end{Answer}
 
 
@@ -391,17 +392,17 @@ Izlaz:
 	Putanja do najmanjeg cvora: 10 5 3 2
 \end{test}
 \end{maxitest}
-%\linkresenje{711}
+\linkresenje{711}
 \end{Exercise}
 
 \begin{Answer}[ref=711]
-%\includecode{resenja/07_Drveta/711.c}
+\includecode{resenja/07_Drveta/711.c}
 \end{Answer}
 
 
 %12.zadatak
 \begin{Exercise}[label=712]
-Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivoima. 
+Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivoima. Elementi stabla se učitavaju sa standardnog ulaza sve do kraja ulaza.
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -417,11 +418,11 @@ Izlaz:
 \end{test}
 \end{maxitest}
 
-%\linkresenje{712}
+\linkresenje{712}
 \end{Exercise}
 
 \begin{Answer}[ref=712]
-%\includecode{resenja/07_Drveta/712.c}
+\includecode{resenja/07_Drveta/712.c}
 \end{Answer}
 
 
@@ -451,11 +452,11 @@ Izlaz:
 	Stabla nisu slicna kao u ogledalu.
 \end{test}
 \end{miditest}
-%\linkresenje{713}
+\linkresenje{713}
 \end{Exercise}
 
 \begin{Answer}[ref=713]
-%\includecode{resenja/07_Drveta/713.c}
+\includecode{resenja/07_Drveta/713.c}
 \end{Answer}
 
 
@@ -482,17 +483,17 @@ Izlaz:
 	6
 \end{test}
 \end{miditest}
-%\linkresenje{714}
+\linkresenje{714}
 \end{Exercise}
 
 \begin{Answer}[ref=714]
-%\includecode{resenja/07_Drveta/714.c}
+\includecode{resenja/07_Drveta/714.c}
 \end{Answer}
 
 
 %15.zadatak
 \begin{Exercise}[label=715]
-Binarno stablo se naziva HEAP ako je kompletno (svaki njegov čvor, izuzev listova, ima i levog i desnog potomka) i za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno stablo celih brojeva HEAP. Napisati zatim i glavni program koji ispisuje rezultat \kckod{heap} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
+Binarno stablo se naziva HEAP ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno stablo celih brojeva HEAP. Napisati zatim i glavni program koji kreira stablo kao na slici ..., poziva funkciju \kckod{heap} i ispisuje rezultat na standardnom izlazu. 
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -504,11 +505,11 @@ Izlaz:
 \end{test}
 \end{miditest}
 
-%\linkresenje{715}
+\linkresenje{715}
 \end{Exercise}
 
 \begin{Answer}[ref=715]
-%\includecode{resenja/07_Drveta/715.c}
+\includecode{resenja/07_Drveta/715.c}
 \end{Answer}
 
 
