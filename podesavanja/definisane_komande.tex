@@ -51,6 +51,7 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
  breaklines=true,
  xleftmargin=\parindent,
  language=C,
+ basicstyle=\scriptsize,        % the size of the fonts that are used for the code
  showstringspaces=false,
  commentstyle=\color{blue}\ttfamily,
  morecomment=[l][\color{magenta}]{\#},
@@ -78,6 +79,7 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 {\verbatim}
 {\endverbatim}
 
+
 \lstnewenvironment{test}[1]
 { \renewcommand\lstlistingname{Test}\lstset{
 % belowcaptionskip=1\baselineskip,
@@ -87,7 +89,7 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 % xleftmargin=\parindent,
  language=C,
  showstringspaces=false,
- basicstyle=\footnotesize\ttfamily,
+ basicstyle=\scriptsize\ttfamily,
  keywordstyle=\bfseries\color{green!40!black},
  commentstyle=\itshape\color{purple!40!black},
  identifierstyle=\color{blue},
@@ -98,6 +100,12 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 }
 }
 {}
+
+\usepackage{caption}
+\DeclareCaptionFormat{listing} {
+  \parbox[top][10pt][l]{\textwidth}{\hspace{0pt}#1#2#3}
+}
+\captionsetup[lstlisting]{format=listing}
 
 \newenvironment{minitest}
 {\begin{minipage}[t]{45mm}} 
