@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+/* Ukljucujemo biblioteku za rad sa stablima */
 #include "stabla.h"
-
-
 
 /* Funkcija proverava da li je zadato binarno stablo celih
    pozitivnih brojeva heap. Ideja koju cemo implementirati u
@@ -19,14 +19,14 @@ int heap(Cvor * koren)
 
   /* Prazno sablo je heap. */
   if (koren == NULL) {
-    /* Posto je 0 najmanji pozitivan broj, moze nam posluziti
+    /* posto je 0 najmanji pozitivan broj, moze nam posluziti
        kao indikator */
     return 0;
 
   }
   /* Ukoliko je stablo list ... */
   if (koren->levo == NULL && koren->desno == NULL) {
-    /* Vracamo njegovu vrednost */
+    /* ... vracamo njegovu vrednost */
     return koren->broj;
   }
 
@@ -44,11 +44,11 @@ int heap(Cvor * koren)
   /* U suprotonom proveravamo da li svojstvo vazi za uoceni
      cvor. */
   if (koren->broj > max_levo && koren->broj > max_desno) {
-    /* Ako vazi, vracamo vrednost korena */
+    /* ako vazi, vracamo vrednost korena */
     return koren->broj;
   }
 
-  /* U suprotnom zakljucujemo da stablo nije heap */
+  /* u suprotnom zakljucujemo da stablo nije heap */
   return -1;
 }
 
@@ -69,10 +69,10 @@ int main(int argc, char **argv)
   koren->desno->levo = napravi_cvor(25);
   koren->desno->desno = napravi_cvor(1);
 
-  /* Pozivamo funkciju kojom proveravamo da li je stablo heap */
+  /* pozivamo funkciju kojom proveravamo da li je stablo heap */
   heap_indikator = heap(koren);
 
-  /* I ispisujemo rezultat */
+  /* i ispisujemo rezultat */
   if (heap_indikator == -1) {
     printf("Zadato tablo nije heap\n");
   } else {

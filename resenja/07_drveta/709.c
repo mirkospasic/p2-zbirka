@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "stabla.h"
 
+/* Ukljucujemo biblioteku za rad sa stablima */
+#include "stabla.h"
 
 #define MAX 50
 
@@ -83,7 +84,7 @@ int main()
   /* Pozivamo funkciju za sortiranje */
   sortiraj(a, n);
 
-  /* I ispisujemo rezultat */
+  /* Ispisujemo rezultat */
   for (i = 0; i < n; i++)
     printf("%d ", a[i]);
   printf("\n");

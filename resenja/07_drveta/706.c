@@ -5,7 +5,9 @@
 #define MAX_NISKA 51
 #define MAX_DATUM 3
 
-/* Struktura koja opisuje jedan cvor stabla */
+/* Struktura koja opisuje jedan cvor stabla: sadrzi ime i
+   prezime osobe, dan, mesec i godinu rodjenja i redom
+   pokazivace na levo i desno podstablo */
 typedef struct cvor_stabla {
   char ime[MAX_NISKA];
   char prezime[MAX_NISKA];

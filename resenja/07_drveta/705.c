@@ -4,7 +4,10 @@
 
 #define MAX 51
 
-/* Struktura koja definise cvorove drveta */
+/* Struktura koja definise cvorove stabla: sadrzi ime i prezime
+   studenta, ukupan uspsh, uspeh iz matematike, uspeh iz
+   maternjeg jezika i redom pokazivace na levo i desno podstablo 
+ */
 typedef struct cvor_stabla {
   char ime[MAX];
   char prezime[MAX];

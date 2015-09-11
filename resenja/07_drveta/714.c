@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+/* Ukljucujemo biblioteku za rad sa stablima */
 #include "stabla.h"
 
 /* Funckija koja izracunava dubinu stabla */
@@ -26,7 +28,6 @@ int dubina_stabla(Cvor * koren)
    AVL stablo */
 int avl(Cvor * koren)
 {
-
   int dubina_levo, dubina_desno;
 
   /* Ako je stablo prazno, zaustavljamo brojanje */
@@ -42,10 +43,11 @@ int avl(Cvor * koren)
 
   /* Ako je uslov za AVL stablo ispunjen */
   if (abs(dubina_desno - dubina_levo) <= 1) {
-
+    /* Racunamo broj avl cvorova u levom i desnom podstablu i
+       uvecavamo za jedan iz razloga sto koren ispunjava uslov */
     return 1 + avl(koren->levo) + avl(koren->desno);
   } else {
-    /* Inace: */
+    /* Inace, racunamo samo broj avl cvorova u podstablima */
     return avl(koren->levo) + avl(koren->desno);
   }
 }

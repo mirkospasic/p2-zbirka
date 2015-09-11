@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+/* Ukljucujemo biblioteku za rad sa stablima */
 #include "stabla.h"
 
 /* Funckija koja izracunava dubinu stabla */

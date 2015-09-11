@@ -28,7 +28,6 @@ Napisati program za rad sa binarnim pretraživačkim stablima.
 \end{enumerate}
 
 Korišćenjem prethodnih funkcija, napisati program koji sa standardnog ulaza učitava cele brojeve sve do kraja ulaza, dodaje ih u binarno pretraživačko stablo i ispisuje stablo u svakoj od navedenih notacija. Zatim omogućiti unos još dva cela broja i demonstrirati rad funkcije za pretragu nad prvim unetim brojem i rad funkcije za brisanje elemenata nad drugim unetim brojem. 
-\footnote{U zadacima ove glave u kojima se očekuje rad sa stablima celih brojeva, ovaj skup funkcija se može iskoristiti kao mala biblioteka. Zbog toga će u zadacima koji slede, datoteka stabla.h predstavljati popis funkcija biblioteke, a datoteka stabla.c njihove implementacije. Programe koji koriste ovu biblioteku treba prevoditi u skladu sa smernicama iz poglavlja 1.1.}
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -226,6 +225,7 @@ Ulaz:
 %7.zadatak
 \begin{Exercise}[label=707]
 Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj. ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor* koren1, Cvor* koren2)} koja proverava da li su binarna stabla \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identična, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih stabla unositi sa standardnog ulaza sve do pojave broja $0$.
+\napomena{Skup funkcija koje smo napisali u prvom zadatku možemo iskoristiti kao malu biblioteku za rad sa binarnim pretraživačkim stablima celih brojeva. Tako će u zadacima koji slede, datoteka stabla.h predstavljati popis funkcija biblioteke, a datoteka stabla.c njihove implementacije. Programe koji koriste ovu biblioteku treba prevoditi i pokretati u skladu sa smernicama iz poglavlja 1.1.}
 
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -253,6 +253,8 @@ Izlaz:
 \end{Exercise}
 
 \begin{Answer}[ref=707]
+\includecode{resenja/07_Drveta/stabla.h}
+\includecode{resenja/07_Drveta/stabla.c}
 \includecode{resenja/07_Drveta/707.c}
 \end{Answer}
 
@@ -367,7 +369,7 @@ Izlaz:
 
 
 %11.zadatak
-
+%nije resen
 \begin{Exercise}[label=711]
 Dato je binarno pretraživačko stablo celih brojeva.
 \begin{enumerate}

@@ -29,13 +29,13 @@ Cvor * napravi_cvor(int broj)
 
 /* Funkcija koja proverava uspesnost kreiranja novog cvora
        stabla */ 
-void proveri_alokaciju(Cvor * novi) 
+void proveri_alokaciju(Cvor * novi_cvor) 
 {
   /* Ukoliko je cvor neuspesno kreiran */ 
-  if (novi == NULL) {
+  if (novi_cvor == NULL) {
     /* Ispisuje se odgovarajuca poruka i prekida izvrsavanje programa
 */ 
-    fprintf(stderr, "Malloc greska za nov cvor!\n");
+    fprintf(stderr, "Malloc greska za novi cvor!\n");
     exit(EXIT_FAILURE);
   }
 }
@@ -69,7 +69,7 @@ dodajemo u desno podstablo */
 }
     /* 
  d) Funkcija koja proverava da li se zadati broj nalazi
-       u stablu; 
+       u stablu
  */ 
     
 Cvor * pretrazi_stablo(Cvor * koren, int broj) 
@@ -135,7 +135,7 @@ Cvor * pronadji_najveci(Cvor * koren)
 
 }
 
-/* g) funkcija brise cvor koji sadrzi zadatu vrednost */ 
+/* g) Funkcija koja brise cvor stabla koji sadrzi zadati broj */ 
 void obrisi_element(Cvor ** adresa_korena, int broj) 
 {
   Cvor * pomocni_cvor = NULL;

@@ -30,7 +30,7 @@ memoriju za svaki karakter reci ukljucujuci i terminirajucu nulu */
       return NULL;   
   }
   
-  /* Inicijalizacija polja u novom cvoru */
+  /* Inicijalizujemo polja u novom cvoru */
   strcpy(novi_cvor->rec, rec);
   novi_cvor->brojac = 1;
   novi_cvor->levo = NULL;
@@ -46,9 +46,8 @@ void proveri_alokaciju(Cvor* novi_cvor) {
   /* Ukoliko je cvor neuspesno kreiran */ 
   if( novi_cvor == NULL) {
     /* Ispisuje se odgovarajuca poruka i prekida
-izvrsavanje
-programa */ 
-      fprintf(stderr, "Malloc greska za nov cvor!\n");
+    izvrsavanje programa */ 
+      fprintf(stderr, "Malloc greska za novi cvor!\n");
       exit(EXIT_FAILURE);
   }
 }

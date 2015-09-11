@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stabla.h"
-
-/* Funkcija koja alocira memoriju za novi cvor stabla,
-   inicijalizuje polja strukture i vraca pokazivac na novi
-   cvor */ 
+/* Funkcija kojom se kreira novi cvor stabla koji sadrzi zadatu
+   vrednost */
 Cvor *napravi_cvor(int broj)
 {
   /* Alociramo memoriju za novi cvor */
@@ -32,7 +30,7 @@ void proveri_alokaciju(Cvor * novi_cvor)
   }
 }
 
-/* Funkcija koja dodaje zadati broj u stablo. */
+/* Funkcija koja dodaje novi broj u stablo. */
 void dodaj_u_stablo(Cvor ** koren, int broj)
 {
   /* Ako je stablo prazno */
@@ -40,7 +38,7 @@ void dodaj_u_stablo(Cvor ** koren, int broj)
     /* Kreiramo novi cvor */
     Cvor *novi = napravi_cvor(broj);
     proveri_alokaciju(novi);
-    /* I proglasavamo ga korenom stabla */
+    /* i proglasavamo ga korenom stabla */
     *koren = novi;
     return;
   }
@@ -54,61 +52,52 @@ void dodaj_u_stablo(Cvor ** koren, int broj)
     dodaj_u_stablo(&(*koren)->desno, broj);
 }
 
-/* Funkcija koja proverava da li se zadati broj nalazi
-       u stablu */
-Cvor *pretrazi_stablo(Cvor * koren, int broj)
+/* Funkcija koja oslobadja memoriju zauzetu stablom */
+void oslobodi_stablo(Cvor ** koren)
 {
-  /* Ako je stablo prazno, vrednost se sigurno ne nalazi u njemu 
-   */
-  if (koren == NULL)
-    return NULL;
-  /* ako je trazena vrednost sadrazana u korenu */
-  if (koren->broj == broj) {
-    /* prekidamo pretragu */
-    return koren;
-  }
-  /* inace, ako je broj manji od vrednosti sadrzane u korenu */
-  if (broj < koren->broj)
-    /* pretragu nastavljamo u levom podstablu */
-    return pretrazi_stablo(koren->levo, broj);
-  else
-    /* u suprotnom, pretragu nastavljamo u desnom podstablu */
-    return pretrazi_stablo(koren->desno, broj);
+  /* Ako je stablo prazno, nepotrebno je oslobadjati memoriju */
+  if (*koren == NULL)
+    return;
+  /* Inace ... */
+  /* Oslobadjamo memoriju zauzetu levom podstablom */
+  if ((*koren)->levo)
+    oslobodi_stablo(&(*koren)->levo);
+  /* Oslobadjamo memoriju zauzetu desnom podstablom */
+  if ((*koren)->desno)
+    oslobodi_stablo(&(*koren)->desno);
+  /* Oslobadjamo memoriju zauzetu korenom */
+  free(*koren);
+  /* Proglasavamo stablo praznim */
+  *koren = NULL;
 }
 
-/* Funkcija pronalazi cvor koji sadrzi najmanju vrednost u stablu */
 Cvor *pronadji_najmanji(Cvor * koren)
 {
-  /* Ako je stablo prazno, prekidamo pretragu */
+  /* ako je stablo prazno, prekidamo pretragu */
   if (koren == NULL)
     return NULL;
-  
-  /* Vrednosti koje su manje od vrednosti u korenu stabla nalaze 
-     se levo od njega - ako je koren cvor koji nema levo podstablo,
-onda on sadrzi najmanju vrednost */
+  /* vrednosti koje su manje od vrednosti u korenu stabla nalaze 
+     se levo od njega */
+  /* ako je koren cvor koji nema levo podstablo, onda on sadrzi
+     najmanju vrednost */
   if (koren->levo == NULL)
     return koren;
-  
-  /* Inace, pretragu treba nastaviti u levom podstablu */
+  /* inace, pretragu treba nastaviti u levom podstablu */
   return pronadji_najmanji(koren->levo);
 }
 
-/* Funkcija pronalazi cvor koji sadrzi najvecu vrednost u stablu */
-Cvor * pronadji_najveci(Cvor * koren) 
+Cvor *pronadji_najveci(Cvor * koren)
 {
-  /* Ako je stablo prazno, prekidamo pretragu */
+  /* ako je stablo prazno, prekidamo pretragu */
   if (koren == NULL)
     return NULL;
-
-  /* Vrednosti koje su vece od vrednosti u korenu stabla
-         nalaze se desno od njega */
-  
-  /* Ako je koren cvor koji nema desno podstablo, onda on
-         sadrzi najvecu vrednost */ 
+  /* vrednosti koje su vece od vrednosti u korenu stabla nalaze
+     se desno od njega */
+  /* ako je koren cvor koji nema desno podstablo, onda on sadrzi 
+     najvecu vrednost */
   if (koren->desno == NULL)
     return koren;
-
-  /* Inace, pretragu treba nastaviti u desnom podstablu */ 
+  /* inace, pretragu treba nastaviti u desnom podstablu */
   return pronadji_najveci(koren->desno);
 }
 
@@ -198,26 +187,22 @@ void prikazi_stablo(Cvor * koren)
   prikazi_stablo(koren->desno);
 }
 
-/* Funkcija koja oslobadja memoriju zauzetu stablom */
-void oslobodi_stablo(Cvor ** koren)
+Cvor *pretrazi_stablo(Cvor * koren, int broj)
 {
-  /* Ako je stablo prazno, nepotrebno je oslobadjati memoriju */
-  if (*koren == NULL)
-    return;
-  
-  /* Inace ... */
-  
-  /* Oslobadjamo memoriju zauzetu levom podstablom */
-  if ((*koren)->levo)
-    oslobodi_stablo(&(*koren)->levo);
-  
-  /* Oslobadjamo memoriju zauzetu desnom podstablom */
-  if ((*koren)->desno)
-    oslobodi_stablo(&(*koren)->desno);
-  
-  /* Oslobadjamo memoriju zauzetu korenom */
-  free(*koren);
-  
-  /* Proglasavamo stablo praznim */
-  *koren = NULL;
+  /* ako je stablo prazno, vrednost se sigurno ne nalazi u njemu 
+   */
+  if (koren == NULL)
+    return NULL;
+  /* ako je trazena vrednost sadrazana u korenu */
+  if (koren->broj == broj) {
+    /* prekidamo pretragu */
+    return koren;
+  }
+  /* inace, ako je broj manji od vrednosti sadrzane u korenu */
+  if (broj < koren->broj)
+    /* pretragu nastavljamo u levom podstablu */
+    return pretrazi_stablo(koren->levo, broj);
+  else
+    /* u suprotnom, pretragu nastavljamo u desnom podstablu */
+    return pretrazi_stablo(koren->desno, broj);
 }

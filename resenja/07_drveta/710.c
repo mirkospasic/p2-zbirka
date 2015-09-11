@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+/* Ukljucujemo biblioteku za rad sa stablima */
 #include "stabla.h"
 
 /* a) Funkcija koja izracunava broj cvorova stabla */
@@ -263,9 +265,8 @@ broj_za_pretragu\n");
   if (max_nivo(koren, i) == NULL)
     printf("Nema elemenata na %d. nivou!\n", i);
   else
-    printf("maksimalni na %d. nivou: %d\n", i, max_nivo(koren,
-                                                        i)->
-           broj);
+    printf("maksimalni na %d. nivou: %d\n", i,
+           max_nivo(koren, i)->broj);
 
   printf("zbir na %d. nivou: %d\n", i, zbir_nivo(koren, i));
   printf("zbir elemenata manjih ili jednakih od %d: %d\n", x,
