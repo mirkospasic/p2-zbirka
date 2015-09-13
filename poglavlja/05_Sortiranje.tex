@@ -34,7 +34,7 @@ Izlaz:  0
 \begin{Exercise}[label=502]
   Dve niske su anagrami ako se sastoje od istog broja istih
   karaktera. Napisati program koji proverava da li su dve niske
-  karaktera anagrami.  Niske se zadaju sa standardnog ulaza, i neće
+  karaktera anagrami.  Niske se zadaju sa standardnog ulaza i neće
   biti duže od $127$ karaktera.  \uputstvo{Napisati funkciju koja
   sortira slova unutar niske karaktera, a zatim za sortirane niske
   proveriti da li su identične.}
@@ -63,13 +63,13 @@ Izlaz:  nisu
 \begin{Exercise}[label=503]
   Napisati program koji pronalazi broj koji se najviše puta
   pojavljivao u datom nizu. Niz se zadaje sa standardnog ulaza sve do
-  kraja ulaza, i neće biti duži od $256$ i kraći od jednog
+  kraja ulaza i neće biti duži od $256$ i kraći od jednog
   elemenata. \uputstvo{Prvo sortirati niz, a zatim naći najdužu
   sekvencu jednakih elemenata.}
   
 \begin{miditest}
 \begin{test}{Test 1}
-Ulaz:   4 23 5 2 4 6 7 34 6 4 5
+Ulaz: 4 23 5 2 4 6 7 34 6 4 5
 Izlaz:  4
 \end{test}
 \end{miditest}
@@ -123,21 +123,31 @@ Izlaz:  ne
   niza, i na osnovu njih pravi novi sortirani niz koji koji sadrži
   elemente oba niza. Treća dimenzija predstavlja veličinu niza u koji
   se smešta rezultat. Ako je ona manja od potrebne dužine, funkcija
-  vraća -1, kao indikator neuspeha, inače vraća 0. Napisati i program
-  koji testira funkciju, u kome se nizovi unose sa standardnog ulaza,
-  sve dok se ne unese 0. Dimenzija nizova neće biti preko $256$.
+  vraća -1 kao indikator neuspeha, inače vraća 0. Napisati zatim program
+  koji testira ovu funkciju. Nizovi se unose sa standardnog ulaza sve dok se ne unese 0 i 
+  može se pretpostaviti da će njihove dimenzije biti manje od $256$.
   
 \begin{miditest}
 \begin{test}{Test 1}
-Ulaz:   3 6 7 11 14 35 0 3 5 8 0
-Izlaz:  3 3 5 6 7 8 11 14 35
+Ulaz:   
+Unesite elemente prvog niza: 
+3 6 7 11 14 35 0 
+Unesite elemente drugog niza: 
+3 5 8 0
+Izlaz:  
+3 3 5 6 7 8 11 14 35
 \end{test}
 \end{miditest}
 
 \begin{miditest}
 \begin{test}{Test 2}
-Ulaz:   1 4 7 0 9 11 23 54 75 0
-Izlaz:  1 4 7 9 11 23 54 75
+Ulaz:   
+Unesite elemente prvog niza:
+1 4 7 0 
+Unesite elemente drugog niza: 
+9 11 23 54 75 0
+Izlaz:  
+1 4 7 9 11 23 54 75
 \end{test}
 \end{miditest}
   
@@ -150,11 +160,11 @@ Izlaz:  1 4 7 9 11 23 54 75
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=506]
-  Napisati program koji čita sadržaj dve datoteke od kojih svaka
+  Napisati program koji čita sadržaj dveju datoteka od kojih svaka
   sadrži spisak imena i prezimena studenata iz jedne od dve grupe,
   rastuće sortiran po imenima i kreira jedinstven spisak studenata
   sortiranih takođe po imenu rastuće.  Program dobija nazive datoteka
-  iz komandne linije, i jedinstven spisak upisuje u datoteku
+  iz komandne linije i jedinstveni spisak upisuje u datoteku
   \kckod{ceo-tok.txt}. Pretpostaviti da je ime studenta nije duže od
   $10$, a prezime od $15$ karaktera.
 
@@ -265,7 +275,7 @@ Izlaz:
   Napisati program koji učitava niz tačaka iz datoteke čije se ime
   zadaje kao drugi argument komandne linije, i u zavisnosti od
   prisutnih opcija (prvi argument) u komandnoj liniji (\argf{-o},
-  \argf{-x} ili \argf{-y}), sortira tačke po jednom od prethodna tri
+  \argf{-x} ili \argf{-y}) sortira tačke po jednom od prethodna tri
   kriterijuma i rezultat upisuje u datoteku čije se ime zadaje kao
   treći argument komandne linije. U ulaznoj datoteci nije zadato više
   od 128 tačaka.
@@ -315,7 +325,7 @@ Izlazna datoteka (out.txt):
 %-----------------------------------------------------------------
 \begin{Exercise}[label=509]
   Napisati program koji učitava imena i prezimena građana (najviše
-  njih $1000$) iz datoteke \kckod{biracki-spisak.txt}, i kreira
+  njih $1000$) iz datoteke \kckod{biracki-spisak.txt} i kreira
   biračke spiskove. Jedan birački spisak je sortiran po imenu građana,
   a drugi po prezimenu. Program treba da ispisuje koliko građana ima
   isti redni broj u oba biračka spiska. Pretpostaviti da je za ime,
@@ -359,7 +369,7 @@ typedef struct dete
 Napisati funkciju koja sortira niz dece po godištu, a kada su deca
 istog godišta, tada ih sortira leksikografski po prezimenu i
 imenu. Napisati program koji učitava podatke o deci koji se nalaze u
-datoteci, čije se ime zadaje kao prvi argument komandne linije,
+datoteci čije se ime zadaje kao prvi argument komandne linije,
 sortira ih i sortirani niz upisuje u datoteku čije se ime zadaje kao
 drugi argument komandne linije. Pretpostaviti da u ulaznoj datoteci
 nisu zadati podaci o više od $128$ deteta.
@@ -394,8 +404,8 @@ Izlazna datoteka (out.txt):
 %-----------------------------------------------------------------
 \begin{Exercise}[label=511]
   Napisati funkciju koja sortira niz niski po broju suglasnika u
-  niski, ukoliko reči imaju isti broj suglasnika tada po dužini niske,
-  a ukoliko su i dužine jednake onda leksikografski.  Napisati program
+  niski. Ukoliko reči imaju isti broj suglasnika tada sortirati ih po dužini niske,
+  a ukoliko su i dužine jednake onda leksikografski. Napisati program
   koji testira ovu funkciju za niske koje se zadaju u datoteci
   \kckod{niske.txt}.  Pretpostaviti da u nizu nema više od $128$
   elemenata, kao i da svaka niska sadrži najviše $31$ karakter.
@@ -430,7 +440,7 @@ Izlaz:
 \begin{test}{Upotreba programa 1}
 Ulazna datoteka (artikli.txt):
   1001 Keks Jaffa 120
-  2530 Napolitanke Bambi	230
+  2530 Napolitanke Bambi 230
   0023 Medeno_srce Pionir 150
   2145 Pardon Marbo 70
 Interakcija programa:
@@ -482,7 +492,7 @@ Interakcija programa:
 %-----------------------------------------------------------------
 \begin{Exercise}[label=513]
    Napisati program koji iz datoteke \kckod{aktivnost.txt} čita
-   podatke o aktivnosti studenata na praktikumima i u datoteke
+   podatke o aktivnostima studenata na praktikumima i u datoteke
    \kckod{dat1.txt}, \kckod{dat2.txt} i \kckod{dat3.txt} upisuje redom
    tri spiska. Na prvom su studenti sortirani leksikografski po imenu
    rastuće. Na drugom su sortirani po ukupnom broju urađenih zadataka
@@ -581,7 +591,7 @@ pesama u zavisnosti od argumenata komandne linije na sledeći način:
 \item prisutna je opcija \kckod{-n}, sortiranje se vrši po naslovu
   pesama.
 \end{itemize}
-Na standardni izlaz ispisati informacije o pesmama sortirane na opisan
+Na standardnom izlazu ispisati informacije o pesmama sortiranim na opisani
 način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
   imena izvođača i naslova pesme.
 
@@ -703,13 +713,13 @@ okretanja.}
 \section{Bibliotečke funkcije pretrage i sortiranja}
 \begin{Exercise}[label=517]
   Napisati program koji ilustruje upotrebu bibiliotečkih funkcija za
-  pretraživanje i sortiranje nizova, i mogućnost zadavanja različitih
+  pretraživanje i sortiranje nizova i mogućnost zadavanja različitih
   kriterijuma sortiranja. Sa standardnog ulaza se unosi dimenzija niza
   celih brojeva (ne veća od $100$), a potom i sami elementi
   niza. Upotrebom funkcije \kckod{qsort} sortirati niz u rastućem
   poretku, sa standardnog ulaza učitati broj koji se traži u nizu, pa
   zatim funkcijama \kckod{bsearch} i \kckod{lfind} utvrditi da li se
-  zadati broj nalazi u nizu i na standardni izlaz ispisati
+  zadati broj nalazi u nizu. Na standardni izlaz ispisati
   odgovarajuću poruku.
   
 \begin{miditest}
@@ -785,7 +795,7 @@ Interakcija programa:
    \item po dužini.
    \end{enumerate}
    Niske se učitavaju iz fajla \kckod{niske.txt}, neće ih biti više od
-   $1000$, i svaka će biti dužine najviše $30$ karaktera. Program prvo
+   $1000$ i svaka će biti dužine najviše $30$ karaktera. Program prvo
    leksikografski sortira niz, primenjuje binarnu pretragu
    (\kckod{bsearch}) zarad traženja niske unete sa standardnog ulaza,
    a potom linearnu pretragu koristeći funkciju \kckod{lfind}. Na
@@ -816,7 +826,7 @@ Interakcija programa:
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=520]
-  Uraditi prethodni zadatak \ref{519} sa dinamički alociranim niskama,
+  Uraditi prethodni zadatak \ref{519} sa dinamički alociranim niskama
   i sortiranjem niza pokazivača (umesto niza niski).
   
 \linkresenje{520}
@@ -832,14 +842,14 @@ Interakcija programa:
   sortira studente prema broju poena osvojenih na kolokvijumu. Ukoliko
   više studenata ima isti broj bodova, sortirati ih po prezimenu
   leksikografski rastuće. Korisnik potom unosi broj bodova i prikazuje
-  mu se jedan od studenata sa tim brojem bodova, ili poruka ukoliko
+  mu se jedan od studenata sa tim brojem bodova ili poruka ukoliko
   nema takvog. Potom, sa standardnom ulaza, unosi se prezime traženog
-  studenta, i prikazuje se osoba sa tim prezimenom, ili poruka da se
-  nijedan student tako ne preziva. Za pretraživanje, koristiti
+  studenta i prikazuje se osoba sa tim prezimenom ili poruka da se
+  nijedan student tako ne preziva. Za pretraživanje koristiti
   odgovarajuće bibliotečke funkcije. Podaci o studentima čitaju se iz
   datoteke čije se ime zadaje preko argumenata komandne linije. Za
   svakog studenta u datoteci postoje ime, prezime i bodovi osvojeni na
-  kolokvijumu. Pretpostaviti da neće biti vise od $500$ studenata, i
+  kolokvijumu. Pretpostaviti da neće biti vise od $500$ studenata i
   da je za ime i prezime svakog studenta dovoljno po $20$ karaktera.
   
 \begin{maxitest}
@@ -973,7 +983,7 @@ Izlaz:
 \begin{Exercise}[label=525]
   Definisana je struktura:
   \begin{ckod}
-    typedef struct { int dan; int mesec; int godina; } Datum;}
+    typedef struct { int dan; int mesec; int godina; } Datum;
   \end{ckod}
   Napisati funkciju koja poredi dva datuma i program koji učitava
   datume iz datoteke koja se zadaje kao prvi argument komandne linije
@@ -986,12 +996,12 @@ Izlaz:
 \begin{maxitest}
 \begin{test}{Test 1}
 Poziv: ./a.out datoteka.txt
-Datoteka:            Ulaz:             Izlaz:
-1.1.2013             13.12.2016        postoji
-13.12.2016           10.5.2015         ne postoji
-11.11.2011           5.2.2009          postoji
-3.5.2015
-5.2.2009
+Datoteka:             Ulaz:              Izlaz:
+1.1.2013.             13.12.2016.        postoji
+13.12.2016.           10.5.2015.         ne postoji
+11.11.2011.           5.2.2009.          postoji
+3.5.2015.
+5.2.2009.
 \end{test}
 \end{maxitest}
   
@@ -1005,8 +1015,8 @@ Datoteka:            Ulaz:             Izlaz:
 %-----------------------------------------------------------------
 \begin{Exercise}[label=526]
   Za zadatu celobrojnu matricu dimenzije $n \times m$ napisati
-  funkciju koja vrši sortiranje vrsta matrice, rastuće na osnovu sume
-  elemenata u vrsti. Napisati program koji testira ovu funkciju. Sa
+  funkciju koja vrši sortiranje vrsta matrice rastuće na osnovu sume
+  elemenata u vrsti. Napisati potom program koji testira ovu funkciju. Sa
   standardnog ulaza se prvo unose dimenzije matrice, a zatim redom
   elementi matrice. Rezultujuću matricu ispisati na standardni izlaz.
 
@@ -1035,7 +1045,7 @@ Interakcija programa:
 %-----------------------------------------------------------------
 \begin{Exercise}[label=527]
   Za zadatu kvadratnu matricu dimenzije $n$ napisati funkciju koja
-  sortira kolone matrice, opadajuće, na osnovu vrednosti prvog
+  sortira kolone matrice opadajuće na osnovu vrednosti prvog
   elementa u koloni.  Napisati program koji testira ovu funkciju. Sa
   standardnog ulaza se prvo unosi dimenzija matrice, a zatim redom
   elementi matrice.  Rezultujuću matricu ispisati na standardni izlaz.

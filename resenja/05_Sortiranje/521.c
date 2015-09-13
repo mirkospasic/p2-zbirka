@@ -44,7 +44,7 @@ int compare_za_bsearch(const void *a, const void *b)
 
 /* Funkcija za poredjenje koje ce porediti samo po prezimenu
    Prvi parametar je ono sto trazimo u nizu, ovde je to prezime, 
-   * a drugi parametar ce biti element niza cije se prezime
+   a drugi parametar ce biti element niza cije se prezime
    poredi. */
 int compare_za_linearna_prezimena(const void *a, const void *b)
 {

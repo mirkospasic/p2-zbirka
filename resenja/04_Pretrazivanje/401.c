@@ -6,7 +6,7 @@
 /* Pri prevodjenju program linkovati sa bibliotekom librt
    opcijom -lrt zbog funkcije clock_gettime() */
 
-/* Funkcija pretrazuje niz celih brojeva duzine n, trazeci u
+/* Funkcija pretrazuje niz a[] celih brojeva duzine n, trazeci u
    njemu element x. Pretraga se vrsi prostom iteracijom kroz
    niz. Ako se element pronadje funkcija vraca indeks pozicije
    na kojoj je pronadjen. Ovaj indeks je uvek nenegativan. Ako

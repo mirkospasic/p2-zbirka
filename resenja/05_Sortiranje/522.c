@@ -33,8 +33,11 @@ int main()
   char s[MAX], t[MAX];
 
   /* Unose se dve niske sa ulaza */
-  printf("Unesite dve niske: ");
-  scanf("%s %s", s, t);
+  printf("Unesite prvu nisku: ");
+  scanf("%s", s);
+
+  printf("Unesite drugu nisku: ");
+  scanf("%s", t);
 
   /* Ispituje se da li su niske anagrami */
   if (anagrami(s, t, strlen(s), strlen(t)))

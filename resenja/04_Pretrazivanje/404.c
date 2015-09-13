@@ -61,7 +61,7 @@ int linearna_pretraga_rekurzivna(Student a[], int n, char x[])
   return linearna_pretraga_rekurzivna(a, n - 1, x);
 }
 
-/* Main funkcija mora imate argumente jer se Ime datoteke dobija 
+/* Main funkcija mora imate argumente jer se ime datoteke dobija 
    kao argument komandne linije */
 int main(int argc, char *argv[])
 {

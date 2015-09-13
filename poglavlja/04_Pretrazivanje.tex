@@ -103,7 +103,7 @@ Izlaz:
   prikazuju mu se informacije o prvom studentu sa unetim prezimenom.
   Pretrage implementirati u vidu iterativnih funkcija što bolje manje
   složenosti. Pretpostaviti da u datoteci neće biti više od $128$
-  studenata, i da su imena i prezimena svih kraća od $16$ slova.
+  studenata i da su imena i prezimena svih kraća od $16$ slova.
   
 \begin{maxitest}
 \begin{test}{Test 1}
@@ -202,8 +202,7 @@ Izlaz: 1.57031
 %-----------------------------------------------------------------
 \begin{Exercise}[label=407]
 Napisati funkciju koja u rastuće sortiranom nizu celih brojeva
-binarnom pretragom pronalazi prvi element veći od nule i kao
-rezultat vraća njegovu poziciju u nizu. Ukoliko nema elemenata
+binarnom pretragom pronalazi indeks prvog elementa većeg od nule. Ukoliko nema elemenata
 većih od nule, funkcija kao rezultat vraća \argf{-1}. Napisati
 program koji testira ovu funkciju za niz elemenata koji se
 učitavaju sa standardnog ulaza. Niz neće biti duži od
@@ -242,8 +241,7 @@ Izlaz: 3
 %-----------------------------------------------------------------
 \begin{Exercise}[label=408]
 Napisati funkciju koja u opadajuće sortiranom nizu celih brojeva
-binarnom pretragom pronalazi prvi element manji od nule i kao
-rezultat vraća njegovu poziciju u nizu. Ukoliko nema elemenata
+binarnom pretragom pronalazi indeks prvog elementa manjeg od nule. Ukoliko nema elemenata
 manjih od nule, funkcija kao rezultat vraća \argf{-1}. Napisati
 program koji testira ovu funkciju za niz elemenata koji se
 učitavaju sa standardnog ulaza. Niz neće biti duži od
@@ -281,12 +279,12 @@ Izlaz: -1
 %-----------------------------------------------------------------
 \begin{Exercise}[label=409]
   Napisati funkciju koja određuje ceo deo logaritma za osnovu 2 datog
-  neoznačenog celog broja, koristeći samo bitske i relacione
+  neoznačenog celog broja koristeći samo bitske i relacione
   operatore.
   \begin{enumerate}
-  \item Napisati funkciju, linearne složenosti, koja određuje
+  \item Napisati funkciju linearne složenosti koja određuje
     logaritam pomeranjem broja udesno.
-  \item Napisati funkciju, logaritmske složenosti, koja određuje
+  \item Napisati funkciju logaritmske složenosti koja određuje
     logaritam koristeći binarnu pretragu.
   \end{enumerate}
   Tražene funkcije testirati programom koji broj učitava sa
