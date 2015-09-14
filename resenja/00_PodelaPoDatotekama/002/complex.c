@@ -1,33 +1,34 @@
 /* Ukljucujemo zaglavlje neophodno za rad sa kompleksnim brojevima
  * Ovde je to neophodno jer nam je neophodno da bude poznata definicija tipa KompleksanBroj 
- * i da budu ukljucena zaglavlja standardne biblioteke, neophodna za definicije, a
- * njih smo vec naveli u complex.h
+ * i da budu ukljucena zaglavlja standardne biblioteke koja smo vec naveli u complex.h
 */
 #include "complex.h"
 
-/* Funkcija ucitava sa standardnog ulaza realan i imaginara deo kompleksnog broja i smesta ih u strukturu cija adresa je argument funkcije */ 
+/* Funkcija ucitava sa standardnog ulaza realan i imaginaran deo kompleksnog broja i smesta ih u strukturu cija adresa je argument funkcije */ 
 void ucitaj_kompleksan_broj(KompleksanBroj* z) {
     printf("Unesite realan i imaginaran deo kompleksnog broja: ");
     scanf("%f", &z->real);
     scanf("%f", &z->imag);
 }
 
-/* Funkcija ispisuje na standardan izlaz kompleksan broj z koji joj se salje kao argument u obliku (x + i y)  
+/* Funkcija ispisuje na standardan izlaz kompleksan broj z koji joj se salje kao argument u obliku (x + y i)  
    Ovoj funkciji se kompleksan broj prenosi po vrednosti, jer za ispis nam nije neophodno da imamo adresu
  */
 void ispisi_kompleksan_broj(KompleksanBroj z) {
     printf("(");
-   if( z.real != 0) {
-        printf("%.2f",z.real);
-        if(z.imag > 0 )
-            printf(" +");
-
+   if(z.real != 0) {
+        printf("%.2f", z.real);
+        
+   if(z.imag > 0)
+        printf(" + %.2f i", z.imag);
+   else if(z.imag < 0)
+        printf(" - %.2f i", -z.imag);   
    }
-   if(z.imag !=0 )
-       printf(" %.2f i ",z.imag);
+   else 
+        printf("%.2f i", z.imag);  
    
-   if(z.imag ==0 && z.real ==0 )
-       printf("0 ");
+   if(z.imag == 0 && z.real == 0 )
+       printf("0");
    
    printf(")");
 }
@@ -44,20 +45,18 @@ float imaginaran_deo(KompleksanBroj z) {
 
 /* Funkcija vraca vrednost modula kompleksnog broja koji joj se salje kao argument */
 float moduo(KompleksanBroj  z) {
-    return sqrt( z.real* z.real + z.imag* z.imag);
+    return sqrt(z.real* z.real + z.imag* z.imag);
 }
 
 /* Funkcija vraca vrednost konjugovano kompleksnog broja koji odgovara kompleksnom broju poslatom kao argument */
 KompleksanBroj konjugovan(KompleksanBroj z) {
-    KompleksanBroj z1 = z;
-    
-    z1.imag *= -1;
-    
+    KompleksanBroj z1 = z;    
+    z1.imag *= -1;    
     return z1;
 }
 
 /* Funkcija vraca kompleksan broj cija vrednost je jednaka zbiru argumenata funkcije */
-KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj  z2 ) {
+KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj  z2) {
     KompleksanBroj z = z1;
     
     z.real += z2.real;

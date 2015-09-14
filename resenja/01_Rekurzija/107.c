@@ -21,21 +21,21 @@ int koriscen(int a[], int n, int x){
 }
 
 /* F-ja koja ispisuje sve permutacije od skupa {1,2,...,n} 
- * a[] je niz u koji smesta permutacije
- * m - oznacava da se na m-tu poziciju u permutaciji 
- *        smesta jedan od preostalih celih brojeva
- * n- je velicina skupa koji se permutuje
- * Funkciju pozivamo sa argumentom m=1 jer krecemo da 
- * formiramo permutaciju od 1. pozicije i nikada 
- * ne koristimo a[0].
+  a[] je niz u koji smesta permutacije
+  m - oznacava da se na m-tu poziciju u permutaciji 
+         smesta jedan od preostalih celih brojeva
+  n- je velicina skupa koji se permutuje
+  Funkciju pozivamo sa argumentom m=1 jer krecemo da 
+  formiramo permutaciju od 1. pozicije i nikada 
+  ne koristimo a[0].
  */ 
 void permutacija(int a[], int m, int n){
     int i;
 
   /* Izlaz iz rekurzije:
- * Ako je pozicija na koju treba smestiti broj premasila
- * velicinu skupa, onda se svi brojevi vec nalaze u 
- * permutaciji i ispisujemo permutaciju. */
+  Ako je pozicija na koju treba smestiti broj premasila
+  velicinu skupa, onda se svi brojevi vec nalaze u 
+  permutaciji i ispisujemo permutaciju. */
     if(m>n) {
         ispisiNiz(a,n); 
         return; 
@@ -57,15 +57,15 @@ void permutacija(int a[], int m, int n){
         
     for(i=1;i<=n;i++){
         /* Ako se broj i nije do sada pojavio u permutaciji 
-         * od 1 do m-1 pozicije, onda ga stavljamo na poziciju m 
-         * i pozivamo funkciju da napravi permutaciju za jedan 
-         * vece duzine, tj. m+1. Inace, nastavljamo dalje, trazeci
-         * broj koji se nije pojavio do sada u permutaciji.
+          od 1 do m-1 pozicije, onda ga stavljamo na poziciju m 
+          i pozivamo funkciju da napravi permutaciju za jedan 
+          vece duzine, tj. m+1. Inace, nastavljamo dalje, trazeci
+          broj koji se nije pojavio do sada u permutaciji.
          */
         if(! koriscen(a,m-1,i)) {
             a[m]=i;
             /* Pozivamo ponovo funkciju da dopuni ostatak 
-             * permutacije posle upisivanja i na poziciju m.
+              permutacije posle upisivanja i na poziciju m.
              */
             permutacija(a,m+1,n);
         }

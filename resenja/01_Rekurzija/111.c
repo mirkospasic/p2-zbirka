@@ -9,16 +9,15 @@ int zbir_cifara(unsigned int x)
     return zbir_cifara(x/10) + x%10;
 }
 
-
 int main() 
 {
     unsigned int x;
     
     /* Ucitava se ceo broj sa ulaza */
     scanf("%u",&x);
-    
-    /* Ispisuje se zbir cifara broja ucitanog broja */
+        
+    /* Ispisuje se zbir cifara ucitanog broja */
     printf("%d\n", zbir_cifara(x));
-    
+        
     return 0;
 }

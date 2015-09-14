@@ -13,8 +13,8 @@ unsigned najveci(unsigned x) {
 
     /* Dokle god postoje jedinice u binarnoj reprezentaciji broja x (tj. dokle god je x razlicit od nule) pomeramo ga ulevo. */
     for( ; x!=0; x<<=1 ) {
-        /* Za svaku jedinicu, potiskujemo jednu 
-         *	   novu jedinicu sa leva u rezultat */
+        /* Za svaku jedinicu, potiskujemo jednu
+         	   novu jedinicu sa leva u rezultat */
         if( x & maska) {
             rezultat >>= 1;
             rezultat |= maska;
@@ -28,13 +28,13 @@ unsigned najveci(unsigned x) {
    sa istim binarnim ciframa kao i x */
 unsigned najmanji(unsigned x)  {
     /* Inicijalizujemo rezultat na 0 */
-    unsigned rezultat =0;
+    unsigned rezultat = 0;
    
     /* Dokle god imamo jedinice u broju x, pomeramo ga udesno. */
-    for( ;x!=0 ; x>>=1){
+    for( ; x!=0; x >>= 1){
         /* Za svaku jedinicu, potiskujemo jednu novu jedinicu sa desna u rezultat */
-        if( x& 1) { 
-            rezultat <<=1;
+        if(x & 1) { 
+            rezultat <<= 1;
             rezultat |= 1;           
         }
     }
@@ -47,8 +47,8 @@ void print_bits( int x)  {
     unsigned velicina = sizeof(int)*8; 		
     unsigned maska; 	
 
-    for( maska = 1 << (velicina -1); maska!=0 ; maska >>= 1)
-        putchar( x & maska ? '1' : '0' );
+    for(maska = 1 << (velicina -1); maska!=0 ; maska >>= 1)
+        putchar(x & maska ? '1' : '0');
 
     putchar('\n');
 }

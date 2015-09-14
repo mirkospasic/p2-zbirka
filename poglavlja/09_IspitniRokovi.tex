@@ -15,7 +15,8 @@ U slučaju pojave bilo kakve greške na standardnom izlazu ispisati vrednost \ar
 
 \begin{minitest}
 \begin{test}{Test 1}
-Sadržaj datoteke:  
+Poziv: ./a.out ulaz.txt
+Sadržaj datoteke ulaz.txt:  
  5                             
  Programiranje	                               
  Matematika		                         
@@ -30,23 +31,31 @@ Izlaz:
 \end{minitest}
 \begin{minitest}
 \begin{test}{Test 2}
-Sadržaj datoteke:               
+Poziv: ./a.out ulaz.txt
+Sadržaj datoteke ulaz.txt:                
   2                                             
   maksimalano               
   poena
 Izlaz: 
 \end{test}
 \end{minitest}
+
 \begin{minitest}
 \begin{test}{Test 3}
-Problem: 
-  datoteka 
-   ne postoji
+Poziv: ./a.out ulaz.txt
+Problem: datoteka 
+ulaz.txt ne postoji
 Izlaz:    
   -1       
 \end{test}
 \end{minitest}
-
+\begin{minitest}
+\begin{test}{Test 4}
+Poziv: ./a.out 
+Izlaz:    
+  -1       
+\end{test}
+\end{minitest}
 \linkresenje{901}
 \end{Exercise}
 \begin{Answer}[ref=901]
@@ -56,13 +65,12 @@ Izlaz:
 
 \begin{Exercise}[label=902]
 
-Data je biblioteka za rad sa binarnim pretrazivačkim stablima čiji čvorovi sadrže cele brojeve. 
+Data je biblioteka za rad sa binarnim pretraživačkim stablima čiji čvorovi sadrže cele brojeve. 
 Napisati funkciju   \kckod{int sumirajN (Cvor * koren, int n)}
 koja izračunava zbir svih čvorova koji se nalaze na $n$-tom nivou stabla (koren se nalazi na nultom nivou, njegova deca na prvom nivou i tako redom). 
 Ispravnost napisane funkcije testirati na osnovu zadate  \kckod{main} funkcije i biblioteke za rad sa pretraživačkim stablima.
 
 Napisati program koji sa standardnog ulaza učitava najpre prirodan broj $n$, a potom i brojeve sve do pojave nule koje smešta u stablo i ispisuje rezultat pozivanja funkcije \kckod{prebrojN} za broj $n$ i tako kreirano stablo. U slučaju greške na standardni izlaz za grešku ispisati \argf{-1}.
-
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -90,13 +98,16 @@ Izlaz:
 \end{Answer}
 
 \begin{Exercise}[label=903]
-Sa standardnog ulaza učitava se broj vrsta i broj kolona celobrojne matrice $A$, a zatim i elementi matrice $A$. Napisati program koji će ispisati indeks kolone u kojoj se nalazi najviše negativnih elemenata. Ukoliko postoji više takvih kolona, ispisati indeks prve kolone. Može se pretpostaviti da je broj vrsta i broj kolona manji od \argf{50}. U slučaju greške ispisati vrednost \argf{-1} na standardni izlaz za greške. 
+Sa standardnog ulaza učitava se broj vrsta i broj kolona celobrojne matrice $A$, 
+a zatim i elementi matrice $A$. Napisati program koji će ispisati indeks kolone u kojoj se nalazi najviše negativnih elemenata. 
+Ukoliko postoji više takvih kolona, ispisati indeks prve kolone. 
+Može se pretpostaviti da je broj vrsta i broj kolona manji od \argf{50}. 
+U slučaju greške ispisati vrednost \argf{-1} na standardni izlaz za greške. 
 
 \begin{minitest}
 \begin{test}{Test 1}
 Ulaz:                         
-  4                             
-  5                                                               
+  4 5                                                           
   1  2  3  4  5               
  -1  2 -3  4 -5                
  -5 -4 -3 -2  1               
@@ -108,11 +119,11 @@ Ulaz:
 \begin{minitest}
 \begin{test}{Test 2}
 Ulaz:                         
- 2                               
- 3                                 
+ 2 3
  0 0 -5
  1 2 -4
-Izlaz:   
+ Izlaz:  
+ 2 
 \end{test}
 \end{minitest}
 \begin{minitest}
@@ -135,20 +146,20 @@ Izlaz (na stderr):
 
 \begin{Exercise}[label=904]
 
- Napisati program koji kao prvi arugment komandne linije prima ime dokumenta u kome treba prebrojati sva pojavljivanja tražene niske (bez preklapanja) koja se navodi kao drugi argument komandne linije (iskoristiti funkciju standardne biblioteke \kckod{strstr}). U slučaju
-  bilo kakve greške ispisati \argf{-1} na standardni izlaz za greške.
-  Pretpostaviti da linije datoteke neće biti duže od \argf{127}
-  karaktera.\\
-  Potpis funkcije strstr:\\
-  \kckod{char *strstr(const char *haystack, const char *needle);}\\
-  Funkcija traži prvo pojavljivanje podniske needle u nisci
-  haystack, i vraća pokazivač na početak podniske, ili
-  NULL ako podniska nije pronađena.
+Napisati program koji kao prvi arugment komandne linije prima ime dokumenta u kome treba prebrojati sva pojavljivanja tražene niske (bez preklapanja) koja se navodi kao drugi argument komandne linije (iskoristiti funkciju standardne biblioteke \kckod{strstr}). U slučaju
+bilo kakve greške ispisati \argf{-1} na standardni izlaz za greške.
+Pretpostaviti da linije datoteke neće biti duže od \argf{127}
+karaktera.\\
+Potpis funkcije strstr:\\
+\kckod{char *strstr(const char *haystack, const char *needle);}\\
+Funkcija traži prvo pojavljivanje podniske needle u nisci
+haystack, i vraća pokazivač na početak podniske, ili
+NULL ako podniska nije pronađena.
 
 \begin{miditest}
 \begin{test}{Test 1}
-Poziv:  ./a.out fajl.txt test          
-Datoteka:   Ovo je test primer.     
+Poziv:  ./a.out ulaz.txt test          
+ulaz.txt:   Ovo je test primer.     
         U njemu se rec test javlja
         vise puta. testtesttest
 Izlaz:  5                       
@@ -164,15 +175,15 @@ Izlaz  (na stderr):  -1
 
 \begin{miditest}
 \begin{test}{Test 3}
-Poziv:   ./a.out fajl.txt foo
-Datoteka:   (ne postoji)      
+Poziv:   ./a.out ulaz.txt foo
+ulaz.txt:   (ne postoji)      
 Izlaz (na stderr):    -1              
 \end{test}
 \end{miditest}
 \begin{miditest}
 \begin{test}{Test 4}
-Poziv:  ./a.out fajl.txt .    
-Datoteka:   (prazna)      
+Poziv:  ./a.out ulaz.txt .    
+ulaz.txt:   (prazna)      
 Izlaz:    0              
 \end{test}
 \end{miditest}
@@ -185,8 +196,8 @@ Izlaz:    0
 
 
 \begin{Exercise}[label=905]
-
-Na početku datoteke ''trouglovi.txt'' nalazi se broj trouglova čije su koordinate temena zapisane u nastavku datoteke. Napisati
+\komentar{Jelena: Ukljuceno resenje prethodnog zadatka. Dodati resenje ovog zadatka.}
+Na početku datoteke ,,trouglovi.txt'' nalazi se broj trouglova čije su koordinate temena zapisane u nastavku datoteke. Napisati
   program koji učitva trouglove, i ispisuje ih na standardni izlaz
   sortirane po površini opadajuće (koristiti Heronov obrazac: 
   $P = \sqrt{s*(s-a)*(s-b)*(s-c)}$, gde je $s$ poluobim trougla). U slučaju bilo kakve greške ispisati \argf{-1} na standardni izlaz za greške. Ne praviti nikave pretpostavke o broju trouglova u datoteci, i proveriti da li je datoteka ispravno zadata.

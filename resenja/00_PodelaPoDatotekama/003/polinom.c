@@ -3,15 +3,14 @@
 #include "polinom.h"
 
 
-/* Funkcija koja ispisuje polinom na stdout u citljivom obliku
-   Polinom prenosimo po adresi, da bi ustedeli kopiranje cele strukture,
-   vec samo prenosimo adresu na kojoj se nalazi polinom kog ispisujemo */
+/* Funkcija koja ispisuje polinom na standardan izlaz u citljivom obliku.
+   Kako bi ustedeli kopiranje cele strukture, polinom prenosimo po adresi */
 void ispisi(const Polinom * p)
 {
     int i;
     for (i = p->stepen; i >= 0; i--) {
 	if (p->koef[i]) {
-	    if (p->koef[i] >= 0)
+	    if (p->koef[i] >= 0 && i != p->stepen)
 		putchar('+');
 	    if (i > 1)
 		printf("%.2fx^%d", p->koef[i], i);
@@ -41,7 +40,7 @@ Polinom ucitaj()
 	
     /* Unosimo koeficijente polinoma */
     for (i = p.stepen; i >= 0; i--)
-	scanf("%lf", &p.koef[i]);
+	  scanf("%lf", &p.koef[i]);
     return p;
 }
 

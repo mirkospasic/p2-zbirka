@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-/* Funkcija vraca vrednost cija je binarna reprezentacija slika u ogledalu binarne reprezentacije broja x. Na primer za x cija binarna reprezentacija izgleda ovako
+/* Funkcija vraca vrednost cija je binarna reprezentacija slika u ogledalu binarne reprezentacije broja x. 
+Na primer za x cija binarna reprezentacija izgleda ovako
  * 101010111100110111100100100100011
- funkcija treba da vrati broj cija binarna  reprezentacija izgleda:
+ funkcija treba da vrati broj cija binarna reprezentacija izgleda:
  * 11000100100001111011001111010101
  */
 unsigned mirror(unsigned x) {
@@ -14,7 +15,8 @@ unsigned mirror(unsigned x) {
     for(i =0; i < sizeof(x)*8; i++) {
         najnizi_bit = x & 1;
         x >>=1;
-        /* Potiskujemo trenutni rezultat ka levom kraju tako svi prethodno postavljeni bitovi dobijaju vecu poziciju, a novi bit postavljamo na najnizu poziciju */
+        /* Potiskujemo trenutni rezultat ka levom kraju. Tako svi prethodno postavljeni bitovi dobijaju vecu poziciju. 
+        Novi bit postavljamo na najnizu poziciju */
         rezultat <<= 1;
         rezultat |= najnizi_bit;
     }
@@ -22,7 +24,7 @@ unsigned mirror(unsigned x) {
 }
 
 
-/* Funkcija prikazuje na standardni ekran binarnu reprezentaciju celog broja u memoriji */
+/* Funkcija prikazuje na standardni izlaz binarnu reprezentaciju celog broja u memoriji */
 void print_bits( int x)  { 
     unsigned velicina = sizeof(int)*8; 		
     unsigned maska; 	
@@ -38,7 +40,7 @@ int main() {
 	
 	/*Ispisujemo binarnu reprezentaciju unetog broja*/
     print_bits(broj);   
-    putchar('\n');
+    
 	/*Ispisujemo binarnu reprezentaciju broja dobijenog
       pozivom funkcije mirror	
 	*/

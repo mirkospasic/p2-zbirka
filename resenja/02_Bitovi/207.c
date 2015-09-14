@@ -1,20 +1,17 @@
 #include <stdio.h>
 
 /* Funkcija vraca 1 ukoliko je u binarnoj reprezentaciji broja n broj jedinica veci od broja nula.
- U suprotnom funkcij vraca 0 */
+ U suprotnom funkcija vraca 0 */
 int Broj01(unsigned int n){
 
 	int broj_nula, broj_jedinica;
 	unsigned int maska;
 
-	/* Postavljamo broj jedinica i broj nula na 0 */
 	broj_nula=0;
 	broj_jedinica=0;
 	
 	/* Postavljamo masku tako da pocinjemo sa analiziranjem bita najvece tezine */
 	maska=1<<(sizeof(unsigned int)*4-1);
-
-
 
 	/* Dok ne obidjemo sve bitove u zapisu broj n */
 	while(maska!=0){

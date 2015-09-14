@@ -18,21 +18,19 @@ int binomniKoeficijent (int n, int k) {
 */
 
 /* Prostim opaZanjem se uocava da se svaki element n-te hipotenuze (osim ivicnih 1)
- * dobija kao zbir 2 elementa iz n-1 hipotenuze. Uz pomenute dve nove ivicne jedinice lako se zakljucuje
- * da ce suma elementa n-te hipotenuze biti tacno 2 puta veca.
+  dobija kao zbir 2 elementa iz n-1 hipotenuze. Uz pomenute dve nove ivicne jedinice lako se zakljucuje
+  da ce suma elementa n-te hipotenuze biti tacno 2 puta veca.
  */
 int sumaElemenataHipotenuze(int n)
 {
     return n > 0 ?  2 * sumaElemenataHipotenuze(n-1) :  1;
 }
 
-
-
 int main () {
   int n, k, i, d;
   
-  printf("Unesite veliCinu Paskalovog trougla: \n");
-  scanf("%d", &d);
+  
+  scanf("%d %d", &d, &n);
 
   /* Ispisivanje Paskalovog trougla */
   putchar ('\n');
@@ -42,14 +40,11 @@ int main () {
     putchar ('\n');
   }
   
-  printf("Racunamo sumu koje hipotenuze: \n");
-  scanf("%d", &n);
-  
   if(n<0){
          fprintf(stderr, "Redni broj hipotenuze mora biti veci ili jednak od 0!\n");
          exit(EXIT_FAILURE);
          }
-  printf("Suma %d. hipotenuze je: %d\n",n, sumaElemenataHipotenuze(n));
+  printf("%d\n", sumaElemenataHipotenuze(n));
 
   exit(EXIT_SUCCESS);
 }

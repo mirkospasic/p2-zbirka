@@ -11,9 +11,13 @@ int main(){
 
     /* Ucitavamo dimenzije matrice */
     scanf("%d", &v);
-    scanf("%d", &k);
+    if(v<0 || v>MAX ){
+        fprintf(stderr, "-1\n");
+        return 0;        
+    }
     
-    if(v<0 || v>MAX || k<0 || k>MAX){
+    scanf("%d", &k);
+    if(k<0 || k>MAX){
         fprintf(stderr, "-1\n");
         return 0;        
     }

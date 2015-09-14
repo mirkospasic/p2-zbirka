@@ -9,7 +9,6 @@ int palindrom(char s[], int n)
     return (s[n-1]==s[0]) && palindrom(s+1, n-2);
 }
 
-
 int main() 
 {
     char s[MAX_DIM];

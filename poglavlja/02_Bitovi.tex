@@ -7,7 +7,7 @@ Napisati program za rad sa kompleksnim brojevima.
 \begin{enumerate}
 \item Definisati strukturu \kckod{KompleksanBroj} koja predstavlja kompleksan broj i sadrži realan i imaginaran deo kompleksnog broja.
 \item Napisati funkciju \kckod{ucitaj\_kompleksan\_broj} koja učitava kompleksan broj sa standardnog ulaza.
-\item Napisati funkciju \kckod{ispisi\_kompleksan\_broj} koja ispisuje kompleksan broj na standardni izlaz u fomatu (npr. broj čiji je realan deo \argf{2} a imaginarni \argf{-3} ispisati kao $(2-3i)$ na standardni izlaz).
+\item Napisati funkciju \kckod{ispisi\_kompleksan\_broj} koja ispisuje kompleksan broj na standardni izlaz u odgovarajućem fomatu (npr. broj čiji je realan deo \argf{2} a imaginarni \argf{-3} ispisati kao $(2 - 3 i)$ na standardni izlaz).
 \item Napisati funkciju \kckod{realan\_deo} koja računa vrednosti realnog dela broja.
 \item Napisati funkciju \kckod{imaginaran\_deo} koja računa vrednosti imaginarnog dela broja.
 \item Napisati funkciju \kckod{moduo} koja računa moduo kompleksnog broja.
@@ -28,18 +28,20 @@ Napisati program koji testira prethodno napisane funkcije za dva kompleksna broj
 \begin{test}{Test 1}
 Ulaz:    Unesite realan i imaginaran deo kompleksnog broja: 1 -3 
          Unesite realan i imaginaran deo kompleksnog broja: -1 4 
-Izlaz:   (1.00 -3.00 i )
+Izlaz:    (1.00 - 3.00 i)
           realan_deo: 1
           imaginaran_deo: -3.000000
           moduo 3.162278
 
-          (-1.00 + 4.00 i )
-          Njegov konjugovano kompleksan broj: (-1.00 -4.00 i )
-          Argument kompleksnog broja 1.815775
+          (-1.00 + 4.00 i)
+          Njegov konjugovano kompleksan broj: (-1.00 - 4.00 i)
+          Argument kompleksnog broja: 1.815775
 
-          (1.00 -3.00 i ) + (-1.00 + 4.00 i )  =  ( 1.00 i )
-          (1.00 -3.00 i ) - (-1.00 + 4.00 i )  =  (2.00 -7.00 i )
-          (1.00 -3.00 i ) * (-1.00 + 4.00 i )  =  (11.00 + 7.00 i ) 
+          (1.00 - 3.00 i) + (-1.00 + 4.00 i)  =  (1.00 i)
+
+          (1.00 - 3.00 i) - (-1.00 + 4.00 i)  =  (2.00 - 7.00 i)
+
+          (1.00 - 3.00 i) * (-1.00 + 4.00 i)  =  (11.00 + 7.00 i)
 \end{test}
 \end{maxitest}
 
@@ -51,12 +53,12 @@ Izlaz:   (1.00 -3.00 i )
 \end{Answer}
 
 \begin{Exercise}[label=002] % III sa vezbi
-Uraditi prethodni zadatak tako da su sve napisane funkcije za rad sa kompleknim brojevima zajedno sa definicijom strukture \kckod{KompleksanBroj} izdvojene u posebnu biblioteku, dok test program koristi tu biblioteku da za kompleksan broj unet sa standardnog ulaza ispiše polarni oblik unetog broja.
+Uraditi prethodni zadatak tako da su sve napisane funkcije za rad sa kompleksnim brojevima zajedno sa definicijom strukture \kckod{KompleksanBroj} izdvojene u posebnu biblioteku. Test program treba da koristi tu biblioteku da za kompleksan broj unet sa standardnog ulaza ispiše polarni oblik unetog broja.
 
 \begin{maxitest}
 \begin{test}{Test 1}
 Ulaz:   Unesite realan i imaginaran deo kompleksnog broja: -5 2 
-Izlaz:   Polarni oblik kompleksnog broj je 5.39 *  e^i * 2.76
+Izlaz:   Polarni oblik kompleksnog broja je 5.39 *  e^i * 2.76
 \end{test}
 \end{maxitest}
 
@@ -76,7 +78,7 @@ Napisati malu biblioteku za rad sa polinomima.
   \begin{enumerate}
   \item Definisati strukturu \kckod{Polinom} koja predstavlja polinom
     (stepena najviše 20). Struktura sadrži stepen i niz
-    koeficijenata. \uputstvo{redosled navođenja koeficijenata u nizu treba da bude takav da se na nultoj poziciji u nizu bude koeficijent uz slobodan član, na prvoj koeficijent uz prvi stepen, itd.}
+    koeficijenata. Redosled navođenja koeficijenata u nizu treba da bude takav da na nultoj poziciji u nizu bude koeficijent uz slobodan član, na prvoj koeficijent uz prvi stepen, itd.
   \item Napisati funkciju koja ispisuje polinom na standardni izlaz u
     što lepšem obliku.
   \item Napisati funkciju koja učitava polinom sa standardnog
@@ -87,23 +89,21 @@ Napisati malu biblioteku za rad sa polinomima.
   \item Napisati funkciju koja množi dva polinoma.
   \end{enumerate}
 
-Napisati program koji testira prethodno napisane funkcije tako što se najpre unosi polinom \argf{p} (stepen polinoma, a zatim i koeficijenti), ispisuje se polinom \argf{p} u odgovarajućem obliku. Zatim se od korisnika traži da unese tačka u kojoj se računa vrednost tog polinoma i ispisuje iztačunata vrednost zaokružena na dve decimale. Nakon toga unosi se polinom \argf{q}, a potom se ispisuju zbir i proizvod polinoma \argf{p} i \argf{q}. Na kraju se sa standardnog ulaza unosi broj \argf{n}, a potom se ispisuje \argf{n}-ti izvod polinoma \argf{p}.
+Napisati program koji testira prethodno napisane funkcije tako što se najpre unosi polinom \argf{p} (stepen polinoma, a zatim i koeficijenti) i ispisuje na standardan izlaz u odgovarajućem obliku. Nakon toga se od korisnika traži da unese tačku u kojoj se računa vrednost tog polinoma a zatim se ispisuje iztačunata vrednost zaokružena na dve decimale. Nakon toga se unosi polinom \argf{q}, a potom se ispisuju zbir i proizvod polinoma \argf{p} i \argf{q}. Na kraju se sa standardnog ulaza unosi broj \argf{n}, a potom se ispisuje \argf{n}-ti izvod polinoma \argf{p}.
 
 \begin{maxitest}
 \begin{test}{Upotreba programa 1}
   Unesite polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):
-  3 1 2 3 4
-  1.00x^3+2.00x^2+3.00x+4.00
   Unesite tacku u kojoj racunate vrednost polinoma
   5
-  Vrednost polimoma u tacki je 194.00
+  Vrednost polinoma u tacki je 194.00
   Unesite drugi polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):
   2 1 0 1
-  Zbir polinoma 1.00x^3+2.00x^2+3.00x+4.00 i   1.00x^2+1.00 polinoma je :  1.00x^3+3.00x^2+3.00x+5.00  
-  Zbir polinoma 1.00x^3+2.00x^2+3.00x+4.00 i   1.00x^2+1.00 polinoma je :   1.00x^5+2.00x^4+4.00x^3+6.00x^2+3.00x+4
-  Unosite izvod polinoma koji zelite:
+  Zbir polinoma je: 1.00x^3+3.00x^2+3.00x+5.00
+  Prozvod polinoma je: 1.00x^5+2.00x^4+4.00x^3+6.00x^2+3.00x+4.00
+  Unesite izvod polinoma koji zelite:
   2
-  2. izvod polinoma 1.00x^3+2.00x^2+3.00x+4.00 je : 6.00x+4.00
+  2. izvod prvog polinoma je: 6.00x+4.00
 \end{test}
 \end{maxitest}
 
@@ -141,16 +141,16 @@ Napraviti biblioteku za rad sa razlomcima.
 
   \end{enumerate}
 
-Napisati program koji testira prethodne funkcije tako što se sa standardnog ulaza unose dva razlomka \argf{r1} i \argf{r2} i na standardni izlaz se ispisuju skraćeni vrednosti razlomaka koji predstavljaju zbir, razliku, proizvod i količnik razlomka \argf{r1} i recipročne vrednosti razlomka \argf{r2}.
+Napisati program koji testira prethodne funkcije tako što se sa standardnog ulaza unose dva razlomka \argf{r1} i \argf{r2} i na standardni izlaz se ispisuju skraćene vrednoste razlomaka koji koji su dobijeni kao zbir, razlika, proizvod i količnik razlomka \argf{r1} i recipročne vrednosti razlomka \argf{r2}.
 
 \begin{maxitest}
 \begin{test}{Test 1}
-Ulaz:   Unesite imenilac i brojilac: 1 2
-          Unesite imenilac i brojilac: 3 1 
+Ulaz:   Unesite imenilac i brojilac prvog razlomka: 1 2
+        Unesite imenilac i brojilac drugog razlomka: 3 1 
 Izlaz:   Zbir je 5/6
-           Razlika je 1/6
-           Proizvod je 1/6
-           Kolicnik je 3/2
+         Razlika je 1/6
+         Proizvod je 1/6
+         Kolicnik je 3/2
 \end{test}
 \end{maxitest}
 
@@ -164,41 +164,41 @@ Izlaz:   Zbir je 5/6
 \section{Algoritmi za rad sa bitovima}
 
 \begin{Exercise}[label=201]
-Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu celog broja $x$. Napisati program koja testira funkciju \kckod{print\_bits} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
+Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu neoznačenog celog broja $x$. Napisati program koja testira funkciju \kckod{print\_bits} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
 
 
 \begin{maxitest}
 \begin{test}{Test 1}
 Ulaz:   0x7F  
-Izlaz:  0000 0000 0000 0000 0000 0000 0111 1111    
+Izlaz:  00000000000000000000000001111111    
 \end{test}
 \end{maxitest}
 
 \begin{maxitest}
 \begin{test}{Test 2}
 Ulaz:   0x80
-Izlaz:  0000 0000 0000 0000 0000 0000 1000 0000 
+Izlaz:  00000000000000000000000010000000 
 \end{test}
 \end{maxitest}
 
 \begin{maxitest}
 \begin{test}{Test 3}
 Ulaz:   0x00FF00FF
-Izlaz:  0000 0000 1111 1111 0000 0000 1111 1111
+Izlaz:  00000000111111110000000011111111
 \end{test}
 \end{maxitest}
 
 \begin{maxitest}
 \begin{test}{Test 4}
 Ulaz:   0xFFFFFFFF
-Izlaz:  1111 1111 1111 1111 1111 1111 1111 1111 
+Izlaz:  11111111111111111111111111111111 
 \end{test}
 \end{maxitest}
 
 \begin{maxitest}
 \begin{test}{Test }
 Ulaz:   0xABCDE123
-Izlaz:  1010 1011 1100 1101 1110 0001 0010 0011
+Izlaz:  10101011110011011110000100100011
 \end{test}
 \end{maxitest}
 
@@ -209,7 +209,7 @@ Izlaz:  1010 1011 1100 1101 1110 0001 0010 0011
 \end{Answer}
 
 \begin{Exercise}[label=202]
- Napisati funkciju koja broji bitove postavljene na \argf{1} u zapisu broja $x$, tako što se pomeranje vrši nad
+ Napisati funkciju koja broji bitove postavljene na \argf{1} u zapisu celog broja $x$, tako što se pomeranje vrši nad
 \begin{enumerate}
 \item maskom,
 \item brojem $x$.
@@ -221,21 +221,21 @@ Izlaz:  1010 1011 1100 1101 1110 0001 0010 0011
 \begin{test}{Test 1}
 Ulaz:   0x7F  
 Izlaz:  
-  Broj bitova u zapisu je  7   
+  Broj jedinica u zapisu je  7   
 \end{test}
 \end{minitest}
 \begin{minitest}
 \begin{test}{Test 2}
 Ulaz:   0x80
 Izlaz:  
-  Broj bitova u zapisu je 1
+  Broj jedinica u zapisu je 1
 \end{test}
 \end{minitest}
 \begin{minitest}
 \begin{test}{Test 3}
 Ulaz:   0x00FF00FF
 Izlaz:  
-  Broj bitova u zapisu je 16
+  Broj jedinica u zapisu je 16
 \end{test}
 \end{minitest}
 
@@ -243,14 +243,14 @@ Izlaz:
 \begin{test}{Test 4}
 Ulaz:   0xFFFFFFFF
 Izlaz:  
-  Broj bitova u zapisu je 32
+  Broj jedinica u zapisu je 32
 \end{test}
 \end{minitest}
 \begin{minitest}
 \begin{test}{Test 4}
 Ulaz:   0xABCDE123
 Izlaz:  
-  Broj bitova u zapisu je 17
+  Broj jedinica u zapisu je 17
 \end{test}
 \end{minitest}
 
@@ -272,9 +272,9 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 Ulaz:   0x7F  
 Izlaz:  
  Najveci:
- 1111 1110 0000 0000 0000 0000 0000 0000  
+ 11111110000000000000000000000000  
  Najmanji:
- 0000 0000 0000 0000 0000 0000 0111 1110
+ 00000000000000000000000001111111
 \end{test}
 \end{maxitest}
 
@@ -283,9 +283,9 @@ Izlaz:
 Ulaz:   0x80
 Izlaz:  
  Najveci:
- 1000 0000 0000 0000 0000 0000 0000 0000  
+ 10000000000000000000000000000000  
  Najmanji:
- 0000 0000 0000 0000 0000 0000 0000 0001
+ 00000000000000000000000000000001
 \end{test}
 \end{maxitest}
 
@@ -294,9 +294,9 @@ Izlaz:
 Ulaz:   0x00FF00FF
 Izlaz:  
  Najveci:
- 1111 1111 1111 1111 0000 0000 0000 0000  
+ 11111111111111110000000000000000  
  Najmanji:
- 0000 0000 0000 0000 1111 1111 1111 1111
+ 00000000000000001111111111111111
 \end{test}
 \end{maxitest}
 
@@ -305,9 +305,9 @@ Izlaz:
 Ulaz:   0xFFFFFFFF
 Izlaz:  
  Najveci:
- 1111 1111 1111 1111 1111 1111 1111 1111   
+ 11111111111111111111111111111111   
  Najmanji:
- 1111 1111 1111 1111 1111 1111 1111 1111
+ 11111111111111111111111111111111
 \end{test}
 \end{maxitest}
 
@@ -316,9 +316,9 @@ Izlaz:
 Ulaz:   0xABCDE123
 Izlaz:  
  Najveci:
- 1111 1111 1111 1111 1000 0000 0000 0000  
+ 11111111111111111000000000000000  
  Najmanji:
- 0000 0000 0000 0001 1111 1111 1111 1111
+ 00000000000000011111111111111111
 \end{test}
 \end{maxitest}
 
@@ -332,16 +332,16 @@ Izlaz:
 \begin{Exercise}[label=204]
 Napisati program za rad sa bitovima.
 \begin{enumerate}
-\item Napisati funkciju funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ postave na \argf{0}.
+\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ postave na \argf{0}.
 \item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ postave na \argf{1}.
-\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ i vraća ih kao bitove najmanje težine rezultata.
+\item Napisati funkciju koja određuje broj koji se dobija od $n$ bitova datog broja, počevši od pozicije $p$ i vraća ih kao bitove najmanje težine rezultata.
 \item Napisati funkciju koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
 \item Napisati funkciju koja vraća broj koji se dobija invertovanjem $n$ bitova broja $x$ počevši od pozicije $p$.
 \item Napisati program koji testira prethodno napisane funkcije.
 \end{enumerate}
 Program treba da testira prethodno napisane funkcije nad neoznačenim celim brojem koji se unosi sa standardnog ulaza.
 \napomena{pozicije se broje počev od pozicije bita najmanje težine, pri čemu je pozicija bita najmanje težine nula.}
-
+\komentar{Jelena: Da li je u redu da na izlazu bude ovakvo poravnanje?}
 \begin{maxitest}
 \begin{test}{Test 1}
 Ulaz:   235 5 10 127  
@@ -390,7 +390,7 @@ Izlaz:
 \end{Answer}
 
 \begin{Exercise}[label=206]
-Napisati funkciju \kckod{mirror} koja određuje ceo broj čiji binarni zapis je slika u ogledalu binarnog zapisa argumenta funkcije. Napisati i program koji testira datu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu, tako što najpre ispisuje binarnu reprezentaciju unetog broja, a potom i binarnu reprezentaciju broja dobijenog nakon poziva funkcije \kckod{mirror} za uneti broj.
+Napisati funkciju \kckod{mirror} koja određuje ceo broj čiji je binarni zapis slika u ogledalu binarnog zapisa argumenta funkcije. Napisati i program koji testira datu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu, tako što najpre ispisuje binarnu reprezentaciju unetog broja, a potom i binarnu reprezentaciju broja dobijenog nakon poziva funkcije \kckod{mirror} za uneti broj.
 
 \begin{maxitest}
 \begin{test}{Test 1}

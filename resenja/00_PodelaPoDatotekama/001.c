@@ -19,17 +19,19 @@ void ucitaj_kompleksan_broj(KompleksanBroj* z) {
  */
 void ispisi_kompleksan_broj(KompleksanBroj z) {
     printf("(");
-   if( z.real != 0) {
-        printf("%.2f",z.real);
-        if(z.imag > 0 )
-            printf(" +");
-
+   if(z.real != 0) {
+        printf("%.2f", z.real);
+        
+   if(z.imag > 0)
+        printf(" + %.2f i", z.imag);
+   else if(z.imag < 0)
+        printf(" - %.2f i", -z.imag);   
    }
-   if(z.imag !=0 )
-       printf(" %.2f i ",z.imag);
+   else 
+        printf("%.2f i", z.imag);  
    
-   if(z.imag ==0 && z.real ==0 )
-       printf("0 ");
+   if(z.imag == 0 && z.real == 0 )
+       printf("0");
    
    printf(")");
 }
@@ -46,20 +48,18 @@ float imaginaran_deo(KompleksanBroj z) {
 
 /* Funkcija vraca vrednost modula kompleksnog broja koji joj se salje kao argument */
 float moduo(KompleksanBroj  z) {
-    return sqrt( z.real* z.real + z.imag* z.imag);
+    return sqrt(z.real * z.real + z.imag * z.imag);
 }
 
 /* Funkcija vraca vrednost konjugovano kompleksnog broja koji odgovara kompleksnom broju poslatom kao argument */
 KompleksanBroj konjugovan(KompleksanBroj z) {
-    KompleksanBroj z1 = z;
-    
-    z1.imag *= -1;
-    
+    KompleksanBroj z1 = z;        
+    z1.imag *= -1;    
     return z1;
 }
 
 /* Funkcija vraca kompleksan broj cija vrednost je jednaka zbiru argumenata funkcije */
-KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj  z2 ) {
+KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj  z2) {
     KompleksanBroj z = z1;
     
     z.real += z2.real;
@@ -69,7 +69,7 @@ KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj  z2 ) {
 }
 
 /* Funkcija vraca kompleksan broj cija vrednost je jednaka razlici argumenata funkcije */
-KompleksanBroj oduzmi(KompleksanBroj z1, KompleksanBroj  z2 ) {
+KompleksanBroj oduzmi(KompleksanBroj z1, KompleksanBroj  z2) {
     KompleksanBroj z = z1;
     
     z.real -= z2.real;
@@ -79,7 +79,7 @@ KompleksanBroj oduzmi(KompleksanBroj z1, KompleksanBroj  z2 ) {
 }
 
 /* Funkcija vraca kompleksan broj cija vrednost je jednaka proizvodu argumenata funkcije */
-KompleksanBroj mnozi(KompleksanBroj z1, KompleksanBroj  z2 ) {
+KompleksanBroj mnozi(KompleksanBroj z1, KompleksanBroj  z2) {
     KompleksanBroj z;
     
     z.real = z1.real *  z2.real - z1.imag * z2.imag;
@@ -110,17 +110,16 @@ int main() {
     printf("\nrealan_deo: %.f\nimaginaran_deo: %f\nmoduo %f\n",realan_deo(z1), imaginaran_deo(z1), moduo(z1));
     printf("\n");
     
-    /* Ispisuje drugi kompleksan broj, a zatim i racunamo i ispisujemo konjugovano kompleksan broj od z2 */
+    /* Ispisujemo drugi kompleksan broj, a zatim i racunamo i ispisujemo konjugovano kompleksan broj od z2 */
     ispisi_kompleksan_broj(z2);
     printf("\nNjegov konjugovano kompleksan broj: ");
     ispisi_kompleksan_broj( konjugovan(z2) );
     
     /* Testiramo funkciju koja racuna argument kompleksnih brojeva */
-    printf("\nArgument kompleksnog broja %f\n",argument(z2) );
+    printf("\nArgument kompleksnog broja: %f\n", argument(z2) );
     printf("\n");  
    
-    /* Testiramo sabiranje kompleksnih brojeva */
-    printf("\n");
+    /* Testiramo sabiranje kompleksnih brojeva */    
     ispisi_kompleksan_broj(z1);
     printf(" + ");
     ispisi_kompleksan_broj(z2);
@@ -144,8 +143,8 @@ int main() {
     ispisi_kompleksan_broj(z2);
     printf("  =  ");
     ispisi_kompleksan_broj(mnozi(z1, z2));
-  
-    /* Program se zavrsava uspesno, tj, bez greske*/
+    printf("\n");
+    /* Program se zavrsava uspesno, tj, bez greske */
     return 0;
 }
 

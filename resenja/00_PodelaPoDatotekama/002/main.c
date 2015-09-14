@@ -12,29 +12,6 @@
 gcc -Wall -c -o complex.o complex.c
 gcc -Wall -c -o main.o main.c
 gcc -lm -o complex complex.o main.o
-
-Objasnjenje naredbi
-gcc -Wall -c -o complex.o complex.c
-Poziva prevodilac za kod compex.c sa opcijama:
-
- –Wall (stampaj upozorenja prevodioca),
- -lm (za linkovanje sa math.h bibiliotekom),
- -o (fajl koji prevodilac generiSe imenuj sa complex.o)
- -c (ne vrsi prevodjenje do izvrsnog programa, vec samo
-do objektnog koda).
- Rezultat ovoga je objektni fajl complex.o, koji sadrZi
-program na maSinskom jeziku. Jos uvek nije izvrSni
-program, jer nije uradjeno uvezivanje (linkovanje)
-biblioteka koje su u njemu koriscene, i ostalih
-objektnih fajlova koji se koriste sa njim.
- Druga naredba radi analogno za main.c.
- 
- Ova dva objektna fajla treba ulinkovati medjusobno, i sa
-objektnim kodom standardne biblioteke. To se radi trecom
-naredbom. Prevodilac gcc prepoznaje da su njegovi
-argumenti objektni fajlovi i da ne treba da ih prevodi, veC
-samo da ih ulinkuje ispravno.
-gcc -lm -o complex complex.o main.o
 */
 
 
@@ -48,12 +25,8 @@ int main() {
    
    /* Ucitavamo kompleksan broj */
    ucitaj_kompleksan_broj(&z);
-  
-   ispisi_kompleksan_broj(z);
-   
-   printf("\n");
-   
-   printf("Polarni oblik kompleksnog broj je %.2f *  e^i * %.2f\n",moduo(z), argument(z));
+     
+   printf("Polarni oblik kompleksnog broja je %.2f *  e^i * %.2f\n",moduo(z), argument(z));
   
    return 0;
 }

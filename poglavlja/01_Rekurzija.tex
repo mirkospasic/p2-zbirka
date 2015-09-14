@@ -4,7 +4,6 @@
 
 \begin{Exercise}[label=102]
 Napisati rekurzivnu funkciju koja izračunava  $x^k$,  za dati ceo broj $x$ i prirodan broj $k$.
-
 Napisati program koji testira napisanu funkciju za vrednosti koje se unose sa standardnog ulaza.
  
 \begin{minitest}
@@ -48,11 +47,11 @@ Izlaz: Uneti broj ima neparan broj cifara
 \end{Answer}
 
 \begin{Exercise}[label=105]
-  Napisati repno-rekurzivnu funkciju koja izračunava faktorijel broja n. Napisati program koji testira napisanu funkciju za poizvoljan broj $n$ ($n \le 12$) unet sa standardnog ulaza.
+  Napisati repno-rekurzivnu funkciju koja izračunava faktorijel broja n. Napisati program koji testira napisanu funkciju za proizvoljan broj $n$ ($n \le 12$) unet sa standardnog ulaza.
   
 \begin{minitest}
 \begin{test}{Test 1}
-Ulaz:   5
+Ulaz:   Unesite n (<= 12): 5
 Izlaz:  5! = 120
 \end{test}
 \end{minitest}
@@ -78,8 +77,11 @@ Napisati program koji testira napisane funkcije za poizvoljan broj $n$ ($n \in \
   
 \begin{minitest}
 \begin{test}{Test 1}
-Ulaz:   2 3 5
-Izlaz:  61
+Ulaz:   Unesi koeficijente
+        2 3
+        Unesi koji clan niza racunamo
+        5
+Izlaz:  F(5) = 61
 \end{test}
 \end{minitest}
 
@@ -155,37 +157,33 @@ Izlaz: Suma elemenata je 15
 
 \begin{Exercise}[label=109]
 Napisati rekurzivnu funkciju koja određuje maksimum niza
-  celih brojeva. Napisati program koji testira ovu funkciju, za niz
+  celih brojeva. Napisati program koji testira ovu funkciju za niz
   koji se unosi sa standardnog ulaza. Niz neće imati više od $256$ elemenata, i
   njegovi elementi se unose sve do kraja ulaza.
   
 \begin{miditest}
 \begin{test}{Test 1}
 Ulaz:   3 2 1 4 21    
-Izlaz:  
- Suma elemenata je 21              
+Izlaz: 21              
 \end{test}
 \end{miditest}
 \begin{miditest}
 \begin{test}{Test 2}
 Ulaz:   2 -1 0 -5 -10
-Izlaz:  
-  Suma elemenata je 2                
+Izlaz: 2                
 \end{test}
 \end{miditest}
 
 \begin{miditest}
 \begin{test}{Test 3}
 Ulaz:  1 11 3 5 8 1    
-Izlaz: 
-  Suma elemenata je 11
+Izlaz: 11
 \end{test}
 \end{miditest}
 \begin{minitest}
 \begin{test}{Test 4}
 Ulaz:   5
-Izlaz:  
-  Suma elemenata je 5
+Izlaz:  5
 \end{test}
 \end{minitest}
 
@@ -299,7 +297,10 @@ Izlaz:    ne
 %%%\subsection{Rekurzivne funkcije za rad sa bitovima}
 
 \begin{Exercise}[label=103]
-Napisati rekurzivnu funkciju vraća broj bitova koji su postavljeni na 1, u binarnoj reprezentaciji njenog celobrojnog argumenta.  Napisati program koji testira napisanu funkciju za brojeve koji se učitavaju sa standardnog ulaza zadati u heksadekadnom formatu. 
+Napisati rekurzivnu funkciju koja vraća broj bitova koji su postavljeni na 1, 
+u binarnoj reprezentaciji njenog celobrojnog argumenta.  
+Napisati program koji testira napisanu funkciju za broj koji se učitava sa 
+standardnog ulaza u heksadekadnom formatu. 
 
 
 \begin{minitest}
@@ -478,7 +479,7 @@ Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,
 
 \begin{minitest}
 \begin{test}{Test 1}
-Ulaz:   3
+Ulaz:   Unesite duzinu permutacije: 3
 Izlaz:  1 2 3
         1 3 2
         2 1 3
@@ -511,7 +512,8 @@ jednog polja iznad.
 \item Napisati rekurzivnu funkciju koja izračunava $d_n$ kao sumu elemenata $n$-te hipotenuze Paskalovog trougla.
 \end{enumerate}
 
-Napisati program koji testira prethodno napisane funckije tako što najpre iscrtava Paskalov trougao 
+Napisati program koji za unetu veličinu Paskalovog trougla i hipotenuzu 
+najpre iscrtava Paskalov trougao a zatim sumu elemenata hipotenuze.
 
 \begin{miditest}
 \begin{test}{Test 1}

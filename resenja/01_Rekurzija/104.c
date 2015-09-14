@@ -4,13 +4,13 @@
 #define MAX 100
 
 /* NAPOMENA: Ovaj problem je iskoriscen da ilustruje 
- * uzajamnu (posrednu) rekurziju.
+  uzajamnu (posrednu) rekurziju.
  */
 
 /* Deklaracija funkcije neparan mora da bude navedena 
- * jer se ta funkcija koristi u telu funkcije paran,
- * tj. koristi se pre svoje definicije.
- * Funkcija je mogla biti deklarisana i u telu funkcije paran.
+  jer se ta funkcija koristi u telu funkcije paran,
+  tj. koristi se pre svoje definicije.
+  Funkcija je mogla biti deklarisana i u telu funkcije paran.
  */
 
 unsigned neparan(unsigned n);
@@ -33,11 +33,8 @@ unsigned neparan(unsigned n) {
 
 /* Glavna funkcija za testiranje */
 int main( ) {
-    int n;
-    printf("Unesite ceo broj: ");
-    scanf("%d", &n);    
-    
-    printf("Uneti broj ima %sparan broj cifara\n", (paran(n) == 1 ? " ": " ne"));
-  
+    int n;    
+    scanf("%d", &n);        
+    printf("Uneti broj ima %sparan broj cifara\n", (paran(n) == 1 ? "": "ne"));  
     return 0;
 }

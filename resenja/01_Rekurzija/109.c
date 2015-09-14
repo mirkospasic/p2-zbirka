@@ -9,7 +9,7 @@ int maksimum_niza(int niz[], int n) {
     /* ReSavamo problem manje dimenzije */
     int max=maksimum_niza(niz, n-1);
     
-	/* Ako nam je poznato resenje problema dimenzije n-1, reSavamo problem dimenzije n */
+	/* Ako nam je poznato resenje problema dimenzije n-1, resavamo problem dimenzije n */
 	return niz[n-1] > max ? niz[n-1] : max ;
 }
 

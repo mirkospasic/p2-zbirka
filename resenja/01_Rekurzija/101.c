@@ -1,18 +1,17 @@
 #include <stdio.h>
 #define MAX_DIM 1000
 
-
 /*
- * n==0, suma(a,0) = 0
- * n >0, suma(a,n) = a[n-1]+suma(a,n-1)
- *     Suma celog niza je jednaka sumi prvih n-1 elementa 
- *      uveCenoj za poslednji element celog niza.
- */
+ Ako je n==0, onda je suma(a,0) = 0
+ Ako je n>0, onda je suma(a,n) = a[n-1] + suma(a,n-1)
+ Suma celog niza je jednaka sumi prvih n-1 elementa 
+ uvecenoj za poslednji element celog niza.
+*/
 int sumaNiza(int *a, int n)
 {
     /* Ne stavljamo strogu jednakost n==0,
-     * za slucaj da korisnik prilikom prvog poziva, 
-     * poSalje negativan broj za velicinu niza. 
+      za slucaj da korisnik prilikom prvog poziva, 
+      posalje negativan broj za velicinu niza. 
      */
     if(n<=0 )  
             return 0;   
@@ -21,10 +20,10 @@ int sumaNiza(int *a, int n)
 }
 
 /*
- * n==0, suma(a,0) = 0
- * n >0, suma(a,n) = a[0]+suma(a+1,n-1)
- *      Suma celog niza je jednaka zbiru prvog elementa 
- *      niza i sume preostalih n-1 elementa.
+  n==0, suma(a,0) = 0
+  n >0, suma(a,n) = a[0]+suma(a+1,n-1)
+  Suma celog niza je jednaka zbiru prvog elementa 
+  niza i sume preostalih n-1 elementa.
  */
 int sumaNiza2(int *a, int n)
 {
@@ -33,9 +32,10 @@ int sumaNiza2(int *a, int n)
     
     return a[0] + sumaNiza2(a+1,n-1);
 }
+
 int main()
 {
-	int x, a[MAX_DIM];
+	int a[MAX_DIM];
     int n, i=0;
     
     /* Ucitavamo broj elemenata niza */
@@ -43,13 +43,10 @@ int main()
     
     /* Ucitavamo n elemenata niza. */
 	for(i=0; i<n; i++)
-		scanf("%d", &a[i]);
-	
+		scanf("%d", &a[i]);	
     
-    printf("Suma elemenata je %d\n",sumaNiza(a, n));
-	
-	/*
-    printf("Suma elemenata je %d\n",sumaNiza2(a, n));
-    */
+    printf("Suma elemenata je %d\n", sumaNiza(a, n));	
+	// printf("Suma elemenata je %d\n",sumaNiza2(a, n));
+    
     return 0;   
 }
