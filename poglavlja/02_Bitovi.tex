@@ -217,42 +217,43 @@ Izlaz:  10101011110011011110000100100011
  
  Napisati program koji testira tu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
 
-\begin{minitest}
+\begin{miditest}
 \begin{test}{Test 1}
 Ulaz:   0x7F  
 Izlaz:  
   Broj jedinica u zapisu je  7   
 \end{test}
-\end{minitest}
-\begin{minitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{Test 2}
 Ulaz:   0x80
 Izlaz:  
   Broj jedinica u zapisu je 1
 \end{test}
-\end{minitest}
-\begin{minitest}
+\end{miditest}
+
+\begin{miditest}
 \begin{test}{Test 3}
 Ulaz:   0x00FF00FF
 Izlaz:  
   Broj jedinica u zapisu je 16
 \end{test}
-\end{minitest}
-
-\begin{minitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{Test 4}
 Ulaz:   0xFFFFFFFF
 Izlaz:  
   Broj jedinica u zapisu je 32
 \end{test}
-\end{minitest}
-\begin{minitest}
+\end{miditest}
+
+\begin{miditest}
 \begin{test}{Test 4}
 Ulaz:   0xABCDE123
 Izlaz:  
   Broj jedinica u zapisu je 17
 \end{test}
-\end{minitest}
+\end{miditest}
 
 \linkresenje{202}
 \end{Exercise}
@@ -267,7 +268,7 @@ Napisati funkciju \kckod{najveci} koja određuje najveći broj koji se može zap
 
 Napisati program koji testira prethodno napisane funkcije tako što prikazuje binarnu reprezentaciju brojeva koji se dobijaju nakon poziva funkcije \kckod{najveci}, ondosno \kckod{najmanji} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu. 
 
-\begin{maxitest}
+\begin{miditest}
 \begin{test}{Test 1}
 Ulaz:   0x7F  
 Izlaz:  
@@ -276,9 +277,8 @@ Izlaz:
  Najmanji:
  00000000000000000000000001111111
 \end{test}
-\end{maxitest}
-
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{Test 2}
 Ulaz:   0x80
 Izlaz:  
@@ -287,9 +287,8 @@ Izlaz:
  Najmanji:
  00000000000000000000000000000001
 \end{test}
-\end{maxitest}
-
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{Test 3}
 Ulaz:   0x00FF00FF
 Izlaz:  
@@ -298,9 +297,8 @@ Izlaz:
  Najmanji:
  00000000000000001111111111111111
 \end{test}
-\end{maxitest}
-
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{Test 4}
 Ulaz:   0xFFFFFFFF
 Izlaz:  
@@ -309,9 +307,8 @@ Izlaz:
  Najmanji:
  11111111111111111111111111111111
 \end{test}
-\end{maxitest}
-
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{Test 4}
 Ulaz:   0xABCDE123
 Izlaz:  
@@ -320,7 +317,7 @@ Izlaz:
  Najmanji:
  00000000000000011111111111111111
 \end{test}
-\end{maxitest}
+\end{miditest}
 
 \linkresenje{203}
 \end{Exercise}
@@ -341,7 +338,8 @@ Napisati program za rad sa bitovima.
 \end{enumerate}
 Program treba da testira prethodno napisane funkcije nad neoznačenim celim brojem koji se unosi sa standardnog ulaza.
 \napomena{pozicije se broje počev od pozicije bita najmanje težine, pri čemu je pozicija bita najmanje težine nula.}
-\komentar{Jelena: Da li je u redu da na izlazu bude ovakvo poravnanje?}
+
+
 \begin{maxitest}
 \begin{test}{Test 1}
 Ulaz:   235 5 10 127  

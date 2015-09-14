@@ -32,11 +32,11 @@ Ulaz:  11
 Izlaz: Uneti broj ima paran broj cifara
 \end{test}
 \end{miditest}
-
 \begin{miditest}
 \begin{test}{Test 2}
 Ulaz:  123
-Izlaz: Uneti broj ima neparan broj cifara
+Izlaz: Uneti broj ima neparan 
+       broj cifara
 \end{test}
 \end{miditest}
 
@@ -47,14 +47,14 @@ Izlaz: Uneti broj ima neparan broj cifara
 \end{Answer}
 
 \begin{Exercise}[label=105]
-  Napisati repno-rekurzivnu funkciju koja izračunava faktorijel broja n. Napisati program koji testira napisanu funkciju za proizvoljan broj $n$ ($n \le 12$) unet sa standardnog ulaza.
+  Napisati repno-rekurzivnu funkciju koja izračunava faktorijel broja $n$. Napisati program koji testira napisanu funkciju za proizvoljan broj $n$ ($n \le 12$) unet sa standardnog ulaza.
   
-\begin{minitest}
+\begin{miditest}
 \begin{test}{Test 1}
 Ulaz:   Unesite n (<= 12): 5
 Izlaz:  5! = 120
 \end{test}
-\end{minitest}
+\end{miditest}
 
 \linkresenje{105}
 \end{Exercise}
@@ -75,7 +75,7 @@ Napisati rekurzivnu funkciju  koja računa $n$-ti element u nizu $F$ ali tako da
 %\end{enumerate}
 Napisati program koji testira napisane funkcije za poizvoljan broj $n$ ($n \in \mathbb N$) unet sa standardnog ulaza.
   
-\begin{minitest}
+\begin{miditest}
 \begin{test}{Test 1}
 Ulaz:   Unesi koeficijente
         2 3
@@ -83,7 +83,7 @@ Ulaz:   Unesi koeficijente
         5
 Izlaz:  F(5) = 61
 \end{test}
-\end{minitest}
+\end{miditest}
 
 \linkresenje{106}
 \end{Exercise}
@@ -204,12 +204,12 @@ Ulaz:    3 1 2 3 1 2 3
 Izlaz:   14                 
 \end{test}
 \end{miditest}
-\begin{minitest}
+\begin{miditest}
 \begin{test}{Test 2}
 Ulaz:   2 3 5 2 6       
 Izlaz:  36              
 \end{test}
-\end{minitest}
+\end{miditest}
 
 
 \begin{minitest}
@@ -234,12 +234,12 @@ Napisati rekurzivnu funkciju \kckod{br\_pojave}
   ulaza. Niz neće imati više od $256$ elemenata. Prvo se unosi $x$, a zatim
   elementi niza sve do kraja ulaza.
   
-\begin{minitest}
+\begin{miditest}
 \begin{test}{Test 1}
 Ulaz:    4 1 2 3 4     
 Izlaz:   1              
 \end{test}
-\end{minitest}
+\end{miditest}
 \begin{miditest}
 \begin{test}{Test 2}
 Ulaz:    11 3 2 11 14 11 43 1      
@@ -297,7 +297,7 @@ Izlaz:    ne
 %%%\subsection{Rekurzivne funkcije za rad sa bitovima}
 
 \begin{Exercise}[label=103]
-Napisati rekurzivnu funkciju koja vraća broj bitova koji su postavljeni na 1, 
+Napisati rekurzivnu funkciju koja vraća broj bitova koji su postavljeni na $1$, 
 u binarnoj reprezentaciji njenog celobrojnog argumenta.  
 Napisati program koji testira napisanu funkciju za broj koji se učitava sa 
 standardnog ulaza u heksadekadnom formatu. 
@@ -320,6 +320,9 @@ Izlaz:  1
 Ulaz:   0x00FF00FF
 Izlaz:  16
 \end{test}
+\end{minitest}
+
+\begin{minitest}
 \begin{test}{Test 4}
 Ulaz:   0xFFFFFFFF       
 Izlaz:  32
@@ -332,7 +335,7 @@ Izlaz:  32
 \includecode{resenja/01_Rekurzija/103.c}
 \end{Answer}
 
-\begin{Exercise}[label=115]\marker+{2}
+\begin{Exercise}[label=115]%\marker+{2}
 Napisati rekurzivnu funkciju koja štampa bitovsku
   reprezentaciju neoznačenog celog broja, i program koji je
   testira za vrednost koja se zadaje sa standardnog ulaza.
@@ -349,7 +352,6 @@ Izlaz:      00000000000000000000000000001010
 %\end{Answer}
 
 \begin{Exercise}[label=119]
-%\komentar{Nina: Ovo je prebaceno iz poglavlja sa pokazivacima.}
 Napisati rekurzivnu funkciju za određivanje
 najveće cifre u oktalnom zapisu
 neoznačenog celog broja korišćenjem bitskih operatora.
@@ -368,13 +370,13 @@ Ulaz:  125
 Izlaz: 7
 \end{test}
 \end{minitest}
+
 \begin{minitest}
 \begin{test}{Test 3}
 Ulaz:  8
 Izlaz: 1
 \end{test}
 \end{minitest}
-
 \begin{minitest}
 \begin{test}{Test 4}
 Ulaz:  10
@@ -389,7 +391,6 @@ Izlaz: 2
 \end{Answer}
 
 \begin{Exercise}[label=120]
-%\komentar{Nina: Ovo je prebaceno iz poglavlja sa pokazivacima.}
 Napisati rekurzivnu funkciju za određivanje (dekadne vrednosti)
 najveće cifre u heksadekadnom zapisu neoznačenog celog broja
 korišćenjem bitskih operatora. \uputstvo{binarne cifre
@@ -477,7 +478,7 @@ Izlaz:   da
 \begin{Exercise}[label=107, difficulty=1]
 Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,n\}$. Napisati program koji testira napisanu funkciju za poizvoljan prirodan broj $n$ ($n \le 50$) unet sa standardnog ulaza.
 
-\begin{minitest}
+\begin{miditest}
 \begin{test}{Test 1}
 Ulaz:   Unesite duzinu permutacije: 3
 Izlaz:  1 2 3
@@ -487,7 +488,7 @@ Izlaz:  1 2 3
         3 1 2
         3 2 1
 \end{test}
-\end{minitest}
+\end{miditest}
 
 \linkresenje{107}
 \end{Exercise}
@@ -529,7 +530,6 @@ Izlaz:
      8
 \end{test}
 \end{miditest}
-
 \begin{miditest}
 \begin{test}{Test 2}
 Ulaz:   6 5
@@ -558,7 +558,7 @@ Izlaz:
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{Exercise}[label=116]\marker+{2}
+\begin{Exercise}[label=116]%\marker+{2}
 Napisati rekurzivnu funkciju koja prikazuje sve varijacije sa
    ponavljanjem dužine $n$ skupa $\{a, b\}$, i program koji je
    testira, za $n$ koje se unosi sa standardnog ulaza.
@@ -581,7 +581,7 @@ Izlaz:   a a a
 %\includecode{resenja/01_Rekurzija/116.c}
 %\end{Answer}
 
-\begin{Exercise}[label=117]\marker+{2}
+\begin{Exercise}[label=117]%\marker+{2}
 {\em Hanojske kule}: Data su tri
   vertikalna štapa, na jednom se nalazi $n$ diskova poluprečnika
   $1$,$2$,$3$,... do $n$, tako da se najveći nalazi na dnu, a
@@ -596,7 +596,7 @@ Izlaz:   a a a
 %\includecode{resenja/01_Rekurzija/117.c}
 %\end{Answer}
 
-\begin{Exercise}[label=118]\marker+{2}
+\begin{Exercise}[label=118]%\marker+{2}
 {\em Modifikacija Hanojskih kula}: Data su četiri
   vertikalna štapa, na jednom se nalazi $n$ diskova poluprečnika
   $1$,$2$,$3$,... do $n$, tako da se najveći nalazi na dnu, a
