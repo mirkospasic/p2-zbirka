@@ -132,8 +132,8 @@ int main(int argc, char *argv[])
   sortiraj_vrste(a, n, m);
 
   /* Ispisujemo rezultujucu matricu */
-  printf("Sortirana matrica je:\n")
-      ispisi_matricu(a, n, m);
+  printf("Sortirana matrica je:\n");
+  ispisi_matricu(a, n, m);
 
   /* Oslobadjamo memoriju */
   oslobodi_memoriju(a, n, m);
