@@ -15,7 +15,6 @@ Ulaz:   23 64 123 76 22 7
 Izlaz:  1
 \end{test}
 \end{miditest}
-
 \begin{miditest}
 \begin{test}{Test 2}
 Ulaz:   21 654 65 123 65 12 61
@@ -138,7 +137,6 @@ Izlaz:
 3 3 5 6 7 8 11 14 35
 \end{test}
 \end{miditest}
-
 \begin{miditest}
 \begin{test}{Test 2}
 Ulaz:   
@@ -391,6 +389,15 @@ Izlazna datoteka (out.txt):
   Milica Antonic 2008
   Ivana Ivanovic 2009
   Dragana Markovic 2010
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Poziv: ./a.out in.txt out.txt
+Ulazna datoteka (in.out):
+  Milijana Maric 2009
+Izlazna datoteka (out.txt):
+  Milijana Maric 2009
 \end{test}
 \end{miditest}
   
@@ -803,7 +810,7 @@ Interakcija programa:
    i pretraga ispisati na standardni izlaz.
    
 \begin{maxitest}
-\begin{test}{Test 1}
+\begin{test}{Upotreba programa 1}
 Ulazna datoteka (niske.txt):
   ana petar andjela milos nikola aleksandar ljubica matej milica
 Interakcija programa:
@@ -853,7 +860,7 @@ Interakcija programa:
   da je za ime i prezime svakog studenta dovoljno po $20$ karaktera.
   
 \begin{maxitest}
-\begin{test}{Test 1}
+\begin{test}{Upotreba programa 1}
 Poziv:  ./a.out kolokvijum.txt
 Ulazna datoteka (kolokvijum.txt):
   Aleksandra Cvetic 15
@@ -944,15 +951,16 @@ Izlaz:  nema
   studenta poznat je nalog na Alas-u (oblika npr. \kckod{mr97125},
   \kckod{mm09001}), ime i prezime i broj poena. Napisati program koji
   sortira (korišćenjem funkcije \kckod{qsort}) studente po broju poena
-  (ukoliko je prisutna opcija \argf{-p}) ili po nalogu (ukoliko je
-  prisutna opcija \argf{-n}). Studenti se po nalogu sortiraju tako što
-  se sortiraju na osnovu godine, zatim na osnovu smera, i na kraju na
-  osnovu broja indeksa. Sortirane studente upisati u datoteku
-  \kckod{izlaz.txt}. Ukoliko je u komandnoj liniji uz opciju \argf{-n}
-  naveden i nalog nekog studenta, funkcijom \kckod{bsearch} potražiti
-  i prijaviti broj poena studenta sa tim nalogom.
+  opadajuće (ukoliko je prisutna opcija \argf{-p}) ili po nalogu
+  (ukoliko je prisutna opcija \argf{-n}). Studenti se po nalogu
+  sortiraju tako što se sortiraju na osnovu godine, zatim na osnovu
+  smera, i na kraju na osnovu broja indeksa. Sortirane studente
+  upisati u datoteku \kckod{izlaz.txt}. Ukoliko je u komandnoj liniji
+  uz opciju \argf{-n} naveden i nalog nekog studenta, funkcijom
+  \kckod{bsearch} potražiti i prijaviti broj poena studenta sa tim
+  nalogom.
   
-\begin{maxitest}
+\begin{miditest}
 \begin{test}{Test 1}
 Poziv: ./a.out -n mm13321
 Ulazna datoteka (studenti.txt):
@@ -970,7 +978,24 @@ Izlazna datoteka (izlaz.txt):
 Izlaz:
   mm13321 Marija Radic 12
 \end{test}
-\end{maxitest}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Poziv: ./a.out -p
+Ulazna datoteka (studenti.txt):
+  mr14123 Marko Antic 20
+  mm13321 Marija Radic 12
+  ml13011 Ivana Mitrovic 19
+  ml13066 Pera Simic 15
+  mv14003 Jovan Jovanovic 17
+Izlazna datoteka (izlaz.txt):
+  mr14123 Marko Antic 20
+  ml13011 Ivana Mitrovic 19
+  mv14003 Jovan Jovanovic 17
+  ml13066 Pera Simic 15
+  mm13321 Marija Radic 12
+\end{test}
+\end{miditest}
   
 \linkresenje{524}
 \end{Exercise}
@@ -1020,8 +1045,8 @@ Datoteka:             Ulaz:              Izlaz:
   standardnog ulaza se prvo unose dimenzije matrice, a zatim redom
   elementi matrice. Rezultujuću matricu ispisati na standardni izlaz.
 
-\begin{maxitest}
-\begin{test}{Test 1}
+\begin{miditest}
+\begin{test}{Upotreba programa 1}
 Interakcija programa:    
   Unesite dimenzije matrice: 3 2
   Unesite elemente matrice po vrstama:
@@ -1033,7 +1058,23 @@ Interakcija programa:
   6 -5 
   2 1   
 \end{test}
-\end{maxitest}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Upotreba programa 2}
+Interakcija programa:    
+  Unesite dimenzije matrice: 4 4
+  Unesite elemente matrice po vrstama:
+  34 12 54 642
+  1 2 3 4
+  53 2 1 5
+  54 23 5 671
+  Sortirana matrica je:
+  1 2 3 4 
+  53 2 1 5 
+  34 12 54 642 
+  54 23 5 671 
+\end{test}
+\end{miditest}
 
 \linkresenje{526}
 \end{Exercise}

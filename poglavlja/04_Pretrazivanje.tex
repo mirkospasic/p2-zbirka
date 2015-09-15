@@ -167,6 +167,18 @@ Datoteka:
 Izlaz: -0.3 23
 \end{test}
 \end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Poziv: ./a.out dat.txt 
+Datoteka:
+  12 53
+  2.342 34.1
+  -0.3 23
+  -1 2.1
+  123.5 756.12
+Izlaz: -1 2.1
+\end{test}
+\end{miditest}
 
 \linkresenje{405}
 
@@ -184,7 +196,7 @@ Izlaz: -0.3 23
   $0.001$ od nule. \uputstvo{Korisiti algoritam analogan algoritmu
   binarne pretrage.}
   
-  
+% Ovde ne moze biti vise od jednog test primera
 \begin{minitest}
 \begin{test}{Test 1}
 Izlaz: 1.57031
@@ -344,6 +356,15 @@ Ulaz:
 Izlaz: 26.57 
 \end{test}
 \end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:
+  2
+  1 0 1 1
+  0 1 1 1
+Izlaz: 45
+\end{test}
+\end{minitest}
 
 %\linkresenje{410}
 
@@ -374,6 +395,12 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \begin{test}{Test 1}
 Ulaz:  R
 Izlaz: Dusko Radovic
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Test 2}
+Ulaz:  E
+Izlaz: Dobrica Eric
 \end{test}
 \end{minitest}
 
