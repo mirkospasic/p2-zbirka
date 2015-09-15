@@ -138,6 +138,5 @@ int main(int argc, char *argv[])
   /* Oslobadjamo memoriju */
   oslobodi_memoriju(a, n, m);
 
-  /* I prekidamo sa izvrsavanjem programa */
   return 0;
 }

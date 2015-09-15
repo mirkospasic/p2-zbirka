@@ -282,6 +282,5 @@ int main(int argc, char *argv[])
   }
   free(pesme);
 
-  /* Prekidamo izvrsavanje programa */
   return 0;
 }

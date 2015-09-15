@@ -82,8 +82,6 @@ void sortiraj_po_y(Tacka t[], int n)
   }
 }
 
-
-
 int main(int argc, char *argv[])
 {
   FILE *ulaz;
@@ -161,6 +159,5 @@ int main(int argc, char *argv[])
   fclose(ulaz);
   fclose(izlaz);
 
-  /* Zavrsavamo sa programom */
   return 0;
 }

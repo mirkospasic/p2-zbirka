@@ -115,6 +115,5 @@ int main()
   /* Zatvaramo datoteku */
   fclose(ulaz);
 
-  /* Zavrsavamo sa programom */
   return 0;
 }
