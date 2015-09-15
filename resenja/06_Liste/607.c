@@ -1,185 +1,144 @@
-/* Napisati program koji objedinjuje dve sortirane liste. Funkcija ne
-   treba da kreira nove cvorove, vec da samo postojece cvorove
-   preraspodeli. Prva lista se ucitava iz datoteke koja se zadaje kao
-   prvi argument komandne linije, a druga iz druge. Rezultujucu listu
-   ispisati na standardni izlaz.
-
-   Poziv:    ./a.out dat1.txt dat2.txt
-   dat1.txt: 2 4 6 10 15
-   dat2.txt: 5 6 11 12 14 16
-   Izlaz:    2 4 5 6 6 10 11 12 14 15 16
- */
-
 #include<stdio.h>
+#include<string.h>
 #include<stdlib.h>
+#define MAX_DUZINA 20
 
-typedef struct _Cvor{
-  int broj;
-  struct _Cvor *sledeci;
-} Cvor;
+typedef struct _Element {
+    unsigned broj_pojavljivanja;
+    char etiketa[20];
+    struct _Element *sledeci;
+} Element;
 
-/*
-  pomocna funkcija koja kreira cvor. 
-  funkcija vraca pokazivac na novokreirani cvor ili NULL
-  ako alokacija nije uspesno izvrsena.  
-*/
-Cvor *napravi_cvor(int br){
-  Cvor *novi = (Cvor*) malloc(sizeof(Cvor));
-  if(novi == NULL)
-    return NULL;
-  novi->broj = br;
-  novi->sledeci = NULL;
-  return novi;
+/* Pomocna funkcija koja kreira cvor. Vraca pokazivac na novi 
+   cvor ili NULL ako alokacija nije uspesno izvrsena. */
+Element *napravi_cvor(unsigned br, char *etiketa)
+{
+    Element *novi = (Element *) malloc(sizeof(Element));
+    if (novi == NULL)
+        return NULL;
+
+    novi->broj_pojavljivanja = br;
+    strcpy(novi->etiketa, etiketa);
+    novi->sledeci = NULL;
+    return novi;
 }
 
-/* 
-   funkcija oslobadja dinamicku memoriju zauzetu za elemente liste 
-   ciji se pocetni cvor nalazi na adresi glava
-*/
-void oslobodi_listu(Cvor **glava){
-  Cvor *pomocni = NULL;
-  while(*glava != NULL){
-    pomocni = (*glava)->sledeci;
-    free(*glava);
-    *glava = pomocni;
-  }
-}
+/* Funkcija oslobadja dinamicku memoriju zauzetu za elemente
+  liste. */
+void oslobodi_listu(Element ** glava)
+{
+    Element *pomocni = NULL;
 
-/* 
-  funkcija proverava uspesnost alokacije memorije za cvor novi i ukoliko 
-  alokacija nije bila uspesna, oslobadja se sva prethodno zauzeta memorija 
-  za listu cija pocetni cvor se nalazi na adresi glava  
-*/
-void proveri_alokaciju(Cvor** glava, Cvor* novi){
-  if(novi == NULL){
-    fprintf(stderr, "Neuspela alokacija za nov cvor\n");
-    oslobodi_listu(glava);
-    exit(EXIT_FAILURE);
-  }
-}
-
-// funkcija ispisuje sadrzaj liste
-void ispisi_listu(Cvor *glava){
-  for( ; glava != NULL; glava = glava->sledeci)
-    printf("%d ", glava->broj);
-  putchar('\n');
-}
-
-// funkcija vraca poslednji cvor u listi
-Cvor* pronadji_poslednji(Cvor* glava){
-  if(glava == NULL)
-    return NULL;
-  while(glava->sledeci != NULL)
-    glava = glava->sledeci;
-  return glava;
-}
-
-// funkcija dodaje novi cvor na kraj liste
-void dodaj_na_kraj(Cvor ** adresa_glave, int broj){
-  Cvor *novi = napravi_cvor(broj);
-  proveri_alokaciju(adresa_glave, novi);
-  if(*adresa_glave == NULL){
-    *adresa_glave = novi; 
-    return;
-  }
-  Cvor* poslednji = pronadji_poslednji(*adresa_glave);
-  poslednji->sledeci = novi;
-}
-
-/* 
-   funkcija objedinjuje dve sortirane liste u jednu sortiranu listu
-   koju vraca kao rezultat
-*/
-Cvor *objedini(Cvor **glava1, Cvor **glava2){
-
-  Cvor *l3 = NULL;
-  Cvor **tek = &l3;
-
-  if(*glava1 == NULL && *glava2 == NULL)
-    return NULL;
-
- // ako je prva lista prazna, onda je rezultat druga lista
-  if(*glava1 == NULL)
-    return *glava2; 
-
-  // ako je druga lista prazna, onda je rezultat prva lista
-  if(*glava2 == NULL)
-    return *glava1; 
-
-// l3 pokazuje na pocetak nove liste, tj. na manji od brojeva glave1 i glave2
-  l3 = ((*glava1)->broj < (*glava2)->broj) ? *glava1 : *glava2;
-
-
-  while(*glava1 != NULL && *glava2 != NULL){
-    if((*glava1)->broj < (*glava2)->broj){
-      *tek = *glava1;
-      *glava1 = (*glava1)->sledeci;
+    while (*glava != NULL) {
+        pomocni = (*glava)->sledeci;
+        free(*glava);
+        *glava = pomocni;
     }
-    else{
-      *tek = *glava2;
-      *glava2 = (*glava2)->sledeci;
-    }
-    tek = &((*tek)->sledeci);
-  }
-
- /*
-  ukoliko smo izasli iz petlje zato sto smo stigli do kraja prve liste
-  onda na rezultujucu listu nadovezujemo ostatak druge liste
- */
- if(*glava1 == NULL)
-    *tek = *glava2; 
-
-  else if(*glava2 == NULL)
-    *tek = *glava1; 
-
-  return l3;
-
 }
 
-int main(int argc, char **argv){
+/* Funkcija proverava uspesnost alokacije memorije za cvor novi
+   i ukoliko alokacija nije bila uspesna, oslobadja se sva
+   prethodno zauzeta memorija za listu cija pocetni cvor se
+   nalazi na adresi glava. */
+void provera_alokacije(Element * novi, Element ** glava)
+{
+    if (novi == NULL) {
+        fprintf(stderr, "malloc() greska u funkciji 
+napravi_cvor()!\n");
+        oslobodi_listu(glava);
+        exit(EXIT_FAILURE);
+    }
+}
 
-  /* 
-   ako je broj argumenata komandne linije razlicit od 3, 
-   znaci da je korisnik na pogresan nacin pozvao program i prijavljujemo gresku
- */
-  if(argc != 3){
-    fprintf(stderr, "Greska! Program se poziva sa: ./a.out dat1.txt dat2.txt!\n");
-    exit(EXIT_FAILURE);
-  }
+/* Funkcija dodaje novi cvor na pocetak liste. */
+void dodaj_na_pocetak_liste(Element ** glava, unsigned br,
+                            char *etiketa)
+{
+    Element *novi = napravi_cvor(br, etiketa);
+    provera_alokacije(novi, glava);
+    novi->sledeci = *glava;
+    *glava = novi;
+}
 
-  FILE *in1 = NULL;
-  in1 = fopen(argv[1], "r");
-  if(in1 == NULL){
-    fprintf(stderr, "Greska prilikom otvaranja datoteke %s.\n", argv[1]);
-    exit(EXIT_FAILURE);
-  }
+/* Funkcija vraca cvor koji kao vrednost sadrzi trazenu etiketu.
+   (NULL u suprotnom) */
+Element *pretrazi_listu(Element * glava, char etiketa[])
+{
+    Element *tekuci;
+    for (tekuci = glava; tekuci != NULL;
+         tekuci = tekuci->sledeci)
+        if (strcmp(tekuci->etiketa, etiketa) == 0)
+            return tekuci;
+    return NULL;
+}
 
-  FILE *in2 = NULL;
-  in2 = fopen(argv[2], "r");
-  if(in2 == NULL){
-    fprintf(stderr, "Greska prilikom otvaranja datoteke %s.\n", argv[2]);
-    exit(EXIT_FAILURE);
-  }
+/* Funkcija ispisuje sadrzaj liste */
+void ispisi_listu(Element * glava)
+{
+    for (; glava != NULL; glava = glava->sledeci)
+        printf("%s - %u\n", glava->etiketa,
+               glava->broj_pojavljivanja);
+}
 
-  int broj;
-  Cvor *glava1 = NULL;
-  Cvor *glava2 = NULL;
-  Cvor *l3 = NULL;
+int main(int argc, char **argv)
+{
+    if (argc != 2) {
+        fprintf(stderr, "Greska! Program se poziva sa: ./a.out 
+datoteka.html!\n");
+        exit(EXIT_FAILURE);
+    }
 
-  // ucitavamo dve sortirane liste...
-  while(fscanf(in1, "%d", &broj) != EOF)
-    dodaj_na_kraj(&glava1, broj);
-  while(fscanf(in2, "%d", &broj) != EOF)
-    dodaj_na_kraj(&glava2, broj); 
-  
-  // ...objedinjujemo ih u jednu sortiranu listu...
-  l3 = objedini(&glava1, &glava2);
-  
-  //...koju ispisujemo na standardni izlaz
-  ispisi_listu(l3);
-  oslobodi_listu(&l3);
+    FILE *in = NULL;
+    in = fopen(argv[1], "r");
+    if (in == NULL) {
+        fprintf(stderr,
+                "Greska prilikom otvaranja datoteke %s!\n",
+                argv[1]);
+        exit(EXIT_FAILURE);
+    }
 
-  fclose(in1);
-  fclose(in2);
-  return 0;
+    char c;
+    int i = 0;
+    char a[MAX_DUZINA];
+
+    Element *glava = NULL;
+    Element *trazeni = NULL;
+
+    while ((c = fgetc(in)) != EOF) {
+
+        if (c == '<') {
+            /* Citamo zatvarac */
+            if ((c = fgetc(in)) == '/') {
+                i = 0;
+                while ((c = fgetc(in)) != '>')
+                    a[i++] = c;
+            }
+
+            /* Citamo otvarac */
+            else {
+                i = 0;
+                a[i++] = c;
+                while ((c = fgetc(in)) != ' ' && c != '>')
+                    a[i++] = c;
+            }
+            a[i] = '\0';
+
+            /* Ispitujemo da li medju do sada formiranim
+               cvorovima postoji cvor sa ucitanom etiketom.
+               Ukoliko ne postoji, dodajemo novi cvor za
+               ucitanu etiketu (broj pojavljivanja postavljamo
+               na 1), inace uvecavamo broj pojavljivanja. */
+            trazeni = pretrazi_listu(glava, a);
+            if (trazeni == NULL)
+                dodaj_na_pocetak_liste(&glava, 1, a);
+            else
+                trazeni->broj_pojavljivanja++;
+        }
+    }
+
+    ispisi_listu(glava);
+    oslobodi_listu(&glava);
+
+    fclose(in);
+    return 0;
 }

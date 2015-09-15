@@ -3,333 +3,298 @@
 
 \section{Liste}
 
+%=========================================================================
 \begin{Exercise}[label=601]
-Napisati program koji koristi jednostruko povezanu listu za čuvanje elemenata koji se unose sa standardnog ulaza. 
-Unošenje novih brojeva u listu prekida se učitavanjem kraja ulaza (EOF). 
-Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
+Napisati biblioteku za rad sa jednostruko povezanom listom, čiji elementi sadrže cele brojeve. Ona treba da sadrži sledeće:
 \begin{enumerate}
 \item Definisati strukturu \kckod{Cvor} koja predstavlja čvor liste.
 \item Napisati funkciju koja kao argument dobija ceo broj, kreira nov čvor liste sa tom vrednosti i vreća adresu novo kreiranog čvora.
  \item Napisati funkciju koja dodaje novi elemenat na početak liste. 
+ \item Napisati funkciju koja dodaje novi elemenat na kraj liste. 
+ \item Napisati funkciju koja dodaje novi elemenat u neopadajuće uređenu listu tako da se očuva postojeće uređenje.
  \item Napisati funkciju koja ispisuje elemente liste, uokvirene zagradama [, ] i međusobno razdvojene zapetama.
  \item Napisati funkciju koja pretražuje listu za elementom koji ima vrednost koja je argument funkcije.
+ \item Napisati verziju prethodne funkcije za pretraživanje tako da se pretražuje neopadajuće uređena lista.
  \item Napisati funkciju koja briše sve elemente u listi koji imaju vrednost koja je argument funkcije.
+ \item Napisati verziju prethodne funkcije za brisanje elemenata tako da se brišu elementi neopadajuće uređene liste.
  \item Napisati funkciju koja oslobađa dinamički zauzetu memoriju za elemente liste.
  \end{enumerate}
+\napomena{Sve funkcije za rad sa listom implementirati iterativno.}
 
-Sve funckije za rad sa listom najpre implementirati iterativno, a zatim i rekurzivno.
-\komentar{Ana: Da li bi ovde trebalo da stoje dve reference na rešenja jer imamo nezavisno rekurzivno i interativno rešenje}
-
-
+Potom napisati glavni program koji koristi jednostruko povezanu listu za čuvanje elemenata koji se unose sa standardnog ulaza. 
+Unošenje novih brojeva u listu prekida se učitavanjem kraja ulaza (EOF). 
+\begin{enumerate}
+\item U glavnom programu se učitani celi brojevi dodaju na početak liste. 
+    Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
+    Unosi se ceo broj koji se trazi u unetoj listi, i na ekran se ispisuje rezultat pretrage. 
+\item U glavnom programu se učitani celi brojevi dodaju na kraj liste. 
+    Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
+    Unosi se ceo broj čija se sva pojavljivanja u listi brišu. Na ekran se ispisuje sadržaj liste nakon brisanja.
+\item U glavnom programu se učitani celi brojevi dodaju u listu tako da je elementi budu uređeni u neopadajućem poretku. 
+    Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
+    Unosi ceo broj koji se traži u unetoj listi, i na ekran se ispisuje rezultat pretrage. 
+    Potom se unosi još jedan ceo broj čija se sva pojavljivanja u listi brišu i prikazuje se aktuelni sadržaj liste nakon brisanja.
+    \napomena{Prilikom pretraživanja i brisanja elementa liste koristiti činjenicu da je lista uređena.}
+\end{enumerate}
 \begin{maxitest}
-\begin{test}{Upotreba programa 1}
+\begin{test}{Upotreba programa a) 1}
 Poziv: ./a.out
 Ulaz:
-	Unosite elemente liste! (za kraj unesite EOF tj. CTRL+D): 2 3 14 5 3 3 17 3 1 9 3
-	Unesite element koji se trazi u listi: 17
-	Unesite element koji se brise iz liste: 3
+  Unosite elemente liste (za kraj unesite CTRL+D): 2 3 14 5 3 3 17 3 1 9 3
+  Unesite element koji se trazi u listi: 17
 Izlaz:
-        Lista: []
-        Lista: [2]
-        Lista: [3, 2]
-        Lista: [14, 3, 2]
-        Lista: [5, 14, 3, 2]
-        Lista: [3, 5, 14, 3, 2]
-        Lista: [3, 3, 5, 14, 3, 2]
-        Lista: [17, 3, 3, 5, 14, 3, 2]
-        Lista: [3, 17, 3, 3, 5, 14, 3, 2]
-        Lista: [1, 3, 17, 3, 3, 5, 14, 3, 2]
-        Lista: [9, 1, 3, 17, 3, 3, 5, 14, 3, 2]
-        Lista: [3, 9, 1, 3, 17, 3, 3, 5, 14, 3, 2]
+  Lista: []
+  Lista: [2]
+  Lista: [3, 2]
+  Lista: [14, 3, 2]
+  Lista: [5, 14, 3, 2]
+  Lista: [3, 5, 14, 3, 2]
+  Lista: [3, 3, 5, 14, 3, 2]
+  Lista: [17, 3, 3, 5, 14, 3, 2]
+  Lista: [3, 17, 3, 3, 5, 14, 3, 2]
+  Lista: [1, 3, 17, 3, 3, 5, 14, 3, 2]
+  Lista: [9, 1, 3, 17, 3, 3, 5, 14, 3, 2]
+  Lista: [3, 9, 1, 3, 17, 3, 3, 5, 14, 3, 2]
 
-        Trazeni broj 17 je u listi!
-        Lista nakon brisanja:  [9, 1, 17, 5, 14, 2]
+  Trazeni broj 17 je u listi!
 \end{test}
 \end{maxitest}
-
-
-
 \begin{maxitest}
-\begin{test}{Upotreba programa 2}
+\begin{test}{Upotreba programa a) 2}
 Poziv: ./a.out
 Ulaz:
-	Unosite elemente liste! (za kraj unesite EOF tj. CTRL+D): 23 14 35
-	Unesite element koji se trazi u listi: 8
-	Unesite element koji se brise iz liste: 3
+  Unosite elemente liste (za kraj unesite CTRL+D): 23 14 35
+  Unesite element koji se trazi u listi: 8
 Izlaz:
-	Lista: []
-        Lista: [23]
-        Lista: [14, 23]
-        Lista: [35, 14, 23]
-        
-        Element NIJE u listi!
-        Lista nakon brisanja:  [35, 14, 23]
+  Lista: []
+  Lista: [23]
+  Lista: [14, 23]
+  Lista: [35, 14, 23]
+  
+  Element nije u listi!
 \end{test}
 \end{maxitest}
-
 \begin{maxitest}
-\begin{test}{Upotreba programa 3}
+\begin{test}{Upotreba programa a) 3}
 Poziv: ./a.out
 Ulaz:
-	Unosite elemente liste! (za kraj unesite EOF tj. CTRL+D): 
-	Unesite element koji se trazi u listi: 1
-	Unesite element koji se brise iz liste: 12
+  Unosite elemente liste (za kraj unesite CTRL+D): 
+  Unesite element koji se trazi u listi: 1
 Izlaz:
-        Lista: []
-        
-        Element NIJE u listi!
-        Lista nakon brisanja:  []
+  Lista: []
+  
+  Element nije u listi!
 \end{test}
 \end{maxitest}
+\begin{maxitest}
+\begin{test}{Upotreba programa b) 1}
+Poziv: ./a.out
+Ulaz:
+  Unosite elemente liste (za kraj unesite CTRL+D): 2 3 14 5 3 3 17 3 1 9 3
+  Unesite element koji se brise iz liste: 3
+Izlaz:
+  Lista: []
+  Lista: [2]
+  Lista: [2, 3]
+  Lista: [2, 3, 14]
+  Lista: [2, 3, 14, 5]
+  Lista: [2, 3, 14, 5, 3]
+  Lista: [2, 3, 14, 5, 3, 3]
+  Lista: [2, 3, 14, 5, 3, 3, 17]
+  Lista: [2, 3, 14, 5, 3, 3, 17, 3]
+  Lista: [2, 3, 14, 5, 3, 3, 17, 3, 1]
+  Lista: [2, 3, 14, 5, 3, 3, 17, 3, 1, 9]
+  Lista: [2, 3, 14, 5, 3, 3, 17, 3, 1, 9, 3]
+  
+  Lista nakon brisanja:  [2, 14, 5, 17, 1, 9]
+\end{test}
+\end{maxitest}
+\begin{maxitest}
+\begin{test}{Upotreba programa b) 2}
+Poziv: ./a.out
+Ulaz:
+  Unosite elemente liste (za kraj unesite CTRL+D): 23 14 35
+  Unesite element koji se brise iz liste: 3
+Izlaz:
+  Lista: []
+  Lista: [23]
+  Lista: [23, 14]
+  Lista: [23, 14, 35]
 
-
+  Lista nakon brisanja:  [23, 14, 35]
+\end{test}
+\end{maxitest}
+\begin{maxitest}
+\begin{test}{Upotreba programa b) 3}
+Poziv: ./a.out
+Ulaz:
+  Unosite elemente liste (za kraj unesite CTRL+D): 
+  Unesite element koji se brise iz liste: 12
+Izlaz:
+  Lista: []
+  
+  Lista nakon brisanja:  []
+\end{test}
+\end{maxitest}
+\begin{maxitest}
+\begin{test}{Upotreba programa c) 1}
+Poziv: ./a.out
+Ulaz:
+  Unosite elemente liste (za kraj unesite CTRL+D): 2 3 14 5 3 3 17 3 1 9 3
+  Unesite element koji se trazi u listi: 5
+  Unesite element koji se brise iz liste: 3
+Izlaz:
+  Lista: []
+  Lista: [2]
+  Lista: [2, 3]
+  Lista: [2, 3, 14]
+  Lista: [2, 3, 5, 14]
+  Lista: [2, 3, 3, 5, 14]
+  Lista: [2, 3, 3, 3, 5, 14]
+  Lista: [2, 3, 3, 3, 5, 14, 17]
+  Lista: [2, 3, 3, 3, 3, 5, 14, 17]
+  Lista: [1, 2, 3, 3, 3, 3, 5, 14, 17]
+  Lista: [1, 2, 3, 3, 3, 3, 5, 9, 14, 17]
+  Lista: [1, 2, 3, 3, 3, 3, 3, 5, 9, 14, 17]
+  
+  Trazeni broj 5 je u listi!
+  Lista nakon brisanja:  [1, 2, 5, 9, 14, 17]
+\end{test}
+\end{maxitest}
+\begin{maxitest}
+\begin{test}{Upotreba programa c) 2}
+Poziv: ./a.out
+Ulaz:
+  Unosite elemente liste (za kraj unesite CTRL+D): 23 14 35
+  Unesite element koji se trazi u listi: 8
+  Unesite element koji se brise iz liste: 3
+Izlaz:
+  Lista: []
+  Lista: [23]
+  Lista: [14, 23]
+  Lista: [14, 23, 35]
+  
+  Element nije u listi!
+  Lista nakon brisanja:  [14, 23, 35]
+\end{test}
+\end{maxitest}
+\begin{maxitest}
+\begin{test}{Upotreba programa c) 3}
+Poziv: ./a.out
+Ulaz:
+  Unosite elemente liste (za kraj unesite CTRL+D): 
+  Unesite element koji se trazi u listi: 1
+  Unesite element koji se brise iz liste: 12
+Izlaz:
+  Lista: []
+  
+  Element nije u listi!
+  Lista nakon brisanja:  []
+\end{test}
+\end{maxitest}
 \linkresenje{601}
 \end{Exercise}
-
 \begin{Answer}[ref=601]
-\includecode{resenja/06_Liste/601.c}
+\includecode{resenja/06_Liste/601/lista.h}
+\includecode{resenja/06_Liste/601/lista.c}
+\includecode{resenja/06_Liste/601/main_a.c}
+\includecode{resenja/06_Liste/601/main_b.c}
+\includecode{resenja/06_Liste/601/main_c.c}
 \end{Answer}
 
-
-
+%=========================================================================
 \begin{Exercise}[label=602]
-Napisati program koji koristi jednostruko povezanu listu za čuvanje elemenata koji se unose sa standardnog ulaza. 
-Unošenje novih brojeva u listu prekida se učitavanjem kraja ulaza (EOF). 
-Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
-\begin{enumerate}
-\item Definisati strukturu \kckod{Cvor} koja predstavlja čvor liste.
-\item Napisati funkciju koja kao argument dobija ceo broj, kreira nov čvor liste sa tom vrednosti i vreća adresu novo kreiranog čvora.
- \item Napisati funkciju koja dodaje novi elemenat na kraj liste. 
- \item Napisati funkciju koja ispisuje elemente liste, uokvirene zagradama [, ] i međusobno razdvojene zapetama.
- \item Napisati funkciju koja oslobađa dinamički zauzetu memoriju za elemente liste.
- \end{enumerate}
-
- Sve funkcije za rad sa listom najpre implementirati iterativno, a zatim i rekurzivno.
-\komentar{Ana: Da li bi ovde trebalo da stoje dve reference na rešenja jer imamo nezavisno rekurzivno i interativno rešenje}
-
-
-\begin{maxitest}
-\begin{test}{Upotreba programa 1}
-Poziv: ./a.out
-Ulaz:
-	Unosite elemente liste! (za kraj unesite EOF tj. CTRL+D): 2 3 14 5 3 3 17 3 1 9 3
-Izlaz:
-        Lista: []
-        Lista: [2]
-        Lista: [2, 15]
-        Lista: [2, 15, 4]
-        Lista: [2, 15, 4, 8]
-        Lista: [2, 15, 4, 8, 3]
-        Lista: [2, 15, 4, 8, 3, 24]
-        Lista: [2, 15, 4, 8, 3, 24, 11]
-        Lista: [2, 15, 4, 8, 3, 24, 11, 17]
-        Lista: [2, 15, 4, 8, 3, 24, 11, 17, 4]
-        Lista: [2, 15, 4, 8, 3, 24, 11, 17, 4, 3]
-        Lista: [2, 15, 4, 8, 3, 24, 11, 17, 4, 3, 7]
-\end{test}
-\end{maxitest}
-
-
-
-\begin{maxitest}
-\begin{test}{Upotreba programa 2}
-Poziv: ./a.out
-Ulaz:
-	Unosite elemente liste! (za kraj unesite EOF tj. CTRL+D): 
-Izlaz:
-        Lista: []
-\end{test}
-\end{maxitest}
-
+Prethodni zadatak uraditi tako da sve funkcije za rad sa listama budu rekurzivne.
+\napomena{Koristiti iste upotrebe programa iz zadatka \ref{601}.}
+\uputstvo{U slučaju da je u rekurzivnom pozivu funkcija koje dodaju nove elemente u listu došlo do greške pri alokaciji, funkcija treba da vrati 1 višem rekurzivnom pozivu 
+    koji tu informaciju prosleđuje u rekurzivni poziv iznad, i tako sve dok se ta informacija ne vrati u main. Ako je poziv funkcije u glavnom programu 
+    vratio 0, onda nije bilo greške. Ukoliko je vraćeno 1, dogodila se greška, i tad treba iz main funkcije pristupiti pravom početku liste i osloboditi je celu.}
 \linkresenje{602}
 \end{Exercise}
-
 \begin{Answer}[ref=602]
-\includecode{resenja/06_Liste/602.c}
+\includecode{resenja/06_Liste/602/lista.h}
+\includecode{resenja/06_Liste/602/lista.c}
+\includecode{resenja/06_Liste/602/main_a.c}
+\includecode{resenja/06_Liste/602/main_b.c}
+\includecode{resenja/06_Liste/602/main_c.c}
 \end{Answer}
 
-
-
-
-
+%=========================================================================
 \begin{Exercise}[label=603]
-Napisati program koji koristi jednostruko povezanu listu za čuvanje elemenata koji se unose sa standardnog ulaza. 
-Unošenje novih brojeva u listu prekida se učitavanjem kraja ulaza (EOF). 
-Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
+Napisati biblioteku za rad sa dvostruko povezanom listom celih brojeva, koja ima iste funkcionalnosti poput navedenih u zadatku \ref{601}. 
+Dopuniti bibilioteku sa 
 \begin{enumerate}
-\item Definisati strukturu \kckod{Cvor} koja predstavlja čvor liste.
-\item Napisati funkciju koja kao argument dobija ceo broj, kreira nov čvor liste sa tom vrednosti i vreća adresu novo kreiranog čvora.
- \item Napisati funkciju koja dodaje novi elemenat u listu tako da lista ostane rastuće sortirana.
- \item Napisati funkciju koja oslobađa memoriju koju je zauzela lista.
- \item Napisati funkciju koja ispisuje elemente liste, uokvirene zagradama \[, \] i međusobno razdvojene zapetama.
- \item Napisati funkciju koja pretražuje listu za elementom koji ima vrednost koja je argument funkcije.
- \item Napisati funkciju koja briše sve elemente u listi koji imaju vrednost koja je argument funkcije.
- \item Napisati funkciju koja oslobađa dinamički zauzetu memoriju za elemente liste.
- \end{enumerate}
+ \item Funkcijom koja iz prosleđene liste briše element na koju pokazuje pokazivač koji se funkciji šalje kao argument.
+ \item Funkcijom koja ispisuje sadržaj liste od poslednjeg elementa ka glavi liste.
+\end{enumerate}
 
- Sve funkcije za rad sa listom najpre implementirati iterativno, a zatim i rekurzivno.
-\komentar{Ana: Da li bi ovde trebalo da stoje dve reference na rešenja jer imamo nezavisno rekurzivno i interativno rešenje}
-
-
-
-\begin{maxitest}
-\begin{test}{Upotreba programa 1}
-Poziv: ./a.out
-Ulaz:
-	Unosite elemente liste! (za kraj unesite EOF tj. CTRL+D): 2 3 14 5 3 3 17 3 1 9 3
-	Unesite element koji se trazi u listi: 5
-	Unesite element koji se brise iz liste: 3
-Izlaz:
-        Lista: []
-        Lista: [2]
-        Lista: [2, 3]
-        Lista: [2, 3, 14]
-        Lista: [2, 3, 5, 14]
-        Lista: [2, 3, 3, 5, 14]
-        Lista: [2, 3, 3, 3, 5, 14]
-        Lista: [2, 3, 3, 3, 5, 14, 17]
-        Lista: [2, 3, 3, 3, 3, 5, 14, 17]
-        Lista: [1, 2, 3, 3, 3, 3, 5, 14, 17]
-        Lista: [1, 2, 3, 3, 3, 3, 5, 9, 14, 17]
-        Lista: [1, 2, 3, 3, 3, 3, 3, 5, 9, 14, 17]
-        
-        Trazeni broj 5 je u listi!
-        Lista nakon brisanja:  [1, 2, 5, 9, 14, 17]
-\end{test}
-\end{maxitest}
-
-
-
-\begin{maxitest}
-\begin{test}{Upotreba programa 2}
-Poziv: ./a.out
-Ulaz:
-	Unosite elemente liste! (za kraj unesite EOF tj. CTRL+D): 23 14 35
-	Unesite element koji se trazi u listi: 8
-	Unesite element koji se brise iz liste: 3
-Izlaz:
-	Lista: []
-        Lista: [23]
-        Lista: [14, 23]
-        Lista: [14, 23, 35]
-        
-        Element NIJE u listi!
-        Lista nakon brisanja:  [14, 23, 35]
-\end{test}
-\end{maxitest}
-
-\begin{maxitest}
-\begin{test}{Upotreba programa 3}
-Poziv: ./a.out
-Ulaz:
-	Unosite elemente liste! (za kraj unesite EOF tj. CTRL+D): 
-	Unesite element koji se trazi u listi: 1
-	Unesite element koji se brise iz liste: 12
-Izlaz:
-        Lista: []
-        
-        Element NIJE u listi!
-        Lista nakon brisanja:  []
-\end{test}
-\end{maxitest}
-
+Sve funkcije za rad sa listom implementirati iterativno.
+\napomena{Koristiti iste \kckod{main} programe i upotrebe programa iz zadatka \ref{601}. Main programe dopuniti na kraju i pozivom funkcije koja ispisuje listu u nazad. }
 \linkresenje{603}
 \end{Exercise}
 \begin{Answer}[ref=603]
-\includecode{resenja/06_Liste/603.c}
+\includecode{resenja/06_Liste/603/lista.h}
+\includecode{resenja/06_Liste/603/lista.c}
+\includecode{resenja/06_Liste/603/main_a.c}
+\includecode{resenja/06_Liste/603/main_b.c}
+\includecode{resenja/06_Liste/603/main_c.c}
 \end{Answer}
-
-
-
-
-
-
+%=========================================================================
 
 \begin{Exercise}[label=604]
-Napisati program koji koristi dvostruko povezanu listu za čuvanje
-celih brojeva koji se unose sa standardnog ulaza. 
-Unošenje novih brojeva u listu se prekida učitavanjem kraja ulaza (EOF). 
-Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
-\komentar{I ovde isto mozda razdvojiti sortiranost od obične liste.}
-\begin{enumerate}
- \item Napisati funkciju koja dodaje novi elemenat na početak liste.
- \item Napisati funkciju koja dodaje novi elemenat na kraj liste.
- \item Napisati funkciju koja dodaje novi elemenat u listu tako da lista ostane rastuće sortirana.
- \item Napisati funkciju koja pretražuje listu za elementom koji ima vrednost koja je argument funkcije.
- \item Napisati funkciju koja briše sve elemente u listi koji imaju vrednost koja je argument funkcije.
- \item Napisati funkciju koja oslobađa dinamički zauzetu memoriju za elemente liste.
-
-\end{enumerate}
-Sve funckije za rad sa listom implementirati iterativno.
-\end{Exercise}
-\begin{Answer}[ref=604]
-% \includecode{resenja/06_Liste/604.c}
-\end{Answer}
-
-
-\begin{Exercise}[label=605]
 Sadržaj datoteke je aritmetički izraz koji može sadržati zagrade \{, [ i (. 
-Napisati program koji učitava sadržaj datoteke i korišćenjem steka 
-utvrđuje da li su zagrade u aritmetičkom izrazu 
-dobro uparene. Program štampa odgovarajuću poruku na standardni izlaz.
+Napisati program koji učitava sadržaj datoteke \kckod{dat.txt} i korišćenjem steka 
+utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa odgovarajuću poruku na standardni izlaz.
 
 \begin{maxitest}
   \begin{test}{Test 1}
-Datoteka: {[23 + 5344] * (24 - 234)} - 23
-Izlaz:  Zagrade su ispravno uparene.
-  \end{test}
-\end{maxitest}
-
-\begin{maxitest}
-  \begin{test}{Test 2}
-Datoteka: {[23 + 5] * (9 * 2)} - {23}
-Izlaz:  Zagrade su ispravno uparene.
-  \end{test}
-\end{maxitest}
-
-\begin{maxitest}
-  \begin{test}{Test 3}
-Datoteka: {[2 + 54) / (24 * 87)} + (234 + 23)
-Izlaz:  Zagrade nisu ispravno uparene.
-  \end{test}
-\end{maxitest}
-
-\begin{maxitest}
-  \begin{test}{Test 3}
-Datoteka: {(2 - 14) / (23 + 11)}} * (2 + 13)
-Izlaz:  Zagrade nisu ispravno uparene.
-  \end{test}
-\end{maxitest}
-
-\begin{maxitest}
-  \begin{test}{Test 4}
+Datoteka: 
+  {[23 + 5344] * (24 - 234)} - 23
+Izlaz:  
+  Zagrade su ispravno uparene.
+\end{test}
+\begin{test}{Test 2}
+Datoteka: 
+  {[23 + 5] * (9 * 2)} - {23}
+Izlaz:  
+  Zagrade su ispravno uparene.
+\end{test}
+\begin{test}{Test 3}
+Datoteka: 
+  {[2 + 54) / (24 * 87)} + (234 + 23)
+Izlaz:  
+  Zagrade nisu ispravno uparene.
+\end{test}
+\begin{test}{Test 3}
+Datoteka: 
+  {(2 - 14) / (23 + 11)}} * (2 + 13)
+Izlaz:  
+  Zagrade nisu ispravno uparene.
+\end{test}
+\begin{test}{Test 4}
 Datoteka je prazna.
-Izlaz:  Zagrade su ispravno uparene.
-  \end{test}
-\end{maxitest}
-
-\begin{maxitest}
-  \begin{test}{Test 5}
+Izlaz:  
+  Zagrade su ispravno uparene.
+\end{test}
+\begin{test}{Test 5}
 Datoteka ne postoji. 
-Izlaz:  Greska prilikom otvaranja datoteke izraz.txt!
-  \end{test}
+Izlaz:  
+  Greska prilikom otvaranja datoteke izraz.txt!
+\end{test}
 \end{maxitest}
-
+\linkresenje{604}
 \end{Exercise}
-\begin{Answer}[ref=605]
-% \includecode{resenja/06_Liste/605.c}
+\begin{Answer}[ref=604]
+\includecode{resenja/06_Liste/604.c}
 \end{Answer}
+%=========================================================================
 
-
-
-
-
-\begin{Exercise}[label=606]
-Napisati program koji proverava ispravnost uparivanja etiketa u HTML datoteci. Ime datoteke se zadaje kao argument komandne linije . \komentar{Milena: A sta ako se ne navede argument komandne linije?}
+\begin{Exercise}[label=605]
+Napisati program koji proverava ispravnost uparivanja etiketa u HTML datoteci. Ime datoteke se zadaje kao argument komandne linije.
+Poruke o greškama ispisivati na standardni izlaz za greške.
 Uputstvo: za rešavanje problema koristiti stek implementiran preko listi čiji su čvorovi HTML etikete.
-
 \begin{maxitest}
-    \begin{test}{Test 1}
+\begin{test}{Test 1}
 Poziv: ./a.out datoteka.html
 Datoteka.html:                          
 <html>                                  
@@ -342,98 +307,158 @@ Datoteka.html:
     <a link="http://www.math.rs"> Link 2</a>
   </body>
 </html>
-Izlaz: Ispravno uparene etikete.
-    \end{test}
+Izlaz: 
+  Ispravno uparene etikete.
+\end{test}
 \end{maxitest}
-
 \begin{maxitest}    
-  \begin{test}{Test 2}
+\begin{test}{Test 2}
 Poziv: ./a.out datoteka.html
 Datoteka.html:                         
 <html>                                 
   <head><title>Primer</title></head>               
   <body>  
 </html>
-Izlaz: Neispravno uparene etikete.
-  \end{test}
+Izlaz: 
+  Neispravno uparene etikete.
+\end{test}
 \end{maxitest}
-
 \begin{maxitest}      
-  \begin{test}{Test 3}
+\begin{test}{Test 3}
 Poziv: ./a.out datoteka.html
 Datoteka.html:                         
 <html>                                  
   <head><title>Primer</title></head>               
   <body>  
   </body>
-Izlaz: Neispravno uparene etikete.
-  \end{test}
+Izlaz: 
+  Neispravno uparene etikete.
+\end{test}
 \end{maxitest}
-
-
 \begin{maxitest}
-    \begin{test}{Test 4}
+\begin{test}{Test 4}
 Poziv: ./a.out 
-Izlaz: Greska! Program se poziva sa: ./a.out datoteka.html!
-    \end{test}
+Izlaz: 
+  Greska! Program se poziva sa: ./a.out datoteka.html!
+\end{test}
 \end{maxitest}
-
-
 \begin{maxitest}
-    \begin{test}{Test 5}
+\begin{test}{Test 5}
 Poziv: ./a.out datoteka.html
 Datoteka.html ne postoji.
-Izlaz: Greska prilikom otvaranja datoteke datoteka.html.
-    \end{test}
+Izlaz: 
+  Greska prilikom otvaranja datoteke datoteka.html.
+\end{test}
 \end{maxitest}
-
 \begin{maxitest}
-    \begin{test}{Test 6}
+\begin{test}{Test 6}
 Poziv: ./a.out datoteka.html
 Datoteka.html je prazna
-Izlaz: Ispravno uparene etikete.
-    \end{test}
+Izlaz: 
+  Ispravno uparene etikete.
+\end{test}
 \end{maxitest}
-
+\linkresenje{605}
 \end{Exercise}
-\begin{Answer}[ref=606]
-% \includecode{resenja/06_Liste/601.c}
+\begin{Answer}[ref=605]
+\includecode{resenja/06_Liste/605.c}
 \end{Answer}
+%=========================================================================
 
-
-
-\begin{Exercise}[label=607]
-\komentar{Milena: Problem sa ovim zadatkom je sto je program najpre na usluzi korisnicima, 
-a zatim na usluzi sluzbeniku i to nekako zbunjuje u formulaicji. Formulacija mi nije bila jasna bez citanja resenja, 
-pokusala sam da je preciziran, u nastavku je izmenjena formulacija. \\
-Medjutim, ja i dalje nisam bas zadovoljna i zato predlazem da se formulacija izmeni tako da je program stalno 
-na usluzi sluzbeniku. Program ucitva podatke o prijavljenim korisnicima iz datoteke. 
-Sluzbenik odlucuje da li ce da obradjuje redom korisnike, ili ce u nekim situacijama da odlozi rad sa korisnikom
-i stavi ga na kraj reda. Program ga uvek pita da na osnovu jmbg-a i zahteva odluci da li ce ga staviti na kraj reda, 
-ako hoce, on ide na kraj reda, ako nece, onda  sluzbenik daje odgovor na zahtev i jmbg, zahtev i odgovor se upisuju u izlaznu datoteku.}
-
-Napisati program kojim se simulira rad jednog šaltera na kojem se prvo zakazuju 
+\begin{Exercise}[label=606]
+Napisati program kojim se simulira rad jednog šaltera na kojem se prvo kod službenika zakazuju 
 termini, a potom službenik uslužuje korisnike redom, kako su se prijavljivali.
-
-Korisnik se prijavljuje unošenjem svog \kckod{jmbg} broja (niska koja sadrži $13$ karaktera) i zahteva (niska koja sadrži najviše $999$ karaktera). Prijavljivanje korisnika se prekida unošenjem karaktera za kraj ulaza (\kckod{EOF}).
-
+Službenik evidentira korisničke \kckod{jmbg} brojeve (niske koje sadrže po $13$ karaktera) i zahteve (niska koja sadrži najviše $999$ karaktera). 
+Zakazivanje termina korisnicima se prekida unošenjem karaktera za kraj ulaza, (\kckod{EOF}).
 Službenik redom proziva korisnike čitanjem njihovog \kckod{jmbg} broja, a zatim odlučuje da li 
 korisnika vraća na kraj reda ili ga odmah uslužuje. Službeniku se postavlja pitanje 
 \kckod{Da li korisnika  vracate na kraj reda?} i ukoliko on da odgovor \kckod{Da}, 
-korisnik se vraća na kraj reda. Ukoliko odgovor nije \kckod{Da}, tada službenik čita korisnikov zahtev.  
-Posle svakog $10$ usluženog korisnika, službeniku se nudi 
-mogućnost da prekine sa radom, nevezano od broja korisnika koji i dalje čekaju u redu. 
+korisnik se vraća na kraj reda. Ukoliko odgovor nije \kckod{Da}, tada službenik obrađuje zahtev tako što ga dopisuje na kraj datoteke \kckod{izvestaj.txt}, 
+u novom redu, JMBG i zahtev usluženog korisnika.
+Posle svakog $5$ usluženog korisnika, službeniku se nudi mogućnost da prekine sa radom, nevezano od broja korisnika koji i dalje čekaju u redu. 
+\uputstvo{Za čuvanje korisničkih zahteva koristiti red implementiran korišćenjem listi.}
 
-Za čuvanje korisničkih zahteva koristiti red implementiran korišćenjem listi.
+\begin{maxitest}
+\begin{test}{Upotreba programa 1}
+Sluzbenik evidentira korisnicke zahteve unosenjem 
+njihovog JMBG broja i opisa potrebne usluge:
+
+Novi zahtev [CTRL+D za kraj]
+        JMBG: 1234567890123
+        Opis problema: Otvaranje racuna
+
+Novi zahtev [CTRL+D za kraj]
+        JMBG: 2345678901234
+        Opis problema: Podizanje novca
+
+Novi zahtev [CTRL+D za kraj]
+        JMBG: 3456789012345
+        Opis problema: Reklamacija
+
+Novi zahtev [CTRL+D za kraj]
+        JMBG: 4567890123456
+        Opis problema: Zatvaranje racuna
+
+Novi zahtev [CTRL+D za kraj]
+        JMBG: 5678901234567
+        Opis problema: Podizanje kredita
+
+Novi zahtev [CTRL+D za kraj]
+        JMBG: 
+Sledeci je korisnik sa JMBG brojem: 1234567890123
+sa zahtevom: Otvaranje racuna
+        Da li ga vracate na kraj reda? [Da/Ne] Da
+
+Sledeci je korisnik sa JMBG brojem: 2345678901234
+sa zahtevom: Podizanje novca
+        Da li ga vracate na kraj reda? [Da/Ne] Ne
+
+Sledeci je korisnik sa JMBG brojem: 3456789012345
+sa zahtevom: Reklamacija
+        Da li ga vracate na kraj reda? [Da/Ne] Da
+
+Sledeci je korisnik sa JMBG brojem: 4567890123456
+sa zahtevom: Zatvaranje racuna
+        Da li ga vracate na kraj reda? [Da/Ne] Ne
+
+Sledeci je korisnik sa JMBG brojem: 5678901234567
+sa zahtevom: Podizanje kredita
+        Da li ga vracate na kraj reda? [Da/Ne] Da
+
+Da li je kraj smene? [Da/Ne] Ne
+
+Sledeci je korisnik sa JMBG brojem: 1234567890123
+sa zahtevom: Otvaranje racuna
+        Da li ga vracate na kraj reda? [Da/Ne] Ne
+
+Sledeci je korisnik sa JMBG brojem: 3456789012345
+sa zahtevom: Reklamacija
+        Da li ga vracate na kraj reda? [Da/Ne] Ne
+
+Sledeci je korisnik sa JMBG brojem: 5678901234567
+sa zahtevom: Podizanje kredita
+        Da li ga vracate na kraj reda? [Da/Ne] Ne
+
+izvestaj.txt: 
+  JMBG: 2345678901234     Zahtev: Podizanje novca
+  JMBG: 4567890123456     Zahtev: Zatvaranje racuna
+  JMBG: 1234567890123     Zahtev: Otvaranje racuna
+  JMBG: 3456789012345     Zahtev: Reklamacija
+  JMBG: 5678901234567     Zahtev: Podizanje kredita
+\end{test}
+\end{maxitest}
+\linkresenje{606}
 \end{Exercise}
-\begin{Answer}[ref=607]
-% \includecode{resenja/06_Liste/601.c}
+\begin{Answer}[ref=606]
+\includecode{resenja/06_Liste/606/red.h}
+\includecode{resenja/06_Liste/606/red.c}
+\includecode{resenja/06_Liste/606/main_a.c}
+\includecode{resenja/06_Liste/606/main_b.c}
 \end{Answer}
 
-
 %%% Obavezni sa praktikuma
-
-\begin{Exercise}[label=608]
+%=========================================================================
+\begin{Exercise}[label=607]
 Napisati program koji prebrojava pojavljivanja etiketa HTML 
 datoteke čije se ime zadaje kao argument komandne linije. Rezultat prebrojavanja 
 ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste koristiti strukturu:
@@ -445,9 +470,8 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
    struct _Element *sledeci;
  } Element;
 \end{ckod}
-
 \begin{maxitest}
-    \begin{test}{Test 1}
+\begin{test}{Test 1}
 Poziv: ./a.out datoteka.html
 Datoteka.html:                                     
 <html>                                             
@@ -461,50 +485,46 @@ Datoteka.html:
   </body>
 </html>
 
-Izlaz:  a - 4
-        br - 1
-        h1 - 2
-        body - 2
-        title - 2
-        head - 2
-        html - 2
-    \end{test}
+Izlaz:  
+  a - 4
+  br - 1
+  h1 - 2
+  body - 2
+  title - 2
+  head - 2
+  html - 2
+\end{test}
 \end{maxitest}
-
 \begin{maxitest}
-    \begin{test}{Test 2}
+\begin{test}{Test 2}
 Poziv: ./a.out 
-Izlaz: Greska! Program se poziva sa: ./a.out datoteka.html!
-    \end{test}
+Izlaz: 
+  Greska! Program se poziva sa: ./a.out datoteka.html!
+\end{test}
 \end{maxitest}
-
-
 \begin{maxitest}
-    \begin{test}{Test 3}
+\begin{test}{Test 3}
 Poziv: ./a.out datoteka.html
 Datoteka.html ne postoji.
-Izlaz: Greska prilikom otvaranja datoteke datoteka.html.
-    \end{test}
+Izlaz: 
+  Greska prilikom otvaranja datoteke datoteka.html.
+\end{test}
 \end{maxitest}
-
 \begin{maxitest}
-    \begin{test}{Test 4}
+\begin{test}{Test 4}
 Poziv: ./a.out datoteka.html
 Datoteka.html je prazna.
 Izlaz: 
-    \end{test}
+\end{test}
 \end{maxitest}
-
-
-
+\linkresenje{607}
 \end{Exercise}
-\begin{Answer}[ref=608]
-% \includecode{resenja/06_Liste/601.c}
+\begin{Answer}[ref=607]
+\includecode{resenja/06_Liste/607.c}
 \end{Answer}
 
-
-
-\begin{Exercise}[label=609]
+%=========================================================================
+\begin{Exercise}[label=608]
 \komentar{Milena: malo me muci u ovom zadatku sto nema neki smisao. Naime, ako se samo vrsi ucitavanje iz datoteka i ispisivanje, 
 onda su ove liste zapravo visak jer isti rezultat moze da se dobije i bez koriscenja listi. 
 Zato mi fali da program uradi nesto sto ne bi mogao da uradi bez koriscenja listi,
@@ -516,120 +536,115 @@ kreira nove čvorove, već da samo
 postojeće čvorove preraspodeli. Prva lista se učitava iz datoteke koja se 
 zadaje kao prvi argument komandne
 linije, a druga iz datoteke čije se ime zadaje kao drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.
-
+\napomena{Koristiti biblioteku za rad sa listama celih brojeva iz zadatka \ref{601}}
 \begin{miditest}
-  \begin{test}{Test 1}
+\begin{test}{Test 1}
 Poziv: ./a.out dat1.txt dat2.txt
-dat1.txt: 2 4 6 10 15
-dat2.txt: 5 6 11 12 14 16
-Izlaz: 2 4 5 6 6 10 11 12 14 15 16
-  \end{test}
+dat1.txt: 
+  2 4 6 10 15
+dat2.txt: 
+  5 6 11 12 14 16
+Izlaz: 
+  2 4 5 6 6 10 11 12 14 15 16
+\end{test}
 \end{miditest}
-  
 \begin{miditest}
-  \begin{test}{Test 2}
+\begin{test}{Test 2}
 Poziv: ./a.out
-Izlaz: Greska! Program se poziva sa: ./a.out dat1.txt dat2.txt!
-  \end{test}
+Izlaz: 
+  Greska! Program se poziva sa: ./a.out dat1.txt dat2.txt!
+\end{test}
 \end{miditest}  
- 
- 
 \begin{miditest}
-  \begin{test}{Test 3}
+\begin{test}{Test 3}
 Poziv: ./a.out dat1.txt 
-Izlaz: Greska! Program se poziva sa: ./a.out dat1.txt dat2.txt!
-  \end{test}
+Izlaz: 
+  Greska! Program se poziva sa: ./a.out dat1.txt dat2.txt!
+\end{test}
 \end{miditest}
-
-
 \begin{miditest}
-  \begin{test}{Test 4}
+\begin{test}{Test 4}
 Poziv: ./a.out dat1.txt dat2.txt
-dat1.txt: 2 4 6 10 15
+dat1.txt: 
+  2 4 6 10 15
 dat2.txt ne postoji
-Izlaz: Greska prilikom otvaranja datoteke dat2.txt.
-  \end{test}
+Izlaz: 
+  Greska prilikom otvaranja datoteke dat2.txt.
+\end{test}
 \end{miditest}
-
 \begin{miditest}
-  \begin{test}{Test 5}
+\begin{test}{Test 5}
 Poziv: ./a.out dat1.txt dat2.txt
 dat1.txt ne postoji
 dat2.txt: 2 4 6 10 15
-Izlaz: Greska prilikom otvaranja datoteke dat1.txt.
-  \end{test}
-\end{miditest}
-  
-  
+Izlaz: 
+  Greska prilikom otvaranja datoteke dat1.txt.
+\end{test}
+\end{miditest}  
 \begin{miditest}
-  \begin{test}{Test 6}
+\begin{test}{Test 6}
 Poziv: ./a.out dat1.txt dat2.txt
 dat1.txt prazna
 dat2.txt: 2 4 6 10 15
-Izlaz: 2 4 6 10 15
-  \end{test}
+Izlaz:
+  2 4 6 10 15
+\end{test}
 \end{miditest}
-  
+\linkresenje{608}  
 \end{Exercise}
-\begin{Answer}[ref=609]
-\includecode{resenja/06_Liste/601.c}
+\begin{Answer}[ref=608]
+\includecode{resenja/06_Liste/608.c}
 \end{Answer}
 
-
-
-\begin{Exercise}[label=610]
-Napisati funkciju koja formira listu studenata tako što se podaci o studentima 
-učitavaju iz datoteke čije se ime zadaje kao argument komandne linije. 
-U svakom redu datoteke nalaze se podaci o studentu i to broj indeksa, ime
-i prezime. Napisati rekurzivnu funkciju koja određuje da li neki student pripada listi ili ne.
-Ispisati zatim odgovarajuću poruku i rekurzivno osloboditi memoriju koju je data lista zauzimala.
-Student se traži na osnovu broja indeksa, koji se zadaje sa standardnog ulaza.
+%=========================================================================
+\begin{Exercise}[label=609]
+Napisati funkciju koja dodaje na početak liste studenata novog studenta za koga su nam poznati su nam broj indeksa, ime
+i prezime. 
+Napisati rekurzivnu funkciju koja određuje da li neki student pripada listi ili ne.
+U glavnom programu učitati u listu sve podatke o studentima iz datoteke čije se ime zadaje kao argument komandne linije. U svakom redu datoteke nalaze se podaci o studentu i to broj indeksa, ime
+i prezime.
+Nakon toga se sa standardnog ulaza unose, jedan po jedan, indeksi studenata koji se traže u učitanoj listi. Posle svakog unetog indeksa, program ispisuje poruku da ili ne,
+u zavisnosti od toga da li u listi postoji student sa unetim indeksom ili ne. Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF).
+Nakon završenog pretraživanja rekurzivnom funkcijom osloboditi memoriju koju je data lista zauzimala.
+\uputstvo{Pretpostaviti da je 10 karaktera dovoljno za zapis indeks i da je 20 karaketera maksimalna dužina bilo imena bilo prezimena studenta.}
 \begin{maxitest}
-    \begin{test}{Test 1}
+\begin{test}{Test 1}
 Poziv: ./a.out studenti.txt
-Datoteka:                 Ulaz:       Izlaz:
+studenti.txt:             Ulaz:       Izlaz:
 123/2014 Marko Lukic      3/2014      da: Ana Sokic
 3/2014 Ana Sokic          235/2008    ne
 43/2013 Jelena Ilic       41/2009     da: Marija Zaric
 41/2009 Marija Zaric
 13/2010 Milovan Lazic
-  \end{test}
-\end{maxitest}
-
-\begin{miditest}
-  \begin{test}{Test 2}
+\end{test}
+\begin{test}{Test 2}
 Poziv: ./a.out
-Izlaz: Greska! Program se poziva sa: ./a.out studenti.txt!
-  \end{test}
-\end{miditest}  
-
-
-\begin{miditest}
-  \begin{test}{Test 5}
+Izlaz: 
+  Greska! Program se poziva sa: ./a.out studenti.txt!
+\end{test}
+\begin{test}{Test 5}
 Poziv: ./a.out  studenti.txt
 studenti.txt ne postoji
-Izlaz: Greska prilikom otvaranja datoteke studenti.txt
-  \end{test}
-\end{miditest}
-  
-  
-\begin{miditest}
-  \begin{test}{Test 5}
+Izlaz: 
+  Greska prilikom otvaranja datoteke studenti.txt
+\end{test}
+\begin{test}{Test 5}
 Poziv: ./a.out  studenti.txt
-studenti.txt prazna
-Izlaz: ???  videti sta ce tacno biti 
-  \end{test}
-\end{miditest}
-
+studenti.txt:             Ulaz:       Izlaz:
+  prazna                  3/2014      ne
+                          235/2008    ne
+                          41/2009     ne
+\end{test}
+\end{maxitest}
+\linkresenje{609}
 \end{Exercise}
-\begin{Answer}[ref=610]
-% \includecode{resenja/06_Liste/601.c}
+\begin{Answer}[ref=609]
+\includecode{resenja/06_Liste/609.c}
 \end{Answer}
 
 %% Dodatni
-
-
-\begin{Exercise}[label=611]
+%=========================================================================
+\begin{Exercise}[label=610]
 Neka su date dve jednostruko povezane liste L1 i L2. Napisati funkciju koja od 
 tih lista formira novu listu L koja sadrži alternirajući raspoređene elemente 
 lista L1 i L2 (prvi element iz L1, prvi element iz L2, drugi element L1,
@@ -639,68 +654,63 @@ kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao
 drugi argument komandne linije. Rezultujuću listu ispisati 
 na standardni izlaz. \komentar{Milena: Sta ako je neka lista duza? To precizirati. I ovde me muci
 sto nedostaje neki smisao zadatku, nesto sto ne bi moglo da se uradi da nismo koristili liste. }
-
 \begin{miditest}
-  \begin{test}{Test 1}
+\begin{test}{Test 1}
 Poziv: ./a.out dat1.txt dat2.txt
 dat1.txt: 2 4 6 10 15
 dat2.txt: 5 6 11 12 14 16
-Izlaz:  2 5 4 6 6 11 10 12 15 14 16
-  \end{test}
+Izlaz:  
+  2 5 4 6 6 11 10 12 15 14 16
+\end{test}
 \end{miditest}
-
 \begin{miditest}
-  \begin{test}{Test 2}
+\begin{test}{Test 2}
 Poziv: ./a.out
-Izlaz: Greska! Program se poziva sa: ./a.out dat1.txt dat2.txt!
-  \end{test}
+Izlaz: 
+  Greska! Program se poziva sa: ./a.out dat1.txt dat2.txt!
+\end{test}
 \end{miditest}  
- 
- 
 \begin{miditest}
-  \begin{test}{Test 3}
+\begin{test}{Test 3}
 Poziv: ./a.out dat1.txt 
-Izlaz: Greska! Program se poziva sa: ./a.out dat1.txt dat2.txt!
-  \end{test}
+Izlaz: 
+  Greska! Program se poziva sa: ./a.out dat1.txt dat2.txt!
+\end{test}
 \end{miditest}
-
-
 \begin{miditest}
-  \begin{test}{Test 4}
+\begin{test}{Test 4}
 Poziv: ./a.out dat1.txt dat2.txt
 dat1.txt: 2 4 6 10 15
 dat2.txt ne postoji
-Izlaz: Greska prilikom otvaranja datoteke dat2.txt.
-  \end{test}
+Izlaz: 
+  Greska prilikom otvaranja datoteke dat2.txt.
+\end{test}
 \end{miditest}
-
 \begin{miditest}
-  \begin{test}{Test 5}
+\begin{test}{Test 5}
 Poziv: ./a.out dat1.txt dat2.txt
 dat1.txt ne postoji
 dat2.txt: 2 4 6 10 15
-Izlaz: Greska prilikom otvaranja datoteke dat1.txt.
-  \end{test}
+Izlaz: 
+  Greska prilikom otvaranja datoteke dat1.txt.
+\end{test}
 \end{miditest}
-  
-  
 \begin{miditest}
-  \begin{test}{Test 6}
+\begin{test}{Test 6}
 Poziv: ./a.out dat1.txt dat2.txt
 dat1.txt prazna
 dat2.txt: 2 4 6 10 15
-Izlaz: 2 4 6 10 15
-  \end{test}
+Izlaz: 
+  2 4 6 10 15
+\end{test}
 \end{miditest}
-  
 \end{Exercise}
-\begin{Answer}[ref=611]
+\begin{Answer}[ref=610]
 % \includecode{resenja/06_Liste/601.c}
 \end{Answer}
 
-
-
-\begin{Exercise}[label=612]
+%=========================================================================
+\begin{Exercise}[label=611]
 Data je datoteka brojevi.txt koja sadrži cele brojeve.
 \begin{enumerate}
  \item Napisati funkciju koja iz zadate datoteke učitava brojeve i smešta ih u listu.
@@ -709,57 +719,45 @@ pronalazi maximalan strogo rastući podniz.
 \end{enumerate}
 Napisati program koji u datoteku \kckod{Rezultat.txt} upisuje nađeni strogo rastući podniz.
 \komentar{Milena: I ovde me muci sto bi zadatak mogao da se resi i bez koriscenja listi... }
-
-\komentar{Milena: Prirodni oblik testa ovde bi bio horizontalan, a ne ovako vertikalan.}
 \begin{miditest}
-  \begin{test}{Test 1}
+\begin{test}{Test 1}
 Poziv: ./a.out
-brojevi.txt       
-       43 12 15 16 4 2 8
+brojevi.txt:
+  43 12 15 16 4 2 8
 Izlaz: 
-Rezultat.txt : 12 15 16
-  \end{test}
-\end{miditest}
-
-
-
-\begin{miditest}
-  \begin{test}{Test 2}
+Rezultat.txt : 
+  12 15 16
+\end{test}
+\begin{test}{Test 2}
 Poziv: ./a.out
 brojevi.txt ne postoji
 Izlaz:
-Rezultat.txt : Greska prilikom otvaranja datoteke dat2.txt.
-  \end{test}
-\end{miditest}
-
-\begin{miditest}
-  \begin{test}{Test 3}
+Rezultat.txt: 
+  Greska prilikom otvaranja datoteke dat2.txt.
+\end{test}
+\begin{test}{Test 3}
 Poziv: ./a.out 
 brojevi.txt prazna
 Izlaz: 
 Rezultat.txt  je prazna.
-  \end{test}
-\end{miditest}
-  
-  
-\begin{miditest}
-  \begin{test}{Test 6}
+\end{test}
+\begin{test}{Test 6}
 Poziv: ./a.out dat1.txt dat2.txt
 dat1.txt prazna
-dat2.txt: 2 4 6 10 15
-Izlaz: 2 4 6 10 15
-  \end{test}
+dat2.txt: 
+  2 4 6 10 15
+Izlaz:
+  2 4 6 10 15
+\end{test}
 \end{miditest}
 
-
 \end{Exercise}
-\begin{Answer}[ref=612]
-\includecode{resenja/06_Liste/601.c}
+\begin{Answer}[ref=611]
+% \includecode{resenja/06_Liste/601.c}
 \end{Answer}
 
-
-
-\begin{Exercise}[label=613]
+%=========================================================================
+\begin{Exercise}[label=612]
 Grupa od $n$ plesača na kostimima imaju brojeve od $1$ do $n$, redom, u smeru kazaljke na satu.
 Plesači izvode svoju plesnu tačku tako što formiraju krug iz kog najpre izlazi $k$-ti plesač.
 Odbrojava se počevši od plesača označenog brojem $1$ u smeru kretanja kazaljke na satu. 
@@ -769,20 +767,22 @@ sve dok svi plesači ne budu isključeni.
 Celi brojevi $n$, $k$ ($k < n$) se učitavaju sa standardnog ulaza. 
 
 Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u redosledu napuštanja kruga. 
-Uputstvo: u implementaciji koristiti kružnu listu.
-\begin{maxitest}
-  \begin{test}{Test 1}
-Ulaz: 5 3 
-Izlaz: 3 1 5 2 4
-  \end{test}
-\end{maxitest}
-
+\uputstvo{Pri implementaciji koristiti dvostruko povezanu kružnu listu.}
+\begin{minitest}
+\begin{test}{Test 1}
+Ulaz: 
+  5 3 
+Izlaz: 
+  3 1 5 2 4
+\end{test}
+\end{minitest}
 \end{Exercise}
-\begin{Answer}[ref=613]
+\begin{Answer}[ref=612]
 % \includecode{resenja/06_Liste/601.c}
 \end{Answer}
 
-\begin{Exercise}[label=614]
+%=========================================================================
+\begin{Exercise}[label=613]
 Grupa od $n$ plesača na kostimima imaju brojeve od $1$ do $n$, redom, u smeru kazaljke na satu.
 Plesači izvode svoju plesnu tačku tako što formiraju krug iz kog najpre izlazi $k$-ti plesač.
 Odbrojava se počevši od plesača označenog brojem $1$ u smeru kretanja kazaljke na satu. 
@@ -791,26 +791,24 @@ sledećeg suseda prethodno izbačenog, uz promenu smera. Ukoliko se prilikom pre
 u smeru kazaljke na satu sada će se obrojavati u suprotnom smeru, i obrnuto. Izlasci iz kruga se nastavljaju
 sve dok svi plesači ne budu isključeni. 
 Celi brojevi $n$, $k$ ($k < n$) se učitavaju sa standardnog ulaza. 
-
 Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u redosledu napuštanja kruga. 
-Uputstvo: u implementaciji koristiti dvostruko povezanu kružnu listu.
-
+\uputstvo{Pri implementaciji koristiti dvostruko povezanu kružnu listu.}
 \begin{minitest}
-  \begin{test}{Test 1}
-Ulaz: 5 3 
-Izlaz: 3 5 4 2 1
-  \end{test}
-\end{minitest}
-
-\begin{minitest}
-  \begin{test}{Test 1}
-Ulaz: 2 7 
-Izlaz: n mora biti uvek vece od k, a 2 < 7!
-  \end{test}
+\begin{test}{Test 1}
+Ulaz: 
+  5 3 
+Izlaz: 
+  3 5 4 2 1
+\end{test}
+\begin{test}{Test 2}
+Ulaz: 
+  2 7 
+Izlaz: 
+  n mora biti uvek vece od k, a 2 < 7!
+\end{test}
 \end{minitest}
 
 \end{Exercise}
-\begin{Answer}[ref=614]
+\begin{Answer}[ref=613]
 % \includecode{resenja/06_Liste/601.c}
 \end{Answer}
-
