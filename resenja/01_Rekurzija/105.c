@@ -1,4 +1,3 @@
-ï »¿
 #include <stdio.h>
     /* Repno-rekurzivna (eng. tail recursive) je ona funkcija
        Cije se telo zavrsava rekurzivnim pozivom, pri cemu taj
