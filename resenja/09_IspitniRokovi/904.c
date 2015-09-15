@@ -3,7 +3,8 @@
 #include <string.h>
 #define MAX 128
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
   FILE *f;
   int brojac = 0;
   char linija[MAX], *p;
@@ -23,14 +24,14 @@ int main(int argc, char **argv) {
     while (1) {
       p = strstr(p, argv[2]);
       if (p == NULL)
-	break;
+        break;
       brojac++;
       p = p + strlen(argv[2]);
     }
   }
-  
+
   fclose(f);
-  
+
   printf("%d\n", brojac);
 
   return 0;

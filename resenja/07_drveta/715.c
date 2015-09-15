@@ -57,7 +57,8 @@ int main(int argc, char **argv)
   Cvor *koren;
   int heap_indikator;
 
-  /* Kreiramo stablo koje sadrzi brojeve 100 19 36 17 3 25 1 2 7 */
+  /* Kreiramo stablo koje sadrzi brojeve 100 19 36 17 3 25 1 2 7 
+   */
   koren = NULL;
   koren = napravi_cvor(100);
   koren->levo = napravi_cvor(19);

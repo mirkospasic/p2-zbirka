@@ -113,8 +113,8 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
 
 /* Funkcija vrsi pretragu stabla i vraca cvor sa trazenim
    datumom (null ako takav ne postoji). u promenljivu pom ce
-   biti smesten prvi datum (dan i mesec) veci od trazenog
-   datuma (null ako takav ne postoji)
+   biti smesten prvi datum (dan i mesec) veci od trazenog datuma 
+   (null ako takav ne postoji)
 
  */
 Cvor *pretrazi(Cvor * koren, int dan, int mesec)

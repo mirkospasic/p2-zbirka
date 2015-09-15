@@ -37,8 +37,8 @@ int kreiraj_niz(Cvor * koren, int a[])
 
 
 /* Funkcija sortira niz tako sto najpre elemente niza smesti u
-   stablo, a zatim kreira novi niz prolazeci kroz stablo sa
-   leva u desno.
+   stablo, a zatim kreira novi niz prolazeci kroz stablo sa leva 
+   u desno.
 
    Ovaj nacin sortiranja primer sortiranja koje nije "u mestu "
    kao sto je to slucaj sa ostalim prethodno opisanim
