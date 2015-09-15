@@ -2,11 +2,13 @@
 #include<stdlib.h>
 #include<string.h>
 
+#define MAX 21
+
 /* Struktura koja predstavlja jednog studenta */
 typedef struct student {
   char nalog[8];
-  char ime[21];
-  char prezime[21];
+  char ime[MAX];
+  char prezime[MAX];
   int poeni;
 } Student;
 
