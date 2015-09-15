@@ -7,7 +7,6 @@
 /* Funckija koja izracunava dubinu stabla */
 int dubina_stabla(Cvor * koren)
 {
-
   /* Dubina praznog stabla je 0 */
   if (koren == NULL)
     return 0;
@@ -47,7 +46,6 @@ void ispisi_nivo(Cvor * koren, int i)
 /* Funkcija koja ispisuje stablo po nivoima */
 void ispisi_stablo_po_nivoima(Cvor * koren)
 {
-
   int i;
 
   /* Prvo izracunavamo dubinu stabla */

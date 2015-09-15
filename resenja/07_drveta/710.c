@@ -7,7 +7,6 @@
 /* a) Funkcija koja izracunava broj cvorova stabla */
 int broj_cvorova(Cvor * koren)
 {
-
   /* Ako je stablo prazno, broj cvorova je nula */
   if (koren == NULL)
     return 0;
@@ -22,7 +21,6 @@ int broj_cvorova(Cvor * koren)
 /* b) Funkcija koja izracunava broj listova stabla */
 int broj_listova(Cvor * koren)
 {
-
   /* Ako je stablo prazno, broj listova je nula */
   if (koren == NULL)
     return 0;
@@ -41,7 +39,6 @@ int broj_listova(Cvor * koren)
 /* c) Funckija koja stampa pozitivne vrednosti listova stabla */
 void pozitivni_listovi(Cvor * koren)
 {
-
   /* Slucaj kada je stablo prazno */
   if (koren == NULL)
     return;
@@ -57,11 +54,9 @@ void pozitivni_listovi(Cvor * koren)
   pozitivni_listovi(koren->desno);
 }
 
-
 /* d) Funkcija koja izracunava zbir cvorova stabla */
 int zbir_cvorova(Cvor * koren)
 {
-
   /* Ako je stablo prazno, zbir cvorova je 0 */
   if (koren == NULL)
     return 0;
@@ -75,7 +70,6 @@ int zbir_cvorova(Cvor * koren)
 /* e) Funckija koja izracunava najveci element stabla. */
 Cvor *najveci_element(Cvor * koren)
 {
-
   /* Ako je stablo prazno, obustavljamo pretragu */
   if (koren == NULL)
     return NULL;
@@ -95,7 +89,6 @@ Cvor *najveci_element(Cvor * koren)
 /* f) Funckija koja izracunava dubinu stabla */
 int dubina_stabla(Cvor * koren)
 {
-
   /* Dubina praznog stabla je 0 */
   if (koren == NULL)
     return 0;
@@ -133,12 +126,10 @@ int broj_cvorova_na_itom_nivou(Cvor * koren, int i)
       + broj_cvorova_na_itom_nivou(koren->desno, i - 1);
 }
 
-
 /* h) Funckija koja ispisuje sve elemente na i-tom nivou */
 void ispis_nivo(Cvor * koren, int i)
 {
   /* ideja je slicna ideji iz prethodne funkcije */
-
   /* nema vise cvorova, ne mozemo da se spustamo kroz stablo */
   if (koren == NULL)
     return;
@@ -158,7 +149,6 @@ void ispis_nivo(Cvor * koren, int i)
    nivou stabla */
 Cvor *max_nivo(Cvor * koren, int i)
 {
-
   /* Ako je stablo prazno, obustavljamo pretragu */
   if (koren == NULL)
     return NULL;
@@ -186,7 +176,6 @@ Cvor *max_nivo(Cvor * koren, int i)
 /* j) Funkcija koja izracunava zbir cvorova na i-tom nivou */
 int zbir_nivo(Cvor * koren, int i)
 {
-
   /* Ako je stablo prazno, zbir je nula */
   if (koren == NULL)
     return 0;
@@ -206,7 +195,6 @@ int zbir_nivo(Cvor * koren, int i)
    su manje ili jednake od date vrednosti x */
 int suma(Cvor * koren, int x)
 {
-
   /* Ako je stablo prazno, zbir je nula */
   if (koren == NULL)
     return 0;
@@ -223,14 +211,12 @@ int suma(Cvor * koren, int x)
   return suma(koren->levo, x);
 }
 
-
 int main(int argc, char **argv)
 {
-
   /* Analiziramo argumente komandne linije */
   if (argc != 3) {
-    fprintf(stderr, "Greska! Program se poziva sa: ./a.out nivo
-broj_za_pretragu\n");
+    fprintf(stderr,
+            "Greska! Program se poziva sa: ./a.out nivo broj_za_pretragu\n");
     exit(EXIT_FAILURE);
   }
   int i = atoi(argv[1]);

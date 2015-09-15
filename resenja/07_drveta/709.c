@@ -9,7 +9,6 @@
 /* Funkcija koja obilazi stablo sa leva na desno i smesta
    vrednosti cvorova u niz. Povratna vrednost funkcije je broj
    vrednosti koje su smestene u niz. */
-
 int kreiraj_niz(Cvor * koren, int a[])
 {
   int r, s;
@@ -35,7 +34,6 @@ int kreiraj_niz(Cvor * koren, int a[])
   return r + s + 1;
 }
 
-
 /* Funkcija sortira niz tako sto najpre elemente niza smesti u
    stablo, a zatim kreira novi niz prolazeci kroz stablo sa leva 
    u desno.
@@ -44,7 +42,6 @@ int kreiraj_niz(Cvor * koren, int a[])
    kao sto je to slucaj sa ostalim prethodno opisanim
    algoritmima sortiranja, jer se sortiranje vrsi u pomocnoj
    dinamickoj strukturi, a ne razmenom elemenata niza. */
-
 void sortiraj(int a[], int n)
 {
   int i;
@@ -62,7 +59,6 @@ void sortiraj(int a[], int n)
   /* Vise nam stablo nije potrebno i oslobadjamo memoriju */
   oslobodi_stablo(&koren);
 }
-
 
 int main()
 {

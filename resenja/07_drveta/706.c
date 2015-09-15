@@ -22,7 +22,6 @@ typedef struct cvor_stabla {
 Cvor *napravi_cvor(char ime[], char prezime[], int dan,
                    int mesec, int godina)
 {
-
   /* Alociramo memoriju */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
@@ -44,7 +43,6 @@ Cvor *napravi_cvor(char ime[], char prezime[], int dan,
 /* Funkcija koja proverava uspesnost alokacije */
 void proveri_alokaciju(Cvor * novi_cvor)
 {
-
   /* Ako memorija nije uspesno alocirana */
   if (novi_cvor == NULL) {
     /* Ispisujemo poruku i prekidamo izvrsavanje programa */
@@ -56,7 +54,6 @@ void proveri_alokaciju(Cvor * novi_cvor)
 /* Funkcija koja oslobadja memoriju zauzetu stablom */
 void oslobodi_stablo(Cvor ** koren)
 {
-
   /* Stablo je prazno */
   if (*koren == NULL)
     return;
@@ -83,7 +80,6 @@ void oslobodi_stablo(Cvor ** koren)
 void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
                     int dan, int mesec, int godina)
 {
-
   /* Ako je stablo prazno */
   if (*koren == NULL) {
 

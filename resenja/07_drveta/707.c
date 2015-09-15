@@ -33,7 +33,6 @@ int identitet(Cvor * koren1, Cvor * koren2)
 
 int main()
 {
-
   int broj;
   Cvor *koren1, *koren2;
 

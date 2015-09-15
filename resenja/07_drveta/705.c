@@ -22,7 +22,6 @@ typedef struct cvor_stabla {
 Cvor *napravi_cvor(char ime[], char prezime[], double uspeh,
                    double matematika, double jezik)
 {
-
   /* Alociramo memoriju za novi cvor */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
@@ -44,7 +43,6 @@ Cvor *napravi_cvor(char ime[], char prezime[], double uspeh,
 /* Funkcija kojom se proverava uspesnost alociranja memorije */
 void proveri_alokaciju(Cvor * novi_cvor)
 {
-
   /* Ako alokacije nije uspesna */
   if (novi_cvor == NULL) {
     /* Ispisujemo poruku i prekidamo sa izvrsavanjem */
@@ -57,7 +55,6 @@ void proveri_alokaciju(Cvor * novi_cvor)
 /* Funkcija kojom se oslobadja memorija zauzeta stablom */
 void oslobodi_stablo(Cvor ** koren)
 {
-
   /* Ako je stablo prazno, nema potrebe za oslobadjanjem
      memorije */
   if (*koren == NULL)
@@ -81,7 +78,6 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
                     double uspeh, double matematika,
                     double jezik)
 {
-
   /* Ako je stablo prazno */
   if (*koren == NULL) {
     /* Kreiramo novi cvor */
@@ -114,7 +110,6 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
    ucenicima koji su polozili prijemni */
 void stampaj(Cvor * koren, int polozili)
 {
-
   /* Stablo je prazno - prekidamo sa ispisom */
   if (koren == NULL)
     return;
@@ -143,7 +138,6 @@ void stampaj(Cvor * koren, int polozili)
    prijemni ispit */
 int nisu_polozili(Cvor * koren)
 {
-
   /* Ako je stablo prazno, broj onih koji nisu polozili je 0 */
   if (koren == NULL)
     return 0;
@@ -161,7 +155,6 @@ int nisu_polozili(Cvor * koren)
 
 int main(int argc, char **argv)
 {
-
   FILE *in;
   Cvor *koren;
   char ime[MAX], prezime[MAX];
@@ -202,5 +195,4 @@ int main(int argc, char **argv)
 
   /* Zavrsavamo sa programom */
   return 0;
-
 }

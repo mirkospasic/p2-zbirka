@@ -14,7 +14,6 @@
    ukoliko zakljucimo da stablo nije heap. */
 int heap(Cvor * koren)
 {
-
   int max_levo, max_desno;
 
   /* Prazno sablo je heap. */
@@ -85,5 +84,4 @@ int main(int argc, char **argv)
 
   /* Zavrsavamo sa programom */
   return 0;
-
 }

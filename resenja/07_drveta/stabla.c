@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stabla.h"
+
 /* Funkcija kojom se kreira novi cvor stabla koji sadrzi zadatu
    vrednost */
 Cvor *napravi_cvor(int broj)
