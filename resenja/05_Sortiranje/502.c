@@ -21,8 +21,7 @@ void selectionSort(char s[], int n)
   }
 }
 
-/* Funkcija vraca: 1 - ako jesu anagrami; 0 - inace.
-   pretpostavlja se da su niske s i t sortirane */
+/* Funkcija vraca: 1 - ako jesu anagrami; 0 - inace. */
 int anagrami(char s[], char t[], int n_s, int n_t)
 {
   int i, n;
@@ -31,6 +30,10 @@ int anagrami(char s[], char t[], int n_s, int n_t)
      anagrami */
   if (n_s != n_t)
     return 0;
+
+  /* Sortiramo niske */
+  selectionSort(s, n_s);
+  selectionSort(t, n_t);
 
   n = n_s;
 
@@ -55,10 +58,6 @@ int main()
   /* Odredjujemo duzinu niski */
   n_s = strlen(s);
   n_t = strlen(t);
-
-  /* Sortiramo niske */
-  selectionSort(s, n_s);
-  selectionSort(t, n_t);
 
   /* Proveravamo da li su niske anagrami */
   if (anagrami(s, t, n_s, n_t))
