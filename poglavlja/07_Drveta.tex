@@ -29,11 +29,12 @@ Napisati program za rad sa binarnim pretraživačkim stablima.
 
 Korišćenjem prethodnih funkcija, napisati program koji sa standardnog ulaza učitava cele brojeve sve do kraja ulaza, dodaje ih u binarno pretraživačko stablo i ispisuje stablo u svakoj od navedenih notacija. Zatim omogućiti unos još dva cela broja i demonstrirati rad funkcije za pretragu nad prvim unetim brojem i rad funkcije za brisanje elemenata nad drugim unetim brojem. 
 
-\begin{maxitest}
+\begin{miditest}
 \begin{test}{Test 1}
 Poziv: ./a.out
 Ulaz:
-	Unesite brojeve (CRL+D za kraj unosa): 7 2 1 9 32 18
+	Unesite brojeve (CRL+D za kraj unosa): 
+	7 2 1 9 32 18
 Izlaz:
 	Infiksni ispis: 1 2 7 9 18 32
 	Prefiksni ispis: 7 2 1 9 32 18
@@ -43,13 +44,13 @@ Izlaz:
 	Brise se broj: 7
 	Rezultujuce stablo: 1 2 9 18 32
 \end{test}
-\end{maxitest}
-
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{Test 2}
 Poziv: ./a.out
 Ulaz:
-	Unesite brojeve (CRL+D za kraj unosa): 8 -2 6 13 24 -3
+	Unesite brojeve (CRL+D za kraj unosa): 
+	8 -2 6 13 24 -3
 Izlaz:
 	Infiksni ispis:  -3 -2 6 8 13 24
 	Prefiksni ispis: 8 -2 -3 6 13 24
@@ -59,7 +60,7 @@ Izlaz:
 	Brise se broj: 14
 	Rezultujuce stablo: -3 -2 6 8 13 24
 \end{test}
-\end{maxitest}
+\end{miditest}
 
 \linkresenje{701}
 \end{Exercise}
@@ -71,7 +72,7 @@ Izlaz:
 
 %2.zadatak
 \begin{Exercise}[label=702]
-Napisati program koji izračunava i na standardnom izlazu ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživackog stabla uređenog leksikografski prema rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku \kckod{Nedostaje ime ulazne datoteke!}. Može se pretpostaviti da dužina reči neće biti veća od 50 karaktera.
+Napisati program koji izračunava i na standardnom izlazu ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživackog stabla uređenog leksikografski po rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku \kckod{Nedostaje ime ulazne datoteke!}. Može se pretpostaviti da dužina reči neće biti veća od 50 karaktera.
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -88,7 +89,6 @@ Izlaz:
 	Najcesca rec: sunce (pojavljuje se 3 puta)
 \end{test}
 \end{miditest}
-
 \begin{miditest}
 \begin{test}{Test 2}
 Poziv: ./a.out suma.txt
@@ -116,7 +116,6 @@ Izlaz:
 
 \end{Exercise}
 
-
 \begin{Answer}[ref=702]
 \includecode{resenja/07_drveta/702.c}
 \end{Answer}
@@ -127,7 +126,7 @@ Izlaz:
 \begin{Exercise}[label=704]
 U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona, npr.~\kckod{Pera Peric 064/123-4567}. Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči \kckod{KRAJ}, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od $30$ karaktera, kao i da imenik ne sadrži podatke o osobama sa istim imenom i prezimenom.
 
-\begin{maxitest}
+\begin{miditest}
 \begin{test}{Upotreba programa 1}
 Poziv: ./a.out 
 Datoteka imenik.txt:
@@ -138,17 +137,13 @@ Datoteka imenik.txt:
    Zika Zikic 021/759-858
 Ulaz:
 	Unesite ime datoteke: imenik.txt
-	Unesite ime i prezime: Pera Peric
-Izlaz:	
-	Broj je: 011/3240-987
-Ulaz:	
+	Unesite ime i prezime: Pera Peric	
+	Broj je: 011/3240-987	
 	Unesite ime i prezime: Marko Markovic
-Izlaz:
-	Broj nije u imeniku!
-Ulaz:	
+	Broj nije u imeniku!	
 	Unesite ime i prezime: KRAJ
 \end{test}
-\end{maxitest}
+\end{miditest}
 \linkresenje{704}
 \end{Exercise}
 
@@ -188,6 +183,7 @@ Izlaz:
 %6.zadatak
 \begin{Exercise}[label=706, difficulty=1]
 Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije u formatu \kckod{Ime Prezime DD.MM.YYYY.} - za svaku osobu po jedna linija datoteke. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj rada. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu \kckod{DD.MM.YYYY}.
+
 \begin{maxitest}
 \begin{test}{Upotreba programa 1}
 Poziv: a.out
@@ -220,34 +216,35 @@ Ulaz:
 \includecode{resenja/07_drveta/706.c}
 \end{Answer}
 
-
-
 %7.zadatak
 \begin{Exercise}[label=707]
 Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj. ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor* koren1, Cvor* koren2)} koja proverava da li su binarna stabla \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identična, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih stabla unositi sa standardnog ulaza sve do pojave broja $0$.
 \napomena{Skup funkcija koje smo napisali u prvom zadatku možemo iskoristiti kao malu biblioteku za rad sa binarnim pretraživačkim stablima celih brojeva. Tako će u zadacima koji slede, datoteka stabla.h predstavljati popis funkcija biblioteke, a datoteka stabla.c njihove implementacije. Programe koji koriste ovu biblioteku treba prevoditi i pokretati u skladu sa smernicama iz poglavlja 1.1.}
 
-\begin{maxitest}
+\begin{miditest}
 \begin{test}{Test 1}
 Poziv: ./a.out
 Ulaz:
-	Prvo stablo: 10 5 15 3 2 4 30 12 14 13 0
-	Drugo stablo: 10 15 5 3 4 2 12 14 13 30 0
+	Prvo stablo: 
+	10 5 15 3 2 4 30 12 14 13 0
+	Drugo stablo: 
+	10 15 5 3 4 2 12 14 13 30 0
 Izlaz:
 	Stabla jesu identicna.
 \end{test}
-\end{maxitest}
-
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{Test 2}
 Poziv: ./a.out
 Ulaz:
-	Prvo stablo: 10 5 15 4 3 2 30 12 14 13 0
-	Drugo stablo: 10 15 5 3 4 2 12 14 13 30 0
+	Prvo stablo: 
+	10 5 15 4 3 2 30 12 14 13 0
+	Drugo stablo: 
+	10 15 5 3 4 2 12 14 13 30 0
 Izlaz:
 	Stabla nisu identicna.
 \end{test}
-\end{maxitest}
+\end{miditest}
 
 \linkresenje{707}
 \end{Exercise}
@@ -270,9 +267,21 @@ Ulaz:
 	Prvo stablo: 1 7 8 9 2 2
 	Drugo stablo: 3 9 6 11 1
 Izlaz:
-	Unija:  1 1 2 2 3 6 7 8 9 9 11
+	Unija: 1 1 2 2 3 6 7 8 9 9 11
 	Presek: 1 9 
 	Razlika: 2 2 7 8 
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Poziv: ./a.out
+Ulaz:
+	Prvo stablo: 11 2 7 5 
+	Drugo stablo: 4 3 3 7
+Izlaz:
+	Unija: 2 3 3 4 5 7 7 11
+	Presek: 7
+	Razlika: 2 5 11
 \end{test}
 \end{miditest}
 
@@ -283,7 +292,6 @@ Izlaz:
 \begin{Answer}[ref=708]
 \includecode{resenja/07_drveta/708.c}
 \end{Answer}
-
 
 %9.zadatak
 \begin{Exercise}[label=709]
@@ -299,8 +307,7 @@ Izlaz:
 	1 6 8 11 25 30 37 
 \end{test}
 \end{miditest}
-
-\begin{maxitest}
+\begin{miditest}
 \begin{test}{Test 2}
 Poziv: ./a.out
 Ulaz:
@@ -308,7 +315,7 @@ Ulaz:
 Izlaz:
 	Greska: pogresna dimenzija niza!
 \end{test}
-\end{maxitest}
+\end{miditest}
 
 \linkresenje{709}
 
@@ -339,7 +346,7 @@ Napisati program koji testira prethodne funkcije. Stablo formirati na osnovu vre
 sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ pročitati kao argumente komandne linije. 
 
 \begin{maxitest}
-\begin{test}{Test 2}
+\begin{test}{Test 1}
 Poziv: ./a.out 2 15
 Ulaz: 
 	10 5 15 3 2 4 30 12 14 13
@@ -367,46 +374,11 @@ Izlaz:
 \end{Answer}
 
 
-
-%11.zadatak
-%nije resen
-\begin{Exercise}[label=711]
-Dato je binarno pretraživačko stablo celih brojeva.
-\begin{enumerate}
-\item Napisati funkciju koja pronalazi čvor u stablu sa maksimalnim proizvodom vrednosti iz desnog podstabla.
-\item Napisati funkciju koja pronalazi čvor u stablu sa najmanjom sumom vrednosti iz levog podstabla.
-\item Napisati funkciju  koja štampa sadržaj svih čvorova stabla na putanji od korena do najdubljeg čvora.
-\item Napisati funkciju koja štampa sadržaj svih čvorova stabla na putanji od korena do čvora koji ima najmanju vrednost u stablu.
-\end{enumerate}
-Napisati program koji testira gore navedene funkcije. Stablo formirati na osnovu vrednosti koje se unose
-sa standardnog ulaza, sve do kraja ulaza.
-
-
-\begin{maxitest}
-\begin{test}{Test 1}
-Poziv: ./a.out
-Ulaz: 
-	10 5 15 3 2 4 30 12 14 13
-Izlaz: 
-	Cvor sa maksimalnim desnim proizvodom: 10
-	Cvor sa najmanjom levom sumom: 2
-	Putanja do najdubljeg cvora: 10 15 12 14 13
-	Putanja do najmanjeg cvora: 10 5 3 2
-\end{test}
-\end{maxitest}
-%\linkresenje{711}
-\end{Exercise}
-
-\begin{Answer}[ref=711]
-%\includecode{resenja/07_drveta/711.c}
-\end{Answer}
-
-
 %12.zadatak
 \begin{Exercise}[label=712]
 Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivoima. Elementi stabla se učitavaju sa standardnog ulaza sve do kraja ulaza.
 
-\begin{maxitest}
+\begin{miditest}
 \begin{test}{Test 1}
 Poziv: ./a.out
 Ulaz: 
@@ -418,7 +390,18 @@ Izlaz:
 	3.nivo: 2 4 14
 	4.nivo: 13
 \end{test}
-\end{maxitest}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Poziv: ./a.out
+Ulaz: 
+	6 11 8 3 -2
+Izlaz: 
+	0.nivo: 6
+	1.nivo: 3 11
+	2.nivo: -2 8
+\end{test}
+\end{miditest}
 
 \linkresenje{712}
 \end{Exercise}
@@ -426,8 +409,6 @@ Izlaz:
 \begin{Answer}[ref=712]
 \includecode{resenja/07_drveta/712.c}
 \end{Answer}
-
-
 
 %13.zadatak
 \begin{Exercise}[label=713, difficulty=1]
@@ -463,8 +444,7 @@ Izlaz:
 
 %14.zadatak
 \begin{Exercise}[label=714]
-AVL-stablo je binarno stablo pretrage kod koga apsolutna razlika visina levog i desnog podstabla svakog elementa
-nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor* koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod{avl} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
+AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina levog i desnog podstabla svakog elementa nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor* koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod{avl} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
 
 \begin{miditest}
 \begin{test}{Test 1}
@@ -495,17 +475,6 @@ Izlaz:
 %15.zadatak
 \begin{Exercise}[label=715]
 Binarno stablo se naziva HEAP ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno stablo celih brojeva HEAP. Napisati zatim i glavni program koji kreira stablo kao na slici ..., poziva funkciju \kckod{heap} i ispisuje rezultat na standardnom izlazu. 
-
-\begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out
-Ulaz: 
-	100 19 36 17 3 25 1 2 7
-Izlaz: 
-	Stablo je heap.
-\end{test}
-\end{miditest}
-
 \linkresenje{715}
 \end{Exercise}
 
@@ -513,6 +482,25 @@ Izlaz:
 \includecode{resenja/07_drveta/715.c}
 \end{Answer}
 
+% OVDE UBACITI SLICICE 
+
+%11.zadatak
+%nije resen
+\begin{Exercise}[label=711]
+Dato je binarno stablo celih brojeva.
+\begin{enumerate}
+\item Napisati funkciju koja pronalazi čvor u stablu sa maksimalnim proizvodom vrednosti iz desnog podstabla.
+\item Napisati funkciju koja pronalazi čvor u stablu sa najmanjom sumom vrednosti iz levog podstabla.
+\item Napisati funkciju  koja štampa sadržaj svih čvorova stabla na putanji od korena do najdubljeg čvora.
+\item Napisati funkciju koja štampa sadržaj svih čvorova stabla na putanji od korena do čvora koji ima najmanju vrednost u stablu.
+\end{enumerate}
+Napisati program koji testira gore navedene funkcije nad stablom zadatim slikom ... 
+%\linkresenje{711}
+\end{Exercise}
+
+\begin{Answer}[ref=711]
+%\includecode{resenja/07_drveta/711.c}
+\end{Answer}
 
 \section{Rešenja}
 \shipoutAnswer
