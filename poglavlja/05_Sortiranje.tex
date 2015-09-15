@@ -217,7 +217,7 @@ Izlazna datoteka (ceo-tok.txt):
   \kckod{bubble}, \kckod{insertion} i \kckod{shell sort}. Upotrebiti
   biblioteku kako bi se napravilo poređenje efikasnosti različitih
   algoritama sortiranja. Efikasnost meriti na slučajno generisanim
-  nizovima, na već sortiranim nizovima i na naopako sortiranim
+  nizovima, na rastuće sortiranim nizovima i na opadajuće sortiranim
   nizovima. Izbor algoritma, veličine i početnog rasporeda elemenata
   niza birati kroz argumente komandne linije.  Vreme meriti programom
   \kckod{time}. Analizirati porast vremena sa porastom dimenzije
@@ -949,8 +949,9 @@ Izlaz:  nema
 \begin{Exercise}[label=524]
   Datoteka \kckod{studenti.txt} sadrži spisak studenata. Za svakog
   studenta poznat je nalog na Alas-u (oblika npr. \kckod{mr97125},
-  \kckod{mm09001}), ime i prezime i broj poena. Napisati program koji
-  sortira (korišćenjem funkcije \kckod{qsort}) studente po broju poena
+  \kckod{mm09001}), ime i prezime i broj poena. I ime i prezime neće
+  biti duže od 20 karaktera. Napisati program koji sortira
+  (korišćenjem funkcije \kckod{qsort}) studente po broju poena
   opadajuće (ukoliko je prisutna opcija \argf{-p}) ili po nalogu
   (ukoliko je prisutna opcija \argf{-n}). Studenti se po nalogu
   sortiraju tako što se sortiraju na osnovu godine, zatim na osnovu
@@ -1090,6 +1091,36 @@ Interakcija programa:
   elementa u koloni.  Napisati program koji testira ovu funkciju. Sa
   standardnog ulaza se prvo unosi dimenzija matrice, a zatim redom
   elementi matrice.  Rezultujuću matricu ispisati na standardni izlaz.
+
+
+\begin{miditest}
+\begin{test}{Upotreba programa 1}
+Interakcija programa:    
+  Unesite dimenziju matrice: 2
+  Unesite elemente matrice po vrstama:
+  6 -5
+  -4 3
+  Sortirana matrica je:
+  -5 6 
+  3 -4 
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Upotreba programa 2}
+Interakcija programa:    
+  Unesite dimenziju matrice: 4
+  Unesite elemente matrice po vrstama:
+  34 12 54 642
+  1 2 3 4
+  53 2 1 5
+  54 23 5 671
+  Sortirana matrica je:
+  12 34 54 642
+  2 1 3 4
+  2 53 1 5
+  23 54 5 671
+\end{test}
+\end{miditest}
   
 %\linkresenje{527}
 \end{Exercise}

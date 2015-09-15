@@ -19,24 +19,24 @@
     sortiranog niza \argf{a}, dužine \argf{n}, tražeći u njemu broj \argf{x}.
   \end{enumerate}
   Napisati i program koji generiše slučajni rastući niz dimenzije
-  \argf{n} (prvi argument komandne linije), i u njemu već napisanim
-  funkcijama traži element \argf{x} (drugi argument komandne
-  linije). Potrebna vremena za izvršavanje ovih funkcija upisati u
-  fajl \kckod{vremena.txt}.
+  \argf{n} (prvi argument komandne linije, ne veći od $1000000$), i u
+  njemu već napisanim funkcijama traži element \argf{x} (drugi
+  argument komandne linije). Potrebna vremena za izvršavanje ovih
+  funkcija upisati u fajl \kckod{vremena.txt}.
   
 \begin{maxitest}
 \begin{test}{Test 1}
-Poziv: ./a.out 1000000 235423
+Poziv: ./a.out 1000000 235423                
 Izlaz:
-Linearna pretraga
-Element nije u nizu
----------------------------------
-Binarna pretraga
-Element nije u nizu
----------------------------------
-Interpolaciona pretraga
-Element nije u nizu
----------------------------------
+  Linearna pretraga                           
+  Element nije u nizu
+  ---------------------------------
+  Binarna pretraga
+  Element nije u nizu
+  ---------------------------------
+  Interpolaciona pretraga
+  Element nije u nizu
+  ---------------------------------
 \end{test}
 \end{maxitest}
 
@@ -101,12 +101,14 @@ Izlaz:
   i traži od korisnika indeks studenta čije informacije se potom
   prikazuju na ekranu.  Zatim, korisnik učitava prezime studenta i
   prikazuju mu se informacije o prvom studentu sa unetim prezimenom.
-  Pretrage implementirati u vidu iterativnih funkcija što bolje manje
-  složenosti. Pretpostaviti da u datoteci neće biti više od $128$
-  studenata i da su imena i prezimena svih kraća od $16$ slova.
+  U slučaju neuspešnih pretragi, štampati odgovarajuću
+  poruku. Pretrage implementirati u vidu iterativnih funkcija što
+  bolje manje složenosti. Pretpostaviti da u datoteci neće biti više
+  od $128$ studenata i da su imena i prezimena svih kraća od $16$
+  slova.
   
 \begin{maxitest}
-\begin{test}{Test 1}
+\begin{test}{Upotreba programa 1}
 Datoteka:
   20140003 Marina Petrovic
   20140012 Stefan Mitrovic
@@ -116,11 +118,10 @@ Datoteka:
   20140104 Ivan Popovic
   20140187 Vlada Stankovic
   20140234 Darko Brankovic
-Ulaz:
-  20140076
-  Popovic
-Izlaz:
+Interakcija programa:
+  Unesite indeks studenta cije informacije zelite: 20140076
   Indeks: 20140076, Ime i prezime: Sonja Stevanovic
+  Unesite prezime studenta cije informacije zelite: Popovic
   Indeks: 20140032, Ime i prezime: Dejan Popovic
 \end{test}
 \end{maxitest}
