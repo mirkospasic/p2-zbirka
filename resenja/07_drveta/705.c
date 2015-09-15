@@ -18,7 +18,7 @@ typedef struct cvor_stabla {
   struct cvor_stabla *desno;
 } Cvor;
 
-/* Funkcija kojom se kreira cvor drveta */
+/* Funkcija kojom se kreira cvor stabla */
 Cvor *napravi_cvor(char ime[], char prezime[], double uspeh,
                    double matematika, double jezik)
 {

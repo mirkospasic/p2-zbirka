@@ -1,13 +1,13 @@
 #ifndef __STABLA_H__
 #define __STABLA_H__ 1
 
-/* Struktura kojom se predstavlja Cvor drveta */
+/* Struktura kojom se predstavlja Cvor stabla */
 typedef struct dcvor{
     int broj;
     struct dcvor* levo, *desno;
 } Cvor;
 
-/* Funkcija alocira prostor za novi Cvor drveta, inicijalizuje polja
+/* Funkcija alocira prostor za novi Cvor stabla, inicijalizuje polja
     strukture i vraca pokazivac na nov Cvor */
 Cvor* napravi_cvor(int b );
 

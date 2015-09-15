@@ -14,7 +14,7 @@ int kreiraj_niz(Cvor * koren, int a[])
 {
   int r, s;
 
-  /* Drvo je prazno - u niz je smesteno 0 elemenata */
+  /* Stablo je prazno - u niz je smesteno 0 elemenata */
   if (koren == NULL)
     return 0;
 

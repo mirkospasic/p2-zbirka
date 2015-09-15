@@ -115,7 +115,7 @@ int dubina_stabla(Cvor * koren)
 /* g) Funckija koja izracunava broj cvorova na i-tom nivou */
 int broj_cvorova_na_itom_nivou(Cvor * koren, int i)
 {
-  /* ideja je da ste spustamo kroz drvo sve dok ne stignemo do
+  /* ideja je da ste spustamo kroz stablo sve dok ne stignemo do
      trazenog nivoa */
 
   /* Ako nema vise cvorova, ne mozemo da se spustamo niz stablo */
