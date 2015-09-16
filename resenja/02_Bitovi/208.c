@@ -14,8 +14,6 @@ int broj_parova(unsigned int x)
   /* broj 3 je binarno 000....00011 */
   maska = 3;
 
-
-
   /* Dok ne obidjemo sve parove bitova u zapisu broja x */
   while (x != 0) {
 
@@ -26,10 +24,11 @@ int broj_parova(unsigned int x)
     }
 
     /* Pomeramo broj u desnu stranu tako da mozemo da ocitamo
-       vrednost sledeceg para bitova */
+       vrednost sledeceg para bitova. Pomeranjem u desno 
+       bit najvece tezine se popunjava nulom jer je x
+       neoznacen broj. */
     x = x >> 1;
   }
-
 
   return broj_parova;
 
