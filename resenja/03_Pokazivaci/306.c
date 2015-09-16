@@ -14,7 +14,7 @@ int duzina(char *s)
 int main(int argc, char **argv)
 {
   char rec[MAX_KARAKTERA];
-  int br = 0, i = 0, n;
+  int br = 0, n;
   FILE *in;
 
   /* Ako korisnik nije uneo trazene argumente, prijavljujemo
