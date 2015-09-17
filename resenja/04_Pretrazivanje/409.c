@@ -12,22 +12,22 @@ unsigned int logaritam_a(unsigned int x)
 
 unsigned int logaritam_b(unsigned int x)
 {
-  /* Binarnom pretragom trazimo jedinicu u binarnom zapisu broja 
-     x najvece vaznosti, tj. najlevlju. Pretragu radimo od
-     pozicije 0 do 31 */
+  /* Binarnom pretragom se trazi jedinica u binarnom zapisu broja x
+     najvece vaznosti, tj. najlevlja. Pretragu se vrsi od pozicije 0
+     do 31 */
   int d = 0, l = sizeof(unsigned int) * 8 - 1;
   int s;
   /* Sve dok je desna granica pretrage desnije od leve */
   while (d <= l) {
-    /* Racunamo sredisnju poziciju */
+    /* Racuna se sredisnja pozicija */
     s = (l + d) / 2;
-    /* Proveravamo da li je na toj poziciji trazena jedinica */
+    /* Proverava se da li je na toj poziciji trazena jedinica */
     if ((1 << s) <= x && (1 << (s + 1)) > x)
       return s;
-    /* Pretrazujemo desnu polovinu binarnog zapisa */
+    /* Pretraga desne polovine binarnog zapisa */
     if ((1 << s) > x)
       l = s - 1;
-    /* Pretrazujemo levu polovinu binarnog zapisa */
+    /* Pretraga leve polovine binarnog zapisa */
     else
       d = s + 1;
   }

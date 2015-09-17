@@ -14,21 +14,21 @@ typedef struct {
 int binarna_pretraga_rekurzivna(Student a[], int levi, int desni,
                                 long x)
 {
-  /* Ako je indeks elementa na levom kraju veci od indeksa
-     elementa na desnom kraju dela niza koji se pretrazuje, onda 
-     zapravo pretrazujemo prazan deo niza. U praznom nizu nema
-     elementa koji trazimo i zato vracamo -1 */
+  /* Ako je pozicija elementa na levom kraju veca od pozicije
+     elementa na desnom kraju dela niza koji se pretrazuje, onda se
+     zapravo pretrazuje prazan deo niza. U praznom delu niza nema
+     trazenog elementa pa se vraca -1 */
   if (levi > desni)
     return -1;
-  /* Racunamo indeks srednjeg elementa */
+  /* Racunanje pozicije srednjeg elementa */
   int srednji = (levi + desni) / 2;
-  /* Da li je srednji, bas onaj kog trazimo? */
+  /* Da li je srednji bas onaj trazeni */
   if (a[srednji].indeks == x) {
     return srednji;
   }
-  /* Ako je trazeni indeks manji od indeksa srednjeg, onda
-     potragu nastavljamo u levoj polovini niza jer znamo da je
-     niz sortiran po indeksu u rastucem poretku. */
+  /* Ako je trazeni indeks manji od indeksa studenta na srednjoj
+     poziciji, onda se pretraga nastavlja u levoj polovini niza, jer
+     je poznato da je niz sortiran po indeksu u rastucem poretku. */
   if (x < a[srednji].indeks)
     return binarna_pretraga_rekurzivna(a, levi, srednji - 1, x);
   /* Inace ga treba traziti u desnoj polovini */
@@ -38,11 +38,11 @@ int binarna_pretraga_rekurzivna(Student a[], int levi, int desni,
 
 int linearna_pretraga_rekurzivna_v2(Student a[], int n, char x[])
 {
-  /* Ako je niz prazan, vracamo -1, jer ga ne mozemo naci */
+  /* Ako je niz prazan, vraca se -1 */
   if (n == 0)
     return -1;
-  /* Kako trazimo prvog studenta sa trazenim prezimenom,
-     pocinjemo sa prvim studentom u nizu. */
+  /* Kako se trazi prvi student sa trazenim prezimenom, pocinje se sa 
+     prvim studentom u nizu. */
   if (strcmp(a[0].prezime, x) == 0)
     return 0;
   int i = linearna_pretraga_rekurzivna_v2(a + 1, n - 1, x);
@@ -51,21 +51,20 @@ int linearna_pretraga_rekurzivna_v2(Student a[], int n, char x[])
 
 int linearna_pretraga_rekurzivna(Student a[], int n, char x[])
 {
-  /* Ako je niz prazan, vracamo -1, jer ga ne mozemo naci */
+  /* Ako je niz prazan, vraca se -1 */
   if (n == 0)
     return -1;
-  /* Kako trazimo poslednjeg studenta sa trazenim prezimenom,
-     pocinjemo sa poslednjim studentom u nizu. */
+  /* Ako se trazi poslednji student sa trazenim prezimenom, pocinje
+     se sa poslednjim studentom u nizu. */
   if (strcmp(a[n - 1].prezime, x) == 0)
     return n - 1;
   return linearna_pretraga_rekurzivna(a, n - 1, x);
 }
 
-/* Main funkcija mora imate argumente jer se ime datoteke dobija 
+/* Main funkcija mora imate argumente jer se ime datoteke prosledjuje
    kao argument komandne linije */
 int main(int argc, char *argv[])
 {
-  /* Ucitacemo redom sve studente iz datoteke u niz. */
   Student dosije[MAX_STUDENATA];
   FILE *fin = NULL;
   int i;
@@ -73,8 +72,8 @@ int main(int argc, char *argv[])
   long trazen_indeks = 0;
   char trazeno_prezime[MAX_DUZINA];
 
-  /* Proveravamo da li nam je korisnik prilikom poziva prosledio 
-     ime datoteke sa informacijama o studentima */
+  /* Provera da li je korisnik prilikom poziva prosledio ime datoteke 
+     sa informacijama o studentima */
   if (argc != 2) {
     fprintf(stderr,
             "Greska: Program se poziva sa %s ime_datoteke\n",
@@ -82,16 +81,16 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaramo datoteku */
+  /* Otvaranje datoteke */
   fin = fopen(argv[1], "r");
   if (fin == NULL) {
     fprintf(stderr,
-            "Neuspesno otvaranje datoteke %s za citanje\n",
-            argv[1]);
+            "Neuspesno otvaranje datoteke %s za citanje\n", argv[1]);
     exit(EXIT_FAILURE);
   }
 
-  /* Citamo sve dok imamo red sa informacijama o studentu */
+  /* Citanje se vrsi sve dok postoji sledeci red sa informacijama o
+     studentu */
   i = 0;
   while (1) {
     if (i == MAX_STUDENATA)
@@ -104,8 +103,8 @@ int main(int argc, char *argv[])
   }
   br_studenata = i;
 
-  /* Nakon citanja datoteka nam vise nije neophodna i odmah je
-     zatvaramo */
+  /* Nakon citanja datoteka nam vise nije neophodna i odmah se
+     zatvara */
   fclose(fin);
 
   /* Unos indeksa koji se binarno trazi u nizu */
@@ -114,22 +113,21 @@ int main(int argc, char *argv[])
   i = binarna_pretraga_rekurzivna(dosije, 0, br_studenata - 1,
                                   trazen_indeks);
   if (i == -1)
-    printf("Ne postoji student sa indeksom %ld\n",
-           trazen_indeks);
+    printf("Ne postoji student sa indeksom %ld\n", trazen_indeks);
   else
     printf("Indeks: %ld, Ime i prezime: %s %s\n",
            dosije[i].indeks, dosije[i].ime, dosije[i].prezime);
 
+  /* Unos prezimena koje se linearno trazi u nizu */
   printf("Unesite prezime studenta cije informacije zelite: ");
   scanf("%s", trazeno_prezime);
-  i = linearna_pretraga_rekurzivna(dosije, br_studenata,
-                                   trazeno_prezime);
+  i = linearna_pretraga_rekurzivna_v2(dosije, br_studenata,
+                                      trazeno_prezime);
   if (i == -1)
-    printf("Ne postoji student sa prezimenom %s\n",
-           trazeno_prezime);
+    printf("Ne postoji student sa prezimenom %s\n", trazeno_prezime);
   else
     printf
-        ("Poslednji takav student:\nIndeks: %ld, Ime i prezime: %s %s\n",
+        ("Prvi takav student:\nIndeks: %ld, Ime i prezime: %s %s\n",
          dosije[i].indeks, dosije[i].ime, dosije[i].prezime);
 
   return 0;
