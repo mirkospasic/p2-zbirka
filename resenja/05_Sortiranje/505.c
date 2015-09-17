@@ -10,8 +10,8 @@ int merge(int *niz1, int dim1, int *niz2, int dim2, int *niz3,
   if (dim3 < dim1 + dim2)
     return -1;
 
-  /* Vrsi se ucesljavanje nizova sve dok se ne dodje do kraja
-     jednog od njih */
+  /* Vrsi se ucesljavanje nizova sve dok se ne dodje do kraja jednog
+     od njih */
   while (i < dim1 && j < dim2) {
     if (niz1[i] < niz2[j])
       niz3[k++] = niz1[i++];
@@ -34,8 +34,7 @@ int main()
   int i = 0, j = 0, k, dim3;
 
   /* Ucitavaju se nizovi sa ulaza sve dok se ne unese nula.
-     Pretpostavka je da na ulazu nece biti vise od MAX_DIM
-     elemenata */
+     Pretpostavka je da na ulazu nece biti vise od MAX_DIM elemenata */
   printf("Unesite elemente prvog niza: ");
   while (1) {
     scanf("%d", &niz1[i]);

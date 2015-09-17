@@ -9,20 +9,19 @@ void selectionSort(int a[], int n)
   int min;
   int pom;
 
-  /* U svakoj iteraciji ove petlje se pronalazi najmanji element 
-     medju elementima a[i], a[i+1],...,a[n-1], i postavlja se na 
-     poziciju i, dok se element na poziciji i premesta na
-     poziciju min, na kojoj se nalazio najmanji od gore
-     navedenih elemenata. */
+  /* U svakoj iteraciji ove petlje se pronalazi najmanji element
+     medju elementima a[i], a[i+1],...,a[n-1], i postavlja se na
+     poziciju i, dok se element na poziciji i premesta na poziciju
+     min, na kojoj se nalazio najmanji od gore navedenih elemenata. */
   for (i = 0; i < n - 1; i++) {
-    /* Unutrasnja petlja pronalazi poziciju min, na kojoj se
-       nalazi najmanji od elemenata a[i],...,a[n-1]. */
+    /* Unutrasnja petlja pronalazi poziciju min, na kojoj se nalazi
+       najmanji od elemenata a[i],...,a[n-1]. */
     min = i;
     for (j = i + 1; j < n; j++)
       if (a[j] < a[min])
         min = j;
-    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi
-       samo ako su (i) i min razliciti, inace je nepotrebno. */
+    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi samo ako 
+       su (i) i min razliciti, inace je nepotrebno. */
     if (min != i) {
       pom = a[i];
       a[i] = a[min];
@@ -31,8 +30,8 @@ void selectionSort(int a[], int n)
   }
 }
 
-/* Funkcija koja pronalazi najmanje rastojanje izmedju dva broja 
-   u sortiranom nizu celih brojeva */
+/* Funkcija koja pronalazi najmanje rastojanje izmedju dva broja u
+   sortiranom nizu celih brojeva */
 int najmanje_rastojanje(int a[], int n)
 {
   int i, min;

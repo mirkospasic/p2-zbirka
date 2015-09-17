@@ -12,8 +12,8 @@ typedef struct art {
   float cena;
 } Artikal;
 
-/* Funkcija koja u nizu artikala binarnom pretragom nalazi onaj
-   sa trazenim bar kodom */
+/* Funkcija koja u nizu artikala binarnom pretragom nalazi onaj sa
+   trazenim bar kodom */
 int binarna_pretraga(Artikal a[], int n, long x)
 {
   int levi = 0;
@@ -21,22 +21,22 @@ int binarna_pretraga(Artikal a[], int n, long x)
 
   /* Dokle god je indeks levi levo od indeksa desni */
   while (levi <= desni) {
-    /* Racunamo sredisnji indeks */
+    /* Racuna se sredisnji indeks */
     int srednji = (levi + desni) / 2;
-    /* Ako je sredisnji element veci od x, tada se x mora
-       nalaziti u levoj polovini niza */
+    /* Ako je sredisnji element veci od trazenog, tada se trazeni
+       mora nalaziti u levoj polovini niza */
     if (x < a[srednji].kod)
       desni = srednji - 1;
-    /* Ako je sredisnji element manji od x, tada se x mora
-       nalaziti u desnoj polovini niza */
+    /* Ako je sredisnji element manji od trazenog, tada se trazeni
+       mora nalaziti u desnoj polovini niza */
     else if (x > a[srednji].kod)
       levi = srednji + 1;
     else
-      /* Ako je sredisnji element jednak x, tada smo pronasli x
-         na poziciji srednji */
+      /* Ako je sredisnji element jednak trazenom, tada je artikal sa 
+         bar kodom x pronadjen na poziciji srednji */
       return srednji;
   }
-  /* Ako nije pronadjen vracamo -1 */
+  /* Ako nije pronadjen artikal za trazenim bar kodom, vraca se -1 */
   return -1;
 }
 
@@ -71,8 +71,7 @@ int main()
 
   /* Otvaranje datoteke */
   if ((fp = fopen("artikli.txt", "r")) == NULL) {
-    fprintf(stderr,
-            "Neuspesno otvaranje datoteke artikli.txt.\n");
+    fprintf(stderr, "Neuspesno otvaranje datoteke artikli.txt.\n");
     exit(EXIT_FAILURE);
   }
 
@@ -88,21 +87,20 @@ int main()
 
   n = i;
 
-  /* Sortiracemo celokupan asortiman prodavnice prema kodovima
-     jer ce pri kucanju racuna prodavac unositi kod artikla.
-     Prilikom kucanja svakog racuna pretrazuje se asortiman, da
-     bi se utvrdila cena artikla. Kucanje racuna obuhvata vise
-     pretraga asortimana i u interesu nam je da ta operacija
-     bude sto efikasnija. Zelimo da koristimo algoritam binarne
-     pretrage priliko pretrazivanje po kodu artikla. Iz tog
-     razloga, potrebno je da nam asortiman bude sortiran po
-     kodovima i to cemo uraditi primenom selection sort
-     algoritma. Sortiramo samo jednom na pocetku, ali zato posle 
-     brzo mozemo da pretrazujemo prilikom kucanja proizvoljno
-     puno racuna. Vreme koje se utrosi na sortiranje na pocetku
-     izvrsavanja programa, kasnije se isplati jer za brojna
-     trazenja artikla mozemo umesto linearne da koristimo
-     efikasniju binarnu pretragu. */
+  /* Sortira se celokupan asortiman prodavnice prema kodovima jer ce
+     pri kucanju racuna prodavac unositi kod artikla. Prilikom
+     kucanja svakog racuna pretrazuje se asortiman, da bi se utvrdila 
+     cena artikla. Kucanje racuna obuhvata vise pretraga asortimana i 
+     cilj je da ta operacija bude sto efikasnija. Zato se koristi
+     algoritam binarne pretrage prilikom pretrazivanja po kodu
+     artikla. Iz tog razloga, potrebno je da asortiman bude sortiran
+     po kodovima i to ce biti uradjeno primenom selection sort
+     algoritma. Sortiranje se vrsi samo jednom na pocetku, ali se
+     zato posle artikli mogu brzo pretrazivati prilikom kucanja
+     proizvoljno puno racuna. Vreme koje se utrosi na sortiranje na
+     pocetku izvrsavanja programa, kasnije se isplati jer se za
+     brojna trazenja artikla umesto linearne moze koristiti
+     efikasnija binarna pretraga. */
   selection_sort(asortiman, n);
 
   /* Ispis stanja u prodavnici */
@@ -121,23 +119,22 @@ int main()
     /* Unos bar koda provog artikla sledeceg kupca */
     if (scanf("%ld", &kod) == EOF)
       break;
-    /* Trenutno racun novog kupca */
+    /* Trenutni racun novog kupca */
     racun = 0;
     /* Za sve artikle trenutnog kupca */
     while (1) {
-      /* Nalazimo ih u nizu */
+      /* Vrsi se njihov pronalazak u nizu */
       if ((i = binarna_pretraga(asortiman, n, kod)) == -1) {
-        printf
-            ("\tGRESKA: Ne postoji proizvod sa trazenim kodom!\n");
+        printf("\tGRESKA: Ne postoji proizvod sa trazenim kodom!\n");
       } else {
         printf("\tTrazili ste:\t%s %s %12.2f\n",
                asortiman[i].naziv, asortiman[i].proizvodjac,
                asortiman[i].cena);
-        /* I dodajemo na ukupan racun */
+        /* I dodavanje na ukupan racun */
         racun += asortiman[i].cena;
       }
-      /* Unos bar koda sledeceg artikla trenutnog kupca, ili 0
-         ako on nema vise artikla */
+      /* Unos bar koda sledeceg artikla trenutnog kupca, ili 0 ako on 
+         nema vise artikla */
       printf("Unesite kod artikla [ili 0 za prekid]: \t");
       scanf("%ld", &kod);
       if (kod == 0)

@@ -19,24 +19,24 @@ void selectionSort(int s[], int n)
   }
 }
 
-/* Funkcija za odredjivanje onog elementa sortiranog niza koji
-   se najvise puta pojavio u tom nizu */
+/* Funkcija za odredjivanje onog elementa sortiranog niza koji se
+   najvise puta pojavio u tom nizu */
 int najvise_puta(int a[], int n)
 {
   int i, j, br_pojava, i_max_pojava = -1, max_br_pojava = -1;
-  /* Za i-ti element izracunavamo koliko se puta pojavio u nizu */
+  /* Za i-ti element izracunava se koliko puta se pojavio u nizu */
   for (i = 0; i < n; i = j) {
     br_pojava = 1;
     for (j = i + 1; j < n && a[i] == a[j]; j++)
       br_pojava++;
-    /* Ispitujemo da li se do tog trenutka i-ti element pojavio
+    /* Ispitivanje da li se do tog trenutka i-ti element pojavio
        najvise puta u nizu */
     if (br_pojava > max_br_pojava) {
       max_br_pojava = br_pojava;
       i_max_pojava = i;
     }
   }
-  /* Vracamo element koji se najvise puta pojavio u nizu */
+  /* Vraca se element koji se najvise puta pojavio u nizu */
   return a[i_max_pojava];
 }
 
@@ -44,7 +44,7 @@ int main()
 {
   int a[MAX_DIM], i;
 
-  /* Ucitavaju se elementi niza sve do kraja ulaza */
+  /* Ucitavanje elemenata niza sve do kraja ulaza */
   i = 0;
   printf("Unesite elemente niza: ");
   while (scanf("%d", &a[i]) != EOF)

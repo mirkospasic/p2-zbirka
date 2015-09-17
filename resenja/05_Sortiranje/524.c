@@ -16,19 +16,18 @@ typedef struct student {
 /* Funkcija poredi studente prema broju poena, rastuce */
 int uporedi_poeni(const void *a, const void *b)
 {
-
   Student s = *(Student *) a;
   Student t = *(Student *) b;
   return s.poeni - t.poeni;
 }
 
-/* Funkcija poredi studente prvo prema godini, zatim prema smeru 
-   i na kraju prema indeksu */
+/* Funkcija poredi studente prvo prema godini, zatim prema smeru i
+   na kraju prema indeksu */
 int uporedi_nalog(const void *a, const void *b)
 {
   Student s = *(Student *) a;
   Student t = *(Student *) b;
-  /* Za svakog studenta iz naloga izdvajamo godinu upisa, smer i 
+  /* Za svakog studenta iz naloga se izdvaja godina upisa, smer i
      broj indeksa */
   int godina1 = (s.nalog[2] - '0') * 10 + s.nalog[3] - '0';
   int godina2 = (t.nalog[2] - '0') * 10 + t.nalog[3] - '0';
@@ -60,8 +59,7 @@ int uporedi_bsearch(const void *a, const void *b)
   char smer1 = nalog[1];
   char smer2 = s.nalog[1];
   int indeks1 =
-      (nalog[4] - '0') * 100 + (nalog[5] - '0') * 10 + nalog[6] -
-      '0';
+      (nalog[4] - '0') * 100 + (nalog[5] - '0') * 10 + nalog[6] - '0';
   int indeks2 =
       (s.nalog[4] - '0') * 100 + (s.nalog[5] - '0') * 10 +
       s.nalog[6] - '0';
@@ -81,12 +79,11 @@ int main(int argc, char **argv)
   int i = 0, br_studenata = 0;
   FILE *in = NULL, *out = NULL;
 
-  /* Ako je broj argumenata komandne linije razlicit i od 2 i od 
-     3, korisnik nije ispravno pozvao program i prijavljujemo
-     gresku: */
+  /* Ako je broj argumenata komandne linije razlicit i od 2 i od 3,
+     korisnik nije ispravno pozvao program i prijavljuje se greska. */
   if (argc != 2 && argc != 3) {
     fprintf(stderr,
-            "Greska! Program se poziva sa: ./a.out -opcija (nalog)!\n");
+            "Greska! Program se poziva sa: ./a.out -opcija [nalog]\n");
     exit(EXIT_FAILURE);
   }
 
@@ -106,7 +103,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavamo studente iz ulazne datoteke sve do njenog kraja */
+  /* Ucitavanje studenta iz ulazne datoteke sve do njenog kraja */
   while (fscanf
          (in, "%s %s %s %d", niz_studenata[i].nalog,
           niz_studenata[i].ime, niz_studenata[i].prezime,
@@ -115,12 +112,11 @@ int main(int argc, char **argv)
 
   br_studenata = i;
 
-  /* Ako je student uneo opciju -p, vrsi se sortiranje po
-     poenima */
+  /* Ako je prisutna opcija -p, vrsi se sortiranje po poenima */
   if (strcmp(argv[1], "-p") == 0)
     qsort(niz_studenata, br_studenata, sizeof(Student),
           &uporedi_poeni);
-  /* A ako je uneo opciju -n, vrsi se sortiranje po nalogu */
+  /* A ako je prisutna opcija -n, vrsi se sortiranje po nalogu */
   else if (strcmp(argv[1], "-n") == 0)
     qsort(niz_studenata, br_studenata, sizeof(Student),
           &uporedi_nalog);

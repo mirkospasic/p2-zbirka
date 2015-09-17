@@ -4,8 +4,7 @@
 
 #define MAX 500
 
-/* Struktura koja nam je neophodna za sve informacije o
-   pojedinacnom studentu */
+/* Struktura sa svim informacijama o pojedinacnom studentu */
 typedef struct {
   char ime[20];
   char prezime[25];
@@ -13,8 +12,8 @@ typedef struct {
   int zadaci;
 } Student;
 
-/* Funkcija kojom sortiramo niz struktura po prezimenu
-   leksikografski rastuce */
+/* Funkcija za sortiranje niza struktura po prezimenu leksikografski
+   rastuce */
 void sort_ime_leksikografski(Student niz[], int n)
 {
   int i, j;
@@ -35,10 +34,9 @@ void sort_ime_leksikografski(Student niz[], int n)
   }
 }
 
-/* Funkcija kojom sortiramo niz struktura po ukupnom broju
-   uradjenih zadataka opadajuce, ukoliko neki studenti imaju
-   isti broj uradjenih zadataka sortiraju se po duzini imena
-   rastuce. */
+/* Funkcija za sortiranje niza struktura po ukupnom broju uradjenih
+   zadataka opadajuce, a ukoliko neki studenti imaju isti broj
+   uradjenih zadataka sortiraju se po duzini imena rastuce. */
 void sort_zadatke_pa_imena(Student niz[], int n)
 {
   int i, j;
@@ -60,11 +58,11 @@ void sort_zadatke_pa_imena(Student niz[], int n)
   }
 }
 
- /* Funkcija kojom sortiramo niz struktura po broju casova na
-    kojima su bili opadajuce, a ukoliko * neki studenti imaju
-    isti broj casova, sortiraju se opadajuce po broju uradjenih
-    zadataka, * a ukoliko se i po broju zadataka poklapaju
-    sortirati ih po prezimenu opadajuce. */
+ /* Funkcija za sortiranje niza struktura po broju casova na kojima
+    su bili opadajuce. Ukoliko neki studenti imaju isti broj casova,
+    sortiraju se opadajuce po broju uradjenih zadataka, a ukoliko se
+    i po broju zadataka poklapaju, njihovo sortiranje ce biti po
+    prezimenu opadajuce. */
 void sort_prisustvo_pa_zadatke_pa_prezimena(Student niz[], int n)
 {
   int i, j;
@@ -101,8 +99,7 @@ int main(int argc, char *argv[])
 
   /* Otvaranje datoteke za citanje */
   if ((fp = fopen("aktivnost.txt", "r")) == NULL) {
-    fprintf(stderr,
-            "Neupesno otvaranje datoteke aktivnost.txt.\n");
+    fprintf(stderr, "Neupesno otvaranje datoteke aktivnost.txt.\n");
     exit(EXIT_FAILURE);
   }
 
@@ -115,8 +112,7 @@ int main(int argc, char *argv[])
   fclose(fp);
   br_studenata = i;
 
-  /* Kreiramo prvi spisak studenata na kom su sortirani
-     leksikografski po imenu rastuce */
+  /* Kreiranje prvog spiska studenata po prvom kriterijumu */
   sort_ime_leksikografski(praktikum, br_studenata);
   /* Otvaranje datoteke za pisanje */
   if ((fp = fopen("dat1.txt", "w")) == NULL) {
@@ -125,8 +121,7 @@ int main(int argc, char *argv[])
   }
   /* Upis niza u datoteku */
   fprintf
-      (fp,
-       "Studenti sortirani po imenu leksikografski rastuce:\n");
+      (fp, "Studenti sortirani po imenu leksikografski rastuce:\n");
   for (i = 0; i < br_studenata; i++)
     fprintf(fp, "%s %s  %d  %d\n", praktikum[i].ime,
             praktikum[i].prezime, praktikum[i].prisustvo,
@@ -134,9 +129,7 @@ int main(int argc, char *argv[])
   /* Zatvaranje datoteke */
   fclose(fp);
 
-  /* Na drugom su sortirani po ukupnom broju uradjenih zadataka
-     opadajuce, ukoliko neki studenti imaku isti broj uradjenih
-     zadataka sortiraju se po duzini imena rastuce. */
+  /* Kreiranje drugog spiska studenata po drugom kriterijumu */
   sort_zadatke_pa_imena(praktikum, br_studenata);
   /* Otvaranje datoteke za pisanje */
   if ((fp = fopen("dat2.txt", "w")) == NULL) {
@@ -144,8 +137,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
   /* Upis niza u datoteku */
-  fprintf(fp,
-          "Studenti sortirani po broju zadataka opadajuce,\n");
+  fprintf(fp, "Studenti sortirani po broju zadataka opadajuce,\n");
   fprintf(fp, "pa po duzini imena rastuce:\n");
   for (i = 0; i < br_studenata; i++)
     fprintf(fp, "%s %s  %d  %d\n", praktikum[i].ime,
@@ -154,13 +146,8 @@ int main(int argc, char *argv[])
   /* Zatvaranje datoteke */
   fclose(fp);
 
-  /* Na trecem spisku su sortirani po broju casova na kojima su
-     bili opadajuce, a ukoliko neki studenti imaju isti broj
-     casova, sortiraju se opadajuce po broju uradjenih zadataka,
-     a ukoliko se i po broju zadataka poklapaju sortirati ih po
-     prezimenu opadajuce. */
-  sort_prisustvo_pa_zadatke_pa_prezimena(praktikum,
-                                         br_studenata);
+  /* Kreiranje treceg spiska studenata po trecem kriterijumu */
+  sort_prisustvo_pa_zadatke_pa_prezimena(praktikum, br_studenata);
   /* Otvaranje datoteke za pisanje */
   if ((fp = fopen("dat3.txt", "w")) == NULL) {
     fprintf(stderr, "Neupesno otvaranje datoteke dat3.txt.\n");

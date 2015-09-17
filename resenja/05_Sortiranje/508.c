@@ -11,15 +11,15 @@ typedef struct Tacka {
   int y;
 } Tacka;
 
-/* Funkcija racuna rastojanje zadate tacke od koordinatnog
-   pocetka (0,0) */
+/* Funkcija racuna rastojanje zadate tacke od koordinatnog pocetka
+   (0,0) */
 float rastojanje(Tacka A)
 {
   return sqrt(A.x * A.x + A.y * A.y);
 }
 
-/* Funkcija koja sortira niz tacaka po rastojanju od
-   koordinatnog pocetka */
+/* Funkcija koja sortira niz tacaka po rastojanju od koordinatnog
+   pocetka */
 void sortiraj_po_rastojanju(Tacka t[], int n)
 {
   int min, i, j;
@@ -89,16 +89,16 @@ int main(int argc, char *argv[])
   Tacka tacke[MAX_BR_TACAKA];
   int i, n;
 
-  /* Proveravamo broj argumenata komandne linije: ocekujemo ime
-     izvrsnog programa, opciju, ime ulazne datoteke i ime
-     izlazne datoteke tj. ocekujemo 4 argumenta */
+  /* Proveravanje broja argumenata komandne linije: ocekuje se ime
+     izvrsnog programa, opcija, ime ulazne datoteke i ime izlazne
+     datoteke, tj. 4 argumenta */
   if (argc != 4) {
     fprintf(stderr,
             "Program se poziva sa: ./a.out opcija ulaz izlaz!\n");
     return 0;
   }
 
-  /* Otvaramo datoteku u kojoj su zadate tacke */
+  /* Otvaranje datoteke u kojoj su zadate tacke */
   ulaz = fopen(argv[2], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
     return 0;
   }
 
-  /* Otvaramo datoteku u koju treba upisati rezultat */
+  /* Otvaranje datoteke u koju treba upisati rezultat */
   izlaz = fopen(argv[3], "w");
   if (izlaz == NULL) {
     fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
@@ -114,48 +114,42 @@ int main(int argc, char *argv[])
     return 0;
   }
 
-  /* Sve dok ne stignemo do kraja ulazne datoteke ucitavamo
-     koordinate tacaka i smestamo ih na odgovarajucu poziciju
-     odredjenu brojacem i; prilikom ucitavanja oslanjamo se na
-     svojstvo funkcije fscanf povratka EOF vrednosti kada stigne 
-     do kraja ulaza */
+  /* Sve dok se ne stigne do kraja ulazne datoteke, ucitavaju se
+     koordinate tacaka i smestaju na odgovarajuce pozicije odredjene
+     brojacem i. */
   i = 0;
   while (fscanf(ulaz, "%d %d", &tacke[i].x, &tacke[i].y) != EOF) {
     i++;
   }
 
-  /* Cuvamo broj procitanih tacaka */
+  /* Ukupan broj procitanih tacaka */
   n = i;
 
-  /* Analiziramo zadatu opciju: kako ocekujemo da je argv[1]
-     "-x" ili "-y" ili "-o" sigurni smo da je argv[1][0] crtica
-     (karakter -) i dalje proveravamo sta je na sledecoj
-     poziciji tj. sta je argv[1][1] */
-
+  /* Analizira se prosledjena opcija. Moguce vrednosti za argv[1] su
+     "-x" ili "-y" ili "-o", pa je argv[1][0] sigurno crtica
+     (karakter -), a karakter argv[1][1] odredjuje kriterijum
+     sortiranja */
   switch (argv[1][1]) {
   case 'x':
-    /* Ako je u pitanju karakter x, pozivamo funkciju za
-       sortiranje po vrednosti x koordinate */
+    /* Sortiranje po vrednosti x koordinate */
     sortiraj_po_x(tacke, n);
     break;
   case 'y':
-    /* Ako je u pitanju karakter y, pozivamo funkciju za
-       sortiranje po vrednosti y koordinate */
+    /* Sortiranje po vrednosti y koordinate */
     sortiraj_po_y(tacke, n);
     break;
   case 'o':
-    /* Ako je u pitanju karakter o, pozivamo funkciju za
-       sortiranje po udaljenosti od koorinatnog pocetka */
+    /* Sortiranje po udaljenosti od koorinatnog pocetka */
     sortiraj_po_rastojanju(tacke, n);
     break;
   }
 
-  /* Upisujemo dobijeni niz u izlaznu datoteku */
+  /* Upisivanje dobijenog niza u izlaznu datoteku */
   for (i = 0; i < n; i++) {
     fprintf(izlaz, "%d %d\n", tacke[i].x, tacke[i].y);
   }
 
-  /* Zatvaramo otvorene datoteke */
+  /* Zatvaranje otvorenih datoteka */
   fclose(ulaz);
   fclose(izlaz);
 

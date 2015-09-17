@@ -5,25 +5,25 @@
 #define MAX_NISKI 1000
 #define MAX_DUZINA 30
 
-/************************************************************
+/******************************************************************
   Niz nizova karaktera ovog potpisa
   char niske[3][4];
   se moze graficki predstaviti ovako:
   ----------------------------------------------------
   | a | b | c |\0 || d | e | \0|   || f | g | h | \0||
   ----------------------------------------------------
-  Dakle kao tri reci (abc, de, fgh), nadovezane jedna na drugu.
-  Za svaku je rezervisano po 4 karaktera ukljucujuci \0.
-  Druga rec sa nalazi na adresi koja je za 4 veca od prve reci,
-  a za 4 manja od adrese na kojoj se nalazi treca rec.
-  Adresa i-te reci je niske[i] i ona je tipa char*.
+  Dakle kao tri reci (abc, de, fgh), nadovezane jedna na drugu. Za
+  svaku je rezervisano po 4 karaktera ukljucujuci \0. Druga rec sa
+  nalazi na adresi koja je za 4 veca od prve reci, a za 4 manja od
+  adrese na kojoj se nalazi treca rec. Adresa i-te reci je niske[i]
+  i ona je tipa char*.
   
-  Kako pokazivaci a i b u sledecoj funkciji sadrze adrese
-  elemenata koji trebaju biti uporedjeni, (npr. pri porecenju
-  prve i poslednje reci, pokazivac a ce pokazivati na slovo 'a',
-  a pokazivac b na slovo 'f') kastujemo ih na char*, i pozivamo
-  funkciju strcmp nad njima.
-*************************************************************/
+  Kako pokazivaci a i b u sledecoj funkciji sadrze adrese elemenata
+  koji trebaju biti uporedjeni, (npr. pri porecenju prve i poslednje
+  reci, pokazivac a ce pokazivati na slovo 'a', a pokazivac b na
+  slovo 'f') treba ih kastovati na char*, i pozvati funkciju strcmp
+  nad njima.
+*******************************************************************/
 int poredi_leksikografski(const void *a, const void *b)
 {
   return strcmp((char *) a, (char *) b);
@@ -58,24 +58,23 @@ int main()
   fclose(fp);
   n = i;
 
-  /* Sortiramo niske leksikografski, tako sto biblioteckoj
-     funkciji qsort prosledjujemo funkciju kojom se zadaje
-     kriterijum poredjenja 2 niske po duzini */
-  qsort(niske, n, MAX_DUZINA * sizeof(char),
-        &poredi_leksikografski);
+  /* Sortiranje niski leksikografski. Biblioteckoj funkciji qsort
+     prosledjuje se funkcija kojom se zadaje kriterijum poredjenja 2
+     niske po duzini */
+  qsort(niske, n, MAX_DUZINA * sizeof(char), &poredi_leksikografski);
 
   printf("Leksikografski sortirane niske:\n");
   for (i = 0; i < n; i++)
     printf("%s ", niske[i]);
   printf("\n");
 
-  /* Unosimo trazeni nisku */
+  /* Unos trazene niske */
   printf("Uneti trazenu nisku: ");
   scanf("%s", x);
 
   /* Binarna pretraga */
-  /* Prosledjujemo pokazivac na funkciju poredi_leksikografski
-     jer nam je niz sortiran leksikografski. */
+  /* Prosledjuje se pokazivac na funkciju poredi_leksikografski jer
+     je niz vec sortiran leksikografski. */
   p = bsearch(&x, niske, n, MAX_DUZINA * sizeof(char),
               &poredi_leksikografski);
 
@@ -86,8 +85,6 @@ int main()
     printf("Niska nije pronadjena u nizu\n");
 
   /* Linearna pretraga */
-  /* Prosledjujemo pokazivac na funkciju poredi_leksikografski
-     jer nam je niz sortiran leksikografski. */
   p = lfind(&x, niske, &n, MAX_DUZINA * sizeof(char),
             &poredi_leksikografski);
 
@@ -97,8 +94,7 @@ int main()
   else
     printf("Niska nije pronadjena u nizu\n");
 
-  /* Sada ih sortiramo po duzini i ovaj put saljemo drugu
-     funkciju poredjenja */
+  /* Sortiranje po duzini */
   qsort(niske, n, MAX_DUZINA * sizeof(char), &poredi_duzine);
 
   printf("Niske sortirane po duzini:\n");

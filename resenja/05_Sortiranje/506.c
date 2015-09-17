@@ -12,24 +12,21 @@ int main(int argc, char *argv[])
 
   /* Ako nema dovoljno arguemenata komandne linije */
   if (argc < 3) {
-    fprintf(stderr,
-            "koriscenje programa: %s fajl1 fajl2\n", argv[0]);
+    fprintf(stderr, "koriscenje programa: %s fajl1 fajl2\n", argv[0]);
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaramo datoteku zadatu prvim argumentom komandne linije */
+  /* Otvaranje datoteke zadate prvim argumentom komandne linije */
   fin1 = fopen(argv[1], "r");
   if (fin1 == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n",
-            argv[1]);
+    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n", argv[1]);
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaramo datoteku zadatu drugim argumentom komandne linije */
+  /* Otvaranje datoteke zadate drugim argumentom komandne linije */
   fin2 = fopen(argv[2], "r");
   if (fin2 == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n",
-            argv[2]);
+    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n", argv[2]);
     exit(EXIT_FAILURE);
   }
 
@@ -41,52 +38,53 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Citamo narednog studenta iz prve datoteke */
+  /* Citanje narednog studenta iz prve datoteke */
   if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
     kraj1 = 1;
 
-  /* Citamo narednog studenta iz druge datoteke */
+  /* Citanje narednog studenta iz druge datoteke */
   if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)
     kraj2 = 1;
 
-  /* Sve dok nismo dosli do kraja neke datoteke */
+  /* Sve dok nije dostignut kraj neke datoteke */
   while (!kraj1 && !kraj2) {
     if (strcmp(ime1, ime2) < 0) {
-      /* Ime i prezime iz prve datoteke je leksikografski
-         ranije, upisujemo ga u izlaznu datoteku */
+      /* Ime i prezime iz prve datoteke je leksikografski ranije, i
+         biva upisano u izlaznu datoteku */
       fprintf(fout, "%s %s\n", ime1, prezime1);
-      /* Citamo narednog studenta iz prve datoteke */
+      /* Citanje narednog studenta iz prve datoteke */
       if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
         kraj1 = 1;
     } else {
-      /* Ime i prezime iz druge datoteke je leksikografski
-         ranije, upisujemo ga u izlaznu datoteku */
+      /* Ime i prezime iz druge datoteke je leksikografski ranije, i
+         biva upisano u izlaznu datoteku */
       fprintf(fout, "%s %s\n", ime2, prezime2);
-      /* Citamo narednog studenta iz druge datoteke */
+      /* Citanje narednog studenta iz druge datoteke */
       if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)
         kraj2 = 1;
     }
   }
 
-  /* Ako smo iz prethodne petlje izasli zato sto se doslo do
-     kraja druge datoteke, onda ima jos imena u prvoj datoteci,
-     i prepisujemo ih, redom, jer su vec sortirani po imenu. */
+  /* Ako se iz prethodne petlje izaslo zato sto je dostignut kraj
+     druge datoteke, onda ima jos studenata u prvoj datoteci, koje
+     treba prepisati u izlaznu, redom, jer su vec sortirani po imenu. 
+   */
   while (!kraj1) {
     fprintf(fout, "%s %s\n", ime1, prezime1);
     if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
       kraj1 = 1;
   }
 
-  /* Ako smo iz prve petlje izasli zato sto se doslo do kraja
-     prve datoteke, onda ima jos imena u drugoj datoteci, i
-     prepisujemo ih, redom, jer su vec sortirani po imenu. */
+  /* Ako se iz prve petlje izaslo zato sto je dostignut kraj prve
+     datoteke, onda ima jos studenata u drugoj datoteci, koje treba
+     prepisati u izlaznu, redom, jer su vec sortirani po imenu. */
   while (!kraj2) {
     fprintf(fout, "%s %s\n", ime2, prezime2);
     if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)
       kraj2 = 1;
   }
 
-  /* Zatvaramo datoteke */
+  /* Zatvaranje datoteka */
   fclose(fin1);
   fclose(fin2);
   fclose(fout);
