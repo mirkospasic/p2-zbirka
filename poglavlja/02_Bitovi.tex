@@ -167,19 +167,20 @@ Izlaz:   Zbir je 5/6
 Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu neoznačenog celog broja $x$. Napisati program koja testira funkciju \kckod{print\_bits} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
 
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Ulaz:   0x7F  
-Izlaz:  00000000000000000000000001111111    
+\begin{miditest}
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{0x7F}#
+#\naslovIzlaz#
+#\izlaz{00000000000000000000000001111111}#
 \end{test}
-\end{maxitest}
-
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{Test 2}
 Ulaz:   0x80
 Izlaz:  00000000000000000000000010000000 
 \end{test}
-\end{maxitest}
+\end{miditest}
 
 \begin{maxitest}
 \begin{test}{Test 3}

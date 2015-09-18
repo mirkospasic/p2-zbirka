@@ -198,7 +198,7 @@ Izlaz:
   \argf{n}.
 
 \begin{minitest}
-\begin{test}{Upotreba programa 1}
+\begin{test}{1}
 Poziv:
   time a.out 100000 -i -o
 Izlaz:
@@ -208,7 +208,7 @@ Izlaz:
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 2}
+\begin{test}{2}
 Poziv:
   time a.out 100000 -b -r
 Izlaz:
@@ -218,7 +218,7 @@ Izlaz:
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 3}
+\begin{test}{3}
 Poziv:
   time a.out 100000 -s
 Izlaz:
@@ -924,9 +924,9 @@ Interakcija programa:
   da je za ime i prezime svakog studenta dovoljno po $20$ karaktera.
   
 \begin{maxitest}
-\begin{test}{Upotreba programa 1}
-Poziv:  ./a.out kolokvijum.txt
-Ulazna datoteka (kolokvijum.txt):      Interakcija programa:
+\begin{upotreba}{1}
+#\poziv{./a.out kolokvijum.txt}#
+#\naslovDat{Ulazna datoteka (kolokvijum.txt):}#        #\naslovInt#
   Aleksandra Cvetic 15                   Studenti sortirani po broju poena
   Bojan Golubovic 30                     opadajuce, pa po prezimenu rastuce:
   Dragan Markovic 25                     Bojan Golubovic  30
@@ -948,7 +948,7 @@ Ulazna datoteka (kolokvijum.txt):      Interakcija programa:
                                          Unesite prezime: Markovic
                                          Pronadjen je student sa unetim
                                          prezimenom: Dragan Markovic 25
-\end{test}
+\end{upotreba}
 \end{maxitest}
   
 \linkresenje{521}

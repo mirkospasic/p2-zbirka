@@ -71,23 +71,22 @@ Izlaz:
   unose sa standardnog ulaza. Linearnu pretragu implementirati na dva
   načina, svođenjem pretrage na prefiks i na sufiks
   niza. Pretpostaviti da niz brojeva koji se unosi neće biti duži od
-  1024 elemenata. Prvo se unosi broj koji se traži, a zatim sortirani
+  $1024$ elemenata. Prvo se unosi broj koji se traži, a zatim sortirani
   elementi niza sve do kraja ulaza.
 
 \begin{miditest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:
-  Unesite trazeni broj: 11
-  Unesite sortiran niz elemenata: 
-  2 5 6 8 10 11 23
-Izlaz:
-  Linearna pretraga
-  Pozicija elementa je 5.
-  Binarna pretraga
-  Pozicija elementa je 5.
-  Interpolaciona pretraga
-  Pozicija elementa je 5.
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite trazeni broj:} \ulaz{11}#
+#\izlaz{Unesite sortiran niz elemenata:}# 
+#\ulaz{2 5 6 8 10 11 23}#
+#\izlaz{Linearna pretraga}#
+#\izlaz{Pozicija elementa je 5.}#
+#\izlaz{Binarna pretraga}#
+#\izlaz{Pozicija elementa je 5.}#
+#\izlaz{Interpolaciona pretraga}#
+#\izlaz{Pozicija elementa je 5.}#
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
 \begin{test}{Upotreba programa 2}
@@ -97,7 +96,7 @@ Interakcija programa:
   10 32 35 43 66 89 100
 Izlaz:
   Linearna pretraga
-  Element se ne nalazi u nizu.
+  Element se ne nalazi Nu nizu.
   Binarna pretraga
   Element se ne nalazi u nizu.
   Interpolaciona pretraga
@@ -129,22 +128,22 @@ Izlaz:
   slova.
   
 \begin{maxitest}
-\begin{test}{Upotreba programa 1}
-Datoteka:
-  20140003 Marina Petrovic
-  20140012 Stefan Mitrovic
-  20140032 Dejan Popovic
-  20140049 Mirko Brankovic
-  20140076 Sonja Stevanovic
-  20140104 Ivan Popovic
-  20140187 Vlada Stankovic
-  20140234 Darko Brankovic
-Interakcija programa:
-  Unesite indeks studenta cije informacije zelite: 20140076
-  Indeks: 20140076, Ime i prezime: Sonja Stevanovic
-  Unesite prezime studenta cije informacije zelite: Popovic
-  Indeks: 20140032, Ime i prezime: Dejan Popovic
-\end{test}
+\begin{upotreba}{1}
+#\naslovDat{Datoteka}#
+#\datoteka{20140003 Marina Petrovic}#
+#\datoteka{20140012 Stefan Mitrovic}#
+#\datoteka{20140032 Dejan Popovic}#
+#\datoteka{20140049 Mirko Brankovic}#
+#\datoteka{20140076 Sonja Stevanovic}#
+#\datoteka{20140104 Ivan Popovic}#
+#\datoteka{20140187 Vlada Stankovic}#
+#\datoteka{20140234 Darko Brankovic}#
+#\naslovInt#
+#\izlaz{Unesite indeks studenta cije informacije zelite:}\ulaz{20140076}#
+#\izlaz{Indeks: 20140076, Ime i prezime: Sonja Stevanovic}#
+#\izlaz{Unesite prezime studenta cije informacije zelite:}\ulaz{Popovic}#
+#\izlaz{Indeks: 20140032, Ime i prezime: Dejan Popovic}#
+\end{upotreba}
 \end{maxitest}
 
 \linkresenje{403}
@@ -235,9 +234,9 @@ Izlaz:
   
 % Ovde ne moze biti vise od jednog test primera
 \begin{minitest}
-\begin{test}{Test 1}
-Izlaz:
-  1.57031
+\begin{test}{1}
+#\naslovIzlaz#
+#\izlaz{1.57031}#
 \end{test}
 \end{minitest}
 
