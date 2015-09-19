@@ -96,7 +96,27 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 \newcommand{\naslovUlaz}{\textcolor{egyptianblue}{\textsc{Ulaz:}}}
 \newcommand{\naslovIzlaz}{\textcolor{egyptianblue}{\textsc{Izlaz:}}}
 
+\iffalse
+\usepackage{mdframed}
+
+\newmdenv[
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  leftline=true,
+  skipabove=\topsep,
+  skipbelow=\topsep,
+  leftmargin=-10pt,
+  rightmargin=-10pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt
+]{siderules}
+
 \definecolor{antiquewhite}{rgb}{0.98, 0.92, 0.84}
+
+\newenvironment{upotreba}[1]{\begin{siderules} \flushleft{\textit{Primer #1}\\}  \begin{scriptsize}}  {\end{scriptsize} \end{siderules}}
+\fi
+
 
 \lstnewenvironment{upotreba}[1]
 {
@@ -120,6 +140,7 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 }
 }
 {}
+
 
 \lstnewenvironment{test}[1]
 {

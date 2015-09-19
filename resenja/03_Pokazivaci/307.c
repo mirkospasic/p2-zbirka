@@ -3,7 +3,7 @@
 
 #define MAX_KARAKTERA 100
 
-/* Funkcija strcpy() iz standardne biblioteke */
+/* Implementacija funkcije strcpy() iz standardne biblioteke */
 void kopiranje_niske(char *dest, char *src)
 {
   int i;
@@ -11,7 +11,7 @@ void kopiranje_niske(char *dest, char *src)
     *(dest + i) = *(src + i);
 }
 
-/* Funkcija strcmp() iz standardne biblioteke */
+/* Implementacija funkcije strcmp() iz standardne biblioteke */
 int poredjenje_niski(char *s, char *t)
 {
   int i;
@@ -21,7 +21,7 @@ int poredjenje_niski(char *s, char *t)
   return *(s + i) - *(t + i);
 }
 
-/* Funkcija strlen() iz standardne biblioteke */
+/* Implementacija funkcije strlen() iz standardne biblioteke */
 int duzina_niske(char *s)
 {
   int i;
@@ -56,8 +56,8 @@ int prefiks_niske(char *niska, char *prefiks)
 
 int main(int argc, char **argv)
 {
-  /* Ako korisnik nije uneo trazene argumente, prijavljujemo
-     gresku */
+  /* Ukoliko korisnik nije uneo trazene argumente, prijavljuje se
+     greska */
   if (argc < 4) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
@@ -78,17 +78,19 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Proveravamo kojom opcijom je pozvan program a zatim
-     ucitavamo reci iz datoteke brojimo koliko reci zadovoljava
+  /* Provera se opcija kojom je pozvan program a zatim se
+     ucitavaju reci iz datoteke i broji se koliko njih zadovoljava
      trazeni uslov */
-  if (!(poredjenje_niski(*(argv + 3), "-s")))
+  if (!(poredjenje_niski(*(argv + 3), "-s"))) {
     while (fscanf(in, "%s", rec) != EOF)
       br += sufiks_niske(rec, *(argv + 2));
-  else if (!(poredjenje_niski(*(argv + 3), "-p")))
+	printf("Broj reci koje se zavrsavaju na %s je %d.\n", *(argv + 2), br);
+  } else if (!(poredjenje_niski(*(argv + 3), "-p"))) {
     while (fscanf(in, "%s", rec) != EOF)
       br += prefiks_niske(rec, *(argv + 2));
-
-  printf("%d\n", br);
+    printf("Broj reci koje pocinju na %s je %d.\n", *(argv + 2), br);
+  }
+  
   fclose(in);
   return 0;
 }

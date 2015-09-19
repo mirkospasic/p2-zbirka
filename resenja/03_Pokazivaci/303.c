@@ -27,13 +27,8 @@ void povecaj_smanji(int *a, int n)
     /* Pokazivac poslednji se pomera na prethodni element */
     poslednji--;
   }
-}
-
-void povecaj_smanji_sazetije(int *a, int n)
-{
-  int *prvi = a;
-  int *poslednji = a + n - 1;
-
+  
+  /* Drugi nacin */
   while (prvi < poslednji) {
     (*prvi++)++;
     (*poslednji--)--;
@@ -46,23 +41,23 @@ int main()
   int n;
   int *p;
 
-  /* Unosimo broj elemenata */
+  printf("Unesite dimenziju niza: ");
   scanf("%d", &n);
 
-  /* Proveravamo da li je prekoraceno ogranicenje dimenzije */
+  /* Proverava se da li je doslo do prekoracenja ogranicenja 
+     dimenzije */
   if (n <= 0 || n > MAX) {
     fprintf(stderr, "Greska: neodgovarajuca dimenzija niza.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Unosimo elemente niza */
+  printf("Unesite elemente niza:\n");
   for (p = a; p - a < n; p++)
     scanf("%d", p);
 
   povecaj_smanji(a, n);
-  /* povecaj_smanji_sazetije(a,n); */
-
-  /* Prikaz niza nakon modifikacije */
+  
+  printf("Transformisan niz je:\n");
   for (p = a; p - a < n; p++)
     printf("%d ", *p);
   printf("\n");

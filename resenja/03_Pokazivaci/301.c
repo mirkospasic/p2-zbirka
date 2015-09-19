@@ -15,34 +15,13 @@ void obrni_niz_v1(int a[], int n)
   }
 }
 
-/* Funkcija obrce elemente niza koriscenjem pokazivacke
-   sintakse. Umesto "void obrni_niz(int *a, int n)" potpis
-   metode bi mogao da bude i "void obrni_niz(int a[], int n)". U 
-   oba slucaja se argument funkcije "a" tumaci kao pokazivac,
-   ili tacnije, kao adresa prvog elementa niza. U odnosu na
-   njega se odredjuju adrese ostalih elemenata u nizu */
+/* Funkcija obrce elemente niza koriscenjem pokazivacke sintakse */
 void obrni_niz_v2(int *a, int n)
 {
-  /* Pokazivaci na elemente niza a */
+  /* Pokazivaci na elemente niza */
   int *prvi, *poslednji;
-
-
-  for (prvi = a, poslednji = a + n - 1;
-       prvi < poslednji; prvi++, poslednji--) {
-    int t = *prvi;
-    *prvi = *poslednji;
-    *poslednji = t;
-  }
-}
-
-/* Funkcija obrce elemente niza koriscenjem pokazivacke sintakse 
-   - modifikovano koriscenje pokazivaca */
-void obrni_niz_v3(int *a, int n)
-{
-  /* Pokazivaci na elemente niza a */
-  int *prvi, *poslednji;
-
-  /* Obrcemo niz */
+  
+    /* Vrsi se obrtanje niza */
   for (prvi = a, poslednji = a + n - 1; prvi < poslednji;) {
     int t = *prvi;
 
@@ -60,37 +39,55 @@ void obrni_niz_v3(int *a, int n)
        nizu */
     *poslednji-- = t;
   }
+  
+  /* Drugi nacin za obrtanje niza */
+  /*
+  for (prvi = a, poslednji = a + n - 1;
+       prvi < poslednji; prvi++, poslednji--) {
+    int t = *prvi;
+    *prvi = *poslednji;
+    *poslednji = t;
+  }
+  */
 }
 
 int main()
 {
-  /* Deklaracija niza a od najvise MAX elemenata */
+  /* Deklarise se niz od najvise MAX elemenata */
   int a[MAX];
 
   /* Broj elemenata niza a */
   int n;
 
-  /* Pokazivac na elemente niza a */
+  /* Pokazivac na elemente niza */
   int *p;
 
-  /* Unosimo dimenziju niza */
+  printf("Unesite dimenziju niza: ");
   scanf("%d", &n);
 
-  /* Proveravamo da li je prekoraceno ogranicenje dimenzije */
+  /* Proverava se da li je doslo do prekoracenja ogranicenja 
+     dimenzije */
   if (n <= 0 || n > MAX) {
     fprintf(stderr, "Greska: neodgovarajuca dimenzija niza.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Unosimo elemente niza */
+  printf("Unesite elemente niza:\n");
   for (p = a; p - a < n; p++)
     scanf("%d", p);
 
   obrni_niz_v1(a, n);
-  // obrni_niz_v2(a,n);
-  // obrni_niz_v3(a,n);
-
-  /* Prikazujemo sadrzaj niza nakon obrtanja */
+  
+  printf("Nakon obrtanja elemenata, niz je:\n");
+  
+  for (p = a; p - a < n; p++)
+    printf("%d ", *p);
+  printf("\n");
+  
+  obrni_niz_v2(a, n);
+  
+  printf("Nakon ponovnog obrtanja elemenata, niz je:\n");
+  
   for (p = a; p - a < n; p++)
     printf("%d ", *p);
   printf("\n");

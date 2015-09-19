@@ -1,48 +1,50 @@
 #include <stdio.h>
 
-/* Argumenti funkcije main mogu da budu broj argumenta komandne
-   linije (int argc) i niz arugmenata komandne linije (niz
-   niski) (char *argv[] <=> char** argv) */
 int main(int argc, char *argv[])
 {
   int i;
+  char tip_ispisa;
+  
+  printf("Broj prihvacenih argumenata komandne linije je %d.\n", argc);
+  
+  printf("Kako zelite da ispisete argumente, ");
+  printf("koriscenjem indeksne ili pokazivacke sintakse (I ili P)? ");
+  scanf("%c", &tip_ispisa);
+  
+  printf("Argumenti komandne linije su:\n"); 
+  if(tip_ispisa=='I') {   
+    /* Ispisuju se argumenti komandne linije koriscenjem indeksne 
+       sintakse */
+    for (i = 0; i < argc; i++) 
+      printf("%d %s\n", i, argv[i]);    
+  } else if(tip_ispisa=='P'){
+    /* Ispisuju se argumenti komandne linije koriscenjem pokazivacke 
+       sintakse */
+    i = argc;
+    for (; argc > 0; argc--)
+      printf("%d %s\n", i - argc, *argv++);
+	  
+   /* Nakon ove petlje "argc" je jednako nuli a "argv" pokazuje
+      na polje u memoriji koje se nalazi iza poslednjeg argumenta 
+      komandne linije. Kako je u promenljivoj "i" sacuvana vrednost
+      broja argumenta komandne linije to sada moze ponovo da se 
+      postavi "argv" da pokazuje na nulti argument komandne linije */
+    argv = argv - i;
+    argc = i;
+  } 
 
-  /* Ispisujemo broj argumenata komandne linije */
-  printf("%d\n", argc);
-
-  /* Ispisujemo argumente komandne linije */
-  /* koristeci indeksnu sintaksu */
-  for (i = 0; i < argc; i++) {
-    printf("%d %s\n", i, argv[i]);
+  printf("Pocetna slova argumenata komandne linije su:\n");
+  if(tip_ispisa=='I') { 
+    /* koristeci indeksnu sintaksu */
+    for (i = 0; i < argc; i++)
+      printf("%c ", argv[i][0]);
+    printf("\n");
+  } else if(tip_ispisa=='P'){ 
+    /* koristeci pokazivacku sintaksu */
+    for (i = 0; i < argc; i++)
+      printf("%c ", **argv++);
+    printf("\n");
   }
-
-  /* koristeci pokazivacku sintaksu */
-  i = argc;
-  for (; argc > 0; argc--)
-    printf("%d %s\n", i - argc, *argv++);
-
-
-  /* Nakon ove petlje "argc" ce biti jednako nuli a "argv" ce
-     pokazivati na polje u memoriji koje se nalazi iza
-     poslednjeg argumenta komandne linije. Kako smo u
-     promenljivoj "i" sacuvali vrednost broja argumenta komandne 
-     linije to sada mozemo ponovo da postavimo "argv" da
-     pokazuje na nulti argument komandne linije */
-  argv = argv - i;
-  argc = i;
-
-  /* Ispisujemo 0-ti karakter svakog od argumenata komandne
-     linije */
-
-  /* koristeci indeksnu sintaksu */
-  for (i = 0; i < argc; i++)
-    printf("%c ", argv[i][0]);
-  printf("\n");
-
-  /* koristeci pokazivacku sintaksu */
-
-  for (i = 0; i < argc; i++)
-    printf("%c ", **argv++);
-
+  
   return 0;
 }
