@@ -4,40 +4,39 @@
 
 int main()
 {
-    /*
-     * Lista je na pocetku prazna. 
-     */
-    Cvor *glava = NULL;
-    Cvor *trazeni = NULL;
-    int broj;
+  /* Lista je prazna na pocetku. */
+  Cvor *glava = NULL;
+  Cvor *trazeni = NULL;
+  int broj;
 
-    /*
-     * Testiramo dodavanje na pocetak
-     */
-    printf("Unesite elemente liste (za kraj unesite CTRL+D)\n");
-    printf("\n\tLista: ");
-    ispisi_listu(glava);
-
-    while (scanf("%d", &broj) > 0) {
-        dodaj_na_pocetak_liste(&glava, broj);
-        printf("\n\tLista: ");
-        ispisi_listu(glava);
+  /* Testiranje dodavanja novog broja na pocetak liste. */
+  printf("Unosite brojeve: (za kraj unesite CTRL+D)\n");
+  while (scanf("%d", &broj) > 0) {
+    /* Ako je funkcija vratila 1 onda je bilo greske pri
+       alokaciji memorije za nov cvor. Memoriju alociranu za
+       cvorove liste treba osloboditi pre napustanja programa. */
+    if (dodaj_na_pocetak_liste(&glava, broj) == 1) {
+      fprintf(stderr, "Neuspela alokacija za cvor %d\n", broj);
+      oslobodi_listu(&glava);
+      exit(EXIT_FAILURE);
     }
+    printf("\tLista: ");
+    ispisi_listu(glava);
+  }
 
-    printf("\nUnesite element koji se trazi u listi: ");
-    scanf("%d", &broj);
+  printf("\nUnesite broj koji se trazi u listi: ");
+  scanf("%d", &broj);
 
-    trazeni = pretrazi_listu(glava, broj);
-    if (trazeni == NULL)
-        printf("Element NIJE u listi!\n");
-    else
-        printf("Trazeni broj %d je u listi!\n",
-               trazeni->vrednost);
+  trazeni = pretrazi_listu(glava, broj);
+  if (trazeni == NULL)
+    printf("Broj %d se ne nalazi u listi!\n", broj);
+  else
+    printf("Trazeni broj %d je u listi!\n", trazeni->vrednost);
 
-    printf("\nLista ispisana u nazad: ");
-    ispisi_listu_u_nazad(glava);
+  printf("\nLista ispisana u nazad: ");
+  ispisi_listu_u_nazad(glava);
 
-    oslobodi_listu(&glava);
+  oslobodi_listu(&glava);
 
-    return 0;
+  return 0;
 }

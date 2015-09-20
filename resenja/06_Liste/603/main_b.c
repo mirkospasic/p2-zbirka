@@ -4,39 +4,41 @@
 
 int main()
 {
-    Cvor *glava = NULL;
-    int broj;
+  Cvor *glava = NULL;
+  int broj;
 
-    /*
-     * Testiramo dodavanje na kraj liste 
-     */
-    printf("Unesite elemente liste (za kraj unesite CTRL+D)\n");
-    printf("\n\tLista: ");
-    ispisi_listu(glava);
+  /* Testiranje dodavanja novog broja na kraj liste. */
+  printf("Unesite brojeve: (za kraj unesite CTRL+D)\n");
+  printf("\tLista: ");
+  ispisi_listu(glava);
 
-    while (scanf("%d", &broj) > 0) {
-        dodaj_na_kraj_liste(&glava, broj);
-        printf("\n\tLista: ");
-        ispisi_listu(glava);
+  while (scanf("%d", &broj) > 0) {
+    /* Ako je funkcija vratila 1 onda je bilo greske pri
+       alokaciji memorije za nov cvor. Memoriju alociranu za
+       cvorove liste treba osloboditi pre napustanja programa. */
+    if (dodaj_na_kraj_liste(&glava, broj) == 1) {
+      fprintf(stderr, "Neuspela alokacija za cvor %d\n", broj);
+      oslobodi_listu(&glava);
+      exit(EXIT_FAILURE);
     }
-
-    printf("\nUnesite element koji se brise iz liste: ");
-    scanf("%d", &broj);
-
-    /*
-     * Brisemo elemente iz liste cije polje vrednost je jednako
-     * broju procitanom sa ulaza 
-     */
-    obrisi_element(&glava, broj);
-
-    printf("Lista nakon brisanja:  ");
+    printf("\tLista: ");
     ispisi_listu(glava);
+  }
 
-    printf("\nLista ispisana u nazad: ");
-    ispisi_listu_u_nazad(glava);
+  printf("\nUnesite broj koji se brise iz liste: ");
+  scanf("%d", &broj);
 
+  /* Brisu se cvorovi iz liste cije polje vrednost je jednako
+     broju procitanom sa ulaza */
+  obrisi_cvor(&glava, broj);
 
-    oslobodi_listu(&glava);
+  printf("Lista nakon brisanja:  ");
+  ispisi_listu(glava);
+  
+  printf("\nLista ispisana u nazad: ");
+  ispisi_listu_u_nazad(glava);
 
-    return 0;
+  oslobodi_listu(&glava);
+
+  return 0;
 }

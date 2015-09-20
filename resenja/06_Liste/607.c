@@ -43,7 +43,7 @@ void oslobodi_listu(Element ** glava)
 void provera_alokacije(Element * novi, Element ** glava)
 {
   if (novi == NULL) {
-    fprintf(stderr, "malloc() greska u funkciji 
+    fprintf(stderr, "malloc() greska u funkciji \
 napravi_cvor()!\n");
     oslobodi_listu(glava);
     exit(EXIT_FAILURE);
@@ -82,7 +82,7 @@ void ispisi_listu(Element * glava)
 int main(int argc, char **argv)
 {
   if (argc != 2) {
-    fprintf(stderr, "Greska! Program se poziva sa: ./a.out 
+    fprintf(stderr, "Greska! Program se poziva sa: ./a.out \
 datoteka.html!\n");
     exit(EXIT_FAILURE);
   }
@@ -105,14 +105,13 @@ datoteka.html!\n");
   while ((c = fgetc(in)) != EOF) {
 
     if (c == '<') {
-      /* Citamo zatvarac */
+      /* Cita se zatvarac. */
       if ((c = fgetc(in)) == '/') {
         i = 0;
         while ((c = fgetc(in)) != '>')
           a[i++] = c;
       }
-
-      /* Citamo otvarac */
+      /* Cita se otvarac. */
       else {
         i = 0;
         a[i++] = c;
@@ -121,11 +120,10 @@ datoteka.html!\n");
       }
       a[i] = '\0';
 
-      /* Ispitujemo da li medju do sada formiranim cvorovima
-         postoji cvor sa ucitanom etiketom. Ukoliko ne postoji,
-         dodajemo novi cvor za ucitanu etiketu (broj
-         pojavljivanja postavljamo na 1), inace uvecavamo broj
-         pojavljivanja. */
+      /* Trazi se ucitana etiketa medju postojecim cvorovima
+         liste. Ukoliko ne postoji, dodaje se novi cvor za
+         ucitanu etiketu sa brojem pojavljivanja 1, inace
+         uvecava se broj pojavljivanja etikete. */
       trazeni = pretrazi_listu(glava, a);
       if (trazeni == NULL)
         dodaj_na_pocetak_liste(&glava, 1, a);
@@ -134,9 +132,10 @@ datoteka.html!\n");
     }
   }
 
+  fclose(in);
+
   ispisi_listu(glava);
   oslobodi_listu(&glava);
 
-  fclose(in);
   return 0;
 }

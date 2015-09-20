@@ -2,73 +2,74 @@
 #include<stdlib.h>
 
 typedef struct cvor {
-  char z;
+  char zagrada;
   struct cvor *sledeci;
 } Cvor;
 
 int main()
 {
   Cvor *stek = NULL;
-  FILE *in = NULL;
-  char pom;
-  Cvor *tmp = NULL;
+  FILE *ulaz = NULL;
+  char c;
+  Cvor *pomocni = NULL;
 
-  in = fopen("dat.txt", "r");
-  if (in == NULL) {
+  ulaz = fopen("dat.txt", "r");
+  if (ulaz == NULL) {
     fprintf(stderr,
             "Greska prilikom otvaranja datoteke dat.txt!\n");
     exit(EXIT_FAILURE);
   }
 
-  while ((pom = fgetc(in)) != EOF) {
-    /* Ako je ucitana otvorena zagrada stavljamo je na stek */
-    if (pom == '(' || pom == '{' || pom == '[') {
-      Cvor *tmp = (Cvor *) malloc(sizeof(Cvor));
-      if (tmp == NULL) {
+  while ((c = fgetc(ulaz)) != EOF) {
+    /* Ako je ucitana otvorena zagrada, stavlja se na stek. */
+    if (c == '(' || c == '{' || c == '[') {
+      pomocni = (Cvor *) malloc(sizeof(Cvor));
+      if (pomocni == NULL) {
         fprintf(stderr, "Greska prilikom alokacije memorije!\n");
         return 1;
       }
-      tmp->z = pom;
-      tmp->sledeci = stek;
-      stek = tmp;
+      pomocni->zagrada = c;
+      pomocni->sledeci = stek;
+      stek = pomocni;
     }
-    /* Ako je ucitana zatvorena zagrada proveravamo da stek nije 
-       prazan i da li se na vrhu steka nalazi njegova
+    /* Ako je ucitana zatvorena zagrada, proverava se da li je
+       stek je prazan i ako nije, da li se na vrhu steka nalazi
        odgovarajuca otvorena zagrada. */
     else {
-      if (pom == ')' || pom == '}' || pom == ']') {
-        if (stek != NULL && ((stek->z == '(' && pom == ')')
-                             || (stek->z == '{' && pom == '}')
-                             || (stek->z == '[' && pom == ']'))) {
-          /* Sa vrha steka uklanjamo otvorenu zagradu. */
-          Cvor *tmp = stek->sledeci;
+      if (c == ')' || c == '}' || c == ']') {
+        if (stek != NULL && ((stek->zagrada == '(' && c == ')')
+                             || (stek->zagrada == '{' && c
+                                 == '}')
+                             || (stek->zagrada == '[' && c
+                                 == ']'))) {
+          /* Sa vrha steka se uklanja otvorena zagrada */
+          pomocni = stek->sledeci;
           free(stek);
-          stek = tmp;
+          stek = pomocni;
         } else {
-          /* Zagrade u aritmetickom izrazu nisu ispravno
-             uparene. */
+          /* Zagrade u izrazu nisu ispravno uparene. */
           break;
         }
       }
     }
   }
 
-  /* Ako je na kraju stek prazan i procitali smo datoteku,
+  /* Ako je na kraju stek prazan i procitana je cela datoteka,
      zagrade su ispravno uparene, u suprotnom, nisu. */
-  if (stek == NULL && pom == EOF)
+  if (stek == NULL && c == EOF)
     printf("Zagrade su ispravno uparene.\n");
   else {
     printf("Zagrade nisu ispravno uparene.\n");
 
     while (stek != NULL) {
-      /* Oslobadjamo memoriju koja je ostala na steku, u slucaju 
-         neispravnog uparivanja. */
-      Cvor *tmp = stek->sledeci;
+      /* U slucaju neispravnog uparivanja treba osloboditi
+         memoriju koja je ostala zauzeta stekom. */
+      pomocni = stek->sledeci;
       free(stek);
-      stek = tmp;
+      stek = pomocni;
     }
   }
 
-  fclose(in);
+  fclose(ulaz);
   return 0;
 }

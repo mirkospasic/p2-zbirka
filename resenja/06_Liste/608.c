@@ -10,11 +10,11 @@ Cvor *objedini(Cvor ** glava1, Cvor ** glava2)
   if (*glava1 == NULL && *glava2 == NULL)
     return NULL;
 
-  /* Ako je prva lista prazna, onda je rezultat druga lista. */
+  /* Ako je prva lista prazna, rezultat je druga lista. */
   if (*glava1 == NULL)
     return *glava2;
 
-  /* Ako je druga lista prazna, onda je rezultat prva lista. */
+  /* Ako je druga lista prazna, rezultat je prva lista. */
   if (*glava2 == NULL)
     return *glava1;
 
@@ -35,9 +35,8 @@ Cvor *objedini(Cvor ** glava1, Cvor ** glava2)
     tek = &((*tek)->sledeci);
   }
 
-  /* Ukoliko smo izasli iz petlje zato sto smo stigli do kraja
-     prve liste onda na rezultujucu listu nadovezujemo ostatak
-     druge liste. */
+  /* Ako se iz petlje izaslo jer se stiglo do kraja prve liste,
+     na rezultujucu listu treba nadovezati ostatak druge liste. */
   if (*glava1 == NULL)
     *tek = *glava2;
 
@@ -76,16 +75,15 @@ int main(int argc, char **argv)
   Cvor *glava2 = NULL;
   Cvor *l3 = NULL;
 
-  /* Ucitavamo liste. */
+  /* Ucitavanje listi */
   while (fscanf(in1, "%d", &broj) != EOF)
     dodaj_na_kraj_liste(&glava1, broj);
   while (fscanf(in2, "%d", &broj) != EOF)
     dodaj_na_kraj_liste(&glava2, broj);
 
-  /* Objedinjujemo ih u jednu listu. */
   l3 = objedini(&glava1, &glava2);
 
-  /* Ispisujemo rezultujucu listu. */
+  /* Ispis rezultujuce liste. */
   ispisi_listu(l3);
   oslobodi_listu(&l3);
 

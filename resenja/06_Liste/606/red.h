@@ -7,34 +7,34 @@
 #define MAX 1000
 #define JMBG_DUZINA 14
 
-/* Struktura kojom predstavljamo zahtev korisnika, obuhvata JMBG
+/* Struktura predstavlja zahtev korisnika. Obuhvata JMBG
    korisnika i opis njegovog zahteva. */
 typedef struct {
-    char jmbg[JMBG_DUZINA];
-    char opis[MAX];
+  char jmbg[JMBG_DUZINA];
+  char opis[MAX];
 } Zahtev;
 
-/* Struktura kojom je predstavljen cvor liste, obuhvata zahtev 
+/* Struktura kojom je predstavljen cvor liste, obuhvata zahtev
    korisnika i pokazivac na sledeci cvor liste. */
 typedef struct cvor {
-    Zahtev nalog;
-    struct cvor *sledeci;
+  Zahtev nalog;
+  struct cvor *sledeci;
 } Cvor;
 
-Cvor * napravi_cvor( Zahtev * zahtev);
+Cvor *napravi_cvor(Zahtev * zahtev);
 
 void oslobodi_red(Cvor ** pocetak, Cvor ** kraj);
 
 void proveri_alokaciju(Cvor ** adresa_pocetka,
-                       Cvor ** adresa_kraja, Cvor* novi) ;
-                       
+                       Cvor ** adresa_kraja, Cvor * novi);
+
 void dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
-                 Zahtev* zahtev);
+                 Zahtev * zahtev);
 
 int skini_sa_reda(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
-                  Zahtev *zahtev);
+                  Zahtev * zahtev);
 
-Zahtev * pocetak_reda(Cvor * pocetak) ;
+Zahtev *pocetak_reda(Cvor * pocetak);
 
 void prikazi_red(Cvor * pocetak);
 

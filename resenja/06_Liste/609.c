@@ -94,10 +94,12 @@ studenti.txt!\n");
   Cvor *glava = NULL;
   Cvor *trazeni = NULL;
 
-  /* Ucitavamo listu sa standardnog ulaza. */
+  /* Ucitavanje vrednosti u listu. */
   while (fscanf(in, "%s %s %s", broj_indeksa, ime, prezime) !=
          EOF)
     dodaj_na_pocetak_liste(&glava, broj_indeksa, ime, prezime);
+
+  fclose(in);
 
   while (scanf("%s", broj_indeksa) != EOF) {
     trazeni = pretrazi_listu(glava, broj_indeksa);
@@ -108,6 +110,6 @@ studenti.txt!\n");
   }
 
   oslobodi_listu(&glava);
-  fclose(in);
+
   return 0;
 }
