@@ -1,35 +1,40 @@
-\chapter{Pokazivači}
+ \chapter{Pokazivači}
 
 \section{Pokazivačka aritmetika}
 
 \begin{Exercise}[label=301]
-\komentar{Milen: ovako definisan zadatak zahteva dva programa kao resenja, a ne jedan sa definisane dve funkcije.}
 Za dati celobrojni niz dimenzije $n$, napisati funkciju koja obrće njegove elemente:
 \begin{enumerate}
 \item korišćenjem indeksne sintakse,
 \item korišćenjem pokazivačke sintakse.
 \end{enumerate}
-Napisati program koji testira napisanu funkciju. Sa standardnog ulaza učitati dimenziju 
-niza $n$ ($0 < n \leq 100$), a zatim elemente niza. Prikazati sadržaj niza posle 
-poziva funkcije za obrtanje elemenata niza. 
+Napisati program koji testira napisane funkcije. Sa standardnog ulaza učitati dimenziju 
+niza $n$ ($0 < n \leq 100$), a zatim elemente niza. Pozvati funkciju koja obrće njegove
+elemente korišćenjem indeksne sintakse i prikazati sadržaj niza. Nakon toga pozvati funkciju koja obrće 
+njegove elemente korišćenjem pokazivačke sintakse i prikazati sadržaj niza.
 
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:  3
-       1 -2 3
-Izlaz: 3 -2 1 
-\end{test}
-\end{minitest}
-\begin{maxitest}
-\begin{test}{Test 2}
-Ulaz:  0
-Izlaz: Greska: neodgovarajuca dimenzija niza.
-\end{test}
-\end{maxitest}
+\begin{miditest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza:} \ulaz{3}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{1 -2 3}#
+#\izlaz{Nakon obrtanja elemenata, niz je:}#
+#\izlaz{3 -2 1}#
+#\izlaz{Nakon ponovnog obrtanja elemenata,}#
+#\izlaz{niz je:}#
+#\izlaz{3 -2 1}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza: } \ulaz{0}#
+#\izlaz{Greska: neodgovarajuca dimenzija niza.}#
+\end{upotreba}
+\end{miditest}
 
 \linkresenje{301}
-%\linkresenje{301a} %kao dva programa kao resenje...
-%\linkresenje{301b}
 \end{Exercise}
 \begin{Answer}[ref=301]
 \includecode{resenja/03_Pokazivaci/301.c}
@@ -49,25 +54,29 @@ elemente niza. Na standardni izlaz ispisati zbir, proizvod,
 minimalni i maksimalni element učitanog niza.
 
 \begin{miditest}
-\begin{test}{Test 1}
-Ulaz: 3 
-      -1.1 2.2 3.3 
-Izlaz: zbir = 4.400
-       proizvod = -7.986
-       min = -1.100
-       max = 3.300
-\end{test}
-\end{miditest} 
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza:} \ulaz{3}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{-1.1 2.2 3.3}#
+#\izlaz{Zbir elemenata niza je 4.400.}#
+#\izlaz{Proizvod elemenata niza je -7.986}#
+#\izlaz{Minimalni element niza je -1.100}#
+#\izlaz{Maksimalni element niza je 3.300}#
+\end{upotreba}
+\end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Ulaz: 5
-     1.2 3.4 0.0 -5.4 2.1
-Izlaz:  zbir = 1.300
-        proizvod = -0.000
-        min = -5.400
-        max = 3.400
-\end{test}
-\end{miditest} 
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza:} \ulaz{5}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{1.2 3.4 0.0 -5.4 2.1}#
+#\izlaz{Zbir elemenata niza je 1.300.}#
+#\izlaz{Proizvod elemenata niza je -0.000.}#
+#\izlaz{Minimalni element niza je -5.400.}#
+#\izlaz{Maksimalni element niza je 3.400.}#
+\end{upotreba}
+\end{miditest}
 
 \linkresenje{302}
 \end{Exercise}
@@ -84,41 +93,43 @@ nepromenjenim. Napisati program koji testira napisanu funkciju. Sa
 standardnog ulaza učitati dimenziju $n$ ($0 < n \leq 100$)
 celobrojong niza, a zatim i elemente niza. Na standardni izlaz
 ispisati rezultat primene napisane funkcije nad učitanim nizom.
-\komentar{Jelena: Sta kazete na to da prekoracenja dimenzije niza
-u razlicitim zadacima razlicito obradjujemo. Na primer, mozemo 
-da unosimo dimenziju niza sve dok se ne unese broj koji je u odgovarajucem 
-opsegu, ili mozemo da dimenziju postavimo na 1 ako je korisnik uneo broj 
-manji od 1, a na MAX ako je korisnik uneo broj veci od MAX, itd?}
-\komentar{Nina: Slazem se da treba da vide razlicite nacine, uprkos tome sto bi unifomnost bila lepsa}
 
+\noindent
 \begin{miditest}
-\begin{test}{Test 1}
-Ulaz: 5 
-      1 2 3 4 5
-Izlaz: 2 3 3 3 4
-\end{test}
-\end{miditest} 
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza:} \ulaz{5}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{1 2 3 4 5}#
+#\izlaz{Transformisan niz je:}#
+#\izlaz{2 3 3 3 4}#
+\end{upotreba}
+\end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Ulaz: 4 
-      4 -3 2 -1
-Izlaz: 5 -2 1 -2
-\end{test}
-\end{miditest} 
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza:} \ulaz{4}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{4 -3 2 -1}#
+#\izlaz{Transformisan niz je:}#
+#\izlaz{5 -2 1 -2}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza:} \ulaz{0}#
+#\izlaz{Greska: neodgovarajuca dimenzija niza.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{4}
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza:} \ulaz{101}#
+#\izlaz{Greska: neodgovarajuca dimenzija niza.}#
+\end{upotreba}
+\end{miditest}
 
-\begin{maxitest}
-\begin{test}{Test 3}
-Ulaz: 0
-Izlaz: Greska: neodgovarajuca dimenzija niza.
-\end{test}
-\end{maxitest}
-
-\begin{maxitest}
-\begin{test}{Test 4}
-Ulaz: 101
-Izlaz: Greska: neodgovarajuca dimenzija niza.
-\end{test}
-\end{maxitest}
 \linkresenje{303}
 \end{Exercise}
 \begin{Answer}[ref=303]
@@ -134,31 +145,42 @@ Zadatak rešiti:
 \item korišćenjem indeksne sintakse,
 \item korišćenjem pokazivačke sintakse.
 \end{enumerate} 
-\komentar{Jelena: Da li je ok da ovaj zadatak pod a i b resim na nacin na 
-koji sam resila, odnosno, da jedno od ta dva resenja iskomentarisem?} 
-\komentar{Milena: Meni se cini da je bolje bez komentarisanja, vec da su oba prisutna.}
-\komentar{Nina: Nisam odvajala u dva zadatka - za sada ispisuje dva puta izlaz...}
+Od korisnika sa ulaza tražiti da izabere da li koje od ova dva
+rešenja treba koristiti prilikom ispisa.
 
-\begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out prvi 2. treci -4
-Izlaz: 5
-       0 ./a.out
-       1 prvi
-       2 2.
-       3 treci
-       4 -4
-       . p 2 -
-\end{test}
-\end{miditest} 
-\begin{minitest}
-\begin{test}{Test 2}
-Poziv: ./a.out 
-Izlaz: 1
-       0 ./a.out
-       . 
-\end{test}
-\end{minitest} 
+\begin{maxitest}
+\begin{upotreba}{1}
+#\poziv{./a.out prvi 2. treci -4}#
+
+#\naslovInt#
+#\izlaz{Broj prihvacenih argumenata komandne linije je 5.}#
+#\izlaz{Kako zelite da ispisete argumente, koriscenjem}#
+#\izlaz{indeksne ili pokazivacke sintakse (I ili P)?} \ulaz{I}#
+#\izlaz{Argumenti komandne linije su:}#
+#\izlaz{0 ./a.out}#
+#\izlaz{1 prvi}#
+#\izlaz{2 2.}#
+#\izlaz{3 treci}#
+#\izlaz{4 -4}#
+#\izlaz{Pocetna slova argumenata komandne linije su:}#
+#\izlaz{. p 2 t -}#
+\end{upotreba}
+\end{maxitest}
+
+\begin{maxitest}
+\begin{upotreba}{2}
+#\poziv{./a.out}#
+
+#\naslovInt#
+#\izlaz{Broj prihvacenih argumenata komandne linije je 1.}#
+#\izlaz{Kako zelite da ispisete argumente, koriscenjem}#
+#\izlaz{indeksne ili pokazivacke sintakse (I ili P)?} \ulaz{P}#
+#\izlaz{Argumenti komandne linije su:}#
+#\izlaz{0 ./a.out}#
+#\izlaz{Pocetna slova argumenata komandne linije su:}#
+#\izlaz{.}#
+\end{upotreba}
+\end{maxitest}
 
 \linkresenje{304}
 \end{Exercise}
@@ -172,25 +194,34 @@ za datu nisku ispituje da li je palindrom. Napisati program koji
 vrši prebrojavanje argumenata komandne linije koji su
 palindromi.
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Poziv:  ./a.out programiranje anavolimilovana topot ana anagram t
-Izlaz:  4
-\end{test}
-\end{maxitest}
+\komentar{Milena: nedostaje poziv u prvom primeru}
 
+\noindent
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv: ./a.out a b 11 212 
-Izlaz: 4
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Broj argumenata komandne linije }#
+#\izlaz{koji su palindromi je 4.}#
+\end{upotreba}
 \end{miditest}
-\begin{minitest}
-\begin{test}{Test 3}
-Poziv: ./a.out 
-Izlaz: 0
-\end{test}
-\end{minitest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\poziv{./a.out a b 11 212}#
+
+#\naslovInt#
+#\izlaz{Broj argumenata komandne linije koji}#
+#\izlaz{koji su palindromi je 4.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{3}
+#\poziv{./a.out}#
+
+#\naslovInt#
+#\izlaz{Broj argumenata komandne linije koji}#
+#\izlaz{koji su palindromi je 0.}#
+\end{upotreba}
+\end{miditest}
 
 \linkresenje{305}
 \end{Exercise}
@@ -203,34 +234,47 @@ Napisati program koji kao prvi argument komandne linije prihvata
 putanju do datoteke za koju treba proveriti koliko reči ima
 $n$ karaktera, gde se $n$ zadaje kao drugi argument
 komandne linije. Smatrati da reč ne sadrži više od $100$ karaktera.
-U zadatku ne koristiti ugrađene funkcije za
-rad sa niskama, već implementirati svoje koristeći
-pokazivačku sintaksu.
+U zadatku ne koristiti ugrađene funkcije za rad sa niskama, 
+već implementirati svoje koristeći pokazivačku sintaksu.
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Poziv:    ./a.out ulaz.txt 1
-ulaz.txt: Ovo je sadrzaj datoteke i u njoj ima reci koje imaju 
-          1 karakter
-Izlaz:    3
-\end{test}
-\end{maxitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+#\poziv{./a.out ulaz.txt 1}#
 
-\begin{maxitest}
-\begin{test}{Test 2}
-Poziv:  ./a.out ulaz.txt 
-Izlaz:  Greska: Nedovoljan broj argumenata komandne linije.
-        Program se poziva sa ./a.out ime_dat br_karaktera.
-\end{test}
-\end{maxitest}
+#\naslovDat{Ulazna datoteka (ulaz.txt)}#
+#\datoteka{Ovo je sadrzaj datoteke i u njoj ima }#
+#\datoteka{reci koje imaju 1 karakter}#
 
-\begin{maxitest}
-\begin{test}{Test 3}
-Poziv:    ./a.out ulaz.txt 2
-(ne postoji datoteka ulaz.txt)
-Izlaz: Greska: Neuspesno otvaranje datoteke ulaz.txt.
-\end{test}
-\end{maxitest}
+#\naslovInt#
+#\izlaz{Broj reci ciji je broj karaktera 1 je 3.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\poziv{./a.out ulaz.txt}#
+
+#\naslovDat{Ulazna datoteka (ulaz.txt)}#
+#\datoteka{Ovo je sadrzaj datoteke i u njoj ima }#
+#\datoteka{reci koje imaju 1 karakter}#
+
+#\naslovInt#
+#\izlaz{Greska: Nedovoljan broj argumenata}#
+#\izlaz{komandne linije.}#
+#\izlaz{Program se poziva sa }#
+#\izlaz{./a.out ime\_dat br\_karaktera.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{3}
+#\poziv{./a.out ulaz.txt 2}#
+
+#\naslovDat{Datoteka ulaz.txt ne postoji}#
+
+#\naslovInt#
+#\izlaz{Greska: Neuspesno otvaranje datoteke ulaz.txt.}#
+\end{upotreba}
+\end{miditest}
 
 \linkresenje{306}
 \end{Exercise}
@@ -249,42 +293,56 @@ koliko reči ima zadati sufiks (ili prefiks). U zadatku ne
 koristiti ugrađene funkcije za rad sa niskama, već
 implementirati svoje koristeći pokazivačku sintaksu.
 
-\komentar{Milena: Umesto komentara -Funkcija strcpy  iz standardne biblioteke- i ostalih slicnih, napisati
--Implementacije funkcije strcpy iz standardne biblioteke-}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+#\poziv{./a.out ulaz.txt ke -s}#
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Poziv:    ./a.out ulaz.txt ke -s
-ulaz.txt: Ovo je sadrzaj datoteke i u njoj ima reci koje se 
-          zavrsavaju na ke
-Izlaz:    2
-\end{test}
-\end{maxitest}
+#\naslovDat{Ulazna datoteka (ulaz.txt)}#
+#\datoteka{Ovo je sadrzaj datoteke i u njoj ima reci}#
+#\datoteka{koje se zavrsavaju na ke}#
 
-\begin{maxitest}
-\begin{test}{Test 2}
-Poziv:    ./a.out ulaz.txt sa -p
-ulaz.txt: Ovo je sadrzaj datoteke i u njoj ima reci koje 
-          pocinju sa sa
-Izlaz:    3
-\end{test}
-\end{maxitest}
+#\naslovInt#
+#\izlaz{Broj reci koje se zavrsavaju na ke je 2.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\poziv{./a.out ulaz.txt sa -p}#
 
-\begin{maxitest}
-\begin{test}{Test 3}
-Poziv:  ./a.out ulaz.txt sa -p
-(ne postoji datoteka ulaz.txt)
-Izlaz:  Greska: Neuspesno otvaranje datoteke ulaz.txt.
-\end{test}
-\end{maxitest}
+#\naslovDat{Ulazna datoteka (ulaz.txt)}#
+#\datoteka{Ovo je sadrzaj datoteke i u njoj ima reci }#
+#\datoteka{koje pocinju sa sa}#
 
-\begin{maxitest}
-\begin{test}{Test 3}
-Poziv:  ./a.out ulaz.txt
-Izlaz:  Greska: Nedovoljan broj argumenata komandne linije.
-        Program se poziva sa ./a.out ime_dat suf/pref -s/-p.
-\end{test}
-\end{maxitest}
+#\naslovInt#
+#\izlaz{Broj reci koje pocinju na sa je 3.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{3}
+#\poziv{./a.out ulaz.txt sa -p}#
+
+#\naslovDat{Datoteka ulaz.txt ne postoji}#
+
+#\naslovInt#
+#\izlaz{Greska: Neuspesno otvaranje}#
+#\izlaz{datoteke ulaz.txt.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{4}
+#\poziv{./a.out ulaz.txt}#
+
+#\naslovDat{Ulazna datoteka (ulaz.txt)}#
+#\datoteka{Ne postoji}#
+
+#\naslovInt#
+#\izlaz{Greska: Nedovoljan broj argumenata }#
+#\izlaz{komandne linije.}#
+#\izlaz{Program se poziva sa }#
+#\izlaz{./a.out ime\_dat suf/pref -s/-p.}#
+\end{upotreba}
+\end{miditest}
 
 \linkresenje{307}
 \end{Exercise}

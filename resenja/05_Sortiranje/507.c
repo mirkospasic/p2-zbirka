@@ -8,29 +8,20 @@
 
 int main(int argc, char *argv[])
 {
-  /***********************************************
-     tip_sortiranja == 0 => selectionsort
-                            (podrazumevano)
-     tip_sortiranja == 1 => insertionsort
-                            -i opcija komandne linije
-     tip_sortiranja == 2 => bubblesort
-                            -b opcija komandne linije
-     tip_sortiranja == 3 => shellsort 
-                            -s opcija komandne linije
-     tip_sortiranja == 4 => mergesort
-                            -m opcija komandne linije
-     tip_sortiranja == 5 => quicksort 
-                            -q opcija komandne linije
-  ************************************************/
+  /*****************************************************************
+     tip_sortiranja == 0 => selectionsort, (podrazumevano)
+     tip_sortiranja == 1 => insertionsort, -i opcija komandne linije
+     tip_sortiranja == 2 => bubblesort,    -b opcija komandne linije
+     tip_sortiranja == 3 => shellsort,     -s opcija komandne linije
+     tip_sortiranja == 4 => mergesort,     -m opcija komandne linije
+     tip_sortiranja == 5 => quicksort,     -q opcija komandne linije
+  ******************************************************************/
   int tip_sortiranja = 0;
-  /*********************************************** 
-     tip_niza == 0 => slucajno generisani nizovi
-                      (podrazumevano)
-     tip_niza == 1 => rastuce sortirani nizovi
-                      -r opcija komandne linije
-     tip_niza == 2 => opadajuce soritrani nizovi
-                      -o opcija komandne linije
-  ************************************************/
+  /*****************************************************************
+     tip_niza == 0 => slucajno generisani nizovi, (podrazumevano)
+     tip_niza == 1 => rastuce sortirani nizovi,   -r opcija
+     tip_niza == 2 => opadajuce soritrani nizovi, -o opcija
+  ******************************************************************/
   int tip_niza = 0;
 
   /* Dimenzija niza koji se sortira */
@@ -45,7 +36,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Ocitavamo opcije i argumente prilikom poziva programa */
+  /* Ocitavanje opcija i argumenata prilikom poziva programa */
   for (i = 1; i < argc; i++) {
     /* Ako je u pitanju opcija... */
     if (argv[i][0] == '-') {
@@ -77,8 +68,8 @@ int main(int argc, char *argv[])
         break;
       }
     }
-    /* Ako je u pitanju argument, onda je to duzina niza koji
-       treba da se sortira */
+    /* Ako je u pitanju argument, onda je to duzina niza koji treba
+       da se sortira */
     else {
       dimenzija = atoi(argv[i]);
       if (dimenzija <= 0 || dimenzija > MAX) {
@@ -88,38 +79,36 @@ int main(int argc, char *argv[])
     }
   }
 
-  /* Elemente niza odredjujemo slucajno, ali vodeci racuna o
-     tipu niza dobijenom iz komandni linije. srandom funkcija
+  /* Elementi niza se odredjuju slucajno, ali vodeci racuna o tipu
+     niza dobijenom iz komandne linije. srandom() funkcija
      obezbedjuje novi seed za pozivanje random funkcije, i kako
-     nas niz ne bi uvek isto izgledao seed smo postavili na
-     tekuce vreme u sekundama od Nove godine 1970. random()%100
-     daje brojeve izmedju 0 i 99 */
+     generisani niz ne bi uvek bio isti seed je postavljen na tekuce
+     vreme u sekundama od Nove godine 1970. random()%100 daje brojeve 
+     izmedju 0 i 99 */
   srandom(time(NULL));
   if (tip_niza == 0)
     for (i = 0; i < dimenzija; i++)
       niz[i] = random();
   else if (tip_niza == 1)
     for (i = 0; i < dimenzija; i++)
-      niz[i] =
-          i == 0 ? random() % 100 : niz[i - 1] + random() % 100;
+      niz[i] = i == 0 ? random() % 100 : niz[i - 1] + random() % 100;
   else
     for (i = 0; i < dimenzija; i++)
-      niz[i] =
-          i == 0 ? random() % 100 : niz[i - 1] - random() % 100;
+      niz[i] = i == 0 ? random() % 100 : niz[i - 1] - random() % 100;
 
-  /* Ispisujemo elemente niza */
-  /***************************************************
-    Ovaj deo je iskomentarisan jer ne zelimo da se sledeci ispis
-    nadje na izlazu. Njegova svrha je samo bila provera da li je
-    niz generisan u skladu sa opcijama komandne linije.
+  /* Ispisivanje elemenata niza */
+  /*****************************************************************
+    Ovaj deo je iskomentarisan jer sledeci ispis ne treba da se nadje
+    na standardnom izlazu. Njegova svrha je samo bila provera da li
+    je niz generisan u skladu sa opcijama komandne linije.
 
     printf("Niz koji sortiramo je:\n");
     for (i = 0; i < dimenzija; i++)
       printf("%d\n", niz[i]);
-  ****************************************************/
+  ******************************************************************/
 
 
-  /* Sortiramo niz na odgovarajuci nacin */
+  /* Sortiranje niza na odgovarajuci nacin */
   if (tip_sortiranja == 0)
     selectionsort(niz, dimenzija);
   else if (tip_sortiranja == 1)
@@ -133,10 +122,10 @@ int main(int argc, char *argv[])
   else
     quicksort(niz, 0, dimenzija - 1);
 
-  /* Ispisujemo elemente niza */
-  /*****************************
-    Ovaj deo je iskomentarisan jer nismo zeleli da vreme potrebno
-    za njegovo izvrsavanje bude ukljuceno u vreme izmereno
+  /* Ispis elemenata niza */
+  /*****************************************************************
+    Ovaj deo je iskomentarisan jer vreme potrebno za njegovo
+    izvrsavanje ne bi trebalo da bude ukljuceno u vreme izmereno
     programom time. Takodje, kako je svrha ovog programa da prikaze
     vremena razlicitih algoritama sortiranja, dimenzije nizova ce
     biti, verovatno, ogromne, pa nema smisla imati na izlazu nizove
@@ -146,7 +135,7 @@ int main(int argc, char *argv[])
     printf("Sortiran niz je:\n");
     for (i = 0; i < dimenzija; i++)
       printf("%d\n", niz[i]); 
-  *****************************/
+  ******************************************************************/
 
   return 0;
 }

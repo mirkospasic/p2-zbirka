@@ -19,14 +19,14 @@ void sort_ime(Gradjanin a[], int n)
   Gradjanin pom;
 
   for (i = 0; i < n - 1; i++) {
-    /* Unutrasnja petlja pronalazi poziciju min, na kojoj se
-       nalazi najmanji od elemenata a[i].ime,...,a[n-1].ime. */
+    /* Unutrasnja petlja pronalazi poziciju min, na kojoj se nalazi
+       najmanji od elemenata a[i].ime,...,a[n-1].ime. */
     min = i;
     for (j = i + 1; j < n; j++)
       if (strcmp(a[j].ime, a[min].ime) < 0)
         min = j;
-    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi
-       samo ako su (i) i min razliciti, inace je nepotrebno. */
+    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi samo ako 
+       su (i) i min razliciti, inace je nepotrebno. */
     if (min != i) {
       pom = a[i];
       a[i] = a[min];
@@ -43,15 +43,14 @@ void sort_prezime(Gradjanin a[], int n)
   Gradjanin pom;
 
   for (i = 0; i < n - 1; i++) {
-    /* Unutrasnja petlja pronalazi poziciju min, na kojoj se
-       nalazi najmanji od elemenata
-       a[i].prezime,...,a[n-1].prezime. */
+    /* Unutrasnja petlja pronalazi poziciju min, na kojoj se nalazi
+       najmanji od elemenata a[i].prezime,...,a[n-1].prezime. */
     min = i;
     for (j = i + 1; j < n; j++)
       if (strcmp(a[j].prezime, a[min].prezime) < 0)
         min = j;
-    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi
-       samo ako su (i) i min razliciti, inace je nepotrebno. */
+    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi samo ako 
+       su (i) i min razliciti, inace je nepotrebno. */
     if (min != i) {
       pom = a[i];
       a[i] = a[min];
@@ -98,25 +97,25 @@ int main()
 
   sort_ime(spisak1, n);
 
-  /**************************************************
+  /*****************************************************************
     Ovaj deo je iskomentarisan jer se u zadatku ne trazi ispis
     sortiranih nizova. Koriscen je samo u fazi testiranja programa.
 
     printf("Biracki spisak [uredjen prema imenima]:\n");
     for(i=0; i<n; i++)
       printf(" %d. %s %s\n",i,spisak1[i].ime, spisak1[i].prezime);         
-  ***************************************************/
+  ******************************************************************/
 
   sort_prezime(spisak2, n);
 
-  /**************************************************
+  /*****************************************************************
     Ovaj deo je iskomentarisan jer se u zadatku ne trazi ispis
     sortiranih nizova. Koriscen je samo u fazi testiranja programa.
 
     printf("Biracki spisak [uredjen prema prezimenima]:\n");
     for(i=0; i<n; i++)
       printf(" %d. %s %s\n",i,spisak2[i].ime, spisak2[i].prezime);         
-  ***************************************************/
+  ******************************************************************/
 
   /* Linearno pretrazivanje nizova */
   for (i = 0; i < n; i++)
@@ -124,12 +123,12 @@ int main()
       isti_rbr++;
 
   /* Alternativno (efikasnije) resenje */
-  /**************************************************
+  /*****************************************************************
     for(i=0; i<n ;i++)
       if( strcmp(spisak2[i].ime, spisak1[i].ime) == 0 &&
           strcmp(spisak1[i].prezime, spisak2[i].prezime)==0)
     isti_rbr++;
-  ***************************************************/
+  ******************************************************************/
 
   /* Ispis rezultata */
   printf("%d\n", isti_rbr);

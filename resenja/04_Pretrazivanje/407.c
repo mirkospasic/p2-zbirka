@@ -8,16 +8,17 @@ int prvi_veci_od_nule(int niz[], int n)
   int s;
   /* Sve dok je leva manja od desne granice */
   while (l <= d) {
-    /* Racunamo sredisnju poziciju */
+    /* Racuna se sredisnja pozicija */
     s = (l + d) / 2;
-    /* Ako je broj na toj poziciji veci od nule a eventualni
-       njegov prethodnik manji ili jednak nuli */
+    /* Ako je broj na toj poziciji veci od nule, a eventualni njegov
+       prethodnik manji ili jednak nuli, pretraga je zavrsena */
     if (niz[s] > 0 && ((s > 0 && niz[s - 1] <= 0) || s == 0))
       return s;
-    /* Pretrazujemo desnu polovinu niza */
+    /* U slucaju broja manjeg ili jednakog nuli, pretrazuje se desna
+       polovina niza */
     if (niz[s] <= 0)
       l = s + 1;
-    /* Pretrazujemo levu polovinu binarnog zapisa */
+    /* A inace, leva polovina */
     else
       d = s - 1;
   }

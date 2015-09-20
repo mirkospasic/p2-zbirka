@@ -8,19 +8,34 @@
   rastojanju. Niz se zadaje sa standardnog ulaza, sve do kraja ulaza,
   i neće sadržati više od $256$ i manje od $2$ elemenata. Na izlaz
   ispisati njihovu razliku.  \uputstvo{Prvo sortirati niz.}
-  
-\begin{miditest}
-\begin{test}{Test 1}
-Ulaz:   23 64 123 76 22 7
-Izlaz:  1
+
+\begin{minitest}
+\begin{test}{Upotreba programa 1}
+Interakcija programa:    
+  Unesite elemente niza:
+  23 64 123 76 22 7
+Izlaz:
+  1
 \end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{Test 2}
-Ulaz:   21 654 65 123 65 12 61
-Izlaz:  0
+\end{minitest}
+\begin{minitest}
+\begin{test}{Upotreba programa 2}
+Interakcija programa:
+  Unesite elemente niza:
+  21 654 65 123 65 12 61
+Izlaz:
+  0
 \end{test}
-\end{miditest}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Upotreba programa 3}
+Interakcija programa:
+  Unesite elemente niza:
+  34 30
+Izlaz:
+  4
+\end{test}
+\end{minitest}
   
 \linkresenje{501}
 \end{Exercise}
@@ -38,18 +53,35 @@ Izlaz:  0
   sortira slova unutar niske karaktera, a zatim za sortirane niske
   proveriti da li su identične.}
   
-\begin{miditest}
-\begin{test}{Test 1}
-Ulaz:   anagram ramgana
-Izlaz:  jesu
+\begin{minitest}
+\begin{test}{Upotreba programa 1}
+Interakcija programa:
+  Unesite prvu nisku: anagram
+  Unesite drugu nisku: ramgana
+Izlaz:
+  jesu
 \end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{Test 2}
-Ulaz:   anagram anagrm
-Izlaz:  nisu
+\end{minitest}
+\begin{minitest}
+\begin{test}{Upotreba programa 2}
+Interakcija programa:
+Interakcija programa:
+  Unesite prvu nisku: anagram
+  Unesite drugu nisku: anagrm
+Izlaz:
+  nisu  
 \end{test}
-\end{miditest}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Upotreba programa 3}
+Interakcija programa:
+Interakcija programa:
+  Unesite prvu nisku: test
+  Unesite drugu nisku: tset
+Izlaz:
+  jesu
+\end{test}
+\end{minitest}
   
 \linkresenje{502}
 \end{Exercise}
@@ -65,20 +97,35 @@ Izlaz:  nisu
   kraja ulaza i neće biti duži od $256$ i kraći od jednog
   elemenata. \uputstvo{Prvo sortirati niz, a zatim naći najdužu
   sekvencu jednakih elemenata.}
-  
-\begin{miditest}
-\begin{test}{Test 1}
-Ulaz: 4 23 5 2 4 6 7 34 6 4 5
-Izlaz:  4
+
+\begin{minitest}
+\begin{test}{Upotreba programa 1}
+Interakcija programa:
+  Unesite elemente niza:
+  4 23 5 2 4 6 7 34 6 4 5
+Izlaz:
+  4
 \end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{Test 2}
-Ulaz:   2 4 6 2 6 7 99 1
-Izlaz:  2
+\end{minitest}
+\begin{minitest}
+\begin{test}{Upotreba programa 2}
+Interakcija programa:
+  Unesite elemente niza:
+  2 4 6 2 6 7 99 1
+Izlaz:
+  2
 \end{test}
-\end{miditest}
-  
+\end{minitest}
+\begin{minitest}
+\begin{test}{Upotreba programa 3}
+Interakcija programa:
+  Unesite elemente niza:
+  123
+Izlaz:
+  123
+\end{test}
+\end{minitest}
+
 \linkresenje{503}
 \end{Exercise}
 
@@ -95,18 +142,39 @@ Izlaz:  2
   Elementi niza se unose sve do kraja ulaza. \uputstvo{Prvo sortirati
   niz.}
   
-\begin{miditest}
-\begin{test}{Test 1}
-Ulaz:   34 134 4 1 6 30 23
-Izlaz:  da
+\begin{minitest}
+\begin{test}{Upotreba programa 1}
+Interakcija programa:
+  Unesite trazeni zbir:
+  34
+  Unesite elemente niza:
+  134 4 1 6 30 23
+Izlaz:
+  da
 \end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{Test 2}
-Ulaz:   12 53 1 43 3 56 13
-Izlaz:  ne
+\end{minitest}
+\begin{minitest}
+\begin{test}{Upotreba programa 2}
+Interakcija programa:
+  Unesite trazeni zbir:
+  12
+  Unesite elemente niza:
+  53 1 43 3 56 13
+Izlaz:
+  ne
 \end{test}
-\end{miditest}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Upotreba programa 3}
+Interakcija programa:
+  Unesite trazeni zbir:
+  52
+  Unesite elemente niza:
+  52
+Izlaz:
+  ne
+\end{test}
+\end{minitest}
   
 \linkresenje{504}
 \end{Exercise}
@@ -116,36 +184,91 @@ Izlaz:  ne
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
+\begin{Exercise}[label=507]
+  Napraviti biblioteku \kckod{sort.h} i \kckod{sort.c} koja
+  implementira algoritme sortiranja nizova celih brojeva. Biblioteka
+  treba da sadrži \kckod{selection}, \kckod{merge}, \kckod{quick},
+  \kckod{bubble}, \kckod{insertion} i \kckod{shell sort}. Upotrebiti
+  biblioteku kako bi se napravilo poređenje efikasnosti različitih
+  algoritama sortiranja. Efikasnost meriti na slučajno generisanim
+  nizovima, na rastuće sortiranim nizovima i na opadajuće sortiranim
+  nizovima. Izbor algoritma, veličine i početnog rasporeda elemenata
+  niza birati kroz argumente komandne linije.  Vreme meriti programom
+  \kckod{time}. Analizirati porast vremena sa porastom dimenzije
+  \argf{n}.
+
+\begin{minitest}
+\begin{test}{1}
+Poziv:
+  time a.out 100000 -i -o
+Izlaz:
+  real    0m17.631s
+  user    0m17.604s
+  sys     0m0.000s
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+Poziv:
+  time a.out 100000 -b -r
+Izlaz:
+  real    0m0.005s
+  user    0m0.004s
+  sys     0m0.000s
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+Poziv:
+  time a.out 100000 -s
+Izlaz:
+  real    0m0.071s
+  user    0m0.068s
+  sys     0m0.000s
+\end{test}
+\end{minitest}
+
+\linkresenje{507}
+\end{Exercise}
+
+\begin{Answer}[ref=507]
+  \includecode{resenja/05_Sortiranje/sort.h}
+  \includecode{resenja/05_Sortiranje/sort.c}
+  \includecode{resenja/05_Sortiranje/507.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
 \begin{Exercise}[label=505]
   Napisati funkciju potpisa \kckod{int merge(int *niz1, int dim1, int
     *niz2, int dim2, int *niz3, int dim3)} koja prima dva sortirana
   niza, i na osnovu njih pravi novi sortirani niz koji koji sadrži
   elemente oba niza. Treća dimenzija predstavlja veličinu niza u koji
   se smešta rezultat. Ako je ona manja od potrebne dužine, funkcija
-  vraća -1 kao indikator neuspeha, inače vraća 0. Napisati zatim program
-  koji testira ovu funkciju. Nizovi se unose sa standardnog ulaza sve dok se ne unese 0 i 
-  može se pretpostaviti da će njihove dimenzije biti manje od $256$.
+  vraća -1 kao indikator neuspeha, inače vraća 0. Napisati zatim
+  program koji testira ovu funkciju. Nizovi se unose sa standardnog
+  ulaza sve dok se ne unese 0 i može se pretpostaviti da će njihove
+  dimenzije biti manje od $256$.
   
 \begin{miditest}
-\begin{test}{Test 1}
-Ulaz:   
-Unesite elemente prvog niza: 
-3 6 7 11 14 35 0 
-Unesite elemente drugog niza: 
-3 5 8 0
+\begin{test}{Upotreba programa 1}
+Interakcija programa:   
+  Unesite elemente prvog niza: 
+  3 6 7 11 14 35 0 
+  Unesite elemente drugog niza: 
+  3 5 8 0
 Izlaz:  
-3 3 5 6 7 8 11 14 35
+  3 3 5 6 7 8 11 14 35
 \end{test}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Ulaz:   
-Unesite elemente prvog niza:
-1 4 7 0 
-Unesite elemente drugog niza: 
-9 11 23 54 75 0
+\begin{test}{Upotreba programa 2}
+Interakcija programa:   
+  Unesite elemente prvog niza:
+  1 4 7 0 
+  Unesite elemente drugog niza: 
+  9 11 23 54 75 0
 Izlaz:  
-1 4 7 9 11 23 54 75
+  1 4 7 9 11 23 54 75
 \end{test}
 \end{miditest}
   
@@ -171,15 +294,15 @@ Izlaz:
 \begin{test}{Test 1}
 Poziv: ./a.out prvi-deo.txt drugi-deo.txt
 Ulazne datoteke:
-  prvi-deo.txt:          drugi-deo.txt:
+  prvi-deo.txt:                      drugi-deo.txt:
 
-  Andrija Petrovic       Aleksandra Cvetic
-  Anja Ilic              Bojan Golubovic
-  Ivana Markovic         Dragan Markovic
-  Lazar Micic            Filip Dukic
-  Nenad Brankovic        Ivana Stankovic
-  Sofija Filipovic       Marija Stankovic
-  Vladimir Savic         Ognjen Peric
+  Andrija Petrovic                   Aleksandra Cvetic
+  Anja Ilic                          Bojan Golubovic
+  Ivana Markovic                     Dragan Markovic
+  Lazar Micic                        Filip Dukic
+  Nenad Brankovic                    Ivana Stankovic
+  Sofija Filipovic                   Marija Stankovic
+  Vladimir Savic                     Ognjen Peric
   Uros Milic
 
 Izlazna datoteka (ceo-tok.txt):
@@ -207,58 +330,6 @@ Izlazna datoteka (ceo-tok.txt):
 
 \begin{Answer}[ref=506]
   \includecode{resenja/05_Sortiranje/506.c}
-\end{Answer}
-%-----------------------------------------------------------------
-%-----------------------------------------------------------------
-\begin{Exercise}[label=507]
-  Napraviti biblioteku \kckod{sort.h} i \kckod{sort.c} koja
-  implementira algoritme sortiranja nizova celih brojeva. Biblioteka
-  treba da sadrži \kckod{selection}, \kckod{merge}, \kckod{quick},
-  \kckod{bubble}, \kckod{insertion} i \kckod{shell sort}. Upotrebiti
-  biblioteku kako bi se napravilo poređenje efikasnosti različitih
-  algoritama sortiranja. Efikasnost meriti na slučajno generisanim
-  nizovima, na rastuće sortiranim nizovima i na opadajuće sortiranim
-  nizovima. Izbor algoritma, veličine i početnog rasporeda elemenata
-  niza birati kroz argumente komandne linije.  Vreme meriti programom
-  \kckod{time}. Analizirati porast vremena sa porastom dimenzije
-  \argf{n}.
-
-\begin{miditest}
-\begin{test}{Upotreba programa 1}
-Poziv: time ./a.out 100000 -i -o
-Izlaz:
-  real    0m17.631s
-  user    0m17.604s
-  sys     0m0.000s
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{Upotreba programa 2}
-Poziv: time ./a.out 100000 -b -r
-Izlaz:
-  real    0m0.005s
-  user    0m0.004s
-  sys     0m0.000s
-\end{test}
-\end{miditest}
-
-\begin{miditest}
-\begin{test}{Upotreba programa 3}
-Poziv: time ./a.out 100000 -s
-Izlaz:
-  real    0m0.071s
-  user    0m0.068s
-  sys     0m0.000s
-\end{test}
-\end{miditest}
-
-\linkresenje{507}
-\end{Exercise}
-
-\begin{Answer}[ref=507]
-  \includecode{resenja/05_Sortiranje/sort.h}
-  \includecode{resenja/05_Sortiranje/sort.c}
-  \includecode{resenja/05_Sortiranje/507.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -329,22 +400,30 @@ Izlazna datoteka (out.txt):
   isti redni broj u oba biračka spiska. Pretpostaviti da je za ime,
   odnosno prezime građana dovoljno $15$ karaktera.
 
-\begin{maxitest}
+\begin{miditest}
 \begin{test}{Test 1}
 Ulazna datoteka (biracki-spisak.txt):
+  Bojan Golubovic
   Andrija Petrovic
   Anja Ilic
   Aleksandra Cvetic
-  Bojan Golubovic
   Dragan Markovic
-  Filip Dukic
-  Ivana Stankovic
   Ivana Markovic
   Lazar Micic
   Marija Stankovic
-Izlaz: 3
+  Filip Dukic
+Izlaz:
+  3
 \end{test}
-\end{maxitest}
+\end{miditest}
+\begin{miditest}
+\begin{test}{Test 2}
+Ulazna datoteka (biracki-spisak.txt):
+  Milan Milicevic
+Izlaz:
+  1
+\end{test}
+\end{miditest}
   
 \linkresenje{509}
 \end{Exercise}
@@ -515,60 +594,40 @@ Interakcija programa:
   
 \begin{maxitest}
 \begin{test}{Test 1}
-Ulazna datoteka (aktivnosti.txt):
-  Aleksandra Cvetic 4 6
-  Bojan Golubovic 4 3
-  Dragan Markovic 3 5
-  Ivana Stankovic 3 1
-  Marija Stankovic 1 3
-  Ognjen Peric 1 2
-  Uros Milic 2 5
-  Andrija Petrovic 2 5
-  Anja Ilic 3 1
-  Lazar Micic 1 3
-  Nenad Brankovic 2 4
-Izlazna datoteka (dat1.txt):
-  Studenti sortirani po imenu leksikografski rastuce:
-  Aleksandra Cvetic  4  6
-  Andrija Petrovic  2  5
-  Anja Ilic  3  1
-  Bojan Golubovic  4  3
-  Dragan Markovic  3  5
-  Ivana Stankovic  3  1
-  Lazar Micic  1  3
-  Marija Stankovic  1  3
-  Nenad Brankovic  2  4
-  Ognjen Peric  1  2
-  Uros Milic  2  5
-Izlazna datoteka (dat2.txt):
-  Studenti sortirani po broju zadataka opadajuce,
-  pa po duzini imena rastuce:
-  Aleksandra Cvetic  4  6
-  Uros Milic  2  5
-  Dragan Markovic  3  5
-  Andrija Petrovic  2  5
-  Nenad Brankovic  2  4
-  Lazar Micic  1  3
-  Bojan Golubovic  4  3
-  Marija Stankovic  1  3
-  Ognjen Peric  1  2
-  Anja Ilic  3  1
-  Ivana Stankovic  3  1
-Izlazna datoteka (dat3.txt):
-  Studenti sortirani po prisustvu opadajuce,
-  pa po broju zadataka,
-  pa po prezimenima leksikografski opadajuce:
-  Aleksandra Cvetic  4  6
-  Bojan Golubovic  4  3
-  Dragan Markovic  3  5
-  Ivana Stankovic  3  1
-  Anja Ilic  3  1
-  Andrija Petrovic  2  5
-  Uros Milic  2  5
-  Nenad Brankovic  2  4
-  Marija Stankovic  1  3
-  Lazar Micic  1  3
-  Ognjen Peric  1  2
+Ulazna datoteka (aktivnosti.txt):            Izlazna datoteka (dat1.txt):
+  
+  Aleksandra Cvetic 4 6                      Studenti sortirani po imenu 
+  Bojan Golubovic 4 3                        leksikografski rastuce:
+  Dragan Markovic 3 5                        Aleksandra Cvetic  4  6
+  Ivana Stankovic 3 1                        Andrija Petrovic  2  5
+  Marija Stankovic 1 3                       Anja Ilic  3  1
+  Ognjen Peric 1 2                           Bojan Golubovic  4  3
+  Uros Milic 2 5                             Dragan Markovic  3  5
+  Andrija Petrovic 2 5                       Ivana Stankovic  3  1
+  Anja Ilic 3 1                              Lazar Micic  1  3
+  Lazar Micic 1 3                            Marija Stankovic  1  3
+  Nenad Brankovic 2 4                        Nenad Brankovic  2  4
+                                             Ognjen Peric  1  2
+                                             Uros Milic  2  5
+
+                                                
+Izlazna datoteka (dat2.txt):                 Izlazna datoteka (dat3.txt):
+                                                
+  Studenti sortirani po broju zadataka       Studenti sortirani po prisustvu
+  opadajuce, pa po duzini imena rastuce:     opadajuce, pa po broju zadataka,
+  Aleksandra Cvetic  4  6                    pa po prezimenima leksikografski
+  Uros Milic  2  5                           opadajuce:
+  Dragan Markovic  3  5                      Aleksandra Cvetic  4  6
+  Andrija Petrovic  2  5                     Bojan Golubovic  4  3
+  Nenad Brankovic  2  4                      Dragan Markovic  3  5
+  Lazar Micic  1  3                          Ivana Stankovic  3  1
+  Bojan Golubovic  4  3                      Anja Ilic  3  1
+  Marija Stankovic  1  3                     Andrija Petrovic  2  5
+  Ognjen Peric  1  2                         Uros Milic  2  5
+  Anja Ilic  3  1                            Nenad Brankovic  2  4
+  Ivana Stankovic  3  1                      Marija Stankovic  1  3
+                                             Lazar Micic  1  3
+                                             Ognjen Peric  1  2
 \end{test}
 \end{maxitest}
   
@@ -602,55 +661,60 @@ Na standardnom izlazu ispisati informacije o pesmama sortiranim na opisani
 način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
   imena izvođača i naslova pesme.
 
-\begin{miditest}
+\begin{minitest}
 \begin{test}{Test 1}
 Poziv: ./a.out
-Datoteka:  5
-           Ana - Nebo, 2342
-           Laza - Oblaci, 29
-           Pera - Ptice, 327
-           Jelena - Sunce, 92321
-           Mika - Kisa, 5341
-Izlaz:     Jelena - Sunce, 92321
-           Mika - Kisa, 5341
-           Ana - Nebo, 2342
-           Pera - Ptice, 327
-           Laza - Oblaci, 29
+Ulazna datoteka:
+  5
+  Ana - Nebo, 2342
+  Laza - Oblaci, 29
+  Pera - Ptice, 327
+  Jelena - Sunce, 92321
+  Mika - Kisa, 5341
+Izlaz:
+  Jelena - Sunce, 92321
+  Mika - Kisa, 5341
+  Ana - Nebo, 2342
+  Pera - Ptice, 327
+  Laza - Oblaci, 29
 \end{test}
-\end{miditest}
-\begin{miditest}
+\end{minitest}
+\begin{minitest}
 \begin{test}{Test 2}
 Poziv: ./a.out -i
-Datoteka:  5
-           Ana - Nebo, 2342
-           Laza - Oblaci, 29
-           Pera - Ptice, 327
-           Jelena - Sunce, 92321
-           Mika - Kisa, 5341
-Izlaz:     Ana - Nebo, 2342
-           Jelena - Sunce, 92321
-           Laza - Oblaci, 29
-           Mika - Kisa, 5341
-           Pera - Ptice, 327
+Ulazna datoteka:
+  5
+  Ana - Nebo, 2342
+  Laza - Oblaci, 29
+  Pera - Ptice, 327
+  Jelena - Sunce, 92321
+  Mika - Kisa, 5341
+Izlaz:
+  Ana - Nebo, 2342
+  Jelena - Sunce, 92321
+  Laza - Oblaci, 29
+  Mika - Kisa, 5341
+  Pera - Ptice, 327
 \end{test}
-\end{miditest}
-
-\begin{miditest}
+\end{minitest}
+\begin{minitest}
 \begin{test}{Test 3}
 Poziv: ./a.out -n
-Datoteka:  5
-           Ana - Nebo, 2342
-           Laza - Oblaci, 29
-           Pera - Ptice, 327
-           Jelena - Sunce, 92321
-           Mika - Kisa, 5341
-Izlaz:     Mika - Kisa, 5341
-           Ana - Nebo, 2342
-           Laza - Oblaci, 29
-           Pera - Ptice, 327
-           Jelena - Sunce, 92321		   
+Ulazna datoteka:
+  5
+  Ana - Nebo, 2342
+  Laza - Oblaci, 29
+  Pera - Ptice, 327
+  Jelena - Sunce, 92321
+  Mika - Kisa, 5341
+Izlaz:
+  Mika - Kisa, 5341
+  Ana - Nebo, 2342
+  Laza - Oblaci, 29
+  Pera - Ptice, 327
+  Jelena - Sunce, 92321		   
 \end{test}
-\end{miditest}
+\end{minitest}
 
 \linkresenje{514}
 \end{Exercise}
@@ -860,42 +924,31 @@ Interakcija programa:
   da je za ime i prezime svakog studenta dovoljno po $20$ karaktera.
   
 \begin{maxitest}
-\begin{test}{Upotreba programa 1}
-Poziv:  ./a.out kolokvijum.txt
-Ulazna datoteka (kolokvijum.txt):
-  Aleksandra Cvetic 15
-  Bojan Golubovic 30
-  Dragan Markovic 25
-  Filip Dukic 20 
-  Ivana Stankovic 25
-  Marija Stankovic 15 
-  Ognjen Peric 20
-  Uros Milic 10
-  Andrija Petrovic 0
-  Anja Ilic 5
-  Ivana Markovic 5
-  Lazar Micic 20
-  Nenad Brankovic 15
-Interakcija programa:
-  Studenti sortirani po broju poena opadajuce, pa po prezimenu rastuce:
-  Bojan Golubovic  30
-  Dragan Markovic  25
-  Ivana Stankovic  25
-  Filip Dukic  20
-  Lazar Micic  20
-  Ognjen Peric  20
-  Nenad Brankovic  15
-  Aleksandra Cvetic  15
-  Marija Stankovic  15
-  Uros Milic  10
-  Anja Ilic  5
-  Ivana Markovic  5
-  Andrija Petrovic  0
-  Unesite broj bodova: 20
-  Pronadjen je student sa unetim  brojem bodova: Filip Dukic 20
-  Unesite prezime: Markovic
-  Pronadjen je student sa unetim prezimenom: Dragan Markovic 25
-\end{test}
+\begin{upotreba}{1}
+#\poziv{./a.out kolokvijum.txt}#
+#\naslovDat{Ulazna datoteka (kolokvijum.txt):}#        #\naslovInt#
+  Aleksandra Cvetic 15                   Studenti sortirani po broju poena
+  Bojan Golubovic 30                     opadajuce, pa po prezimenu rastuce:
+  Dragan Markovic 25                     Bojan Golubovic  30
+  Filip Dukic 20                         Dragan Markovic  25
+  Ivana Stankovic 25                     Ivana Stankovic  25
+  Marija Stankovic 15                    Filip Dukic  20
+  Ognjen Peric 20                        Lazar Micic  20
+  Uros Milic 10                          Ognjen Peric  20
+  Andrija Petrovic 0                     Nenad Brankovic  15
+  Anja Ilic 5                            Aleksandra Cvetic  15
+  Ivana Markovic 5                       Marija Stankovic  15
+  Lazar Micic 20                         Uros Milic  10
+  Nenad Brankovic 15                     Anja Ilic  5
+                                         Ivana Markovic  5
+                                         Andrija Petrovic  0
+                                         Unesite broj bodova: 20
+                                         Pronadjen je student sa unetim
+                                         brojem bodova: Filip Dukic 20
+                                         Unesite prezime: Markovic
+                                         Pronadjen je student sa unetim
+                                         prezimenom: Dragan Markovic 25
+\end{upotreba}
 \end{maxitest}
   
 \linkresenje{521}
@@ -921,22 +974,40 @@ Interakcija programa:
 \begin{Exercise}[label=523]
   Napisati program koji sa standardnog ulaza učitava prvo ceo broj
   \argf{n} ($n \leq 10$), a zatim niz \argf{S} od \argf{n} stringova
-  (maksimalna dužina stringa je $31$ karaktera). Sortirati niz
-  \argf{S} (bibliotečkom funkcijom \kckod{qsort}) i proveriti da li u
-  njemu ima identičnih stringova.
+  (maksimalna dužina stringa je $31$ karakter). Sortirati niz \argf{S}
+  (bibliotečkom funkcijom \kckod{qsort}) i proveriti da li u njemu ima
+  identičnih stringova.
   
-\begin{miditest}
-\begin{test}{Test 1}
-Ulaz:   4 prog search sort search
-Izlaz:  ima
+\begin{minitest}
+\begin{test}{Upotreba programa 1}
+Interakcija programa:
+  Unesite broj niski: 4
+  Unesite niske:
+  prog search sort search
+Izlaz:
+  ima
 \end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{Test 2}
-Ulaz:   3 test kol ispit
-Izlaz:  nema
+\end{minitest}
+\begin{minitest}
+\begin{test}{Upotreba programa 2}
+Interakcija programa:
+  Unesite broj niski: 3
+  Unesite niske:  
+  test kol ispit
+Izlaz:
+  nema
 \end{test}
-\end{miditest}
+\end{minitest}
+\begin{minitest}
+\begin{test}{Upotreba programa 3}
+Interakcija programa:
+  Unesite broj niski: 5
+  Unesite niske:  
+  a ab abc abcd abcde
+Izlaz:
+  nema
+\end{test}
+\end{minitest}
   
 \linkresenje{523}
 \end{Exercise}
@@ -1022,12 +1093,12 @@ Izlazna datoteka (izlaz.txt):
 \begin{maxitest}
 \begin{test}{Test 1}
 Poziv: ./a.out datoteka.txt
-Datoteka:             Ulaz:              Izlaz:
-1.1.2013.             13.12.2016.        postoji
-13.12.2016.           10.5.2015.         ne postoji
-11.11.2011.           5.2.2009.          postoji
-3.5.2015.
-5.2.2009.
+Datoteka:                        Ulaz:              Izlaz:
+  1.1.2013.                      13.12.2016.        postoji
+  13.12.2016.                    10.5.2015.         ne postoji
+  11.11.2011.                    5.2.2009.          postoji
+  3.5.2015.
+  5.2.2009.
 \end{test}
 \end{maxitest}
   

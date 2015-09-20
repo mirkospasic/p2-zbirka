@@ -3,7 +3,7 @@
 
 #define MAX_KARAKTERA 100
 
-/* Funkcija strlen() iz standardne biblioteke */
+/* Implementacija funkcija strlen() iz standardne biblioteke */
 int duzina(char *s)
 {
   int i;
@@ -17,8 +17,8 @@ int main(int argc, char **argv)
   int br = 0, n;
   FILE *in;
 
-  /* Ako korisnik nije uneo trazene argumente, prijavljujemo
-     gresku */
+  /* Ako korisnik nije uneo trazene argumente, prijavljuje se
+     greska */
   if (argc < 3) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaramo datoteku sa imenom koje se zadaje kao prvi
+  /* Otvara se datoteka sa imenom koje se zadaje kao prvi
      argument komandne linije. */
   in = fopen(*(argv + 1), "r");
   if (in == NULL) {
@@ -45,9 +45,9 @@ int main(int argc, char **argv)
     if (duzina(rec) == n)
       br++;
 
-  printf("%d\n", br);
+  printf("Broj reci ciji je broj karaktera %d je %d.\n", n, br);
 
-  /* Zatvaramo datoteku */
+  /* Zatvara se datoteka */
   fclose(in);
   return 0;
 }

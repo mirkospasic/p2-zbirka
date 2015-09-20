@@ -80,8 +80,47 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 {\endverbatim}
 
 
-\lstnewenvironment{test}[1]
-{ \renewcommand\lstlistingname{Test}\lstset{
+%http://latexcolor.com/
+
+\definecolor{dmg}{rgb}{0.05, 0.5, 0.06}
+\definecolor{djg}{rgb}{0.0, 0.29, 0.29}
+\definecolor{denim}{rgb}{0.08, 0.38, 0.74}
+\definecolor{egyptianblue}{rgb}{0.06, 0.2, 0.65}
+
+\newcommand{\datoteka}[1]{\textcolor{dmg}{\texttt{\hspace{2mm}#1}}}
+\newcommand{\poziv}[1]{\textcolor{dmg}{\textsc{Poziv:\hspace{2mm}}}#1}
+\newcommand{\ulaz}[1]{\textcolor{black}{\texttt{\textit{\hspace{2mm}#1}}}}
+\newcommand{\izlaz}[1]{\textcolor{blue}{\texttt{\hspace{2mm}#1}}}
+\newcommand{\naslovInt}{\textcolor{egyptianblue}{\textsc{Interakcija programa:}}}
+\newcommand{\naslovDat}[1]{\textcolor{djg}{\textsc{#1}}}
+\newcommand{\naslovUlaz}{\textcolor{egyptianblue}{\textsc{Ulaz:}}}
+\newcommand{\naslovIzlaz}{\textcolor{egyptianblue}{\textsc{Izlaz:}}}
+
+\iffalse
+\usepackage{mdframed}
+
+\newmdenv[
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  leftline=true,
+  skipabove=\topsep,
+  skipbelow=\topsep,
+  leftmargin=-10pt,
+  rightmargin=-10pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt
+]{siderules}
+
+\definecolor{antiquewhite}{rgb}{0.98, 0.92, 0.84}
+
+\newenvironment{upotreba}[1]{\begin{siderules} \flushleft{\textit{Primer #1}\\}  \begin{scriptsize}}  {\end{scriptsize} \end{siderules}}
+\fi
+
+
+\lstnewenvironment{upotreba}[1]
+{
+ \renewcommand\lstlistingname{Test}\lstset{
 % belowcaptionskip=1\baselineskip,
 % breaklines=true,
  frame=L,
@@ -96,10 +135,36 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
  stringstyle=\color{orange},
  numbers=none,
  captionpos=t,
- title={#1}
+ title={Primer #1},
+ escapechar={\#}
 }
 }
 {}
+
+
+\lstnewenvironment{test}[1]
+{
+ \renewcommand\lstlistingname{Test}\lstset{
+% belowcaptionskip=1\baselineskip,
+% breaklines=true,
+ frame=L,
+ backgroundcolor=\color{white},
+% xleftmargin=\parindent,
+ language=C,
+ showstringspaces=false,
+ basicstyle=\scriptsize\ttfamily,
+ keywordstyle=\bfseries\color{green!40!black},
+ commentstyle=\itshape\color{purple!40!black},
+ identifierstyle=\color{blue},
+ stringstyle=\color{orange},
+ numbers=none,
+ captionpos=t,
+ title={Test #1},
+ escapechar={\#}
+}
+}
+{}
+
 
 \usepackage{caption}
 \DeclareCaptionFormat{listing} {

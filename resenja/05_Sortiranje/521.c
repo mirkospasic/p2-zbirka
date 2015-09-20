@@ -5,17 +5,16 @@
 
 #define MAX 500
 
-/* Struktura koja nam je neophodna za sve informacije o
-   pojedinacnom studentu */
+/* Struktura sa svim informacijama o pojedinacnom studentu */
 typedef struct {
   char ime[21];
   char prezime[21];
   int bodovi;
 } Student;
 
-/* Funkcija poredjenja koju cemo koristiti za sortiranje po
-   broju bodova, a studente sa istim brojevem bodova dodatno
-   sortiramo leksikografski po prezimenu */
+/* Funkcija poredjenja za sortiranje po broju bodova. Studenti sa
+   istim brojem bodova se dodatno sortiraju leksikografski po
+   prezimenu */
 int compare(const void *a, const void *b)
 {
   Student *prvi = (Student *) a;
@@ -26,15 +25,14 @@ int compare(const void *a, const void *b)
   else if (prvi->bodovi < drugi->bodovi)
     return 1;
   else
-    /* Jednaki su po broju bodova, treba ih uporediti po
+    /* Ako su jednaki po broju bodova, treba ih uporediti po
        prezimenu */
     return strcmp(prvi->prezime, drugi->prezime);
 }
 
-/* Funkcija za poredjenje koje ce porediti samo po broju bodova
-   Prvi parametar je ono sto trazimo u nizu, ovde je to broj
-   bodova, a drugi parametar ce biti element niza ciji se bodovi 
-   porede. */
+/* Funkcija za poredjenje koja se koristi u pretrazi po broju bodova.
+   Prvi parametar je ono sto se trazi u nizu (broj bodova), a drugi
+   parametar je element niza ciji se bodovi porede. */
 int compare_za_bsearch(const void *a, const void *b)
 {
   int bodovi = *(int *) a;
@@ -42,10 +40,9 @@ int compare_za_bsearch(const void *a, const void *b)
   return s->bodovi - bodovi;
 }
 
-/* Funkcija za poredjenje koje ce porediti samo po prezimenu
-   Prvi parametar je ono sto trazimo u nizu, ovde je to prezime, 
-   a drugi parametar ce biti element niza cije se prezime
-   poredi. */
+/* Funkcija za poredjenje koja se koristi u pretrazi po prezimenu.
+   Prvi parametar je ono sto se trazi u nizu (prezime), a drugi
+   parametar je element niza cije se prezime poredi. */
 int compare_za_linearna_prezimena(const void *a, const void *b)
 {
   char *prezime = (char *) a;
@@ -64,8 +61,8 @@ int main(int argc, char *argv[])
   int bodovi;
   char prezime[21];
 
-  /* Ako je program pozvan sa nedovoljnim brojem argumenata
-     informisemo korisnika kako se program koristi i prekidamo
+  /* Ako je program pozvan sa nedovoljnim brojem argumenata daje se
+     informacija korisniku kako se program koristi i prekida se
      izvrsavanje. */
   if (argc < 2) {
     fprintf(stderr,
@@ -90,9 +87,8 @@ int main(int argc, char *argv[])
   fclose(fp);
   br_studenata = i;
 
-  /* Sortiramo niz studenata po broju bodova, pa unutar grupe
-     studenata sa istim brojem bodova sortiranje se vrsi po
-     prezimenu */
+  /* Sortiranje niza studenata po broju bodova, gde se unutar grupe
+     studenata sa istim brojem bodova sortiranje vrsi po prezimenu */
   qsort(kolokvijum, br_studenata, sizeof(Student), &compare);
 
   printf("Studenti sortirani po broju poena opadajuce, ");
@@ -117,8 +113,8 @@ int main(int argc, char *argv[])
   else
     printf("Nema studenta sa unetim brojem bodova\n");
 
-  /* Pretraga po prezimenu se mora vrsiti linearnom pretragom
-     jer nam je niz sortiran po bodovima, globalno gledano. */
+  /* Pretraga po prezimenu se mora vrsiti linearno jer je niz
+     sortiran po bodovima. */
   printf("Unesite prezime: ");
   scanf("%s", prezime);
 

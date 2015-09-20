@@ -3,7 +3,7 @@
 
 #define MAX 100
 
-/* Funkcija racuna zbir elemenata niza */
+/* Funkcija izracunava zbir elemenata niza */
 double zbir(double *a, int n)
 {
   double s = 0;
@@ -14,7 +14,7 @@ double zbir(double *a, int n)
   return s;
 }
 
-/* Funkcija racuna proizvod elemenata niza */
+/* Funkcija izracunava proizvod elemenata niza */
 double proizvod(double a[], int n)
 {
   double p = 1;
@@ -25,15 +25,15 @@ double proizvod(double a[], int n)
   return p;
 }
 
-/* Funkcija racuna najmanji element niza */
+/* Funkcija izracunava minimalni element niza */
 double min(double *a, int n)
 {
-  /* Za najmanji element se najpre postavlja prvi element */
+  /* Na pocetku, minimalni element je prvi element */
   double min = a[0];
   int i;
 
-  /* Ispitujemo da li se medju ostalim elementima niza nalazi
-     najmanji */
+  /* Ispituje se da li se medju ostalim elementima niza nalazi
+     minimalni */
   for (i = 1; i < n; i++)
     if (a[i] < min)
       min = a[i];
@@ -41,14 +41,14 @@ double min(double *a, int n)
   return min;
 }
 
-/* Funkcija racuna najveci element niza */
+/* Funkcija izracunava maksimalni element niza */
 double max(double *a, int n)
 {
-  /* Za najveci element se najpre postavlja prvi element */
+  /* Na pocetku, maksimalni element je prvi element */
   double max = *a;
 
-  /* Ispitujemo da li se medju ostalim elementima niza nalazi
-     najveci */
+  /* Ispituje se da li se medju ostalim elementima niza nalazi
+     maksimalni */
   for (a++, n--; n > 0; a++, n--)
     if (*a > max)
       max = *a;
@@ -62,24 +62,25 @@ int main()
   double a[MAX];
   int n, i;
 
-  /* Ucitavamo dimenziju niza */
+  printf("Unesite dimenziju niza: ");
   scanf("%d", &n);
 
-  /* Proveravamo da li je prekoraceno ogranicenje dimenzije */
+  /* Proverava se da li je doslo do prekoracenja ogranicenja 
+     dimenzije */
   if (n <= 0 || n > MAX) {
     fprintf(stderr, "Greska: neodgovarajuca dimenzija niza.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Unosimo elemente niza */
+  printf("Unesite elemente niza:\n");
   for (i = 0; i < n; i++)
     scanf("%lf", a + i);
 
-  /* Testiramo definisane funkcije */
-  printf("zbir = %5.3f\n", zbir(a, n));
-  printf("proizvod = %5.3f\n", proizvod(a, n));
-  printf("min = %5.3f\n", min(a, n));
-  printf("max = %5.3f\n", max(a, n));
+  /* Vrsi se testiranje definisanih funkcija */
+  printf("Zbir elemenata niza je %5.3f.\n", zbir(a, n));
+  printf("Proizvod elemenata niza je %5.3f.\n", proizvod(a, n));
+  printf("Minimalni element niza je %5.3f.\n", min(a, n));
+  printf("Maksimalni element niza je %5.3f.\n", max(a, n));
 
   return 0;
 }

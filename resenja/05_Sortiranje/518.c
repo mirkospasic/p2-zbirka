@@ -11,7 +11,7 @@ int no_of_deviders(int x)
   int i;
   int br;
 
-  /* Ako je argument negativan broj menjamo mu znak */
+  /* Negativni brojevi imaju isti broj delilaca kao i pozitivni */
   if (x < 0)
     x = -x;
   if (x == 0)
@@ -20,14 +20,13 @@ int no_of_deviders(int x)
     return 1;
   /* Svaki broj veci od 1 ima bar 2 delioca, (1 i samog sebe) */
   br = 2;
-  /* Sve dok je */
   for (i = 2; i < sqrt(x); i++)
     if (x % i == 0)
       /* Ako i deli x onda su delioci: i, x/i */
       br += 2;
-  /* Ako je broj bas kvadrat, onda smo iz petlje izasli kada je
-     i bilo bas jednako korenu od x, tada x ima jos jednog
-     delioca */
+  /* Ako je broj x bas kvadrat, onda se iz petlje izaslo kada je
+     promenljiva i bila bas jednaka korenu od x, i tada broj x ima
+     jos jednog delioca */
   if (i * i == x)
     br++;
 
@@ -50,30 +49,28 @@ int compare_no_deviders(const void *a, const void *b)
     return 0;
 }
 
-/* Test program */
 int main()
 {
   size_t n;
   int i;
   int a[MAX];
 
-  /* Unosimo dimenziju */
+  /* Unos dimenzije */
   printf("Uneti dimenziju niza: ");
   scanf("%ld", &n);
   if (n > MAX)
     n = MAX;
 
-  /* Unosimo elemente niza */
+  /* Unos elementa niza */
   printf("Uneti elemente niza:\n");
   for (i = 0; i < n; i++)
     scanf("%d", &a[i]);
 
-  /* Sortiramo niz celih brojeva prema broju delilaca */
+  /* Sortiranje niza celih brojeva prema broju delilaca */
   qsort(a, n, sizeof(int), &compare_no_deviders);
 
-  /* Prikazujemo sortirani niz */
-  printf
-      ("Sortirani niz u rastucem poretku prema broju delilaca:\n");
+  /* Prikaz sortiranog niza */
+  printf("Sortirani niz u rastucem poretku prema broju delilaca:\n");
   for (i = 0; i < n; i++)
     printf("%d ", a[i]);
   putchar('\n');

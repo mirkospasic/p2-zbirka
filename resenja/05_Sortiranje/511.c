@@ -12,28 +12,27 @@ int broj_suglasnika(char s[])
   char c;
   int i;
   int suglasnici = 0;
-  /* Obilazimo karakter po karakter zadate niske */
+  /* Prolaz karakter po karakter kroz zadatu nisku */
   for (i = 0; s[i]; i++) {
     /* Ako je u pitanju slovo */
     if (isalpha(s[i])) {
-      /* Pretvaramo ga u veliko da bismo mogli da pokrijemo
-         slucaj i malih i velikih suglasnika */
+      /* Konvertuje se u veliko da bi bio pokriven slucaj i malih i
+         velikih suglasnika */
       c = toupper(s[i]);
       /* Ukoliko slovo nije samoglasnik */
-      if (c != 'A' && c != 'E' && c != 'I' && c != 'O'
-          && c != 'U') {
-        /* Uvecavamo broj suglasnika */
+      if (c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
+        /* Uvecava se broj suglasnika */
         suglasnici++;
       }
     }
   }
-  /* Vracamo izracunatu vrednost */
+  /* Vraca se izracunata vrednost */
   return suglasnici;
 }
 
-/* Funkcija koja sortira reci po zadatom kriterijumu.
-   Informacija o duzini reci se mora proslediti zbog pravilnog
-   upravljanja memorijom */
+/* Funkcija koja sortira reci po zadatom kriterijumu. Informacija o
+   duzini reci se mora proslediti zbog pravilnog upravljanja
+   memorijom */
 void sortiraj_reci(char reci[][MAX_DUZINA_RECI], int n)
 {
   int min, i, j, broj_suglasnika_j, broj_suglasnika_min,
@@ -42,24 +41,23 @@ void sortiraj_reci(char reci[][MAX_DUZINA_RECI], int n)
   for (i = 0; i < n - 1; i++) {
     min = i;
     for (j = i; j < n; j++) {
-      /* Prvo uporedjujemo broj suglasnika */
+      /* Prvo se uporedjuje broj suglasnika */
       broj_suglasnika_j = broj_suglasnika(reci[j]);
       broj_suglasnika_min = broj_suglasnika(reci[min]);
       if (broj_suglasnika_j < broj_suglasnika_min)
         min = j;
       else if (broj_suglasnika_j == broj_suglasnika_min) {
-        /* Zatim, reci imaju isti broj suglasnika uporedjujemo
-           duzine */
+        /* Zatim, recima koje imaju isti broj suglasnika uporedjuju
+           se duzine */
         duzina_j = strlen(reci[j]);
         duzina_min = strlen(reci[min]);
 
         if (duzina_j < duzina_min)
           min = j;
         else
-          /* A ako reci imaju i isti broj suglasnika i iste
-             duzine, uporedjujemo ih leksikografski */
-        if (duzina_j == duzina_min
-              && strcmp(reci[j], reci[min]) < 0)
+          /* A ako reci imaju i isti broj suglasnika i iste duzine,
+             uporedjuju se leksikografski */
+        if (duzina_j == duzina_min && strcmp(reci[j], reci[min]) < 0)
           min = j;
       }
     }
@@ -77,11 +75,11 @@ int main()
   FILE *ulaz;
   int i = 0, n;
 
-  /* Niz u kojem ce biti smestane reci. Prvi broj oznacava broj
-     reci, a drugi maksimalnu duzinu pojedinacne reci */
+  /* Niz u kojem ce biti smestane reci. Prvi broj oznacava broj reci, 
+     a drugi maksimalnu duzinu pojedinacne reci */
   char reci[MAX_BR_RECI][MAX_DUZINA_RECI];
 
-  /* Otvaramo datoteku niske.txt za citanje */
+  /* Otvaranje datoteke niske.txt za citanje */
   ulaz = fopen("niske.txt", "r");
   if (ulaz == NULL) {
     fprintf(stderr,
@@ -89,30 +87,29 @@ int main()
     return 0;
   }
 
-  /* Sve dok mozemo da procitamo sledecu rec */
+  /* Sve dok se moze procitati sledeca rec */
   while (fscanf(ulaz, "%s", reci[i]) != EOF) {
-    /* Proveravamo da li smo ucitali najvise dozvoljenih reci i
-       ako jesmo, prekidamo ucitavanje */
+    /* Proverava se da li ucitan maksimalan broj reci, i ako jeste,
+       prekida se ucitavanje */
     if (i == MAX_BR_RECI)
       break;
-    /* Pripremamo brojac za narednu iteraciju */
+    /* Priprema brojaca za narednu iteraciju */
     i++;
   }
 
-  /* n je duzina naseg niza reci i predstavlja poslednju
-     vrednost koriscenog brojaca */
+  /* n je duzina niza reci i predstavlja poslednju vrednost
+     koriscenog brojaca */
   n = i;
-  /* Pozivamo funkciju za sortiranje reci - OPREZ: nacin
-     prosledjivanja niza reci */
+  /* Poziv funkcije za sortiranje reci */
   sortiraj_reci(reci, n);
 
-  /* Ispisujemo sortirani niz reci */
+  /* Ispis sortiranog niza reci */
   for (i = 0; i < n; i++) {
     printf("%s ", reci[i]);
   }
   printf("\n");
 
-  /* Zatvaramo datoteku */
+  /* Zatvaranje datoteke */
   fclose(ulaz);
 
   return 0;
