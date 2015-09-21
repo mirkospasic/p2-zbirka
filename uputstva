@@ -97,11 +97,6 @@ Definisala sam i miditest i maxitest, u zavisnosti od sirine koja je za test
 potrebna. Ideja je da testove mozemo da slazemo jedan uz drugi, kao i da svi 
 koristimo fiksne duzine, zato sam navela ove tri velicine, mada je to, naravno, 
 fleksibilno,
-Testove formatirati na ovaj nacin:
-poziv programa
-datoteka i njen sadrzaj ukoliko treba
-ulaz
-izlaz
 
 Okruzenje Answer se koristi samo da se oznaci rešenje zadatka, i tu imamo 
 uključivanje C koda iz odgovarajuće datoteke rešenja. Dakle taj deo bi trebao 
@@ -164,3 +159,94 @@ ukljuciti samo onu najbitniju, bez nekih standardno potrebnih
 stvari. (ovo se pre svega odnosi na stabla i liste). Obavezno je da se
 zadatak kompilira.
 
+Testovi:
+Napravila sam dva okruzenja, jedno je test, a drugo je upotreba. Naslove 
+vise nije potrebno pisati, vec samo brojeve.
+
+Npr \begin{test}{1} a ne \begin{test}{Test 1}
+
+Na ovaj nacin cemo spreciti kasnije masovno find-replace ukoliko 
+promenimo neko ime.
+
+Midi, mini, maxi - to je ostalo isto, jer samo doredjuje sirinu.
+
+Evo jednog novog primera:
+
+\begin{miditest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite trazeni broj:} \ulaz{11}#
+#\izlaz{Unesite sortiran niz elemenata:}#
+#\ulaz{2 5 6 8 10 11 23}#
+#\izlaz{Linearna pretraga}#
+#\izlaz{Pozicija elementa je 5.}#
+#\izlaz{Binarna pretraga}#
+#\izlaz{Pozicija elementa je 5.}#
+#\izlaz{Interpolaciona pretraga}#
+#\izlaz{Pozicija elementa je 5.}#
+\end{upotreba}
+\end{miditest}
+
+Dakle, potrebno je tagovti sa ulaz i izlaz, o cemu smo vec pricali, ali 
+je ruzan novitet to sto je potrebno i dodatno tagovati sa tarabom.
+Borila sam se kao lav do to ne bude neophodno, ali nisam uspela da 
+nadjem nacin...
+
+Dalje, nema potrebe unositi blanko ispred, jer ce to biti automatski 
+uneseno (tj za ulaz i izlaz je 2mm od linije je udaljen tekst).
+
+Komanda NaslovInt je za ubacivanje naslova tj niske "Interakcija 
+programa"  ili sta vec budemo odlucili da to bude.
+
+Ovo je drugi primer, koji sadrzi datoteku:
+\begin{maxitest}
+\begin{upotreba}{1}
+#\naslovDat{Datoteka}#
+#\datoteka{20140003 Marina Petrovic}#
+#\datoteka{20140012 Stefan Mitrovic}#
+#\datoteka{20140032 Dejan Popovic}#
+#\datoteka{20140049 Mirko Brankovic}#
+#\datoteka{20140076 Sonja Stevanovic}#
+#\datoteka{20140104 Ivan Popovic}#
+#\datoteka{20140187 Vlada Stankovic}#
+#\datoteka{20140234 Darko Brankovic}#
+#\naslovInt#
+#\izlaz{Unesite indeks studenta cije informacije zelite:}\ulaz{20140076}#
+#\izlaz{Indeks: 20140076, Ime i prezime: Sonja Stevanovic}#
+#\izlaz{Unesite prezime studenta cije informacije zelite:}\ulaz{Popovic}#
+#\izlaz{Indeks: 20140032, Ime i prezime: Dejan Popovic}#
+\end{upotreba}
+\end{maxitest}
+
+NaslovDat ima argument jer se tu, koliko sam videla, javljaju razliciti 
+naslovi (samo datoteka ili ulazna datoteka ili sta vec treba), a komanda 
+\datoteka se odnosi na sadrzaj datoteke.
+
+Ukoliko vam treba poziv, pise se ovako (automatski se dodaje ono Poziv 
+ispred):
+#\poziv{./a.out kolokvijum.txt}#
+#\naslovDat{Ulazna datoteka (kolokvijum.txt):}#        #\naslovInt#
+...
+
+Sto se testova tice, sve ovo isto moze da se koristi i kod testova. 
+Dakle, tu bi koristili
+#\naslovUlaz#
+i
+#\naslovIzlaz#
+umesto onog Ulaz: i Izlaz:
+
+Na primer:
+\begin{test}{1}
+#\naslovIzlaz#
+#\izlaz{1.57031}#
+\end{test}
+
+ili ovako
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{0x7F}#
+#\naslovIzlaz#
+#\izlaz{00000000000000000000000001111111}#
+\end{test}
+
+Tako bi dobili da je poravnanje kod svih isto.
