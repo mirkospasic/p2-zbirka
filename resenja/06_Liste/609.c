@@ -1,115 +1,93 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
+#include "601/lista.h"
 
-#define MAX_INDEKS 11
-#define MAX_IME_PREZIME 21
-
-typedef struct _Cvor {
-  char broj_indeksa[MAX_INDEKS];
-  char ime[MAX_IME_PREZIME];
-  char prezime[MAX_IME_PREZIME];
-  struct _Cvor *sledeci;
-} Cvor;
-
-/* Funkcija kreira, inicijalizuje cvor liste i vraca pokazivac
-   na nov cvor ili NULL ukoliko alokacija nije prosla. */
-Cvor *napravi_cvor(char *broj_indeksa, char *ime, char *prezime)
+Cvor *objedini(Cvor ** glava1, Cvor ** glava2)
 {
-  Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
-  if (novi == NULL)
+  Cvor *l3 = NULL;
+  Cvor **tek = &l3;
+
+  if (*glava1 == NULL && *glava2 == NULL)
     return NULL;
-  strcpy(novi->broj_indeksa, broj_indeksa);
-  strcpy(novi->ime, ime);
-  strcpy(novi->prezime, prezime);
-  novi->sledeci = NULL;
-  return novi;
-}
 
-/* Funkcija oslobadja memoriju zauzetu za elemente liste. */
-void oslobodi_listu(Cvor ** glava)
-{
-  if (*glava == NULL)
-    return;
-  oslobodi_listu(&(*glava)->sledeci);
-  free(*glava);
-  *glava = NULL;
-}
+  /* Ako je prva lista prazna, rezultat je druga lista. */
+  if (*glava1 == NULL)
+    return *glava2;
 
-void proveri_alokaciju(Cvor ** glava, Cvor * novi)
-{
-  if (novi == NULL) {
-    fprintf(stderr, "Neuspela alokacija za nov cvor\n");
-    oslobodi_listu(glava);
-    exit(EXIT_FAILURE);
+  /* Ako je druga lista prazna, rezultat je prva lista. */
+  if (*glava2 == NULL)
+    return *glava1;
+
+  /* l3 pokazuje na pocetak nove liste, tj. na manji od brojeva
+     sadrzanih u cvorovima na koje pokazuju glava1 i glava2. */
+  l3 = ((*glava1)->vrednost < (*glava2)->vrednost) ? *glava1 :
+      *glava2;
+
+
+  while (*glava1 != NULL && *glava2 != NULL) {
+    if ((*glava1)->vrednost < (*glava2)->vrednost) {
+      *tek = *glava1;
+      *glava1 = (*glava1)->sledeci;
+    } else {
+      *tek = *glava2;
+      *glava2 = (*glava2)->sledeci;
+    }
+    tek = &((*tek)->sledeci);
   }
-}
 
-/* Funkcija dodaje novi cvor na pocetak liste. */
-void dodaj_na_pocetak_liste(Cvor ** glava, char *broj_indeksa,
-                            char *ime, char *prezime)
-{
-  Cvor *novi = napravi_cvor(broj_indeksa, ime, prezime);
-  proveri_alokaciju(glava, novi);
-  novi->sledeci = *glava;
-  *glava = novi;
-}
+  /* Ako se iz petlje izaslo jer se stiglo do kraja prve liste,
+     na rezultujucu listu treba nadovezati ostatak druge liste. */
+  if (*glava1 == NULL)
+    *tek = *glava2;
 
-void ispisi_listu(Cvor * glava)
-{
-  for (; glava != NULL; glava = glava->sledeci)
-    printf("%s %s %s\n", glava->broj_indeksa, glava->ime,
-           glava->prezime);
-}
+  else if (*glava2 == NULL)
+    *tek = *glava1;
 
-/* Funkcija vraca cvor koji kao vrednost sadrzi trazenu etiketu,
-   u suprotnom vraca NULL. */
-Cvor *pretrazi_listu(Cvor * glava, char *broj_indeksa)
-{
-  if (glava == NULL)
-    return NULL;
-  if (!strcmp(glava->broj_indeksa, broj_indeksa))
-    return glava;
-  return pretrazi_listu(glava->sledeci, broj_indeksa);
+  return l3;
 }
 
 int main(int argc, char **argv)
 {
-  if (argc != 2) {
-    fprintf(stderr, "Greska! Program se poziva sa: ./a.out \
-studenti.txt!\n");
+  if (argc != 3) {
+    fprintf(stderr,
+            "Greska! Program se poziva sa: ./a.out dat1.txt dat2.txt!\n");
     exit(EXIT_FAILURE);
   }
 
-  FILE *in = NULL;
-  in = fopen(argv[1], "r");
-  if (in == NULL) {
+  FILE *in1 = NULL;
+  in1 = fopen(argv[1], "r");
+  if (in1 == NULL) {
     fprintf(stderr,
             "Greska prilikom otvaranja datoteke %s.\n", argv[1]);
     exit(EXIT_FAILURE);
   }
 
-  char ime[MAX_IME_PREZIME], prezime[MAX_IME_PREZIME];
-  char broj_indeksa[MAX_INDEKS];
-  Cvor *glava = NULL;
-  Cvor *trazeni = NULL;
-
-  /* Ucitavanje vrednosti u listu. */
-  while (fscanf(in, "%s %s %s", broj_indeksa, ime, prezime) !=
-         EOF)
-    dodaj_na_pocetak_liste(&glava, broj_indeksa, ime, prezime);
-
-  fclose(in);
-
-  while (scanf("%s", broj_indeksa) != EOF) {
-    trazeni = pretrazi_listu(glava, broj_indeksa);
-    if (trazeni == NULL)
-      printf("ne\n");
-    else
-      printf("da: %s %s\n", trazeni->ime, trazeni->prezime);
+  FILE *in2 = NULL;
+  in2 = fopen(argv[2], "r");
+  if (in2 == NULL) {
+    fprintf(stderr,
+            "Greska prilikom otvaranja datoteke %s.\n", argv[2]);
+    exit(EXIT_FAILURE);
   }
 
-  oslobodi_listu(&glava);
+  int broj;
+  Cvor *glava1 = NULL;
+  Cvor *glava2 = NULL;
+  Cvor *l3 = NULL;
 
+  /* Ucitavanje listi */
+  while (fscanf(in1, "%d", &broj) != EOF)
+    dodaj_na_kraj_liste(&glava1, broj);
+  while (fscanf(in2, "%d", &broj) != EOF)
+    dodaj_na_kraj_liste(&glava2, broj);
+
+  l3 = objedini(&glava1, &glava2);
+
+  /* Ispis rezultujuce liste. */
+  ispisi_listu(l3);
+  oslobodi_listu(&l3);
+
+  fclose(in1);
+  fclose(in2);
   return 0;
 }

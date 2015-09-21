@@ -13,10 +13,10 @@ int main()
   char c;
   Cvor *pomocni = NULL;
 
-  ulaz = fopen("dat.txt", "r");
+  ulaz = fopen("izraz.txt", "r");
   if (ulaz == NULL) {
     fprintf(stderr,
-            "Greska prilikom otvaranja datoteke dat.txt!\n");
+            "Greska prilikom otvaranja datoteke izraz.txt!\n");
     exit(EXIT_FAILURE);
   }
 
