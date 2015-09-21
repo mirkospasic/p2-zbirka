@@ -46,7 +46,6 @@ int main()
 
   /* Ucitavanje elemenata niza sve do kraja ulaza */
   i = 0;
-  printf("Unesite elemente niza: ");
   while (scanf("%d", &a[i]) != EOF)
     i++;
 

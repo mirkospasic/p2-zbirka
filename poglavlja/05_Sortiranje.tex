@@ -1,6 +1,5 @@
 \section{Sortiranje}
 
-
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=501]
@@ -10,30 +9,30 @@
   ispisati njihovu razliku.  \uputstvo{Prvo sortirati niz.}
 
 \begin{minitest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:    
-  Unesite elemente niza:
-  23 64 123 76 22 7
-Izlaz:
-  1
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{23 64 123 76 22 7}#
+
+#\naslovIzlaz#
+#\izlaz{1}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:
-  Unesite elemente niza:
-  21 654 65 123 65 12 61
-Izlaz:
-  0
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{21 654 65 123 65 12 61}#
+  
+#\naslovIzlaz#
+#\izlaz{0}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 3}
-Interakcija programa:
-  Unesite elemente niza:
-  34 30
-Izlaz:
-  4
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{34 30}#
+
+#\naslovIzlaz#
+#\izlaz{4}#
 \end{test}
 \end{minitest}
   
@@ -54,33 +53,28 @@ Izlaz:
   proveriti da li su identične.}
   
 \begin{minitest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:
-  Unesite prvu nisku: anagram
-  Unesite drugu nisku: ramgana
-Izlaz:
-  jesu
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite prvu nisku}\ulaz{anagram}#
+#\izlaz{Unesite drugu nisku}\ulaz{ramgana}#
+#\izlaz{jesu}#
+\end{upotreba}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:
-Interakcija programa:
-  Unesite prvu nisku: anagram
-  Unesite drugu nisku: anagrm
-Izlaz:
-  nisu  
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite prvu nisku}\ulaz{anagram}#
+#\izlaz{Unesite drugu nisku}\ulaz{anagrm}#
+#\izlaz{nisu}#
+\end{upotreba}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 3}
-Interakcija programa:
-Interakcija programa:
-  Unesite prvu nisku: test
-  Unesite drugu nisku: tset
-Izlaz:
-  jesu
-\end{test}
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesite prvu nisku}\ulaz{test}#
+#\izlaz{Unesite drugu nisku}\ulaz{tset}#
+#\izlaz{jesu}#
+\end{upotreba}
 \end{minitest}
   
 \linkresenje{502}
@@ -99,30 +93,30 @@ Izlaz:
   sekvencu jednakih elemenata.}
 
 \begin{minitest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:
-  Unesite elemente niza:
-  4 23 5 2 4 6 7 34 6 4 5
-Izlaz:
-  4
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{4 23 5 2 4 6 7 34 6 4 5}#
+  
+#\naslovIzlaz#
+#\izlaz{4}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:
-  Unesite elemente niza:
-  2 4 6 2 6 7 99 1
-Izlaz:
-  2
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{2 4 6 2 6 7 99 1}#
+  
+#\naslovIzlaz#
+#\izlaz{2}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 3}
-Interakcija programa:
-  Unesite elemente niza:
-  123
-Izlaz:
-  123
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{123}#
+  
+#\naslovIzlaz#
+#\izlaz{123}#
 \end{test}
 \end{minitest}
 
@@ -143,37 +137,31 @@ Izlaz:
   niz.}
   
 \begin{minitest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:
-  Unesite trazeni zbir:
-  34
-  Unesite elemente niza:
-  134 4 1 6 30 23
-Izlaz:
-  da
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite trazeni zbir:}\ulaz{34}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{134 4 1 6 30 23}#
+#\izlaz{da}#
+\end{upotreba}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:
-  Unesite trazeni zbir:
-  12
-  Unesite elemente niza:
-  53 1 43 3 56 13
-Izlaz:
-  ne
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite trazeni zbir:}\ulaz{12}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{53 1 43 3 56 13}#
+#\izlaz{ne}#
+\end{upotreba}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 3}
-Interakcija programa:
-  Unesite trazeni zbir:
-  52
-  Unesite elemente niza:
-  52
-Izlaz:
-  ne
-\end{test}
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesite trazeni zbir:}\ulaz{52}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{52}#
+#\izlaz{ne}#
+\end{upotreba}
 \end{minitest}
   
 \linkresenje{504}
@@ -197,36 +185,26 @@ Izlaz:
   \kckod{time}. Analizirati porast vremena sa porastom dimenzije
   \argf{n}.
 
-\begin{minitest}
+\begin{miditest}
 \begin{test}{1}
-Poziv:
-  time a.out 100000 -i -o
-Izlaz:
-  real    0m17.631s
-  user    0m17.604s
-  sys     0m0.000s
+#\poziv{time a.out 100000 -i -o}#
+  
+#\naslovIzlaz#
+#\izlaz{real    0m17.631s}#
+#\izlaz{user    0m17.604s}#
+#\izlaz{sys     0m0.000s}#
 \end{test}
-\end{minitest}
-\begin{minitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{2}
-Poziv:
-  time a.out 100000 -b -r
-Izlaz:
-  real    0m0.005s
-  user    0m0.004s
-  sys     0m0.000s
+#\poziv{time a.out 100000 -b -r}#
+  
+#\naslovIzlaz#
+#\izlaz{real    0m0.005s}#
+#\izlaz{user    0m0.004s}#
+#\izlaz{sys     0m0.000s}#
 \end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{3}
-Poziv:
-  time a.out 100000 -s
-Izlaz:
-  real    0m0.071s
-  user    0m0.068s
-  sys     0m0.000s
-\end{test}
-\end{minitest}
+\end{miditest}
 
 \linkresenje{507}
 \end{Exercise}
@@ -250,26 +228,24 @@ Izlaz:
   dimenzije biti manje od $256$.
   
 \begin{miditest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:   
-  Unesite elemente prvog niza: 
-  3 6 7 11 14 35 0 
-  Unesite elemente drugog niza: 
-  3 5 8 0
-Izlaz:  
-  3 3 5 6 7 8 11 14 35
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#  
+#\izlaz{Unesite elemente prvog niza:}#
+#\ulaz{3 6 7 11 14 35 0}#
+#\izlaz{Unesite elemente drugog niza:}#
+#\ulaz{3 5 8 0}#
+#\izlaz{3 3 5 6 7 8 11 14 35}#
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:   
-  Unesite elemente prvog niza:
-  1 4 7 0 
-  Unesite elemente drugog niza: 
-  9 11 23 54 75 0
-Izlaz:  
-  1 4 7 9 11 23 54 75
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#   
+#\izlaz{Unesite elemente prvog niza:}#
+#\ulaz{1 4 7 0}#
+#\izlaz{Unesite elemente drugog niza:}#
+#\ulaz{9 11 23 54 75 0}#
+#\izlaz{1 4 7 9 11 23 54 75}#
+\end{upotreba}
 \end{miditest}
   
 \linkresenje{505}
@@ -290,40 +266,52 @@ Izlaz:
   $10$, a prezime od $15$ karaktera.
 
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Poziv: ./a.out prvi-deo.txt drugi-deo.txt
-Ulazne datoteke:
-  prvi-deo.txt:                      drugi-deo.txt:
-
-  Andrija Petrovic                   Aleksandra Cvetic
-  Anja Ilic                          Bojan Golubovic
-  Ivana Markovic                     Dragan Markovic
-  Lazar Micic                        Filip Dukic
-  Nenad Brankovic                    Ivana Stankovic
-  Sofija Filipovic                   Marija Stankovic
-  Vladimir Savic                     Ognjen Peric
-  Uros Milic
-
-Izlazna datoteka (ceo-tok.txt):
+\begin{miditest}
+\begin{test}{1}
+#\poziv{./a.out prvi-deo.txt drugi-deo.txt}#
   
-  Aleksandra Cvetic
-  Andrija Petrovic
-  Anja Ilic
-  Bojan Golubovic
-  Dragan Markovic
-  Filip Dukic
-  Ivana Stankovic
-  Ivana Markovic
-  Lazar Micic
-  Marija Stankovic
-  Nenad Brankovic
-  Ognjen Peric
-  Sofija Filipovic
-  Uros Milic
-  Vladimir Savic
+#\naslovDat{prvi-deo.txt}#
+#\datoteka{Andrija Petrovic}#
+#\datoteka{Anja Ilic}#
+#\datoteka{Ivana Markovic}#
+#\datoteka{Lazar Micic}#
+#\datoteka{Nenad Brankovic}#
+#\datoteka{Sofija Filipovic}#
+#\datoteka{Vladimir Savic}#
+#\datoteka{Uros Milic}#
+
+#\naslovDat{drugi-deo.txt}#
+#\datoteka{Aleksandra Cvetic}#
+#\datoteka{Bojan Golubovic}#
+#\datoteka{Dragan Markovic}#
+#\datoteka{Filip Dukic}#
+#\datoteka{Ivana Stankovic}#
+#\datoteka{Marija Stankovic}#
+#\datoteka{Ognjen Peric}#
 \end{test}
-\end{maxitest}
+\end{miditest}
+\begin{miditest}
+\begin{test}{1}
+  
+
+#\naslovDat{ceo-tok.txt}#
+#\datoteka{Aleksandra Cvetic}#
+#\datoteka{Andrija Petrovic}#
+#\datoteka{Anja Ilic}#
+#\datoteka{Bojan Golubovic}#
+#\datoteka{Dragan Markovic}#
+#\datoteka{Filip Dukic}#
+#\datoteka{Ivana Stankovic}#
+#\datoteka{Ivana Markovic}#
+#\datoteka{Lazar Micic}#
+#\datoteka{Marija Stankovic}#
+#\datoteka{Nenad Brankovic}#
+#\datoteka{Ognjen Peric}#
+#\datoteka{Sofija Filipovic}#
+#\datoteka{Uros Milic}#
+#\datoteka{Vladimir Savic}#
+\end{test}
+\end{miditest}
   
 \linkresenje{506}
 \end{Exercise}
@@ -350,37 +338,41 @@ Izlazna datoteka (ceo-tok.txt):
   od 128 tačaka.
   
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv:  ./a.out -x in.txt out.txt
-Ulazna datoteka (in.txt):
-  3 4
-  11 6
-  7 3
-  2 82
-  -1 6
-Izlazna datoteka (out.txt):
-  -1 6
-  2 82
-  3 4
-  7 3
-  11 6
+\begin{test}{1}
+#\poziv{./a.out -x in.txt out.txt}#
+  
+#\naslovDat{in.txt}#
+#\datoteka{3 4}#
+#\datoteka{11 6}#
+#\datoteka{7 3}#
+#\datoteka{2 82}#
+#\datoteka{-1 6}#
+  
+#\naslovDat{out.txt}#
+#\datoteka{-1 6}#
+#\datoteka{2 82}#
+#\datoteka{3 4}#
+#\datoteka{7 3}#
+#\datoteka{11 6}#
 \end{test}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv:  ./a.out -o in.txt out.txt
-Ulazna datoteka (on.txt):
-  3 4
-  11 6
-  7 3
-  2 82
-  -1 6
-Izlazna datoteka (out.txt):
-  3 4
-  -1 6
-  7 3
-  11 6
-  2 82
+\begin{test}{2}
+#\poziv{./a.out -o in.txt out.txt}#
+  
+#\naslovDat{in.txt}#
+#\datoteka{3 4}#
+#\datoteka{11 6}#
+#\datoteka{7 3}#
+#\datoteka{2 82}#
+#\datoteka{-1 6}#
+
+#\naslovDat{out.txt}#
+#\datoteka{3 4}#
+#\datoteka{-1 6}#
+#\datoteka{7 3}#
+#\datoteka{11 6}#
+#\datoteka{2 82}#
 \end{test}
 \end{miditest}
   
@@ -400,30 +392,42 @@ Izlazna datoteka (out.txt):
   isti redni broj u oba biračka spiska. Pretpostaviti da je za ime,
   odnosno prezime građana dovoljno $15$ karaktera.
 
-\begin{miditest}
-\begin{test}{Test 1}
-Ulazna datoteka (biracki-spisak.txt):
-  Bojan Golubovic
-  Andrija Petrovic
-  Anja Ilic
-  Aleksandra Cvetic
-  Dragan Markovic
-  Ivana Markovic
-  Lazar Micic
-  Marija Stankovic
-  Filip Dukic
-Izlaz:
-  3
+\begin{minitest}
+\begin{test}{1}
+#\naslovDat{biracki-spisak.txt}#    
+#\datoteka{Bojan Golubovic}#
+#\datoteka{Andrija Petrovic}#
+#\datoteka{Anja Ilic}#
+#\datoteka{Aleksandra Cvetic}#
+#\datoteka{Dragan Markovic}#
+#\datoteka{Ivana Markovic}#
+#\datoteka{Lazar Micic}#
+#\datoteka{Marija Stankovic}#
+#\datoteka{Filip Dukic}#
+
+#\naslovIzlaz#
+#\izlaz{3}#
 \end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{Test 2}
-Ulazna datoteka (biracki-spisak.txt):
-  Milan Milicevic
-Izlaz:
-  1
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+#\naslovDat{biracki-spisak.txt}#
+#\datoteka{Milan Milicevic}#
+  
+#\naslovIzlaz#
+#\izlaz{1}#
 \end{test}
-\end{miditest}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovDat{biracki-spisak.txt}#
+#\datoteka{[datoteka ne postoji]}#
+  
+#\naslovIzlaz#
+#\izlaz{Problem pri otvaranju}#
+#\izlaz{datoteke.}#
+\end{test}
+\end{minitest}
   
 \linkresenje{509}
 \end{Exercise}
@@ -452,31 +456,35 @@ drugi argument komandne linije. Pretpostaviti da u ulaznoj datoteci
 nisu zadati podaci o više od $128$ deteta.
   
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out in.txt out.txt
-Ulazna datoteka (in.out):
-  Petar Petrovic 2007
-  Milica Antonic 2008
-  Ana Petrovic 2007
-  Ivana Ivanovic 2009
-  Dragana Markovic 2010
-  Marija Antic 2007
-Izlazna datoteka (out.txt):
-  Marija Antic 2007
-  Ana Petrovic 2007
-  Petar Petrovic 2007
-  Milica Antonic 2008
-  Ivana Ivanovic 2009
-  Dragana Markovic 2010
+\begin{test}{1}
+#\poziv{./a.out in.txt out.txt}#
+  
+#\naslovDat{in.out}#
+#\datoteka{Petar Petrovic 2007}#
+#\datoteka{Milica Antonic 2008}#
+#\datoteka{Ana Petrovic 2007}#
+#\datoteka{Ivana Ivanovic 2009}#
+#\datoteka{Dragana Markovic 2010}#
+#\datoteka{Marija Antic 2007}#
+  
+#\naslovDat{out.txt}#
+#\datoteka{Marija Antic 2007}#
+#\datoteka{Ana Petrovic 2007}#
+#\datoteka{Petar Petrovic 2007}#
+#\datoteka{Milica Antonic 2008}#
+#\datoteka{Ivana Ivanovic 2009}#
+#\datoteka{Dragana Markovic 2010}#
 \end{test}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv: ./a.out in.txt out.txt
-Ulazna datoteka (in.out):
-  Milijana Maric 2009
-Izlazna datoteka (out.txt):
-  Milijana Maric 2009
+\begin{test}{2}
+#\poziv{./a.out in.txt out.txt}#
+
+#\naslovDat{in.out}#
+#\datoteka{Milijana Maric 2009}#
+
+#\naslovDat{out.txt}#
+#\datoteka{Milijana Maric 2009}#
 \end{test}
 \end{miditest}
   
@@ -490,18 +498,20 @@ Izlazna datoteka (out.txt):
 %-----------------------------------------------------------------
 \begin{Exercise}[label=511]
   Napisati funkciju koja sortira niz niski po broju suglasnika u
-  niski. Ukoliko reči imaju isti broj suglasnika tada sortirati ih po dužini niske,
-  a ukoliko su i dužine jednake onda leksikografski. Napisati program
-  koji testira ovu funkciju za niske koje se zadaju u datoteci
-  \kckod{niske.txt}.  Pretpostaviti da u nizu nema više od $128$
-  elemenata, kao i da svaka niska sadrži najviše $31$ karakter.
+  niski. Ukoliko reči imaju isti broj suglasnika tada sortirati ih po
+  dužini niske, a ukoliko su i dužine jednake onda
+  leksikografski. Napisati program koji testira ovu funkciju za niske
+  koje se zadaju u datoteci \kckod{niske.txt}.  Pretpostaviti da u
+  nizu nema više od $128$ elemenata, kao i da svaka niska sadrži
+  najviše $31$ karakter.
   
 \begin{maxitest}
-\begin{test}{Test 1}
-Ulazna datoteka (niske.txt):
-  ana petar andjela milos nikola aleksandar ljubica matej milica
-Izlaz:
-  ana matej milos petar milica nikola andjela ljubica aleksandar
+\begin{test}{1}
+#\naslovDat{niske.txt}#
+#\datoteka{ana petar andjela milos nikola aleksandar ljubica matej milica}#
+  
+#\naslovIzlaz#
+#\izlaz{ana matej milos petar milica nikola andjela ljubica aleksandar}#
 \end{test}
 \end{maxitest}
   
@@ -523,49 +533,50 @@ Izlaz:
   pretragom.
   
 \begin{maxitest}
-\begin{test}{Upotreba programa 1}
-Ulazna datoteka (artikli.txt):
-  1001 Keks Jaffa 120
-  2530 Napolitanke Bambi 230
-  0023 Medeno_srce Pionir 150
-  2145 Pardon Marbo 70
-Interakcija programa:
-  Asortiman:
-  KOD                Naziv artikla     Ime proizvodjaca       Cena
-          23          Medeno_srce               Pionir       150.00
-        1001                 Keks                Jaffa       120.00
-        2145               Pardon                Marbo        70.00
-        2530          Napolitanke                Bambi       230.00
-  ---------------------------
-  - Za kraj za kraj rada kase, pritisnite CTRL+D!
-  - Za nov racun unesite kod artikla!
-  
-  1001
-  	Trazili ste:	Keks Jaffa       120.00
-  Unesite kod artikla [ili 0 za prekid]: 	23
-  	Trazili ste:	Medeno_srce Pionir       150.00
-  Unesite kod artikla [ili 0 za prekid]: 	0
-  
-  	UKUPNO: 270.00 dinara.
-  
-  ---------------------------
-  - Za kraj za kraj rada kase, pritisnite CTRL+D!
-  - Za nov racun unesite kod artikla!
-  
-  232
-  	GRESKA: Ne postoji proizvod sa trazenim kodom!
-  Unesite kod artikla [ili 0 za prekid]: 	2530
-  	Trazili ste:	Napolitanke Bambi       230.00
-  Unesite kod artikla [ili 0 za prekid]: 	0
-  
-  	UKUPNO: 230.00 dinara.
-  
-  ---------------------------
-  - Za kraj za kraj rada kase, pritisnite CTRL+D!
-  - Za nov racun unesite kod artikla!
-  
-  Kraj rada kase!  
-\end{test}
+\begin{upotreba}{1}
+#\naslovDat{artikli.txt}#
+#\datoteka{1001 Keks Jaffa 120}#
+#\datoteka{2530 Napolitanke Bambi 230}#
+#\datoteka{0023 MedenoSrce Pionir 150}#
+#\datoteka{2145 Pardon Marbo 70}#
+
+#\naslovInt#
+#\izlaz{Asortiman:}#
+#\izlaz{KOD                Naziv artikla     Ime proizvodjaca       Cena}#
+#\izlaz{        23           MedenoSrce               Pionir       150.00}#
+#\izlaz{      1001                 Keks                Jaffa       120.00}#
+#\izlaz{      2145               Pardon                Marbo        70.00}#
+#\izlaz{      2530          Napolitanke                Bambi       230.00}#
+#\izlaz{---------------------------}#
+#\izlaz{- Za kraj za kraj rada kase, pritisnite CTRL+D!}#
+#\izlaz{- Za nov racun unesite kod artikla!}#
+#\izlaz{}#
+#\ulaz{1001}#
+#\izlaz{	Trazili ste:	Keks Jaffa       120.00}#
+#\izlaz{Unesite kod artikla [ili 0 za prekid]:}\ulaz{23}#
+#\izlaz{	Trazili ste:	MedenoSrce Pionir       150.00}#
+#\izlaz{Unesite kod artikla [ili 0 za prekid]:}\ulaz{0}#
+#\izlaz{}#
+#\izlaz{	UKUPNO: 270.00 dinara.}#
+#\izlaz{}#
+#\izlaz{---------------------------}#
+#\izlaz{- Za kraj za kraj rada kase, pritisnite CTRL+D!}#
+#\izlaz{- Za nov racun unesite kod artikla!}#
+#\izlaz{}#
+#\ulaz{232}#
+#\izlaz{	GRESKA: Ne postoji proizvod sa trazenim kodom!}#
+#\izlaz{Unesite kod artikla [ili 0 za prekid]:}\ulaz{2530}#
+#\izlaz{	Trazili ste:	Napolitanke Bambi       230.00}#
+#\izlaz{Unesite kod artikla [ili 0 za prekid]:}\ulaz{0}#
+#\izlaz{}#
+#\izlaz{	UKUPNO: 230.00 dinara.}#
+#\izlaz{}#
+#\izlaz{---------------------------}#
+#\izlaz{- Za kraj za kraj rada kase, pritisnite CTRL+D!}#
+#\izlaz{- Za nov racun unesite kod artikla!}#
+#\izlaz{}#
+#\izlaz{Kraj rada kase!}#
+\end{upotreba}
 \end{maxitest}
   
 \linkresenje{512}
@@ -592,44 +603,72 @@ Interakcija programa:
    zadataka. Pretpostaviti da studenata neće biti više od $500$ i da
    je za ime studenta dovoljno $20$, a za prezime $25$ karaktera.
   
-\begin{maxitest}
-\begin{test}{Test 1}
-Ulazna datoteka (aktivnosti.txt):            Izlazna datoteka (dat1.txt):
-  
-  Aleksandra Cvetic 4 6                      Studenti sortirani po imenu 
-  Bojan Golubovic 4 3                        leksikografski rastuce:
-  Dragan Markovic 3 5                        Aleksandra Cvetic  4  6
-  Ivana Stankovic 3 1                        Andrija Petrovic  2  5
-  Marija Stankovic 1 3                       Anja Ilic  3  1
-  Ognjen Peric 1 2                           Bojan Golubovic  4  3
-  Uros Milic 2 5                             Dragan Markovic  3  5
-  Andrija Petrovic 2 5                       Ivana Stankovic  3  1
-  Anja Ilic 3 1                              Lazar Micic  1  3
-  Lazar Micic 1 3                            Marija Stankovic  1  3
-  Nenad Brankovic 2 4                        Nenad Brankovic  2  4
-                                             Ognjen Peric  1  2
-                                             Uros Milic  2  5
+\begin{miditest}
+\begin{test}{1}
+#\naslovDat{aktivnosti.txt}#
+#\datoteka{Aleksandra Cvetic 4 6}#
+#\datoteka{Bojan Golubovic 4 3}#
+#\datoteka{Dragan Markovic 3 5}#
+#\datoteka{Ivana Stankovic 3 1}#
+#\datoteka{Marija Stankovic 1 3}#
+#\datoteka{Ognjen Peric 1 2}#
+#\datoteka{Uros Milic 2 5}#
+#\datoteka{Andrija Petrovic 2 5}#
+#\datoteka{Anja Ilic 3 1}#
+#\datoteka{Lazar Micic 1 3}#
+#\datoteka{Nenad Brankovic 2 4}#
 
-                                                
-Izlazna datoteka (dat2.txt):                 Izlazna datoteka (dat3.txt):
-                                                
-  Studenti sortirani po broju zadataka       Studenti sortirani po prisustvu
-  opadajuce, pa po duzini imena rastuce:     opadajuce, pa po broju zadataka,
-  Aleksandra Cvetic  4  6                    pa po prezimenima leksikografski
-  Uros Milic  2  5                           opadajuce:
-  Dragan Markovic  3  5                      Aleksandra Cvetic  4  6
-  Andrija Petrovic  2  5                     Bojan Golubovic  4  3
-  Nenad Brankovic  2  4                      Dragan Markovic  3  5
-  Lazar Micic  1  3                          Ivana Stankovic  3  1
-  Bojan Golubovic  4  3                      Anja Ilic  3  1
-  Marija Stankovic  1  3                     Andrija Petrovic  2  5
-  Ognjen Peric  1  2                         Uros Milic  2  5
-  Anja Ilic  3  1                            Nenad Brankovic  2  4
-  Ivana Stankovic  3  1                      Marija Stankovic  1  3
-                                             Lazar Micic  1  3
-                                             Ognjen Peric  1  2
+#\naslovDat{dat1.txt}#
+#\datoteka{Studenti sortirani po imenu}#
+#\datoteka{leksikografski rastuce:}#
+#\datoteka{Aleksandra Cvetic  4  6}#
+#\datoteka{Andrija Petrovic  2  5}#
+#\datoteka{Anja Ilic  3  1}#
+#\datoteka{Bojan Golubovic  4  3}#
+#\datoteka{Dragan Markovic  3  5}#
+#\datoteka{Ivana Stankovic  3  1}#
+#\datoteka{Lazar Micic  1  3}#
+#\datoteka{Marija Stankovic  1  3}#
+#\datoteka{Nenad Brankovic  2  4}#
+#\datoteka{Ognjen Peric  1  2}#
+#\datoteka{Uros Milic  2  5}#
 \end{test}
-\end{maxitest}
+\end{miditest}
+\begin{miditest}
+\begin{test}{1}
+#\naslovDat{dat2.txt}#
+#\datoteka{Studenti sortirani po broju zadataka}#
+#\datoteka{opadajuce, pa po duzini imena rastuce:}#
+#\datoteka{Aleksandra Cvetic  4  6}#
+#\datoteka{Uros Milic  2  5}#
+#\datoteka{Dragan Markovic  3  5}#
+#\datoteka{Andrija Petrovic  2  5}#
+#\datoteka{Nenad Brankovic  2  4}#
+#\datoteka{Lazar Micic  1  3}#
+#\datoteka{Bojan Golubovic  4  3}#
+#\datoteka{Marija Stankovic  1  3}#
+#\datoteka{Ognjen Peric  1  2}#
+#\datoteka{Anja Ilic  3  1}#
+#\datoteka{Ivana Stankovic  3  1}#
+                                                
+#\naslovDat{dat3.txt}#
+#\datoteka{Studenti sortirani po prisustvu}#
+#\datoteka{opadajuce, pa po broju zadataka,}#
+#\datoteka{pa po prezimenima leksikografski}#
+#\datoteka{opadajuce:}#
+#\datoteka{Aleksandra Cvetic  4  6}#
+#\datoteka{Bojan Golubovic  4  3}#
+#\datoteka{Dragan Markovic  3  5}#
+#\datoteka{Ivana Stankovic  3  1}#
+#\datoteka{Anja Ilic  3  1}#
+#\datoteka{Andrija Petrovic  2  5}#
+#\datoteka{Uros Milic  2  5}#
+#\datoteka{Nenad Brankovic  2  4}#
+#\datoteka{Marija Stankovic  1  3}#
+#\datoteka{Lazar Micic  1  3}#
+#\datoteka{Ognjen Peric  1  2}#
+\end{test}
+\end{miditest}
   
 \linkresenje{513}
 \end{Exercise}
@@ -662,57 +701,63 @@ način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
   imena izvođača i naslova pesme.
 
 \begin{minitest}
-\begin{test}{Test 1}
-Poziv: ./a.out
-Ulazna datoteka:
-  5
-  Ana - Nebo, 2342
-  Laza - Oblaci, 29
-  Pera - Ptice, 327
-  Jelena - Sunce, 92321
-  Mika - Kisa, 5341
-Izlaz:
-  Jelena - Sunce, 92321
-  Mika - Kisa, 5341
-  Ana - Nebo, 2342
-  Pera - Ptice, 327
-  Laza - Oblaci, 29
+\begin{test}{1}
+#\poziv{./a.out}#
+  
+#\naslovDat{pesme.txt}#
+#\datoteka{5}#
+#\datoteka{Ana - Nebo, 2342}#
+#\datoteka{Laza - Oblaci, 29}#
+#\datoteka{Pera - Ptice, 327}#
+#\datoteka{Jelena - Sunce, 92321}#
+#\datoteka{Mika - Kisa, 5341}#
+
+#\naslovIzlaz#
+#\izlaz{Jelena - Sunce, 92321}#
+#\izlaz{Mika - Kisa, 5341}#
+#\izlaz{Ana - Nebo, 2342}#
+#\izlaz{Pera - Ptice, 327}#
+#\izlaz{Laza - Oblaci, 29}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Test 2}
-Poziv: ./a.out -i
-Ulazna datoteka:
-  5
-  Ana - Nebo, 2342
-  Laza - Oblaci, 29
-  Pera - Ptice, 327
-  Jelena - Sunce, 92321
-  Mika - Kisa, 5341
-Izlaz:
-  Ana - Nebo, 2342
-  Jelena - Sunce, 92321
-  Laza - Oblaci, 29
-  Mika - Kisa, 5341
-  Pera - Ptice, 327
+\begin{test}{2}
+#\poziv{./a.out -i}#
+  
+#\naslovDat{pesme.txt}#
+#\datoteka{5}#
+#\datoteka{Ana - Nebo, 2342}#
+#\datoteka{Laza - Oblaci, 29}#
+#\datoteka{Pera - Ptice, 327}#
+#\datoteka{Jelena - Sunce, 92321}#
+#\datoteka{Mika - Kisa, 5341}#
+
+#\naslovIzlaz#
+#\izlaz{Ana - Nebo, 2342}#
+#\izlaz{Jelena - Sunce, 92321}#
+#\izlaz{Laza - Oblaci, 29}#
+#\izlaz{Mika - Kisa, 5341}#
+#\izlaz{Pera - Ptice, 327}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Test 3}
-Poziv: ./a.out -n
-Ulazna datoteka:
-  5
-  Ana - Nebo, 2342
-  Laza - Oblaci, 29
-  Pera - Ptice, 327
-  Jelena - Sunce, 92321
-  Mika - Kisa, 5341
-Izlaz:
-  Mika - Kisa, 5341
-  Ana - Nebo, 2342
-  Laza - Oblaci, 29
-  Pera - Ptice, 327
-  Jelena - Sunce, 92321		   
+\begin{test}{3}
+#\poziv{./a.out -n}#
+  
+#\naslovDat{pesme.txt}#
+#\datoteka{5}#
+#\datoteka{Ana - Nebo, 2342}#
+#\datoteka{Laza - Oblaci, 29}#
+#\datoteka{Pera - Ptice, 327}#
+#\datoteka{Jelena - Sunce, 92321}#
+#\datoteka{Mika - Kisa, 5341}#
+
+#\naslovIzlaz#
+#\izlaz{Mika - Kisa, 5341}#
+#\izlaz{Ana - Nebo, 2342}#
+#\izlaz{Laza - Oblaci, 29}#
+#\izlaz{Pera - Ptice, 327}#
+#\izlaz{Jelena - Sunce, 92321}#
 \end{test}
 \end{minitest}
 
@@ -735,10 +780,11 @@ Izlaz:
   ukoliko se zna da neće biti više od $500$ različitih unetih brojeva.
   
 \begin{maxitest}
-\begin{test}{Test 1}
-Ulaz: U 2 U 0 U 6 U 4 N 1 U 8 N 2 N 5 U 2 N 3 N 5
-Izlaz: 0 2 8 2 6
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesi niz operacija:}\ulaz{U 2 U 0 U 6 U 4 N 1 U 8 N 2 N 5 U 2 N 3 N 5}#
+#\izlaz{0 2 8 2 6}
+\end{upotreba}
 \end{maxitest}
   
 %\linkresenje{515}
@@ -772,7 +818,17 @@ Napisati program koji u najviše \kckod{2n-3} okretanja sortira učitani
 niz. \uputstvo{Imitirati \kckod{selection sort} i u svakom koraku
 dovesti jednu palačinku na svoje mesto korišćenjem najviše dva
 okretanja.}
-    
+
+\begin{maxitest}
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{23 64 123 76 22 7 34 123 54562 12 453 342 5342 42 542 1 3 432 1 32 43}#
+
+#\naslovIzlaz#
+#\izlaz{1 1 3 7 12 22 23 32 34 42 43 64 76 123 123 342 432 453 542 5342 54562}#
+\end{test}
+\end{maxitest}
+
 %\linkresenje{516}
 \end{Exercise}
 
@@ -794,34 +850,34 @@ okretanja.}
   odgovarajuću poruku.
   
 \begin{miditest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:    
-  Uneti dimenziju niza: 10
-  Uneti elemente niza:
-  5 3 1 6 8 90 34 5 3 432
-  Sortirani niz u rastucem poretku:
-  1 3 3 5 5 6 8 34 90 432 
-  Uneti element koji se trazi u nizu: 34
-  Binarna pretraga: 
-  Element je nadjen na poziciji 7
-  Linearna pretraga (lfind): 
-  Element je nadjen na poziciji 7
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Uneti dimenziju niza:}\ulaz{10}#
+#\izlaz{Uneti elemente niza:}#
+#\ulaz{5 3 1 6 8 90 34 5 3 432}#
+#\izlaz{Sortirani niz u rastucem poretku:}#
+#\izlaz{1 3 3 5 5 6 8 34 90 432 }#
+#\izlaz{Uneti element koji se trazi u nizu:}\ulaz{34}#
+#\izlaz{Binarna pretraga: }#
+#\izlaz{Element je nadjen na poziciji 7}#
+#\izlaz{Linearna pretraga (lfind): }#
+#\izlaz{Element je nadjen na poziciji 7}#
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:
-  Uneti dimenziju niza: 4
-  Uneti elemente niza:
-  4 2 5 7
-  Sortirani niz u rastucem poretku:
-  2 4 5 7 
-  Uneti element koji se trazi u nizu: 3
-  Binarna pretraga: 
-  Elementa nema u nizu!
-  Linearna pretraga (lfind): 
-  Elementa nema u nizu!
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Uneti dimenziju niza:}\ulaz{4}#
+#\izlaz{Uneti elemente niza:}#
+#\ulaz{4 2 5 7}#
+#\izlaz{Sortirani niz u rastucem poretku:}#
+#\izlaz{2 4 5 7 }#
+#\izlaz{Uneti element koji se trazi u nizu:}\ulaz{3}#
+#\izlaz{Binarna pretraga: }#
+#\izlaz{Elementa nema u nizu!}#
+#\izlaz{Linearna pretraga (lfind): }#
+#\izlaz{Elementa nema u nizu!}#
+\end{upotreba}
 \end{miditest}
   
 \linkresenje{517}
@@ -840,14 +896,13 @@ Interakcija programa:
   standardnom izlazu.
   
 \begin{maxitest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:
-  Uneti dimenziju niza: 10
-  Uneti elemente niza:
-  1 2 3 4 5 6 7 8 9 10
-  Sortirani niz u rastucem poretku prema broju delilaca:
-  1 2 3 5 7 4 9 6 8 10  
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Uneti dimenziju niza:}\ulaz{10}#
+#\izlaz{Uneti elemente niza:}#
+#\ulaz{1 2 3 4 5 6 7 8 9 10}#
+#\izlaz{Sortirani niz u rastucem poretku prema broju delilaca: 1 2 3 5 7 4 9 6 8 10}#
+\end{upotreba}
 \end{maxitest}
   
 \linkresenje{518}
@@ -874,18 +929,19 @@ Interakcija programa:
    i pretraga ispisati na standardnom izlazu.
    
 \begin{maxitest}
-\begin{test}{Upotreba programa 1}
-Ulazna datoteka (niske.txt):
-  ana petar andjela milos nikola aleksandar ljubica matej milica
-Interakcija programa:
-  Leksikografski sortirane niske:
-  aleksandar ana andjela ljubica matej milica milos nikola petar 
-  Uneti trazenu nisku: matej
-  Niska "matej" je pronadjena u nizu na poziciji 4
-  Niska "matej" je pronadjena u nizu na poziciji 4
-  Niske sortirane po duzini:
-  ana matej milos petar milica nikola andjela ljubica aleksandar
-\end{test}
+\begin{upotreba}{1}
+#\naslovDat{niske.txt}#
+#\datoteka{ana petar andjela milos nikola aleksandar ljubica matej milica}#
+  
+#\naslovInt#
+#\izlaz{Leksikografski sortirane niske:}#
+#\izlaz{aleksandar ana andjela ljubica matej milica milos nikola petar }#
+#\izlaz{Uneti trazenu nisku:}\ulaz{matej}#
+#\izlaz{Niska "matej" je pronadjena u nizu na poziciji 4}#
+#\izlaz{Niska "matej" je pronadjena u nizu na poziciji 4}#
+#\izlaz{Niske sortirane po duzini:}#
+#\izlaz{ana matej milos petar milica nikola andjela ljubica aleksandar}#
+\end{upotreba}
 \end{maxitest}
   
 \linkresenje{519}
@@ -923,33 +979,52 @@ Interakcija programa:
   kolokvijumu. Pretpostaviti da neće biti vise od $500$ studenata i
   da je za ime i prezime svakog studenta dovoljno po $20$ karaktera.
   
-\begin{maxitest}
+\begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out kolokvijum.txt}#
-#\naslovDat{Ulazna datoteka (kolokvijum.txt):}#        #\naslovInt#
-  Aleksandra Cvetic 15                   Studenti sortirani po broju poena
-  Bojan Golubovic 30                     opadajuce, pa po prezimenu rastuce:
-  Dragan Markovic 25                     Bojan Golubovic  30
-  Filip Dukic 20                         Dragan Markovic  25
-  Ivana Stankovic 25                     Ivana Stankovic  25
-  Marija Stankovic 15                    Filip Dukic  20
-  Ognjen Peric 20                        Lazar Micic  20
-  Uros Milic 10                          Ognjen Peric  20
-  Andrija Petrovic 0                     Nenad Brankovic  15
-  Anja Ilic 5                            Aleksandra Cvetic  15
-  Ivana Markovic 5                       Marija Stankovic  15
-  Lazar Micic 20                         Uros Milic  10
-  Nenad Brankovic 15                     Anja Ilic  5
-                                         Ivana Markovic  5
-                                         Andrija Petrovic  0
-                                         Unesite broj bodova: 20
-                                         Pronadjen je student sa unetim
-                                         brojem bodova: Filip Dukic 20
-                                         Unesite prezime: Markovic
-                                         Pronadjen je student sa unetim
-                                         prezimenom: Dragan Markovic 25
+  
+#\naslovDat{Ulazna datoteka (kolokvijum.txt):}#
+#\datoteka{Aleksandra Cvetic 15}#
+#\datoteka{Bojan Golubovic 30}#
+#\datoteka{Dragan Markovic 25}#
+#\datoteka{Filip Dukic 20}#
+#\datoteka{Ivana Stankovic 25}#
+#\datoteka{Marija Stankovic 15}#
+#\datoteka{Ognjen Peric 20}#
+#\datoteka{Uros Milic 10}#
+#\datoteka{Andrija Petrovic 0}#
+#\datoteka{Anja Ilic 5}#
+#\datoteka{Ivana Markovic 5}#
+#\datoteka{Lazar Micic 20}#
+#\datoteka{Nenad Brankovic 15}#
 \end{upotreba}
-\end{maxitest}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Studenti sortirani po broju poena}#
+#\izlaz{opadajuce, pa po prezimenu rastuce:}#
+#\izlaz{Bojan Golubovic  30}#
+#\izlaz{Dragan Markovic  25}#
+#\izlaz{Ivana Stankovic  25}#
+#\izlaz{Filip Dukic  20}#
+#\izlaz{Lazar Micic  20}#
+#\izlaz{Ognjen Peric  20}#
+#\izlaz{Nenad Brankovic  15}#
+#\izlaz{Aleksandra Cvetic  15}#
+#\izlaz{Marija Stankovic  15}#
+#\izlaz{Uros Milic  10}#
+#\izlaz{Anja Ilic  5}# 
+#\izlaz{Ivana Markovic  5}#
+#\izlaz{Andrija Petrovic  0}#
+#\izlaz{Unesite broj bodova:}\ulaz{20}#
+#\izlaz{Pronadjen je student sa unetim}#
+#\izlaz{brojem bodova: Filip Dukic 20}#
+#\izlaz{Unesite prezime:}\ulaz{Markovic}#
+#\izlaz{Pronadjen je student sa unetim}#
+#\izlaz{prezimenom: Dragan Markovic 25}#
+\end{upotreba}
+\end{miditest}
   
 \linkresenje{521}
 \end{Exercise}
@@ -979,34 +1054,31 @@ Interakcija programa:
   identičnih stringova.
   
 \begin{minitest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:
-  Unesite broj niski: 4
-  Unesite niske:
-  prog search sort search
-Izlaz:
-  ima
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite broj niski:}\ulaz{4}#
+#\izlaz{Unesite niske:}#
+#\ulaz{prog search sort search}#
+#\izlaz{ima}#
+\end{upotreba}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:
-  Unesite broj niski: 3
-  Unesite niske:  
-  test kol ispit
-Izlaz:
-  nema
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite broj niski:}\ulaz{3}#
+#\izlaz{Unesite niske:}#
+#\ulaz{test kol ispit}#
+#\izlaz{nema}#
+\end{upotreba}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 3}
-Interakcija programa:
-  Unesite broj niski: 5
-  Unesite niske:  
-  a ab abc abcd abcde
-Izlaz:
-  nema
-\end{test}
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesite broj niski:}\ulaz{5}#
+#\izlaz{Unesite niske:}#
+#\ulaz{a ab abc abcd abcde}#
+#\izlaz{nema}#
+\end{upotreba}
 \end{minitest}
   
 \linkresenje{523}
@@ -1033,39 +1105,44 @@ Izlaz:
   nalogom.
   
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out -n mm13321
-Ulazna datoteka (studenti.txt):
-  mr14123 Marko Antic 20
-  mm13321 Marija Radic 12
-  ml13011 Ivana Mitrovic 19
-  ml13066 Pera Simic 15
-  mv14003 Jovan Jovanovic 17
-Izlazna datoteka (izlaz.txt):
-  ml13011 Ivana Mitrovic 19
-  ml13066 Pera Simic 15
-  mm13321 Marija Radic 12
-  mr14123 Marko Antic 20
-  mv14003 Jovan Jovanovic 17
-Izlaz:
-  mm13321 Marija Radic 12
+\begin{test}{1}
+#\poziv{./a.out -n mm13321}#
+  
+#\naslovDat{studenti.txt}#
+#\datoteka{mr14123 Marko Antic 20}#
+#\datoteka{mm13321 Marija Radic 12}#
+#\datoteka{ml13011 Ivana Mitrovic 19}#
+#\datoteka{ml13066 Pera Simic 15}#
+#\datoteka{mv14003 Jovan Jovanovic 17}#
+
+#\naslovDat{izlaz.txt}#
+#\datoteka{ml13011 Ivana Mitrovic 19}#
+#\datoteka{ml13066 Pera Simic 15}#
+#\datoteka{mm13321 Marija Radic 12}#
+#\datoteka{mr14123 Marko Antic 20}#
+#\datoteka{mv14003 Jovan Jovanovic 17}#
+  
+#\naslovIzlaz#
+#\izlaz{mm13321 Marija Radic 12}#
 \end{test}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv: ./a.out -p
-Ulazna datoteka (studenti.txt):
-  mr14123 Marko Antic 20
-  mm13321 Marija Radic 12
-  ml13011 Ivana Mitrovic 19
-  ml13066 Pera Simic 15
-  mv14003 Jovan Jovanovic 17
-Izlazna datoteka (izlaz.txt):
-  mr14123 Marko Antic 20
-  ml13011 Ivana Mitrovic 19
-  mv14003 Jovan Jovanovic 17
-  ml13066 Pera Simic 15
-  mm13321 Marija Radic 12
+\begin{test}{2}.
+#\poziv{/a.out -p}#
+  
+#\naslovDat{studenti.txt}#
+#\datoteka{mr14123 Marko Antic 20}#
+#\datoteka{mm13321 Marija Radic 12}#
+#\datoteka{ml13011 Ivana Mitrovic 19}#
+#\datoteka{ml13066 Pera Simic 15}#
+#\datoteka{mv14003 Jovan Jovanovic 17}#
+  
+#\naslovDat{izlaz.txt}#
+#\datoteka{mr14123 Marko Antic 20}#
+#\datoteka{ml13011 Ivana Mitrovic 19}#
+#\datoteka{mv14003 Jovan Jovanovic 17}#
+#\datoteka{ml13066 Pera Simic 15}#
+#\datoteka{mm13321 Marija Radic 12}#
 \end{test}
 \end{miditest}
   
@@ -1090,18 +1167,30 @@ Izlazna datoteka (izlaz.txt):
   učitani sa standardnog ulaza (sve do kraja ulaza) postoje među
   prethodno unetim datumima.
   
-\begin{maxitest}
-\begin{test}{Test 1}
-Poziv: ./a.out datoteka.txt
-Datoteka:                        Ulaz:              Izlaz:
-  1.1.2013.                      13.12.2016.        postoji
-  13.12.2016.                    10.5.2015.         ne postoji
-  11.11.2011.                    5.2.2009.          postoji
-  3.5.2015.
-  5.2.2009.
-\end{test}
-\end{maxitest}
+\begin{minitest}
+\begin{upotreba}{1}
+#\poziv{./a.out datoteka.txt}#
   
+#\naslovDat{datoteka.txt}#
+#\datoteka{1.1.2013.}#
+#\datoteka{13.12.2016.}#
+#\datoteka{11.11.2011.}#
+#\datoteka{3.5.2015.}#
+#\datoteka{5.2.2009.}#
+\end{upotreba}
+\end{minitest}
+\begin{miditest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesi sledeci datum za pregragu:}\ulaz{13.12.2016.}#
+#\izlaz{postoji}#
+#\izlaz{Unesi sledeci datum za pregragu:}\ulaz{10.5.2015.}#
+#\izlaz{ne postoji}#
+#\izlaz{Unesi sledeci datum za pregragu:}\ulaz{5.2.2009.}#
+#\izlaz{postoji}#
+\end{upotreba}
+\end{miditest}
+
 %\linkresenje{525}
 \end{Exercise}
 
@@ -1118,33 +1207,33 @@ Datoteka:                        Ulaz:              Izlaz:
   elementi matrice. Rezultujuću matricu ispisati na standardnom izlazu.
 
 \begin{miditest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:    
-  Unesite dimenzije matrice: 3 2
-  Unesite elemente matrice po vrstama:
-  6 -5
-  -4 3
-  2 1
-  Sortirana matrica je:
-  -4 3 
-  6 -5 
-  2 1   
+\begin{test}{1}
+#\naslovInt#
+#\izlaz{Unesite dimenzije matrice:}\ulaz{3 2}#
+#\izlaz{Unesite elemente matrice po vrstama:}#
+#\ulaz{6 -5}#
+#\ulaz{-4 3}#
+#\ulaz{2 1}#
+#\izlaz{Sortirana matrica je:}#
+#\izlaz{-4 3}#
+#\izlaz{6 -5}# 
+#\izlaz{2 1}#  
 \end{test}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:    
-  Unesite dimenzije matrice: 4 4
-  Unesite elemente matrice po vrstama:
-  34 12 54 642
-  1 2 3 4
-  53 2 1 5
-  54 23 5 671
-  Sortirana matrica je:
-  1 2 3 4 
-  53 2 1 5 
-  34 12 54 642 
-  54 23 5 671 
+\begin{test}{2}
+#\naslovInt#
+#\izlaz{Unesite dimenzije matrice:}\ulaz{4 4}#
+#\izlaz{Unesite elemente matrice po vrstama:}#
+#\ulaz{34 12 54 642}#
+#\ulaz{1 2 3 4}#
+#\ulaz{53 2 1 5}#
+#\ulaz{54 23 5 671}#
+#\izlaz{Sortirana matrica je:}#
+#\izlaz{1 2 3 4}#
+#\izlaz{53 2 1 5}#
+#\izlaz{34 12 54 642}#
+#\izlaz{54 23 5 671}#
 \end{test}
 \end{miditest}
 
@@ -1166,32 +1255,32 @@ Interakcija programa:
 
 
 \begin{miditest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:    
-  Unesite dimenziju matrice: 2
-  Unesite elemente matrice po vrstama:
-  6 -5
-  -4 3
-  Sortirana matrica je:
-  -5 6 
-  3 -4 
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#  
+#\izlaz{Unesite dimenziju matrice:}\ulaz{2}#
+#\izlaz{Unesite elemente matrice po vrstama:}#
+#\ulaz{6 -5}#
+#\ulaz{-4 3}#
+#\izlaz{Sortirana matrica je:}#
+#\izlaz{-5 6}#
+#\izlaz{3 -4}#
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:    
-  Unesite dimenziju matrice: 4
-  Unesite elemente matrice po vrstama:
-  34 12 54 642
-  1 2 3 4
-  53 2 1 5
-  54 23 5 671
-  Sortirana matrica je:
-  12 34 54 642
-  2 1 3 4
-  2 53 1 5
-  23 54 5 671
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#  
+#\izlaz{Unesite dimenziju matrice:}\ulaz{4}#
+#\izlaz{Unesite elemente matrice po vrstama:}#
+#\ulaz{34 12 54 642}#
+#\ulaz{1 2 3 4}#
+#\ulaz{53 2 1 5}#
+#\ulaz{54 23 5 671}#
+#\izlaz{Sortirana matrica je:}#
+#\izlaz{12 34 54 642}#
+#\izlaz{2 1 3 4}#
+#\izlaz{2 53 1 5}#
+#\izlaz{23 54 5 671}#
+\end{upotreba}
 \end{miditest}
   
 %\linkresenje{527}
