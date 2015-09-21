@@ -8,18 +8,31 @@
 Napisati biblioteku za rad sa jednostruko povezanom listom, čiji čvorovi sadrže cele brojeve. 
 \begin{enumerate}
 \item Definisati strukturu \kckod{Cvor} kojom se predstavlja čvor liste. Treba da sadrži ceo broj \kckod{vrednost} i pokazivač na sledeći čvor liste.
-\item Napisati funkciju \kckod{Cvor* napravi\_cvor(int broj)} koja kao argument dobija ceo broj, kreira nov čvor liste, inicijalizuje polja novog čvora i vreća njegovu adresu.
+
+\item Napisati funkciju \kckod{Cvor* napravi\_cvor(int broj)} koja kao argument dobija ceo broj, kreira nov čvor liste, inicijalizuje polja novog čvora i vraća njegovu adresu.
+
  \item Napisati funkciju \kckod{int dodaj\_na\_pocetak\_liste(Cvor** adresa\_glave, int broj)} koja dodaje novi čvor sa vrednošću \kckod{broj} na početak liste, čija glava se nalazi na adresi \kckod{adresa\_glave}.
- \item Napisati funkciju \kckod{Cvor * pronadji\_poslednji(Cvor * glava)} koja pronalazi poslednji čvor u listi.
- \item Napisati funkciju \kckod{int dodaj\_na\_kraj\_liste(Cvor ** adresa\_glave, int broj)} koja dodaje novi čvor sa vrednošću \kckod{broj} na kraj liste. 
- \item Napisati funkciju \kckod{Cvor * pronadji\_mesto\_umetanja(Cvor * glava, int broj)} koja vraća adresu čvora u neopadajuće uređenoj listi iza koga bi trebalo da dodati nov čvor sa vrednošću \kckod{broj}.
- \item Napisati funkciju \kckod{void dodaj\_iza(Cvor * tekuci, Cvor * novi)} koja uvezuje u postojeću listu čvor \kckod{novi} iza čvora \kckod{tekuci}.
- \item Napisati funkciju \kckod{int dodaj\_sortirano(Cvor ** adresa\_glave, int broj)} koja dodaje novi elemenat u neopadajuće uređenu listu tako da se očuva postojeće uređenje.
- \item Napisati funkciju \kckod{void ispisi\_listu(Cvor * glava)} koja ispisuje čvorove liste, uokvirene zagradama [, ] i međusobno razdvojene zapetama.
- \item Napisati funkciju \kckod{Cvor * pretrazi\_listu(Cvor * glava, int broj)} koja proverava da li se u listi nalazi čvor čija se vre-dnost zadaje kao argument funkcije. 
- \item Napisati funkciju \kckod{Cvor * pretrazi\_sortiranu\_listu(Cvor * glava, int broj)} koja proverava da li se u listi nalazi čvor čija se vre-dnost zadaje kao argument funkcije, pri čemu se pretpostavlja da se pretraživanje vrši nad neopadajuće uređenoj listi.
- \item Napisati funkciju \kckod{void obrisi\_cvor(Cvor ** adresa\_glave, int broj)} koja briše sve čvorove u listi koji imaju vrednost koja se zadaje kao argument funkcije.
- \item Napisati funkciju \kckod{void obrisi\_cvor\_sortirane\_liste(Cvor ** adresa\_glave, int broj)} koja briše sve čvorove u listi koji imaju vrednost koja se zadaje kao argument funkcije, pri čemu se pretpostavlja da se pretraživanje vrši nad neopadajuće uređenoj listi.
+
+ \item Napisati funkciju \kckod{Cvor* pronadji\_poslednji(Cvor* glava)} koja pronalazi poslednji čvor u listi.
+
+ \item Napisati funkciju \kckod{int dodaj\_na\_kraj\_liste(Cvor** adresa\_glave, int broj)} koja dodaje novi čvor sa vrednošću \kckod{broj} na kraj liste. 
+
+ \item Napisati funkciju \kckod{Cvor* pronadji\_mesto\_umetanja(Cvor* glava, int broj)} koja vraća pokazivač na čvor u neopadajuće uređenoj listi iza kojeg bi trebalo dodati nov čvor sa vrednošću \kckod{broj}.
+
+ \item Napisati funkciju \kckod{void dodaj\_iza(Cvor* tekuci, Cvor* novi)} koja uvezuje u postojeću listu čvor \kckod{novi} iza čvora \kckod{tekuci}.
+
+ \item Napisati funkciju \kckod{int dodaj\_sortirano(Cvor** adresa\_glave, int broj)} koja dodaje novi elemenat u neopadajuće uređenu listu tako da se očuva postojeće uređenje.
+
+ \item Napisati funkciju \kckod{void ispisi\_listu(Cvor* glava)} koja ispisuje čvorove liste, uokvirene zagradama [, ] i međusobno razdvojene zapetama.
+
+ \item Napisati funkciju \kckod{Cvor* pretrazi\_listu(Cvor* glava, int broj)} koja proverava da li se u listi nalazi čvor čija se vre-dnost zadaje kao argument funkcije. 
+
+ \item Napisati funkciju \kckod{Cvor* pretrazi\_sortiranu\_listu(Cvor* glava, int broj)} koja proverava da li se u listi nalazi čvor čija se vre-dnost zadaje kao argument funkcije, pri čemu se pretpostavlja da se pretraživanje vrši nad neopadajuće uređenoj listi.
+
+ \item Napisati funkciju \kckod{void obrisi\_cvor(Cvor** adresa\_glave, int broj)} koja briše sve čvorove u listi koji imaju vrednost koja se zadaje kao argument funkcije.
+
+ \item Napisati funkciju \kckod{void obrisi\_cvor\_sortirane\_liste(Cvor** adresa\_glave, int broj)} koja briše sve čvorove u listi koji imaju vrednost koja se zadaje kao argument funkcije, pri čemu se pretpostavlja da se pretraživanje vrši nad neopadajuće uređenoj listi.
+
  \item Napisati funkciju \kckod{void oslobodi\_listu(Cvor** adresa\_glave)} koja oslobađa dinamički zauzetu memoriju za čvorove liste.
  \end{enumerate}
 \napomena{Sve funkcije za rad sa listom implementirati iterativno.}
@@ -256,8 +269,8 @@ Napisati biblioteku za rad sa jednostruko povezanim listama koja sadrži sve fun
 Napisati biblioteku za rad sa dvostruko povezanom listom celih brojeva, koja ima iste funkcionalnosti kao biblioteka iz zadatka \ref{601}. 
 Dopuniti bibilioteku novim funkcijama.
 \begin{enumerate}
- \item Napisati funkciju \kckod{void obrisi\_tekuci(Cvor ** adresa\_glave, Cvor * tekuci)} koja iz liste čija se glava nalazi na adresi \kckod{adresa\_glave} briše čvor na koji pokazuje pokazivač \kckod{tekuci}.
- \item Napisati funkciju \kckod{void ispisi\_listu\_u\_nazad(Cvor * glava)} koja ispisuje sadržaj liste od poslednjeg čvora ka glavi liste.
+ \item Napisati funkciju \kckod{void obrisi\_tekuci(Cvor** adresa\_glave, Cvor* tekuci)} koja iz liste čija se glava nalazi na adresi \kckod{adresa\_glave} briše čvor na koji pokazuje pokazivač \kckod{tekuci}.
+ \item Napisati funkciju \kckod{void ispisi\_listu\_u\_nazad(Cvor* glava)} koja ispisuje sadržaj liste od poslednjeg čvora ka glavi liste.
 \end{enumerate}
 
 Sve funkcije za rad sa listom implementirati iterativno.
@@ -615,9 +628,9 @@ Napisati program kome se preko argumenata komandne linije prosleđuje ime datote
 Nakon završenog učitavanja svih studenata, sa standardnog ulaza unose se, jedan po jedan, indeksi studenata koji se traže u učitanoj listi. 
 Posle svakog unetog indeksa, program ispisuje poruku da ili ne, u zavisnosti od toga da li u listi postoji student sa unetim indeksom ili ne. 
 Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF).
-\uputstvo{Dodavanje novog studenta izdvojiti u funkciju \kckod{void dodaj\_na\_pocetak\_liste(Cvor ** glava, char *broj\_indeksa, char *ime, char *prezime)}.
-Napisati rekurzivnu funkciju \kckod{Cvor *pretrazi\_listu(Cvor * glava, char *broj\_indeksa)} koja određuje da li student sa zadatim brojem indeksa pripada listi ili ne.
-Nakon završenog pretraživanja rekurzivnom funkcijom \kckod{void oslobodi\_listu(Cvor ** glava)} osloboditi memoriju koju je lista sa studentima zauzimala.
+\uputstvo{Dodavanje novog studenta izdvojiti u funkciju \kckod{void dodaj\_na\_pocetak\_liste(Cvor** glava, char* broj\_indeksa, char* ime, char* prezime)}.
+Napisati rekurzivnu funkciju \kckod{Cvor* pretrazi\_listu(Cvor* glava, char* broj\_indeksa)} koja određuje da li student sa zadatim brojem indeksa pripada listi ili ne.
+Nakon završenog pretraživanja rekurzivnom funkcijom \kckod{void oslobodi\_listu(Cvor** glava)} osloboditi memoriju koju je lista sa studentima zauzimala.
 Pretpostaviti da je 10 karaktera dovoljno za zapis indeksa i da je 20 karaketera maksimalna dužina bilo imena bilo prezimena studenta.}
 
 \noindent
