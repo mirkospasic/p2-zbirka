@@ -39,7 +39,6 @@ int main()
   unsigned int x;
 
   /* Unos podatka */
-  printf("Unesi pozitivan ceo broj: ");
   scanf("%u", &x);
 
   /* Provera da li je uneti broj pozitivan */

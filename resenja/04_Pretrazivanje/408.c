@@ -33,7 +33,6 @@ int main()
   int n = 0;
 
   /* Unos niza */
-  printf("Unesi opadajuce sortiran niz celih brojeva: ");
   while (scanf("%d", &niz[n]) == 1)
     n++;
 

@@ -25,33 +25,35 @@
   funkcija upisati u fajl \kckod{vremena.txt}.
   
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out 1000000 235423                
-Izlaz:
-  Linearna pretraga                           
-  Element nije u nizu
-  ---------------------------------
-  Binarna pretraga
-  Element nije u nizu
-  ---------------------------------
-  Interpolaciona pretraga
-  Element nije u nizu
-  ---------------------------------
+\begin{test}{1}
+#\poziv{./a.out 1000000 235423}#
+  
+#\naslovIzlaz#
+#\izlaz{Linearna pretraga}#
+#\izlaz{Element nije u nizu}#
+#\izlaz{---------------------------------}#
+#\izlaz{Binarna pretraga}#
+#\izlaz{Element nije u nizu}#
+#\izlaz{---------------------------------}#
+#\izlaz{Interpolaciona pretraga}#
+#\izlaz{Element nije u nizu}#
+#\izlaz{---------------------------------}#
 \end{test}
 \end{miditest}
 \begin{miditest}
 \begin{test}{Test 2}
-Poziv: ./a.out 100000 37842
-Izlaz:
-  Linearna pretraga                           
-  Element nije u nizu
-  ---------------------------------
-  Binarna pretraga
-  Element nije u nizu
-  ---------------------------------
-  Interpolaciona pretraga
-  Element nije u nizu
-  ---------------------------------
+#\poziv{./a.out 100000 37842}#
+  
+#\naslovIzlaz#
+#\izlaz{Linearna pretraga}#
+#\izlaz{Element nije u nizu}#
+#\izlaz{---------------------------------}#
+#\izlaz{Binarna pretraga}#
+#\izlaz{Element nije u nizu}#
+#\izlaz{---------------------------------}#
+#\izlaz{Interpolaciona pretraga}#
+#\izlaz{Element nije u nizu}#
+#\izlaz{---------------------------------}#
 \end{test}
 \end{miditest}
 
@@ -89,19 +91,18 @@ Izlaz:
 \end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:
-  Unesite trazeni broj: 14
-  Unesite sortiran niz elemenata:
-  10 32 35 43 66 89 100
-Izlaz:
-  Linearna pretraga
-  Element se ne nalazi Nu nizu.
-  Binarna pretraga
-  Element se ne nalazi u nizu.
-  Interpolaciona pretraga
-  Element se ne nalazi u nizu.
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite trazeni broj:} \ulaz{14}#
+#\izlaz{Unesite sortiran niz elemenata:}#
+#\ulaz{10 32 35 43 66 89 100}#
+#\izlaz{Linearna pretraga}#
+#\izlaz{Element se ne nalazi u nizu.}#
+#\izlaz{Binarna pretraga}#
+#\izlaz{Element se ne nalazi u nizu.}#
+#\izlaz{Interpolaciona pretraga}#
+#\izlaz{Element se ne nalazi u nizu.}#
+\end{upotreba}
 \end{miditest}
 
 \linkresenje{402}
@@ -129,7 +130,9 @@ Izlaz:
   
 \begin{maxitest}
 \begin{upotreba}{1}
-#\naslovDat{Datoteka}#
+#\poziv{./a.out datoteka.txt}#
+  
+#\naslovDat{datoteka.txt}#
 #\datoteka{20140003 Marina Petrovic}#
 #\datoteka{20140012 Stefan Mitrovic}#
 #\datoteka{20140032 Dejan Popovic}#
@@ -138,6 +141,7 @@ Izlaz:
 #\datoteka{20140104 Ivan Popovic}#
 #\datoteka{20140187 Vlada Stankovic}#
 #\datoteka{20140234 Darko Brankovic}#
+  
 #\naslovInt#
 #\izlaz{Unesite indeks studenta cije informacije zelite:}\ulaz{20140076}#
 #\izlaz{Indeks: 20140076, Ime i prezime: Sonja Stevanovic}#
@@ -177,42 +181,48 @@ Izlaz:
   veći od $0$ i ne veći od $1024$.
   
 \begin{minitest}
-\begin{test}{Test 1}
-Poziv: ./a.out dat.txt -x
-Datoteka:
-  12 53
-  2.342 34.1
-  -0.3 23
-  -1 23.1
-  123.5 756.12
-Izlaz:
-  -0.3 23
+\begin{test}{1}
+#\poziv{./a.out dat.txt -x}#
+
+#\naslovDat{dat.txt}#
+#\datoteka{12 53}#
+#\datoteka{2.342 34.1}#
+#\datoteka{-0.3 23}#
+#\datoteka{-1 23.1}#
+#\datoteka{123.5 756.12}#
+
+#\naslovIzlaz#
+#\izlaz{-0.3 23}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Test 2}
-Poziv: ./a.out dat.txt 
-Datoteka:
-  12 53
-  2.342 34.1
-  -0.3 23
-  -1 2.1
-  123.5 756.12
-Izlaz:
-  -1 2.1
+\begin{test}{2}
+#\poziv{./a.out dat.txt}#
+  
+#\naslovDat{dat.txt}#
+#\datoteka{12 53}#
+#\datoteka{2.342 34.1}#
+#\datoteka{-0.3 23}#
+#\datoteka{-1 2.1}#
+#\datoteka{123.5 756.12}#
+
+#\naslovIzlaz#
+#\izlaz{-1 2.1}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Test 3}
-Poziv: ./a.out dat.txt -y
-Datoteka:
-  12 53
-  2.342 34.1
-  -0.3 0.23
-  -1 2.1
-  123.5 756.12
-Izlaz:
-  -0.3 0.23
+\begin{test}{3}.
+#\poziv{./a.out dat.txt -y}#
+
+#\naslovDat{dat.txt}#
+#\datoteka{12 53}#
+#\datoteka{2.342 34.1}#
+#\datoteka{-0.3 0.23}#
+#\datoteka{-1 2.1}#
+#\datoteka{123.5 756.12}#
+  
+#\naslovIzlaz#
+#\izlaz{-0.3 0.23}#
 \end{test}
 \end{minitest}
 
@@ -251,41 +261,38 @@ Izlaz:
 %-----------------------------------------------------------------
 \begin{Exercise}[label=407]
 Napisati funkciju koja u rastuće sortiranom nizu celih brojeva
-binarnom pretragom pronalazi indeks prvog elementa većeg od nule. Ukoliko nema elemenata
-većih od nule, funkcija kao rezultat vraća \argf{-1}. Napisati
-program koji testira ovu funkciju za niz elemenata koji se
-učitavaju sa standardnog ulaza. Niz neće biti duži od
-$256$, i njegovi elementi se unose sve do kraja ulaza.
+binarnom pretragom pronalazi indeks prvog elementa većeg od
+nule. Ukoliko nema elemenata većih od nule, funkcija kao rezultat
+vraća \argf{-1}. Napisati program koji testira ovu funkciju za rastući
+niz elemenata koji se učitavaju sa standardnog ulaza. Niz neće biti
+duži od $256$, i njegovi elementi se unose sve do kraja ulaza.
 
 \begin{minitest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:
-  Unesi rastuce sortiran
-  niz celih brojeva:
-  -151 -44 5 12 13 15
-Izlaz:
-  2
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{-151 -44 5 12 13 15}#
+
+#\naslovIzlaz#
+#\izlaz{2}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:
-  Unesi rastuce sortiran
-  niz celih brojeva:
-  -100 -15 -11 -8 -7 -5
-Izlaz:
-  -1
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{-100 -15 -11 -8 -7 -5}#
+
+#\naslovIzlaz#
+#\izlaz{-1}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 3}
-Interakcija programa:
-  Unesi rastuce sortiran
-  niz celih brojeva:
-  -100 -15 0 13 55 124
-  258 315 516 7000
-Izlaz:
-  3
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{-100 -15 0 13 55 124}#
+#\ulaz{258 315 516 7000}#
+  
+#\naslovIzlaz#
+#\izlaz{3}#
 \end{test}
 \end{minitest}
 
@@ -299,44 +306,39 @@ Izlaz:
 %-----------------------------------------------------------------
 \begin{Exercise}[label=408]
 Napisati funkciju koja u opadajuće sortiranom nizu celih brojeva
-binarnom pretragom pronalazi indeks prvog elementa manjeg od nule. Ukoliko nema elemenata
-manjih od nule, funkcija kao rezultat vraća \argf{-1}. Napisati
-program koji testira ovu funkciju za niz elemenata koji se
-učitavaju sa standardnog ulaza. Niz neće biti duži od
-$256$, i njegovi elementi se unose sve do kraja ulaza.
+binarnom pretragom pronalazi indeks prvog elementa manjeg od
+nule. Ukoliko nema elemenata manjih od nule, funkcija kao rezultat
+vraća \argf{-1}. Napisati program koji testira ovu funkciju za
+opadajući niz elemenata koji se učitavaju sa standardnog ulaza. Niz
+neće biti duži od $256$, i njegovi elementi se unose sve do kraja
+ulaza.
 
 \begin{minitest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:
-  Unesi opadajuce
-  sortiran niz celih
-  brojeva:  
-  151 44 5 -12 -13 -15
-Izlaz:
-  3
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{151 44 5 -12 -13 -15}#
+
+#\naslovIzlaz#
+#\izlaz{3}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:
-  Unesi opadajuce
-  sortiran niz celih
-  brojeva:
-  100 55 15 0 -15 -124
-  -155 -258 -315 -516
-Izlaz:
-  4
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{100 55 15 0 -15 -124}#
+#\ulaz{-155 -258 -315 -516}#
+
+#\naslovIzlaz#
+#\izlaz{4}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 3}
-Interakcija programa:
-  Unesi opadajuce
-  sortiran niz celih
-  brojeva:
-  100 15 11 8 7 5 4 3 2
-Izlaz:
-  -1
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{100 15 11 8 7 5 4 3 2}#
+
+#\naslovIzlaz#
+#\izlaz{-1}#
 \end{test}
 \end{minitest}
 
@@ -359,34 +361,34 @@ Izlaz:
   \item Napisati funkciju logaritmske složenosti koja određuje
     logaritam koristeći binarnu pretragu.
   \end{enumerate}
-  Tražene funkcije testirati programom koji broj učitava sa
+  Tražene funkcije testirati programom koji pozitivan broj učitava sa
   standardnog ulaza, a logaritam ispisuje na standardnom izlazu.
 
 \begin{minitest}
-\begin{test}{Upotreba programa 1}
-Interakcija programa:    
-  Unesi pozitivan ceo
-  broj: 4
-Izlaz:
-  2 2
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{4}#
+  
+#\naslovIzlaz#
+#\izlaz{2 2}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 2}
-Interakcija programa:    
-  Unesi pozitivan ceo
-  broj: 17
-Izlaz:
-  4 4
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{17}#
+  
+#\naslovIzlaz#
+#\izlaz{4 4}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Upotreba programa 3}
-Interakcija programa:    
-  Unesi pozitivan ceo
-  broj: 1031
-Izlaz:
-  10 10
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{1031}#
+  
+#\naslovIzlaz#
+#\izlaz{10 10}#
 \end{test}
 \end{minitest}
 
@@ -410,35 +412,35 @@ Izlaz:
   binarnu pretragu intervala $[0, 90^\circ]$.}
   
 \begin{minitest}
-\begin{test}{Test 1}
-Ulaz:
-  2
-  2 0 2 1
-  1 2 2 2
-Izlaz:
-  26.57 
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesi broj tacaka:}\ulaz{2}#
+#\izlaz{Unesi koordinate tacaka:}#
+#\ulaz{2 0 2 1}#
+#\ulaz{1 2 2 2}#
+#\izlaz{26.57}#
+\end{upotreba}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Test 2}
-Ulaz:
-  2
-  1 0 1 1
-  0 1 1 1
-Izlaz:
-  45
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesi broj tacaka:}\ulaz{2}#
+#\izlaz{Unesi koordinate tacaka:}#
+#\ulaz{1 0 1 1}#
+#\ulaz{0 1 1 1}#
+#\izlaz{45}#
+\end{upotreba}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Test 3}
-Ulaz:
-  3
-  1 0 1 1
-  2 0 2 1
-  1 2 2 2
-Izlaz:
-  26.57 
-\end{test}
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesi broj tacaka:}\ulaz{3}#
+#\izlaz{Unesi koordinate tacaka:}#
+#\ulaz{1 0 1 1}#
+#\ulaz{2 0 2 1}#
+#\ulaz{1 2 2 2}#
+#\izlaz{26.57}#
+\end{upotreba}
 \end{minitest}
 
 %\linkresenje{410}
@@ -467,27 +469,30 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{ckod}
   
 \begin{minitest}
-\begin{test}{Test 1}
-Ulaz:
-  R
-Izlaz:
-  Dusko Radovic
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{R}#
+  
+#\naslovIzlaz#
+#\izlaz{Dusko Radovic}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Test 2}
-Ulaz:
-  E
-Izlaz:
-  Dobrica Eric
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{E}#
+  
+#\naslovIzlaz#
+#\izlaz{Dobrica Eric}#
 \end{test}
 \end{minitest}
 \begin{minitest}
-\begin{test}{Test 3}
-Ulaz:
-  A
-Izlaz:
-  Mika Antic
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{A}#
+  
+#\naslovIzlaz#
+#\izlaz{Mika Antic}#
 \end{test}
 \end{minitest}
 
