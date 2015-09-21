@@ -250,3 +250,44 @@ ili ovako
 \end{test}
 
 Tako bi dobili da je poravnanje kod svih isto.
+
+Za upotrebu:
+1. Uvek ide prvo poziv --- poziv navodimo uvek kada se poziva sa 
+argumentima komandne linije, ne i kada je obican poziv
+2. Ukoliko imamo datoteku, navodi se naslov datoteke pa njen sadrzaj
+3. Zatim ide \naslovInt (tj deo koji se odnosi na interakciju)
+4. Dalje idu ulaz i izlaz kako vec treba
+
+Za test
+1 i 2 isto
+3. Naslov ulaz
+4. Ulaz
+5. Naslov izlaz
+6. izlaz
+Ukoliko ulaza nema, onda preskociti 4 i 5.
+
+Takodje, zamolila bih da se nerazbacujete sa maxi primerima, pakujte 
+uvek sve u midi sto moze da stane u midi (sadrzaj datoteke prelomite u 
+dva reda, i slicno).
+
+Jos jedna vazna napomena. Doradjujuci primere koje je Jelena danas 
+sredjivala, shvatila sam da nisu dovoljno citljivi. Pokusala sam da to 
+sredim kako treba i nakon nekih sat ipo vremena sam shvatila da je ipak 
+najlaksi nacin za sredjivanje to da se dodaju prazni redovi u upotrebe i 
+test primere. Dakle, PRE svakog naslova, stavite jedan prazan red. Primer:
+
+\begin{miditest}
+\begin{upotreba}{2}
+#\poziv{./a.out ulaz.txt}#
+                  <----------ovde je prazan red koji se ostavlja radi citljivosti
+#\naslovDat{Ulazna datoteka (ulaz.txt)}#
+#\datoteka{Ovo je sadrzaj datoteke i u njoj ima }#
+#\datoteka{reci koje imaju 1 karakter}#
+                  <----------ovde je prazan red koji se ostavlja radi citljivosti
+#\naslovInt#
+#\izlaz{Greska: Nedovoljan broj argumenata}#
+#\izlaz{komandne linije.}#
+#\izlaz{Program se poziva sa }#
+#\izlaz{./a.out ime\_dat br\_karaktera.}#
+\end{upotreba}
+\end{miditest}
