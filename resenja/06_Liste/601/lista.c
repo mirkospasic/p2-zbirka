@@ -38,8 +38,8 @@ void oslobodi_listu(Cvor ** adresa_glave)
 /* Funkcija dodaje broj na pocetak liste. Kreira novi cvor
    koriscenjem funkcije napravi_cvor i uvezuje ga na pocetak.
    Funkcija treba da vrati 0 ukoliko je sve bilo u redu, odnosno 
-   1 ukoliko je došlo do greške prilikom alokacije memorije za 
-   nov čvor. */
+   1 ukoliko je doslo do greske prilikom alokacije memorije za 
+   nov cvor. */
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj)
 {
   /* Kreira se nov cvor i proverava se da li je bilo greske pri
@@ -77,7 +77,7 @@ Cvor *pronadji_poslednji(Cvor * glava)
   return glava;
 }
 
-/* Funkcija dodaje broj na kraj liste. UKoliko dodje do greske
+/* Funkcija dodaje broj na kraj liste. Ukoliko dodje do greske
    pri alokaciji memorije vratice 1, inace vraca 0. */
 int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
 {

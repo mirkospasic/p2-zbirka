@@ -166,7 +166,7 @@ int uzmi_etiketu(FILE * f, char *etiketa)
         etiketa[i++] = tolower(c);
       } else {
         /* U suprotnom, staje se sa citanjem etikete i stanje se 
-           menja. Korektno se završava niska koja sadrzi
+           menja. Korektno se zavrsava niska koja sadrzi
            procitanu etiketu i vraca se njen tip. */
         stanje = VAN_ETIKETE;
         etiketa[i] = '\0';

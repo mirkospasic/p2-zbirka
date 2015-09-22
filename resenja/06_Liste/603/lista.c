@@ -264,7 +264,7 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, int broj)
 }
 
 /* Funkcija prikazuje cvorove liste pocev od glave ka kraju
-   liste. Ne salje joj se adresu promenljive koja cuva glavu
+   liste. Ne salje joj se adresa promenljive koja cuva glavu
    liste, jer ova funkcija nece menjati listu, pa nema ni
    potrebe da azuriza pokazivac na glavu liste iz pozivajuce
    funkcije. */
