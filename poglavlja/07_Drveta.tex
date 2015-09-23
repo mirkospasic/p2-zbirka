@@ -30,36 +30,32 @@ Napisati program za rad sa binarnim pretraživačkim stablima.
 Korišćenjem prethodnih funkcija, napisati program koji sa standardnog ulaza učitava cele brojeve sve do kraja ulaza, dodaje ih u binarno pretraživačko stablo i ispisuje stablo u svakoj od navedenih notacija. Zatim omogućiti unos još dva cela broja i demonstrirati rad funkcije za pretragu nad prvim unetim brojem i rad funkcije za brisanje elemenata nad drugim unetim brojem. 
 
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out
-Ulaz:
-	Unesite brojeve (CRL+D za kraj unosa): 
-	7 2 1 9 32 18
-Izlaz:
-	Infiksni ispis: 1 2 7 9 18 32
-	Prefiksni ispis: 7 2 1 9 32 18
-	Postfiksni ispis: 1 2 18 32 9 7
-	Trazi se broj: 11
-	Broj se ne nalazi u stablu!
-	Brise se broj: 7
-	Rezultujuce stablo: 1 2 9 18 32
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite brojeve (CRL+D za kraj unosa):}#
+#\ulaz{7 2 1 9 32 18}#
+#\izlaz{Infiksni ispis: 1 2 7 9 18 32}#
+#\izlaz{Prefiksni ispis: 7 2 1 9 32 18}#
+#\izlaz{Postfiksni ispis: 1 2 18 32 9 7}#
+#\izlaz{Trazi se broj:}\ulaz{11}#
+#\izlaz{Broj se ne nalazi u stablu!}#
+#\izlaz{Brise se broj:}\ulaz{7}#
+#\izlaz{Rezultujuce stablo: 1 2 9 18 32}#
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv: ./a.out
-Ulaz:
-	Unesite brojeve (CRL+D za kraj unosa): 
-	8 -2 6 13 24 -3
-Izlaz:
-	Infiksni ispis:  -3 -2 6 8 13 24
-	Prefiksni ispis: 8 -2 -3 6 13 24
-	Postfiksni ispis: -3 6 -2 24 13 8 
-	Trazi se broj: 6
-	Broj se nalazi u stablu!
-	Brise se broj: 14
-	Rezultujuce stablo: -3 -2 6 8 13 24
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite brojeve (CRL+D za kraj unosa):}#
+#\ulaz{8 -2 6 13 24 -3}#
+#\izlaz{Infiksni ispis:  -3 -2 6 8 13 24}#
+#\izlaz{Prefiksni ispis: 8 -2 -3 6 13 24}#
+#\izlaz{Postfiksni ispis: -3 6 -2 24 13 8}#
+#\izlaz{Trazi se broj:}\ulaz{6}#
+#\izlaz{Broj se nalazi u stablu!}#
+#\izlaz{Brise se broj:}\ulaz{14}#
+#\izlaz{Rezultujuce stablo: -3 -2 6 8 13 24}#
+\end{upotreba}
 \end{miditest}
 
 \linkresenje{701}
@@ -75,40 +71,47 @@ Izlaz:
 Napisati program koji izračunava i na standardnom izlazu ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživackog stabla uređenog leksikografski po rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku \kckod{Nedostaje ime ulazne datoteke!}. Može se pretpostaviti da dužina reči neće biti veća od 50 karaktera.
 
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out test.txt
-Datoteka test.txt:
-	Sunce utorak raCunar SUNCE programiranje jabuka PROGramiranje sunCE JABUka
-Izlaz:
-	jabuka: 2
-	programiranje: 2
-	racunar: 1
-	sunce: 3
-	utorak: 1
+\begin{test}{1}
+#\poziv{./a.out test.txt}#
+  
+#\naslovDat{test.txt}#
+#\datoteka{Sunce utorak raCunar SUNCE programiranje}#
+#\datoteka{jabuka PROGramiranje sunCE JABUka}#
 
-	Najcesca rec: sunce (pojavljuje se 3 puta)
+#\naslovIzlaz#
+#\izlaz{jabuka: 2}#
+#\izlaz{programiranje: 2}#
+#\izlaz{racunar: 1}#
+#\izlaz{sunce: 3}#
+#\izlaz{utorak: 1}#
+#\izlaz{}#
+#\izlaz{Najcesca rec: sunce (pojavljuje se 3 puta)}#
 \end{test}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv: ./a.out suma.txt
-Datoteka suma.txt:
-	lipa zova hrast ZOVA breza LIPA
-Izlaz:
-	breza: 1
-	hrast: 1
-	lipa: 2
-	zova: 2
-	
-	Najcesca rec: lipa (pojavljuje se 2 puta)
+\begin{test}{2}
+#\poziv{./a.out suma.txt}#
+
+#\naslovDat{suma.txt}#
+#\datoteka{lipa zova hrast ZOVA breza LIPA}#
+
+#\naslovIzlaz#
+#\izlaz{breza: 1}#
+#\izlaz{hrast: 1}#
+#\izlaz{lipa: 2}#
+#\izlaz{zova: 2}#
+#\izlaz{}#
+#\izlaz{Najcesca rec: lipa}#
+#\izlaz{(pojavljuje se 2 puta)}#
 \end{test}
 \end{miditest}
 
 \begin{miditest}
-\begin{test}{Test 3}
-Poziv: ./a.out 
-Izlaz:
-	Nedostaje ime ulazne datoteke!
+\begin{test}{3}
+#\poziv{./a.out}#
+  
+#\naslovIzlaz#
+#\izlaz{Nedostaje ime ulazne datoteke!}#
 \end{test}
 \end{miditest}
 
@@ -127,22 +130,30 @@ Izlaz:
 U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona, npr.~\kckod{Pera Peric 064/123-4567}. Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči \kckod{KRAJ}, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od $30$ karaktera, kao i da imenik ne sadrži podatke o osobama sa istim imenom i prezimenom.
 
 \begin{miditest}
-\begin{test}{Upotreba programa 1}
-Poziv: ./a.out 
-Datoteka imenik.txt:
-   Pera Peric 011/3240-987
-   Marko Maric 064/1234-987
-   Mirko Maric 011/589-333
-   Sanja Savkovic 063/321-098
-   Zika Zikic 021/759-858
-Ulaz:
-	Unesite ime datoteke: imenik.txt
-	Unesite ime i prezime: Pera Peric	
-	Broj je: 011/3240-987	
-	Unesite ime i prezime: Marko Markovic
-	Broj nije u imeniku!	
-	Unesite ime i prezime: KRAJ
-\end{test}
+\begin{upotreba}{1}
+#\naslovDat{imenik.txt}#  
+#\datoteka{Pera Peric 011/3240-987}#
+#\datoteka{Marko Maric 064/1234-987}#
+#\datoteka{Mirko Maric 011/589-333}#
+#\datoteka{Sanja Savkovic 063/321-098}#
+#\datoteka{Zika Zikic 021/759-858}#
+          
+#\naslovInt#
+#\izlaz{Unesite ime datoteke:}\ulaz{imenik.txt}#
+#\izlaz{Unesite ime i prezime:}\ulaz{Pera Peric}#	
+#\izlaz{Broj je: 011/3240-987}#
+#\izlaz{Unesite ime i prezime:}\ulaz{Marko Markovic}#
+#\izlaz{Broj nije u imeniku!}#
+#\izlaz{Unesite ime i prezime:}\ulaz{KRAJ}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite ime datoteke:}\ulaz{imenik1.txt}#
+#\izlaz{fopen() greska prilikom otvaranja}#
+#\izlaz{imenik1.txt}#	
+\end{upotreba}
 \end{miditest}
 \linkresenje{704}
 \end{Exercise}
@@ -154,25 +165,35 @@ Ulaz:
 
 %5.zadatak
 \begin{Exercise}[label=705]
-U datoteci \kckod{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jedne osnovne škole tako što je u svakom redu navedeno ime i prezime učenika (niz najviše $50$ karaktera), broj poena na osnovu uspeha (realan broj), broj poena na prijemnom ispitu iz matematike (realan broj) i broj poena na prijemnom ispitu iz maternjeg jezika (realan broj). Za učenika koji u zbiru osvoji manje od $10$ poena na oba prijemna ispita smatra se da nije položio prijemni. Napisati program koji na osnovu podataka iz ove datoteke formira i prikazuje rang listu učenika. Rang lista sadrži redni broj učenika, njegovo ime i prezime, broj poena na osnovu uspeha, broj poena na prijemnom ispitu iz matematike, broj poena na prijemnom ispitu iz maternjeg jezika i ukupan broj poena i sortirana je opadajuće po ukupnom broju poena. Na rang listi se prvo navode oni učenici koji su položili prijemni ispit, a potom i učenici koji ga nisu položili. Između ovih dveju grupa učenika postoji i horizontalna linija koja ih vizuelno razdvaja. 
-\begin{maxitest}
-\begin{test}{Test 1}
-Poziv: ./a.out
-Datoteka prijemni.txt:
-   Marko Markovic 45.4 12.3 11         
-   Milan Jevremovic 35.2 1.3 9         
-   Maja Agic 60 19 20                  
-   Nadica Zec 54.2 10 15.8             
-   Jovana Milic 23.3 2 5.6
-Izlaz:
-	1. Maja Agic 60.0 19.0 20.0 99.0
-	2. Nadica Zec 54.2 10.0 15.8 80.0
-	3. Marko Markovic 45.4 12.3 11.0 68.7
-	4. Milan Jevremovic 35.2 1.3 9.0 45.5
-	-----------------------------------
-	5. Jovana Milic 23.3 2.0 5.6 30.9
+  U datoteci \kckod{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jedne osnovne škole tako što je u svakom redu navedeno ime i prezime učenika (niz najviše $50$ karaktera), broj poena na osnovu uspeha (realan broj), broj poena na prijemnom ispitu iz matematike (realan broj) i broj poena na prijemnom ispitu iz maternjeg jezika (realan broj). Za učenika koji u zbiru osvoji manje od $10$ poena na oba prijemna ispita smatra se da nije položio prijemni. Napisati program koji na osnovu podataka iz ove datoteke formira i prikazuje rang listu učenika. Rang lista sadrži redni broj učenika, njegovo ime i prezime, broj poena na osnovu uspeha, broj poena na prijemnom ispitu iz matematike, broj poena na prijemnom ispitu iz maternjeg jezika i ukupan broj poena i sortirana je opadajuće po ukupnom broju poena. Na rang listi se prvo navode oni učenici koji su položili prijemni ispit, a potom i učenici koji ga nisu položili. Između ovih dveju grupa učenika postoji i horizontalna linija koja ih vizuelno razdvaja.
+
+\begin{miditest}
+\begin{test}{1}
+#\naslovDat{prijemni.txt}#
+#\datoteka{Marko Markovic 45.4 12.3 11}#
+#\datoteka{Milan Jevremovic 35.2 1.3 9}#       
+#\datoteka{Maja Agic 60 19 20}#         
+#\datoteka{Nadica Zec 54.2 10 15.8}#
+#\datoteka{Jovana Milic 23.3 2 5.6}#
+  
+#\naslovIzlaz#
+#\izlaz{1. Maja Agic 60.0 19.0 20.0 99.0}#
+#\izlaz{2. Nadica Zec 54.2 10.0 15.8 80.0}#
+#\izlaz{3. Marko Markovic 45.4 12.3 11.0 68.7}#
+#\izlaz{4. Milan Jevremovic 35.2 1.3 9.0 45.5}#
+#\izlaz{-----------------------------------}#
+#\izlaz{5. Jovana Milic 23.3 2.0 5.6 30.9}#
 \end{test}
-\end{maxitest}
+\end{miditest}
+\begin{miditest}
+\begin{test}{2}
+#\naslovDat{prijemni.txt}#
+#\datoteka{[Ova datoteka ne postoji]}#
+  
+#\naslovIzlaz#
+#\izlaz{Greska prilikom citanja podataka!}#
+\end{test}
+\end{miditest}
 \linkresenje{705}
 
 \end{Exercise}
@@ -184,31 +205,35 @@ Izlaz:
 \begin{Exercise}[label=706, difficulty=1]
 Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije u formatu \kckod{Ime Prezime DD.MM.YYYY.} - za svaku osobu po jedna linija datoteke. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj rada. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu \kckod{DD.MM.YYYY}.
 
-\begin{maxitest}
-\begin{test}{Upotreba programa 1}
-Poziv: a.out
-Datoteka rodjendani.txt:
-	Marko Markovic 12.12.1990.
-	Milan Jevremovic 04.06.1989.
-	Maja Agic 23.04.2000.
-	Nadica Zec 01.01.1993.
-	Jovana Milic 05.05.1990.
-Ulaz:
-	Unesite datum: 23.04.
-Izlaz:
-	Slavljenik: Maja Agic 
-Ulaz:	
-	Unesite datum: 01.01.
-Izlaz:
-	Slavljenik: Nadica Zec
-Ulaz:
-	Unesite datum: 01.05.
-Izlaz:	
-	Slavljenik: Jovana Milic 05.05.
-Ulaz:	
-	Unesite datum: CTRL+D
-\end{test}
-\end{maxitest}
+\begin{miditest}
+\begin{upotreba}{1}
+#\poziv{a.out rodjendani.txt}#
+  
+#\naslovDat{rodjendani.txt}#
+#\datoteka{Marko Markovic 12.12.1990.}#
+#\datoteka{Milan Jevremovic 04.06.1989.}#
+#\datoteka{Maja Agic 23.04.2000.}#
+#\datoteka{Nadica Zec 01.01.1993.}#
+#\datoteka{Jovana Milic 05.05.1990.}#
+
+#\naslovInt#
+#\izlaz{Unesite datum:}\ulaz{23.04.}#
+#\izlaz{Slavljenik: Maja Agic}#
+#\izlaz{Unesite datum:}\ulaz{01.01.}#
+#\izlaz{Slavljenik: Nadica Zec}#
+#\izlaz{Unesite datum:}\ulaz{01.05.}#
+#\izlaz{Slavljenik: Jovana Milic 05.05.}#
+#\izlaz{Unesite datum:}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{1}
+#\poziv{a.out rodjendani1.txt}#
+  
+#\naslovInt#
+#\izlaz{Greska prilikom otvaranja datoteke!}#
+\end{upotreba}
+\end{miditest}
 \linkresenje{706}
 \end{Exercise}
 
@@ -222,28 +247,24 @@ Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj. ako ob
 \napomena{Skup funkcija koje smo napisali u prvom zadatku možemo iskoristiti kao malu biblioteku za rad sa binarnim pretraživačkim stablima celih brojeva. Tako će u zadacima koji slede, datoteka stabla.h predstavljati popis funkcija biblioteke, a datoteka stabla.c njihove implementacije. Programe koji koriste ovu biblioteku treba prevoditi i pokretati u skladu sa smernicama iz poglavlja 1.1.}
 
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out
-Ulaz:
-	Prvo stablo: 
-	10 5 15 3 2 4 30 12 14 13 0
-	Drugo stablo: 
-	10 15 5 3 4 2 12 14 13 30 0
-Izlaz:
-	Stabla jesu identicna.
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Prvo stablo:}#
+#\ulaz{10 5 15 3 2 4 30 12 14 13 0}#
+#\izlaz{Drugo stablo:}#
+#\ulaz{10 15 5 3 4 2 12 14 13 30 0}#
+#\izlaz{Stabla jesu identicna.}#
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv: ./a.out
-Ulaz:
-	Prvo stablo: 
-	10 5 15 4 3 2 30 12 14 13 0
-	Drugo stablo: 
-	10 15 5 3 4 2 12 14 13 30 0
-Izlaz:
-	Stabla nisu identicna.
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Prvo stablo:}#
+#\ulaz{10 5 15 4 3 2 30 12 14 13 0}#
+#\izlaz{Drugo stablo:}#
+#\ulaz{10 15 5 3 4 2 12 14 13 30 0}#
+#\izlaz{Stabla nisu identicna.}#
+\end{upotreba}
 \end{miditest}
 
 \linkresenje{707}
@@ -261,28 +282,24 @@ Izlaz:
 Napisati program koji za dva binarna pretraživačka stabla čiji se elementi zadaju sa standardnog ulaza, sve do kraja ulaza, ispisuje uniju, presek i razliku stabla. Unija dva stabala je stablo koje sadrži vrednosti iz oba stabla. Presek dva stabala je stablo koje sadrži vrednosti koje se pojavljuju i u prvom i u drugom stablu. Razlika dva stabla je stablo koje sadrži sve vrednosti prvog stabla koje se ne pojavljuju u drugom stablu. 
 
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out
-Ulaz:
-	Prvo stablo: 1 7 8 9 2 2
-	Drugo stablo: 3 9 6 11 1
-Izlaz:
-	Unija: 1 1 2 2 3 6 7 8 9 9 11
-	Presek: 1 9 
-	Razlika: 2 2 7 8 
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Prvo stablo:}\ulaz{1 7 8 9 2 2}#
+#\izlaz{Drugo stablo:}\ulaz{3 9 6 11 1}#
+#\izlaz{Unija: 1 1 2 2 3 6 7 8 9 9 11}#
+#\izlaz{Presek: 1 9}#
+#\izlaz{Razlika: 2 2 7 8}#
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv: ./a.out
-Ulaz:
-	Prvo stablo: 11 2 7 5 
-	Drugo stablo: 4 3 3 7
-Izlaz:
-	Unija: 2 3 3 4 5 7 7 11
-	Presek: 7
-	Razlika: 2 5 11
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Prvo stablo:}\ulaz{11 2 7 5}#
+#\izlaz{Drugo stablo:}\ulaz{4 3 3 7}#
+#\izlaz{Unija: 2 3 3 4 5 7 7 11}#
+#\izlaz{Presek: 7}#
+#\izlaz{Razlika: 2 5 11}#
+\end{upotreba}
 \end{miditest}
 
 \linkresenje{708}
@@ -298,23 +315,19 @@ Izlaz:
 Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih brojeva \argf{a} dimenzije \argf{n} korišćenjem binarnog pretraživačkog stabla. Napisati i program koji sa standardnog ulaza učitava ceo broj \argf{n} manji od 50 i niz \argf{a} celih brojeva dužine \argf{n}, poziva funkciju \kckod{sortiraj} i rezultat ispisuje na standardnom izlazu.  
 
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out
-Ulaz:
-	n: 7 
-	a: 1 11 8 6 37 25 30
-Izlaz:
-	1 6 8 11 25 30 37 
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{n:}\ulaz{7}#
+#\izlaz{a:}\ulaz{1 11 8 6 37 25 30}#
+#\izlaz{1 6 8 11 25 30 37}#
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv: ./a.out
-Ulaz:
-	n: 55 
-Izlaz:
-	Greska: pogresna dimenzija niza!
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{n:}\ulaz{55}#
+#\izlaz{Greska: pogresna dimenzija niza!}#
+\end{upotreba}
 \end{miditest}
 
 \linkresenje{709}
@@ -346,22 +359,24 @@ Napisati program koji testira prethodne funkcije. Stablo formirati na osnovu vre
 sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ pročitati kao argumente komandne linije. 
 
 \begin{maxitest}
-\begin{test}{Test 1}
-Poziv: ./a.out 2 15
-Ulaz: 
-	10 5 15 3 2 4 30 12 14 13
-Izlaz: 
-	broj cvorova: 10
-	broj listova: 4
-	pozitivni listovi: 2 4 13 30
-	zbir cvorova: 108
-	najveci element: 30
-	dubina stabla: 5
-	broj cvorova na 2. nivou: 3
-	elementi na 2. nivou: 3 12 30
-	maksimalni na 2. nivou: 30
-	zbir na 2. nivou: 45
-	zbir elemenata manjih ili jednakih od 15: 7
+\begin{test}{1}
+#\poziv{./a.out 2 15}#
+  
+#\naslovUlaz#
+#\ulaz{10 5 15 3 2 4 30 12 14 13}#
+  
+#\naslovIzlaz#
+#\izlaz{broj cvorova: 10}#
+#\izlaz{broj listova: 4}#
+#\izlaz{pozitivni listovi: 2 4 13 30}#
+#\izlaz{zbir cvorova: 108}#
+#\izlaz{najveci element: 30}#
+#\izlaz{dubina stabla: 5}#
+#\izlaz{broj cvorova na 2. nivou: 3}#
+#\izlaz{elementi na 2. nivou: 3 12 30}#
+#\izlaz{maksimalni na 2. nivou: 30}#
+#\izlaz{zbir na 2. nivou: 45}#
+#\izlaz{zbir elemenata manjih ili jednakih od 15: 7}#
 \end{test}
 \end{maxitest}
 
@@ -379,27 +394,27 @@ Izlaz:
 Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivoima. Elementi stabla se učitavaju sa standardnog ulaza sve do kraja ulaza.
 
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out
-Ulaz: 
-	10 5 15 3 2 4 30 12 14 13
-Izlaz: 
-	0.nivo: 10
-	1.nivo: 5 15
-	2.nivo: 3 12 30
-	3.nivo: 2 4 14
-	4.nivo: 13
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{10 5 15 3 2 4 30 12 14 13}#
+  
+#\naslovIzlaz#
+#\izlaz{0.nivo: 10}#
+#\izlaz{1.nivo: 5 15}#
+#\izlaz{2.nivo: 3 12 30}#
+#\izlaz{3.nivo: 2 4 14}#
+#\izlaz{4.nivo: 13}#
 \end{test}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv: ./a.out
-Ulaz: 
-	6 11 8 3 -2
-Izlaz: 
-	0.nivo: 6
-	1.nivo: 3 11
-	2.nivo: -2 8
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{6 11 8 3 -2}#
+  
+#\naslovIzlaz#
+#\izlaz{0.nivo: 6}#
+#\izlaz{1.nivo: 3 11}#
+#\izlaz{2.nivo: -2 8}#
 \end{test}
 \end{miditest}
 
@@ -415,24 +430,20 @@ Izlaz:
 Dva binarna stabla su {\em slična kao u ogledalu} ako su ili oba prazna ili ako oba nisu prazna i levo podstablo svakog stabla je {\em slično kao u ogledalu} desnom podstablu onog drugog (bitna je struktura stabala, ali ne i njihov sadržaj). Napisati funkciju koja proverava da li su dva binarna pretraživačka stabla {\em slična kao u ogledalu}, a potom i program koji testira rad funkcije nad stablima čiji se elementi unose sa standardnog ulaza sve do unosa broja 0 i to redom za prvo stablo, pa zatim i za drugo stablo. 
 
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out
-Ulaz: 
-	Prvo stablo: 11 20 5 3 0
-	Drugo stablo: 8 14 30 1 0
-Izlaz: 
-	Stabla su slicna kao u ogledalu.
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#    
+#\izlaz{Prvo stablo:}\ulaz{11 20 5 3 0}#
+#\izlaz{Drugo stablo:}\ulaz{8 14 30 1 0}#
+#\izlaz{Stabla su slicna kao u ogledalu.}#
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv: ./a.out
-Ulaz: 
-	Prvo stablo: 11 20 5 3 0
-	Drugo stablo: 8 20 15 0
-Izlaz: 
-	Stabla nisu slicna kao u ogledalu.
-\end{test}
+\begin{upotreba}{2}
+#\naslovInt#    
+#\izlaz{Prvo stablo:}\ulaz{11 20 5 3 0}#
+#\izlaz{Drugo stablo:}\ulaz{8 20 15 0}#
+#\izlaz{Stabla nisu slicna kao u ogledalu.}#
+\end{upotreba}
 \end{miditest}
 %\linkresenje{713}
 \end{Exercise}
@@ -447,21 +458,21 @@ Izlaz:
 AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina levog i desnog podstabla svakog elementa nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor* koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod{avl} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
 
 \begin{miditest}
-\begin{test}{Test 1}
-Poziv: ./a.out
-Ulaz: 
-	10 5 15 2 11 16 1 13
-Izlaz: 
-	7
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{10 5 15 2 11 16 1 13}#
+
+#\naslovIzlaz#
+#\izlaz{7}#
 \end{test}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Poziv: ./a.out
-Ulaz: 
-	16 30 40 24 10 18 45 22
-Izlaz: 
-	6
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{16 30 40 24 10 18 45 22}#
+
+#\naslovIzlaz#
+#\izlaz{6}#
 \end{test}
 \end{miditest}
 \linkresenje{714}
