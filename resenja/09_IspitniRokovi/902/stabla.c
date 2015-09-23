@@ -21,7 +21,7 @@ void oslobodi_stablo(Cvor** adresa_korena)  {
     if( *adresa_korena == NULL)
         return;
     
-    /* Rekurzivno oslobadjamo najpre levo, a onda i desno podstablo*/
+    /* Rekurzivno  se oslobadja najpre levo, a onda i desno podstablo*/
     if( (*adresa_korena)->levo ) 
         oslobodi_stablo(&(*adresa_korena)->levo);
     if( (*adresa_korena)->desno) 
@@ -48,12 +48,11 @@ void dodaj_u_stablo(Cvor** adresa_korena, int broj) {
         return;
     }
         
-    /* Brojeve smestamo u uredjeno binarno stablo, pa 
-    ako je broj koji ubacujemo manji od broja koji je u korenu  */
+    /* Brojevi se smestaju u uredjeno binarno stablo, pa 
+    ako je broj koji se ubacuje manji od broja koji je u korenu onda se dodaje u levo podstablo. */
     if( broj < (*adresa_korena)->broj)         
-		/* Dodajemo u levo podstablo */
         dodaj_u_stablo(&(*adresa_korena)->levo, broj);
-    /* Ako je broj manji ili jednak od broja koji je u korenu stabla, dodajemo nov Cvor desno od korena */
+    /* Ako je broj manji ili jednak od broja koji je u korenu stabla, dodaje se nov Cvor desno od korena. */
     else 
         dodaj_u_stablo(&(*adresa_korena)->desno, broj);
 }

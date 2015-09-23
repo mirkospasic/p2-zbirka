@@ -11,7 +11,7 @@ typedef struct dcvor{
     strukture i vraca pokazivac na nov Cvor */
 Cvor* napravi_cvor(int b );
 
-/* Oslobadjamo dinamicki alociran prostor za stablo
+/* Funkcija oslobadja dinamicki alociran prostor za stablo
  * Nakon oslobadjanja se u pozivajucoj funkciji koren 
  * postavljana NULL, jer je stablo prazno  */
 void oslobodi_stablo(Cvor** adresa_korena);

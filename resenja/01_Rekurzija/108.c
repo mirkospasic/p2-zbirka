@@ -31,10 +31,10 @@ int sumaElemenataHipotenuze(int n)
 
 int main()
 {
-  int n, k, i, d;
+  int n, k, i, d, r;
 
 
-  scanf("%d %d", &d, &n);
+  scanf("%d %d", &d, &r);
 
   /* Ispisivanje Paskalovog trougla */
   putchar('\n');
@@ -46,12 +46,12 @@ int main()
     putchar('\n');
   }
 
-  if (n < 0) {
+  if (r < 0) {
     fprintf(stderr,
             "Redni broj hipotenuze mora biti veci ili jednak od 0!\n");
     exit(EXIT_FAILURE);
   }
-  printf("%d\n", sumaElemenataHipotenuze(n));
+  printf("%d\n", sumaElemenataHipotenuze(r));
 
   exit(EXIT_SUCCESS);
 }

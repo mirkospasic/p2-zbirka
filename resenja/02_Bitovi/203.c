@@ -1,21 +1,25 @@
 #include <stdio.h>
 
-/* Funkcija vraca najveci neoznaceni broj sastavljen iz istih
-   bitova kao i x */
+/* Funkcija vraca najveci neoznaceni broj sastavljen od istih
+   bitova koji se nalaze u binarnoj reprezentaciji vrednosti 
+   promenjive x */
 unsigned najveci(unsigned x)
 {
   unsigned velicina = sizeof(unsigned) * 8;
 
-  /* Formiramo masku 100000...0000000 */
+  /* Formira se maska 100000...0000000 */
   unsigned maska = 1 << (velicina - 1);
 
-  /* Inicijalizujemo rezultat na 0 */
+  /* Rezultat se inicijalizuje vrednoscu 0 */
   unsigned rezultat = 0;
 
-  /* Dokle god postoje jedinice u binarnoj reprezentaciji broja
-     x (tj. dokle god je x razlicit od nule) pomeramo ga ulevo. */
+  /* Promenljiva x se  pomera u levo sve dok postoje jedinice
+   u njenoj binarnoj reprezentaciji (tj. sve dok je promenljiva
+   x razlicita od nule). */
   for (; x != 0; x <<= 1) {
-    /* Za svaku jedinicu, potiskujemo jednu novu jedinicu sa
+    /* Za svaku jedinicu koja se koriscenjem maske detektuje na 
+       poziciji najvece tezine u binarnoj reprezentaciji 
+       promenjive x, potiskuje se jedna nova jedinicu sa
        leva u rezultat */
     if (x & maska) {
       rezultat >>= 1;
@@ -26,16 +30,22 @@ unsigned najveci(unsigned x)
   return rezultat;
 }
 
-/* Funkcija vraca najmanji neoznacen broj sa istim binarnim
-   ciframa kao i x */
+/* Funkcija vraca najmanji neoznaceni broj sastavljen od istih
+   bitova koji se nalaze u binarnoj reprezentaciji vrednosti 
+   promenjive x */
 unsigned najmanji(unsigned x)
 {
-  /* Inicijalizujemo rezultat na 0 */
+  /* Rezultat se inicijalizuje vrednoscu 0 */
   unsigned rezultat = 0;
 
-  /* Dokle god imamo jedinice u broju x, pomeramo ga udesno. */
+  /* Promenljiva x se  pomera u desno sve dok postoje jedinice
+   u njenoj binarnoj reprezentaciji (tj. sve dok je promenljiva
+   x razlicita od nule). */
   for (; x != 0; x >>= 1) {
-    /* Za svaku jedinicu, potiskujemo jednu novu jedinicu sa
+    /* Za svaku jedinicu koja se koriscenjem vrednosti 1 za masku
+       detektuje na 
+       poziciji najmanje tezine u binarnoj reprezentaciji 
+       promenjive x, potiskuje se jedna nova jedinicu sa
        desna u rezultat */
     if (x & 1) {
       rezultat <<= 1;

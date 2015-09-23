@@ -16,12 +16,12 @@ int main(int argc, char *argv[])
   char **linije;
   int i, j, n;
 
-  /* Proveravamo argumente komandne linije. */
+  /* Proverava argumenata komandne linije. */
   if (argc != 2) {
     greska();
   }
 
-  /* Otvaramo datoteku cije ime je navedeno kao argument
+  /* Otvaranje datoteke cije ime je navedeno kao argument
      komandne linije neposredno nakon imena programa koji se
      poziva. */
   ulaz = fopen(argv[1], "r");
@@ -29,10 +29,10 @@ int main(int argc, char *argv[])
     greska();
   }
 
-  /* Ucitavamo broj linija. */
+  /* Ucitavanje broja linija. */
   fscanf(ulaz, "%d", &n);
 
-  /* Alociramo memoriju na osnovu ucitanog broja linija. */
+  /* Alociranje memorije na osnovu ucitanog broja linija. */
   linije = (char **) malloc(n * sizeof(char *));
   if (linije == NULL) {
     greska();
@@ -48,12 +48,12 @@ int main(int argc, char *argv[])
     }
   }
 
-  /* Ucitavamo svih n linija iz datoteke. */
+  /* Ucitavanje svih n linija iz datoteke. */
   for (i = 0; i < n; i++) {
     fscanf(ulaz, "%s", linije[i]);
   }
 
-  /* Ispisujemo u odgovarajucem poretku ucitane linije koje
+  /* Ispisivanje u odgovarajucem poretku ucitane linije koje
      zadovoljavaju kriterijum. */
   for (i = n - 1; i >= 0; i--) {
     if (isupper(linije[i][0])) {
@@ -61,17 +61,16 @@ int main(int argc, char *argv[])
     }
   }
 
-  /* Oslobadjamo memoriju koju smo dinamicki alocirali. */
+  /* Oslobadjanje memorije koja je dinamicki alocirana. */
   for (i = 0; i < n; i++) {
     free(linije[i]);
   }
 
   free(linije);
 
-  /* Zatvaramo datoteku. */
+  /* Zatvaranje datoteku. */
   fclose(ulaz);
 
-  /* Zavrsavamo sa programom. */
   return 0;
 
 }

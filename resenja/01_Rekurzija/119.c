@@ -4,7 +4,7 @@
    cifre u broju */
 int max_oktalna_cifra(unsigned x)
 {
-  /* izlazak iz rekurzije */
+  /* Izlazak iz rekurzije */
   if (x == 0)
     return 0;
   /* Odredjivanje poslednje heksadekadne cifre u broju */

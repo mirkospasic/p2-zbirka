@@ -16,18 +16,16 @@ int main()
   int x, a[MAX_DIM];
   int n, i = 0;
 
-  /* UCitavamo broj koji se trazi */
   scanf("%d", &x);
 
-  /* Sve dok ne dodjemo do kraja ulaza, ucitavamo brojeve u niz; 
-     i predstavlja indeks tekuceg broja */
+  /* Sve dok se ne stigne do kraja ulaza, ucitavaju se brojevi u niz; 
+     Promenljiva i predstavlja indeks tekuceg broja */
   i = 0;
   while (scanf("%d", &a[i]) != EOF) {
     i++;
   }
   n = i;
 
-  /* Ispisujemo broj pojave broja x u niz a */
-  printf("%d\n", br_pojave(x, a, i));
+  printf("%d\n", br_pojave(x, a, n));
   return 0;
 }

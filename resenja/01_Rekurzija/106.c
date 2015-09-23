@@ -21,17 +21,17 @@ int F_rekurzivna(int n, int a, int b)
    Problemi manjih dimenzija ce se resavati jos veci broj puta.
    Resenje za ovaj problem je kombinacija rekurzije sa
    dinamickim programiranjem. Podproblemi se resavaju samo
-   jednom, a njihova reSenja se pamte u memoriji (obicno u
+   jednom, a njihova resenja se pamte u memoriji (obicno u
    nizovima ili matricama), odakle se koriste ako tokom
    resavanja ponovo budu potrebni.
 
-   Vec izracunate clanove niza cuvamo u statickom nizu celih
-   brojeva, jer taj niz onda nece biti smesten na stek, kao sto
-   je slucaj sa lokalnim promenljivama, vec u statickoj
-   memoriji odakle ce biti dostupan svim pozivima rekurzivne
-   funkcije. */
+   U narednoj funkciji vec izracunati clanovi niza se cuvaju 
+   u statickom nizu celih brojeva, jer taj niz onda nece biti 
+   smesten na stek, kao sto je slucaj sa lokalnim promenljivama, 
+   vec u statickoj memoriji odakle ce biti dostupan svim 
+   pozivima rekurzivne funkcije. */
 
-/* Funkcija izracunava n-ti fibonaCijev broj */
+/* Funkcija izracunava n-ti fibonacijev broj */
 int F_napredna(int n, int a, int b)
 {
   /* Niz koji cuva resenja podproblema. Kompajler inicijalizuje
@@ -39,7 +39,7 @@ int F_napredna(int n, int a, int b)
      elemente celobrojnog niza inicijalizuje na 0 */
   static int f[20];
 
-  /* Ako je podproblem vec ranije resen, uzimamo gotovo resenje! 
+  /* Ako je podproblem vec ranije resen, koristi se resenje koje je vec izracunato i  
    */
   if (f[n] != 0)
     return f[n];
@@ -80,12 +80,12 @@ int main()
   int a;
   int b;
 
-  printf("Unesi koeficijente\n");
+  printf("Unesite koeficijente\n");
   scanf("%d%d", &a, &b);
-  printf("Unesi koji clan niza racunamo\n");
+  printf("Unesite koji clan niza se racuna\n");
   scanf("%d", &n);
 
-  /* Testirati program za razliCite vrednosti promenljive n. Na
+  /* Testirati program za razlicite vrednosti promenljive n. Na
      primer za n=20, 30, 40, 50, 55, 60 ... */
   printf("F(%d) = %d\n", n, F_iterativna(n, a, b));
   // printf("F( %d ) = %d\n", n, F_napredna(n,a,b));

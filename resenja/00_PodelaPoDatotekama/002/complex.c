@@ -1,6 +1,6 @@
-/* Ukljucujemo zaglavlje neophodno za rad sa kompleksnim brojevima
- * Ovde je to neophodno jer nam je neophodno da bude poznata definicija tipa KompleksanBroj 
- * i da budu ukljucena zaglavlja standardne biblioteke koja smo vec naveli u complex.h
+/* Ukljucuje se zaglavlje neophodno za rad sa kompleksnim brojevima.
+ Ovde je to neophodno jer nam je neophodno da bude poznata definicija tipa KompleksanBroj. Takodje, time
+su ukljucena zaglavlja standardne biblioteke koja su navedena u complex.h
 */
 #include "complex.h"
 
@@ -12,7 +12,6 @@ void ucitaj_kompleksan_broj(KompleksanBroj* z) {
 }
 
 /* Funkcija ispisuje na standardan izlaz kompleksan broj z koji joj se salje kao argument u obliku (x + y i)  
-   Ovoj funkciji se kompleksan broj prenosi po vrednosti, jer za ispis nam nije neophodno da imamo adresu
  */
 void ispisi_kompleksan_broj(KompleksanBroj z) {
     printf("(");

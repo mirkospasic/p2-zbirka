@@ -20,32 +20,28 @@ int main(){
     int n;
     int nivo;
     
-    /* Citamo vrednost nivoa */
     scanf("%d", &nivo);
     
     
     while(1){
         
-        /* Citamo broj sa standardnog ulaza */
         scanf("%d", &n);
     
-        /* Ukoliko je korisnik uneo 0, prekidamo dalje citanje. */
+        /* Ukoliko je korisnik uneo 0, prekida se dalje citanje. */
         if(n==0){
             break;            
         }
         
-        /* A ako nije, dodajemo procitani broj u stablo. */
+        /* A ako nije, dodaje se procitani broj u stablo. */
         dodaj_u_stablo(&koren, n);
         
     }
     
-    /* Ispisujemo rezultat rada trazene funkcije */
+    /* Ispisuje se rezultat rada trazene funkcije */
     printf("%d\n", sumirajN(koren,nivo));
     
-    /* Oslobadjamo memoriju */
+    /* Oslobadja se memorija */
     oslobodi_stablo(&koren);
     
-    
-    /* Prekidamo izvrsavanje programa */
     return 0;
 }

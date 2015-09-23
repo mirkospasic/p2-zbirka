@@ -17,7 +17,7 @@ unsigned neparan(unsigned n);
     vraca 0. */
 unsigned paran(unsigned n)
 {
-  if (n >= 0 && n <= 9)
+  if (n <= 9)
     return 0;
   else
     return neparan(n / 10);
@@ -27,7 +27,7 @@ unsigned paran(unsigned n)
     vraca 0. */
 unsigned neparan(unsigned n)
 {
-  if (n >= 0 && n <= 9)
+  if (n <= 9)
     return 1;
   else
     return paran(n / 10);

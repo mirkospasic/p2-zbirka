@@ -12,28 +12,27 @@ int Broj01(unsigned int n)
   broj_nula = 0;
   broj_jedinica = 0;
 
-  /* Postavljamo masku tako da pocinjemo sa analiziranjem bita
+  /* Maska je inicijalizovana tako da moze da analizira bit
      najvece tezine */
   maska = 1 << (sizeof(unsigned int) * 4 - 1);
 
-  /* Dok ne obidjemo sve bitove u zapisu broj n */
+  /* Cilj je proci kroz sve bitove broja x, zato se maska u svakoj iteraciji pomera u desno pa ce jedini bit koji je postavljen na 1 biti na svim pozicijama u binarnoj reprezentaciji maske  */
   while (maska != 0) {
 
-    /* Proveravamo da li se na poziciji koju odredjuje maska
-       nalazi 0 ili 1 i uvecavamo odgovarajuci brojac */
+    /* Provera da li se na poziciji koju odredjuje maska
+       nalazi 0 ili 1 i uveca se odgovarajuci brojac */
     if (n & maska) {
       broj_jedinica++;
     } else {
       broj_nula++;
     }
 
-    /* Pomeramo masku u desnu stranu tako da mozemo da ocitamo
-       vrednost narednog bita */
+    /* Pomera se maska u desnu stranu */
     maska = maska >> 1;
   }
 
-  /* Ako je broj jedinica veci od broja nula vracamo 1, u
-     suprotnom vracamo 0 */
+  /* Ako je broj jedinica veci od broja nula funkcija vraca 1, u
+     suprotnom vraca 0 */
   return (broj_jedinica > broj_nula) ? 1 : 0;
 
 }
@@ -42,10 +41,8 @@ int main()
 {
   unsigned int n;
 
-  /* Ucitavamo broj */
   scanf("%u", &n);
 
-  /* Ispsujemo vrednost funkcije */
   printf("%d\n", Broj01(n));
 
   return 0;

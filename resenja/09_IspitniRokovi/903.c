@@ -10,7 +10,7 @@ int main()
   int max_broj_negativnih, max_indeks_kolone;
   int broj_negativnih;
 
-  /* Ucitavamo dimenzije matrice */
+  /* Ucitavanje dimenzije matrice */
   scanf("%d", &v);
   if (v < 0 || v > MAX) {
     fprintf(stderr, "-1\n");
@@ -23,14 +23,14 @@ int main()
     return 0;
   }
 
-  /* Ucitavamo elemente matrice */
+  /* Ucitavanje elemenata matrice */
   for (i = 0; i < v; i++) {
     for (j = 0; j < k; j++) {
       scanf("%d", &m[i][j]);
     }
   }
 
-  /* Pronalazimo kolonu koja sadrzi najveci broj negativnih
+  /* Pronalazenje kolone koja sadrzi najveci broj negativnih
      elemenata */
   max_indeks_kolone = 0;
 
@@ -55,9 +55,8 @@ int main()
 
   }
 
-  /* Ispisujemo trazeni rezultat */
+  /* Ispisivanje trazenog rezultata */
   printf("%d\n", max_indeks_kolone);
 
-  /* Zavrsavamo program */
   return 0;
 }

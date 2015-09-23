@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-/* niska moze imati najviSe 32 karaktera + 1 za terminalnu nulu */
+/* Niska moze imati najvise 32 karaktera + 1 za terminalnu nulu */
 #define MAX_DIM 33
 
 int palindrom(char s[], int n)
@@ -15,13 +15,12 @@ int main()
   char s[MAX_DIM];
   int n;
 
-  /* Ucitavamo nisku sa ulaza */
   scanf("%s", s);
 
-  /* Odredjujemo duzinu niske */
+  /* Odredjuje se duzina niske */
   n = strlen(s);
 
-  /* Ispisujemo na izlazu poruku da li je niska palindrom ili
+  /* Ispisuje se poruka da li je niska palindrom ili
      nije */
   if (palindrom(s, n))
     printf("da\n");

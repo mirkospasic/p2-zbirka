@@ -10,10 +10,10 @@ int maksimum_niza(int niz[], int n)
   if (n == 1)
     return niz[0];
 
-  /* ReSavamo problem manje dimenzije */
+  /* Resavanje problema manje dimenzije */
   int max = maksimum_niza(niz, n - 1);
 
-  /* Ako nam je poznato resenje problema dimenzije n-1, resavamo 
+  /* Na osnovu poznatog resenja problema dimenzije n-1, resava se 
      problem dimenzije n */
   return niz[n - 1] > max ? niz[n - 1] : max;
 }
@@ -23,7 +23,7 @@ int main()
   int brojevi[MAX_DIM];
   int n;
 
-  /* Sve dok ne dodjemo do kraja ulaza, ucitavamo brojeve u niz; 
+  /* Sve dok se ne stigne do kraja ulaza, brojeve se ucitavaju u niz. Promenljiva 
      i predstavlja indeks tekuceg broja. */
   int i = 0;
   while (scanf("%d", &brojevi[i]) != EOF) {
@@ -31,7 +31,7 @@ int main()
   }
   n = i;
 
-  /* Stampamo maksimum unetog niza brojeva */
+  /* Stampa se maksimum unetog niza brojeva */
   printf("%d\n", maksimum_niza(brojevi, n));
   return 0;
 }
