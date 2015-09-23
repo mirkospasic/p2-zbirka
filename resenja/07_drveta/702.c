@@ -17,12 +17,12 @@ typedef struct cvor {
 /* Funkcija koja kreira novi cvora stabla */
 Cvor *napravi_cvor(char *rec)
 {
-  /* Alociramo memoriju za novi cvor */
+  /* Alocira se memorija za novi cvor */
   Cvor *novi_cvor = (Cvor *) malloc(sizeof(Cvor));
   if (novi_cvor == NULL)
     return NULL;
 
-  /* Alociramo memoriju za zadatu rec: potrebno je rezervisati
+  /* Alocira se memorija za zadatu rec: potrebno je rezervisati
      memoriju za svaki karakter reci ukljucujuci i terminirajucu 
      nulu */
   novi_cvor->rec =
@@ -32,13 +32,13 @@ Cvor *napravi_cvor(char *rec)
     return NULL;
   }
 
-  /* Inicijalizujemo polja u novom cvoru */
+  /* Inicijalizuju se polja u novom cvoru */
   strcpy(novi_cvor->rec, rec);
   novi_cvor->brojac = 1;
   novi_cvor->levo = NULL;
   novi_cvor->desno = NULL;
 
-  /* Vracamo adresu novog cvora */
+  /* Vraca se adresa novog cvora */
   return novi_cvor;
 }
 
@@ -60,30 +60,30 @@ void dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
 {
   /* Ako je stablo prazno */
   if (*adresa_korena == NULL) {
-    /* Kreiramo novi cvor */
+    /* Kreira se novi cvor */
     Cvor *novi = napravi_cvor(rec);
     proveri_alokaciju(novi);
 
-    /* i proglasavamo ga korenom stabla */
+    /* i proglasava korenom stabla */
     *adresa_korena = novi;
     return;
   }
 
-  /* U suprotnom trazimo odgovarajucu poziciju za novu rec */
+  /* U suprotnom se trazi odgovarajuca pozicija za novu rec */
 
-  /* Ako je rec leksikografski manju od reci u korenu ubacujemo
-     je u levo podstablo */
+  /* Ako je rec leksikografski manja od reci u korenu ubacuje se
+     u levo podstablo */
   if (strcmp(rec, (*adresa_korena)->rec) < 0)
     dodaj_u_stablo(&(*adresa_korena)->levo, rec);
 
   else
-    /* Ako je rec leksikografski veca od reci u korenu ubacujemo 
-       je u desno podstablo */
+    /* Ako je rec leksikografski veca od reci u korenu ubacuje se
+       u desno podstablo */
   if (strcmp(rec, (*adresa_korena)->rec) > 0)
     dodaj_u_stablo(&(*adresa_korena)->desno, rec);
 
   else
-    /* Ako je rec jednaka reci u korenu, uvecavamo njen broj
+    /* Ako je rec jednaka reci u korenu, uvecava se njen broj
        pojavljivanja */
     (*adresa_korena)->brojac++;
 }
@@ -96,17 +96,17 @@ void oslobodi_stablo(Cvor ** adresa_korena)
     return;
 
   /* Inace ... */
-  /* Oslobadjamo memoriju zauzetu levim podstablom */
+  /* Oslobadja se memorija zauzeta levim podstablom */
   oslobodi_stablo(&(*adresa_korena)->levo);
 
-  /* Oslobadjamo memoriju zauzetu desnim podstablom */
+  /* Oslobadja se memorija zauzeta desnim podstablom */
   oslobodi_stablo(&(*adresa_korena)->desno);
 
-  /* Oslobadjamo memoriju zauzetu korenom */
+  /* Oslobadja se memorija zauzeta korenom */
   free((*adresa_korena)->rec);
   free(*adresa_korena);
 
-  /* Proglasavamo stablo praznim */
+  /* Proglasava se stablo praznim */
   *adresa_korena = NULL;
 }
 
@@ -117,17 +117,17 @@ Cvor *nadji_najfrekventniju_rec(Cvor * koren)
 {
   Cvor *max, *max_levo, *max_desno;
 
-  /* Ako je stablo prazno, prekidamo sa pretragom */
+  /* Ako je stablo prazno, prekida se sa pretragom */
   if (koren == NULL)
     return NULL;
 
-  /* Pronalazimo najfrekventniju reci u levom podstablu */
+  /* Pronalazi se najfrekventnija rec u levom podstablu */
   max_levo = nadji_najfrekventniju_rec(koren->levo);
 
-  /* Pronalazimo najfrekventniju reci u desnom podstablu */
+  /* Pronalazi se najfrekventnija rec u desnom podstablu */
   max_desno = nadji_najfrekventniju_rec(koren->desno);
 
-  /* Trazimo maksimum vrednosti pojavljivanja reci iz levog
+  /* Trazi se maksimum vrednosti pojavljivanja reci iz levog
      podstabla, korena i desnog podstabla */
   max = koren;
   if (max_levo != NULL && max_levo->brojac > max->brojac)
@@ -135,7 +135,7 @@ Cvor *nadji_najfrekventniju_rec(Cvor * koren)
   if (max_desno != NULL && max_desno->brojac > max->brojac)
     max = max_desno;
 
-  /* Vracamo adresu cvora sa najvecim brojacem */
+  /* Vraca se adresa cvora sa najvecim brojacem */
   return max;
 }
 
@@ -144,18 +144,18 @@ Cvor *nadji_najfrekventniju_rec(Cvor * koren)
    poretku pracene brojem pojavljivanja */
 void prikazi_stablo(Cvor * koren)
 {
-  /* Ako je stablo prazno, zavrsavamo sa ispisom */
+  /* Ako je stablo prazno, zavrsava se sa ispisom */
   if (koren == NULL)
     return;
 
-  /* Zbog leksikografskog poretka, prvo ispisujemo sve reci iz
+  /* Zbog leksikografskog poretka, prvo se ispisuju sve reci iz
      levog podstabla */
   prikazi_stablo(koren->levo);
 
-  /* Zatim ispisujemo rec iz korena */
+  /* Zatim rec iz korena */
   printf("%s: %d\n", koren->rec, koren->brojac);
 
-  /* I nastavljamo sa ispisom reci iz desnog podstabla */
+  /* I nastavlja se sa ispisom reci iz desnog podstabla */
   prikazi_stablo(koren->desno);
 }
 
@@ -166,37 +166,37 @@ void prikazi_stablo(Cvor * koren)
    Rec je niz malih ili velikih slova. */
 int procitaj_rec(FILE * f, char rec[], int max)
 {
-  /* karakter koji citamo */
+  /* karakter koji se cita */
   int c;
 
   /* indeks pozicije na koju se smesta procitani karakter */
   int i = 0;
 
-  /* Sve dok ima mesta za jos jedan karakter u nizu i dokle god
-     nismo stigli do kraja datoteke... */
+  /* Sve dok ima mesta za jos jedan karakter u nizu i dokle se god
+     nije stiglo do kraja datoteke... */
   while (i < max - 1 && (c = fgetc(f)) != EOF) {
-    /* Proveravamo da li je procitani karakter slovo */
+    /* Proverava se da li je procitani karakter slovo */
     if (isalpha(c))
 
-      /* Ako jeste, smestamo ga u niz - pritom vrsimo konverziju 
+      /* Ako jeste, smesta se u niz - pritom se vrsi konverzija
          u mala slova jer program treba da bude neosetljiv na
          razliku izmedju malih i velikih slova */
       rec[i++] = tolower(c);
 
     else
-      /* Ako nije, proveravamo da li smo procitali barem jedno
-         slovo nove rece */
-      /* Ako jesmo prekidamo sa citanjem */
+      /* Ako nije, proverava se da li je procitano barem jedno
+         slovo nove reci */
+      /* Ako jesmo prekida se sa citanjem */
     if (i > 0)
       break;
 
-    /* U suprotnom idemo na sledecu iteraciju */
+    /* U suprotnom ide se na sledecu iteraciju */
   }
 
-  /* Dodajemo na rec terminirajucu nulu */
+  /* Dodaje se na rec terminirajuca nula */
   rec[i] = '\0';
 
-  /* Vracamo 0 ako smo procitali rec, EOF u suprotnom */
+  /* Vraca se 0 ako je procitana rec, EOF u suprotnom */
   return i > 0 ? 0 : EOF;
 }
 
@@ -206,49 +206,48 @@ int main(int argc, char **argv)
   FILE *f;
   char rec[MAX];
 
-  /* Proveravamo da li je navedeno ime datoteke prilikom
+  /* Provera da li je navedeno ime datoteke prilikom
      pokretanja programa */
   if (argc < 2) {
     fprintf(stderr, "Nedostaje ime ulazne datoteke!\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaramo datoteku iz koje citamo reci */
+  /* Otvaranje datoteke iz koje se citaju reci */
   if ((f = fopen(argv[1], "r")) == NULL) {
     fprintf(stderr, "fopen() greska pri otvaranju %s\n",
             argv[1]);
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavamo reci iz datoteke i smestamo u binarno stablo
+  /* Ucitavanje reci iz datoteke i smestanje u binarno stablo
      pretrage. */
   while (procitaj_rec(f, rec, MAX) != EOF)
     dodaj_u_stablo(&koren, rec);
 
-  /* Posto smo zavrsili sa citanjem reci zatvaramo datoteku */
+  /* Posto je zavrseno sa citanjem reci zatvara se datoteka */
   fclose(f);
 
-  /* Prikazujemo sve reci iz teksta i brojeve njihovih
+  /* Prikazuju se sve reci iz teksta i brojevi njihovih
      pojavljivanja. */
   prikazi_stablo(koren);
 
-  /* Pronalazimo najfrekventniju rec */
+  /* Pronalazi se najfrekventnija rec */
   max = nadji_najfrekventniju_rec(koren);
 
   /* Ako takve reci nema... */
   if (max == NULL)
 
-    /* Ispisujemo odgovarajuce obavestenje */
+    /* Ispisuje se odgovarajuce obavestenje */
     printf("U tekstu nema reci!\n");
 
   else
-    /* Inace, ispisujemo broj pojavljivanja reci */
+    /* Inace, ispisuje se broj pojavljivanja reci */
     printf("Najcesca rec: %s (pojavljuje se %d puta)\n",
            max->rec, max->brojac);
 
-  /* Oslobadjamo dinamicki alociran prostor za stablo */
+  /* Oslobadja se dinamicki alociran prostor za stablo */
   oslobodi_stablo(&koren);
 
-  /* Zavrsavamo sa programom */
   return 0;
 }

@@ -30,7 +30,10 @@ Cvor *pronadji_najmanji(Cvor * koren);
    stablu */
 Cvor *pronadji_najveci(Cvor * koren);
 
-/* Funkcija koja brise cvor stabla koji sadrzi zadati broj */
+/* Funkcija brise element iz stabla ciji je broj upravo jednak
+   broju n. Funkcija azurira koren stabla u pozivajucoj
+   funkciji, jer u ovoj funkciji koren moze biti promenjen u
+   funkciji. */
 void obrisi_element(Cvor ** adresa_korena, int broj);
 
 /* Funkcija koja ispisuje sadrzaj stabla u infiksnoj notaciji

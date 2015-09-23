@@ -22,12 +22,12 @@ typedef struct cvor_stabla {
 Cvor *napravi_cvor(char ime[], char prezime[], int dan,
                    int mesec, int godina)
 {
-  /* Alociramo memoriju */
+  /* Alocira se memorija */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
 
-  /* Inicijalizujemo polja strukture */
+  /* Inicijalizuju se polja strukture */
   strcpy(novi->ime, ime);
   strcpy(novi->prezime, prezime);
   novi->dan = dan;
@@ -36,7 +36,7 @@ Cvor *napravi_cvor(char ime[], char prezime[], int dan,
   novi->levo = NULL;
   novi->desno = NULL;
 
-  /* Vracamo adresu novog cvora */
+  /* Vraca se adresa novog cvora */
   return novi;
 }
 
@@ -45,7 +45,7 @@ void proveri_alokaciju(Cvor * novi_cvor)
 {
   /* Ako memorija nije uspesno alocirana */
   if (novi_cvor == NULL) {
-    /* Ispisujemo poruku i prekidamo izvrsavanje programa */
+    /* Ispisuje se poruka i prekida se sa izvrsavanjem programa */
     fprintf(stderr, "Malloc greska za novi cvor!\n");
     exit(EXIT_FAILURE);
   }
@@ -58,20 +58,20 @@ void oslobodi_stablo(Cvor ** koren)
   if (*koren == NULL)
     return;
 
-  /* Oslobadjamo memoriju zauzetu levim podstablom (ako postoji) 
+  /* Oslobadja se memorija zauzeta levim podstablom (ako postoji) 
    */
   if ((*koren)->levo)
     oslobodi_stablo(&(*koren)->levo);
 
-  /* Oslobadjamo memoriju zauzetu desnim podstablom (ako
+  /* Oslobadja se memorija zauzeta desnim podstablom (ako
      postoji) */
   if ((*koren)->desno)
     oslobodi_stablo(&(*koren)->desno);
 
-  /* Oslobadjamo memoriju zauzetu korenom */
+  /* Oslobadja se memorija zauzeta korenom */
   free(*koren);
 
-  /* Proglasavamo stablo praznim */
+  /* Proglasava se stablo praznim */
   *koren = NULL;
 }
 
@@ -83,18 +83,18 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
   /* Ako je stablo prazno */
   if (*koren == NULL) {
 
-    /* Kreiramo novi cvor */
+    /* Kreira se novi cvor */
     Cvor *novi_cvor =
         napravi_cvor(ime, prezime, dan, mesec, godina);
     proveri_alokaciju(novi_cvor);
 
-    /* I proglasavamo ga korenom */
+    /* I proglasava se korenom */
     *koren = novi_cvor;
 
     return;
   }
 
-  /* Kako se ne unosi godina za pretragu, stablo uredjujemo samo
+  /* Kako se ne unosi godina za pretragu, stablo se uredjuje samo
      po mesecu (i danu u okviru istog meseca) */
   if (mesec < (*koren)->mesec)
     dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan, mesec,
@@ -108,26 +108,24 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
 }
 
 /* Funkcija vrsi pretragu stabla i vraca cvor sa trazenim
-   datumom (null ako takav ne postoji). u promenljivu pom ce
+   datumom (null ako takav ne postoji). U promenljivu pom ce
    biti smesten prvi datum (dan i mesec) veci od trazenog datuma 
-   (null ako takav ne postoji)
-
- */
+   (null ako takav ne postoji) */
 Cvor *pretrazi(Cvor * koren, int dan, int mesec)
 {
-  /* Stablo je prazno, obustavljamo pretragu */
+  /* Stablo je prazno, obustavlja se pretraga */
   if (koren == NULL)
     return NULL;
 
-  /* Nasli smo trazeni datum u stablu */
+  /* Ako je trazeni datum u korenu */
   if (koren->dan == dan && koren->mesec == mesec)
     return koren;
 
   /* Ako je mesec trazenog datuma manji od meseca sadrzanog u
      korenu ili ako su meseci isti ali je dan trazenog datuma
-     manji od aktuelnog datuma, pretrazujemo levo podstablo -
-     pre toga svakako proveravamo da li leva grana postoji - ako 
-     ne postoji treba da vratimo prvi sledeci, a to je bas
+     manji od aktuelnog datuma, pretrazuje se levo podstablo -
+     pre toga se svakako proverava da li leva grana postoji - ako 
+     ne postoji treba vratiti prvi sledeci, a to je bas
      vrednost uocenog korena */
   if (mesec < koren->mesec
       || (mesec == koren->mesec && dan < koren->dan)) {
@@ -137,7 +135,7 @@ Cvor *pretrazi(Cvor * koren, int dan, int mesec)
       return pretrazi(koren->levo, dan, mesec);
   }
 
-  /* inace, nastavljamo pretragu u desnom delu */
+  /* inace se nastavlja pretraga u desnom delu */
   return pretrazi(koren->desno, dan, mesec);
 }
 
@@ -150,65 +148,64 @@ int main(int argc, char **argv)
   char ime[MAX_NISKA], prezime[MAX_NISKA];
   int dan, mesec, godina;
 
-  /* Proveravamo da li je zadato ime ulazne datoteke */
+  /* Provera da li je zadato ime ulazne datoteke */
   if (argc < 2) {
-    /* Ako nije, ispisujemo poruku i prekidamo sa izvrsavanjem
+    /* Ako nije, ispisuje se poruka i prekida sa izvrsavanjem
        programa */
     printf("Nedostaje ime ulazne datoteke!\n");
     return 0;
   }
 
-  /* Inace, pripremamo datoteku za citanje */
+  /* Inace, priprema se datoteka za citanje */
   in = fopen(argv[1], "r");
   if (in == NULL) {
     fprintf(stderr, "Greska prilikom otvaranja datoteke!\n");
     exit(EXIT_FAILURE);
   }
 
-  /* I popunjavamo podacima stablo */
+  /* I stablo se popunjava podacima */
   koren = NULL;
   while (fscanf
          (in, "%s %s %d.%d.%d.", ime, prezime, &dan, &mesec,
           &godina) != EOF)
     dodaj_u_stablo(&koren, ime, prezime, dan, mesec, godina);
 
-  /* I zatvaramo datoteku */
+  /* Zatvaranje datoteke */
   fclose(in);
 
-  /* Omogucavamo pretragu podataka */
+  /* Omogucuje se pretraga podataka */
   while (1) {
 
-    /* Ucitavamo novi datum */
+    /* Ucitava se novi datum */
     printf("Unesite datum: ");
     if (scanf("%d.%d.", &dan, &mesec) == EOF)
       break;
 
-    /* Pretrazujemo stablo */
+    /* Pretrazuje se stablo */
     slavljenik = pretrazi(koren, dan, mesec);
 
-    /* Ispisujemo pronadjene podatke */
+    /* Ispisuju se pronadjeni podaci */
     if (slavljenik == NULL) {
       printf("Nema podataka o ovim ni o sledecem rodjendanu.\n");
       continue;
     }
 
-    /* Slucaj kada smo pronasli prave podatke */
+    /* Slucaj kada su pronadjeni pravi podaci */
     if (slavljenik->dan == dan && slavljenik->mesec == mesec) {
       printf("Slavljenik: %s %s\n", slavljenik->ime,
              slavljenik->prezime);
       continue;
     }
 
-    /* Slucaj kada smo pronasli podatke o prvom sledecem
+    /* Slucaj su pronadjeni podaci o prvom sledecem
        rodjendanu */
     printf("Slavljenik: %s %s %d.%d.\n", slavljenik->ime,
            slavljenik->prezime, slavljenik->dan,
            slavljenik->mesec);
   }
 
-  /* Oslobadjamo memoriju zauzetu stablom */
+  /* Oslobadja se memorija zauzeta stablom */
   oslobodi_stablo(&koren);
 
-  /* Prekidamo sa izvrsavanjem programa */
   return 0;
 }

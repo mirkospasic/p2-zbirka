@@ -5,7 +5,7 @@
 #define MAX 51
 
 /* Struktura koja definise cvorove stabla: sadrzi ime i prezime
-   studenta, ukupan uspsh, uspeh iz matematike, uspeh iz
+   studenta, ukupan uspeh, uspeh iz matematike, uspeh iz
    maternjeg jezika i redom pokazivace na levo i desno podstablo 
  */
 typedef struct cvor_stabla {
@@ -22,12 +22,12 @@ typedef struct cvor_stabla {
 Cvor *napravi_cvor(char ime[], char prezime[], double uspeh,
                    double matematika, double jezik)
 {
-  /* Alociramo memoriju za novi cvor */
+  /* Alocira se memorija za novi cvor */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
 
-  /* Inicijalizujemo polja strukture */
+  /* Inicijalizuju se polja strukture */
   strcpy(novi->ime, ime);
   strcpy(novi->prezime, prezime);
   novi->uspeh = uspeh;
@@ -36,7 +36,7 @@ Cvor *napravi_cvor(char ime[], char prezime[], double uspeh,
   novi->levo = NULL;
   novi->desno = NULL;
 
-  /* Vracamo adresu kreiranog cvora */
+  /* Vraca se adresa kreiranog cvora */
   return novi;
 }
 
@@ -45,11 +45,10 @@ void proveri_alokaciju(Cvor * novi_cvor)
 {
   /* Ako alokacije nije uspesna */
   if (novi_cvor == NULL) {
-    /* Ispisujemo poruku i prekidamo sa izvrsavanjem */
+    /* Ispisuje se poruka i prekida se sa izvrsavanjem */
     fprintf(stderr, "Malloc greska za novi cvor!\n");
     exit(EXIT_FAILURE);
   }
-
 }
 
 /* Funkcija kojom se oslobadja memorija zauzeta stablom */
@@ -60,16 +59,16 @@ void oslobodi_stablo(Cvor ** koren)
   if (*koren == NULL)
     return;
 
-  /* oslobadjamo memoriju zauzetu levim podstablom */
+  /* oslobadja se memorija zauzeta levim podstablom */
   oslobodi_stablo(&(*koren)->levo);
 
-  /* oslobadjamo memoriju zauzetu desnim podstablom */
+  /* oslobadja se memorija zauzeta desnim podstablom */
   oslobodi_stablo(&(*koren)->desno);
 
-  /* oslobadjamo memoriju zauzetu korenom */
+  /* oslobadja se memorija zauzeta korenom */
   free(*koren);
 
-  /* proglasavamo stablo praznim */
+  /* proglasava se stablo praznim */
   *koren = NULL;
 }
 
@@ -80,18 +79,18 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
 {
   /* Ako je stablo prazno */
   if (*koren == NULL) {
-    /* Kreiramo novi cvor */
+    /* Kreira se novi cvor */
     Cvor *novi =
         napravi_cvor(ime, prezime, uspeh, matematika, jezik);
     proveri_alokaciju(novi);
 
-    /* I proglasavamo ga korenom stabla */
+    /* I proglasava korenom stabla */
     *koren = novi;
 
     return;
   }
 
-  /* Inace, dodajemo cvor u stablo tako da bude sortiran po
+  /* Inace, dodaje se cvor u stablo tako da bude sortiran po
      ukupnom broju poena */
   if (uspeh + matematika + jezik >
       (*koren)->uspeh + (*koren)->matematika + (*koren)->jezik)
@@ -103,21 +102,21 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
 }
 
 
-/* Funkcija ispisuje sadrzaj stabla - ukoliko je vrednost
+/* Funkcija ispisuje sadrzaj stabla. Ukoliko je vrednost
    argumenta polozili jednaka 0 ispisuju se informacije o
    ucenicima koji nisu polozili prijemni, a ako je vrednost
    argumenta razlicita od nule, ispisuju se informacije o
    ucenicima koji su polozili prijemni */
 void stampaj(Cvor * koren, int polozili)
 {
-  /* Stablo je prazno - prekidamo sa ispisom */
+  /* Stablo je prazno - prekida se sa ispisom */
   if (koren == NULL)
     return;
 
-  /* Stampamo informacije iz levog podstabla */
+  /* Stampaju se informacije iz levog podstabla */
   stampaj(koren->levo, polozili);
 
-  /* Stampamo informacije iz korenog cvora */
+  /* Stampaju se informacije iz korenog cvora */
   if (polozili && koren->matematika + koren->jezik >= 10)
     printf("%s %s %.1lf %.1lf %.1lf %.1lf\n", koren->ime,
            koren->prezime, koren->uspeh, koren->matematika,
@@ -129,7 +128,7 @@ void stampaj(Cvor * koren, int polozili)
            koren->jezik,
            koren->uspeh + koren->matematika + koren->jezik);
 
-  /* Stampamo informacije iz desnog podstabla */
+  /* Stampaju se informacije iz desnog podstabla */
   stampaj(koren->desno, polozili);
 }
 
@@ -142,9 +141,9 @@ int nisu_polozili(Cvor * koren)
   if (koren == NULL)
     return 0;
 
-  /* Pretragu vrsimo i u levom i u desnom podstablu - ako uslov
+  /* Pretraga se vrsi i u levom i u desnom podstablu - ako uslov
      za polaganje nije ispunjen za koreni cvor, broj studenata
-     uvecavamo za 1 */
+     se uvecava za 1 */
   if (koren->matematika + koren->jezik < 10)
     return 1 + nisu_polozili(koren->levo) +
         nisu_polozili(koren->desno);
@@ -160,14 +159,14 @@ int main(int argc, char **argv)
   char ime[MAX], prezime[MAX];
   double uspeh, matematika, jezik;
 
-  /* Otvaramo datoteku sa rezultatima sa prijemnog za citanje */
+  /* Otvaranje datoteke sa rezultatima sa prijemnog za citanje */
   in = fopen("prijemni.txt", "r");
   if (in == NULL) {
     fprintf(stderr, "Greska prilikom citanja podataka!\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Citamo podatke i dodajemo ih u stablo */
+  /* Citanje podataka i dodavanje u stablo */
   koren = NULL;
   while (fscanf(in, "%s %s %lf %lf %lf", ime, prezime, &uspeh,
                 &matematika, &jezik) != EOF) {
@@ -175,24 +174,23 @@ int main(int argc, char **argv)
                    jezik);
   }
 
-  /* Zatvaramo datoteku */
+  /* Zatvaranje datoteke */
   fclose(in);
 
-  /* Stampamo prvo podatke o ucenicima koji su polozili prijemni 
+  /* Stampaju se prvo podaci o ucenicima koji su polozili prijemni 
    */
   stampaj(koren, 1);
 
-  /* Liniju iscrtavamo samo ako postoje ucenici koji nisu
+  /* Linij se iscrtava samo ako postoje ucenici koji nisu
      polozili prijemni */
   if (nisu_polozili(koren) != 0)
     printf("-------------------------------------\n");
 
-  /* Stampamo podatke o ucenicima koji nisu polozili prijemni */
+  /* Stampaju se podaci o ucenicima koji nisu polozili prijemni */
   stampaj(koren, 0);
 
-  /* Oslobadjamo memoriju zauzetu stablom */
+  /* Oslobadja se memorija zauzeta stablom */
   oslobodi_stablo(&koren);
 
-  /* Zavrsavamo sa programom */
   return 0;
 }

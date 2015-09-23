@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-/* Ukljucujemo biblioteku za rad sa stablima */
+/* Ukljucuje se biblioteka za rad sa stablima */
 #include "stabla.h"
 
 /* a) Funkcija koja izracunava broj cvorova stabla */
@@ -25,13 +25,13 @@ int broj_listova(Cvor * koren)
   if (koren == NULL)
     return 0;
 
-  /* Proveravamo da li je tekuci cvor list */
+  /* Proverava se da li je tekuci cvor list */
   if (koren->levo == NULL && koren->desno == NULL)
-    /* i ako jeste vracamo 1 - to ce kasnije zbog rekurzivnih
+    /* i ako jeste vraca se 1 - to ce kasnije zbog rekurzivnih
        poziva uvecati broj listova za 1 */
     return 1;
 
-  /* U suprotnom prebrojavamo listove koje se nalaze u
+  /* U suprotnom prebrojavaju se listovi koje se nalaze u
      podstablima */
   return broj_listova(koren->levo) + broj_listova(koren->desno);
 }
@@ -46,10 +46,10 @@ void pozitivni_listovi(Cvor * koren)
   /* Ako je cvor list i sadrzi pozitivnu vrednost */
   if (koren->levo == NULL && koren->desno == NULL
       && koren->broj > 0)
-    /* Stampamo ga */
+    /* Stampa se */
     printf("%d ", koren->broj);
 
-  /* Nastavljamo sa stampanjem pozitivnih listova u podstablima */
+  /* Nastavlja se sa stampanjem pozitivnih listova u podstablima */
   pozitivni_listovi(koren->levo);
   pozitivni_listovi(koren->desno);
 }
@@ -61,7 +61,7 @@ int zbir_cvorova(Cvor * koren)
   if (koren == NULL)
     return 0;
 
-  /* Inace, zbir cvorova stabla izracunavamo kao zbir korena i
+  /* Inace, zbir cvorova stabla izracunava se kao zbir korena i
      svih elemenata u podstablima */
   return koren->broj + zbir_cvorova(koren->levo) +
       zbir_cvorova(koren->desno);
@@ -70,19 +70,19 @@ int zbir_cvorova(Cvor * koren)
 /* e) Funckija koja izracunava najveci element stabla. */
 Cvor *najveci_element(Cvor * koren)
 {
-  /* Ako je stablo prazno, obustavljamo pretragu */
+  /* Ako je stablo prazno, obustavlja se pretraga */
   if (koren == NULL)
     return NULL;
 
-  /* Zbog prirode pretrazivackog stabla, sigurni smo da su
-     vrednosti vece od korena u desnom podstablu */
+  /* Zbog prirode pretrazivackog stabla,
+     vrednosti vece od korena se nalaze u desnom podstablu */
 
   /* Ako desnog podstabla nema */
   if (koren->desno == NULL)
     /* Najveca vrednost je koren */
     return koren;
 
-  /* Inace, najvecu vrednost trazimo jos desno */
+  /* Inace, najveca vrednost se trazi desno */
   return najveci_element(koren->desno);
 }
 
@@ -93,14 +93,14 @@ int dubina_stabla(Cvor * koren)
   if (koren == NULL)
     return 0;
 
-  /* Izracunavamo dubinu levog podstabla */
+  /* Izracunava se dubina levog podstabla */
   int dubina_levo = dubina_stabla(koren->levo);
 
-  /* Izracunavamo dubinu desnog podstabla */
+  /* Izracunava se dubina desnog podstabla */
   int dubina_desno = dubina_stabla(koren->desno);
 
-  /* dubina stabla odgovara vecoj od dubina podstabala - 1
-     dodajemo jer racunamo i koren */
+  /* Dubina stabla odgovara vecoj od dubina podstabala - 1
+     se dodaje jer se racuna i koren */
   return dubina_levo >
       dubina_desno ? dubina_levo + 1 : dubina_desno + 1;
 }
@@ -108,19 +108,19 @@ int dubina_stabla(Cvor * koren)
 /* g) Funckija koja izracunava broj cvorova na i-tom nivou */
 int broj_cvorova_na_itom_nivou(Cvor * koren, int i)
 {
-  /* ideja je da ste spustamo kroz stablo sve dok ne stignemo do
+  /* Ideja je spustanje kroz stablo sve dok se ne stigne do
      trazenog nivoa */
 
-  /* Ako nema vise cvorova, ne mozemo da se spustamo niz stablo */
+  /* Ako nema vise cvorova, nema spustanja niz stablo */
   if (koren == NULL)
     return 0;
 
-  /* Ako smo stigli do trazenog nivoa, vracamo 1 - to ce kasnije
+  /* Ako se stiglo do trazenog nivoa, vraca se 1 - to ce kasnije
      zbog rekurzivnih poziva uvecati broj pojavljivanja za 1 */
   if (i == 0)
     return 1;
 
-  /* inace, spustamo se jedan nivo nize i u levom i u desnom
+  /* Inace, spusta se jedan nivo nize i u levom i u desnom
      postablu */
   return broj_cvorova_na_itom_nivou(koren->levo, i - 1)
       + broj_cvorova_na_itom_nivou(koren->desno, i - 1);
@@ -129,17 +129,17 @@ int broj_cvorova_na_itom_nivou(Cvor * koren, int i)
 /* h) Funckija koja ispisuje sve elemente na i-tom nivou */
 void ispis_nivo(Cvor * koren, int i)
 {
-  /* ideja je slicna ideji iz prethodne funkcije */
-  /* nema vise cvorova, ne mozemo da se spustamo kroz stablo */
+  /* Ideja je slicna ideji iz prethodne funkcije */
+  /* Nema vise cvorova, nema spustanja kroz stablo */
   if (koren == NULL)
     return;
 
-  /* ako smo na trazenom nivou - ispisujemo vrednost */
+  /* Ako se stiglo do trazenog nivoa - ispisuje se vrednost */
   if (i == 0) {
     printf("%d ", koren->broj);
     return;
   }
-  /* inace, spustamo se jedan nivo nize i u levom i u desnom
+  /* Inace, spustanje se nastavlja za jedan nivo nize i u levom i u desnom
      podstablu */
   ispis_nivo(koren->levo, i - 1);
   ispis_nivo(koren->desno, i - 1);
@@ -149,21 +149,21 @@ void ispis_nivo(Cvor * koren, int i)
    nivou stabla */
 Cvor *max_nivo(Cvor * koren, int i)
 {
-  /* Ako je stablo prazno, obustavljamo pretragu */
+  /* Ako je stablo prazno, obustavlja se pretraga */
   if (koren == NULL)
     return NULL;
 
-  /* Ako smo na trazenom nivou, takodje prekidamo pretragu */
+  /* Ako se stiglo do trazenog nivoa, takodje se prekida pretragu */
   if (i == 0)
     return koren;
 
-  /* Pronalazimo maksimum sa i-tog nivoa levog podstabla */
+  /* Pronalazi se maksimum sa i-tog nivoa levog podstabla */
   Cvor *a = max_nivo(koren->levo, i - 1);
 
-  /* Pronalazimo maksimum sa i-tog nivoa desnog podstabla */
+  /* Pronalazi se maksimum sa i-tog nivoa desnog podstabla */
   Cvor *b = max_nivo(koren->desno, i - 1);
 
-  /* Trazimo i vracamo maksimum izracunatih vrednosti */
+  /* Trazi se i vraca maksimum izracunatih vrednosti */
   if (a == NULL && b == NULL)
     return NULL;
   if (a == NULL)
@@ -180,11 +180,11 @@ int zbir_nivo(Cvor * koren, int i)
   if (koren == NULL)
     return 0;
 
-  /* Ako smo na trazenom nivou, vracamo vrednost */
+  /* Ako se stiglo do trazenog nivoa, vraca se vrednost */
   if (i == 0)
     return koren->broj;
 
-  /* Inace, spustamo se jedan nivo nize i trazimo sume iz levog
+  /* Inace, spustanje se nastavlja za jedan nivo nize i traze se sume iz levog
      i desnog podstabla */
   return zbir_nivo(koren->levo, i - 1) + zbir_nivo(koren->desno,
                                                    i - 1);
@@ -206,14 +206,14 @@ int suma(Cvor * koren, int x)
     return koren->broj + suma(koren->levo,
                               x) + suma(koren->desno, x);
 
-  /* Inace, racunamo samo sumu vrednosti iz levog podstabla jer
+  /* Inace, racuna se samo suma vrednosti iz levog podstabla jer
      medju njima jedino moze biti onih koje zadovoljavaju uslov */
   return suma(koren->levo, x);
 }
 
 int main(int argc, char **argv)
 {
-  /* Analiziramo argumente komandne linije */
+  /* Analiza argumenata komandne linije */
   if (argc != 3) {
     fprintf(stderr,
             "Greska! Program se poziva sa: ./a.out nivo broj_za_pretragu\n");
@@ -222,13 +222,13 @@ int main(int argc, char **argv)
   int i = atoi(argv[1]);
   int x = atoi(argv[2]);
 
-  /* Kreiramo stablo */
+  /* Kreira se stablo */
   Cvor *koren = NULL;
   int broj;
   while (scanf("%d", &broj) != EOF)
     dodaj_u_stablo(&koren, broj);
 
-  /* ispisujemo rezultat rada funkcija */
+  /* ispisuju se rezultati rada funkcija */
   printf("broj cvorova: %d\n", br_cvorova(koren));
   printf("broj listova: %d\n", br_listova(koren));
   printf("pozitivni listovi: ");
@@ -258,9 +258,8 @@ int main(int argc, char **argv)
   printf("zbir elemenata manjih ili jednakih od %d: %d\n", x,
          suma(koren, x));
 
-  /* Oslobadjamo memoriju zauzetu stablom */
+  /* Oslobadja se memorija zauzeta stablom */
   oslobodi_stablo(&koren);
 
-  /* Prekidamo izvrsavanje programa */
   return 0;
 }

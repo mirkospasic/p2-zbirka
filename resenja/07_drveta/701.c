@@ -18,12 +18,12 @@ Cvor *napravi_cvor(int broj)
   if (novi == NULL)
     return NULL;
 
-  /* Inicijalizujemo polja novog cvora. */
+  /* Inicijalizuju se polja novog cvora. */
   novi->broj = broj;
   novi->levo = NULL;
   novi->desno = NULL;
 
-  /* Vracamo adresu novog cvora. */
+  /* Vraca se adresa novog cvora. */
   return novi;
 }
 
@@ -49,26 +49,26 @@ void dodaj_u_stablo(Cvor ** adresa_korena, int broj)
   /* Ako je stablo prazno */
   if (*adresa_korena == NULL) {
 
-    /* Kreiramo novi cvor */
+    /* Kreira se novi cvor */
     Cvor *novi = napravi_cvor(broj);
     proveri_alokaciju(novi);
 
-    /* I proglasavamo ga korenom stabla */
+    /* I proglasava se korenom stabla */
     *adresa_korena = novi;
     return;
   }
 
-  /* U suprotnom trazimo odgovarajucu poziciju za zadati broj */
+  /* U suprotnom trazi se odgovarajuca pozicija za zadati broj */
 
   /* Ako je zadata vrednost manja od vrednosti korena */
   if (broj < (*adresa_korena)->broj)
 
-    /* Dodajemo broj u levo podstablo */
+    /* Dodaje se broj u levo podstablo */
     dodaj_u_stablo(&(*adresa_korena)->levo, broj);
 
   else
     /* Inace, broj je veci (ili jednak) od vrednosti u korenu pa 
-       ga dodajemo u desno podstablo */
+       se dodaje u desno podstablo */
     dodaj_u_stablo(&(*adresa_korena)->desno, broj);
 }
 
@@ -84,7 +84,7 @@ Cvor *pretrazi_stablo(Cvor * koren, int broj)
 
   /* Ako je trazena vrednost sadrazana u korenu */
   if (koren->broj == broj) {
-
+    
     /* Prekidamo pretragu */
     return koren;
   }
@@ -92,11 +92,11 @@ Cvor *pretrazi_stablo(Cvor * koren, int broj)
   /* Inace, ako je broj manji od vrednosti sadrzane u korenu */
   if (broj < koren->broj)
 
-    /* Pretragu nastavljamo u levom podstablu */
+    /* Pretraga se nastavlja u levom podstablu */
     return pretrazi_stablo(koren->levo, broj);
 
   else
-    /* U suprotnom, pretragu nastavljamo u desnom podstablu */
+    /* U suprotnom, pretraga se nastavlja u desnom podstablu */
     return pretrazi_stablo(koren->desno, broj);
 }
 
@@ -105,7 +105,7 @@ Cvor *pretrazi_stablo(Cvor * koren, int broj)
    stablu */
 Cvor *pronadji_najmanji(Cvor * koren)
 {
-  /* Ako je stablo prazno, prekidamo pretragu */
+  /* Ako je stablo prazno, prekida se pretraga */
   if (koren == NULL)
     return NULL;
 
@@ -126,7 +126,7 @@ Cvor *pronadji_najmanji(Cvor * koren)
    stablu */
 Cvor *pronadji_najveci(Cvor * koren)
 {
-  /* Ako je stablo prazno, prekidamo pretragu */
+  /* Ako je stablo prazno, prekida se pretraga */
   if (koren == NULL)
     return NULL;
 
@@ -148,7 +148,7 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
 {
   Cvor *pomocni_cvor = NULL;
 
-  /* ako je stablo prazno, brisanje nije primenljivo pa mozemo
+  /* ako je stablo prazno, brisanje nije primenljivo pa se moze
      prekinuti rad funkcije */
   if (*adresa_korena == NULL)
     return;
@@ -176,7 +176,7 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
      obrisati koren) */
 
   /* Ako koren nema sinova, tada se on prosto brise, i rezultat
-     je prazno stablo (vracamo NULL) */
+     je prazno stablo (vraca se NULL) */
   if ((*adresa_korena)->levo == NULL
       && (*adresa_korena)->desno == NULL) {
     free(*adresa_korena);
@@ -185,7 +185,7 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
   }
 
   /* Ako koren ima samo levog sina, tada se brisanje vrsi tako
-     sto obrisemo koren, a novi koren postaje levi sin */
+     sto se brise koren, a novi koren postaje levi sin */
   if ((*adresa_korena)->levo != NULL
       && (*adresa_korena)->desno == NULL) {
     pomocni_cvor = (*adresa_korena)->levo;
@@ -195,7 +195,7 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
   }
 
   /* Ako koren ima samo desnog sina, tada se brisanje vrsi tako
-     sto obrisemo koren, a novi koren postaje desni sin */
+     sto se brise koren, a novi koren postaje desni sin */
   if ((*adresa_korena)->desno != NULL
       && (*adresa_korena)->levo == NULL) {
     pomocni_cvor = (*adresa_korena)->desno;
@@ -210,7 +210,7 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
      najmanji cvor u desnom podstablu. On se moze pronaci npr.
      funkcijom pronadji_najmanji(). Nakon toga se u koren smesti 
      vrednost tog cvora, a u taj cvor se smesti vrednost korena
-     (tj. broj koji se brise).  - Onda se prosto rekurzivno
+     (tj. broj koji se brise).  - Zatim se prosto rekurzivno
      pozove funkcija za brisanje na desno podstablo. S obzirom
      da u njemu treba obrisati najmanji element, a on zasigurno
      ima najvise jednog potomka, jasno je da ce njegovo brisanje 
@@ -230,13 +230,13 @@ void ispisi_stablo_infiksno(Cvor * koren)
   /* Ako stablo nije prazno */
   if (koren != NULL) {
 
-    /* Prvo ispisujemo sve cvorove levo od korena */
+    /* Prvo se ispisuju svi cvorovi levo od korena */
     ispisi_stablo_infiksno(koren->levo);
 
-    /* Ispisujemo vrednost u korenu */
+    /* Ispisuje se vrednost u korenu */
     printf("%d ", koren->broj);
 
-    /* Na kraju ispisujemo cvorove desno od korena */
+    /* Na kraju se ispisuju cvorovi desno od korena */
     ispisi_stablo_infiksno(koren->desno);
   }
 }
@@ -249,13 +249,13 @@ void ispisi_stablo_prefiksno(Cvor * koren)
   /* Ako stablo nije prazno */
   if (koren != NULL) {
 
-    /* Prvo ispisujemo vrednost u korenu */
+    /* Prvo se ispisuje vrednost u korenu */
     printf("%d ", koren->broj);
 
-    /* Ispisujemo sve cvorove levo od korena */
+    /* Ispisuju se svi cvorovi levo od korena */
     ispisi_stablo_prefiksno(koren->levo);
 
-    /* Na kraju ispisujemo sve cvorove desno od korena */
+    /* Na kraju se ispisuju svi cvorovi desno od korena */
     ispisi_stablo_prefiksno(koren->desno);
   }
 }
@@ -268,13 +268,13 @@ void ispisi_stablo_postfiksno(Cvor * koren)
   /* Ako stablo nije prazno */
   if (koren != NULL) {
 
-    /* Prvo ispisujemo sve cvorove levo od korena */
+    /* Prvo se ispisuju svi cvorovi levo od korena */
     ispisi_stablo_postfiksno(koren->levo);
 
-    /* Ispisujemo sve cvorove desno od korena */
+    /* Ispisuju se svi cvorovi desno od korena */
     ispisi_stablo_postfiksno(koren->desno);
 
-    /* Na kraju ispisujemo vrednost u korenu */
+    /* Na kraju se ispisuje vrednost u korenu */
     printf("%d ", koren->broj);
   }
 }
@@ -287,15 +287,15 @@ void oslobodi_stablo(Cvor ** adresa_korena)
   if (*adresa_korena == NULL)
     return;
 
-  /* U suprotnom rekurzivno oslobadjamo memoriju koje zauzima
+  /* U suprotnom rekurzivno se oslobadja memorija koju zauzima
      najpre levo, a zatim i desno podstablo */
   oslobodi_stablo(&(*adresa_korena)->levo);
   oslobodi_stablo(&(*adresa_korena)->desno);
 
-  /* Oslobadjamo memoriju koju zauzima koren */
+  /* Oslobadja se memorija koju zauzima koren */
   free(*adresa_korena);
 
-  /* I proglasavamo stablo praznim */
+  /* I proglasava se stablo praznim */
   *adresa_korena = NULL;
 }
 
@@ -305,16 +305,16 @@ int main()
   int n;
   Cvor *trazeni_cvor;
 
-  /* Proglasavamo stablo praznim */
+  /* Proglasava se stablo praznim */
   koren = NULL;
 
-  /* Dodajemo vrednosti u stablo */
+  /* Dodaju se vrednosti u stablo */
   printf("Unesite brojeve (CTRL+D za kraj unosa): ");
   while (scanf("%d", &n) != EOF) {
     dodaj_u_stablo(&koren, n);
   }
 
-  /* Generisemo trazene ispise: */
+  /* Trazeni ispisi: */
   printf("\nInfiksni ispis: ");
   ispisi_stablo_infiksno(koren);
   printf("\nPrefiksni ispis: ");
@@ -322,7 +322,7 @@ int main()
   printf("\nPostfiksni ispis: ");
   ispisi_stablo_postfiksno(koren);
 
-  /* Demonstriramo rad funkcije za pretragu */
+  /* Demonstrira se rad funkcije za pretragu */
   printf("\nTrazi se broj: ");
   scanf("%d", &n);
   trazeni_cvor = pretrazi_stablo(koren, n);
@@ -331,7 +331,7 @@ int main()
   else
     printf("Broj se nalazi u stablu!\n");
 
-  /* Demonstriramo rad funkcije za brisanje */
+  /* Demonstrira se rad funkcije za brisanje */
   printf("Brise se broj: ");
   scanf("%d", &n);
   obrisi_element(&koren, n);
@@ -339,9 +339,8 @@ int main()
   ispisi_stablo_infiksno(koren);
   printf("\n");
 
-  /* Oslobadjamo memoriju zauzetu stablom */
+  /* Oslobadja se memorija zauzeta stablom */
   oslobodi_stablo(&koren);
 
-  /* Prekidamo sa programom */
   return 0;
 }

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Ukljucujemo biblioteku za rad sa stablima */
+/* Ukljucuje se biblioteka za rad sa stablima */
 #include "stabla.h"
 
 #define MAX 50
@@ -17,20 +17,20 @@ int kreiraj_niz(Cvor * koren, int a[])
   if (koren == NULL)
     return 0;
 
-  /* Dodajemo u niz elemente iz levog podstabla */
+  /* Dodaju se u niz elementi iz levog podstabla */
   r = kreiraj_niz(koren->levo, a);
 
   /* Tekuca vrednost promenljive r je broj elemenata koji su
-     upisani u niz i na osnovu nje mozemo odrediti indeks novog
+     upisani u niz i na osnovu nje se moze odrediti indeks novog
      elementa */
 
-  /* Smestamo vrednost iz korena */
+  /* Smesta se vrednost iz korena */
   a[r] = koren->broj;
 
-  /* Dodajemo elemente iz desnog podstabla */
+  /* Dodaju se elementi iz desnog podstabla */
   s = kreiraj_niz(koren->desno, a + r + 1);
 
-  /* Racunamo indeks na koji treba smestiti naredni element */
+  /* Racuna se indeks na koji treba smestiti naredni element */
   return r + s + 1;
 }
 
@@ -47,16 +47,16 @@ void sortiraj(int a[], int n)
   int i;
   Cvor *koren;
 
-  /* Kreiramo stablo smestanjem elemenata iz niza u stablo */
+  /* Kreira se stablo smestanjem elemenata iz niza u stablo */
   koren = NULL;
   for (i = 0; i < n; i++)
     dodaj_u_stablo(&koren, a[i]);
 
-  /* Infiksnim obilaskom stabla elemente iz stabla prepisujemo u
+  /* Infiksnim obilaskom stabla elementi iz stabla se prepisuju u
      niz a */
   kreiraj_niz(koren, a);
 
-  /* Vise nam stablo nije potrebno i oslobadjamo memoriju */
+  /* Vise stablo nije potrebno i oslobadja se memorija */
   oslobodi_stablo(&koren);
 }
 
@@ -65,7 +65,7 @@ int main()
   int a[MAX];
   int n, i;
 
-  /* Ucitavamo dimenziju i elemente niza */
+  /* Ucitava se dimenzija i elementi niza */
   printf("n: ");
   scanf("%d", &n);
   if (n < 0 || n > MAX) {
@@ -77,14 +77,13 @@ int main()
   for (i = 0; i < n; i++)
     scanf("%d", &a[i]);
 
-  /* Pozivamo funkciju za sortiranje */
+  /* Poziva se funkcija za sortiranje */
   sortiraj(a, n);
 
-  /* Ispisujemo rezultat */
+  /* Ispisuje se rezultat */
   for (i = 0; i < n; i++)
     printf("%d ", a[i]);
   printf("\n");
 
-  /* Prekidamo sa programom */
   return 0;
 }
