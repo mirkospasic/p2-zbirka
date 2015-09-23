@@ -165,6 +165,28 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 }
 {}
 
+\lstnewenvironment{test2}[1]
+{
+ \renewcommand\lstlistingname{Test}\lstset{
+% belowcaptionskip=1\baselineskip,
+% breaklines=true,
+ frame=no,
+ backgroundcolor=\color{white},
+% xleftmargin=\parindent,
+ language=C,
+ showstringspaces=false,
+ basicstyle=\scriptsize\ttfamily,
+ keywordstyle=\bfseries\color{green!40!black},
+ commentstyle=\itshape\color{purple!40!black},
+ identifierstyle=\color{blue},
+ stringstyle=\color{orange},
+ numbers=none,
+ captionpos=t,
+% title={Test #1},
+ escapechar={\#}
+}
+}
+{}
 
 \usepackage{caption}
 \DeclareCaptionFormat{listing} {
