@@ -5,9 +5,9 @@
 
 %=========================================================================
 \begin{Exercise}[label=601]
-Napisati biblioteku za rad sa jednostruko povezanom listom, čiji čvorovi sadrže cele brojeve. 
+Napisati biblioteku za rad sa jednostruko povezanom listom čiji čvorovi sadrže cele brojeve. 
 \begin{enumerate}
-\item Definisati strukturu \kckod{Cvor} kojom se predstavlja čvor liste. Treba da sadrži ceo broj \kckod{vrednost} i pokazivač na sledeći čvor liste.
+\item Definisati strukturu \kckod{Cvor} kojom se predstavlja čvor liste. Čvor treba da sadrži ceo broj \kckod{vrednost} i pokazivač na sledeći čvor liste.
 
 \item Napisati funkciju \kckod{Cvor* napravi\_cvor(int broj)} koja kao argument dobija ceo broj, kreira nov čvor liste, inicijalizuje polja novog čvora i vraća njegovu adresu.
 
@@ -23,11 +23,11 @@ Napisati biblioteku za rad sa jednostruko povezanom listom, čiji čvorovi sadr�
 
  \item Napisati funkciju \kckod{int dodaj\_sortirano(Cvor** adresa\_glave, int broj)} koja dodaje novi elemenat u neopadajuće uređenu listu tako da se očuva postojeće uređenje.
 
- \item Napisati funkciju \kckod{void ispisi\_listu(Cvor* glava)} koja ispisuje čvorove liste, uokvirene zagradama [, ] i međusobno razdvojene zapetama.
+ \item Napisati funkciju \kckod{void ispisi\_listu(Cvor* glava)} koja ispisuje čvorove liste uokvirene zagradama [, ] i međusobno razdvojene zapetama.
 
  \item Napisati funkciju \kckod{Cvor* pretrazi\_listu(Cvor* glava, int broj)} koja proverava da li se u listi nalazi čvor čija se vrednost zadaje kao argument funkcije. 
 
- \item Napisati funkciju \kckod{Cvor* pretrazi\_sortiranu\_listu(Cvor* glava, int broj)} koja proverava da li se u listi nalazi čvor čija se vrednost zadaje kao argument funkcije, pri čemu se pretpostavlja da se pretraživanje vrši nad neopadajuće uređenoj listi.
+ \item Napisati funkciju \kckod{Cvor* pretrazi\_sortiranu\_listu(Cvor* glava, int broj)} koja proverava da li se u listi nalazi čvor čija se vrednost zadaje kao argument funkcije, pri čemu se pretpostavlja da se pretraživanje vrši nad neopadajuće uređenom listom.
 
  \item Napisati funkciju \kckod{void obrisi\_cvor(Cvor** adresa\_glave, int broj)} koja briše sve čvorove u listi koji imaju vrednost koja se zadaje kao argument funkcije.
 
@@ -41,7 +41,7 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 
 \begin{enumerate}
 \item[(1)] U programu se učitani celi brojevi dodaju na početak liste. 
-    Unosi se ceo broj koji se traži u unetoj listi, i na ekran se ispisuje rezultat pretrage. 
+    Unosi se ceo broj koji se traži u unetoj listi i na ekran se ispisuje rezultat pretrage. 
 
 \begin{maxitest}
 \begin{upotreba}{1}
@@ -168,10 +168,10 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 \end{maxitest} 
 
 
-\item[(3)] U glavnom programu se učitani celi brojevi dodaju u listu tako da je vrednosti budu uređene u neopadajućem poretku. 
-    Unosi ceo broj koji se traži u unetoj listi, i na ekran se ispisuje rezultat pretrage. 
+\item[(3)] U glavnom programu se učitani celi brojevi dodaju u listu tako da vrednosti budu uređene u neopadajućem poretku. 
+    Unosi ceo, zatim, broj koji se traži u unetoj listi i na ekran se ispisuje rezultat pretrage. 
     Potom se unosi još jedan ceo broj čija se sva pojavljivanja u listi brišu i prikazuje se aktuelni sadržaj liste nakon brisanja.
-    \napomena{Prilikom pretraživanja liste i brisanja cvora liste koristiti činjenicu da je lista uređena.}
+    \napomena{Prilikom pretraživanja liste i brisanja čvora liste koristiti činjenicu da je lista uređena.}
     
 \begin{maxitest}
 \begin{upotreba}{1}
@@ -208,7 +208,7 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 \end{upotreba}
 \end{maxitest}
 \begin{maxitest}
-\begin{upotreba}{3}
+\begin{upotreba}{2}
 #\poziv{./a.out}#
 
 #\naslovInt#
@@ -222,7 +222,7 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 \end{upotreba}
 \end{maxitest}
 \begin{maxitest}
-\begin{upotreba}{2}
+\begin{upotreba}{3}
 #\poziv{./a.out}#
 
 #\naslovInt#
@@ -266,7 +266,7 @@ Napisati biblioteku za rad sa jednostruko povezanim listama koja sadrži sve fun
 
 %=========================================================================
 \begin{Exercise}[label=603]
-Napisati biblioteku za rad sa dvostruko povezanom listom celih brojeva, koja ima iste funkcionalnosti kao biblioteka iz zadatka \ref{601}. 
+Napisati biblioteku za rad sa dvostruko povezanom listom celih brojeva koja ima iste funkcionalnosti kao biblioteka iz zadatka \ref{601}. 
 Dopuniti bibilioteku novim funkcijama.
 \begin{enumerate}
  \item Napisati funkciju \kckod{void obrisi\_tekuci(Cvor** adresa\_glave, Cvor* tekuci)} koja iz liste čija se glava nalazi na adresi \kckod{adresa\_glave} briše čvor na koji pokazuje pokazivač \kckod{tekuci}.
@@ -475,8 +475,8 @@ Službenik evidentira korisničke \kckod{JMBG} brojeve (niske koje sadrže po $1
 Prijem zahteva korisnika se prekida unošenjem karaktera za kraj ulaza, (\kckod{EOF}).
 Službenik redom pregleda zahteve i odlučuje da li zahtev obrađuje odmah ili kasnije, tj.~službeniku se postavlja pitanje 
 \kckod{Da li korisnika  vracate na kraj reda?} i ukoliko on da odgovor \kckod{Da}, 
-korisnik se stavlja na kraj reda, čime se obrada njegovog zahteva odlaže. Ukoliko odgovor nije \kckod{Da}, tada službenik obrađuje zahtev i podatke o korisniku dopisuje na kraj datoteke \kckod{izvestaj.txt}. Ova datoteka, za svaki obrađen zahtev, sadrži \kckod{jmbg} i zahtev usluženog korisnika.
-Posle svakog $5$ usluženog korisnika, službeniku se nudi mogućnost da prekine sa radom, nevezano od broja korisnika koji i dalje čekaju u redu. 
+korisnik se stavlja na kraj reda, čime se obrada njegovog zahteva odlaže. Ukoliko odgovor nije \kckod{Da}, tada službenik obrađuje zahtev i podatke o korisniku dopisuje na kraj datoteke \kckod{izvestaj.txt}. Ova datoteka, za svaki obrađen zahtev, sadrži \kckod{JMBG} i zahtev usluženog korisnika.
+Posle svakog $petog$ usluženog korisnika, službeniku se nudi mogućnost da prekine sa radom, nevezano od broja korisnika koji i dalje čekaju u redu. 
 \uputstvo{Za čuvanje korisničkih zahteva koristiti red implementiran korišćenjem listi.}
 
 \begin{maxitest}
@@ -624,9 +624,9 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
 %=========================================================================
 \begin{Exercise}[label=608]
 U datoteci se nalaze podaci o studentima. U svakom redu datoteke nalazi se indeks, ime i prezime studenta. 
-Napisati program kome se preko argumenata komandne linije prosleđuje ime datoteke sa studentskim podacima, koje program treba da pročita i smesti u listu. 
-Nakon završenog učitavanja svih studenata, sa standardnog ulaza unose se, jedan po jedan, indeksi studenata koji se traže u učitanoj listi. 
-Posle svakog unetog indeksa, program ispisuje poruku da ili ne, u zavisnosti od toga da li u listi postoji student sa unetim indeksom ili ne. 
+Napisati program kome se preko argumenata komandne linije prosleđuje ime datoteke sa studentskim podacima koje program treba da pročita i smesti u listu. 
+Nakon završenog učitavanja svih podataka o studentima, sa standardnog ulaza unose se, jedan po jedan, indeksi studenata koji se traže u učitanoj listi. 
+Posle svakog unetog indeksa, program ispisuje poruku \kckod{da} ili \kckod{ne}, u zavisnosti od toga da li u listi postoji student sa unetim indeksom ili ne. 
 Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF).
 \uputstvo{Dodavanje novog studenta izdvojiti u funkciju \kckod{void dodaj\_na\_pocetak\_liste(Cvor** glava, char* broj\_indeksa, char* ime, char* prezime)}.
 Napisati rekurzivnu funkciju \kckod{Cvor* pretrazi\_listu(Cvor* glava, char* broj\_indeksa)} koja određuje da li student sa zadatim brojem indeksa pripada listi ili ne.
@@ -696,10 +696,7 @@ Pretpostaviti da je 10 karaktera dovoljno za zapis indeksa i da je 20 karaketera
 \begin{Exercise}[label=609]
 %\komentar{Milena: malo me muci u ovom zadatku sto nema neki smisao. Naime, ako se samo vrsi ucitavanje iz datoteka i ispisivanje,  onda su ove liste zapravo visak jer isti rezultat moze da se dobije i bez koriscenja listi. Zato mi fali da program uradi nesto sto ne bi mogao da uradi bez koriscenja listi, npr da na osnovu unetog broja ispisuje svaki n-ti broj rezultujuce liste pa to u nekoj petlji da korisnik moze da ispisuje za razlicite unete n ili tako nesto... }
 Napisati program koji objedinjuje dve sortirane liste u jednu sortiranu listu. Funkcija ne treba da 
-kreira nove čvorove, već da samo
-postojeće čvorove preraspodeli. Prva lista se učitava iz datoteke koja se 
-zadaje kao prvi argument komandne
-linije, a druga iz datoteke čije se ime zadaje kao drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.
+kreira nove čvorove, već da samo preraspodeli postojeće čvorove. Prva lista se učitava iz datoteke čije ime se zadaje kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.
 \napomena{Koristiti biblioteku za rad sa listama celih brojeva iz zadatka \ref{601}.}
 
 \noindent
@@ -804,9 +801,9 @@ linije, a druga iz datoteke čije se ime zadaje kao drugi argument komandne lini
 %=========================================================================
 \begin{Exercise}[label=610]
 Date su dve jednostruko povezane liste \kckod{L1} i \kckod{L2}. Napisati funkciju koja od 
-tih lista formira novu listu \kckod{L} koja sadrži alternirajući raspoređene čvorove 
-lista \kckod{L1} i \kckod{L2} (prvi čvor iz \kckod{L1}, prvi čvor iz \kckod{L2}, drugi čvor \kckod{L1},
-drugi čvor \kckod{L2}, itd). Ne formirati nove čvorove, već samo postojeće čvorove 
+ovih listi formira novu listu \kckod{L} koja sadrži naizmenično raspoređene čvorove 
+listi \kckod{L1} i \kckod{L2}: prvi čvor iz \kckod{L1}, prvi čvor iz \kckod{L2}, drugi čvor \kckod{L1},
+drugi čvor \kckod{L2}, itd. Ne formirati nove čvorove, već samo postojeće čvorove 
 rasporediti u jednu listu. Prva lista se učitava iz datoteke čije se ime zadaje kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao 
 drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz. 
 %\komentar{Milena: Sta ako je neka lista duza? To precizirati. I ovde me muci sto nedostaje neki smisao zadatku, nesto sto ne bi moglo da se uradi da nismo koristili liste. }
@@ -890,7 +887,7 @@ Napisati program koji u datoteku \kckod{Rezultat.txt} upisuje nađeni strogo ras
 
 %=========================================================================
 \begin{Exercise}[label=612]
-Grupa od $n$ plesača na kostimima imaju brojeve od $1$ do $n$, redom, u smeru kazaljke na satu.
+Grupa od $n$ plesača na kostimima ima brojeve od $1$ do $n$, redom, u smeru kazaljke na satu.
 Plesači izvode svoju plesnu tačku tako što formiraju krug iz kog najpre izlazi $k$-ti plesač.
 Odbrojava se počevši od plesača označenog brojem $1$ u smeru kretanja kazaljke na satu. 
 Preostali plesači obrazuju manji krug iz kog opet izlazi $k$-ti plesač. Odbrojavanje počinje od
@@ -954,7 +951,7 @@ Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u 
 
 %=========================================================================
 \begin{Exercise}[label=613]
-Grupa od $n$ plesača na kostimima imaju brojeve od $1$ do $n$, redom, u smeru kazaljke na satu.
+Grupa od $n$ plesača na kostimima ima brojeve od $1$ do $n$, redom, u smeru kazaljke na satu.
 Plesači izvode svoju plesnu tačku tako što formiraju krug iz kog najpre izlazi $k$-ti plesač.
 Odbrojava se počevši od plesača označenog brojem $1$ u smeru kretanja kazaljke na satu. 
 Preostali plesači obrazuju manji krug iz kog opet izlazi $k$-ti plesač. Odbrojavanje počinje od
@@ -964,7 +961,7 @@ sve dok svi plesači ne budu isključeni.
 Celi brojevi $n$, $k$ ($k < n$) se učitavaju sa standardnog ulaza. 
 Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u redosledu napuštanja kruga. 
 \uputstvo{Pri implementaciji koristiti dvostruko povezanu kružnu listu.}
-\napomena{Iskoristiti 3. i 4. test za \ref{612}. zadatak.}
+\napomena{Iskoristiti testove 3 i 4 iz \ref{612}. zadatka.}
 
 \begin{minitest}
 \begin{test}{1}
