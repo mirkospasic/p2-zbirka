@@ -12,7 +12,7 @@
 #define PROCITANO_MANJE 1
 #define U_ETIKETI 2
 
-/* Struktura kojim se predstavlja cvor liste sadrzi ime etikete
+/* Struktura kojim se predstavlja cvor liste: sadrzi ime etikete
    i pokazivac na sledeci cvor. */
 typedef struct cvor {
   char etiketa[MAX];
@@ -52,7 +52,7 @@ void oslobodi_stek(Cvor ** adresa_vrha)
 
 /* Funkcija proverava uspesnost alokacije memorije za cvor novi
    i ukoliko alokacija nije bila uspesna, oslobadja se sva
-   prethodno zauzeta memorija za listu cija pocetni cvor se
+   prethodno zauzeta memorija za listu ciji pocetni cvor se
    nalazi na adresi adresa_vrha. */
 void proveri_alokaciju(Cvor ** adresa_vrha, Cvor * novi)
 {
