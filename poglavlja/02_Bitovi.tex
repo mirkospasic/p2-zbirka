@@ -32,11 +32,11 @@ Napisati program koji testira prethodno napisane funkcije tako što redom:
 #\naslovInt#
 #\izlaz{Unesite realan i imaginaran deo kompleksnog broja:} \ulaz{1 -3}#
 #\izlaz{(1.00 - 3.00 i)}#
-#\izlaz{realan_deo: 1}#
-#\izlaz{imaginaran_deo: -3.000000}#
+#\izlaz{realan\_deo: 1}#
+#\izlaz{imaginaran\_deo: -3.000000}#
 #\izlaz{moduo 3.162278}#
 #\izlaz{Unesite realan i imaginaran deo kompleksnog broja:} \ulaz{-1 4}#
-#\izlaz{ (-1.00 + 4.00 i)}#
+#\izlaz{(-1.00 + 4.00 i)}#
 #\izlaz{Njegov konjugovano kompleksan broj: (-1.00 - 4.00 i)}#
 #\izlaz{Argument kompleksnog broja: 1.815775}#
 #\izlaz{(1.00 - 3.00 i) + (-1.00 + 4.00 i)  =  (1.00 i)}#
@@ -57,11 +57,11 @@ Napisati program koji testira prethodno napisane funkcije tako što redom:
 Uraditi prethodni zadatak tako da su sve napisane funkcije za rad sa kompleksnim brojevima zajedno sa definicijom strukture \kckod{KompleksanBroj} izdvojene u posebnu biblioteku. Test program treba da koristi tu biblioteku da za kompleksan broj unet sa standardnog ulaza ispiše polarni oblik unetog broja.
 
 \begin{maxitest}
-\begin{test}{1}
+\begin{upotreba}{1}
 
 #\naslovInt#
 #\izlaz{Unesite realan i imaginaran deo kompleksnog broja:} \ulaz{-5 2 }#
-#\izlaz{Polarni oblik kompleksnog broja je 5.39 *  e^i * 2.76}#
+#\izlaz{Polarni oblik kompleksnog broja je 5.39 *  e\^{}i * 2.76}#
 \end{upotreba}
 \end{maxitest}
 
@@ -99,15 +99,15 @@ Napisati program koji testira prethodno napisane funkcije tako što se najpre un
 \begin{upotreba}{1}
 
 #\naslovInt#
-#\izlaz{ Unesite polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
+#\izlaz{Unesite polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
 #\ulaz{3 1.2 3.5 2.1 4.2}#
 #\izlaz{Unesite tacku u kojoj racunate vrednost polinoma}#
 #\ulaz{5}#
 #\izlaz{Vrednost polinoma u tacki je 252.20}#
-#\izlaz{ Unesite polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
+#\izlaz{Unesite polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
 #\ulaz{2 2.1 0 -3.9}#
-#\izlaz{Zbir polinoma je: 1.20x^3+5.60x^2+2.10x+0.30}#
-#\izlaz{Prozvod polinoma je: 2.52x^5+7.35x^4-0.27x^3-4.83x^2-8.19x-16.38}#
+#\izlaz{Zbir polinoma je: 1.20x\^{}3+5.60x\^{}2+2.10x+0.30}#
+#\izlaz{Prozvod polinoma je: 2.52x\^{}5+7.35x\^{}4-0.27x\^{}3-4.83x\^{}2-8.19x-16.38}#
 #\izlaz{Unesite izvod polinoma koji zelite:}#
 #\ulaz{2}#
 #\izlaz{2. izvod prvog polinoma je: 7.20x+7.00}#
@@ -155,10 +155,10 @@ Napisati program koji testira prethodne funkcije tako što se sa standardnog ula
 \begin{upotreba}{1}
 
 #\naslovInt#
-#\izlaz{ Unesite imenilac i brojilac prvog razlomka:}\ulaz{1 2}#
-#\izlaz{ Unesite imenilac i brojilac drugog razlomka:}\ulaz{3 1}#
+#\izlaz{Unesite imenilac i brojilac prvog razlomka:}\ulaz{1 2}#
+#\izlaz{Unesite imenilac i brojilac drugog razlomka:}\ulaz{3 1}#
 #\izlaz{Zbir je 5/6}#
-#\izlaz{ Razlika je 1/6}#
+#\izlaz{Razlika je 1/6}#
 #\izlaz{Zbir je 5/6}#
 #\izlaz{Kolicnik je 3/2}#
 \end{upotreba}
@@ -207,14 +207,14 @@ Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu neoz
 #\naslovUlaz#
 #\ulaz{0xFFFFFFFF}#
 #\naslovIzlaz#
-#\izlaz{ 11111111111111111111111111111111}#
+#\izlaz{11111111111111111111111111111111}#
 \end{test}
 \end{miditest}
 
 \begin{miditest}
 \begin{test}{5}
 #\naslovUlaz#
-#\ulaz{ 0xABCDE123}#
+#\ulaz{0xABCDE123}#
 #\naslovIzlaz#
 #\izlaz{10101011110011011110000100100011}#
 \end{test}
@@ -243,8 +243,8 @@ Napisati funkcije \kckod{count\_bits1} i \kckod{count\_bits2} koje broje bitove 
 #\ulaz{0x7F}#
 #\naslovIzlaz#
 #\izlaz{Broj jedinica u zapisu je}#
-#\izlaz{funkcija count_bits1: 7}#
-#\izlaz{funkcija count_bits2: 7}#
+#\izlaz{funkcija count\_bits1: 7}#
+#\izlaz{funkcija count\_bits2: 7}#
 \end{test}
 \end{miditest}
 \begin{miditest}
@@ -253,8 +253,8 @@ Napisati funkcije \kckod{count\_bits1} i \kckod{count\_bits2} koje broje bitove 
 #\ulaz{0x80}#
 #\naslovIzlaz#
 #\izlaz{Broj jedinica u zapisu je}#
-#\izlaz{funkcija count_bits1: 1}#
-#\izlaz{funkcija count_bits2: 1}#
+#\izlaz{funkcija count\_bits1: 1}#
+#\izlaz{funkcija count\_bits2: 1}#
 \end{test}
 \end{miditest}
 
@@ -264,8 +264,8 @@ Napisati funkcije \kckod{count\_bits1} i \kckod{count\_bits2} koje broje bitove 
 #\ulaz{0x00FF00FF}#
 #\naslovIzlaz#
 #\izlaz{Broj jedinica u zapisu je}#
-#\izlaz{funkcija count_bits1: 16}#
-#\izlaz{funkcija count_bits2: 16}#
+#\izlaz{funkcija count\_bits1: 16}#
+#\izlaz{funkcija count\_bits2: 16}#
 \end{test}
 \end{miditest}
 \begin{miditest}
@@ -274,8 +274,8 @@ Napisati funkcije \kckod{count\_bits1} i \kckod{count\_bits2} koje broje bitove 
 #\ulaz{0xFFFFFFFF}#
 #\naslovIzlaz#
 #\izlaz{Broj jedinica u zapisu je}#
-#\izlaz{funkcija count_bits1: 32}#
-#\izlaz{funkcija count_bits2: 32}#
+#\izlaz{funkcija count\_bits1: 32}#
+#\izlaz{funkcija count\_bits2: 32}#
 \end{test}
 \end{miditest}
 
@@ -285,8 +285,8 @@ Napisati funkcije \kckod{count\_bits1} i \kckod{count\_bits2} koje broje bitove 
 #\ulaz{0xABCDE123}#
 #\naslovIzlaz#
 #\izlaz{Broj jedinica u zapisu je}#
-#\izlaz{funkcija count_bits1: 17}#
-#\izlaz{funkcija count_bits2: 17}#
+#\izlaz{funkcija count\_bits1: 17}#
+#\izlaz{funkcija count\_bits2: 17}#
 \end{test}
 \end{miditest}
 
@@ -309,9 +309,9 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 #\naslovUlaz#
 #\ulaz{0x7F}#
 #\naslovIzlaz#
-#\izlaz{ Najveci:}#
+#\izlaz{Najveci:}#
 #\izlaz{11111110000000000000000000000000}#
-#\izlaz{ Najmanji:}#
+#\izlaz{Najmanji:}#
 #\izlaz{00000000000000000000000001111111}#
 \end{test}
 \end{miditest}
@@ -320,9 +320,9 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 #\naslovUlaz#
 #\ulaz{0x80}#
 #\naslovIzlaz#
-#\izlaz{ Najveci:}#
+#\izlaz{Najveci:}#
 #\izlaz{10000000000000000000000000000000}#
-#\izlaz{ Najmanji:}#
+#\izlaz{Najmanji:}#
 #\izlaz{00000000000000000000000000000001}#
 \end{test}
 \end{miditest}
@@ -332,9 +332,9 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 #\naslovUlaz#
 #\ulaz{0x00FF00FF}#
 #\naslovIzlaz#
-#\izlaz{ Najveci:}#
+#\izlaz{Najveci:}#
 #\izlaz{11111111111111110000000000000000}#
-#\izlaz{ Najmanji:}#
+#\izlaz{Najmanji:}#
 #\izlaz{00000000000000001111111111111111}#
 \end{test}
 \end{miditest}
@@ -343,9 +343,9 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 #\naslovUlaz#
 #\ulaz{0xFFFFFFFF}#
 #\naslovIzlaz#
-#\izlaz{ Najveci:}#
+#\izlaz{Najveci:}#
 #\izlaz{11111111111111111111111111111111}#
-#\izlaz{ Najmanji:}#
+#\izlaz{Najmanji:}#
 #\izlaz{11111111111111111111111111111111}#
 \end{test}
 \end{miditest}
@@ -355,9 +355,9 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 #\naslovUlaz#
 #\ulaz{0xABCDE123}#
 #\naslovIzlaz#
-#\izlaz{ Najveci:}#
+#\izlaz{Najveci:}#
 #\izlaz{11111111111111111000000000000000}#
-#\izlaz{ Najmanji:}#
+#\izlaz{Najmanji:}#
 #\izlaz{00000000000000011111111111111111}#
 \end{test}
 \end{miditest}
@@ -387,12 +387,12 @@ Program treba da testira prethodno napisane funkcije nad neoznačenim celim broj
 #\naslovUlaz#
 #\ulaz{235 5 10 127}#
 #\naslovIzlaz#
-#\izlaz{ Broj   235                          = 00000000000000000000000011101011}#
+#\izlaz{Broj   235                          = 00000000000000000000000011101011}#
 #\izlaz{reset(  235,    5,   10)            = 00000000000000000000000000101011}#
 #\izlaz{set(  235,    5,   10)              = 00000000000000000000011111101011}#
-#\izlaz{get_bits(  235,    5,   10)         = 00000000000000000000000000000011}#
+#\izlaz{get\_bits(  235,    5,   10)         = 00000000000000000000000000000011}#
 #\izlaz{y =                             127 = 00000000000000000000000001111111}#
-#\izlaz{set_n_bits(  235,    5,   10,  127) = 00000000000000000000011111101011}#
+#\izlaz{set\_n\_bits(  235,    5,   10,  127) = 00000000000000000000011111101011}#
 #\izlaz{invert(  235,    5,   10)           = 00000000000000000000011100101011}#
 \end{test}
 \end{maxitest}
@@ -418,10 +418,10 @@ Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i bro
 #\naslovUlaz#
 #\ulaz{B10011A7 5}#
 #\naslovIzlaz#
-#\izlaz{ x                                      = 10110001000000000001000110100111 }#
-#\izlaz{ rotate_left(2969571751,     5)         = 00100000000000100011010011110110}#
-#\izlaz{ rotate_right(2969571751,     5)        = 00111101100010000000000010001101}#
-#\izlaz{ rotate_right_signed(2969571751,     5) = 00111101100010000000000010001101 }#
+#\izlaz{x                                      = 10110001000000000001000110100111 }#
+#\izlaz{rotate\_left(2969571751,     5)         = 00100000000000100011010011110110}#
+#\izlaz{rotate\_right(2969571751,     5)        = 00111101100010000000000010001101}#
+#\izlaz{rotate\_right\_signed(2969571751,     5) = 00111101100010000000000010001101 }#
 \end{test}
 \end{maxitest}
 
