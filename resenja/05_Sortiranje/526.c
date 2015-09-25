@@ -63,7 +63,6 @@ void ispisi_matricu(int **a, int n, int m)
   }
 }
 
-
 /* Funkcija koja alocira memoriju za matricu dimenzija nxm */
 int **alociraj_memoriju(int n, int m)
 {
@@ -105,13 +104,10 @@ void oslobodi_memoriju(int **a, int n, int m)
   free(a);
 }
 
-
-
 int main(int argc, char *argv[])
 {
   int **a;
   int n, m;
-
 
   /* Unos dimenzija matrice */
   printf("Unesite dimenzije matrice: ");

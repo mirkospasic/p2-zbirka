@@ -5,7 +5,6 @@
 #define MAX_BR_RECI 128
 #define MAX_DUZINA_RECI 32
 
-
 /* Funkcija koja izracunava broj suglasnika u reci */
 int broj_suglasnika(char s[])
 {
@@ -14,16 +13,13 @@ int broj_suglasnika(char s[])
   int suglasnici = 0;
   /* Prolaz karakter po karakter kroz zadatu nisku */
   for (i = 0; s[i]; i++) {
-    /* Ako je u pitanju slovo */
+    /* Ako je u pitanju slovo, konvertuje se u veliko da bi bio
+       pokriven slucaj i malih i velikih suglasnika. */
     if (isalpha(s[i])) {
-      /* Konvertuje se u veliko da bi bio pokriven slucaj i malih i
-         velikih suglasnika */
       c = toupper(s[i]);
-      /* Ukoliko slovo nije samoglasnik */
-      if (c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
-        /* Uvecava se broj suglasnika */
+      /* Ukoliko slovo nije samoglasnik uvecava se broj suglasnika. */
+      if (c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U')
         suglasnici++;
-      }
     }
   }
   /* Vraca se izracunata vrednost */
@@ -55,7 +51,7 @@ void sortiraj_reci(char reci[][MAX_DUZINA_RECI], int n)
         if (duzina_j < duzina_min)
           min = j;
         else
-          /* A ako reci imaju i isti broj suglasnika i iste duzine,
+          /* Ako reci imaju i isti broj suglasnika i iste duzine,
              uporedjuju se leksikografski */
         if (duzina_j == duzina_min && strcmp(reci[j], reci[min]) < 0)
           min = j;
@@ -71,11 +67,10 @@ void sortiraj_reci(char reci[][MAX_DUZINA_RECI], int n)
 
 int main()
 {
-
   FILE *ulaz;
   int i = 0, n;
 
-  /* Niz u kojem ce biti smestane reci. Prvi broj oznacava broj reci, 
+  /* Niz u koji ce biti smestane reci. Prvi broj oznacava broj reci,
      a drugi maksimalnu duzinu pojedinacne reci */
   char reci[MAX_BR_RECI][MAX_DUZINA_RECI];
 

@@ -8,9 +8,8 @@
 /* Funkcija poredjenja dva cela broja */
 int compare_int(const void *a, const void *b)
 {
-  /* Konvertovanje void pokazivaca u int pokazivace koji se zatim
-     dereferenciraju, a dobijeni int-ovi se oduzimaju i razlika
-     vraca. */
+  /* Potrebno je konvertovati void pokazivace u int pokazivace koji
+     se zatim dereferenciraju. Vraca se razlika dobijenih int-ova. */
 
   /* Zbog moguceg prekoracenja opsega celih brojeva, sledece
      oduzimanje treba izbegavati return *((int *)a) - *((int *)b); */

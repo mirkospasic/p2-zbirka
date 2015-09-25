@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <search.h>
+
 #define MAX_NISKI 1000
 #define MAX_DUZINA 30
 

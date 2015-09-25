@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int lin_pretgraga_rek_sufiks(int a[], int n, int x)
+int lin_pretraga_rek_sufiks(int a[], int n, int x)
 {
   int tmp;
   /* Izlaz iz rekurzije */
@@ -10,11 +10,11 @@ int lin_pretgraga_rek_sufiks(int a[], int n, int x)
   if (a[0] == x)
     return 0;
   /* Pretraga ostatka niza */
-  tmp = lin_pretgraga_rek_sufiks(a + 1, n - 1, x);
+  tmp = lin_pretraga_rek_sufiks(a + 1, n - 1, x);
   return tmp < 0 ? tmp : tmp + 1;
 }
 
-int lin_pretgraga_rek_prefiks(int a[], int n, int x)
+int lin_pretraga_rek_prefiks(int a[], int n, int x)
 {
   /* Izlaz iz rekurzije */
   if (n <= 0)
@@ -23,10 +23,10 @@ int lin_pretgraga_rek_prefiks(int a[], int n, int x)
   if (a[n - 1] == x)
     return n - 1;
   /* Pretraga ostatka niza */
-  return lin_pretgraga_rek_prefiks(a, n - 1, x);
+  return lin_pretraga_rek_prefiks(a, n - 1, x);
 }
 
-int bin_pretgraga_rek(int a[], int l, int d, int x)
+int bin_pretraga_rek(int a[], int l, int d, int x)
 {
   int srednji;
   if (l > d)
@@ -39,15 +39,15 @@ int bin_pretgraga_rek(int a[], int l, int d, int x)
   /* Ako je trazeni broj veci od broja na sredisnjoj poziciji,
      pretrazuje se desna polovina niza */
   if (a[srednji] < x)
-    return bin_pretgraga_rek(a, srednji + 1, d, x);
+    return bin_pretraga_rek(a, srednji + 1, d, x);
   /* Ako je trazeni broj manji od broja na sredisnjoj poziciji,
      pretrazuje se leva polovina niza */
   else
-    return bin_pretgraga_rek(a, l, srednji - 1, x);
+    return bin_pretraga_rek(a, l, srednji - 1, x);
 }
 
 
-int interp_pretgraga_rek(int a[], int l, int d, int x)
+int interp_pretraga_rek(int a[], int l, int d, int x)
 {
   int p;
   if (x < a[l] || x > a[d])
@@ -59,9 +59,9 @@ int interp_pretgraga_rek(int a[], int l, int d, int x)
   if (a[p] == x)
     return p;
   if (a[p] < x)
-    return interp_pretgraga_rek(a, p + 1, d, x);
+    return interp_pretraga_rek(a, p + 1, d, x);
   else
-    return interp_pretgraga_rek(a, l, p - 1, x);
+    return interp_pretraga_rek(a, l, p - 1, x);
 }
 
 #define MAX 1024
@@ -86,7 +86,7 @@ int main()
 
   /* Linearna pretraga */
   printf("Linearna pretraga\n");
-  indeks = lin_pretgraga_rek_sufiks(a, i, x);
+  indeks = lin_pretraga_rek_sufiks(a, i, x);
   if (indeks == -1)
     printf("Element se ne nalazi u nizu.\n");
   else
@@ -94,7 +94,7 @@ int main()
 
   /* Binarna pretraga */
   printf("Binarna pretraga\n");
-  indeks = bin_pretgraga_rek(a, 0, i - 1, x);
+  indeks = bin_pretraga_rek(a, 0, i - 1, x);
   if (indeks == -1)
     printf("Element se ne nalazi u nizu.\n");
   else
@@ -102,7 +102,7 @@ int main()
 
   /* Interpolaciona pretraga */
   printf("Interpolaciona pretraga\n");
-  indeks = interp_pretgraga_rek(a, 0, i - 1, x);
+  indeks = interp_pretraga_rek(a, 0, i - 1, x);
   if (indeks == -1)
     printf("Element se ne nalazi u nizu.\n");
   else

@@ -3,10 +3,10 @@
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=501]
-  U datom nizu brojeva pronaći dva broja koja su na najmanjem
+  U datom nizu brojeva treba pronaći dva broja koja su na najmanjem
   rastojanju. Niz se zadaje sa standardnog ulaza, sve do kraja ulaza,
-  i neće sadržati više od $256$ i manje od $2$ elemenata. Na izlaz
-  ispisati njihovu razliku.  \uputstvo{Prvo sortirati niz.}
+  ali neće sadržati više od $256$ i manje od $2$ elemenata. Na izlaz
+  ispisati razliku pronađena dva broja. \uputstvo{Prvo sortirati niz.}
 
 \begin{minitest}
 \begin{test}{1}
@@ -47,7 +47,7 @@
 \begin{Exercise}[label=502]
   Dve niske su anagrami ako se sastoje od istog broja istih
   karaktera. Napisati program koji proverava da li su dve niske
-  karaktera anagrami.  Niske se zadaju sa standardnog ulaza i neće
+  karaktera anagrami. Niske se zadaju sa standardnog ulaza i neće
   biti duže od $127$ karaktera.  \uputstvo{Napisati funkciju koja
   sortira slova unutar niske karaktera, a zatim za sortirane niske
   proveriti da li su identične.}
@@ -130,11 +130,11 @@
 %-----------------------------------------------------------------
 \begin{Exercise}[label=504]
   Napisati funkciju koja proverava da li u datom nizu postoje dva
-  elementa kojima je zbir zadati ceo broj. Napisati i program koji
-  testira ovu funkciju. U programu se prvo učitava broj, a zatim i niz
-  (pretpostaviti da za niz neće biti uneto više od $256$ brojeva).
-  Elementi niza se unose sve do kraja ulaza. \uputstvo{Prvo sortirati
-  niz.}
+  elementa čiji zbir je jednak zadatom celom broju. Napisati i program koji
+  testira ovu funkciju. U programu se prvo učitava broj, a zatim i niz.
+  Elementi niza se unose sve do kraja ulaza.
+  Pretpostaviti da u niz neće biti uneto više od $256$ brojeva.
+  \uputstvo{Prvo sortirati niz.}
   
 \begin{minitest}
 \begin{upotreba}{1}
@@ -449,13 +449,13 @@ typedef struct dete
       unsigned godiste;
 } Dete;
 \end{ckod}
-Napisati funkciju koja sortira niz dece po godištu, a kada su deca
-istog godišta, tada ih sortira leksikografski po prezimenu i
+Napisati funkciju koja sortira niz dece po godištu, a decu
+istog godišta sortira leksikografski po prezimenu i
 imenu. Napisati program koji učitava podatke o deci koji se nalaze u
 datoteci čije se ime zadaje kao prvi argument komandne linije,
 sortira ih i sortirani niz upisuje u datoteku čije se ime zadaje kao
 drugi argument komandne linije. Pretpostaviti da u ulaznoj datoteci
-nisu zadati podaci o više od $128$ deteta.
+nisu zadati podaci o više od $128$ dece.
   
 \begin{miditest}
 \begin{test}{1}
@@ -501,8 +501,8 @@ nisu zadati podaci o više od $128$ deteta.
 \begin{Exercise}[label=511]
   Napisati funkciju koja sortira niz niski po broju suglasnika u
   niski. Ukoliko reči imaju isti broj suglasnika tada sortirati ih po
-  dužini niske, a ukoliko su i dužine jednake onda
-  leksikografski. Napisati program koji testira ovu funkciju za niske
+  dužini niske rastuće, a ukoliko su i dužine jednake onda
+  leksikografski rastuće. Napisati program koji testira ovu funkciju za niske
   koje se zadaju u datoteci \kckod{niske.txt}.  Pretpostaviti da u
   nizu nema više od $128$ elemenata, kao i da svaka niska sadrži
   najviše $31$ karakter.
@@ -683,7 +683,7 @@ nisu zadati podaci o više od $128$ deteta.
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=514]
-U datoteci ,,pesme.txt`` nalaze se informacije o gledanosti pesama na
+U datoteci \kckod{pesme.txt} nalaze se informacije o gledanosti pesama na
 Youtube-u. Format datoteke sa informacijama je sledeći:
 \begin{itemize}
 \item U prvoj liniji datoteke se nalazi ukupan broj pesama prisutnih u
@@ -843,10 +843,10 @@ okretanja.}
 %-----------------------------------------------------------------
 \section{Bibliotečke funkcije pretrage i sortiranja}
 \begin{Exercise}[label=517]
-  Napisati program koji ilustruje upotrebu bibiliotečkih funkcija za
+  Napisati program koji ilustruje upotrebu bibliotečkih funkcija za
   pretraživanje i sortiranje nizova i mogućnost zadavanja različitih
   kriterijuma sortiranja. Sa standardnog ulaza se unosi dimenzija niza
-  celih brojeva (ne veća od $100$), a potom i sami elementi
+  celih brojeva, ne veća od $100$, a potom i sami elementi
   niza. Upotrebom funkcije \kckod{qsort} sortirati niz u rastućem
   poretku, sa standardnog ulaza učitati broj koji se traži u nizu, pa
   zatim funkcijama \kckod{bsearch} i \kckod{lfind} utvrditi da li se
@@ -918,13 +918,13 @@ okretanja.}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=519]
-   Korišćenjem bibiliotečke funkcije \kckod{qsort} napisati program
+   Korišćenjem bibliotečke funkcije \kckod{qsort} napisati program
    koji sortira niz niski po sledećim kriterijumima:
    \begin{enumerate}
    \item leksikografski,
    \item po dužini.
    \end{enumerate}
-   Niske se učitavaju iz fajla \kckod{niske.txt}, neće ih biti više od
+   Niske se učitavaju iz datoteke \kckod{niske.txt}, neće ih biti više od
    $1000$ i svaka će biti dužine najviše $30$ karaktera. Program prvo
    leksikografski sortira niz, primenjuje binarnu pretragu
    (\kckod{bsearch}) zarad traženja niske unete sa standardnog ulaza,
@@ -958,7 +958,7 @@ okretanja.}
 %-----------------------------------------------------------------
 \begin{Exercise}[label=520]
   Uraditi prethodni zadatak \ref{519} sa dinamički alociranim niskama
-  i sortiranjem niza pokazivača (umesto niza niski).
+  i sortiranjem niza pokazivača, umesto niza niski.
   
 \linkresenje{520}
 \end{Exercise}
@@ -980,7 +980,7 @@ okretanja.}
   odgovarajuće bibliotečke funkcije. Podaci o studentima čitaju se iz
   datoteke čije se ime zadaje preko argumenata komandne linije. Za
   svakog studenta u datoteci postoje ime, prezime i bodovi osvojeni na
-  kolokvijumu. Pretpostaviti da neće biti vise od $500$ studenata i
+  kolokvijumu. Pretpostaviti da neće biti više od $500$ studenata i
   da je za ime i prezime svakog studenta dovoljno po $20$ karaktera.
   
 \begin{miditest}
@@ -1054,10 +1054,10 @@ okretanja.}
 %-----------------------------------------------------------------
 \begin{Exercise}[label=523]
   Napisati program koji sa standardnog ulaza učitava prvo ceo broj
-  \argf{n} ($n \leq 10$), a zatim niz \argf{S} od \argf{n} stringova
-  (maksimalna dužina stringa je $31$ karakter). Sortirati niz \argf{S}
-  (bibliotečkom funkcijom \kckod{qsort}) i proveriti da li u njemu ima
-  identičnih stringova.
+  \argf{n} ($n \leq 10$), a zatim niz \argf{S} od \argf{n} niski.
+  Maksimalna dužina svake niske je $31$ karakter. Sortirati niz \argf{S}
+  bibliotečkom funkcijom \kckod{qsort} i proveriti da li u njemu ima
+  identičnih niski.
   
 \begin{minitest}
 \begin{upotreba}{1}
@@ -1098,11 +1098,10 @@ okretanja.}
 \begin{Exercise}[label=524]
   Datoteka \kckod{studenti.txt} sadrži spisak studenata. Za svakog
   studenta poznat je nalog na Alas-u (oblika npr. \kckod{mr97125},
-  \kckod{mm09001}), ime i prezime i broj poena. I ime i prezime neće
-  biti duže od 20 karaktera. Napisati program koji sortira
-  (korišćenjem funkcije \kckod{qsort}) studente po broju poena
-  opadajuće (ukoliko je prisutna opcija \argf{-p}) ili po nalogu
-  (ukoliko je prisutna opcija \argf{-n}). Studenti se po nalogu
+  \kckod{mm09001}), ime, prezime i broj poena. Ni ime, ni prezime neće
+  biti duže od 20 karaktera. Napisati program koji korišćenjem funkcije \kckod{qsort} sortira
+  studente po broju poena opadajuće, ukoliko je prisutna opcija \argf{-p}, ili po nalogu, 
+  ukoliko je prisutna opcija \argf{-n}. Studenti se po nalogu
   sortiraju tako što se sortiraju na osnovu godine, zatim na osnovu
   smera, i na kraju na osnovu broja indeksa. Sortirane studente
   upisati u datoteku \kckod{izlaz.txt}. Ukoliko je u komandnoj liniji

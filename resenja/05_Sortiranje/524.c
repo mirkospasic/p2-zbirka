@@ -12,7 +12,6 @@ typedef struct student {
   int poeni;
 } Student;
 
-
 /* Funkcija poredi studente prema broju poena, rastuce */
 int uporedi_poeni(const void *a, const void *b)
 {

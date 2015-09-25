@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #define KORAK 10
 
 /* Struktura koja opisuje jednu pesmu */
@@ -39,7 +40,6 @@ int uporedi_izvodjace(const void *pp1, const void *pp2)
 
   return strcmp(p1->izvodjac, p2->izvodjac);
 }
-
 
 int main(int argc, char *argv[])
 {
@@ -80,7 +80,6 @@ int main(int argc, char *argv[])
       ungetc(c, ulaz);
     }
 
-
     /* Provera da li postoji dovoljno memorije za citanje nove pesme */
     if (alocirano_za_pesme == i) {
 
@@ -103,12 +102,10 @@ int main(int argc, char *argv[])
         free(pesme);
         return 0;
       }
-
     }
 
     /* Ako jeste, nastavlja se sa citanjem pesama ... */
     /* Cita se ime izvodjaca */
-
     j = 0;                      /* Pozicija na koju treba smestiti
                                    procitani karakter */
     alocirano = 0;              /* Broj alociranih mesta */
@@ -152,7 +149,6 @@ int main(int argc, char *argv[])
     /* Upis terminirajuce nule na kraj reci */
     pesme[i].izvodjac[j] = '\0';
 
-
     /* Preskace se karakter - */
     fgetc(ulaz);
 
@@ -168,7 +164,6 @@ int main(int argc, char *argv[])
 
     /* Sve do zareza (koji se nalazi nakon naslova pesme) citaju se
        karakteri iz datoteke */
-
     while ((c = fgetc(ulaz)) != ',') {
       /* Provera da li postoji dovoljno memorije za smestanje
          procitanog karaktera */
@@ -194,7 +189,6 @@ int main(int argc, char *argv[])
           /* I prekida izvrsavanje programa */
           return 0;
         }
-
       }
       /* Ako postoji dovoljno memorije, smesta se procitani karakter */
       pesme[i].naslov[j] = c;

@@ -88,8 +88,6 @@ void sort_prisustvo_pa_zadatke_pa_prezimena(Student niz[], int n)
   }
 }
 
-
-
 int main(int argc, char *argv[])
 {
   Student praktikum[MAX];

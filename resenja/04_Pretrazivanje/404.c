@@ -103,8 +103,7 @@ int main(int argc, char *argv[])
   }
   br_studenata = i;
 
-  /* Nakon citanja datoteka nam vise nije neophodna i odmah se
-     zatvara */
+  /* Nakon citanja datoteka vise nije neophodna i zatvara se.*/
   fclose(fin);
 
   /* Unos indeksa koji se binarno trazi u nizu */

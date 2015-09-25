@@ -50,7 +50,6 @@ int compare_za_linearna_prezimena(const void *a, const void *b)
   return strcmp(prezime, s->prezime);
 }
 
-
 int main(int argc, char *argv[])
 {
   Student kolokvijum[MAX];
