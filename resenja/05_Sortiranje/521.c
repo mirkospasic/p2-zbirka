@@ -15,7 +15,7 @@ typedef struct {
 /* Funkcija poredjenja za sortiranje po broju bodova. Studenti sa
    istim brojem bodova se dodatno sortiraju leksikografski po
    prezimenu */
-int compare(const void *a, const void *b)
+int poredi1(const void *a, const void *b)
 {
   Student *prvi = (Student *) a;
   Student *drugi = (Student *) b;
@@ -33,7 +33,7 @@ int compare(const void *a, const void *b)
 /* Funkcija za poredjenje koja se koristi u pretrazi po broju bodova.
    Prvi parametar je ono sto se trazi u nizu (broj bodova), a drugi
    parametar je element niza ciji se bodovi porede. */
-int compare_za_bsearch(const void *a, const void *b)
+int poredi2(const void *a, const void *b)
 {
   int bodovi = *(int *) a;
   Student *s = (Student *) b;
@@ -43,7 +43,7 @@ int compare_za_bsearch(const void *a, const void *b)
 /* Funkcija za poredjenje koja se koristi u pretrazi po prezimenu.
    Prvi parametar je ono sto se trazi u nizu (prezime), a drugi
    parametar je element niza cije se prezime poredi. */
-int compare_za_linearna_prezimena(const void *a, const void *b)
+int poredi3(const void *a, const void *b)
 {
   char *prezime = (char *) a;
   Student *s = (Student *) b;
@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
 
   /* Sortiranje niza studenata po broju bodova, gde se unutar grupe
      studenata sa istim brojem bodova sortiranje vrsi po prezimenu */
-  qsort(kolokvijum, br_studenata, sizeof(Student), &compare);
+  qsort(kolokvijum, br_studenata, sizeof(Student), &poredi1);
 
   printf("Studenti sortirani po broju poena opadajuce, ");
   printf("pa po prezimenu rastuce:\n");
@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
 
   nadjen =
       bsearch(&bodovi, kolokvijum, br_studenata, sizeof(Student),
-              &compare_za_bsearch);
+              &poredi2);
 
   if (nadjen != NULL)
     printf
@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
 
   nadjen =
       lfind(prezime, kolokvijum, &br_studenata, sizeof(Student),
-            &compare_za_linearna_prezimena);
+            &poredi3);
 
   if (nadjen != NULL)
     printf

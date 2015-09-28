@@ -1164,13 +1164,13 @@ okretanja.}
   \begin{ckod}
     typedef struct { int dan; int mesec; int godina; } Datum;
   \end{ckod}
-  Napisati funkciju koja poredi dva datuma i program koji učitava
-  datume iz datoteke koja se zadaje kao prvi argument komandne linije
-  (ne više od $128$ datuma), sortira ih pozivajući funkciju
-  \kckod{qsort} iz standardne biblioteke i potom pozivanjem funkcije
-  \kckod{bsearch} iz standardne biblioteke proverava da li datumi
-  učitani sa standardnog ulaza (sve do kraja ulaza) postoje među
-  prethodno unetim datumima.
+  Napisati funkciju koja poredi dva datuma hronološki. Potom, napisati
+  i program koji učitava datume iz datoteke koja se zadaje kao prvi
+  argument komandne linije (ne više od $128$ datuma), sortira ih
+  pozivajući funkciju \kckod{qsort} iz standardne biblioteke i
+  pozivanjem funkcije \kckod{bsearch} iz standardne biblioteke
+  proverava da li datumi učitani sa standardnog ulaza postoje među
+  prethodno unetim datumima. Datumi se učitavaju sve do kraja ulaza.
   
 \begin{miditest}
 \begin{upotreba}{1}

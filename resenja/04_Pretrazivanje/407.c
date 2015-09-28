@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX 256
+
 int prvi_veci_od_nule(int niz[], int n)
 {
   /* Granice pretrage */
@@ -24,8 +26,6 @@ int prvi_veci_od_nule(int niz[], int n)
   }
   return -1;
 }
-
-#define MAX 256
 
 int main()
 {

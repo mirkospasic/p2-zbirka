@@ -101,7 +101,6 @@ int interpolaciona_pretraga(int a[], int n, int x)
   return -1;
 }
 
-/* Funkcija main */
 int main(int argc, char **argv)
 {
   int a[MAX];
@@ -177,7 +176,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  fprintf(f, "Dimenzija niza od %d elemenata.\n", n);
+  fprintf(f, "Dimenzija niza: %d\n", n);
   fprintf(f, "\tLinearna pretraga:%10ld ns\n",
           (time2.tv_sec - time1.tv_sec) * 1000000000 +
           time2.tv_nsec - time1.tv_nsec);

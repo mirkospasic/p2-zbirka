@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define MAX 1024
+
 int lin_pretraga_rek_sufiks(int a[], int n, int x)
 {
   int tmp;
@@ -63,8 +65,6 @@ int interp_pretraga_rek(int a[], int l, int d, int x)
   else
     return interp_pretraga_rek(a, l, p - 1, x);
 }
-
-#define MAX 1024
 
 int main()
 {

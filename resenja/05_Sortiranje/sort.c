@@ -2,6 +2,8 @@
 
 #include "sort.h"
 
+#define MAX 1000000
+
 /* Funkcija sortira niz celih brojeva metodom sortiranja izborom.
    Ideja algoritma je sledeca: U svakoj iteraciji pronalazi se
    najmanji element i premesta se na pocetak niza. Dakle, u prvoj
@@ -141,8 +143,6 @@ void shellsort(int a[], int n)
     h = h / 2;
   }
 }
-
-#define MAX 1000000
 
 /* Funkcija sortira niz celih brojeva a[] ucesljavanjem. Sortiranje
    se vrsi od elementa na poziciji l do onog na poziciji d. Na
