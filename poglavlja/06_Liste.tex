@@ -332,8 +332,7 @@ utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
 \begin{test}{6}
 #\poziv{./a.out}#
 
-#\naslovDat{izraz.txt}#
-#\datoteka{Datoteka ne postoji.}# 
+#\naslovDat{Datoteka izraz.txt ne postoji.}# 
 
 #\naslovIzlaz#
 #\izlaz{Greska prilikom otvaranja }#
@@ -431,8 +430,7 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 \begin{test}{5}
 #\poziv{./a.out datoteka.html}#
 
-#\naslovDat{datoteka.html}#                     
-#\datoteka{Datoteka ne postoji.}#
+#\naslovDat{Datoteka datoteka.html ne postoji.}#
 
 #\naslovIzlaz#
 #\izlaz{Greska prilikom otvaranja}# 
@@ -572,8 +570,7 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
 \begin{test}{2}
 #\poziv{./a.out datoteka.html}#
 
-#\naslovDat{datoteka.html}#
-#\datoteka{Datoteka ne postoji.}#
+#\naslovDat{Datoteka datoteka.html ne postoji.}#
 
 #\naslovIzlaz#
 #\izlaz{Greska prilikom otvaranja}#
@@ -653,15 +650,14 @@ Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF). Poruke o
 % 
 % #\naslovIzlaz# 
 % #\izlaz{Greska! Program se poziva sa: }#
-% #\izlaz{./a.out studenti.txt!}#
+% #\izlaz{./a.out ime_datoteke}#
 % \end{upotreba}
 % \end{miditest}
 % \begin{miditest}
 % \begin{upotreba}{4}
 % #\poziv{./a.out  studenti.txt}#
 % 
-% #\naslovDat{studenti.txt}#
-% #\datoteka{Datoteka ne postoji.}#
+% #\naslovDat{Datoteka studenti.txt ne postoji.}#
 % 
 % #\naslovIzlaz#
 % #\izlaz{Greska prilikom otvaranja datoteke}#
@@ -704,8 +700,7 @@ kreira nove čvorove, već da samo preraspodeli postojeće čvorove. Prva lista 
 #\naslovDat{dat1.txt}#
 #\datoteka{2 4 6 10 15}#
 
-#\naslovDat{dat2.txt}#
-#\datoteka{Datoteka ne postoji.}#
+#\naslovDat{Datoteka dat2.txt ne postoji.}#
 
 #\naslovIzlaz#
 #\izlaz{Greska prilikom otvaranja datoteke}#
@@ -716,8 +711,7 @@ kreira nove čvorove, već da samo preraspodeli postojeće čvorove. Prva lista 
 % \begin{test}{3}
 % #\poziv{./a.out dat1.txt dat2.txt}#
 % 
-% #\naslovDat{dat1.txt}#
-% #\datoteka{Datoteka ne postoji.}#
+% #\naslovDat{Datoteka dat1.txt ne postoji.}#
 % 
 % #\naslovDat{dat2.txt}#
 % #\datoteka{5 6 11 12 14 16}#
@@ -760,7 +754,7 @@ kreira nove čvorove, već da samo preraspodeli postojeće čvorove. Prva lista 
 #\poziv{./a.out dat1.txt}#
 
 #\naslovIzlaz# 
-#\izlaz{Greska! Program se poziva sa:}# 
+#\izlaz{Program se poziva sa:}# 
 #\izlaz{./a.out dat1.txt dat2.txt!}#
 \end{test}
 \end{miditest}
@@ -832,8 +826,8 @@ Napisati program koji u datoteku \kckod{Rezultat.txt} upisuje nađeni strogo ras
 \begin{test}{2}
 #\poziv{./a.out}#
 
-#\naslovDat{brojevi.txt}#
-#\datoteka{Datoteka ne postoji.}#
+#\naslovDat{Datoteka brojevi.txt}#
+#\naslovDat{ne postoji.}#
 
 #\naslovIzlaz#
 #\naslovDat{rezultat.txt}#

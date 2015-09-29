@@ -1,59 +1,148 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include "lista.h"
+#include "601/lista.h"
 
-Cvor *objedini(Cvor ** glava1, Cvor ** glava2)
+
+
+/* Funkcija objedinjuje dve liste cije se glave nalaze na adresama
+   adresa_glave_1 i adresa_glave_2 prevezivanjem pokazivaca
+   postojecih cvorova listi. */
+Cvor *objedini(Cvor ** adresa_glave_1, Cvor ** adresa_glave_2)
 {
-  Cvor *l3 = NULL;
-  Cvor **tek = &l3;
+  /* Pokazivac na glavu rezultujuce liste. */
+  Cvor *rezultujuca = NULL;
+  /* Tekuci je pokazivac na pokazivac kome sledecem treba promeniti
+     vrednosti. Inicijalizuje se na rezultujuca jer prvo treba
+     odrediti glavu rezulujuce liste. */
+  Cvor **tekuci = &rezultujuca;
 
-  if (*glava1 == NULL && *glava2 == NULL)
+  /* Ako su obe liste prazne, rezultat je isto prazna lista. */
+  if (*adresa_glave_1 == NULL && *adresa_glave_2 == NULL)
     return NULL;
 
   /* Ako je prva lista prazna, rezultat je druga lista. */
-  if (*glava1 == NULL)
-    return *glava2;
+  if (*adresa_glave_1 == NULL)
+    return *adresa_glave_2;
 
   /* Ako je druga lista prazna, rezultat je prva lista. */
-  if (*glava2 == NULL)
-    return *glava1;
+  if (*adresa_glave_2 == NULL)
+    return *adresa_glave_1;
 
-  /* l3 pokazuje na pocetak nove liste, tj. na manji od brojeva
-     sadrzanih u cvorovima na koje pokazuju glava1 i glava2. */
-  l3 = ((*glava1)->vrednost < (*glava2)->vrednost) ? *glava1 :
-      *glava2;
-
-
-  while (*glava1 != NULL && *glava2 != NULL) {
-    if ((*glava1)->vrednost < (*glava2)->vrednost) {
-      *tek = *glava1;
-      *glava1 = (*glava1)->sledeci;
+  /* Sve dok u obe liste ima cvorova, azurira se vrednost pokazivaca
+     na koji tekuci pokazuje. U prvoj iteraciji tekuci pokazuje na
+     pokazivac rezultujuca i ovako se pokazivac rezultujuca usmerava
+     da pokazuje na pocetak nove liste, tj. na cvor sa vrednoscu
+     manjeg od brojeva sadrzanih u cvorovima na koje pokazuju
+     adresa_glave_1 i adresa_glave_2. U svim ostalim iteracijama to
+     isto se dogadja samo pokazivacu na koji tekuci u tom trenutku
+     pokazuje. */
+  while (*adresa_glave_1 != NULL && *adresa_glave_2 != NULL) {
+    if ((*adresa_glave_1)->vrednost < (*adresa_glave_2)->vrednost) {
+      /* pokazivac na koji tekuci pokazuje dobija vrednosti
+         pokazivaca koji se nalazi na adresa_glave_1 tj. sledbenik
+         poslednjeg uvezanog cvora bice cvor koji je aktuelna glava
+         prve liste. */
+      *tekuci = *adresa_glave_1;
+      /* pomera se glava prve liste na sledeci cvor prve liste. Ova
+         promena bice vidljiva i van funkcije jer se direktno menja
+         promenljiva koja se nalazi na adresi adresa_glave_1. */
+      *adresa_glave_1 = (*adresa_glave_1)->sledeci;
     } else {
-      *tek = *glava2;
-      *glava2 = (*glava2)->sledeci;
+      /* sledbenik poslednjeg uvezanog cvora bice cvor koji je
+         aktuelna glava druge liste. */
+      *tekuci = *adresa_glave_2;
+      /* pomera se glava druge liste na sledeci cvor druge liste */
+      *adresa_glave_2 = (*adresa_glave_2)->sledeci;
     }
-    tek = &((*tek)->sledeci);
+    /* tekuci se pomera na pokazivac sledeci od poslednjeg uvezanog,
+       jer je upravo to pokazivac koji treba da bude azuriran u
+       sledecoj iteraciji petlje. */
+    tekuci = &((*tekuci)->sledeci);
+  }
+
+  /* Ako se iz petlje izaslo jer se stiglo do kraja prve liste, na
+     rezultujucu listu treba nadovezati ostatak druge liste. Tako
+     sledbenik poslednjeg uvezanog cvora treba da bude ostatak druge
+     liste. */
+  if (*adresa_glave_1 == NULL)
+    *tekuci = *adresa_glave_2;
+  else {
+    if (*adresa_glave_2 == NULL)
+      *tekuci = *adresa_glave_1;
+  }
+
+  return rezultujuca;
+}
+
+/* Druga verzija prethodne funkcije koja ne pristupa pokazivacima
+   preko adresa vec direktno. Ne salju joj se adrese pokazivaca na
+   glave listi vec njihove vrednosti. */
+Cvor *objedini_v2(Cvor * lista1, Cvor * lista2)
+{
+  Cvor *rezultujuca = NULL;
+  Cvor *tekuci = NULL;
+
+  /* Ako su obe liste prazne, rezultat je isto prazna lista. */
+  if (lista1 == NULL && lista2 == NULL)
+    return NULL;
+
+  /* Ako je prva lista prazna, rezultat je druga lista. */
+  if (lista1 == NULL)
+    return lista2;
+
+  /* Ako je druga lista prazna, rezultat je prva lista. */
+  if (lista2 == NULL)
+    return lista1;
+
+  /* rezultujuca pokazuje na pocetak nove liste, tj. na cvor sa
+     vrednoscu manjeg od brojeva sadrzanih u cvorovima na koje
+     pokazuju adresa_glave_1 i adresa_glave_2. */
+  if (lista1->vrednost < lista2->vrednost) {
+    rezultujuca = lista1;
+    lista1 = lista1->sledeci;
+  } else {
+    rezultujuca = lista2;
+    lista2 = lista2->sledeci;
+  }
+  tekuci = rezultujuca;
+
+  /* Kako rezultujuca pokazuje na pocetak nove liste i ne sme joj se
+     menjati vrednost, koristi se pokazivac tekuci koji trenutno
+     sadrzi adresu promenljive rezultujuca. U svakoj iteraciji
+     petlje, dobijace adekvatnog sledbenika tako da i nova lista bude
+     uredjena neopadajuce i pomerace se na adresu sledeceg. */
+  while (lista1 != NULL && lista2 != NULL) {
+    if (lista1->vrednost < lista2->vrednost) {
+      tekuci->sledeci = lista1;
+      lista1 = lista1->sledeci;
+    } else {
+      tekuci->sledeci = lista2;
+      lista2 = lista2->sledeci;
+    }
+    tekuci = tekuci->sledeci;
   }
 
   /* Ako se iz petlje izaslo jer se stiglo do kraja prve liste, na
      rezultujucu listu treba nadovezati ostatak druge liste. */
-  if (*glava1 == NULL)
-    *tek = *glava2;
+  if (lista1 == NULL)
+    tekuci->sledeci = lista2;
+  else
+    tekuci->sledeci = lista1;
 
-  else if (*glava2 == NULL)
-    *tek = *glava1;
-
-  return l3;
+  return rezultujuca;
 }
 
+/* Glavni program */
 int main(int argc, char **argv)
 {
+  /* Argumenti komandne linije su neophodni. */
   if (argc != 3) {
     fprintf(stderr,
-            "Greska! Program se poziva sa: ./a.out dat1.txt dat2.txt!\n");
+            "Program se poziva sa: ./a.out dat1.txt dat2.txt\n");
     exit(EXIT_FAILURE);
   }
 
+  /* Otvaramo datoteke sa elementima obe liste. */
   FILE *in1 = NULL;
   in1 = fopen(argv[1], "r");
   if (in1 == NULL) {
@@ -71,21 +160,33 @@ int main(int argc, char **argv)
   }
 
   int broj;
-  Cvor *glava1 = NULL;
-  Cvor *glava2 = NULL;
-  Cvor *l3 = NULL;
+  Cvor *lista1 = NULL;
+  Cvor *lista2 = NULL;
+  Cvor *rezultat = NULL;
 
   /* Ucitavanje listi */
   while (fscanf(in1, "%d", &broj) != EOF)
-    dodaj_na_kraj_liste(&glava1, broj);
+    dodaj_na_kraj_liste(&lista1, broj);
   while (fscanf(in2, "%d", &broj) != EOF)
-    dodaj_na_kraj_liste(&glava2, broj);
+    dodaj_na_kraj_liste(&lista2, broj);
 
-  l3 = objedini(&glava1, &glava2);
+  /* Pokazivac rezultat ce pokazivati na listu koja se dobila
+     objedinjavanjem listi */
+  rezultat = objedini(&lista1, &lista2);
+
+ /***************************************************************** 
+  Poziv druge verzije prethodne funkcije
+  
+  rezultat = objedini_v2(lista1, lista2);
+  *****************************************************************/
 
   /* Ispis rezultujuce liste. */
-  ispisi_listu(l3);
-  oslobodi_listu(&l3);
+  ispisi_listu(rezultat);
+
+  /* Kako je lista rezultat dobijena prevezivanjem cvorova polaznih
+     listi, njenim oslobadjanjem bice oslobodjena sva zauzeta
+     memorija. */
+  oslobodi_listu(&rezultat);
 
   fclose(in1);
   fclose(in2);
