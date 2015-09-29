@@ -17,7 +17,8 @@ typedef struct cvor {
 /* Funkcija koja kreira novi cvora stabla */
 Cvor *napravi_cvor(char *rec)
 {
-  /* Alocira se memorija za novi cvor */
+  /* Alocira se memorija za novi cvor i proverava se uspesnost
+     alokacije. */
   Cvor *novi_cvor = (Cvor *) malloc(sizeof(Cvor));
   if (novi_cvor == NULL)
     return NULL;
@@ -60,11 +61,11 @@ void dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
 {
   /* Ako je stablo prazno */
   if (*adresa_korena == NULL) {
-    /* Kreira se novi cvor */
+    /* Kreira se cvor koji sadrzi zadatu rec */
     Cvor *novi = napravi_cvor(rec);
     proveri_alokaciju(novi);
 
-    /* i proglasava korenom stabla */
+    /* I proglasava se korenom stabla */
     *adresa_korena = novi;
     return;
   }
@@ -77,8 +78,8 @@ void dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
     dodaj_u_stablo(&(*adresa_korena)->levo, rec);
 
   else
-    /* Ako je rec leksikografski veca od reci u korenu ubacuje se
-       u desno podstablo */
+    /* Ako je rec leksikografski veca od reci u korenu ubacuje
+       se u desno podstablo */
   if (strcmp(rec, (*adresa_korena)->rec) > 0)
     dodaj_u_stablo(&(*adresa_korena)->desno, rec);
 
@@ -106,10 +107,9 @@ void oslobodi_stablo(Cvor ** adresa_korena)
   free((*adresa_korena)->rec);
   free(*adresa_korena);
 
-  /* Proglasava se stablo praznim */
+  /* Stablo se proglasava praznim */
   *adresa_korena = NULL;
 }
-
 
 /* Funkcija koja pronalazi cvor koji sadrzi najfrekventniju rec
    (rec sa najvecim brojem pojavljivanja) */
@@ -135,10 +135,9 @@ Cvor *nadji_najfrekventniju_rec(Cvor * koren)
   if (max_desno != NULL && max_desno->brojac > max->brojac)
     max = max_desno;
 
-  /* Vraca se adresa cvora sa najvecim brojacem */
+  /* Vraca se adresa cvora sa najvecim brojem pojavljivanja */
   return max;
 }
-
 
 /* Funkcija koja ispisuje reci iz stabla u leksikografskom
    poretku pracene brojem pojavljivanja */
@@ -159,25 +158,23 @@ void prikazi_stablo(Cvor * koren)
   prikazi_stablo(koren->desno);
 }
 
-
-/* Funkcija ucitava sledecu rec iz zadate datoteke i upisuje je
-   u niz rec. Maksimalna duzina reci je odredjena argumentom
-   max. Funkcija vraca EOF ako nema vise reci ili 0 u suprotnom. 
-   Rec je niz malih ili velikih slova. */
+/* Funkcija ucitava sledecu rec iz zadate datoteke f i upisuje
+   je u niz rec. Maksimalna duzina reci je odredjena argumentom
+   max. Funkcija vraca EOF ako u datoteci nema vise reci ili 0 u 
+   suprotnom. Rec je niz malih ili velikih slova. */
 int procitaj_rec(FILE * f, char rec[], int max)
 {
-  /* karakter koji se cita */
+  /* Karakter koji se cita */
   int c;
 
-  /* indeks pozicije na koju se smesta procitani karakter */
+  /* Indeks pozicije na koju se smesta procitani karakter */
   int i = 0;
 
-  /* Sve dok ima mesta za jos jedan karakter u nizu i dokle se god
-     nije stiglo do kraja datoteke... */
+  /* Sve dok ima mesta za jos jedan karakter u nizu i dokle se
+     god nije stiglo do kraja datoteke... */
   while (i < max - 1 && (c = fgetc(f)) != EOF) {
     /* Proverava se da li je procitani karakter slovo */
     if (isalpha(c))
-
       /* Ako jeste, smesta se u niz - pritom se vrsi konverzija
          u mala slova jer program treba da bude neosetljiv na
          razliku izmedju malih i velikih slova */
@@ -186,17 +183,17 @@ int procitaj_rec(FILE * f, char rec[], int max)
     else
       /* Ako nije, proverava se da li je procitano barem jedno
          slovo nove reci */
-      /* Ako jesmo prekida se sa citanjem */
+      /* Ako jeste, prekida se sa citanjem */
     if (i > 0)
       break;
 
-    /* U suprotnom ide se na sledecu iteraciju */
+    /* U suprotnom se ide na sledecu iteraciju */
   }
 
   /* Dodaje se na rec terminirajuca nula */
   rec[i] = '\0';
 
-  /* Vraca se 0 ako je procitana rec, EOF u suprotnom */
+  /* Vraca se 0 ako je procitana rec, tj. EOF u suprotnom */
   return i > 0 ? 0 : EOF;
 }
 
@@ -206,14 +203,14 @@ int main(int argc, char **argv)
   FILE *f;
   char rec[MAX];
 
-  /* Provera da li je navedeno ime datoteke prilikom
-     pokretanja programa */
+  /* Provera da li je navedeno ime datoteke prilikom pokretanja
+     programa */
   if (argc < 2) {
     fprintf(stderr, "Nedostaje ime ulazne datoteke!\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke iz koje se citaju reci */
+  /* Priprema datoteke za citanje */
   if ((f = fopen(argv[1], "r")) == NULL) {
     fprintf(stderr, "fopen() greska pri otvaranju %s\n",
             argv[1]);
@@ -225,7 +222,7 @@ int main(int argc, char **argv)
   while (procitaj_rec(f, rec, MAX) != EOF)
     dodaj_u_stablo(&koren, rec);
 
-  /* Posto je zavrseno sa citanjem reci zatvara se datoteka */
+  /* Posto je citanjem reci zavrseno, zatvara se datoteka */
   fclose(f);
 
   /* Prikazuju se sve reci iz teksta i brojevi njihovih

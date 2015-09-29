@@ -19,12 +19,13 @@ typedef struct cvor {
 /* Funkcija koja kreira novi cvora stabla */
 Cvor *napravi_cvor(char *ime_i_prezime, char *telefon)
 {
-  /* Alocira se memorija za novi cvor */
+  /* Alocira se memorija za novi cvor i proverava se uspesnost
+     alokacije. */
   Cvor *novi_cvor = (Cvor *) malloc(sizeof(Cvor));
   if (novi_cvor == NULL)
     return NULL;
 
-  /* Inicijalizuju se polja u novom cvoru */
+  /* Inicijalizuju se polja novog cvora */
   strcpy(novi_cvor->ime_i_prezime, ime_i_prezime);
   strcpy(novi_cvor->telefon, telefon);
   novi_cvor->levo = NULL;
@@ -33,7 +34,6 @@ Cvor *napravi_cvor(char *ime_i_prezime, char *telefon)
   /* Vraca se adresa novog cvora */
   return novi_cvor;
 }
-
 
 /* Funkcija koja proverava uspesnost kreiranja novog cvora
    stabla */
@@ -48,7 +48,6 @@ void proveri_alokaciju(Cvor * novi_cvor)
   }
 }
 
-
 /* Funkcija koja dodaje novu osobu i njen broj telefona u
    stablo. */
 void
@@ -61,14 +60,15 @@ dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
     Cvor *novi = napravi_cvor(ime_i_prezime, telefon);
     proveri_alokaciju(novi);
 
-    /* I proglasava korenom stabla */
+    /* I proglasava se korenom stabla */
     *adresa_korena = novi;
     return;
   }
 
-  /* U suprotnom trazi se odgovarajuca pozicija za novi unos */
-  /* Kako pretragu treba vrsiti po imenu i prezimenu, stablo
+  /* U suprotnom trazi se odgovarajuca pozicija za novi unos.
+     Kako pretragu treba vrsiti po imenu i prezimenu, stablo
      treba da bude pretrazivacko po ovom polju */
+
   /* Ako je zadato ime i prezime leksikografski manje od imena i 
      prezimena sadrzanog u korenu, podaci se dodaju u levo
      podstablo */
@@ -85,7 +85,6 @@ dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
     dodaj_u_stablo(&(*adresa_korena)->desno, ime_i_prezime,
                    telefon);
 }
-
 
 /* Funkcija koja oslobadja memoriju zauzetu stablom */
 void oslobodi_stablo(Cvor ** adresa_korena)
@@ -104,10 +103,9 @@ void oslobodi_stablo(Cvor ** adresa_korena)
   /* Oslobadja se memorija zauzeta korenom */
   free(*adresa_korena);
 
-  /* Proglasava se stablo praznim */
+  /* Stablo se proglasava praznim */
   *adresa_korena = NULL;
 }
-
 
 /* Funkcija koja ispisuje imenik u leksikografskom poretku */
 /* Napomena: ova funkcija nije trazena u zadatku ali se moze
@@ -129,7 +127,6 @@ void prikazi_stablo(Cvor * koren)
   prikazi_stablo(koren->desno);
 }
 
-
 /* Funkcija ucitava sledeci kontakt iz zadate datoteke i upisuje 
    ime i prezime i broj telefona u odgovarajuce nizove.
    Maksimalna duzina imena i prezimena odredjena je konstantom
@@ -139,11 +136,15 @@ void prikazi_stablo(Cvor * koren)
 int procitaj_kontakt(FILE * f, char *ime_i_prezime,
                      char *telefon)
 {
+  /* Karakter koji se cita */
   int c;
+
+  /* Indeks pozicije na koju se smesta procitani karakter */
   int i = 0;
 
   /* Linije datoteke koje se obradjuju su formata Ime Prezime
      BrojTelefona */
+
   /* Preskacu se eventualne praznine sa pocetka linije datoteke */
   while ((c = fgetc(f)) != EOF && isspace(c));
 
@@ -152,10 +153,10 @@ int procitaj_kontakt(FILE * f, char *ime_i_prezime,
     ime_i_prezime[i++] = c;
 
   /* Naznaka kraja citanja imena i prezimena ce biti pojava prve 
-     cifre, tako da ce citanje biti forsirano sve dok se ne naidje
-     na cifru. Pri tom treba voditi racuna da li ima dovoljno
-     mesta za smestanje procitanog karaktera i da se slucajno ne
-     dodje do kraja datoteke */
+     cifre tako da se citanje vrsi sve dok se ne naidje na
+     cifru. Pritom treba voditi racuna da li ima dovoljno mesta
+     za smestanje procitanog karaktera i da se slucajno ne dodje 
+     do kraja datoteke */
   while (i < MAX_IME_I_PREZIME - 1 && (c = fgetc(f)) != EOF) {
     if (!isdigit(c))
       ime_i_prezime[i++] = c;
@@ -164,8 +165,8 @@ int procitaj_kontakt(FILE * f, char *ime_i_prezime,
       break;
   }
 
-  /* Upisuje se terminirajuca nula na mesto poslednjeg procitanog 
-     blanko karaktera */
+  /* Upisuje se terminirajuca nula na mesto poslednjeg
+     procitanog blanko karaktera */
   ime_i_prezime[--i] = '\0';
 
   /* I pocinje se sa citanjem broja telefona */
@@ -179,17 +180,15 @@ int procitaj_kontakt(FILE * f, char *ime_i_prezime,
   while (i < MAX_CIFARA - 1 && (c = fgetc(f)) != EOF)
     if (c == '/' || c == '-' || isdigit(c))
       telefon[i++] = c;
-
     else
       break;
 
   /* Upisuje se terminirajuca nula */
   telefon[i] = '\0';
 
-  /* Vraca se 0 ako je procitan kontakt, EOF u suprotnom */
+  /* Vraca se 0 ako je procitan kontakt ili EOF u suprotnom */
   return !feof(f) ? 0 : EOF;
 }
-
 
 /* Funkcija koja trazi u imeniku osobu sa zadatim imenom i
    prezimenom */
@@ -199,8 +198,8 @@ Cvor *pretrazi_imenik(Cvor * koren, char *ime_i_prezime)
   if (koren == NULL)
     return NULL;
 
-  /* Ako je trazeno ime i prezime sadrzano u korenu, takodje
-     se zavrsava sa pretragom */
+  /* Ako je trazeno ime i prezime sadrzano u korenu, takodje se
+     zavrsava sa pretragom */
   if (strcmp(koren->ime_i_prezime, ime_i_prezime) == 0)
     return koren;
 
@@ -225,34 +224,35 @@ int main(int argc, char **argv)
   char c;
   int i;
 
-  /* Ucitava se ime datoteke i priprema se ista za citanje */
+  /* Ucitava se ime datoteke i vrsi se njena priprema za citanje 
+   */
   printf("Unesite ime datoteke: ");
   scanf("%s", ime_datoteke);
   if ((f = fopen(ime_datoteke, "r")) == NULL) {
-    fprintf(stderr, "fopen() greska prilikom otvaranja
-%s\n", ime_datoteke);
+    fprintf(stderr, "Greska prilikom otvaranja datoteke 
+%s!\n", ime_datoteke);
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje podataka iz datoteke i smestanje kontakata u binarno 
-     stablo pretrage. */
+  /* Podaci se citaju iz datoteke i smestanju u binarno stablo
+     pretrage. */
   while (procitaj_kontakt(f, ime_i_prezime, telefon) != EOF)
     dodaj_u_stablo(&koren, ime_i_prezime, telefon);
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(f);
 
-  /* Omogucava se pretragu imenika */
+  /* Omogucava se pretraga imenika */
   while (1) {
-    /* Ucitavanje imena i prezimena */
+    /* Ucitavaja se ime i prezime */
     printf("Unesite ime i prezime: ");
     i = 0;
     while ((c = getchar()) != '\n')
       ime_i_prezime[i++] = c;
     ime_i_prezime[i] = '\0';
 
-    /* Ako je korisnik uneo naznaku za kraj pretrage,
-       obustavlja se funkcionalnost */
+    /* Ako je korisnik uneo naznaku za kraj pretrage, obustavlja 
+       se funkcionalnost */
     if (strcmp(ime_i_prezime, "KRAJ") == 0)
       break;
 
@@ -260,7 +260,6 @@ int main(int argc, char **argv)
     trazeni = pretrazi_imenik(koren, ime_i_prezime);
     if (trazeni == NULL)
       printf("Broj nije u imeniku!\n");
-
     else
       printf("Broj je: %s \n", trazeni->telefon);
   }

@@ -13,7 +13,7 @@ typedef struct cvor {
    inicijalizuje polja strukture i vraca pokazivac na novi cvor */
 Cvor *napravi_cvor(int broj)
 {
-  /* Alociramo memoriju */
+  /* Alocira se memorija za novi cvor i proverava se uspesnost alokacije.*/
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -27,10 +27,9 @@ Cvor *napravi_cvor(int broj)
   return novi;
 }
 
-
 /* Funkcija koja proverava uspesnost kreiranja novog cvora
    stabla */
-void proveri_alokaciju(Cvor * novi_cvor)
+void proveri_alokaciju(Cvor *novi_cvor)
 {
   /* Ukoliko je cvor neuspesno kreiran */
   if (novi_cvor == NULL) {
@@ -42,28 +41,25 @@ void proveri_alokaciju(Cvor * novi_cvor)
   }
 }
 
-
 /* c) Funkcija koja dodaje zadati broj u stablo */
-void dodaj_u_stablo(Cvor ** adresa_korena, int broj)
+void dodaj_u_stablo(Cvor **adresa_korena, int broj)
 {
   /* Ako je stablo prazno */
   if (*adresa_korena == NULL) {
-
     /* Kreira se novi cvor */
     Cvor *novi = napravi_cvor(broj);
     proveri_alokaciju(novi);
-
     /* I proglasava se korenom stabla */
     *adresa_korena = novi;
     return;
   }
 
-  /* U suprotnom trazi se odgovarajuca pozicija za zadati broj */
+  /* U suprotnom trazi se odgovarajuca pozicija za zadati broj: */
 
   /* Ako je zadata vrednost manja od vrednosti korena */
   if (broj < (*adresa_korena)->broj)
 
-    /* Dodaje se broj u levo podstablo */
+    /* Broj se dodaje u levo podstablo */
     dodaj_u_stablo(&(*adresa_korena)->levo, broj);
 
   else
@@ -71,7 +67,6 @@ void dodaj_u_stablo(Cvor ** adresa_korena, int broj)
        se dodaje u desno podstablo */
     dodaj_u_stablo(&(*adresa_korena)->desno, broj);
 }
-
 
 /* d) Funkcija koja proverava da li se zadati broj nalazi u
    stablu */
@@ -82,9 +77,8 @@ Cvor *pretrazi_stablo(Cvor * koren, int broj)
   if (koren == NULL)
     return NULL;
 
-  /* Ako je trazena vrednost sadrazana u korenu */
+  /* Ako je trazena vrednost sadrzana u korenu */
   if (koren->broj == broj) {
-    
     /* Prekidamo pretragu */
     return koren;
   }
@@ -99,7 +93,6 @@ Cvor *pretrazi_stablo(Cvor * koren, int broj)
     /* U suprotnom, pretraga se nastavlja u desnom podstablu */
     return pretrazi_stablo(koren->desno, broj);
 }
-
 
 /* e) Funkcija pronalazi cvor koji sadrzi najmanju vrednost u
    stablu */
@@ -121,7 +114,6 @@ Cvor *pronadji_najmanji(Cvor * koren)
   return pronadji_najmanji(koren->levo);
 }
 
-
 /* f) Funkcija pronalazi cvor koji sadrzi najvecu vrednost u
    stablu */
 Cvor *pronadji_najveci(Cvor * koren)
@@ -142,14 +134,12 @@ Cvor *pronadji_najveci(Cvor * koren)
   return pronadji_najveci(koren->desno);
 }
 
-
 /* g) Funkcija koja brise cvor stabla koji sadrzi zadati broj */
 void obrisi_element(Cvor ** adresa_korena, int broj)
 {
   Cvor *pomocni_cvor = NULL;
 
-  /* ako je stablo prazno, brisanje nije primenljivo pa se moze
-     prekinuti rad funkcije */
+  /* Ako je stablo prazno, brisanje nije primenljivo */
   if (*adresa_korena == NULL)
     return;
 
@@ -204,13 +194,12 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
     return;
   }
 
-  /* Slucaj kada koren ima oba sina. Tada se brisanje vrsi na
-     sledeci nacin: - najpre se potrazi sledbenik korena (u
+  /* Slucaj kada koren ima oba sina - najpre se potrazi sledbenik korena (u
      smislu poretka) u stablu. To je upravo po vrednosti
      najmanji cvor u desnom podstablu. On se moze pronaci npr.
      funkcijom pronadji_najmanji(). Nakon toga se u koren smesti 
      vrednost tog cvora, a u taj cvor se smesti vrednost korena
-     (tj. broj koji se brise).  - Zatim se prosto rekurzivno
+     (tj. broj koji se brise).  Zatim se prosto rekurzivno
      pozove funkcija za brisanje na desno podstablo. S obzirom
      da u njemu treba obrisati najmanji element, a on zasigurno
      ima najvise jednog potomka, jasno je da ce njegovo brisanje 
@@ -222,7 +211,6 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
   obrisi_element(&(*adresa_korena)->desno, broj);
 }
 
-
 /* h) Funkcija ispisuje stablo u infiksnoj notaciji ( Levo
    postablo - Koren - Desno podstablo ) */
 void ispisi_stablo_infiksno(Cvor * koren)
@@ -233,14 +221,13 @@ void ispisi_stablo_infiksno(Cvor * koren)
     /* Prvo se ispisuju svi cvorovi levo od korena */
     ispisi_stablo_infiksno(koren->levo);
 
-    /* Ispisuje se vrednost u korenu */
+    /* Zatim se ispisuje vrednost u korenu */
     printf("%d ", koren->broj);
 
     /* Na kraju se ispisuju cvorovi desno od korena */
     ispisi_stablo_infiksno(koren->desno);
   }
 }
-
 
 /* i) Funkcija ispisuje stablo u prefiksnoj notaciji ( Koren -
    Levo podstablo - Desno podstablo ) */
@@ -252,14 +239,13 @@ void ispisi_stablo_prefiksno(Cvor * koren)
     /* Prvo se ispisuje vrednost u korenu */
     printf("%d ", koren->broj);
 
-    /* Ispisuju se svi cvorovi levo od korena */
+    /* Zatim se ispisuju svi cvorovi levo od korena */
     ispisi_stablo_prefiksno(koren->levo);
 
     /* Na kraju se ispisuju svi cvorovi desno od korena */
     ispisi_stablo_prefiksno(koren->desno);
   }
 }
-
 
 /* j) Funkcija ispisuje stablo postfiksnoj notaciji ( Levo
    podstablo - Desno postablo - Koren) */
@@ -271,14 +257,13 @@ void ispisi_stablo_postfiksno(Cvor * koren)
     /* Prvo se ispisuju svi cvorovi levo od korena */
     ispisi_stablo_postfiksno(koren->levo);
 
-    /* Ispisuju se svi cvorovi desno od korena */
+    /* Zatim se ispisuju svi cvorovi desno od korena */
     ispisi_stablo_postfiksno(koren->desno);
 
     /* Na kraju se ispisuje vrednost u korenu */
     printf("%d ", koren->broj);
   }
 }
-
 
 /* k) Funkcija koja oslobadja memoriju zauzetu stablom.  */
 void oslobodi_stablo(Cvor ** adresa_korena)
@@ -287,15 +272,14 @@ void oslobodi_stablo(Cvor ** adresa_korena)
   if (*adresa_korena == NULL)
     return;
 
-  /* U suprotnom rekurzivno se oslobadja memorija koju zauzima
-     najpre levo, a zatim i desno podstablo */
+  /* Inace ... */
+  /* Oslobadja se memorija zauzeta levim podstablom */
   oslobodi_stablo(&(*adresa_korena)->levo);
+  /* Oslobadja se memorija zauzetu desnim podstablom */
   oslobodi_stablo(&(*adresa_korena)->desno);
-
-  /* Oslobadja se memorija koju zauzima koren */
+  /* Oslobadja se memorija zauzeta korenom */
   free(*adresa_korena);
-
-  /* I proglasava se stablo praznim */
+  /* Proglasava se stablo praznim */
   *adresa_korena = NULL;
 }
 
@@ -314,7 +298,7 @@ int main()
     dodaj_u_stablo(&koren, n);
   }
 
-  /* Trazeni ispisi: */
+  /* Generisu se trazeni ispisi: */
   printf("\nInfiksni ispis: ");
   ispisi_stablo_infiksno(koren);
   printf("\nPrefiksni ispis: ");

@@ -25,8 +25,8 @@ int identitet(Cvor * koren1, Cvor * koren2)
   if (koren1->broj != koren2->broj)
     return 0;
 
-  /* inace, proverava se da li vazi i jednakost levih
-     i desnih podstabala */
+  /* Inace, proverava se da li vazi i jednakost levih i desnih
+     podstabala */
   return (identitet(koren1->levo, koren2->levo)
           && identitet(koren1->desno, koren2->desno));
 }
@@ -36,8 +36,8 @@ int main()
   int broj;
   Cvor *koren1, *koren2;
 
+  /* Ucitavaju se elementi prvog stabla */
   koren1 = NULL;
-  /* ucitavaju se elementi prvog stabla */
   printf("Prvo stablo: ");
   scanf("%d", &broj);
   while (broj != 0) {
@@ -45,8 +45,8 @@ int main()
     scanf("%d", &broj);
   }
 
+  /* Ucitavaju se elementi drugog stabla */
   koren2 = NULL;
-  /* ucitavaju se elementi drugog stabla */
   printf("Drugo stablo: ");
   scanf("%d", &broj);
   while (broj != 0) {
@@ -54,13 +54,14 @@ int main()
     scanf("%d", &broj);
   }
 
-  /* poziva se funkcija koja ispituje identitet stabala */
+  /* Poziva se funkcija koja ispituje identitet stabala i
+     ispisuje se njen rezultat. */
   if (identitet(koren1, koren2))
     printf("Stabla jesu identicna.\n");
   else
     printf("Stabla nisu identicna.\n");
 
-  /* oslobadja se memorija zauzeta stablima */
+  /* Oslobadja se memorija zauzeta stablima */
   oslobodi_stablo(&koren1);
   oslobodi_stablo(&koren2);
 

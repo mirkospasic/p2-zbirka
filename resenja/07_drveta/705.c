@@ -22,7 +22,8 @@ typedef struct cvor_stabla {
 Cvor *napravi_cvor(char ime[], char prezime[], double uspeh,
                    double matematika, double jezik)
 {
-  /* Alocira se memorija za novi cvor */
+  /* Alocira se memorija za novi cvor i proverava se uspesnost
+     alokacije. */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -43,9 +44,10 @@ Cvor *napravi_cvor(char ime[], char prezime[], double uspeh,
 /* Funkcija kojom se proverava uspesnost alociranja memorije */
 void proveri_alokaciju(Cvor * novi_cvor)
 {
-  /* Ako alokacije nije uspesna */
+  /* Ukoliko je cvor neuspesno kreiran */
   if (novi_cvor == NULL) {
-    /* Ispisuje se poruka i prekida se sa izvrsavanjem */
+    /* Ispisuje se odgovarajuca poruka i prekida se izvrsavanje
+       programa */
     fprintf(stderr, "Malloc greska za novi cvor!\n");
     exit(EXIT_FAILURE);
   }
@@ -54,21 +56,21 @@ void proveri_alokaciju(Cvor * novi_cvor)
 /* Funkcija kojom se oslobadja memorija zauzeta stablom */
 void oslobodi_stablo(Cvor ** koren)
 {
-  /* Ako je stablo prazno, nema potrebe za oslobadjanjem
-     memorije */
+  /* Ako je stablo prazno, nepotrebno je oslobadjati memoriju */
   if (*koren == NULL)
     return;
 
-  /* oslobadja se memorija zauzeta levim podstablom */
+  /* Inace ... */
+  /* Oslobadja se memorija zauzeta levim podstablom */
   oslobodi_stablo(&(*koren)->levo);
 
-  /* oslobadja se memorija zauzeta desnim podstablom */
+  /* Oslobadja se memorija zauzeta desnim podstablom */
   oslobodi_stablo(&(*koren)->desno);
 
-  /* oslobadja se memorija zauzeta korenom */
+  /* Oslobadja se memorija zauzeta korenom */
   free(*koren);
 
-  /* proglasava se stablo praznim */
+  /* Stablo se proglasava praznim */
   *koren = NULL;
 }
 
@@ -84,13 +86,13 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
         napravi_cvor(ime, prezime, uspeh, matematika, jezik);
     proveri_alokaciju(novi);
 
-    /* I proglasava korenom stabla */
+    /* I proglasava se korenom stabla */
     *koren = novi;
 
     return;
   }
 
-  /* Inace, dodaje se cvor u stablo tako da bude sortiran po
+  /* Inace, dodaje se cvor u stablo tako da bude sortirano po
      ukupnom broju poena */
   if (uspeh + matematika + jezik >
       (*koren)->uspeh + (*koren)->matematika + (*koren)->jezik)
@@ -100,7 +102,6 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
     dodaj_u_stablo(&(*koren)->desno, ime, prezime, uspeh,
                    matematika, jezik);
 }
-
 
 /* Funkcija ispisuje sadrzaj stabla. Ukoliko je vrednost
    argumenta polozili jednaka 0 ispisuju se informacije o
@@ -132,7 +133,6 @@ void stampaj(Cvor * koren, int polozili)
   stampaj(koren->desno, polozili);
 }
 
-
 /* Funkcija koja odredjuje koliko studenata nije polozilo
    prijemni ispit */
 int nisu_polozili(Cvor * koren)
@@ -142,8 +142,8 @@ int nisu_polozili(Cvor * koren)
     return 0;
 
   /* Pretraga se vrsi i u levom i u desnom podstablu - ako uslov
-     za polaganje nije ispunjen za koreni cvor, broj studenata
-     se uvecava za 1 */
+     za polaganje nije ispunjen za koreni cvor, broj studenata se 
+     uvecava za 1 */
   if (koren->matematika + koren->jezik < 10)
     return 1 + nisu_polozili(koren->levo) +
         nisu_polozili(koren->desno);
@@ -159,10 +159,10 @@ int main(int argc, char **argv)
   char ime[MAX], prezime[MAX];
   double uspeh, matematika, jezik;
 
-  /* Otvaranje datoteke sa rezultatima sa prijemnog za citanje */
+  /* Otvara se datoteke sa rezultatima sa prijemnog za citanje */
   in = fopen("prijemni.txt", "r");
   if (in == NULL) {
-    fprintf(stderr, "Greska prilikom citanja podataka!\n");
+    fprintf(stderr, "Greska prilikom otvaranja datoteke!\n");
     exit(EXIT_FAILURE);
   }
 
@@ -177,8 +177,8 @@ int main(int argc, char **argv)
   /* Zatvaranje datoteke */
   fclose(in);
 
-  /* Stampaju se prvo podaci o ucenicima koji su polozili prijemni 
-   */
+  /* Stampaju se prvo podaci o ucenicima koji su polozili
+     prijemni */
   stampaj(koren, 1);
 
   /* Linij se iscrtava samo ako postoje ucenici koji nisu

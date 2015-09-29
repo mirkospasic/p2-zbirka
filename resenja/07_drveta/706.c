@@ -58,8 +58,8 @@ void oslobodi_stablo(Cvor ** koren)
   if (*koren == NULL)
     return;
 
-  /* Oslobadja se memorija zauzeta levim podstablom (ako postoji) 
-   */
+  /* Oslobadja se memorija zauzeta levim podstablom (ako
+     postoji) */
   if ((*koren)->levo)
     oslobodi_stablo(&(*koren)->levo);
 
@@ -94,8 +94,8 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
     return;
   }
 
-  /* Kako se ne unosi godina za pretragu, stablo se uredjuje samo
-     po mesecu (i danu u okviru istog meseca) */
+  /* Kako se ne unosi godina za pretragu, stablo se uredjuje
+     samo po mesecu (i danu u okviru istog meseca) */
   if (mesec < (*koren)->mesec)
     dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan, mesec,
                    godina);
@@ -124,8 +124,8 @@ Cvor *pretrazi(Cvor * koren, int dan, int mesec)
   /* Ako je mesec trazenog datuma manji od meseca sadrzanog u
      korenu ili ako su meseci isti ali je dan trazenog datuma
      manji od aktuelnog datuma, pretrazuje se levo podstablo -
-     pre toga se svakako proverava da li leva grana postoji - ako 
-     ne postoji treba vratiti prvi sledeci, a to je bas
+     pre toga se svakako proverava da li leva grana postoji -
+     ako ne postoji treba vratiti prvi sledeci, a to je bas
      vrednost uocenog korena */
   if (mesec < koren->mesec
       || (mesec == koren->mesec && dan < koren->dan)) {
@@ -135,10 +135,9 @@ Cvor *pretrazi(Cvor * koren, int dan, int mesec)
       return pretrazi(koren->levo, dan, mesec);
   }
 
-  /* inace se nastavlja pretraga u desnom delu */
+  /* Inace se nastavlja pretraga u desnom delu */
   return pretrazi(koren->desno, dan, mesec);
 }
-
 
 int main(int argc, char **argv)
 {
@@ -150,7 +149,7 @@ int main(int argc, char **argv)
 
   /* Provera da li je zadato ime ulazne datoteke */
   if (argc < 2) {
-    /* Ako nije, ispisuje se poruka i prekida sa izvrsavanjem
+    /* Ako nije, ispisuje se poruka i prekida se sa izvrsavanjem
        programa */
     printf("Nedostaje ime ulazne datoteke!\n");
     return 0;
@@ -186,7 +185,8 @@ int main(int argc, char **argv)
 
     /* Ispisuju se pronadjeni podaci */
     if (slavljenik == NULL) {
-      printf("Nema podataka o ovim ni o sledecem rodjendanu.\n");
+      printf
+          ("Nema podataka o oviom ni o sledecem rodjendanu.\n");
       continue;
     }
 
@@ -197,8 +197,7 @@ int main(int argc, char **argv)
       continue;
     }
 
-    /* Slucaj su pronadjeni podaci o prvom sledecem
-       rodjendanu */
+    /* Slucaj su pronadjeni podaci o prvom sledecem rodjendanu */
     printf("Slavljenik: %s %s %d.%d.\n", slavljenik->ime,
            slavljenik->prezime, slavljenik->dan,
            slavljenik->mesec);

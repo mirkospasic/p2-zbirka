@@ -38,10 +38,10 @@ int kreiraj_niz(Cvor * koren, int a[])
    stablo, a zatim kreira novi niz prolazeci kroz stablo sa leva 
    u desno.
 
-   Ovaj nacin sortiranja primer sortiranja koje nije "u mestu "
-   kao sto je to slucaj sa ostalim prethodno opisanim
-   algoritmima sortiranja, jer se sortiranje vrsi u pomocnoj
-   dinamickoj strukturi, a ne razmenom elemenata niza. */
+   Ovaj nacin sortiranja je primer sortiranja koje nije "u
+   mestu" kao sto je to slucaj sa ostalim opisanim algoritmima
+   sortiranja jer se sortiranje vrsi u pomocnoj dinamickoj
+   strukturi, a ne razmenom elemenata niza. */
 void sortiraj(int a[], int n)
 {
   int i;
@@ -52,11 +52,12 @@ void sortiraj(int a[], int n)
   for (i = 0; i < n; i++)
     dodaj_u_stablo(&koren, a[i]);
 
-  /* Infiksnim obilaskom stabla elementi iz stabla se prepisuju u
-     niz a */
+  /* Infiksnim obilaskom stabla elementi iz stabla se prepisuju
+     u niz a */
   kreiraj_niz(koren, a);
 
-  /* Vise stablo nije potrebno i oslobadja se memorija */
+  /* Stablo vise nije potrebno pa se oslobadja memorija koju
+     zauzima */
   oslobodi_stablo(&koren);
 }
 
@@ -65,7 +66,7 @@ int main()
   int a[MAX];
   int n, i;
 
-  /* Ucitava se dimenzija i elementi niza */
+  /* Ucitavaju se dimenzija i elementi niza */
   printf("n: ");
   scanf("%d", &n);
   if (n < 0 || n > MAX) {
