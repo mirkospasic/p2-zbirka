@@ -15,7 +15,7 @@ Napisati biblioteku za rad sa jednostruko povezanom listom čiji čvorovi sadrž
 
  \item Napisati funkciju \kckod{Cvor* pronadji\_poslednji(Cvor* glava)} koja pronalazi poslednji čvor u listi.
 
- \item Napisati funkciju \kckod{int dodaj\_na\_kraj\_liste(Cvor** adresa\_glave, int broj)} koja dodaje novi čvor sa vrednošću \kckod{broj} na kraj liste. 
+ \item Napisati funkciju \kckod{int dodaj\_na\_kraj\_liste(Cvor** adresa\_glave, int broj)} koja dodaje novi čvor sa vrednošću \kckod{broj} na kraj liste. Povratna vrednost je sa istim značenjem kao kod funkcije 
 
  \item Napisati funkciju \kckod{Cvor* pronadji\_mesto\_umetanja(Cvor* glava, int broj)} koja vraća pokazivač na čvor u neopadajuće uređenoj listi iza kojeg bi trebalo dodati nov čvor sa vrednošću \kckod{broj}.
 
@@ -37,18 +37,21 @@ Napisati biblioteku za rad sa jednostruko povezanom listom čiji čvorovi sadrž
  \end{enumerate}
 \napomena{Sve funkcije za rad sa listom implementirati iterativno.}
 
+Funkcije dodavanja novog elementa u postojeću listu poput, \kckod{dodaj\_na\_pocetak\_liste}, \kckod{dodaj\_na\_kraj\_liste} i \kckod{dodaj\_sortirano}, 
+treba da vrate 0 ukoliko je sve bilo u redu, odnosno 1 ukoliko se dogodila greška prilikom alokacije memorije za nov čvor.
+
 Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata koji se unose sa standardnog ulaza.  Unošenje novih brojeva u listu prekida se učitavanjem kraja ulaza (EOF). Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
 
 \begin{enumerate}
 \item[(1)] U programu se učitani celi brojevi dodaju na početak liste. 
     Unosi se ceo broj koji se traži u unetoj listi i na ekran se ispisuje rezultat pretrage. 
 
-\begin{maxitest}
+\begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out}#
 
 #\naslovInt#
-#\izlaz{Unosite brojeve: (za kraj unesite CTRL+D)}#
+#\izlaz{Unosite brojeve: (za kraj CTRL+D)}#
 #\ulaz{2}#
 #\izlaz{Lista: [2]}#
 #\ulaz{3}#
@@ -59,27 +62,19 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 #\izlaz{Lista: [5, 14, 3, 2]}#
 #\ulaz{3}#
 #\izlaz{Lista: [3, 5, 14, 3, 2]}#
-#\ulaz{3}#
-#\izlaz{Lista: [3, 3, 5, 14, 3, 2]}#
 #\ulaz{17}#
-#\izlaz{Lista: [17, 3, 3, 5, 14, 3, 2]}#
-#\ulaz{3}#
-#\izlaz{Lista: [3, 17, 3, 3, 5, 14, 3, 2]}#
-#\ulaz{1}#
-#\izlaz{Lista: [1, 3, 17, 3, 3, 5, 14, 3, 2]}#
-#\ulaz{9}#
-#\izlaz{Lista: [9, 1, 3, 17, 3, 3, 5, 14, 3, 2]}#
+#\izlaz{Lista: [17, 3, 5, 14, 3, 2]}#
 
-#\izlaz{Unesite broj koji se trazi u listi:} \ulaz{17}#
-#\izlaz{Trazeni broj 17 je u listi!}#
+#\izlaz{Unesite broj koji se trazi:} \ulaz{5}#
+#\izlaz{Trazeni broj 5 je u listi!}#
 \end{upotreba}
-\end{maxitest}
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{upotreba}{2}
 #\poziv{./a.out}#
 
 #\naslovInt#
-#\izlaz{Unosite brojeve: (za kraj unesite CTRL+D)}#
+#\izlaz{Unosite brojeve: (za kraj CTRL+D)}#
 #\ulaz{23}#
 #\izlaz{Lista: [23]}#
 #\ulaz{14}#
@@ -87,63 +82,57 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 #\ulaz{35}#
 #\izlaz{Lista: [35, 14, 23]}#
 
-#\izlaz{Unesite broj koji se trazi u listi:} \ulaz{8}#
+#\izlaz{Unesite broj koji se trazi:} \ulaz{8}#
 #\izlaz{Broj 8 se ne nalazi u listi!}#
 \end{upotreba}
-\end{maxitest}
-\begin{maxitest}
-\begin{upotreba}{3}
-#\poziv{./a.out}#
-
-#\naslovInt#
-#\izlaz{Unosite brojeve: (za kraj unesite CTRL+D)}#
-
-#\izlaz{Unesite broj koji se trazi u listi:} \ulaz{1}#
-#\izlaz{Broj 1 se ne nalazi u listi!}#
-\end{upotreba}
-\end{maxitest}
+\end{miditest}
+% \begin{miditest}
+% \begin{upotreba}{3}
+% #\poziv{./a.out}#
+% 
+% #\naslovInt#
+% #\izlaz{Unosite brojeve: (za kraj CTRL+D)}#
+% 
+% #\izlaz{Unesite broj koji se trazi:} \ulaz{1}#
+% #\izlaz{Broj 1 se ne nalazi u listi!}#
+% \end{upotreba}
+% \end{miditest}
 
 
 \item[(2)] U programu se učitani celi brojevi dodaju na kraj liste. 
     Unosi se ceo broj čija se sva pojavljivanja u listi brišu. Na ekran se ispisuje sadržaj liste nakon brisanja.
 
-\begin{maxitest}
+\begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out}#
 
 #\naslovInt#
-#\izlaz{Unosite brojeve: (za kraj unesite CTRL+D)}#
+#\izlaz{Unosite brojeve: (za kraj CTRL+D)}#
 #\ulaz{2}#
 #\izlaz{Lista: [2]}#
 #\ulaz{3}#
 #\izlaz{Lista: [2, 3]}#
 #\ulaz{14}#
 #\izlaz{Lista: [2, 3, 14]}#
-#\ulaz{5}#
-#\izlaz{Lista: [2, 3, 14, 5]}#
 #\ulaz{3}#
-#\izlaz{Lista: [2, 3, 14, 5, 3]}#
+#\izlaz{Lista: [2, 3, 14, 3]}#
 #\ulaz{3}#
-#\izlaz{Lista: [2, 3, 14, 5, 3, 3]}#
+#\izlaz{Lista: [2, 3, 14, 3, 3]}#
 #\ulaz{17}#
-#\izlaz{Lista: [2, 3, 14, 5, 3, 3, 17]}#
+#\izlaz{Lista: [2, 3, 14, 3, 3, 17]}#
 #\ulaz{3}#
-#\izlaz{Lista: [2, 3, 14, 5, 3, 3, 17, 3]}#
-#\ulaz{1}#
-#\izlaz{Lista: [2, 3, 14, 5, 3, 3, 17, 3, 1]}#
-#\ulaz{3}#
-#\izlaz{Lista: [2, 3, 14, 5, 3, 3, 17, 3, 1, 3]}#
+#\izlaz{Lista: [2, 3, 14, 3, 3, 17, 3]}#
 
-#\izlaz{Unesite broj koji se brise iz liste:} \ulaz{3}#
-#\izlaz{Lista nakon brisanja:  [2, 14, 5, 17, 1]}#
+#\izlaz{Unesite broj koji se brise:} \ulaz{3}#
+#\izlaz{Lista nakon brisanja:  [2, 14, 17]}#
 \end{upotreba}
-\end{maxitest}
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{upotreba}{2}
 #\poziv{./a.out}#
 
 #\naslovInt#
-#\izlaz{Unesite brojeve: (za kraj unesite CTRL+D)}#
+#\izlaz{Unesite brojeve: (za kraj CTRL+D)}#
 #\ulaz{23}#
 #\izlaz{Lista: [23]}#
 #\ulaz{14}#
@@ -151,21 +140,21 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 #\ulaz{35}#
 #\izlaz{Lista: [23, 14, 35]}#
 
-#\izlaz{Unesite broj koji se brise iz liste:} \ulaz{3}#
+#\izlaz{Unesite broj koji se brise:} \ulaz{3}#
 #\izlaz{Lista nakon brisanja:  [23, 14, 35]}#
 \end{upotreba}
-\end{maxitest}  
-\begin{maxitest}
-\begin{upotreba}{3}
-#\poziv{./a.out}#
-
-#\naslovInt#
-#\izlaz{Unesite brojeve: (za kraj unesite CTRL+D)}#
-
-#\izlaz{Unesite broj koji se brise iz liste:} \ulaz{12}#
-#\izlaz{Lista nakon brisanja:  []}#
-\end{upotreba}
-\end{maxitest} 
+\end{miditest}  
+% \begin{miditest}
+% \begin{upotreba}{3}
+% #\poziv{./a.out}#
+% 
+% #\naslovInt#
+% #\izlaz{Unesite brojeve: (za kraj CTRL+D)}#
+% 
+% #\izlaz{Unesite broj koji se brise:} \ulaz{12}#
+% #\izlaz{Lista nakon brisanja:  []}#
+% \end{upotreba}
+% \end{miditest} 
 
 
 \item[(3)] U glavnom programu se učitani celi brojevi dodaju u listu tako da vrednosti budu uređene u neopadajućem poretku. 
@@ -173,60 +162,38 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
     Potom se unosi još jedan ceo broj čija se sva pojavljivanja u listi brišu i prikazuje se aktuelni sadržaj liste nakon brisanja.
     \napomena{Prilikom pretraživanja liste i brisanja čvora liste koristiti činjenicu da je lista uređena.}
     
-\begin{maxitest}
+\begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out}#
 
 #\naslovInt#
-#\izlaz{Unesite brojeve: (za kraj unesite CTRL+D)}#
+#\izlaz{Unesite brojeve: (za kraj CTRL+D)}#
 #\ulaz{2}#
 #\izlaz{Lista: [2]}#
 #\ulaz{3}#
 #\izlaz{Lista: [2, 3]}#
 #\ulaz{14}#
 #\izlaz{Lista: [2, 3, 14]}#
+#\ulaz{3}#
+#\izlaz{Lista: [2, 3, 3, 14]}#
+#\ulaz{3}#
+#\izlaz{Lista: [2, 3, 3, 3, 14]}#
 #\ulaz{5}#
-#\izlaz{Lista: [2, 3, 5, 14]}#
-#\ulaz{3}#
-#\izlaz{Lista: [2, 3, 3, 5, 14]}#
-#\ulaz{3}#
 #\izlaz{Lista: [2, 3, 3, 3, 5, 14]}#
-#\ulaz{17}#
-#\izlaz{Lista: [2, 3, 3, 3, 5, 14, 17]}#
-#\ulaz{3}#
-#\izlaz{Lista: [2, 3, 3, 3, 3, 5, 14, 17]}#
-#\ulaz{1}#
-#\izlaz{Lista: [1, 2, 3, 3, 3, 3, 5, 14, 17]}#
-#\ulaz{9}#
-#\izlaz{Lista: [1, 2, 3, 3, 3, 3, 5, 9, 14, 17]}#
 
-#\izlaz{Unesite broj koji se trazi u listi:} \ulaz{5}#
-#\izlaz{Trazeni broj 5 je u listi!}#
+#\izlaz{Unesite broj koji se trazi:} \ulaz{14}#
+#\izlaz{Trazeni broj 14 je u listi!}#
 
-#\izlaz{Unesite broj koji se brise iz liste:} \ulaz{3}#
-#\izlaz{Lista nakon brisanja:  [1, 2, 5, 9, 14, 17]}#
+#\izlaz{Unesite broj koji se brise:} \ulaz{3}#
+#\izlaz{Lista nakon brisanja:  [2, 5, 14]}#
 \end{upotreba}
-\end{maxitest}
-\begin{maxitest}
+\end{miditest}
+\begin{miditest}
 \begin{upotreba}{2}
 #\poziv{./a.out}#
 
 #\naslovInt#
-#\izlaz{Unesite brojeve: (za kraj unesite CTRL+D)}#
-
-#\izlaz{Unesite broj koji se trazi u listi:} \ulaz{1}#
-#\izlaz{Broj 1 se ne nalazi u listi!}#
-
-#\izlaz{Unesite broj koji se brise iz liste:} \ulaz{12}#
-#\izlaz{Lista nakon brisanja:  []}#
-\end{upotreba}
-\end{maxitest}
-\begin{maxitest}
-\begin{upotreba}{3}
-#\poziv{./a.out}#
-
-#\naslovInt#
-#\izlaz{Unesite brojeve: (za kraj unesite CTRL+D)}#
+#\izlaz{Unesite brojeve: (za kraj CTRL+D)}#
 #\ulaz{23}#
 #\izlaz{Lista: [23]}#
 #\ulaz{14}#
@@ -234,13 +201,27 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 #\ulaz{35}#
 #\izlaz{Lista: [14, 23, 35]}#
 
-#\izlaz{Unesite broj koji se trazi u listi:} \ulaz{8}#
+#\izlaz{Unesite broj koji se trazi:} \ulaz{8}#
 #\izlaz{Broj 8 se ne nalazi u listi!}#
 
-#{Unesite broj koji se brise iz liste:} \ulaz{3}#
+#{Unesite broj koji se brise:} \ulaz{3}#
 #{Lista nakon brisanja:  [14, 23, 35]}#
 \end{upotreba}
-\end{maxitest}
+\end{miditest}
+% \begin{miditest}
+% \begin{upotreba}{3}
+% #\poziv{./a.out}#
+% 
+% #\naslovInt#
+% #\izlaz{Unesite brojeve: (za kraj CTRL+D)}#
+% 
+% #\izlaz{Unesite broj koji se trazi:} \ulaz{1}#
+% #\izlaz{Broj 1 se ne nalazi u listi!}#
+% 
+% #\izlaz{Unesite broj koji se brise:} \ulaz{5}#
+% #\izlaz{Lista nakon brisanja:  []}#
+% \end{upotreba}
+% \end{miditest}
 
 \end{enumerate}
 \linkresenje{601}
@@ -256,7 +237,7 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 %=========================================================================
 \begin{Exercise}[label=602]
 Napisati biblioteku za rad sa jednostruko povezanim listama koja sadrži sve funkcije iz zadatka \ref{601}, ali tako da funkcije budu implementirane rekurzivno. 
-\napomena{Koristiti iste \kckod{main} programe i upotrebe programa iz zadatka \ref{601}.}
+\napomena{Koristiti iste \kckod{main} programe i test primere iz zadatka \ref{601}.}
 \linkresenje{602}
 \end{Exercise}
 \begin{Answer}[ref=602]
@@ -270,11 +251,11 @@ Napisati biblioteku za rad sa dvostruko povezanom listom celih brojeva koja ima 
 Dopuniti bibilioteku novim funkcijama.
 \begin{enumerate}
  \item Napisati funkciju \kckod{void obrisi\_tekuci(Cvor** adresa\_glave, Cvor* tekuci)} koja iz liste čija se glava nalazi na adresi \kckod{adresa\_glave} briše čvor na koji pokazuje pokazivač \kckod{tekuci}.
- \item Napisati funkciju \kckod{void ispisi\_listu\_u\_nazad(Cvor* glava)} koja ispisuje sadržaj liste od poslednjeg čvora ka glavi liste.
+ \item Napisati funkciju \kckod{void ispisi\_listu\_unazad(Cvor* glava)} koja ispisuje sadržaj liste od poslednjeg čvora ka glavi liste.
 \end{enumerate}
 
 Sve funkcije za rad sa listom implementirati iterativno.
-\napomena{Koristiti iste \kckod{main} programe i upotrebe programa iz zadatka \ref{601}. Ove programe dopuniti pozivom funkcije koja ispisuje listu u nazad. }
+\napomena{Koristiti iste \kckod{main} programe i test primere iz zadatka \ref{601}. Ove programe dopuniti pozivom funkcije koja ispisuje listu unazad. }
 \linkresenje{603}
 \end{Exercise}
 \begin{Answer}[ref=603]
@@ -369,9 +350,9 @@ utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
 \begin{Exercise}[label=605]
 Napisati program koji proverava ispravnost uparivanja etiketa u \kckod{HTML} datoteci. Ime datoteke se zadaje kao argument komandne linije.
 Poruke o greškama ispisivati na standardni izlaz za greške.
-\uputstvo{Za rešavanje problema koristiti stek implementiran preko liste čiji su čvorovi \kckod{HTML} etikete.}
+\uputstvo{Za rešavanje problema koristiti stek implementiran preko liste čiji čvorovi sadrže \kckod{HTML} etikete.}
 
-
+\noindent
 \begin{miditest}      
 \begin{test}{1}
 #\poziv{./a.out datoteka.html}#
@@ -379,7 +360,7 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 #\naslovDat{datoteka.html}#                     
 #\datoteka{<html>}#                                
 #\datoteka{  <head>}#
-#\datoteka{    <title>Primer</title>}#
+#\datoteka{  \ \ <title>Primer</title>}#
 #\datoteka{  </head>}#
 #\datoteka{  <body>}#
 #\datoteka{  </body>}#
@@ -393,12 +374,17 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 \begin{test}{2}
 #\poziv{./a.out datoteka.html}#
 
-#\naslovDat{datoteka.html}#                     
-#\datoteka{Datoteka ne postoji.}#
+#\naslovDat{datoteka.html}#                                                 
+#\datoteka{  <head>}#
+#\datoteka{  \ \ <title>Primer</title>}#
+#\datoteka{  </head>}#
+#\datoteka{  <body>}#
+#\datoteka{  </body>}#
+#\datoteka{</html>}#  
 
 #\naslovIzlaz#
-#\izlaz{Greska prilikom otvaranja}# 
-#\izlaz{datoteke datoteka.html.}#
+#\izlaz{Etikete nisu pravilno uparene}#
+#\izlaz{(nadjena je etiketa </html> koja nije otvorena)}# 
 \end{test}
 \end{miditest}
 \begin{miditest}
@@ -408,14 +394,13 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 #\naslovDat{datoteka.html}#                     
 #\datoteka{<html>}#
 #\datoteka{  <head>}#
-#\datoteka{    <title>Primer</title>}#
+#\datoteka{  \ \ <title>Primer</title>}#
 #\datoteka{  </head>}#
 #\datoteka{  <body>}#
-#\datoteka{    <h1>Naslov</h1>}#
-#\datoteka{    Danas je lep i suncan dan. <br>}#
-#\datoteka{    A sutra ce biti jos lepsi.}#
-#\datoteka{    <a link="http://www.google.com" > Link 1</a>}#
-#\datoteka{    <a link="http://www.math.rs" > Link 2</a>}#
+#\datoteka{  \ \ <h1>Naslov</h1>}#
+#\datoteka{  \ \ Danas je lep i suncan dan. <br>}#
+#\datoteka{  \ \ Sutra ce biti jos lepsi.}#
+#\datoteka{  \ \ <a link='http://www.math.rs'>Link</a>}#
 #\datoteka{  </body>}#
 #\datoteka{</html>}#
 
@@ -430,25 +415,28 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 #\naslovDat{datoteka.html}#                     
 #\datoteka{<html>}#
 #\datoteka{  <head>}#
-#\datoteka{    <title>Primer</title>}#
+#\datoteka{  \ \ <title>Primer</title>}#
 #\datoteka{  </head>}#
 #\datoteka{  <body>}#
 #\datoteka{</html>}#
 
 #\naslovIzlaz#
 #\izlaz{Etikete nisu pravilno uparene}#
-#\izlaz{(nadjena etiketa </html>, a poslednja }#
-#\izlaz{otvorena etiketa je <body>)}#
+#\izlaz{(nadjena je etiketa </html>, a poslednja }#
+#\izlaz{otvorena je <body>)}#
 
 \end{test}
 \end{miditest}
 \begin{miditest}
 \begin{test}{5}
-#\poziv{./a.out}#
+#\poziv{./a.out datoteka.html}#
+
+#\naslovDat{datoteka.html}#                     
+#\datoteka{Datoteka ne postoji.}#
 
 #\naslovIzlaz#
-#\izlaz{Greska! Program se poziva}# 
-#\izlaz{sa: ./a.out datoteka.html!}#
+#\izlaz{Greska prilikom otvaranja}# 
+#\izlaz{datoteke datoteka.html.}#
 \end{test}
 \end{miditest}
 \begin{miditest}
@@ -484,8 +472,7 @@ Posle svakog $petog$ usluženog korisnika, službeniku se nudi mogućnost da pre
 #\poziv{./a.out}#
 
 #\naslovInt#
-#\izlaz{Sluzbenik evidentira korisnicke zahteve unosenjem}# 
-#\izlaz{njihovog JMBG broja i opisa potrebne usluge:}#
+#\izlaz{Sluzbenik evidentira korisnicke zahteve:m}# 
 #\izlaz{Novi zahtev [CTRL+D za kraj]}#
 #\izlaz{  JMBG:} \ulaz{1234567890123}#
 #\izlaz{  Opis problema:} \ulaz{Otvaranje racuna}#
@@ -499,43 +486,38 @@ Posle svakog $petog$ usluženog korisnika, službeniku se nudi mogućnost da pre
 #\izlaz{  Opis problema:} \ulaz{Reklamacija}#
 
 #\izlaz{Novi zahtev [CTRL+D za kraj]}#
-#\izlaz{  JMBG:} \ulaz{4567890123456}#
-#\izlaz{  Opis problema:} \ulaz{Zatvaranje racuna}#
-
-#\izlaz{Novi zahtev [CTRL+D za kraj]}#
 #\izlaz{  JMBG:}#
 
-#\izlaz{Sledeci je korisnik sa JMBG brojem: 1234567890123}#
-#\izlaz{sa zahtevom: Otvaranje racuna}#
+#\izlaz{Sledeci je korisnik sa JMBG: 1234567890123}#
+#\izlaz{i zahtevom: Otvaranje racuna}#
 #\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Da}#
 
-#\izlaz{Sledeci je korisnik sa JMBG brojem: 2345678901234}#
-#\izlaz{sa zahtevom: Podizanje novca}#
+#\izlaz{Sledeci je korisnik sa JMBG: 2345678901234}#
+#\izlaz{i zahtevom: Podizanje novca}#
 #\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Ne}#
 
-#\izlaz{Sledeci je korisnik sa JMBG brojem: 3456789012345}#
-#\izlaz{sa zahtevom: Reklamacija}#
+#\izlaz{Sledeci je korisnik sa JMBG: 3456789012345}#
+#\izlaz{i zahtevom: Reklamacija}#
 #\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Da}#
 
-#\izlaz{Sledeci je korisnik sa JMBG brojem: 4567890123456}#
-#\izlaz{sa zahtevom: Zatvaranje racuna}#
-#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Ne}#
+#\izlaz{Sledeci je korisnik sa JMBG: 1234567890123}#
+#\izlaz{i zahtevom: Otvaranje racuna}#
+#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Da}#
 
-#\izlaz{Sledeci je korisnik sa JMBG brojem: 1234567890123}#
-#\izlaz{sa zahtevom: Otvaranje racuna}#
+#\izlaz{Sledeci je korisnik sa JMBG: 3456789012345}#
+#\izlaz{i zahtevom: Reklamacija}#
 #\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Ne}#
 
 #\izlaz{Da li je kraj smene? [Da/Ne]} \ulaz{Ne}#
 
-#\izlaz{Sledeci je korisnik sa JMBG brojem: 3456789012345}#
-#\izlaz{sa zahtevom: Reklamacija}#
+#\izlaz{Sledeci je korisnik sa JMBG: 1234567890123}#
+#\izlaz{i zahtevom: Otvaranje racuna}#
 #\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Ne}#
 
 #\naslovDat{izvestaj.txt}#
 #\datoteka{  JMBG: 2345678901234     Zahtev: Podizanje novca}#
-#\datoteka{  JMBG: 4567890123456     Zahtev: Zatvaranje racuna}#
-#\datoteka{  JMBG: 1234567890123     Zahtev: Otvaranje racuna}#
 #\datoteka{  JMBG: 3456789012345     Zahtev: Reklamacija}#
+#\datoteka{  JMBG: 1234567890123     Zahtev: Otvaranje racuna}#
 \end{upotreba}
 \end{maxitest}
 \linkresenje{606}
@@ -543,7 +525,7 @@ Posle svakog $petog$ usluženog korisnika, službeniku se nudi mogućnost da pre
 \begin{Answer}[ref=606]
 \includecode{resenja/06_Liste/606/red.h}
 \includecode{resenja/06_Liste/606/red.c}
-\includecode{resenja/06_Liste/606/main_a.c}
+\includecode{resenja/06_Liste/606/main.c}
 \end{Answer}
 
 %%% Obavezni sa praktikuma
@@ -568,11 +550,11 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
 #\datoteka{<html>}#                       
 #\datoteka{  <head><title>Primer</title></head>}#
 #\datoteka{  <body>}#
-#\datoteka{    <h1>Naslov</h1>}#
-#\datoteka{    Danas je lep i suncan dan. <br>}#
-#\datoteka{    A sutra ce biti jos lepsi.}#
-#\datoteka{    <a link="http://www.google.com"> Link 1</a>}#     
-#\datoteka{    <a link="http://www.math.rs"> Link 2</a>}# 
+#\datoteka{  \ \ <h1>Naslov</h1>}#
+#\datoteka{  \ \ Danas je lep i suncan dan. <br>}#
+#\datoteka{  \ \ A sutra ce biti jos lepsi.}#
+#\datoteka{  \ \ <a link='http://www.google.com'> Link 1</a>}#     
+#\datoteka{  \ \ <a link='http://www.math.rs'> Link 2</a>}# 
 #\datoteka{  </body>}# 
 #\datoteka{</html>}# 
 
@@ -598,23 +580,23 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
 #\izlaz{datoteke datoteka.html.}#
 \end{test}
 \end{miditest}
-\begin{miditest}
-\begin{test}{3}
-#\poziv{./a.out}#
-
-#\naslovIzlaz#
-#\izlaz{Greska! Program se poziva }#
-#\izlaz{sa: ./a.out datoteka.html!}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{4}
-#\poziv{./a.out datoteka.html}#
-
-#\naslovDat{datoteka.html}#
-#\datoteka{Datoteka je prazna.}#
-\end{test}
-\end{miditest}
+% \begin{miditest}
+% \begin{test}{3}
+% #\poziv{./a.out}#
+% 
+% #\naslovIzlaz#
+% #\izlaz{Greska! Program se poziva }#
+% #\izlaz{sa: ./a.out datoteka.html!}#
+% \end{test}
+% \end{miditest}
+% \begin{miditest}
+% \begin{test}{4}
+% #\poziv{./a.out datoteka.html}#
+% 
+% #\naslovDat{datoteka.html}#
+% #\datoteka{Datoteka je prazna.}#
+% \end{test}
+% \end{miditest}
 \linkresenje{607}
 \end{Exercise}
 \begin{Answer}[ref=607]
@@ -627,11 +609,12 @@ U datoteci se nalaze podaci o studentima. U svakom redu datoteke nalazi se indek
 Napisati program kome se preko argumenata komandne linije prosleđuje ime datoteke sa studentskim podacima koje program treba da pročita i smesti u listu. 
 Nakon završenog učitavanja svih podataka o studentima, sa standardnog ulaza unose se, jedan po jedan, indeksi studenata koji se traže u učitanoj listi. 
 Posle svakog unetog indeksa, program ispisuje poruku \kckod{da} ili \kckod{ne}, u zavisnosti od toga da li u listi postoji student sa unetim indeksom ili ne. 
-Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF).
-\uputstvo{Dodavanje novog studenta izdvojiti u funkciju \kckod{void dodaj\_na\_pocetak\_liste(Cvor** glava, char* broj\_indeksa, char* ime, char* prezime)}.
-Napisati rekurzivnu funkciju \kckod{Cvor* pretrazi\_listu(Cvor* glava, char* broj\_indeksa)} koja određuje da li student sa zadatim brojem indeksa pripada listi ili ne.
-Nakon završenog pretraživanja rekurzivnom funkcijom \kckod{void oslobodi\_listu(Cvor** glava)} osloboditi memoriju koju je lista sa studentima zauzimala.
-Pretpostaviti da je 10 karaktera dovoljno za zapis indeksa i da je 20 karaketera maksimalna dužina bilo imena bilo prezimena studenta.}
+Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF). Poruke o greškama ispisivati na standardni izlaz za greške.
+\uputstvo{Pretpostaviti da je 10 karaktera dovoljno za zapis indeksa i da je 20 karaktera maksimalna dužina bilo imena bilo prezimena studenta.}
+
+% Dodavanje novog studenta izdvojiti u funkciju \kckod{void dodaj\_na\_pocetak\_liste(Cvor** glava, char* broj\_indeksa, char* ime, char* prezime)}.
+% Napisati rekurzivnu funkciju \kckod{Cvor* pretrazi\_listu(Cvor* glava, char* broj\_indeksa)} koja određuje da li student sa zadatim brojem indeksa pripada listi ili ne.
+% Nakon završenog pretraživanja rekurzivnom funkcijom \kckod{void oslobodi\_listu(Cvor** glava)} osloboditi memoriju koju je lista sa studentima zauzimala.
 
 \noindent
 \begin{miditest}
@@ -664,27 +647,27 @@ Pretpostaviti da je 10 karaktera dovoljno za zapis indeksa i da je 20 karaketera
 #\ulaz{41/2009} \izlaz{ne}#
 \end{upotreba}
 \end{miditest}
-\begin{miditest}
-\begin{upotreba}{3}
-#\poziv{./a.out}#
-
-#\naslovIzlaz# 
-#\izlaz{Greska! Program se poziva sa: }#
-#\izlaz{./a.out studenti.txt!}#
-\end{upotreba}
-\end{miditest}
-\begin{miditest}
-\begin{upotreba}{4}
-#\poziv{./a.out  studenti.txt}#
-
-#\naslovDat{studenti.txt}#
-#\datoteka{Datoteka ne postoji.}#
-
-#\naslovIzlaz#
-#\izlaz{Greska prilikom otvaranja datoteke}#
-#\izlaz{studenti.txt.}#
-\end{upotreba}
-\end{miditest}  
+% \begin{miditest}
+% \begin{upotreba}{3}
+% #\poziv{./a.out}#
+% 
+% #\naslovIzlaz# 
+% #\izlaz{Greska! Program se poziva sa: }#
+% #\izlaz{./a.out studenti.txt!}#
+% \end{upotreba}
+% \end{miditest}
+% \begin{miditest}
+% \begin{upotreba}{4}
+% #\poziv{./a.out  studenti.txt}#
+% 
+% #\naslovDat{studenti.txt}#
+% #\datoteka{Datoteka ne postoji.}#
+% 
+% #\naslovIzlaz#
+% #\izlaz{Greska prilikom otvaranja datoteke}#
+% #\izlaz{studenti.txt.}#
+% \end{upotreba}
+% \end{miditest}  
 
 \linkresenje{608}
 \end{Exercise}
@@ -711,7 +694,7 @@ kreira nove čvorove, već da samo preraspodeli postojeće čvorove. Prva lista 
 #\datoteka{5 6 11 12 14 16}#
 
 #\naslovIzlaz#
-#\izlaz{2 4 5 6 6 10 11 12 14 15 16}#
+#\izlaz{[2, 4, 5, 6, 6, 10, 11, 12, 14, 15, 16]}#
 \end{test}
 \end{miditest}
 \begin{miditest}
@@ -729,60 +712,51 @@ kreira nove čvorove, već da samo preraspodeli postojeće čvorove. Prva lista 
 #\izlaz{dat2.txt.}#
 \end{test}
 \end{miditest}
+% \begin{miditest}
+% \begin{test}{3}
+% #\poziv{./a.out dat1.txt dat2.txt}#
+% 
+% #\naslovDat{dat1.txt}#
+% #\datoteka{Datoteka ne postoji.}#
+% 
+% #\naslovDat{dat2.txt}#
+% #\datoteka{5 6 11 12 14 16}#
+% 
+% #\naslovIzlaz#
+% #\izlaz{Greska prilikom otvaranja datoteke}#
+% #\izlaz{dat1.txt.}#
+% \end{test}
+% \end{miditest}  
+% \begin{miditest}
+% \begin{test}{4}
+% #\poziv{./a.out dat1.txt dat2.txt}#
+% 
+% #\naslovDat{dat1.txt}#
+% #\datoteka{2 4 6 10 15}#
+% 
+% #\naslovDat{dat2.txt}#
+% #\datoteka{Datoteka je prazna.}#
+% 
+% #\naslovIzlaz#
+% #\izlaz{[2, 4, 6, 10, 15]}#
+% \end{test}
+% \end{miditest}
 \begin{miditest}
 \begin{test}{3}
 #\poziv{./a.out dat1.txt dat2.txt}#
 
 #\naslovDat{dat1.txt}#
-#\datoteka{Datoteka ne postoji.}#
+#\datoteka{Datoteka je prazna.}#
 
 #\naslovDat{dat2.txt}#
 #\datoteka{5 6 11 12 14 16}#
 
 #\naslovIzlaz#
-#\izlaz{Greska prilikom otvaranja datoteke}#
-#\izlaz{dat1.txt.}#
+#\izlaz{[5, 6, 11, 12, 14, 16]}#
 \end{test}
-\end{miditest}  
+\end{miditest}
 \begin{miditest}
 \begin{test}{4}
-#\poziv{./a.out dat1.txt dat2.txt}#
-
-#\naslovDat{dat1.txt}#
-#\datoteka{2 4 6 10 15}#
-
-#\naslovDat{dat2.txt}#
-#\datoteka{Datoteka je prazna.}#
-
-#\naslovIzlaz#
-#\izlaz{2 4 6 10 15}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{5}
-#\poziv{./a.out dat1.txt dat2.txt}#
-
-#\naslovDat{dat1.txt}#
-#\datoteka{Datoteka je prazna.}#
-
-#\naslovDat{dat2.txt}#
-#\datoteka{5 6 11 12 14 16}#
-
-#\naslovIzlaz#
-#\izlaz{5 6 11 12 14 16}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{6}
-#\poziv{./a.out}#
-
-#\naslovIzlaz# 
-#\izlaz{Greska! Program se poziva sa:}#
-#\izlaz{./a.out dat1.txt dat2.txt!}#
-\end{test}
-\end{miditest}  
-\begin{miditest}
-\begin{test}{7}
 #\poziv{./a.out dat1.txt}#
 
 #\naslovIzlaz# 
@@ -808,7 +782,7 @@ rasporediti u jednu listu. Prva lista se učitava iz datoteke čije se ime zadaj
 drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz. 
 %\komentar{Milena: Sta ako je neka lista duza? To precizirati. I ovde me muci sto nedostaje neki smisao zadatku, nesto sto ne bi moglo da se uradi da nismo koristili liste. }
 
-\napomena{Iskoristiti testove 2 - 7 za zadatak \ref{609}.}
+\napomena{Iskoristiti testove 2 - 6 za zadatak \ref{609}.}
 
 \noindent
 \begin{miditest}
@@ -932,18 +906,6 @@ Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u 
 #\izlaz{od k, a 3 < 8!}#
 \end{test}
 \end{minitest}
-\begin{minitest}
-\begin{test}{4}
-#\poziv{./a.out}#
-
-#\naslovUlaz#
-#\ulaz{0 0}#
-
-#\naslovIzlaz# 
-#\izlaz{Broj plesaca mora biti}#
-#\izlaz{veci od 0!}#
-\end{test}
-\end{minitest}
 \end{Exercise}
 %\begin{Answer}[ref=612]
 % \includecode{resenja/06_Liste/601.c}
@@ -961,7 +923,7 @@ sve dok svi plesači ne budu isključeni.
 Celi brojevi $n$, $k$ ($k < n$) se učitavaju sa standardnog ulaza. 
 Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u redosledu napuštanja kruga. 
 \uputstvo{Pri implementaciji koristiti dvostruko povezanu kružnu listu.}
-\napomena{Iskoristiti testove 3 i 4 iz \ref{612}. zadatka.}
+\napomena{Iskoristiti test 3 iz \ref{612}. zadatka.}
 
 \begin{minitest}
 \begin{test}{1}

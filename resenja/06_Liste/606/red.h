@@ -7,8 +7,8 @@
 #define MAX 1000
 #define JMBG_DUZINA 14
 
-/* Struktura predstavlja zahtev korisnika. Obuhvata JMBG
-   korisnika i opis njegovog zahteva. */
+/* Struktura predstavlja zahtev korisnika. Obuhvata JMBG korisnika i
+   opis njegovog zahteva. */
 typedef struct {
   char jmbg[JMBG_DUZINA];
   char opis[MAX];

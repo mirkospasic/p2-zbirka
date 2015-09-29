@@ -9,8 +9,8 @@ typedef struct _Element {
   struct _Element *sledeci;
 } Element;
 
-/* Pomocna funkcija koja kreira cvor. Vraca pokazivac na novi
-   cvor ili NULL ako alokacija nije uspesno izvrsena. */
+/* Pomocna funkcija koja kreira cvor. Vraca pokazivac na novi cvor
+   ili NULL ako alokacija nije uspesno izvrsena. */
 Element *napravi_cvor(unsigned br, char *etiketa)
 {
   Element *novi = (Element *) malloc(sizeof(Element));
@@ -23,8 +23,7 @@ Element *napravi_cvor(unsigned br, char *etiketa)
   return novi;
 }
 
-/* Funkcija oslobadja dinamicku memoriju zauzetu za elemente
-   liste. */
+/* Funkcija oslobadja dinamicku memoriju zauzetu za elemente liste. */
 void oslobodi_listu(Element ** glava)
 {
   Element *pomocni = NULL;
@@ -36,15 +35,14 @@ void oslobodi_listu(Element ** glava)
   }
 }
 
-/* Funkcija proverava uspesnost alokacije memorije za cvor novi
-   i ukoliko alokacija nije bila uspesna, oslobadja se sva
-   prethodno zauzeta memorija za listu cija pocetni cvor se
-   nalazi na adresi glava. */
+/* Funkcija proverava uspesnost alokacije memorije za cvor novi i
+   ukoliko alokacija nije bila uspesna, oslobadja se sva prethodno
+   zauzeta memorija za listu cija pocetni cvor se nalazi na adresi
+   glava. */
 void provera_alokacije(Element * novi, Element ** glava)
 {
   if (novi == NULL) {
-    fprintf(stderr, "malloc() greska u funkciji \
-napravi_cvor()!\n");
+    fprintf(stderr, "malloc() greska u funkciji napravi_cvor()!\n");
     oslobodi_listu(glava);
     exit(EXIT_FAILURE);
   }
@@ -75,15 +73,14 @@ Element *pretrazi_listu(Element * glava, char etiketa[])
 void ispisi_listu(Element * glava)
 {
   for (; glava != NULL; glava = glava->sledeci)
-    printf("%s - %u\n", glava->etiketa,
-           glava->broj_pojavljivanja);
+    printf("%s - %u\n", glava->etiketa, glava->broj_pojavljivanja);
 }
 
 int main(int argc, char **argv)
 {
   if (argc != 2) {
-    fprintf(stderr, "Greska! Program se poziva sa: ./a.out \
-datoteka.html!\n");
+    fprintf(stderr,
+            "Greska! Program se poziva sa: ./a.out datoteka.html!\n");
     exit(EXIT_FAILURE);
   }
 
@@ -105,13 +102,13 @@ datoteka.html!\n");
   while ((c = fgetc(in)) != EOF) {
 
     if (c == '<') {
-      /* Cita se zatvarac. */
+      /* Cita se zatvorena etiketa. */
       if ((c = fgetc(in)) == '/') {
         i = 0;
         while ((c = fgetc(in)) != '>')
           a[i++] = c;
       }
-      /* Cita se otvarac. */
+      /* Cita se otvorena etiketa. */
       else {
         i = 0;
         a[i++] = c;
@@ -120,10 +117,10 @@ datoteka.html!\n");
       }
       a[i] = '\0';
 
-      /* Trazi se ucitana etiketa medju postojecim cvorovima
-         liste. Ukoliko ne postoji, dodaje se novi cvor za
-         ucitanu etiketu sa brojem pojavljivanja 1, inace
-         uvecava se broj pojavljivanja etikete. */
+      /* Trazi se ucitana etiketa medju postojecim cvorovima liste.
+         Ukoliko ne postoji, dodaje se novi cvor za ucitanu etiketu
+         sa brojem pojavljivanja 1, inace uvecava se broj
+         pojavljivanja etikete. */
       trazeni = pretrazi_listu(glava, a);
       if (trazeni == NULL)
         dodaj_na_pocetak_liste(&glava, 1, a);

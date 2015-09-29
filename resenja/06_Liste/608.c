@@ -5,6 +5,8 @@
 #define MAX_INDEKS 11
 #define MAX_IME_PREZIME 21
 
+/* Struktura kojom se predstavlja cvor liste koji sadrzi podatke o
+   studentu. */
 typedef struct _Cvor {
   char broj_indeksa[MAX_INDEKS];
   char ime[MAX_IME_PREZIME];
@@ -12,8 +14,8 @@ typedef struct _Cvor {
   struct _Cvor *sledeci;
 } Cvor;
 
-/* Funkcija kreira, inicijalizuje cvor liste i vraca pokazivac
-   na nov cvor ili NULL ukoliko alokacija nije prosla. */
+/* Funkcija kreira, inicijalizuje cvor liste i vraca pokazivac na nov 
+   cvor ili NULL ukoliko alokacija nije prosla. */
 Cvor *napravi_cvor(char *broj_indeksa, char *ime, char *prezime)
 {
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
@@ -62,8 +64,8 @@ void ispisi_listu(Cvor * glava)
            glava->prezime);
 }
 
-/* Funkcija vraca cvor koji kao vrednost sadrzi trazenu etiketu,
-   u suprotnom vraca NULL. */
+/* Funkcija vraca cvor koji kao vrednost sadrzi trazenu etiketu, u
+   suprotnom vraca NULL. */
 Cvor *pretrazi_listu(Cvor * glava, char *broj_indeksa)
 {
   if (glava == NULL)
@@ -95,8 +97,7 @@ studenti.txt!\n");
   Cvor *trazeni = NULL;
 
   /* Ucitavanje vrednosti u listu. */
-  while (fscanf(in, "%s %s %s", broj_indeksa, ime, prezime) !=
-         EOF)
+  while (fscanf(in, "%s %s %s", broj_indeksa, ime, prezime) != EOF)
     dodaj_na_pocetak_liste(&glava, broj_indeksa, ime, prezime);
 
   fclose(in);

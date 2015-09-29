@@ -2,8 +2,7 @@
 #define _LISTA_H
 
 /* Struktura kojom je predstavljen cvor liste sadrzi celobrojni
-   podatak vrednost i pokazivace na sledeci i prethodni cvor
-   liste. */
+   podatak vrednost i pokazivace na sledeci i prethodni cvor liste. */
 typedef struct cvor {
   int vrednost;
   struct cvor *sledeci;
@@ -38,6 +37,6 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, int broj);
 
 void ispisi_listu(Cvor * glava);
 
-void ispisi_listu_u_nazad(Cvor * glava);
+void ispisi_listu_unazad(Cvor * glava);
 
 #endif

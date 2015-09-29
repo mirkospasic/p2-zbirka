@@ -12,15 +12,15 @@
 #define PROCITANO_MANJE 1
 #define U_ETIKETI 2
 
-/* Struktura kojim se predstavlja cvor liste: sadrzi ime etikete
-   i pokazivac na sledeci cvor. */
+/* Struktura kojim se predstavlja cvor liste: sadrzi ime etikete i
+   pokazivac na sledeci cvor. */
 typedef struct cvor {
   char etiketa[MAX];
   struct cvor *sledeci;
 } Cvor;
-    /* Funkcija kreira novi cvor, upisuje u njega etiketu i
-       vraca njegovu adresu ili NULL ako alokacija nije bila
-       uspesna. */
+
+/* Funkcija kreira novi cvor, upisuje u njega etiketu i vraca njegovu 
+   adresu ili NULL ako alokacija nije bila uspesna. */
 Cvor *napravi_cvor(char *etiketa)
 {
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
@@ -29,9 +29,7 @@ Cvor *napravi_cvor(char *etiketa)
 
   /* Inicijalizacija polja u novom cvoru */
   if (strlen(etiketa) >= MAX) {
-    fprintf(stderr,
-            "Etiketa koju biste stavili na stek je preduga, \
-bice skracena .\n");
+    fprintf(stderr, "Etiketa je preduga, bice skracena.\n");
     etiketa[MAX - 1] = '\0';
   }
   strcpy(novi->etiketa, etiketa);
@@ -50,10 +48,10 @@ void oslobodi_stek(Cvor ** adresa_vrha)
   }
 }
 
-/* Funkcija proverava uspesnost alokacije memorije za cvor novi
-   i ukoliko alokacija nije bila uspesna, oslobadja se sva
-   prethodno zauzeta memorija za listu ciji pocetni cvor se
-   nalazi na adresi adresa_vrha. */
+/* Funkcija proverava uspesnost alokacije memorije za cvor novi i
+   ukoliko alokacija nije bila uspesna, oslobadja se sva prethodno
+   zauzeta memorija za listu ciji pocetni cvor se nalazi na adresi
+   adresa_vrha. */
 void proveri_alokaciju(Cvor ** adresa_vrha, Cvor * novi)
 {
   if (novi == NULL) {
@@ -74,10 +72,10 @@ void potisni_na_stek(Cvor ** adresa_vrha, char *etiketa)
 
 /* Funkcija skida sa vrha steka etiketu. Ako je drugi argument
    pokazivac razlicit od NULL, tada u niz karaktera na koji on
-   pokazuje upisuje ime etikete koja je upravo skinuta sa steka
-   dok u suprotnom ne radi nista. Funkcija vraca 0 ako je stek
-   prazan (pa samim tim nije bilo moguce skinuti vrednost sa
-   steka) ili 1 u suprotnom. */
+   pokazuje upisuje ime etikete koja je upravo skinuta sa steka dok u 
+   suprotnom ne radi nista. Funkcija vraca 0 ako je stek prazan (pa
+   samim tim nije bilo moguce skinuti vrednost sa steka) ili 1 u
+   suprotnom. */
 int skini_sa_steka(Cvor ** adresa_vrha, char *etiketa)
 {
   Cvor *pomocni;
@@ -87,8 +85,8 @@ int skini_sa_steka(Cvor ** adresa_vrha, char *etiketa)
   if (*adresa_vrha == NULL)
     return 0;
 
-  /* Ako adresa na koju se smesta etiketa nije NULL, onda se na
-     tu adresu kopira etiketa sa vrha steka. */
+  /* Ako adresa na koju se smesta etiketa nije NULL, onda se na tu
+     adresu kopira etiketa sa vrha steka. */
   if (etiketa != NULL)
     strcpy(etiketa, (*adresa_vrha)->etiketa);
 
@@ -100,8 +98,8 @@ int skini_sa_steka(Cvor ** adresa_vrha, char *etiketa)
   return 1;
 }
 
-/* Funkcija vraca pokazivac na string koji sadrzi etiketu na
-   vrhu steka. Ukoliko je stek prazan, vraca NULL. */
+/* Funkcija vraca pokazivac na string koji sadrzi etiketu na vrhu
+   steka. Ukoliko je stek prazan, vraca NULL. */
 char *vrh_steka(Cvor * vrh)
 {
   if (vrh == NULL)
@@ -116,28 +114,27 @@ void prikazi_stek(Cvor * vrh)
     printf("<%s>\n", vrh->etiketa);
 }
 
-/* Funkcija iz fajla na koji pokazuje f cita sledecu etiketu, i
-   njeno ime upisuje u niz na koji pokazuje pokazivac etiketa.
-   Funkcija vraca EOF u slucaju da se dodje do kraja fajla pre
-   nego sto se procita etiketa, vraca OTVORENA ako je procitana
-   otvorena etiketa, odnosno ZATVORENA ako je procitana
-   zatvorena etiketa. */
+/* Funkcija iz fajla na koji pokazuje f cita sledecu etiketu, i njeno 
+   ime upisuje u niz na koji pokazuje pokazivac etiketa. Funkcija
+   vraca EOF u slucaju da se dodje do kraja fajla pre nego sto se
+   procita etiketa, vraca OTVORENA ako je procitana otvorena etiketa, 
+   odnosno ZATVORENA ako je procitana zatvorena etiketa. */
 int uzmi_etiketu(FILE * f, char *etiketa)
 {
   int c;
   int i = 0;
 
   /* Stanje predstavlja informaciju dokle se stalo sa citanjem
-     etikete. Inicijalizuje se vrednoscu VAN_ETIKETE jer jos
-     uvek nije zapoceto citanje. Tip predstavlja informaciju o
-     tipu etikete uzima vrednosti OTVORENA ili ZATVORENA. */
+     etikete. Inicijalizuje se vrednoscu VAN_ETIKETE jer jos uvek
+     nije zapoceto citanje. Tip predstavlja informaciju o tipu
+     etikete uzima vrednosti OTVORENA ili ZATVORENA. */
   int stanje = VAN_ETIKETE;
   int tip;
 
-  /* HTML je neosetljiv na razliku izmedju malih i velikih
-     slova. U HTML-u etikete BODY i body imaju isto znacenje,
-     dok to u C-u ne vazi. Zato ce sve etikete biti prevedene u
-     zapis samo malim slovima. */
+  /* HTML je neosetljiv na razliku izmedju malih i velikih slova. U
+     HTML-u etikete BODY i body imaju isto znacenje, dok to u C-u ne
+     vazi. Zato ce sve etikete biti prevedene u zapis samo malim
+     slovima. */
   while ((c = fgetc(f)) != EOF) {
     switch (stanje) {
     case VAN_ETIKETE:
@@ -146,11 +143,11 @@ int uzmi_etiketu(FILE * f, char *etiketa)
       break;
     case PROCITANO_MANJE:
       if (c == '/') {
-        /* Cita se zatvarac */
+        /* Cita se zatvorena etiketa. */
         tip = ZATVORENA;
       } else {
         if (isalpha(c)) {
-          /* Cita se otvarac */
+          /* Cita se otvorena etiketa */
           tip = OTVORENA;
           etiketa[i++] = tolower(c);
         }
@@ -161,13 +158,13 @@ int uzmi_etiketu(FILE * f, char *etiketa)
     case U_ETIKETI:
       if (isalpha(c) && i < MAX - 1) {
         /* Ako je procitani karakter slovo i nije premasena
-           dozvoljena duzina etikete, procitani karakter se
-           smanjuje i smesta u etiketu. */
+           dozvoljena duzina etikete, procitani karakter se smanjuje
+           i smesta u etiketu. */
         etiketa[i++] = tolower(c);
       } else {
-        /* U suprotnom, staje se sa citanjem etikete i stanje se 
-           menja. Korektno se zavrsava niska koja sadrzi
-           procitanu etiketu i vraca se njen tip. */
+        /* U suprotnom, staje se sa citanjem etikete i stanje se
+           menja. Korektno se zavrsava niska koja sadrzi procitanu
+           etiketu i vraca se njen tip. */
         stanje = VAN_ETIKETE;
         etiketa[i] = '\0';
         return tip;
@@ -175,16 +172,15 @@ int uzmi_etiketu(FILE * f, char *etiketa)
       break;
     }
   }
-
-  /* Doslo se do kraja datoteke pre nego sto je procitana
-     naredna etiketa i vraca se EOF. */
+  /* Doslo se do kraja datoteke pre nego sto je procitana naredna
+     etiketa i vraca se EOF. */
   return EOF;
 }
 
 int main(int argc, char **argv)
 {
-  /* Na pocetku, stek je prazan i etikete su uparene jer nijedna 
-     jos nije procitana. */
+  /* Na pocetku, stek je prazan i etikete su uparene jer nijedna jos
+     nije procitana. */
   Cvor *vrh = NULL;
   char etiketa[MAX];
   int tip;
@@ -193,8 +189,7 @@ int main(int argc, char **argv)
 
   /* Ime datoteke se preuzima iz komandne linije. */
   if (argc < 2) {
-    fprintf(stderr, "Koriscenje: %s ime_html_datoteke\n",
-            argv[0]);
+    fprintf(stderr, "Koriscenje: %s ime_html_datoteke\n", argv[0]);
     exit(0);
   }
 
@@ -208,33 +203,32 @@ int main(int argc, char **argv)
   /* Cita se etiketa po etiketa, sve dok ih ima u datoteci. */
   while ((tip = uzmi_etiketu(f, etiketa)) != EOF) {
     /* Ako je otvorena etiketa, stavlja se na stek. Izuzetak su
-       etikete <br>, <hr> i <meta> koje nemaju sadrzaj, tako da
-       ih nije potrebno zatvoriti. NAPOMENA: U HTML-u postoje
-       jos neke etikete koje koje nemaju sadrzaj (npr link).
-       Pretpostavlja se da njih nema u HTML dokumentu, zbog
-       jednostavnosti. */
+       etikete <br>, <hr> i <meta> koje nemaju sadrzaj, pa ih nije
+       potrebno zatvoriti. NAPOMENA: U HTML-u postoje jos neke
+       etikete koje koje nemaju sadrzaj (npr link). Zbog
+       jednostavnosti pretpostavlja se da njih nema u HTML dokumentu. 
+     */
     if (tip == OTVORENA) {
       if (strcmp(etiketa, "br") != 0
           && strcmp(etiketa, "hr") != 0
           && strcmp(etiketa, "meta") != 0)
         potisni_na_stek(&vrh, etiketa);
     }
-    /* Ako je zatvorena etiketa, tada je uslov dobre uparenosti
-       da je u pitanju zatvaranje etikete koja je poslednja
-       otvorena, a jos uvek nije zatvorena. Ova etiketa se mora
-       nalaziti na vrhu steka. Ako je taj uslov ispunjen, skida
-       se sa steka, jer je zatvorena. U suprotnom, pronadjena je
-       nepravilnost i etikete nisu pravilno uparene. */
+    /* Ako je zatvorena etiketa, tada je uslov dobre uparenosti da je 
+       u pitanju zatvaranje etikete koja je poslednja otvorena, a jos 
+       uvek nije zatvorena. Ova etiketa se mora nalaziti na vrhu
+       steka. Ako je taj uslov ispunjen, skida se sa steka, jer je
+       zatvorena. U suprotnom, pronadjena je nepravilnost i etikete
+       nisu pravilno uparene. */
     else if (tip == ZATVORENA) {
       if (vrh_steka(vrh) != NULL
           && strcmp(vrh_steka(vrh), etiketa) == 0)
         skini_sa_steka(&vrh, NULL);
       else {
-        printf("Etikete nisu pravilno uparene\n(nadjena\
- etiketa </%s>", etiketa);
+        printf("Etikete nisu pravilno uparene\n");
+        printf("(nadjena je etiketa </%s>", etiketa);
         if (vrh_steka(vrh) != NULL)
-          printf(", a poslednja otvorena etiketa je <%s>)\n",
-                 vrh_steka(vrh));
+          printf(", a poslednja otvorena je <%s>)\n", vrh_steka(vrh));
         else
           printf(" koja nije otvorena)\n");
         uparene = 0;
@@ -245,15 +239,15 @@ int main(int argc, char **argv)
   /* Zavrseno je citanje datoteke i zatvara se. */
   fclose(f);
 
-  /* Ako do sada nije pronadjeno pogresno uparivanje, stek bi
-     trebalo da bude prazan. Ukoliko nije, tada postoje etikete
-     koje su ostale otvorene. */
+  /* Ako do sada nije pronadjeno pogresno uparivanje, stek bi trebalo 
+     da bude prazan. Ukoliko nije, tada postoje etikete koje su
+     ostale otvorene. */
   if (uparene) {
     if (vrh_steka(vrh) == NULL)
       printf("Etikete su pravilno uparene!\n");
     else {
-      printf("Etikete nisu pravilno uparene\n(etiketa <%s> \
-nije zatvorena)\n", vrh_steka(vrh));
+      printf("Etikete nisu pravilno uparene\n");
+      printf("(etiketa <%s> nije zatvorena)\n", vrh_steka(vrh));
       /* Oslobadja se memorija zauzeta stekom. */
       oslobodi_stek(&vrh);
     }

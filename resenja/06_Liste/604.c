@@ -32,16 +32,14 @@ int main()
       pomocni->sledeci = stek;
       stek = pomocni;
     }
-    /* Ako je ucitana zatvorena zagrada, proverava se da li je
-       stek je prazan i ako nije, da li se na vrhu steka nalazi
-       odgovarajuca otvorena zagrada. */
+    /* Ako je ucitana zatvorena zagrada, proverava se da li je stek
+       prazan i ako nije, da li se na vrhu steka nalazi odgovarajuca
+       otvorena zagrada. */
     else {
       if (c == ')' || c == '}' || c == ']') {
         if (stek != NULL && ((stek->zagrada == '(' && c == ')')
-                             || (stek->zagrada == '{' && c
-                                 == '}')
-                             || (stek->zagrada == '[' && c
-                                 == ']'))) {
+                             || (stek->zagrada == '{' && c == '}')
+                             || (stek->zagrada == '[' && c == ']'))) {
           /* Sa vrha steka se uklanja otvorena zagrada */
           pomocni = stek->sledeci;
           free(stek);
@@ -62,8 +60,8 @@ int main()
     printf("Zagrade nisu ispravno uparene.\n");
 
     while (stek != NULL) {
-      /* U slucaju neispravnog uparivanja treba osloboditi
-         memoriju koja je ostala zauzeta stekom. */
+      /* U slucaju neispravnog uparivanja treba osloboditi memoriju
+         koja je ostala zauzeta stekom. */
       pomocni = stek->sledeci;
       free(stek);
       stek = pomocni;

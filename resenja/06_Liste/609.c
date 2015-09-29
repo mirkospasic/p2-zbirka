@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include "601/lista.h"
+#include "lista.h"
 
 Cvor *objedini(Cvor ** glava1, Cvor ** glava2)
 {
@@ -35,8 +35,8 @@ Cvor *objedini(Cvor ** glava1, Cvor ** glava2)
     tek = &((*tek)->sledeci);
   }
 
-  /* Ako se iz petlje izaslo jer se stiglo do kraja prve liste,
-     na rezultujucu listu treba nadovezati ostatak druge liste. */
+  /* Ako se iz petlje izaslo jer se stiglo do kraja prve liste, na
+     rezultujucu listu treba nadovezati ostatak druge liste. */
   if (*glava1 == NULL)
     *tek = *glava2;
 
