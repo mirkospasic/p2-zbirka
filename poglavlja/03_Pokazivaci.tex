@@ -194,27 +194,18 @@ za datu nisku ispituje da li je palindrom. Napisati program koji
 vrši prebrojavanje argumenata komandne linije koji su
 palindromi.
 
-\komentar{Milena: nedostaje poziv u prvom primeru}
-
 \noindent
 \begin{miditest}
 \begin{upotreba}{1}
+#\poziv{./a.out a b 11 212}#
+
 #\naslovInt#
-#\izlaz{Broj argumenata komandne linije }#
+#\izlaz{Broj argumenata komandne linije}#
 #\izlaz{koji su palindromi je 4.}#
 \end{upotreba}
 \end{miditest}
 \begin{miditest}
 \begin{upotreba}{2}
-#\poziv{./a.out a b 11 212}#
-
-#\naslovInt#
-#\izlaz{Broj argumenata komandne linije koji}#
-#\izlaz{koji su palindromi je 4.}#
-\end{upotreba}
-\end{miditest}
-\begin{miditest}
-\begin{upotreba}{3}
 #\poziv{./a.out}#
 
 #\naslovInt#
@@ -365,24 +356,31 @@ ulaza učitati dimanziju kvadratne matrice $n$
 ispisati učitanu matricu a zatim trag, euklidsku normu i vandijagonalnu normu 
 učitane matrice.
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Ulaz:  3 1 -2 3 4 -5 6 7 -8 9
-Izlaz: 1 -2 3 
-       4 -5 6 
-       7 -8 9
-       trag = 5
-       euklidska norma = 16.88
-       vandijagonalna norma = 11
-\end{test}
-\end{maxitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
 
-\begin{maxitest}
-\begin{test}{Test 2}
-Ulaz:  0
-Izlaz: Greska: neodgovarajuca dimenzija matrice. 
-\end{test}
-\end{maxitest}
+#\naslovInt#
+#\izlaz{Unesite dimenziju matrice:} \ulaz{3}#
+#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\ulaz{1 -2 3}#
+#\ulaz{4 -5 6}#
+#\ulaz{7 -8 9}#
+#\izlaz{Trag matrice je 5.}#
+#\izlaz{Euklidska norma matrice je 16.88.}#
+#\izlaz{Vandijagonalna norma matrice je 11.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+
+#\naslovInt#
+#\izlaz{Unesite dimenziju matrice:} \ulaz{0}#
+#\izlaz{Greska: neodgovarajuca dimenzija matrice. }#
+\end{upotreba}
+\end{miditest}
+
+\linkresenje{314}
 \end{Exercise}
 \begin{Answer}[ref=314]
 \includecode{resenja/03_Pokazivaci/314.c}
@@ -398,25 +396,36 @@ Date su dve kvadratne matrice istih dimenzija $n$.
 Napisati program koji testira napisane funkcije. Sa standardnog
 ulaza učitati dimanziju kvadratnih matrica $n$
 ($0 < n \leq 100$), a zatim i elemente matrica. Na standardni izlaz
-ispisati ,,da`` ako su matrice jednake, ,,ne`` ako nisu a zatim ispisati
+ispisati da li su matrice jednake, a zatim ispisati
 zbir i proizvod učitanih matrica.
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Ulaz:   3 
-        1 2 3 1 2 3 1 2 3
-        1 2 3 1 2 3 1 2 3
-Izlaz:  da
-        Zbir matrica je:
-        2 4 6
-        2 4 6
-        2 4 6
-        Proizvod matrica je:
-        6 12 18
-        6 12 18
-        6 12 18
-\end{test}
-\end{maxitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+
+#\naslovInt#
+#\izlaz{Unesite dimenziju matrica:} \ulaz{3}#
+#\izlaz{Unesite elemente prve matrice, vrstu po vrstu:}#
+#\ulaz{1 2 3}#
+#\ulaz{1 2 3}#
+#\ulaz{1 2 3}#
+#\izlaz{Unesite elemente druge matrice, vrstu po vrstu:}#
+#\ulaz{1 2 3}#
+#\ulaz{1 2 3}#
+#\ulaz{1 2 3}#
+#\izlaz{Matrice su jednake.}#
+#\izlaz{Zbir matrica je:}#
+#\izlaz{2 4 6}#
+#\izlaz{2 4 6}#
+#\izlaz{2 4 6}#
+#\izlaz{Proizvod matrica je:}#
+#\izlaz{6 12 8}#
+#\izlaz{6 12 8}#
+#\izlaz{6 12 8}#
+\end{upotreba}
+\end{miditest}
+
+\linkresenje{315}
 \end{Exercise}
 \begin{Answer}[ref=315]
 \includecode{resenja/03_Pokazivaci/315.c}
@@ -441,34 +450,42 @@ Napisati program koji učitava matricu iz datoteke čije se ime zadaje kao prvi 
 U prvoj liniji datoteke nalazi se dimenzija matrice $n$ ($0 < n \leq 64$), a potom i sami elementi matrice.
 Na standardni izlaz ispisati rezultat testiranja napisanih funkcija.
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Poziv: ./a.out ulaz.txt
-ulaz.txt:  4
-           1 0 0 0
-           0 1 1 0
-           0 0 1 0
-           0 0 0 0
-Izlaz:     Refleksivnost: ne
-           Simetricnost: ne
-           Tranzitivnost: da
-           Refleksivno zatvorenje:
-           1 0 0 0
-           0 1 1 0
-           0 0 1 0
-           0 0 0 1
-           Simetricno zatvorenje:
-           1 0 0 0
-           0 1 1 0
-           0 1 1 0
-           0 0 0 0
-           Refleksivno-tranzitivno zatvorenje:
-           1 0 0 0
-           0 1 1 0
-           0 0 1 0
-           0 0 0 0
-\end{test}
-\end{maxitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+#\poziv{./a.out ulaz.txt}#
+
+#\naslovDat{Ulazna datoteka (ulaz.txt)}#
+#\datoteka{4}#
+#\datoteka{1 0 0 0}#
+#\datoteka{0 1 1 0}#
+#\datoteka{0 0 1 0}#
+#\datoteka{0 0 0 0}#
+
+#\naslovInt#
+
+#\izlaz{Relacija nije refleksivna.}#
+#\izlaz{Relacija nije simetricna.}#
+#\izlaz{Relacija jeste tranzitivna.}#
+#\izlaz{Refleksivno zatvorenje relacije:}#
+#\izlaz{1 0 0 0}#
+#\izlaz{0 1 1 0}#
+#\izlaz{0 0 1 0}#
+#\izlaz{0 0 0 1}#
+#\izlaz{Simetricno zatvorenje relacije:}#
+#\izlaz{1 0 0 0}#
+#\izlaz{0 1 1 0}#
+#\izlaz{0 1 1 0}#
+#\izlaz{0 0 0 0}#
+#\izlaz{Refleksivno-tranzitivno zatvorenje relacije:}#
+#\izlaz{1 0 0 0}#
+#\izlaz{0 1 1 0}#
+#\izlaz{0 0 1 0}#
+#\izlaz{0 0 0 1}#
+\end{upotreba}
+\end{miditest}
+
+\linkresenje{322}
 \end{Exercise}
 \begin{Answer}[ref=322]
 \includecode{resenja/03_Pokazivaci/322.c}
@@ -485,39 +502,44 @@ Data je kvadratna matrica dimenzije $n$.
 Napisati program koji testira napisane funkcije. Sa standardnog
 ulaza učitati elemente celobrojne kvadratne matrice čija
 se dimenzija $n$ ($0 < n \leq 32$) zadaje kao argument
-komandne linije. Na standardni izlaz ispisati najveći element matrice na sporednoj dijagonali,
-indeks kolone koja sadrži najmanji element, indeks vrste koja sadrži najveći element i broj 
-negativnih elemenata učitane matrice. 
+komandne linije. Na standardni izlaz ispisati rezultat primene prethodno
+napisanih funkcija. 
 
-\komentar{Milena: Izbegavala bih komentare koji ulaze u kod i na taj nacin narusavaju citljivost koda, kao sto je to npr u funkciji indeks\_min i indeks\_max. Resenje 2.15 - izbacila bih napomenu iz komentara. Slicno mi se cini i za zadatak 2.17. Zadatak 2.17 - cini mi se da je resenje bez koriscnja biblioteckih funckija visak? Zadatak 2.19 --- izvuci komentare za ucitaj i ispisi ispred funkcija, umesto sto su unutar funkcija. Zadatak 2.21 - cini mi se da komentari unutar funkcije izmeni narusavaju citljivost koda. Resenje 2.26 --- izbaciti nasa slova iz komentara, izbaciti mozda napomenu sa pocetka jer je suvisna}
+\noindent
+\begin{maxitest}
+\begin{upotreba}{1}
+#\poziv{./a.out 3}#
 
-\begin{miditest}
-\begin{test}{Test 1}
-Poziv:  ./a.out 3
-Ulaz:   1 2 3
-        -4 -5 -6
-        7 8 9
-Izlaz:  7 2 2 3
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{Test 2}
-Poziv:  ./a.out 4
-Ulaz:   -1 -2 -3 -4
-        -5 -6 -7 -8
-        -9 -10 -11 -12
-        -13 -14 -15 -16
-Izlaz:  -4 3 0 16
-\end{test}
-\end{miditest}
+#\naslovInt#
+#\izlaz{Unesite elemente matrice dimenzije 3:}#
+#\ulaz{1 2 3}#
+#\ulaz{-4 -5 -6}#
+#\ulaz{7 8 9}#
+#\izlaz{Najveci element matrice na sporednoj dijagonali je 7.}#
+#\izlaz{Indeks kolone koja sadrzi najmanji element matrice 2.}#
+#\izlaz{Indeks vrste koja sadrzi najveci element matrice 2.}#
+#\izlaz{Broj negativnih elemenata matrice je 3.}#
+\end{upotreba}
+\end{maxitest}
 
 \begin{maxitest}
-\begin{test}{Test 3}
-Poziv: ./a.out 
-Izlaz: Greska: Nedovoljan broj argumenata komandne linije.
-       Program se poziva sa ./a.out dim_matrice.
-\end{test}
+\begin{upotreba}{2}
+#\poziv{./a.out 4}#
+
+#\naslovInt#
+#\izlaz{Unesite elemente matrice dimenzije 4:}#
+#\ulaz{-1 -2 -3 -4}#
+#\ulaz{-5 -6 -7 -8}#
+#\ulaz{-9 -10 -11 -12}#
+#\ulaz{-13 -14 -15 -16}#
+#\izlaz{Najveci element matrice na sporednoj dijagonali je -4.}#
+#\izlaz{Indeks kolone koja sadrzi najmanji element matrice 3.}#
+#\izlaz{Indeks vrste koja sadrzi najveci element matrice 0.}#
+#\izlaz{Broj negativnih elemenata matrice je 16.}#
+\end{upotreba}
 \end{maxitest}
+
+\linkresenje{323}
 \end{Exercise}
 \begin{Answer}[ref=323]
 \includecode{resenja/03_Pokazivaci/323.c}
@@ -534,37 +556,38 @@ ulaza učitati dimenziju celobrojne kvadratne matrice $n$
 ispisati rezultat primene napisane funkcije na učitanu
 matricu.
 
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:  4
-       1 0 0 0
-       0 1 0 0
-       0 0 1 0
-       0 0 0 1
-Izlaz: da
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 2}
-Ulaz:  3
-       1 2 3
-       5 6 7
-       1 4 2
-Izlaz: ne
-\end{test}
-\end{minitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
 
-\begin{maxitest}
-\begin{test}{Test 3}
-Ulaz:  33       
-Izlaz: Greska: neodgovarajuca dimenzija matrice.
-\end{test}
-\end{maxitest}
+#\naslovInt#
+#\izlaz{Unesite dimenziju matrice:} \ulaz{4}#
+#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\ulaz{1 0 0 0}#
+#\ulaz{0 1 0 0}#
+#\ulaz{0 0 1 0}#
+#\ulaz{0 0 0 1}#
+#\izlaz{Matrica je ortonormirana.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+
+#\naslovInt#
+#\izlaz{Unesite dimenziju matrice:} \ulaz{3}#
+#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\ulaz{1 2 3}#
+#\ulaz{5 6 7}#
+#\ulaz{1 4 2}#
+#\izlaz{Matrica nije ortonormirana.}#
+\end{upotreba}
+\end{miditest}
+
+\linkresenje{324}
 \end{Exercise}
 \begin{Answer}[ref=324]
 \includecode{resenja/03_Pokazivaci/324.c}
 \end{Answer}
-
 
 \begin{Exercise}[label=325]
 Data je matrica dimenzije $n \times m$.
@@ -578,31 +601,33 @@ $m$ ($0 < n \leq 10$), a zatim i elemente matrice (pozivom gore
 napisane funkcije). Na standardni izlaz spiralno ispisati elemente
 učitane matrice.
 
+\noindent
 \begin{miditest}
-\begin{test}{Test 1}
-Ulaz:  3 3
-       1 2 3
-       4 5 6
-       7 8 9       
-Izlaz: 1 2 3 6 9 8 7 4 5
-\end{test}
+\begin{upotreba}{1}
+
+#\naslovInt#
+#\izlaz{Unesite broj vrsta i broj kolona matrice:} \ulaz{3 3}#
+#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\ulaz{1 2 3}#
+#\ulaz{4 5 6}#
+#\ulaz{7 8 9}#
+#\izlaz{Spiralno ispisana matrica: 1 2 3 6 9 8 7 4 5}#
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
-Ulaz:  3 4
-       1 2 3 4
-       5 6 7 8
-       9 10 11 12	   
-Izlaz: 1 2 3 4 8 12 11 10 9 5 6 7
-\end{test}
+\begin{upotreba}{2}
+
+#\naslovInt#
+#\izlaz{Unesite broj vrsta i broj kolona matrice:} \ulaz{3 4}#
+#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\ulaz{1 2 3 4}#
+#\ulaz{5 6 7 8}#
+#\ulaz{9 10 11 12}#
+#\izlaz{Spiralno ispisana matrica: 1 2 3 4 8 12 11 10 9 5 6 7}#
+\end{upotreba}
 \end{miditest}
 
-\begin{maxitest}
-\begin{test}{Test 3}
-Ulaz:  11 4       	   
-Izlaz: Greska: neodgovarajuce dimenzije matrice.
-\end{test}
-\end{maxitest}
+\linkresenje{325}
 \end{Exercise}
 \begin{Answer}[ref=325]
 \includecode{resenja/03_Pokazivaci/325.c}
@@ -614,49 +639,60 @@ matrice dimenzije $n$ ($0 < n \leq 32$). Napisati program koji
 testira napisanu funkciju. Sa standardnog ulaza učitati
 dimenziju celobrojne matrice $n$, elemente matrice i stepen
 $k$ ($0 < k \leq 10$). Na standardni izlaz ispisati rezultat
-primene napisane funkcije. Napomena: voditi računa da se
+primene napisane funkcije. \napomena{Voditi računa da se
 prilikom stepenovanja matrice izvrši što manji broj
-množenja.
+množenja.}
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Ulaz:  3
-       1 2 3
-       4 5 6
-       7 8 9
-       8
-Izlaz: 510008400 626654232 743300064
-       1154967822 1419124617 1683281412
-       1799927244 2211595002 2623262760
-\end{test}
-\end{maxitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+
+#\naslovInt#
+#\izlaz{Unesite dimenziju kvadratne matrice:} \ulaz{3}#
+#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\ulaz{1 2 3}#
+#\ulaz{4 5 6}#
+#\ulaz{7 8 9}#
+#\izlaz{Unesite stepen koji se racuna:} \ulaz{8}#
+#\izlaz{8. stepen matrice je:}#
+#\izlaz{510008400 626654232 743300064}#
+#\izlaz{1154967822 1419124617 1683281412}#
+#\izlaz{1799927244 2211595002 2623262760}#
+\end{upotreba}
+\end{miditest}
 \end{Exercise}
 \begin{Answer}[ref=327]
 %\includecode{resenja/03_Pokazivaci/327.c}
 \end{Answer}
 
 \section{Dinamička alokacija memorije}
-
 \begin{Exercise}[label=328]
 Napisati program koji sa standardnog ulaza učitava dimenziju  
 niza celih brojeva a zatim i njegove elemente. Ne praviti
 nikakve pretpostavke o dimenziji niza. Na standardni izlaz 
 ispisati ove brojeve u obrnutom poretku. 
 
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:  3
-       1 -2 3
-Izlaz: 3 -2 1
-\end{test}
-\end{minitest}
-\begin{maxitest}
-\begin{test}{Test 2}
-Ulaz:  -1       
-Izlaz: malloc(): neuspela alokacija memorije.
-\end{test}
-\end{maxitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
 
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza:} \ulaz{3}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{1 -2 3}#
+#\ulaz{Niz u obrnutom poretku je: 3 -2 1}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza:} \ulaz{-1}#
+#\izlaz{malloc(): neuspela alokacija memorije.}#
+\end{upotreba}
+\end{miditest}
+
+\linkresenje{328}
 \end{Exercise}
 \begin{Answer}[ref=328]
 \includecode{resenja/03_Pokazivaci/328.c}
@@ -672,18 +708,20 @@ ispisati ovaj niz brojeva u obrnutom poretku. Zadatak uraditi na dva načina:
 \item realokaciju memorije niza vršiti korišćenjem \kckod{realloc()} funkcije.
 \end{enumerate}
 
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:  1 -2 3 -4 0
-Izlaz: -4 3 -2 1
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{Test 2}
-Ulaz:  0
-Izlaz:
-\end{test}
-\end{minitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+
+#\naslovInt#
+#\izlaz{Unesite brojeve, nulu za kraj:}#
+#\ulaz{1 -2 3 -4 0}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{1 -2 3 -4 0}#
+#\izlaz{Niz u obrnutom poretku je: -4 3 -2 1}#
+\end{upotreba}
+\end{miditest}
+
+\linkresenje{330}
 \end{Exercise}
 \begin{Answer}[ref=330]
 \includecode{resenja/03_Pokazivaci/330.c}
@@ -698,13 +736,18 @@ niske nisu duže od $1000$ karaktera i da ne sadrže praznine). Na
 standardni izlaz ispisati nisku koja se dobija njihovim nadovezivanjem. 
 Za rezultujuću nisku dinamički alocirati memoriju.
 
-\begin{minitest}
-\begin{test}{Test 1}
-Ulaz:  Jedan Dva       
-Izlaz: JedanDva
-\end{test}
-\end{minitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
 
+#\naslovInt#
+#\izlaz{Unesite dve niske karaktera:}#
+#\ulaz{Jedan Dva}#
+#\izlaz{Nadovezane niske: JedanDva}#
+\end{upotreba}
+\end{miditest}
+
+\linkresenje{329}
 \end{Exercise}
 \begin{Answer}[ref=329]
 \includecode{resenja/03_Pokazivaci/329.c}
@@ -712,26 +755,32 @@ Izlaz: JedanDva
 
 \begin{Exercise}[label=331]
 Napisati program koji sa standardnog ulaza učitava matricu
-celih brojeva. Prvo se učitavaju dimenzije matrice $n$ i
+realnih brojeva. Prvo se učitavaju dimenzije matrice $n$ i
 $m$ (ne praviti nikakve pretpostavke o njihovoj veličini),
 a zatim i elementi matrice. Na standardni izlaz ispisati trag
 matrice.
 
+\noindent
 \begin{miditest}
-\begin{test}{Test 1}
-Ulaz:  2 3
-       1.2 2.3 3.4
-       4.5 5.6 6.7
-Izlaz: 6.80
-\end{test}
+\begin{upotreba}{1}
+
+#\naslovInt#
+#\izlaz{Unesite broj vrsta i broj kolona matrice:} \ulaz{2 3}#
+#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\ulaz{1.2 2.3 3.4}#
+#\ulaz{4.5 5.6 6.7}#
+#\izlaz{Trag unete matrice je 6.80.}#
+\end{upotreba}
 \end{miditest}
+
+\linkresenje{331}
 \end{Exercise}
 \begin{Answer}[ref=331]
 \includecode{resenja/03_Pokazivaci/331.c}
 \end{Answer}
 
 \begin{Exercise}[label=332]
-Data je celobrojna matrica dimenzije $n \times m$ napisati:
+Data je celobrojna matrica dimenzije $n \times m$.
 \begin{enumerate}
 \item Napisati funkciju koja vrši učitavanje matrice sa standardnog ulaza.
 \item Napisati funkciju koja ispisuje elemente ispod glavne dijagonale matrice 
@@ -743,15 +792,22 @@ pretpostavke o njihovoj veličini), zatim učitati elemente
 matrice i na standardni izlaz ispisati elemente ispod glavne
 dijagonale matrice.
 
+\noindent
 \begin{miditest}
-\begin{test}{Test 1}
-Ulaz:  2 3
-       1 -2 3
-       -4 5 -6
-Izlaz: 1
-       -4 5
-\end{test}
+\begin{upotreba}{1}
+
+#\naslovInt#
+#\izlaz{Unesite broj vrsta i broj kolona matrice:} \ulaz{2 3}#
+#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\ulaz{1 -2 3}#
+#\ulaz{-4 5 -6}#
+#\izlaz{Elementi ispod glavne dijagonale matrice:}#
+#\izlaz{1}#
+#\izlaz{-4 5}#
+\end{upotreba}
 \end{miditest}
+
+\linkresenje{332}
 \end{Exercise}
 \begin{Answer}[ref=332]
 \includecode{resenja/03_Pokazivaci/332.c}
@@ -764,25 +820,40 @@ maksimalan. Napisati program koji testira ovu funkciju. Sa
 standardnog ulaza učitati dimenzije matrice $n$ i
 $m$ (ne praviti nikakve pretpostavke o njihovoj veličini), 
 a zatim elemente matrice. Na standardni izlaz ispisati 
-redni broj kolone matrice sa maksimalnim zbirom.
+redni broj kolone matrice sa maksimalnim zbirom. Ukoliko ima
+više takvih, ispisati prvu.
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Ulaz:  Unesite dimenzije matrice:
-       2 3
-       Unesite elemente matrice:
-       1 2 3
-       4 5 6
-Izlaz: Kolona pod rednim brojem 3 ima najveci zbir.		   
-\end{test}
-\end{maxitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+
+#\naslovInt#
+#\izlaz{Unesite broj vrsta i broj kolona matrice:} \ulaz{2 3}#
+#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\ulaz{1 2 3}#
+#\ulaz{4 5 6}#
+#\izlaz{Kolona pod rednim brojem 3 ima najveci zbir.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+
+#\naslovInt#
+#\izlaz{Unesite broj vrsta i broj kolona matrice:} \ulaz{2 4}#
+#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\ulaz{1 2 3 4}#
+#\ulaz{8 7 6 5}#
+#\izlaz{Kolona pod rednim brojem 1 ima najveci zbir.}#
+\end{upotreba}
+\end{miditest}
+
 \end{Exercise}
 \begin{Answer}[ref=336]
-\includecode{resenja/03_Pokazivaci/336.c}
+%\includecode{resenja/03_Pokazivaci/336.c}
 \end{Answer}
 
 \begin{Exercise}[label=337]
-Data je kvadratna realna matrica dimenzije $n$.
+Data je realna kvadratna matrica dimenzije $n$.
 \begin{itemize}
 \item Napisati funkciju koja izračunava zbir apsolutnih 
 vrednosti matrice ispod sporedne dijagonale. 
@@ -795,75 +866,66 @@ Napisati program koji testira ove funkcije za matricu koja se
 učitava iz datoteke čije se ime zadaje kao argument komandne linije. 
 U datoteci se nalazi prvo dimenzija matrice, a zatim redom elementi matrice.
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Poziv: ./a.out matrica.txt
-matrica.txt:  3
-              1.1 -2.2 3.3
-              -4.4 5.5 -6.6
-              7.7 -8.8 9.9
-Izlaz: Zbir apsolutnih vrednosti ispod sporedne dijagonale je 25.30.
-       Transformisana matrica je:
-       1.10 -1.10 1.65 
-       -8.80 5.50 -3.30 
-       15.40 -17.60 9.90 	   
-\end{test}
-\end{maxitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+#\poziv{./a.out matrica.txt}#
+
+#\naslovDat{Ulazna datoteka (matrica.txt)}#
+#\datoteka{3}#
+#\datoteka{1.1 -2.2 3.3}#
+#\datoteka{-4.4 5.5 -6.6}#
+#\datoteka{7.7 -8.8 9.9}#
+
+#\naslovInt#
+#\izlaz{Zbir apsolutnih vrednosti ispod sporedne dijagonale je 25.30.}#
+#\izlaz{Transformisana matrica je:}#
+#\izlaz{1.10 -1.10 1.65}#
+#\izlaz{-8.80 5.50 -3.30}#
+#\izlaz{15.40 -17.60 9.90}#
+\end{upotreba}
+\end{miditest}
+
+\linkresenje{337}
 \end{Exercise}
 \begin{Answer}[ref=337]
 \includecode{resenja/03_Pokazivaci/337.c}
 \end{Answer}
 
-% \begin{Exercise}[label=338]
-% Za zadatu kvadratnu realnu matricu dimenzije $n$ napisati funkciju
-% koja izračunava zbir apsolutnih vrednosti matrice ispod
-% sporedne dijagonale. Napisati program koji testira ovu funkciju za
-% vrednosti koje se učitavaju iz datoteke čije se ime zadaje
-% kao argument komandne linije. U datoteci se nalazi prvo dimenzija
-% matrice, a zatim redom elementi matrice.
-% \end{Exercise}
-% \begin{Answer}[ref=338]
-% \includecode{resenja/03_Pokazivaci/338.c}
-% \end{Answer}
-
-\begin{Exercise}[label=340]
-Petar sakuplja sličice igrača za predstojeće Svetsko
-prvenstvo u fudbalu. U datoteci ,,slicice.txt`` se nalaze
-informacije o sličicama koje mu nedostaju u formatu:
-\kckod{redni\_broj\_sličice
-ime\_reprezentacije\_kojoj\_sličica\_pripada}. Pomozite Petru
-da otkrije koliko mu sličica ukupno nedostaje, kao i da
-pronađe ime reprezentacije čijih sličica ima najmanje.
-Dobijene podatke ispisati na standardni izlaz. Napomena: za
-realokaciju memorije koristiti \kckod{realloc()} funkciju.
-\komentar{Jelena: treba dodati test primer.}
-\end{Exercise}
-\begin{Answer}[ref=340]
-%\includecode{resenja/03_Pokazivaci/340.c}
-\end{Answer}
-
-\begin{Exercise}[label=341]
-U datoteci ,,temena.txt`` se nalaze tačke koje predstavljaju
-temena nekog $n$-tougla. Napisati program koji na osnovu
-sadržaja datoteke na standardni izlaz ispisuje o kom
-$n$-touglu je reč, a zatim i vrednosti njegovog obima i
-površine. Pretpostavka je da će mnogougao biti konveksan.
-\komentar{Jelena: treba dodati test primer.}
-\end{Exercise}
-\begin{Answer}[ref=341]
-%\includecode{resenja/03_Pokazivaci/341.c}
-\end{Answer}
-
 \begin{Exercise}[label=342]
-Napisati program koji na osnovu dve matrice dimenzija $m \times n$
+Napisati program koji na osnovu dve realne matrice dimenzija $m \times n$
 formira matricu dimenzije $2 \cdot m \times n$ tako što
 naizmenično kombinuje jednu vrstu prve matrice i jednu vrstu
-druge matrice. Matirce su zapisane u datoteci ,,matrice.txt``. U
+druge matrice. Matrice su zapisane u datoteci ,,matrice.txt``. U
 prvom redu se nalaze dimenzije matrica $m$ i $n$, u
 narednih $m$ redova se nalaze vrste prve matrice, a u
 narednih $m$ redova vrste druge matrice. Rezultujuću
 matricu ispisati na standardni izlaz.
-\komentar{Jelena: treba dodati test primer.}
+
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+#\poziv{./a.out matrice.txt}#
+
+#\naslovDat{Ulazna datoteka (matrice.txt)}#
+#\datoteka{3}#
+#\datoteka{1.1 -2.2 3.3}#
+#\datoteka{-4.4 5.5 -6.6}#
+#\datoteka{7.7 -8.8 9.9}#
+#\datoteka{-1.1 2.2 -3.3}#
+#\datoteka{4.4 -5.5 6.6}#
+#\datoteka{-7.7 8.8 -9.9}#
+
+#\naslovInt#
+#\izlaz{Trazena matrica je:}#
+#\izlaz{1.1 -2.2 3.3}#
+#\izlaz{-1.1 2.2 -3.3}#
+#\izlaz{-4.4 5.5 -6.6}#
+#\izlaz{4.4 -5.5 6.6}#
+#\izlaz{7.7 -8.8 9.9}#
+#\izlaz{-7.7 8.8 -9.9}#
+\end{upotreba}
+\end{miditest}
 \end{Exercise}
 \begin{Answer}[ref=342]
 %\includecode{resenja/03_Pokazivaci/342.c}
@@ -874,13 +936,87 @@ Na ulazu se zadaje niz celih brojeva čiji se unos završava nulom.
 Napisati funkciju koja od zadatog niza formira matricu tako da
 prva vrsta odgovara unetom nizu, a svaka naredna se dobija
 cikličkim pomeranjem elemenata niza za jednu poziciju ulevo.
-Napisati program koji testira ovu funkciju. Sa standardnog ulaza
-se prvo unosi dimenzija matrice, a zatim redom elementi matrice.
+Napisati program koji testira ovu funkciju. 
 Rezultujuću matricu ispisati na standardni izlaz.
-\komentar{Jelena: treba dodati test primer.}
+
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+
+#\naslovInt#
+#\izlaz{Unesite elemente niza, nulu za kraj:}#
+#\ulaz{1 2 3 0}#
+#\izlaz{Trazena matrica je:}#
+#\izlaz{1 2 3}#
+#\izlaz{2 3 1}#
+#\izlaz{3 1 2}#
+\end{upotreba}
+\end{miditest}
+
 \end{Exercise}
 \begin{Answer}[ref=344]
 %\includecode{resenja/03_Pokazivaci/344.c}
+\end{Answer}
+
+\begin{Exercise}[label=340]
+Petar sakuplja sličice igrača za predstojeće Svetsko
+prvenstvo u fudbalu. U datoteci ,,slicice.txt`` se nalaze
+informacije o sličicama koje mu nedostaju u formatu:
+\kckod{redni\_broj\_sličice
+ime\_reprezentacije\_kojoj\_sličica\_pripada}. Pomozite Petru
+da otkrije koliko mu sličica ukupno nedostaje, kao i da
+pronađe ime reprezentacije čijih sličica ima najmanje.
+Dobijene podatke ispisati na standardni izlaz. \napomena{Za
+realokaciju memorije koristiti \kckod{realloc()} funkciju.}
+
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+
+#\naslovDat{Ulazna datoteka (slicice.txt)}#
+#\datoteka{3 Brazil}#
+#\datoteka{6 Nemacka}#
+#\datoteka{2 Kamerun}#
+#\datoteka{1 Brazil}#
+#\datoteka{2 Engleska}#
+#\datoteka{4 Engleska}#
+#\datoteka{5 Brazil}#
+
+#\naslovInt#
+#\izlaz{Petru ukupno nedostaje 7 slicica.}#
+#\izlaz{Reprezentacija za koju je sakupio najmanji broj slicica je Brazil.}#
+\end{upotreba}
+\end{miditest}
+\end{Exercise}
+\begin{Answer}[ref=340]
+%\includecode{resenja/03_Pokazivaci/340.c}
+\end{Answer}
+
+\begin{Exercise}[difficulty=2, label=341]
+U datoteci ,,temena.txt`` se nalaze tačke koje predstavljaju
+temena nekog $n$-tougla. Napisati program koji na osnovu
+sadržaja datoteke na standardni izlaz ispisuje o kom
+$n$-touglu je reč, a zatim i vrednosti njegovog obima i
+površine. Pretpostavka je da će mnogougao biti konveksan.
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+
+#\naslovDat{Ulazna datoteka (temena.txt)}#
+#\datoteka{-1 -1}#
+#\datoteka{1 -1}#
+#\datoteka{1 1}#
+#\datoteka{-1 1}#
+
+#\naslovInt#
+#\izlaz{U datoteci su zadata temena cetvorougla.}#
+#\izlaz{Obim je 8.}#
+#\izlaz{Povrsina je 4.}#
+\end{upotreba}
+\end{miditest}
+\end{Exercise}
+\begin{Answer}[ref=341]
+%\includecode{resenja/03_Pokazivaci/341.c}
 \end{Answer}
 
 \section{Pokazivači na funkcije}
@@ -895,39 +1031,46 @@ $a$ i $b$ ($a<b$) kao i ceo broj $n$
 se zadaje kao argument komandne linije (\kckod{sin}, \kckod{cos}, \kckod{tan}, \kckod{atan},
 \kckod{acos}, \kckod{asin}, \kckod{exp}, \kckod{log}, \kckod{log10}, \kckod{sqrt}, \kckod{floor}, \kckod{ceil}, \kckod{sqr}).
 
-\begin{maxitest}
-\begin{test}{Test 1}
-Poziv: ./a.out sin
-Ulaz: Unesite krajeve intervala:
-      -0.5 1
-      Koliko tacaka ima na ekvidistantnoj mrezi (ukljucujuci krajeve intervala)?
-      4
-Izlaz:      x        sin(x)
-      -----------------------
-      | -0.50000 | -0.47943 |
-      |  0.00000 |  0.00000 |
-      |  0.50000 |  0.47943 |
-      |  1.00000 |  0.84147 |
-      -----------------------
-\end{test}
-\end{maxitest}
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+#\poziv{./a.out sin}#
 
-\begin{maxitest}
-\begin{test}{Test 2}
-Poziv: ./a.out cos
-Ulaz: Unesite krajeve intervala:
-      0 2
-      Koliko tacaka ima na ekvidistantnoj mrezi (ukljucujuci krajeve intervala)?
-      4
-Izlaz:      x        cos(x)
-       -----------------------
-       |  0.00000 |  1.00000 |
-       |  0.66667 |  0.78589 |
-       |  1.33333 |  0.23524 |
-       |  2.00000 | -0.41615 |
-       -----------------------
-\end{test}
-\end{maxitest}
+#\naslovInt#
+#\izlaz{Unesite krajeve intervala:}#
+#\ulaz{-0.5 1}#
+#\izlaz{Koliko tacaka ima na ekvidistantnoj mrezi (ukljucujuci krajeve intervala)?}#
+#\ulaz{4}#
+#\izlaz{     x        sin(x)}#
+#\izlaz{-----------------------}#
+#\izlaz{| -0.50000 | -0.47943 |}#
+#\izlaz{|  0.00000 |  0.00000 |}#
+#\izlaz{|  0.50000 |  0.47943 |}#
+#\izlaz{|  1.00000 |  0.84147 |}#
+#\izlaz{-----------------------}#
+\end{upotreba}
+\end{miditest}
+
+\begin{miditest}
+\begin{upotreba}{2}
+#\poziv{./a.out cos}#
+
+#\naslovInt#
+#\izlaz{Unesite krajeve intervala:}#
+#\ulaz{0 2}#
+#\izlaz{Koliko tacaka ima na ekvidistantnoj mrezi (ukljucujuci krajeve intervala)?}#
+#\ulaz{4}#
+#\izlaz{     x        cos(x)}#
+#\izlaz{-----------------------}#
+#\izlaz{|  0.00000 |  1.00000 |}#
+#\izlaz{|  0.66667 |  0.78589 |}#
+#\izlaz{|  1.33333 |  0.23524 |}#
+#\izlaz{|  2.00000 | -0.41615 |}#
+#\izlaz{-----------------------}#
+\end{upotreba}
+\end{miditest}
+
+\linkresenje{345}
 \end{Exercise}
 \begin{Answer}[ref=345]
 \includecode{resenja/03_Pokazivaci/345.c}
@@ -941,17 +1084,15 @@ računa sledećom aproksimacijom (vrednosti $n$ i $a$ uneti sa
 standardnog ulaza kao i ime funkcije):
 $$ lim_{x \rightarrow a} f(x) = lim_{n \rightarrow \infty} f(a + \frac{1}{n})$$
 
+\noindent
 \begin{miditest}
-\begin{test}{Test 1}
-Ulaz:   tan 1.570795 10000
-Izlaz:  -10134.5
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{Test 2}
-Ulaz:   log 0 1000000
-Izlaz:  -13.81551
-\end{test}
+\begin{upotreba}{1}
+
+#\naslovInt#
+#\izlaz{Unesite ime funkcije, n i a:}#
+#\ulaz{tan 1.570795 10000}#
+#\izlaz{Limes funkcije tan je -10134.5.}#
+\end{upotreba}
 \end{miditest}
 \end{Exercise}
 \begin{Answer}[ref=346]
@@ -967,7 +1108,17 @@ f(a+i \cdot h))$$
 Vrednost $h$ se izračunava po formuli $h = (b-a)/n$, dok se vrednosti $n$, $a$ i $b$ unose sa standardnog
 ulaza kao i ime funkcije iz zaglavlja
 \kckod{math.h}. Na standardni izlaz ispisati vrednost integrala.
-\komentar{Jelena: treba dodati test primer.}
+
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+
+#\naslovInt#
+#\izlaz{Unesite ime funkcije, n, a i b:}#
+#\ulaz{cos 6000 -1.5 3.5}#
+#\izlaz{Vrednost integrala je 0.645931.}#
+\end{upotreba}
+\end{miditest}
 \end{Exercise}
 \begin{Answer}[ref=347]
 %\includecode{resenja/03_Pokazivaci/347.c}
@@ -981,8 +1132,17 @@ $$I = \frac{h}{3}\left(f(a) + 4 \sum_{i=1}^{n/2}f(a+(2i-1)h) + 2
 \sum_{i=1}^{n/2-1}f(a+2ih) + f(b)\right)$$ 
 Granice intervala i $n$ su argumenti funkcije. Napisati program, koji kao
 argumente komandne linije prihvata ime funkcije iz zaglavlja
-\kckod{math.h}, krajeve intervala pretrage i $n$, a na standardni izlaz ispisuje vrednost odgovarajućeg integrala.
-\komentar{Jelena: treba dodati test primer.}
+\kckod{math.h}, krajeve intervala i $n$, a na standardni izlaz ispisuje vrednost odgovarajućeg integrala.
+\noindent
+\begin{miditest}
+\begin{upotreba}{1}
+
+#\naslovInt#
+#\izlaz{Unesite ime funkcije, n, a i b:}#
+#\ulaz{sin 100 -1.0 3.0}#
+#\izlaz{Vrednost integrala je 1.530295.}#
+\end{upotreba}
+\end{miditest}
 \end{Exercise}
 \begin{Answer}[ref=348]
 %\includecode{resenja/03_Pokazivaci/348.c}
