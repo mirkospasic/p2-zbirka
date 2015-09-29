@@ -151,8 +151,8 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 \begin{upotreba}{2}
 #\naslovInt#
 #\izlaz{Unesite ime datoteke:}\ulaz{imenik1.txt}#
-#\izlaz{fopen() greska prilikom otvaranja}#
-#\izlaz{imenik1.txt}#	
+#\izlaz{Greska prilikom otvaranja datoteke}#
+#\izlaz{imenik1.txt!}#	
 \end{upotreba}
 \end{miditest}
 \linkresenje{704}
@@ -191,7 +191,7 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 #\datoteka{[Ova datoteka ne postoji]}#
   
 #\naslovIzlaz#
-#\izlaz{Greska prilikom citanja podataka!}#
+#\izlaz{Greska prilikom otvaranja datoteke!}#
 \end{test}
 \end{miditest}
 \linkresenje{705}
@@ -227,7 +227,7 @@ Napisati program koji implementira podsetnik za rođendane. Informacije o rođen
 \end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{upotreba}{1}
+\begin{upotreba}{2}
 #\poziv{a.out rodjendani1.txt}#
   
 #\naslovInt#
@@ -244,7 +244,7 @@ Napisati program koji implementira podsetnik za rođendane. Informacije o rođen
 %7.zadatak
 \begin{Exercise}[label=707]
 Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj. ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor* koren1, Cvor* koren2)} koja proverava da li su binarna stabla \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identična, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih stabla unositi sa standardnog ulaza sve do pojave broja $0$.
-\napomena{Skup funkcija koje smo napisali u prvom zadatku možemo iskoristiti kao malu biblioteku za rad sa binarnim pretraživačkim stablima celih brojeva. Tako će u zadacima koji slede, datoteka stabla.h predstavljati popis funkcija biblioteke, a datoteka stabla.c njihove implementacije. Programe koji koriste ovu biblioteku treba prevoditi i pokretati u skladu sa smernicama iz poglavlja 1.1.}
+\napomena{Skup fundkcija koje smo napisali u prvom zadatku možemo iskoristiti kao malu biblioteku za rad sa binarnim pretraživačkim stablima celih brojeva. Tako će u zadacima koji slede, datoteka stabla.h predstavljati popis funkcija biblioteke, a datoteka stabla.c njihove implementacije. Programe koji koriste ovu biblioteku treba prevoditi i pokretati u skladu sa smernicama iz poglavlja 1.1.}
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -358,7 +358,7 @@ Dato je binarno pretraživačko stablo celih brojeva.
 Napisati program koji testira prethodne funkcije. Stablo formirati na osnovu vrednosti koje se unose
 sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ pročitati kao argumente komandne linije. 
 
-\begin{maxitest}
+\begin{miditest}
 \begin{test}{1}
 #\poziv{./a.out 2 15}#
   
@@ -376,9 +376,30 @@ sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ proč
 #\izlaz{elementi na 2. nivou: 3 12 30}#
 #\izlaz{maksimalni na 2. nivou: 30}#
 #\izlaz{zbir na 2. nivou: 45}#
-#\izlaz{zbir elemenata manjih ili jednakih od 15: 7}#
+#\izlaz{zbir elemenata manjih ili jednakih od 15: 78}#
 \end{test}
-\end{maxitest}
+\end{miditest}
+\begin{miditest}
+\begin{test}{2}
+#\poziv{./a.out 3 31}#
+  
+#\naslovUlaz#
+#\ulaz{24 53 61 9 7 55 20 16}#
+  
+#\naslovIzlaz#
+#\izlaz{broj cvorova: 8}#
+#\izlaz{broj listova: 3}#
+#\izlaz{pozitivni listovi: 7 16 55}#
+#\izlaz{zbir cvorova: 245}#
+#\izlaz{najveci element: 61}#
+#\izlaz{dubina stabla: 4}#
+#\izlaz{broj cvorova na 3. nivou: 2}#
+#\izlaz{elementi na 3. nivou: 16 55}#
+#\izlaz{maksimalni na 3. nivou: 55}#
+#\izlaz{zbir na 3. nivou: 71}#
+#\izlaz{zbir elemenata manjih ili jednakih od 31: 76}#
+\end{test}
+\end{miditest}
 
 \linkresenje{710}
 
@@ -393,7 +414,7 @@ sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ proč
 \begin{Exercise}[label=712]
 Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivoima. Elementi stabla se učitavaju sa standardnog ulaza sve do kraja ulaza.
 
-\begin{miditest}
+\begin{minitest}
 \begin{test}{1}
 #\naslovUlaz#
 #\ulaz{10 5 15 3 2 4 30 12 14 13}#
@@ -405,8 +426,8 @@ Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivo
 #\izlaz{3.nivo: 2 4 14}#
 #\izlaz{4.nivo: 13}#
 \end{test}
-\end{miditest}
-\begin{miditest}
+\end{minitest}
+\begin{minitest}
 \begin{test}{2}
 #\naslovUlaz#
 #\ulaz{6 11 8 3 -2}#
@@ -416,7 +437,19 @@ Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivo
 #\izlaz{1.nivo: 3 11}#
 #\izlaz{2.nivo: -2 8}#
 \end{test}
-\end{miditest}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{24 53 61 9 7 55 20 16}#
+  
+#\naslovIzlaz#
+#\izlaz{0.nivo: 24}#
+#\izlaz{1.nivo: 9 53}#
+#\izlaz{2.nivo: 7 20 61}#
+#\izlaz{3.nivo: 16 55}#
+\end{test}
+\end{minitest}
 
 \linkresenje{712}
 \end{Exercise}
@@ -485,8 +518,15 @@ AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina 
 
 %15.zadatak
 \begin{Exercise}[label=715]
-Binarno stablo se naziva HEAP ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno stablo celih brojeva HEAP. Napisati zatim i glavni program koji kreira stablo kao na slici ..., poziva funkciju \kckod{heap} i ispisuje rezultat na standardnom izlazu. 
+Binarno stablo celih pozitivnih brojeva se naziva HEAP ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno stablo celih brojeva HEAP. Napisati zatim i glavni program koji kreira stablo kao na slici \ref{fig:zadatak715}, poziva funkciju \kckod{heap} i ispisuje rezultat na standardnom izlazu. 
 \linkresenje{715}
+\begin{miditest}
+\begin{test}{1}
+#\naslovIzlaz#
+#\izlaz{Zadato stablo je heap!}#
+\end{test}
+\end{miditest}
+
 \end{Exercise}
 
 \begin{Answer}[ref=715]
@@ -496,13 +536,13 @@ Binarno stablo se naziva HEAP ako za svaki čvor u stablu važi da je njegova vr
 \begin{figure}[!htb]
 
 \minipage{0.425\textwidth}
-\includegraphics[height=120px,width=120px]{poglavlja/slike/427_heap.jpg}
-\caption{zadatak \ref{711}}
+\includegraphics[height=120px,width=120px]{poglavlja/slike/heap.png}
+\caption{zadatak \ref{715}}
 \label{fig:zadatak715}
 \endminipage\hfill
 \minipage{0.425\textwidth}
-\includegraphics[height=120px,width=120px]{poglavlja/slike/428_binarna_stabla.png}
-\caption{zadatak \ref{712}}
+\includegraphics[height=120px,width=120px]{poglavlja/slike/binarna_stabla.png}
+\caption{zadatak \ref{711}}
 \label{fig:zadatak711}
 \endminipage\hfill
 
@@ -513,13 +553,24 @@ Binarno stablo se naziva HEAP ako za svaki čvor u stablu važi da je njegova vr
 \begin{Exercise}[label=711]
 Dato je binarno stablo celih brojeva.
 \begin{enumerate}
-\item Napisati funkciju koja pronalazi čvor u stablu sa maksimalnim proizvodom vrednosti iz desnog podstabla.
-\item Napisati funkciju koja pronalazi čvor u stablu sa najmanjom sumom vrednosti iz levog podstabla.
-\item Napisati funkciju  koja štampa sadržaj svih čvorova stabla na putanji od korena do najdubljeg čvora.
+\item Napisati funkciju koja pronalazi čvor u stablu sa najvećim zbirom vrednosti iz desnog podstabla.
+\item Napisati funkciju koja pronalazi čvor u stablu sa najmanjim zbirom vrednosti iz levog podstabla.
+\item Napisati funkciju koja štampa sadržaj svih čvorova stabla na putanji od korena do najdubljeg čvora.
 \item Napisati funkciju koja štampa sadržaj svih čvorova stabla na putanji od korena do čvora koji ima najmanju vrednost u stablu.
 \end{enumerate}
-Napisati program koji testira gore navedene funkcije nad stablom zadatim slikom ... 
+Napisati program koji testira gore navedene funkcije nad stablom zadatim slikom \ref{fig:zadatak711} i rezultat ispisuje na standardnom izlazu.  
 %\linkresenje{711}
+
+\begin{miditest}
+\begin{test}{1}
+#\naslovIzlaz#
+#\izlaz{Cvor sa maksimalnim desnim zbirom: 18}
+#\izlaz{Cvor sa minimalnim levim zbirom: 18}
+#\izlaz{2 18 -10 4}#
+#\izlaz{2 20 -15}#
+\end{upotreba}
+\end{miditest}
+
 \end{Exercise}
 
 \begin{Answer}[ref=711]
