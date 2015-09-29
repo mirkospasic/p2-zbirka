@@ -203,7 +203,7 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 
 %6.zadatak
 \begin{Exercise}[label=706, difficulty=1]
-Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije u formatu \kckod{Ime Prezime DD.MM.YYYY.} - za svaku osobu po jedna linija datoteke. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj rada. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu \kckod{DD.MM.YYYY}.
+Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije u formatu \kckod{Ime Prezime DD.MM.YYYY.} - za svaku osobu po jedna linija datoteke. Korisnik unosi datum u naznačenom formatu, a program pronala zi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj rada. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu \kckod{DD.MM.YYYY}.
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -518,15 +518,15 @@ AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina 
 
 %15.zadatak
 \begin{Exercise}[label=715]
-Binarno stablo celih pozitivnih brojeva se naziva HEAP ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno stablo celih brojeva HEAP. Napisati zatim i glavni program koji kreira stablo kao na slici \ref{fig:zadatak715}, poziva funkciju \kckod{heap} i ispisuje rezultat na standardnom izlazu. 
-\linkresenje{715}
+Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno stablo celih brojeva hip. Napisati zatim i glavni program koji kreira stablo kao na slici \ref{fig:zadatak715}, poziva funkciju \kckod{heap} i ispisuje rezultat na standardnom izlazu. 
+
 \begin{miditest}
 \begin{test}{1}
 #\naslovIzlaz#
 #\izlaz{Zadato stablo je heap!}#
 \end{test}
 \end{miditest}
-
+\linkresenje{715}
 \end{Exercise}
 
 \begin{Answer}[ref=715]
@@ -537,12 +537,12 @@ Binarno stablo celih pozitivnih brojeva se naziva HEAP ako za svaki čvor u stab
 
 \minipage{0.425\textwidth}
 \includegraphics[height=120px,width=120px]{poglavlja/slike/heap.png}
-\caption{zadatak \ref{715}}
+\caption{Zadatak \ref{715}}
 \label{fig:zadatak715}
 \endminipage\hfill
 \minipage{0.425\textwidth}
 \includegraphics[height=120px,width=120px]{poglavlja/slike/binarna_stabla.png}
-\caption{zadatak \ref{711}}
+\caption{Zadatak \ref{711}}
 \label{fig:zadatak711}
 \endminipage\hfill
 
