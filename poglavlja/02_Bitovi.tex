@@ -77,7 +77,6 @@ Uraditi prethodni zadatak tako da su sve napisane funkcije za rad sa kompleksnim
 
 \begin{Exercise}[label=003] % sa praktikuma
 Napisati malu biblioteku za rad sa polinomima.
-
   \begin{enumerate}
   \item Definisati strukturu \kckod{Polinom} koja predstavlja polinom
     (stepena najviše 20). Struktura sadrži stepen i niz
@@ -130,26 +129,18 @@ Napraviti biblioteku za rad sa razlomcima.
   \begin{enumerate}
 
   \item Definisati strukturu za reprezentovanje razlomaka.
-
   \item Napisati funkcije za učitavanje i ispis razlomaka.
-
   \item Napisati funkcije koje vraćaju brojilac i imenilac.
-
   \item Napisati funkciju koja vraća vrednost razlomka kao  \kckod{double}
     vrednost.
-
   \item Napisati funkciju koja izračunava recipročnu vrednost
     razlomka.
-
   \item Napisati funkciju koja skraćuje dati razlomak.
-
   \item Napisati funkcije koje sabiraju, oduzimaju, množe i dele
     dva razlomka.
-
-  \end{enumerate}
+\end{enumerate}
 
 Napisati program koji testira prethodne funkcije tako što se sa standardnog ulaza unose dva razlomka \argf{r1} i \argf{r2} i na standardni izlaz se ispisuju skraćene vrednoste razlomaka koji koji su dobijeni kao zbir, razlika, proizvod i količnik razlomka \argf{r1} i recipročne vrednosti razlomka \argf{r2}.
-
 
 \begin{maxitest}
 \begin{upotreba}{1}
@@ -227,14 +218,13 @@ Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu neoz
 \end{Answer}
 
 \begin{Exercise}[label=202]
-
 Napisati funkcije \kckod{count\_bits1} i \kckod{count\_bits2} koje broje bitove sa vrednošću \argf{1} u binarnom zapisu celog broja $x$. Prebrojavanje bitova ostvariti na dva načina:
 \begin{enumerate}
 \item formiranjem odgovarajuće maske i njenim pomeranjem
 \item formiranjem odgovarajuće maske i pomeranjem promenljive $x$.
 \end{enumerate} 
  
- Napisati program koji testira tu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
+Napisati program koji testira tu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
 
 
 \begin{miditest}
@@ -297,12 +287,10 @@ Napisati funkcije \kckod{count\_bits1} i \kckod{count\_bits2} koje broje bitove 
 %\includecode{resenja/02_Bitovi/202b.c}
 \end{Answer}
 
-
 \begin{Exercise}[label=203]
 Napisati funkciju \kckod{najveci} koja određuje najveći broj koji se može zapisati istim binarnim ciframa kao dati broj i funkciju \kckod{najmanji} koja određuje najmanji broj koji se može zapisati istim binarnim ciframa kao dati broj.
 
 Napisati program koji testira prethodno napisane funkcije tako što prikazuje binarnu reprezentaciju brojeva koji se dobijaju nakon poziva funkcije \kckod{najveci}, ondosno \kckod{najmanji} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu. 
-
 
 \begin{miditest}
 \begin{test}{1}
@@ -402,7 +390,6 @@ Program treba da testira prethodno napisane funkcije nad neoznačenim celim broj
 \begin{Answer}[ref=204]
 \includecode{resenja/02_Bitovi/204.c}
 \end{Answer}
-
 
 \begin{Exercise}[label=205]
 Rotiranje ulevo podrazumeva pomeranje svih bitova za jednu poziciju ulevo, s tim što se bit sa pozicije najviše težine pomera na poziciju najmanje težine. Analogno, rotiranje udesno podrazumeva pomeranje svih bitova za jednu poziciju udesno, s tim što se bit sa pozicije najmanje težine pomera na poziciju najviše težine.
@@ -540,14 +527,10 @@ Napisati funkciju koja broji koliko se puta kombinacija
 %Ovaj 209.c nema resenje za sad...
 %%%
 \begin{Exercise}[label=209]\marker+{2}
-Napisati program koji sa standardnog ulaza učitava pozitivan
-  ceo broj, a na standardni izlaz ispisuje vrednost tog broja sa
-  razmenjenim vrednostima bitova na pozicijama $i$,
-  $j$. Pozicije $i$, $j$ se učitavaju kao parametri
+Napisati program koji sa standardnog ulaza učitava pozitivan ceo broj, a na standardni izlaz ispisuje vrednost tog broja sa razmenjenim vrednostima bitova na pozicijama $i$, $j$. Pozicije $i$, $j$ se učitavaju kao parametri
   komandne linije. Smatrati da je krajnji desni bit binarne
   reprezentacije \argf{0}-ti bit. Pri rešavanju nije dozvoljeno koristiti
   pomoćni niz niti aritmetičke operatore +,-,/,*,\%.
-
 
 \begin{minitest}
 \begin{upotreba}{1}

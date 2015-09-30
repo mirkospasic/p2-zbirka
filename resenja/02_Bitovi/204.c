@@ -149,25 +149,25 @@ int main()
 {
   unsigned broj, p, n, y;
   scanf("%u%u%u%u", &broj, &n, &p, &y);
-  printf("Broj %5u %25s= ", broj, "");
+  printf("Broj %u %s= ", broj, "");
   print_bits(broj);
 
 
-  printf("reset(%5u,%5u,%5u)%11s = ", broj, n, p, "");
+  printf("reset(%u,%u,%u)%s = ", broj, n, p, "");
   print_bits(reset(broj, n, p));
 
-  printf("set(%5u,%5u,%5u)%13s = ", broj, n, p, "");
+  printf("set(%u,%u,%u)%s = ", broj, n, p, "");
   print_bits(set(broj, n, p));
 
-  printf("get_bits(%5u,%5u,%5u)%8s = ", broj, n, p, "");
+  printf("get_bits(%u,%u,%u)%s = ", broj, n, p, "");
   print_bits(get_bits(broj, n, p));
 
-  printf("y = %31u = ", y);
+  printf("y = %u = ", y);
   print_bits(y);
-  printf("set_n_bits(%5u,%5u,%5u,%5u) = ", broj, n, p, y);
+  printf("set_n_bits(%u,%u,%u,%u) = ", broj, n, p, y);
   print_bits(set_n_bits(broj, n, p, y));
 
-  printf("invert(%5u,%5u,%5u)%10s = ", broj, n, p, "");
+  printf("invert(%u,%u,%5u)%s = ", broj, n, p, "");
   print_bits(invert(broj, n, p));
 
   return 0;

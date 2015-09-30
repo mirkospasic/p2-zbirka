@@ -2,15 +2,20 @@
 #include <stdlib.h>
 #include <math.h>
 
+/* Struktura trougao */
 typedef struct _trougao {
   double xa, ya, xb, yb, xc, yc;
 } trougao;
 
-double duzina(double x1, double y1, double x2, double y2) {
+/* Funkcija racuna duzinu duzi */
+double duzina(double x1, double y1, double x2, double y2)
+{
   return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 }
 
-double povrsina(trougao t) {
+/* Funkcija racuna povrsinu trougla */
+double povrsina(trougao t)
+{
   double a = duzina(t.xb, t.yb, t.xc, t.yc);
   double b = duzina(t.xa, t.ya, t.xc, t.yc);
   double c = duzina(t.xa, t.ya, t.xb, t.yb);
@@ -18,9 +23,12 @@ double povrsina(trougao t) {
   return sqrt(s * (s - a) * (s - b) * (s - c));
 }
 
-int poredi(const void *a, const void *b) {
-  trougao x = *(trougao*)a;
-  trougao y = *(trougao*)b;
+/* Funkcija racuna poredi dva trougla, napisana tako da se moze
+   proslediti funkciji qsort */
+int poredi(const void *a, const void *b)
+{
+  trougao x = *(trougao *) a;
+  trougao y = *(trougao *) b;
   double xp = povrsina(x);
   double yp = povrsina(y);
   if (xp < yp)
@@ -30,11 +38,12 @@ int poredi(const void *a, const void *b) {
   return 0;
 }
 
-int main() {
+int main()
+{
   FILE *f;
   int n, i;
   trougao *niz;
-  
+
   if ((f = fopen("trouglovi.txt", "r")) == NULL) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
@@ -52,22 +61,20 @@ int main() {
 
   for (i = 0; i < n; i++) {
     if (fscanf(f, "%lf%lf%lf%lf%lf%lf",
-	       &niz[i].xa, &niz[i].ya,
-	       &niz[i].xb, &niz[i].yb,
-	       &niz[i].xc, &niz[i].yc) != 6) {
+               &niz[i].xa, &niz[i].ya,
+               &niz[i].xb, &niz[i].yb, &niz[i].xc, &niz[i].yc) != 6) {
       fprintf(stderr, "-1\n");
       exit(EXIT_FAILURE);
     }
   }
 
   qsort(niz, n, sizeof(trougao), &poredi);
-  
+
   for (i = 0; i < n; i++)
     printf("%g %g %g %g %g %g\n",
-	   niz[i].xa, niz[i].ya,
-	   niz[i].xb, niz[i].yb,
-	   niz[i].xc, niz[i].yc);
-  
+           niz[i].xa, niz[i].ya,
+           niz[i].xb, niz[i].yb, niz[i].xc, niz[i].yc);
+
   free(niz);
   fclose(f);
 

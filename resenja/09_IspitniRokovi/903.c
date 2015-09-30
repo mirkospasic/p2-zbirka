@@ -1,7 +1,6 @@
 #include <stdio.h>
 #define MAX 50
 
-
 int main()
 {
   int m[MAX][MAX];

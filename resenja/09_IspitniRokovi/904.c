@@ -14,6 +14,8 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
+  /* Otvaranje datoteke ciji je naziv zadat kao argument komandne
+     linije */
   if ((f = fopen(argv[1], "r")) == NULL) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);

@@ -123,15 +123,15 @@ int main()
 {
   unsigned x, k;
   scanf("%x%x", &x, &k);
-  printf("x %36s = ", "");
+  printf("x %s = ", "");
   print_bits(x);
-  printf("rotate_left(%7u,%6u)%8s = ", x, k, "");
+  printf("rotate_left(%u,%u)%s = ", x, k, "");
   print_bits(rotate_left(x, k));
 
-  printf("rotate_right(%7u,%6u)%7s = ", x, k, "");
+  printf("rotate_right(%u,%u)%s = ", x, k, "");
   print_bits(rotate_right(x, k));
 
-  printf("rotate_right_signed(%7u,%6u) = ", x, k);
+  printf("rotate_right_signed(%u,%u) = ", x, k);
   print_bits(rotate_right_signed(x, k));
 
   return 0;

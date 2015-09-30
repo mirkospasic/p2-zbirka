@@ -1,12 +1,8 @@
-
 \chapter{Ispitni rokovi}
-
 
 \section{Programiranje 2, praktični deo ispita, jun 2015.}
 
-
 \begin{Exercise}[label=901]
-
 Kao argument komandne linije zadaje se ime ulazne datoteke u kojoj se nalaze niske. U prvoj liniji datoteke nalazi se informacija o broju niski, a zatim u narednim linijama po jedna niska ne duža od \argf{50} karaktera.
   
 Napisati program u kojem se dinamički alocira memorija za zadati niz niski, a zatim se na standardnom izlazu u redosledu suprotnom od redosleda čitanja ispisuju sve niske koje počinju velikim slovom. 
@@ -73,7 +69,6 @@ U slučaju pojave bilo kakve greške na standardnom izlazu ispisati vrednost \ar
 
 
 \begin{Exercise}[label=902]
-
 Data je biblioteka za rad sa binarnim pretraživačkim stablima čiji čvorovi sadrže cele brojeve. 
 Napisati funkciju   \kckod{int sumirajN (Cvor * koren, int n)}
 koja izračunava zbir svih čvorova koji se nalaze na $n$-tom nivou stabla (koren se nalazi na nultom nivou, njegova deca na prvom nivou i tako redom). 
@@ -102,9 +97,9 @@ Napisati program koji sa standardnog ulaza učitava najpre prirodan broj $n$, a 
 \linkresenje{902}
 \end{Exercise}
 \begin{Answer}[ref=902]
-\includecode{resenja/09_IspitniRokovi/902/main.c}
-\includecode{resenja/09_IspitniRokovi/902/stabla.c}
 \includecode{resenja/09_IspitniRokovi/902/stabla.h}
+\includecode{resenja/09_IspitniRokovi/902/stabla.c}
+\includecode{resenja/09_IspitniRokovi/902/main.c}
 \end{Answer}
 
 \begin{Exercise}[label=903]
@@ -153,9 +148,7 @@ U slučaju greške ispisati vrednost \argf{-1} na standardni izlaz za greške.
 
 \section{Programiranje 2, praktični deo ispita, jul 2015.}
 
-
 \begin{Exercise}[label=904]
-
 Napisati program koji kao prvi arugment komandne linije prima ime dokumenta u kome treba prebrojati sva pojavljivanja tražene niske (bez preklapanja) koja se navodi kao drugi argument komandne linije (iskoristiti funkciju standardne biblioteke \kckod{strstr}). U slučaju
 bilo kakve greške ispisati \argf{-1} na standardni izlaz za greške.
 Pretpostaviti da linije datoteke neće biti duže od \argf{127}
@@ -275,8 +268,7 @@ Na početku datoteke ,,trouglovi.txt'' nalazi se broj trouglova čije su koordin
 \end{Answer}
 
 \begin{Exercise}[label=906]
-  Data je biblioteka za rad sa binarnim pretraživačkim stablima
-  celih brojeba. Napisati funkciju\\ 
+Data je biblioteka za rad sa binarnim pretraživačkim stablima celih brojeba. Napisati funkciju\\ 
 \kckod{int f3(Cvor *koren, int n)}\\
   koja u datom stablu prebrojava čvorove na $n$-tom nivou, koji
   imaju tačno jednog potomka. Pretpostaviti da se koren nalazi na
@@ -328,9 +320,195 @@ Na početku datoteke ,,trouglovi.txt'' nalazi se broj trouglova čije su koordin
 \linkresenje{906}
 \end{Exercise}
 \begin{Answer}[ref=906]
-\includecode{resenja/09_IspitniRokovi/906/main.c}
-\includecode{resenja/09_IspitniRokovi/906/stabla.c}
 \includecode{resenja/09_IspitniRokovi/906/stabla.h}  
+\includecode{resenja/09_IspitniRokovi/906/stabla.c}
+\includecode{resenja/09_IspitniRokovi/906/main.c}
+\end{Answer}
+
+
+\section{Programiranje 2, praktični deo ispita, septembar 2015.}
+
+\begin{Exercise}[label=907]
+Sa standardnog ulaza se učitavaju neoznačeni celi brojevi \texttt{x} i \texttt{n}. Na
+   standardni izlaz ispisati neoznačen ceo broj koji se dobija od broja \texttt{x} kada se njegov binarni zapis
+   rotira za \texttt{n} mesta udesno (na primer, ako je binarni zapis broja \texttt{x} jednak \texttt{00000000000000000000000000001111},
+   i ako je \texttt{n=1} tada na standardni izlaz treba ispisati neo\v{z}načen broj čiji je binarni zapis jednak \texttt{10000000000000000000000000000111}).
+
+\begin{minitest}
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{6 1}#
+#\naslovIzlaz#
+#\izlaz{3}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{15 3}#
+#\naslovIzlaz#
+#\izlaz{3758096385}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{31 100}#
+#\naslovIzlaz#
+#\izlaz{4026531841}#
+\end{test}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{4}
+#\naslovUlaz#
+#\ulaz{4 0}#
+#\naslovIzlaz#
+#\izlaz{4}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{5}
+#\naslovUlaz#
+#\ulaz{0 5}#
+#\naslovIzlaz#
+#\izlaz{0}#
+\end{test}
+\end{minitest}
+
+\linkresenje{907}
+\end{Exercise}
+\begin{Answer}[ref=907]
+\includecode{resenja/09_IspitniRokovi/907.c}
+\end{Answer}
+
+
+\begin{Exercise}[label=908]
+Napisati funkciju \kckod{void dopuni\_listu(Cvor** adresa\_glave)}
+koja samo čvorovima koji imaju sledbenika u jednostruko povezanoj listi realnih brojeva,
+  dodaje između čvora i njegovog sledbenika nov čvor čija vrednost je aritmetička sredina njihovih vrednosti.
+ Ispravnost napisane funkcije testirati koristeći dostupnu biblioteku za rad sa listama i \kckod{main} funkciju koja najpre
+ učitava elemente liste, poziva pomenutu funkciju i ispisuje sadržaj liste.
+
+\begin{maxitest}
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{1 2 3 4 5}#
+#\naslovIzlaz#
+#\izlaz{1.00 1.50 2.00 2.50 3.00 3.50 4.00 4.50 5.00}#
+\end{test}
+\end{maxitest}
+
+\begin{minitest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{12}#
+#\naslovIzlaz#
+#\izlaz{12.00}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{prazna lista}#
+#\naslovIzlaz#
+#\izlaz{}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{4}
+#\naslovUlaz#
+#\ulaz{13.3 15.8}#
+#\naslovIzlaz#
+#\izlaz{13.30 14.55}#
+\end{test}
+\end{minitest}
+
+\linkresenje{908}
+\end{Exercise}
+
+\begin{Answer}[ref=908]
+\includecode{resenja/09_IspitniRokovi/908/liste.h}
+\includecode{resenja/09_IspitniRokovi/908/liste.c}
+\includecode{resenja/09_IspitniRokovi/908/main.c}
+\end{Answer}
+
+\begin{Exercise}[label=909]
+Sa standardnog ulaza se učitava dimenzija \kckod{n} kvadratne celobrojne
+    matrice \argf{A} ($n>0$), a zatim i elementi matrice \argf{A}. Napisati program koji
+    proverava da li je data kvadratna matrica magični kvadrat
+    (magični kvadrat je kvadratna matrica kod koje je suma brojeva
+    u svakom redu i svakoj koloni jednaka). Ukoliko jeste, ispisati na
+    standardnom izlazu sumu brojeva jedne vrste ili kolone te matrice,
+    a ukoliko nije ispisati "-". Broj vrsta i broj kolona matrice nije
+    unapred poznat. U slučaju greške ispisati \argf{-1}.
+
+\begin{minitest}
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{4}#
+#\ulaz{1 2 3 4}#
+#\ulaz{2 1 4 3}#
+#\ulaz{3 4 2 1}#
+#\ulaz{4 3 1 2}#
+#\naslovIzlaz#
+#\izlaz{10}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{3}#
+#\ulaz{1 1 1}#
+#\ulaz{1 1 1}#
+#\ulaz{1 1 1}#
+#\naslovIzlaz#
+#\izlaz{3}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{2}#
+#\ulaz{1 1}#
+#\ulaz{2 2}#
+#\naslovIzlaz#
+#\izlaz{-}#
+\end{test}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{4}
+#\naslovUlaz#
+#\ulaz{2}#
+#\ulaz{1 2}#
+#\ulaz{1 2}#
+#\naslovIzlaz#
+#\izlaz{-}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{5}
+#\naslovUlaz#
+#\ulaz{1}#
+#\ulaz{5}#
+#\naslovIzlaz#
+#\izlaz{5}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{6}
+#\naslovUlaz#
+#\ulaz{0}#
+#\naslovIzlaz#
+#\izlaz{-1}#
+\end{test}
+\end{minitest}
+
+\linkresenje{909}
+\end{Exercise}
+\begin{Answer}[ref=909]
+\includecode{resenja/09_IspitniRokovi/909.c}
 \end{Answer}
 
 \section{Rešenja}
