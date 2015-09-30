@@ -43,12 +43,12 @@ int dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj)
   return 0;
 }
 
-
 int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
 {
   if (*adresa_glave == NULL) {
     /* Glava liste je upravo novi cvor i ujedno i cela lista. */
     Cvor *novi = napravi_cvor(broj);
+    /* Ukoliko je bilo greske pri alokaciji vraca se 1. */
     if (novi == NULL)
       return 1;
 
@@ -58,23 +58,20 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
     return 0;
   }
 
-
   /* Ako lista nije prazna, broj se dodaje u rep liste. */
   /* Prilikom dodavanja u listu na kraj u velikoj vecini slucajeva
-     nov broj se dodaje u rep liste u rekurzivnom pozivu. U slucaju
-     da je u rekurzivnom pozivu doslo do greske pri alokaciji,
-     funkcija vraca 1 visem rekurzivnom pozivu koji tu informaciju
-     vraca u rekurzivni poziv iznad, sve dok se ne vrati u main. Ako
-     je funkcija vratila 0, onda nije bilo greske. Tek je iz main
-     funkcije moguce pristupiti pravom pocetku liste i osloboditi je
-     celu, ako ima potrebe. */
+     nov broj se dodaje u rep liste u rekurzivnom pozivu. Informacija 
+     o uspesnosti alokacije u rekurzivnom pozivu funkcija prosledjuje 
+     visem rekurzivnom pozivu koji tu informaciju vraca u rekurzivni
+     poziv iznad, sve dok se ne vrati u main. Tek je iz main funkcije
+     moguce pristupiti pravom pocetku liste i osloboditi je celu, ako
+     ima potrebe. Ako je funkcija vratila 0, onda nije bilo greske. */
   return dodaj_na_kraj_liste(&(*adresa_glave)->sledeci, broj);
 }
 
 int dodaj_sortirano(Cvor ** adresa_glave, int broj)
 {
-  /* U slucaju prazne liste adresa_glave nove liste je upravo novi
-     cvor. */
+  /* U slucaju prazne liste, glava nove liste je upravo novi cvor. */
   if (*adresa_glave == NULL) {
     Cvor *novi = napravi_cvor(broj);
     if (novi == NULL)
@@ -101,12 +98,11 @@ Cvor *pretrazi_listu(Cvor * glava, int broj)
   if (glava == NULL)
     return NULL;
 
-  /* Ako glava liste sadrzi trazeni broj */
+  /* Ako glava liste sadrzi trazeni broj, vraca se pokazivac glava. */
   if (glava->vrednost == broj)
     return glava;
 
-  /* Ako nije nijedna od prethodnih situacija, pretraga se nastavlja
-     u repu liste. */
+  /* Inace, pretraga se nastavlja u repu liste. */
   return pretrazi_listu(glava->sledeci, broj);
 }
 
@@ -117,12 +113,11 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
   if (glava == NULL || glava->vrednost > broj)
     return NULL;
 
-  /* Ako glava liste sadrzi trazeni broj, vraca se glava. */
+  /* Ako glava liste sadrzi trazeni broj, vraca se pokazivac glava. */
   if (glava->vrednost == broj)
     return glava;
 
-  /* Ako nije nijedna od prethodnih situacija, pretraga se nastavlja
-     u repu. */
+  /* Inace, pretraga se nastavlja u repu. */
   return pretrazi_listu(glava->sledeci, broj);
 }
 
@@ -185,16 +180,14 @@ void ispisi_vrednosti(Cvor * glava)
   }
 }
 
-
 void ispisi_listu(Cvor * glava)
 {
   /* Funkciji se ne salje adresa promenljive koja cuva glavu liste,
-     jer ova funkcija nece menjati listu, pa nema ni potrebe da
-     azuriza pokazivac na glavu liste iz pozivajuce funkcije. Ova
-     funkcija ispisuje samo zagrade, a rekurzivno ispisivanje
-     vrednosti u listi prepusta rekurzivnoj pomocnoj funkciji
-     ispisi_vrednosti, koja ce ispisati elemente razdvojene zapetom i 
-     razmakom. */
+     jer nece menjati listu, pa nema ni potrebe da azuriza pokazivac
+     na glavu liste iz pozivajuce funkcije. Ona ispisuje samo
+     zagrade, a rekurzivno ispisivanje vrednosti u listi prepusta
+     rekurzivnoj pomocnoj funkciji ispisi_vrednosti, koja ce ispisati 
+     elemente razdvojene zapetom i razmakom. */
   putchar('[');
   ispisi_vrednosti(glava);
   printf("]\n");

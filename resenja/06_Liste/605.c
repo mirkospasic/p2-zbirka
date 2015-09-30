@@ -12,7 +12,7 @@
 #define PROCITANO_MANJE 1
 #define U_ETIKETI 2
 
-/* Struktura kojim se predstavlja cvor liste: sadrzi ime etikete i
+/* Struktura kojim se predstavlja cvor liste sadrzi ime etikete i
    pokazivac na sledeci cvor. */
 typedef struct cvor {
   char etiketa[MAX];
@@ -37,7 +37,7 @@ Cvor *napravi_cvor(char *etiketa)
   return novi;
 }
 
-/* Funkcija prazni stek */
+/* Funkcija oslobadja memoriju zauzetu stekom. */
 void oslobodi_stek(Cvor ** adresa_vrha)
 {
   Cvor *pomocni;
@@ -50,7 +50,7 @@ void oslobodi_stek(Cvor ** adresa_vrha)
 
 /* Funkcija proverava uspesnost alokacije memorije za cvor novi i
    ukoliko alokacija nije bila uspesna, oslobadja se sva prethodno
-   zauzeta memorija za listu ciji pocetni cvor se nalazi na adresi
+   zauzeta memorija za listu ciji se pokazivac vrh nalazi na adresi
    adresa_vrha. */
 void proveri_alokaciju(Cvor ** adresa_vrha, Cvor * novi)
 {
@@ -114,27 +114,26 @@ void prikazi_stek(Cvor * vrh)
     printf("<%s>\n", vrh->etiketa);
 }
 
-/* Funkcija iz fajla na koji pokazuje f cita sledecu etiketu, i njeno 
-   ime upisuje u niz na koji pokazuje pokazivac etiketa. Funkcija
-   vraca EOF u slucaju da se dodje do kraja fajla pre nego sto se
-   procita etiketa, vraca OTVORENA ako je procitana otvorena etiketa, 
-   odnosno ZATVORENA ako je procitana zatvorena etiketa. */
+/* Funkcija iz datoteke kojoj odgovara pokazivac f cita sledecu
+   etiketu, i upisuje je u nisku na koju pokazuje pokazivac etiketa.
+   Vraca EOF u slucaju da se dodje do kraja datoteke pre nego sto se
+   procita etiketa. Vraca OTVORENA, ako je procitana otvorena
+   etiketa, odnosno ZATVORENA, ako je procitana zatvorena etiketa. */
 int uzmi_etiketu(FILE * f, char *etiketa)
 {
   int c;
   int i = 0;
-
   /* Stanje predstavlja informaciju dokle se stalo sa citanjem
      etikete. Inicijalizuje se vrednoscu VAN_ETIKETE jer jos uvek
-     nije zapoceto citanje. Tip predstavlja informaciju o tipu
-     etikete uzima vrednosti OTVORENA ili ZATVORENA. */
+     nije zapoceto citanje. */
+  /* Tip predstavlja informaciju o tipu etikete. Uzima vrednosti
+     OTVORENA ili ZATVORENA. */
   int stanje = VAN_ETIKETE;
   int tip;
 
-  /* HTML je neosetljiv na razliku izmedju malih i velikih slova. U
-     HTML-u etikete BODY i body imaju isto znacenje, dok to u C-u ne
-     vazi. Zato ce sve etikete biti prevedene u zapis samo malim
-     slovima. */
+  /* HTML je neosetljiv na razliku izmedju malih i velikih slova, dok 
+     to u C-u ne vazi. Zato ce sve etikete biti prevedene u zapis
+     samo malim slovima. */
   while ((c = fgetc(f)) != EOF) {
     switch (stanje) {
     case VAN_ETIKETE:
@@ -162,10 +161,8 @@ int uzmi_etiketu(FILE * f, char *etiketa)
            i smesta u etiketu. */
         etiketa[i++] = tolower(c);
       } else {
-        /* U suprotnom, staje se sa citanjem etikete i stanje se
-           menja. Korektno se zavrsava niska koja sadrzi procitanu
-           etiketu i vraca se njen tip. */
-        stanje = VAN_ETIKETE;
+        /* Inace, staje se sa citanjem etikete. Korektno se zavrsava
+           niska koja sadrzi procitanu etiketu i vraca se njen tip. */
         etiketa[i] = '\0';
         return tip;
       }
@@ -204,10 +201,9 @@ int main(int argc, char **argv)
   while ((tip = uzmi_etiketu(f, etiketa)) != EOF) {
     /* Ako je otvorena etiketa, stavlja se na stek. Izuzetak su
        etikete <br>, <hr> i <meta> koje nemaju sadrzaj, pa ih nije
-       potrebno zatvoriti. NAPOMENA: U HTML-u postoje jos neke
-       etikete koje koje nemaju sadrzaj (npr link). Zbog
-       jednostavnosti pretpostavlja se da njih nema u HTML dokumentu. 
-     */
+       potrebno zatvoriti. U HTML-u postoje jos neke etikete koje
+       koje nemaju sadrzaj (npr link). Zbog jednostavnosti
+       pretpostavlja se da njih nema u HTML dokumentu. */
     if (tip == OTVORENA) {
       if (strcmp(etiketa, "br") != 0
           && strcmp(etiketa, "hr") != 0
@@ -216,8 +212,8 @@ int main(int argc, char **argv)
     }
     /* Ako je zatvorena etiketa, tada je uslov dobre uparenosti da je 
        u pitanju zatvaranje etikete koja je poslednja otvorena, a jos 
-       uvek nije zatvorena. Ova etiketa se mora nalaziti na vrhu
-       steka. Ako je taj uslov ispunjen, skida se sa steka, jer je
+       uvek nije zatvorena. Ona se mora nalaziti na vrhu steka. Ako
+       je taj uslov ispunjen, skida se sa steka, jer je upravo
        zatvorena. U suprotnom, pronadjena je nepravilnost i etikete
        nisu pravilno uparene. */
     else if (tip == ZATVORENA) {

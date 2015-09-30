@@ -29,7 +29,7 @@ Cvor *napravi_cvor(char *broj_indeksa, char *ime, char *prezime)
   return novi;
 }
 
-/* Funkcija oslobadja memoriju zauzetu za elemente liste. */
+/* Funkcija oslobadja memoriju zauzetu za cvorove liste. */
 void oslobodi_listu(Cvor ** adresa_glave)
 {
   if (*adresa_glave == NULL)
@@ -42,8 +42,8 @@ void oslobodi_listu(Cvor ** adresa_glave)
 }
 
 /* Funkcija proverava da li je novi NULL pokazivac, i ukoliko jeste
-   oslobadja celu listu cija se glava nalazi na adresi adresa_glave i 
-   prekida program. */
+   oslobadja celu listu ciji se pokazivac glava nalazi na adresi
+   adresa_glave i prekida program. */
 void proveri_alokaciju(Cvor ** adresa_glave, Cvor * novi)
 {
   if (novi == NULL) {

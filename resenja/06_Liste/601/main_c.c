@@ -13,7 +13,7 @@ int main()
      uredjena */
   printf("Unosite brojeve (za kraj CTRL+D)\n");
   while (scanf("%d", &broj) > 0) {
-    /* Ako je funkcija vratila 1 onda je bilo greske pri alokaciji
+    /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
        memorije za nov cvor. Memoriju alociranu za cvorove liste
        treba osloboditi pre napustanja programa. */
     if (dodaj_sortirano(&glava, broj) == 1) {

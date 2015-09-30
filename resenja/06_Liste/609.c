@@ -2,18 +2,16 @@
 #include<stdlib.h>
 #include "601/lista.h"
 
-
-
-/* Funkcija objedinjuje dve liste cije se glave nalaze na adresama
-   adresa_glave_1 i adresa_glave_2 prevezivanjem pokazivaca
-   postojecih cvorova listi. */
+/* Funkcija objedinjuje dve liste ciji se pokazivaci na glave nalaze
+   na adresama adresa_glave_1 i adresa_glave_2 prevezivanjem
+   pokazivaca postojecih cvorova listi. */
 Cvor *objedini(Cvor ** adresa_glave_1, Cvor ** adresa_glave_2)
 {
   /* Pokazivac na glavu rezultujuce liste. */
   Cvor *rezultujuca = NULL;
   /* Tekuci je pokazivac na pokazivac kome sledecem treba promeniti
-     vrednosti. Inicijalizuje se na rezultujuca jer prvo treba
-     odrediti glavu rezulujuce liste. */
+     vrednosti. Inicijalizuje se na adresu pokazivaca rezultujuca jer 
+     prvo treba odrediti glavu rezultujuce liste. */
   Cvor **tekuci = &rezultujuca;
 
   /* Ako su obe liste prazne, rezultat je isto prazna lista. */
@@ -32,29 +30,30 @@ Cvor *objedini(Cvor ** adresa_glave_1, Cvor ** adresa_glave_2)
      na koji tekuci pokazuje. U prvoj iteraciji tekuci pokazuje na
      pokazivac rezultujuca i ovako se pokazivac rezultujuca usmerava
      da pokazuje na pocetak nove liste, tj. na cvor sa vrednoscu
-     manjeg od brojeva sadrzanih u cvorovima na koje pokazuju
-     adresa_glave_1 i adresa_glave_2. U svim ostalim iteracijama to
-     isto se dogadja samo pokazivacu na koji tekuci u tom trenutku
-     pokazuje. */
+     manjeg od brojeva sadrzanih u cvorovima na koje vode pokazivaci
+     na adresama adresa_glave_1 i adresa_glave_2. U svim ostalim
+     iteracijama to isto se dogadja samo pokazivacu na koji tekuci u
+     tom trenutku pokazuje. */
   while (*adresa_glave_1 != NULL && *adresa_glave_2 != NULL) {
     if ((*adresa_glave_1)->vrednost < (*adresa_glave_2)->vrednost) {
-      /* pokazivac na koji tekuci pokazuje dobija vrednosti
-         pokazivaca koji se nalazi na adresa_glave_1 tj. sledbenik
-         poslednjeg uvezanog cvora bice cvor koji je aktuelna glava
-         prve liste. */
+      /* Pokazivac na koji tekuci pokazuje dobija vrednosti
+         pokazivaca koji se nalazi na adresa_glave_1. Time sledbenik
+         poslednjeg uvezanog cvora postaje cvor koji je aktuelna
+         glava prve liste. */
       *tekuci = *adresa_glave_1;
-      /* pomera se glava prve liste na sledeci cvor prve liste. Ova
-         promena bice vidljiva i van funkcije jer se direktno menja
-         promenljiva koja se nalazi na adresi adresa_glave_1. */
+      /* Pomera se glava prve liste na sledeci cvor prve liste.
+
+         Ova promena bice vidljiva i van funkcije jer se direktno
+         menja promenljiva koja se nalazi na adresi adresa_glave_1. */
       *adresa_glave_1 = (*adresa_glave_1)->sledeci;
     } else {
-      /* sledbenik poslednjeg uvezanog cvora bice cvor koji je
+      /* Sledbenik poslednjeg uvezanog cvora bice cvor koji je
          aktuelna glava druge liste. */
       *tekuci = *adresa_glave_2;
-      /* pomera se glava druge liste na sledeci cvor druge liste */
+      /* Pomera se glava druge liste na sledeci cvor druge liste */
       *adresa_glave_2 = (*adresa_glave_2)->sledeci;
     }
-    /* tekuci se pomera na pokazivac sledeci od poslednjeg uvezanog,
+    /* Tekuci se pomera na pokazivac sledeci od poslednjeg uvezanog,
        jer je upravo to pokazivac koji treba da bude azuriran u
        sledecoj iteraciji petlje. */
     tekuci = &((*tekuci)->sledeci);
@@ -75,14 +74,14 @@ Cvor *objedini(Cvor ** adresa_glave_1, Cvor ** adresa_glave_2)
 }
 
 /* Druga verzija prethodne funkcije koja ne pristupa pokazivacima
-   preko adresa vec direktno. Ne salju joj se adrese pokazivaca na
-   glave listi vec njihove vrednosti. */
+   preko adresa vec direktno. Ne salju joj se adrese, vec vrednosti
+   pokazivaca na glave listi. */
 Cvor *objedini_v2(Cvor * lista1, Cvor * lista2)
 {
   Cvor *rezultujuca = NULL;
   Cvor *tekuci = NULL;
 
-  /* Ako su obe liste prazne, rezultat je isto prazna lista. */
+  /* Ako su obe liste prazne i rezultat je prazna lista. */
   if (lista1 == NULL && lista2 == NULL)
     return NULL;
 
@@ -94,9 +93,9 @@ Cvor *objedini_v2(Cvor * lista1, Cvor * lista2)
   if (lista2 == NULL)
     return lista1;
 
-  /* rezultujuca pokazuje na pocetak nove liste, tj. na cvor sa
+  /* Rezultujuca pokazuje na pocetak nove liste, tj. na cvor sa
      vrednoscu manjeg od brojeva sadrzanih u cvorovima na koje
-     pokazuju adresa_glave_1 i adresa_glave_2. */
+     pokazuju lista1 i lista2. */
   if (lista1->vrednost < lista2->vrednost) {
     rezultujuca = lista1;
     lista1 = lista1->sledeci;
@@ -170,7 +169,7 @@ int main(int argc, char **argv)
   while (fscanf(in2, "%d", &broj) != EOF)
     dodaj_na_kraj_liste(&lista2, broj);
 
-  /* Pokazivac rezultat ce pokazivati na listu koja se dobila
+  /* Pokazivac rezultat ce pokazivati na glavu liste koja se dobila
      objedinjavanjem listi */
   rezultat = objedini(&lista1, &lista2);
 

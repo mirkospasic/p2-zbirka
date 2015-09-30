@@ -10,10 +10,10 @@ int main()
   Cvor *trazeni = NULL;
   int broj;
 
-  /* Testiranje dodavanja novog broja na pocetak liste. */
+  /* Testiranje dodavanja novog broja na pocetak liste */
   printf("Unesite brojeve: (za kraj CTRL+D)\n");
   while (scanf("%d", &broj) > 0) {
-    /* Ako je funkcija vratila 1 onda je bilo greske pri alokaciji
+    /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
        memorije za nov cvor. Memoriju alociranu za cvorove liste
        treba osloboditi pre napustanja programa. */
     if (dodaj_na_pocetak_liste(&glava, broj) == 1) {

@@ -51,23 +51,23 @@ int main()
       }
     }
   }
+  /* Procitana je cela datoteka. Zatvaramo je. */
+  fclose(ulaz);
 
-  /* Ako je na kraju stek prazan i procitana je cela datoteka,
-     zagrade su ispravno uparene, u suprotnom, nisu. */
+  /* Ako je stek prazan i procitana je cela datoteka, zagrade su
+     ispravno uparene, u suprotnom, nisu. */
   if (stek == NULL && c == EOF)
     printf("Zagrade su ispravno uparene.\n");
   else {
     printf("Zagrade nisu ispravno uparene.\n");
-
+    /* U slucaju neispravnog uparivanja treba osloboditi memoriju
+       koja je ostala zauzeta stekom. */
     while (stek != NULL) {
-      /* U slucaju neispravnog uparivanja treba osloboditi memoriju
-         koja je ostala zauzeta stekom. */
       pomocni = stek->sledeci;
       free(stek);
       stek = pomocni;
     }
   }
 
-  fclose(ulaz);
   return 0;
 }

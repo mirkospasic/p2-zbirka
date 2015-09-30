@@ -52,12 +52,13 @@ Cvor *pronadji_poslednji(Cvor * glava)
   if (glava == NULL)
     return NULL;
 
-  /* Sve dok glava ne pokazuje na cvor koji nema sledeceg, pokazivac
+  /* Sve dok glava pokazuje na cvor koji ima sledeceg, pokazivac
      glava se pomera na sledeci cvor. Nakon izlaska iz petlje, glava
-     ce pokazivati na cvor liste koji nema sledeceg, tj, poslednji je
-     cvor liste, vraca se vrednost pokazivaca glava. Pokazivac glava
-     je argument funkcije i njegove promene nece se odraziti na
-     vrednost pokazivaca glava u pozivajucoj funkciji. */
+     ce pokazivati na cvor liste koji nema sledeceg, tj. na poslednji
+     cvor liste i vraca se vrednost pokazivaca glava.
+
+     Pokazivac glava je argument funkcije i njegove promene nece se
+     odraziti na vrednost pokazivaca glava u pozivajucoj funkciji. */
   while (glava->sledeci != NULL)
     glava = glava->sledeci;
 
@@ -72,7 +73,7 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
 
   /* U slucaju prazne liste, glava nove liste je upravo novi cvor i
      ujedno i cela lista. Azurira se vrednost na koju pokazuje
-     adresa_glave i tako se azurira i pokazivacka promenljivu u
+     adresa_glave i tako se azurira i pokazivacka promenljiva u
      pozivajucoj funkciji. */
   if (*adresa_glave == NULL) {
     *adresa_glave = novi;
@@ -100,8 +101,8 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj)
 
      Zbog izracunavanja izraza u C-u prvi deo konjukcije mora biti
      provera da li se doslo do poslednjeg cvora liste pre nego sto se 
-     proveri vrednost njegovog sledeceg cvora, jer u slucaju
-     poslednjeg, sledeci ne postoji, pa ni njegova vrednost. */
+     proveri vrednost u sledecem cvoru, jer u slucaju poslednjeg,
+     sledeci ne postoji, pa ni njegova vrednost. */
   while (glava->sledeci != NULL && glava->sledeci->vrednost < broj)
     glava = glava->sledeci;
 
@@ -116,9 +117,9 @@ void dodaj_iza(Cvor * tekuci, Cvor * novi)
   novi->sledeci = tekuci->sledeci;
   novi->prethodni = tekuci;
 
-  /* Ako tekuci ima sledeceg, onda se sledecem dodeljuje prethodnik i 
-     tekuci dobija novog sledeceg postavljanjem pokazivaca na
-     ispravne adrese. */
+  /* Ako tekuci ima sledeceg, onda se sledecem dodeljuje prethodnik,
+     a potom i tekuci dobija novog sledeceg postavljanjem pokazivaca
+     na ispravne adrese. */
   if (tekuci->sledeci != NULL)
     tekuci->sledeci->prethodni = novi;
   tekuci->sledeci = novi;
@@ -146,7 +147,7 @@ int dodaj_sortirano(Cvor ** adresa_glave, int broj)
   if (novi == NULL)
     return 1;
 
-  /* Pronazi se cvor iza koga treba uvezti nov cvor. */
+  /* Pronazi se cvor iza koga treba uvezati nov cvor. */
   Cvor *pomocni = pronadji_mesto_umetanja(*adresa_glave, broj);
   dodaj_iza(pomocni, novi);
 
@@ -175,9 +176,9 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
   return NULL;
 }
 
-/* Kod dvostruke liste brisanje tekuceg elementa moze se lako uraditi 
-   jer cvor tekuci sadrzi pokazivace na svog sledbenika i prethodnika 
-   u listi. */
+/* Kod dvostruko povezane liste brisanje cvora na koji pokazuje
+   tekuci moze se lako uraditi jer sadrzi pokazivace na svog
+   sledbenika i prethodnika u listi. */
 void obrisi_tekuci(Cvor ** adresa_glave, Cvor * tekuci)
 {
   /* Ako je tekuci NULL pokazivac, nema sta da se brise. */
@@ -189,13 +190,13 @@ void obrisi_tekuci(Cvor ** adresa_glave, Cvor * tekuci)
   if (tekuci->prethodni != NULL)
     tekuci->prethodni->sledeci = tekuci->sledeci;
 
-  /* Ako postoji sledbenik tekuceg (cvora koji se brise), onda njegov 
-     prethodnik treba da bude prethodnik tekuceg. */
+  /* Ako postoji sledbenik tekuceg, onda njegov prethodnik treba da
+     bude prethodnik tekuceg. */
   if (tekuci->sledeci != NULL)
     tekuci->sledeci->prethodni = tekuci->prethodni;
 
-  /* Ako je glava cvor koji se brise, glava nove liste ce biti
-     sledbenik od stare glave. */
+  /* Ako je glava cvor koji se brise, nova glava liste bice sledbenik 
+     stare glave. */
   if (tekuci == *adresa_glave)
     *adresa_glave = tekuci->sledeci;
 
@@ -223,8 +224,8 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, int broj)
 void ispisi_listu(Cvor * glava)
 {
   /* Funkciji se ne salje adresa promenljive koja cuva glavu liste,
-     jer ova funkcija nece menjati listu, pa nema ni potrebe da
-     azuriza pokazivac na glavu liste iz pozivajuce funkcije. */
+     jer nece menjati listu, pa nema ni potrebe da azuriza pokazivac
+     na glavu liste iz pozivajuce funkcije. */
   putchar('[');
   for (; glava != NULL; glava = glava->sledeci) {
     printf("%d", glava->vrednost);

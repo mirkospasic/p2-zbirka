@@ -11,7 +11,7 @@ int main()
   /* Testiranje dodavanja novog broja na kraj liste. */
   printf("Unesite brojeve: (za kraj unesite CTRL+D)\n");
   while (scanf("%d", &broj) > 0) {
-    /* Ako je funkcija vratila 1 onda je bilo greske pri alokaciji
+    /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
        memorije za nov cvor. Memoriju alociranu za cvorove liste
        treba osloboditi pre napustanja programa. */
     if (dodaj_na_kraj_liste(&glava, broj) == 1) {
@@ -27,7 +27,7 @@ int main()
   scanf("%d", &broj);
 
   /* Brisu se cvorovi iz liste cije polje vrednost je jednako broju
-     procitanom sa ulaza */
+     procitanom sa ulaza. */
   obrisi_cvor(&glava, broj);
 
   printf("Lista nakon brisanja:  ");

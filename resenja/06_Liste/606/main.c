@@ -80,12 +80,12 @@ int main(int argc, char **argv)
     Usluzivanje korisnika moze da se izvrsi i na sledeci nacin:
     
     while (skini_sa_reda(&pocetak, &kraj, &nov_zahtev)) {
-      printf("\ nSledeci je korisnik sa JMBG brojem: %s\n",
+      printf("\nSledeci je korisnik sa JMBG brojem: %s\n",
             nov_zahtev.jmbg);
       printf("sa zahtevom: %s\n", nov_zahtev.opis);
       broj_usluzenih++;
       
-      printf("\ tDa li ga vracate na kraj reda? [Da/Ne] ");
+      printf("\tDa li ga vracate na kraj reda? [Da/Ne] ");
       scanf("%s", odgovor);
       if (strcmp(odgovor, "Da") == 0)
         dodaj_u_red(&pocetak, &kraj, &nov_zahtev);
