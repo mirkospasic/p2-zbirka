@@ -15,20 +15,20 @@ gcc -lm -o complex complex.o main.o
 
 
 #include <stdio.h>
-/* Ukljucuje aw zaglavlje neophodno za rad sa kompleksnim 
-   brojevima */
+/* Ukljucuje aw zaglavlje neophodno za rad sa kompleksnim brojevima */
 #include "complex.h"
 
-/* U glavnoj funkciji se za uneti kompleksan broj ispisuje
-   njegov polarni oblik */
-int main() {
-   KompleksanBroj z;
-   
-   /* Ucitavamo kompleksan broj */
-   ucitaj_kompleksan_broj(&z);
-     
-   printf("Polarni oblik kompleksnog broja je %.2f *  e^i * %.2f\n", moduo(z), argument(z));
-  
-   return 0;
-}
+/* U glavnoj funkciji se za uneti kompleksan broj ispisuje njegov
+   polarni oblik */
+int main()
+{
+  KompleksanBroj z;
 
+  /* Ucitavamo kompleksan broj */
+  ucitaj_kompleksan_broj(&z);
+
+  printf("Polarni oblik kompleksnog broja je %.2f *  e^i * %.2f\n",
+         moduo(z), argument(z));
+
+  return 0;
+}
