@@ -186,7 +186,7 @@ int main(int argc, char **argv)
     /* Ispisuju se pronadjeni podaci */
     if (slavljenik == NULL) {
       printf
-          ("Nema podataka o oviom ni o sledecem rodjendanu.\n");
+          ("Nema podataka o ovom ni o sledecem rodjendanu.\n");
       continue;
     }
 
@@ -197,7 +197,7 @@ int main(int argc, char **argv)
       continue;
     }
 
-    /* Slucaj su pronadjeni podaci o prvom sledecem rodjendanu */
+    /* Slucaj kada su pronadjeni podaci o prvom sledecem rodjendanu */
     printf("Slavljenik: %s %s %d.%d.\n", slavljenik->ime,
            slavljenik->prezime, slavljenik->dan,
            slavljenik->mesec);

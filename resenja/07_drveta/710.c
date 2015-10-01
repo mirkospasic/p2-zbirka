@@ -233,34 +233,34 @@ int main(int argc, char **argv)
     dodaj_u_stablo(&koren, broj);
 
   /* ispisuju se rezultati rada funkcija */
-  printf("broj cvorova: %d\n", broj_cvorova(koren));
-  printf("broj listova: %d\n", broj_listova(koren));
-  printf("pozitivni listovi: ");
+  printf("Broj cvorova: %d\n", broj_cvorova(koren));
+  printf("Broj listova: %d\n", broj_listova(koren));
+  printf("Pozitivni listovi: ");
   pozitivni_listovi(koren);
   printf("\n");
-  printf("zbir cvorova: %d\n", zbir_svih_cvorova(koren));
+  printf("Zbir cvorova: %d\n", zbir_svih_cvorova(koren));
   if (najveci_element(koren) == NULL)
-    printf("najveci element: ne postoji\n");
+    printf("Najveci element: ne postoji\n");
   else
-    printf("najveci element: %d\n",
+    printf("Najveci element: %d\n",
            najveci_element(koren)->broj);
 
-  printf("dubina stabla: %d\n", dubina_stabla(koren));
+  printf("Dubina stabla: %d\n", dubina_stabla(koren));
 
-  printf("broj cvorova na %d. nivou: %d\n", i,
+  printf("Droj cvorova na %d. nivou: %d\n", i,
          broj_cvorova_na_itom_nivou(koren, i));
-  printf("elementi na %d. nivou: ", i);
+  printf("Elementi na %d. nivou: ", i);
   ispis_nivo(koren, i);
   printf("\n");
   if (najveci_element_na_itom_nivou(koren, i) == NULL)
     printf("Nema elemenata na %d. nivou!\n", i);
   else
-    printf("maksimalni na %d. nivou: %d\n", i,
+    printf("Maksimalni na %d. nivou: %d\n", i,
            najveci_element_na_itom_nivou(koren, i)->broj);
 
-  printf("zbir na %d. nivou: %d\n", i,
+  printf("Zbir na %d. nivou: %d\n", i,
          zbir_cvorova_na_itom_nivou(koren, i));
-  printf("zbir elemenata manjih ili jednakih od %d: %d\n", x,
+  printf("Zbir elemenata manjih ili jednakih od %d: %d\n", x,
          zbir_manjih_od_x(koren, x));
 
   /* Oslobadja se memorija zauzeta stablom */
