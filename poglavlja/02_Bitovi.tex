@@ -65,7 +65,7 @@ Uraditi prethodni zadatak tako da su sve napisane funkcije za rad sa kompleksnim
 \end{upotreba}
 \end{maxitest}
 
-\linkresenje{002}	
+\linkresenje{002}
 
 \end{Exercise}
 \begin{Answer}[ref=002]
@@ -78,8 +78,7 @@ Uraditi prethodni zadatak tako da su sve napisane funkcije za rad sa kompleksnim
 \begin{Exercise}[label=003] % sa praktikuma
 Napisati malu biblioteku za rad sa polinomima.
   \begin{enumerate}
-  \item Definisati strukturu \kckod{Polinom} koja predstavlja polinom
-    (stepena najviše 20). Struktura sadrži stepen i niz
+  \item Definisati strukturu \kckod{Polinom} koja predstavlja polinom stepena najviše 20. Struktura sadrži stepen i niz
     koeficijenata. Redosled navođenja koeficijenata u nizu treba da bude takav da na nultoj poziciji u nizu bude koeficijent uz slobodan član, na prvoj koeficijent uz prvi stepen, itd.
   \item Napisati funkciju koja ispisuje polinom na standardni izlaz u
     što lepšem obliku.
@@ -91,8 +90,7 @@ Napisati malu biblioteku za rad sa polinomima.
   \item Napisati funkciju koja množi dva polinoma.
   \end{enumerate}
 
-Napisati program koji testira prethodno napisane funkcije tako što se najpre unosi polinom \argf{p} (stepen polinoma, a zatim i koeficijenti) i ispisuje na standardan izlaz u odgovarajućem obliku. Nakon toga se od korisnika traži da unese tačku u kojoj se računa vrednost tog polinoma a zatim se ispisuje iztačunata vrednost zaokružena na dve decimale. Nakon toga se unosi polinom \argf{q}, a potom se ispisuju zbir i proizvod polinoma \argf{p} i \argf{q}. Na kraju se sa standardnog ulaza unosi broj \argf{n}, a potom se ispisuje \argf{n}-ti izvod polinoma \argf{p}.
-
+Napisati program koji testira prethodno napisane funkcije tako što se najpre unosi polinom \argf{p} (stepen polinoma, a zatim i koeficijenti) i ispisuje na standardni izlaz u odgovarajućem obliku. Nakon toga se od korisnika traži da unese tačku u kojoj se računa vrednost tog polinoma, a zatim se ispisuje izračunata vrednost zaokružena na dve decimale. Potom se unosi polinom \argf{q}, a potom se ispisuju zbir i proizvod polinoma \argf{p} i \argf{q}. Na kraju se sa standardnog ulaza unosi broj \argf{n}, a potom se ispisuje \argf{n}-ti izvod polinoma \argf{p}.
 
 \begin{maxitest}
 \begin{upotreba}{1}
@@ -140,7 +138,7 @@ Napraviti biblioteku za rad sa razlomcima.
     dva razlomka.
 \end{enumerate}
 
-Napisati program koji testira prethodne funkcije tako što se sa standardnog ulaza unose dva razlomka \argf{r1} i \argf{r2} i na standardni izlaz se ispisuju skraćene vrednoste razlomaka koji koji su dobijeni kao zbir, razlika, proizvod i količnik razlomka \argf{r1} i recipročne vrednosti razlomka \argf{r2}.
+Napisati program koji testira prethodne funkcije tako što se sa standardnog ulaza unose dva razlomka \argf{r1} i \argf{r2} i na standardni izlaz se ispisuju skraćene vrednosti razlomaka koji su dobijeni kao zbir, razlika, proizvod i količnik razlomka \argf{r1} i recipročne vrednosti razlomka \argf{r2}.
 
 \begin{maxitest}
 \begin{upotreba}{1}
@@ -193,17 +191,16 @@ Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu neoz
 #\izlaz{00000000111111110000000011111111}#
 \end{test}
 \end{miditest}
+% \begin{miditest}
+% \begin{test}{4}
+% #\naslovUlaz#
+% #\ulaz{0xFFFFFFFF}#
+% #\naslovIzlaz#
+% #\izlaz{11111111111111111111111111111111}#
+% \end{test}
+% \end{miditest}
 \begin{miditest}
 \begin{test}{4}
-#\naslovUlaz#
-#\ulaz{0xFFFFFFFF}#
-#\naslovIzlaz#
-#\izlaz{11111111111111111111111111111111}#
-\end{test}
-\end{miditest}
-
-\begin{miditest}
-\begin{test}{5}
 #\naslovUlaz#
 #\ulaz{0xABCDE123}#
 #\naslovIzlaz#
@@ -224,8 +221,7 @@ Napisati funkcije \kckod{count\_bits1} i \kckod{count\_bits2} koje broje bitove 
 \item formiranjem odgovarajuće maske i pomeranjem promenljive $x$.
 \end{enumerate} 
  
-Napisati program koji testira tu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
-
+Napisati program koji testira te funkcije za brojeve koji se zadaju u heksadekasnom formatu sa standardnog ulaza.
 
 \begin{miditest}
 \begin{test}{1}
@@ -258,19 +254,18 @@ Napisati program koji testira tu funkciju za brojeve koji se sa standardnog ulaz
 #\izlaz{funkcija count\_bits2: 16}#
 \end{test}
 \end{miditest}
+% \begin{miditest}
+% \begin{test}{4}
+% #\naslovUlaz#
+% #\ulaz{0xFFFFFFFF}#
+% #\naslovIzlaz#
+% #\izlaz{Broj jedinica u zapisu je}#
+% #\izlaz{funkcija count\_bits1: 32}#
+% #\izlaz{funkcija count\_bits2: 32}#
+% \end{test}
+% \end{miditest}
 \begin{miditest}
 \begin{test}{4}
-#\naslovUlaz#
-#\ulaz{0xFFFFFFFF}#
-#\naslovIzlaz#
-#\izlaz{Broj jedinica u zapisu je}#
-#\izlaz{funkcija count\_bits1: 32}#
-#\izlaz{funkcija count\_bits2: 32}#
-\end{test}
-\end{miditest}
-
-\begin{miditest}
-\begin{test}{5}
 #\naslovUlaz#
 #\ulaz{0xABCDE123}#
 #\naslovIzlaz#
@@ -283,14 +278,14 @@ Napisati program koji testira tu funkciju za brojeve koji se sa standardnog ulaz
 \linkresenje{202}
 \end{Exercise}
 \begin{Answer}[ref=202]
-\includecode{resenja/02_Bitovi/202.c}		
+\includecode{resenja/02_Bitovi/202.c}
 %\includecode{resenja/02_Bitovi/202b.c}
 \end{Answer}
 
 \begin{Exercise}[label=203]
 Napisati funkciju \kckod{najveci} koja određuje najveći broj koji se može zapisati istim binarnim ciframa kao dati broj i funkciju \kckod{najmanji} koja određuje najmanji broj koji se može zapisati istim binarnim ciframa kao dati broj.
 
-Napisati program koji testira prethodno napisane funkcije tako što prikazuje binarnu reprezentaciju brojeva koji se dobijaju nakon poziva funkcije \kckod{najveci}, ondosno \kckod{najmanji} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu. 
+Napisati program koji testira prethodno napisane funkcije tako što prikazuje binarnu reprezentaciju brojeva koji se dobijaju nakon poziva funkcije \kckod{najveci}, odnosno \kckod{najmanji} za brojeve koji se zadaju u heksadekasnom formatu sa standardnog ulaza. 
 
 \begin{miditest}
 \begin{test}{1}
@@ -338,17 +333,17 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 \end{test}
 \end{miditest}
 
-\begin{miditest}
-\begin{test}{5}
-#\naslovUlaz#
-#\ulaz{0xABCDE123}#
-#\naslovIzlaz#
-#\izlaz{Najveci:}#
-#\izlaz{11111111111111111000000000000000}#
-#\izlaz{Najmanji:}#
-#\izlaz{00000000000000011111111111111111}#
-\end{test}
-\end{miditest}
+% \begin{miditest}
+% \begin{test}{5}
+% #\naslovUlaz#
+% #\ulaz{0xABCDE123}#
+% #\naslovIzlaz#
+% #\izlaz{Najveci:}#
+% #\izlaz{11111111111111111000000000000000}#
+% #\izlaz{Najmanji:}#
+% #\izlaz{00000000000000011111111111111111}#
+% \end{test}
+% \end{miditest}
 
 \linkresenje{203}
 \end{Exercise}
@@ -358,17 +353,17 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 
 
 \begin{Exercise}[label=204]
-Napisati program za rad sa bitovima.
+% Napisati program za rad sa bitovima.
 \begin{enumerate}
-\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ postave na \argf{0}.
-\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$ postave na \argf{1}.
-\item Napisati funkciju koja određuje broj koji se dobija od $n$ bitova datog broja, počevši od pozicije $p$ i vraća ih kao bitove najmanje težine rezultata.
+\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$, postave na \argf{0}.
+\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$, postave na \argf{1}.
+\item Napisati funkciju koja određuje broj koji se dobija od $n$ bitova datog broja, počevši od pozicije $p$, i vraća ih kao bitove najmanje težine rezultata.
 \item Napisati funkciju koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
 \item Napisati funkciju koja vraća broj koji se dobija invertovanjem $n$ bitova broja $x$ počevši od pozicije $p$.
-\item Napisati program koji testira prethodno napisane funkcije.
+% \item Napisati program koji testira prethodno napisane funkcije.
 \end{enumerate}
-Program treba da testira prethodno napisane funkcije nad neoznačenim celim brojem koji se unosi sa standardnog ulaza.
-\napomena{pozicije se broje počev od pozicije bita najmanje težine, pri čemu je pozicija bita najmanje težine nula.}
+Napisati program koji testira prethodno napisane funkcije nad neoznačenim celim brojem koji se unosi sa standardnog ulaza.
+\napomena{Pozicije se broje počev od pozicije bita najmanje težine, pri čemu je bit najmanje težine na poziciji nula.}
 
 \begin{maxitest}
 \begin{test}{1}
@@ -376,12 +371,12 @@ Program treba da testira prethodno napisane funkcije nad neoznačenim celim broj
 #\ulaz{235 5 10 127}#
 #\naslovIzlaz#
 #\izlaz{Broj   235                          = 00000000000000000000000011101011}#
-#\izlaz{reset(  235,    5,   10)            = 00000000000000000000000000101011}#
-#\izlaz{set(  235,    5,   10)              = 00000000000000000000011111101011}#
-#\izlaz{get\_bits(  235,    5,   10)         = 00000000000000000000000000000011}#
+#\izlaz{reset(235,    5,   10)            = 00000000000000000000000000101011}#
+#\izlaz{set(235,    5,   10)              = 00000000000000000000011111101011}#
+#\izlaz{get\_bits(235,    5,   10)         = 00000000000000000000000000000011}#
 #\izlaz{y =                             127 = 00000000000000000000000001111111}#
-#\izlaz{set\_n\_bits(  235,    5,   10,  127) = 00000000000000000000011111101011}#
-#\izlaz{invert(  235,    5,   10)           = 00000000000000000000011100101011}#
+#\izlaz{set\_n\_bits(235,    5,   10,  127) = 00000000000000000000011111101011}#
+#\izlaz{invert(235,    5,   10)           = 00000000000000000000011100101011}#
 \end{test}
 \end{maxitest}
 
@@ -392,13 +387,13 @@ Program treba da testira prethodno napisane funkcije nad neoznačenim celim broj
 \end{Answer}
 
 \begin{Exercise}[label=205]
-Rotiranje ulevo podrazumeva pomeranje svih bitova za jednu poziciju ulevo, s tim što se bit sa pozicije najviše težine pomera na poziciju najmanje težine. Analogno, rotiranje udesno podrazumeva pomeranje svih bitova za jednu poziciju udesno, s tim što se bit sa pozicije najmanje težine pomera na poziciju najviše težine.
+Pod rotiranjem ulevo podrazumeva se pomeranje svih bitova za jednu poziciju ulevo, s tim što se bit sa pozicije najviše težine pomera na poziciju najmanje težine. Analogno, rotiranje udesno podrazumeva pomeranje svih bitova za jednu poziciju udesno, s tim što se bit sa pozicije najmanje težine pomera na poziciju najviše težine.
 \begin{enumerate}
 \item Napisati funkciju \kckod{rotate\_left} koja određuje broj koji se dobija rotiranjem \argf{k} puta u levo datog celog broja \argf{x}. 
 \item Napisati funkciju \kckod{rotate\_right} koja određuje broj koji se dobija rotiranjem \argf{k} puta u desno datog celog neoznačenog broja \argf{x}. 
 \item Napisati funkciju \kckod{rotate\_right\_signed} koja određuje broj koji se dobija rotiranjem \argf{k} puta u desno datog celog broja \argf{x}. 
 \end{enumerate}
-Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i broj \argf{k} koji se sa standardnog ulaza unose u heksadekasnom formatu.
+Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i broj \argf{k} koji se unose u heksadekasnom formatu sa standardnog ulaza.
 
 \begin{maxitest}
 \begin{test}{1}
@@ -485,11 +480,9 @@ Napisati funkciju \kckod{int Broj01(unsigned int n)} koja za dati broj \argf{n} 
 \end{Answer}
 
 \begin{Exercise}[label=208]
-Napisati funkciju koja broji koliko se puta kombinacija
-  \argf{11} (dve uzastopne jedinice) pojavljuje u binarnom zapisu
-  celog neoznačenog broja $x$. Tri uzastopne jedinice se broje
-  dva puta.  Napisati program koji tu funkciju testira za broj koji se
-  zadaje sa standardnog ulaza.
+Napisati funkciju koja broji koliko se puta dve uzastopne jedinice, \argf{11}, pojavljuju u binarnom zapisu
+  celog neoznačenog broja $x$. Napisati program koji tu funkciju testira za broj koji se
+  zadaje sa standardnog ulaza. \napomena{Tri uzastopne jedinice se broje dva puta.}
   
 \begin{minitest}
 \begin{test}{1}
@@ -527,10 +520,10 @@ Napisati funkciju koja broji koliko se puta kombinacija
 %Ovaj 209.c nema resenje za sad...
 %%%
 \begin{Exercise}[label=209]\marker+{2}
-Napisati program koji sa standardnog ulaza učitava pozitivan ceo broj, a na standardni izlaz ispisuje vrednost tog broja sa razmenjenim vrednostima bitova na pozicijama $i$, $j$. Pozicije $i$, $j$ se učitavaju kao parametri
+Napisati program koji sa standardnog ulaza učitava pozitivan ceo broj, a na standardni izlaz ispisuje vrednost tog broja sa razmenjenim vrednostima bitova na pozicijama $i$ i $j$. Pozicije $i$ i $j$ se učitavaju kao parametri
   komandne linije. Smatrati da je krajnji desni bit binarne
   reprezentacije \argf{0}-ti bit. Pri rešavanju nije dozvoljeno koristiti
-  pomoćni niz niti aritmetičke operatore +,-,/,*,\%.
+  ni pomoćni niz ni aritmetičke operatore +, -, /, *, \%.
 
 \begin{minitest}
 \begin{upotreba}{1}
@@ -568,7 +561,7 @@ Napisati program koji sa standardnog ulaza učitava pozitivan ceo broj, a na sta
 \begin{Exercise}[label=210]
   Napisati funkciju koja na osnovu neoznačenog broja $x$
   formira nisku $s$ koja sadrži heksadekadni zapis broja
-  $x$, koristeći algoritam za brzo prevođenje binarnog u
+  $x$ koristeći algoritam za brzo prevođenje binarnog u
   heksadekadni zapis (svake $4$ binarne cifre se zamenjuju jednom
   odgovarajućom heksadekadnom cifrom).  Napisati program koji tu
   funkciju testira za broj koji se zadaje sa standardnog ulaza.
@@ -610,7 +603,7 @@ Napisati program koji sa standardnog ulaza učitava pozitivan ceo broj, a na sta
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{Exercise}[label=211]\marker+{2}
-  Napisati funkciju koja za dva data neoznačena broja $x$
+  Napisati funkciju koja za data dva neoznačena broja $x$
   i $y$ invertuje u podatku $x$ one bitove koji se poklapaju
   sa odgovarajućim bitovima u broju $y$. Ostali bitovi ostaju
   nepromenjeni.  Napisati program koji tu funkciju testira za brojeve

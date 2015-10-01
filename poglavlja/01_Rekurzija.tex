@@ -40,10 +40,10 @@ Napisati program koji testira napisanu funkciju za vrednosti koje se unose sa st
 \begin{Exercise}[label=104]
 Koristeći uzajamnu (posrednu) rekurziju napisati naredne dve funkcije:
  \begin{itemize}
-\item fukciju \kckod{paran} koja proverava da li je broj cifara nekog broja paran i vraća 1 ako jeste, a 0 inače;
-\item i fukciju \kckod{neparan} koja vraća 1 ukoliko je broj cifara nekog broja neparan, a 0 inače.
+\item funkciju \kckod{paran} koja proverava da li je broj cifara nekog broja paran i vraća 1 ako jeste, a 0 inače;
+\item i funkciju \kckod{neparan} koja vraća 1, ukoliko je broj cifara nekog broja neparan, a 0 inače.
  \end{itemize}
- Napisati program koji testira napisanu funkciju tako što se za heksadekadnu vrednost koja se unosi sa standardnog ulaza ispisuje da li je paran ili neparan.
+ Napisati program koji testira napisanu funkciju tako što za heksadekadnu broj koji se unosi sa standardnog ulaza ispisuje da li je paran ili neparan.
  
  \begin{miditest}
 \begin{test}{1}
@@ -91,8 +91,8 @@ Elementi funkcije $F$ izračunavaju se na osnovu sledećih rekurentnih relacija:
  $$F(0) = 0$$
  $$F(1) = 1$$
  $$F(n) = a* F(n-1) + b*F(n-2)$$
-Napisati rekurzivnu funkciju  koja računa $n$-ti element u nizu $F$ ali tako da se problemi manje dimenzije rešavaju samo jedan put.
-Napisati program koji testira napisane funkcije za poizvoljan broj $n$ ($n \in \mathbb N$) unet sa standardnog ulaza.
+Napisati rekurzivnu funkciju  koja računa $n$-ti element u nizu $F$, ali tako da se problemi manje dimenzije rešavaju samo jedan put.
+Napisati program koji testira napisane funkcije za proizvoljan broj $n$ ($n \in \mathbb N$) unet sa standardnog ulaza.
   
  \begin{miditest}
 \begin{upotreba}{1}
@@ -182,41 +182,40 @@ rezultat primene napisane funkcije nad učitanim nizom.
 \end{Answer}
 
 \begin{Exercise}[label=109]
-Napisati rekurzivnu funkciju koja određuje maksimum niza celih brojeva. Napisati program koji testira ovu funkciju za niz koji se unosi sa standardnog ulaza. Niz neće imati više od $256$ elemenata, i njegovi elementi se unose sve do kraja ulaza.
+Napisati rekurzivnu funkciju koja određuje maksimum niza celih brojeva. Napisati program koji testira ovu funkciju za niz koji se unosi sa standardnog ulaza. Niz neće imati više od $256$ elemenata. Njegovi elementi se unose sve do unosa kraja ulaza (EOF).
   
- \begin{miditest}
+ \begin{minitest}
 \begin{test}{1}
 #\naslovUlaz#
 #\ulaz{3 2 1 4 21}#
 #\naslovIzlaz#
 #\izlaz{21}#
 \end{test}
-\end{miditest}
-\begin{miditest}
+\end{minitest}
+\begin{minitest}
 \begin{test}{2}
 #\naslovUlaz#
 #\ulaz{ 2 -1 0 -5 -10}#
 #\naslovIzlaz#
 #\izlaz{2}#
 \end{test}
-\end{miditest}
-
-\begin{miditest}
+\end{minitest}
+\begin{minitest}
 \begin{test}{3}
 #\naslovUlaz#
 #\ulaz{1 11 3 5 8 1}#
 #\naslovIzlaz#
 #\izlaz{11}#
 \end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{4}
-#\naslovUlaz#
-#\ulaz{ 5}#
-#\naslovIzlaz#
-#\izlaz{5}#
-\end{test}
-\end{miditest}
+\end{minitest}
+% \begin{minitest}
+% \begin{test}{4}
+% #\naslovUlaz#
+% #\ulaz{ 5}#
+% #\naslovIzlaz#
+% #\izlaz{5}#
+% \end{test}
+% \end{minitest}
 
 \linkresenje{109}
 \end{Exercise}
@@ -225,25 +224,24 @@ Napisati rekurzivnu funkciju koja određuje maksimum niza celih brojeva. Napisat
 \end{Answer}
 
 \begin{Exercise}[label=110]
-Napisati rekurzivnu funkciju \kckod{skalarno} koja izračunava skalarni proizvod dva data vektora.  Napisati program koji testira ovu funkciju, za nizove koji se unose sa standardnog ulaza. Nizovi neće imati više od $256$ elemenata. Prvo se unosi dimenzija nizova, a zatim i sami njihovi elementi.
+Napisati rekurzivnu funkciju \kckod{skalarno} koja izračunava skalarni proizvod dva data vektora.  Napisati program koji testira ovu funkciju, za nizove koji se unose sa standardnog ulaza. Prvo se unosi dimenzija nizova, a zatim i njihovi elementi. Nizovi neće imati više od $256$ elemenata.
   
-\begin{miditest}
+\begin{minitest}
 \begin{test}{1}
 #\naslovUlaz#
 #\ulaz{3 1 2 3 1 2 3 }#
 #\naslovIzlaz#
 #\izlaz{14}#
 \end{test}
-\end{miditest}
-\begin{miditest}
+\end{minitest}
+\begin{minitest}
 \begin{test}{2}
 #\naslovUlaz#
 #\ulaz{ 2 3 5 2 6 }#
 #\naslovIzlaz#
 #\izlaz{36}#
 \end{test}
-\end{miditest}  
-  
+\end{minitest}  
 \begin{minitest}
 \begin{test}{3}
 #\naslovUlaz#
@@ -261,24 +259,24 @@ Napisati rekurzivnu funkciju \kckod{skalarno} koja izračunava skalarni proizvod
 
 \begin{Exercise}[label=112]
 Napisati rekurzivnu funkciju \kckod{br\_pojave} koja računa broj pojavljivanja
-elementa $x$ u nizu $a$ dužine $n$. Napisati program koji testira ovu funkciju, za $x$ i niz koji se unose sa standardnog ulaza. Niz neće imati više od $256$ elemenata. Prvo se unosi $x$, a zatim elementi niza sve do kraja ulaza.
+elementa $x$ u nizu $a$ dužine $n$. Napisati program koji testira ovu funkciju za broj $x$ i niz  $a$ koji se unose sa standardnog ulaza. Prvo se unosi $x$, a zatim elementi niza sve do unosa kraja ulaza. Niz neće imati više od $256$ elemenata. 
   
-\begin{miditest}
+\begin{minitest}
 \begin{test}{1}
 #\naslovUlaz#
 #\ulaz{4 1 2 3 4 }#
 #\naslovIzlaz#
 #\izlaz{1}#
 \end{test}
-\end{miditest}
-\begin{miditest}
+\end{minitest}
+\begin{minitest}
 \begin{test}{2}
 #\naslovUlaz#
 #\ulaz{11 3 2 11 14 11 43 1 }#
 #\naslovIzlaz#
 #\izlaz{2}#
 \end{test}
-\end{miditest}  
+\end{minitest}  
 \begin{minitest}
 \begin{test}{3}
 #\naslovUlaz#
@@ -400,7 +398,7 @@ Napisati rekurzivnu funkciju koja štampa bitovsku
 Napisati rekurzivnu funkciju za određivanje
 najveće cifre u oktalnom zapisu
 neoznačenog celog broja korišćenjem bitskih operatora.
-\uputstvo{binarne cifre grupisati u podgrupe od po tri cifre,
+\uputstvo{Binarne cifre grupisati u podgrupe od po tri cifre,
 počev od bitova najmanje težine.}
 
 \begin{minitest}
@@ -437,7 +435,7 @@ počev od bitova najmanje težine.}
 \begin{Exercise}[label=120]
 Napisati rekurzivnu funkciju za određivanje (dekadne vrednosti)
 najveće cifre u heksadekadnom zapisu neoznačenog celog broja
-korišćenjem bitskih operatora. \uputstvo{binarne cifre
+korišćenjem bitskih operatora. \uputstvo{Binarne cifre
 grupisati u podgrupe od po četiri cifre, počev od bitova
 najmanje težine.}
 
@@ -482,9 +480,8 @@ najmanje težine.}
 
 \begin{Exercise}[label=113]
 Napisati rekurzivnu funkciju \kckod{palindrom} koja ispituje da li je data niska
-  palindrom. Napisati program koji testira ovu funkciju. Pretposatviti
-  da niska neće neće imati više od $31$ karaktera, i da se unosi sa standardnog
-  ulaza.
+  palindrom. Napisati program koji testira ovu funkciju na nisci koja se unosi sa standardnog
+  ulaza. Pretposatviti da niska neće neće imati više od $31$ karaktera.
   
 \begin{miditest}
 \begin{test}{1}
@@ -514,19 +511,20 @@ Napisati rekurzivnu funkciju \kckod{palindrom} koja ispituje da li je data niska
 \begin{minitest}
 \begin{test}{4}
 #\naslovUlaz#
-#\ulaz{aba}#
-#\naslovIzlaz#
-#\izlaz{da}#
-\end{test}
-\end{minitest}  
-\begin{minitest}
-\begin{test}{5}
-#\naslovUlaz#
 #\ulaz{aa}#
 #\naslovIzlaz#
 #\izlaz{da}#
 \end{test}
-\end{minitest}  
+\end{minitest}
+% \begin{minitest}
+% \begin{test}{5}
+% #\naslovUlaz#
+% #\ulaz{aba}#
+% #\naslovIzlaz#
+% #\izlaz{da}#
+% \end{test}
+% \end{minitest}  
+ 
  
 \linkresenje{113}
 \end{Exercise}
@@ -535,7 +533,7 @@ Napisati rekurzivnu funkciju \kckod{palindrom} koja ispituje da li je data niska
 \end{Answer}
 
 \begin{Exercise}[label=107, difficulty=1]
-Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,n\}$. Napisati program koji testira napisanu funkciju za poizvoljan prirodan broj $n$ ($n \le 50$) unet sa standardnog ulaza.
+Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,n\}$. Napisati program koji testira napisanu funkciju za proizvoljan prirodan broj $n$ ($n \le 50$) unet sa standardnog ulaza.
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -558,8 +556,7 @@ Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,
 
 \begin{Exercise}[label=108, difficulty=1]
 Paskalov trougao se dobija tako što mu je svako polje
-(izuzev jedinica po krajevima) zbir jednog polja levo i
-jednog polja iznad.
+ zbir jednog polja levo i jednog polja iznad. Izuzetak su jedinice na krajevima.
 \begin{verbatim}
                1
              1   1
@@ -574,7 +571,7 @@ jednog polja iznad.
 \end{enumerate}
 
 Napisati program koji za unetu veličinu Paskalovog trougla i hipotenuzu 
-najpre iscrtava Paskalov trougao a zatim sumu elemenata hipotenuze.
+najpre iscrtava Paskalov trougao, a zatim sumu elemenata hipotenuze.
 
 
 \begin{miditest}
