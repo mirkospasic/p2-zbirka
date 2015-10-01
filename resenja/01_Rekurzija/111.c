@@ -6,7 +6,7 @@ int zbir_cifara(unsigned int x)
   if (x < 10)
     return x;
 
-  /* Zbir cifara broja jednak je zbiru svih njegovih cifara osim 
+  /* Zbir cifara broja jednak je zbiru svih njegovih cifara osim
      poslednje cifre + poslednja cifra tog broja */
   return zbir_cifara(x / 10) + x % 10;
 }

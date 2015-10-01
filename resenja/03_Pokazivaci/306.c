@@ -17,8 +17,7 @@ int main(int argc, char **argv)
   int br = 0, n;
   FILE *in;
 
-  /* Ako korisnik nije uneo trazene argumente, prijavljuje se
-     greska */
+  /* Ako korisnik nije uneo trazene argumente, prijavljuje se greska */
   if (argc < 3) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
@@ -27,13 +26,12 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Otvara se datoteka sa imenom koje se zadaje kao prvi
-     argument komandne linije. */
+  /* Otvara se datoteka sa imenom koje se zadaje kao prvi argument
+     komandne linije. */
   in = fopen(*(argv + 1), "r");
   if (in == NULL) {
     fprintf(stderr, "Greska: ");
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s.\n",
-            argv[1]);
+    fprintf(stderr, "Neuspesno otvaranje datoteke %s.\n", argv[1]);
     exit(EXIT_FAILURE);
   }
 

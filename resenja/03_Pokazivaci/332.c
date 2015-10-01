@@ -62,8 +62,7 @@ int main()
   for (j = 0; j < n; j++)
     free(matrica[j]);
 
-  /* Zatim oslobadjamo memoriju za niz pokazivaca na vrste
-     matrice */
+  /* Zatim oslobadjamo memoriju za niz pokazivaca na vrste matrice */
   free(matrica);
 
   return 0;

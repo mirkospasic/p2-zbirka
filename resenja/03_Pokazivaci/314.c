@@ -29,8 +29,8 @@ int main()
     for (j = 0; j < n; j++)
       scanf("%d", &A[i][j]);
 
-  /* Ispis elemenata matrice koriscenjem indeksne sintakse.
-     Ispis vrsimo vrstu po vrstu */
+  /* Ispis elemenata matrice koriscenjem indeksne sintakse. Ispis
+     vrsimo vrstu po vrstu */
   for (i = 0; i < n; i++) {
     /* Ispisujemo elemente i-te vrste */
     for (j = 0; j < n; j++)
@@ -38,15 +38,14 @@ int main()
     printf("\n");
   }
 
-  /* Ispis elemenata matrice koriscenjem pokazivacke sintakse.
-     Kod ovako definisane matrice, elementi su uzastopno
-     smesteni u memoriju, kao na traci. To znaci da su svi
-     elementi prve vrste redom smesteni jedan iza drugog. Odmah
-     iza poslednjeg elementa prve vrste smesten je prvi element
-     druge vrste za kojim slede svi elementi te vrste i tako
-     dalje redom */
+  /* Ispis elemenata matrice koriscenjem pokazivacke sintakse. Kod
+     ovako definisane matrice, elementi su uzastopno smesteni u
+     memoriju, kao na traci. To znaci da su svi elementi prve vrste
+     redom smesteni jedan iza drugog. Odmah iza poslednjeg elementa
+     prve vrste smesten je prvi element druge vrste za kojim slede
+     svi elementi te vrste i tako dalje redom */
   /* 
-     for( i = 0; i<n; i++) { for ( j=0 ; j<n; j++) printf("%d ", 
+     for( i = 0; i<n; i++) { for ( j=0 ; j<n; j++) printf("%d ",
      *(*(A+i)+j)); printf("\n"); } */
 
   int tr = trag(A, n);

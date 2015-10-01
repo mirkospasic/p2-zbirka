@@ -5,8 +5,7 @@
    jer su za svaku heksadekadnu cifru potrebne 4 binarne cifre i
    jedna dodatna pozicija za terminirajucu nulu.
 
-   Prethodni izraz je identican sa sizeof(unsigned int)*2+1.
- */
+   Prethodni izraz je identican sa sizeof(unsigned int)*2+1. */
 
 #define MAX_DUZINA sizeof(unsigned int)*2 +1
 
@@ -18,7 +17,8 @@ void prevod(unsigned int x, char s[])
   unsigned int maska;
   int vrednost;
 
-  /* Heksadekadni zapis broja 15 je 000...0001111 - odgovarajuca maska za citanje 4 uzastopne cifre */
+  /* Heksadekadni zapis broja 15 je 000...0001111 - odgovarajuca
+     maska za citanje 4 uzastopne cifre */
   maska = 15;
 
   /************************************************************* 
@@ -39,19 +39,20 @@ void prevod(unsigned int x, char s[])
     /* Vrednost izdvojene cifre */
     vrednost = x & maska;
 
-    /* Ako je vrednost iz opsega od 0 do 9 odgovarajuci karakter 
-       se dobija dodavanjem ASCII koda '0'. Ako je vrednost iz
-       opsega od 10 do 15 odgovarajuci karakter se dobija tako
-       sto se prvo oduzme 10 (time se dobiju vrednosti od 0 do 5) pa
-       se na tako dobijenu vrednost doda ASCII kod 'A' (time se dobija odgovarajuce slovo 'A', 'B', ...
-       'F') */
+    /* Ako je vrednost iz opsega od 0 do 9 odgovarajuci karakter se
+       dobija dodavanjem ASCII koda '0'. Ako je vrednost iz opsega od 
+       10 do 15 odgovarajuci karakter se dobija tako sto se prvo
+       oduzme 10 (time se dobiju vrednosti od 0 do 5) pa se na tako
+       dobijenu vrednost doda ASCII kod 'A' (time se dobija
+       odgovarajuce slovo 'A', 'B', ... 'F') */
     if (vrednost < 10) {
       s[i] = vrednost + '0';
     } else {
       s[i] = vrednost - 10 + 'A';
     }
 
-    /* Primenljiva x se pomera za 4 bita u desnu stranu i time ce u narednoj iteraciji biti posmatrane sledece 4 cifre */
+    /* Primenljiva x se pomera za 4 bita u desnu stranu i time ce u
+       narednoj iteraciji biti posmatrane sledece 4 cifre */
     x = x >> 4;
   }
 

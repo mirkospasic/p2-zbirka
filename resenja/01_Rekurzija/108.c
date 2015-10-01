@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 /* Rekurzivna funkcija za racunanje binomnog koeficijenta.  */
-/* ako je k=0 ili k=n, onda je binomni koeficijent 0 ako je k
-   izmedju 0 i n, onda je bk(n,k) = bk(n-1,k-1) + bk(n-1,k) */
+/* ako je k=0 ili k=n, onda je binomni koeficijent 0 ako je k izmedju 
+   0 i n, onda je bk(n,k) = bk(n-1,k-1) + bk(n-1,k) */
 int binomniKoeficijent(int n, int k)
 {
   return (0 < k
@@ -14,16 +14,15 @@ int binomniKoeficijent(int n, int k)
 
 /* Iterativno izracunavanje datog binomnog koeficijenta.
 
-   int binomniKoeficijent (int n, int k) { int i, j, b; for
-   (b=i=1, j=n; i<=k; b=b*j--/i++); return b; }
+   int binomniKoeficijent (int n, int k) { int i, j, b; for (b=i=1,
+   j=n; i<=k; b=b*j--/i++); return b; }
 
  */
 
-/* Prostim opaZanjem se uocava da se svaki element n-te
-   hipotenuze (osim ivicnih 1) dobija kao zbir 2 elementa iz n-1 
-   hipotenuze. Uz pomenute dve nove ivicne jedinice lako se
-   zakljucuje da ce suma elementa n-te hipotenuze biti tacno 2
-   puta veca. */
+/* Prostim opaZanjem se uocava da se svaki element n-te hipotenuze
+   (osim ivicnih 1) dobija kao zbir 2 elementa iz n-1 hipotenuze. Uz 
+   pomenute dve nove ivicne jedinice lako se zakljucuje da ce suma
+   elementa n-te hipotenuze biti tacno 2 puta veca. */
 int sumaElemenataHipotenuze(int n)
 {
   return n > 0 ? 2 * sumaElemenataHipotenuze(n - 1) : 1;

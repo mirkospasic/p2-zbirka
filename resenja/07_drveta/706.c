@@ -4,9 +4,9 @@
 
 #define MAX_NISKA 51
 
-/* Struktura koja opisuje jedan cvor stabla: sadrzi ime i
-   prezime osobe, dan i mesec rodjenja i redom pokazivace na
-   levo i desno podstablo */
+/* Struktura koja opisuje jedan cvor stabla: sadrzi ime i prezime
+   osobe, dan i mesec rodjenja i redom pokazivace na levo i desno
+   podstablo */
 typedef struct cvor_stabla {
   char ime[MAX_NISKA];
   char prezime[MAX_NISKA];
@@ -17,8 +17,7 @@ typedef struct cvor_stabla {
 } Cvor;
 
 /* Funkcija koja kreira novi cvor */
-Cvor *napravi_cvor(char ime[], char prezime[], int dan,
-                   int mesec)
+Cvor *napravi_cvor(char ime[], char prezime[], int dan, int mesec)
 {
   /* Alocira se memorija */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
@@ -55,13 +54,11 @@ void oslobodi_stablo(Cvor ** koren)
   if (*koren == NULL)
     return;
 
-  /* Oslobadja se memorija zauzeta levim podstablom (ako
-     postoji) */
+  /* Oslobadja se memorija zauzeta levim podstablom (ako postoji) */
   if ((*koren)->levo)
     oslobodi_stablo(&(*koren)->levo);
 
-  /* Oslobadja se memorija zauzeta desnim podstablom (ako
-     postoji) */
+  /* Oslobadja se memorija zauzeta desnim podstablom (ako postoji) */
   if ((*koren)->desno)
     oslobodi_stablo(&(*koren)->desno);
 
@@ -72,8 +69,8 @@ void oslobodi_stablo(Cvor ** koren)
   *koren = NULL;
 }
 
-/* Funkcija koja dodaje novi cvor u stablo - stablo treba da
-   bude uredjeno po datumu - prvo po mesecu, a zatim po danu */
+/* Funkcija koja dodaje novi cvor u stablo - stablo treba da bude
+   uredjeno po datumu - prvo po mesecu, a zatim po danu */
 void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
                     int dan, int mesec)
 {
@@ -90,8 +87,8 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
     return;
   }
 
-  /* Stablo se uredjuje po mesecu, a zatim po danu u okviru
-     istog meseca */
+  /* Stablo se uredjuje po mesecu, a zatim po danu u okviru istog
+     meseca */
   if (mesec < (*koren)->mesec)
     dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan, mesec);
   else if (mesec == (*koren)->mesec && dan < (*koren)->dan)
@@ -100,8 +97,7 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
     dodaj_u_stablo(&(*koren)->desno, ime, prezime, dan, mesec);
 }
 
-/* Funkcija vrsi pretragu stabla i vraca cvor sa trazenim
-   datumom.  */
+/* Funkcija vrsi pretragu stabla i vraca cvor sa trazenim datumom.  */
 Cvor *pretrazi(Cvor * koren, int dan, int mesec)
 {
   /* Stablo je prazno, obustavlja se pretraga */
@@ -112,12 +108,11 @@ Cvor *pretrazi(Cvor * koren, int dan, int mesec)
   if (koren->dan == dan && koren->mesec == mesec)
     return koren;
 
-  /* Ako je mesec trazenog datuma manji od meseca sadrzanog u
-     korenu ili ako su meseci isti ali je dan trazenog datuma
-     manji od aktuelnog datuma, pretrazuje se levo podstablo -
-     pre toga se svakako proverava da li leva grana postoji -
-     ako ne postoji treba vratiti prvi sledeci, a to je bas
-     vrednost uocenog korena */
+  /* Ako je mesec trazenog datuma manji od meseca sadrzanog u korenu
+     ili ako su meseci isti ali je dan trazenog datuma manji od
+     aktuelnog datuma, pretrazuje se levo podstablo - pre toga se
+     svakako proverava da li leva grana postoji - ako ne postoji
+     treba vratiti prvi sledeci, a to je bas vrednost uocenog korena */
   if (mesec < koren->mesec
       || (mesec == koren->mesec && dan < koren->dan)) {
     if (koren->levo == NULL)
@@ -137,8 +132,8 @@ Cvor *pronadji_najmanji_datum(Cvor * koren)
   if (koren == NULL)
     return NULL;
 
-  /* Ako ne postoji leva grana korena, zbog uredjenja stabla
-     koren sadrzi najmanji datum */
+  /* Ako ne postoji leva grana korena, zbog uredjenja stabla koren
+     sadrzi najmanji datum */
   if (koren->levo == NULL)
     return koren;
   else
@@ -146,8 +141,7 @@ Cvor *pronadji_najmanji_datum(Cvor * koren)
     return pronadji_najmanji_datum(koren->levo);
 }
 
-/* Funkcija koja za dati dan i mesec odredjuje nisku formata
-   DD.MM. */
+/* Funkcija koja za dati dan i mesec odredjuje nisku formata DD.MM. */
 void datum_u_nisku(int dan, int mesec, char datum[])
 {
   if (dan < 10) {
@@ -223,9 +217,9 @@ int main(int argc, char **argv)
       printf("Nema podataka o ovom ni o sledecem rodjendanu.\n");
       continue;
     }
-    /* 2. posle datuma koji je unesen, nema podataka u stablu -
-       u ovom slucaju se pretraga vrsi pocevsi od naredne godine 
-       i ispisuje se najmanji datum */
+    /* 2. posle datuma koji je unesen, nema podataka u stablu - u
+       ovom slucaju se pretraga vrsi pocevsi od naredne godine i
+       ispisuje se najmanji datum */
     if (slavljenik == NULL) {
       slavljenik = pronadji_najmanji_datum(koren);
       datum_u_nisku(slavljenik->dan, slavljenik->mesec, datum);

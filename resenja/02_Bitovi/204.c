@@ -39,7 +39,7 @@ unsigned reset(unsigned x, unsigned n, unsigned p)
 ***************************************************************/
 unsigned set(unsigned x, unsigned n, unsigned p)
 {
-  
+
 /***************************************************************
      Cilj je samo odredjenih n bitova postaviti na 1, dok 
      ostali treba da ostanu netaknuti. Na primer, za n=5 i p=10
@@ -65,7 +65,7 @@ unsigned set(unsigned x, unsigned n, unsigned p)
 ***************************************************************/
 unsigned get_bits(unsigned x, unsigned n, unsigned p)
 {
-  
+
 /***************************************************************
      Kreira se maska kod koje su poslednjih n bitova 1, a
      ostali su 0. Na primer za n=5 
@@ -73,9 +73,9 @@ unsigned get_bits(unsigned x, unsigned n, unsigned p)
 ***************************************************************/
   unsigned maska = ~(~0 << n);
 
-  /* Najpre se vrednost promenljive x pomera u desno tako da trazeno polje bude uz
-     desni kraj. Zatim se maskiraju ostali bitovi, sem zeljenih n i 
-     funkcija vraca tako dobijenu vrednost */
+  /* Najpre se vrednost promenljive x pomera u desno tako da trazeno
+     polje bude uz desni kraj. Zatim se maskiraju ostali bitovi, sem
+     zeljenih n i funkcija vraca tako dobijenu vrednost */
   return maska & (x >> (p - n + 1));
 }
 
@@ -83,8 +83,7 @@ unsigned get_bits(unsigned x, unsigned n, unsigned p)
 /* Funkcija vraca broj x kome su n bitova pocev od pozicije p
    postavljeni na vrednosti n bitova najnize tezine binarne
    reprezentacije broja y */
-unsigned set_n_bits(unsigned x, unsigned n, unsigned p,
-                    unsigned y)
+unsigned set_n_bits(unsigned x, unsigned n, unsigned p, unsigned y)
 {
 /***************************************************************
      Kreira se maska kod kod koje su poslednjih n bitova 1, a
@@ -100,20 +99,24 @@ unsigned set_n_bits(unsigned x, unsigned n, unsigned p,
 ***************************************************************/
   unsigned middle_n_0 = ~(~(~0 << n) << (p - n + 1));
 
-  /* U promenljivu x_reset se smesta vrednost dobijena kada se u binarnoj reprezentaciji vrednosti promenljive x resetuje n bitova na pozicijama pocev od p */
+  /* U promenljivu x_reset se smesta vrednost dobijena kada se u
+     binarnoj reprezentaciji vrednosti promenljive x resetuje n
+     bitova na pozicijama pocev od p */
   unsigned x_reset = x & middle_n_0;
 
-  /* U promenlijvu y_shift_middle se smesta vrednost dobijena od binarne reprezentacije vrednosti promenljive y cijih je n bitova najnize tezine pomera tako da stoje
-     pocev od pozicije p. Ostali bitovi su nule. (y & last_n_1)
-     Resetuju se svi bitovi osim najnizih n */
+  /* U promenlijvu y_shift_middle se smesta vrednost dobijena od
+     binarne reprezentacije vrednosti promenljive y cijih je n bitova 
+     najnize tezine pomera tako da stoje pocev od pozicije p. Ostali
+     bitovi su nule. (y & last_n_1) Resetuju se svi bitovi osim
+     najnizih n */
   unsigned y_shift_middle = (y & last_n_1) << (p - n + 1);
 
   return x_reset ^ y_shift_middle;
 }
 
 
-/* Funkcija invertuje bitove u zapisu broja x pocevsi od
-   pozicije p njih n */
+/* Funkcija invertuje bitove u zapisu broja x pocevsi od pozicije p
+   njih n */
 unsigned invert(unsigned x, unsigned n, unsigned p)
 {
 /***************************************************************
@@ -124,13 +127,12 @@ unsigned invert(unsigned x, unsigned n, unsigned p)
   unsigned maska = ~(~0 << n) << (p - n + 1);
 
   /* Operator ekskluzivno ili invertuje sve bitove gde je
-     odgovarajuci bit maske 1. Ostali bitovi ostaju
-     nepromenjeni. */
+     odgovarajuci bit maske 1. Ostali bitovi ostaju nepromenjeni. */
   return maska ^ x;
 }
 
 
-/* Funkcija prikazuje na standardni ekran binarnu reprezentaciju 
+/* Funkcija prikazuje na standardni ekran binarnu reprezentaciju
    celog broja u memoriji */
 void print_bits(int x)
 {

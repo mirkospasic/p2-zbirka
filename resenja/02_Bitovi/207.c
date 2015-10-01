@@ -1,8 +1,7 @@
 #include <stdio.h>
 
-/* Funkcija vraca 1 ukoliko je u binarnoj reprezentaciji broja n 
-   broj jedinica veci od broja nula. U suprotnom funkcija vraca
-   0 */
+/* Funkcija vraca 1 ukoliko je u binarnoj reprezentaciji broja n
+   broj jedinica veci od broja nula. U suprotnom funkcija vraca 0 */
 int Broj01(unsigned int n)
 {
 
@@ -12,15 +11,17 @@ int Broj01(unsigned int n)
   broj_nula = 0;
   broj_jedinica = 0;
 
-  /* Maska je inicijalizovana tako da moze da analizira bit
-     najvece tezine */
+  /* Maska je inicijalizovana tako da moze da analizira bit najvece
+     tezine */
   maska = 1 << (sizeof(unsigned int) * 4 - 1);
 
-  /* Cilj je proci kroz sve bitove broja x, zato se maska u svakoj iteraciji pomera u desno pa ce jedini bit koji je postavljen na 1 biti na svim pozicijama u binarnoj reprezentaciji maske  */
+  /* Cilj je proci kroz sve bitove broja x, zato se maska u svakoj
+     iteraciji pomera u desno pa ce jedini bit koji je postavljen na
+     1 biti na svim pozicijama u binarnoj reprezentaciji maske */
   while (maska != 0) {
 
-    /* Provera da li se na poziciji koju odredjuje maska
-       nalazi 0 ili 1 i uveca se odgovarajuci brojac */
+    /* Provera da li se na poziciji koju odredjuje maska nalazi 0 ili 
+       1 i uveca se odgovarajuci brojac */
     if (n & maska) {
       broj_jedinica++;
     } else {

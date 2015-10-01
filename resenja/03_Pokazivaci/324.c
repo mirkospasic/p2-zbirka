@@ -3,8 +3,7 @@
 
 #define MAX 32
 
-/* Funkcija ucitava elemente kvadratne matrice sa standardnog
-   ulaza */
+/* Funkcija ucitava elemente kvadratne matrice sa standardnog ulaza */
 void ucitaj_matricu(int m[][MAX], int n)
 {
   int i, j;
@@ -14,8 +13,7 @@ void ucitaj_matricu(int m[][MAX], int n)
       scanf("%d", &m[i][j]);
 }
 
-/* Funkcija ispisuje elemente kvadratne matrice na standardni
-   izlaz */
+/* Funkcija ispisuje elemente kvadratne matrice na standardni izlaz */
 void ispisi_matricu(int m[][MAX], int n)
 {
   int i, j;
@@ -33,8 +31,8 @@ int ortonormirana(int m[][MAX], int n)
   int i, j, k;
   int proizvod;
 
-  /* Proveravamo uslov normiranosti, odnosno da li je proizvod
-     svake vrste matrice sa samom sobom jednak jedinici */
+  /* Proveravamo uslov normiranosti, odnosno da li je proizvod svake
+     vrste matrice sa samom sobom jednak jedinici */
   for (i = 0; i < n; i++) {
 
     /* Izracunavamo skalarni proizvod vrste sa samom sobom */
@@ -49,8 +47,8 @@ int ortonormirana(int m[][MAX], int n)
       return 0;
   }
 
-  /* Proveravamo uslov ortogonalnosti, odnosno da li je proizvod
-     dve bilo koje razlicite vrste matrice jednak nuli */
+  /* Proveravamo uslov ortogonalnosti, odnosno da li je proizvod dve
+     bilo koje razlicite vrste matrice jednak nuli */
   for (i = 0; i < n - 1; i++) {
     for (j = i + 1; j < n; j++) {
 
@@ -60,8 +58,8 @@ int ortonormirana(int m[][MAX], int n)
       for (k = 0; k < n; k++)
         proizvod += m[i][k] * m[j][k];
 
-      /* Ako proizvod dve bilo koje razlicite vrste nije jednak
-         nuli, odmah zakljucujemo da matrica nije ortogonalna */
+      /* Ako proizvod dve bilo koje razlicite vrste nije jednak nuli, 
+         odmah zakljucujemo da matrica nije ortogonalna */
       if (proizvod != 0)
         return 0;
     }
@@ -76,8 +74,7 @@ int main()
   int A[MAX][MAX];
   int n;
 
-  /* Ucitavamo vrednost dimenzije i proveravamo njenu korektnost 
-   */
+  /* Ucitavamo vrednost dimenzije i proveravamo njenu korektnost */
   scanf("%d", &n);
 
   if (n > MAX || n <= 0) {

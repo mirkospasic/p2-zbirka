@@ -7,14 +7,13 @@
    (posrednu) rekurziju. */
 
 /* Deklaracija funkcije neparan mora da bude navedena jer se ta
-   funkcija koristi u telu funkcije paran, tj. koristi se pre
-   svoje definicije. Funkcija je mogla biti deklarisana i u telu
-   funkcije paran. */
+   funkcija koristi u telu funkcije paran, tj. koristi se pre svoje
+   definicije. Funkcija je mogla biti deklarisana i u telu funkcije
+   paran. */
 
 unsigned neparan(unsigned n);
 
- /* Funckija vraca 1 ako broj n ima paran broj cifara inace
-    vraca 0. */
+ /* Funckija vraca 1 ako broj n ima paran broj cifara inace vraca 0. */
 unsigned paran(unsigned n)
 {
   if (n <= 9)
@@ -23,8 +22,8 @@ unsigned paran(unsigned n)
     return neparan(n / 10);
 }
 
- /* Funckija vraca 1 ako broj n ima neparan broj cifara inace
-    vraca 0. */
+ /* Funckija vraca 1 ako broj n ima neparan broj cifara inace vraca
+    0. */
 unsigned neparan(unsigned n)
 {
   if (n <= 9)

@@ -13,6 +13,7 @@ int stepen(int x, int k)
 
   return x * stepen(x, k - 1);
 }
+
 /*************************************************************
    Celo telo funkcije se moze ovako kratko zapisati 
    return k == 0 ? 1 : x * stepen(x,k-1);
@@ -39,11 +40,10 @@ int stepen2(int x, int k)
   return x * stepen2(x * x, k / 2);
 }
 
-/* U prethodnim funkcijama iskomentarisan je poziv funkcije 
-   prinf koji ispisuje odgovarajucu poruku prilikom svakog 
-   ulaska us funkciju. Odkomentarisati pozive printf funkcije u obe
-   funkcije da uocite razliku u broju rekurzivnih poziva obe
-   verzije. */
+/* U prethodnim funkcijama iskomentarisan je poziv funkcije prinf
+   koji ispisuje odgovarajucu poruku prilikom svakog ulaska us
+   funkciju. Odkomentarisati pozive printf funkcije u obe funkcije da 
+   uocite razliku u broju rekurzivnih poziva obe verzije. */
 
 int main()
 {

@@ -65,7 +65,7 @@ int main()
   printf("Unesite dimenziju niza: ");
   scanf("%d", &n);
 
-  /* Proverava se da li je doslo do prekoracenja ogranicenja 
+  /* Proverava se da li je doslo do prekoracenja ogranicenja
      dimenzije */
   if (n <= 0 || n > MAX) {
     fprintf(stderr, "Greska: neodgovarajuca dimenzija niza.\n");

@@ -1,8 +1,7 @@
 #include <stdio.h>
 
-/* Funkcija vraca najveci neoznaceni broj sastavljen od istih
-   bitova koji se nalaze u binarnoj reprezentaciji vrednosti 
-   promenjive x */
+/* Funkcija vraca najveci neoznaceni broj sastavljen od istih bitova
+   koji se nalaze u binarnoj reprezentaciji vrednosti promenjive x */
 unsigned najveci(unsigned x)
 {
   unsigned velicina = sizeof(unsigned) * 8;
@@ -13,14 +12,13 @@ unsigned najveci(unsigned x)
   /* Rezultat se inicijalizuje vrednoscu 0 */
   unsigned rezultat = 0;
 
-  /* Promenljiva x se  pomera u levo sve dok postoje jedinice
-   u njenoj binarnoj reprezentaciji (tj. sve dok je promenljiva
-   x razlicita od nule). */
+  /* Promenljiva x se pomera u levo sve dok postoje jedinice u njenoj 
+     binarnoj reprezentaciji (tj. sve dok je promenljiva x razlicita
+     od nule). */
   for (; x != 0; x <<= 1) {
-    /* Za svaku jedinicu koja se koriscenjem maske detektuje na 
-       poziciji najvece tezine u binarnoj reprezentaciji 
-       promenjive x, potiskuje se jedna nova jedinicu sa
-       leva u rezultat */
+    /* Za svaku jedinicu koja se koriscenjem maske detektuje na
+       poziciji najvece tezine u binarnoj reprezentaciji promenjive
+       x, potiskuje se jedna nova jedinicu sa leva u rezultat */
     if (x & maska) {
       rezultat >>= 1;
       rezultat |= maska;
@@ -30,23 +28,21 @@ unsigned najveci(unsigned x)
   return rezultat;
 }
 
-/* Funkcija vraca najmanji neoznaceni broj sastavljen od istih
-   bitova koji se nalaze u binarnoj reprezentaciji vrednosti 
-   promenjive x */
+/* Funkcija vraca najmanji neoznaceni broj sastavljen od istih bitova 
+   koji se nalaze u binarnoj reprezentaciji vrednosti promenjive x */
 unsigned najmanji(unsigned x)
 {
   /* Rezultat se inicijalizuje vrednoscu 0 */
   unsigned rezultat = 0;
 
-  /* Promenljiva x se  pomera u desno sve dok postoje jedinice
-   u njenoj binarnoj reprezentaciji (tj. sve dok je promenljiva
-   x razlicita od nule). */
+  /* Promenljiva x se pomera u desno sve dok postoje jedinice u
+     njenoj binarnoj reprezentaciji (tj. sve dok je promenljiva x
+     razlicita od nule). */
   for (; x != 0; x >>= 1) {
     /* Za svaku jedinicu koja se koriscenjem vrednosti 1 za masku
-       detektuje na 
-       poziciji najmanje tezine u binarnoj reprezentaciji 
-       promenjive x, potiskuje se jedna nova jedinicu sa
-       desna u rezultat */
+       detektuje na poziciji najmanje tezine u binarnoj
+       reprezentaciji promenjive x, potiskuje se jedna nova jedinicu 
+       sa desna u rezultat */
     if (x & 1) {
       rezultat <<= 1;
       rezultat |= 1;
@@ -56,7 +52,7 @@ unsigned najmanji(unsigned x)
   return rezultat;
 }
 
-/* Funkcija prikazuje na standardni ekran binarnu reprezentaciju 
+/* Funkcija prikazuje na standardni ekran binarnu reprezentaciju
    celog broja u memoriji */
 void print_bits(int x)
 {

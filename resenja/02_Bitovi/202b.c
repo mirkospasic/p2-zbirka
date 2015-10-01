@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* Funkcija prikazuje na standardni izlaz binarnu reprezentaciju 
+/* Funkcija prikazuje na standardni izlaz binarnu reprezentaciju
    celog broja u memoriji */
 void print_bits(int x)
 {
@@ -13,19 +13,19 @@ void print_bits(int x)
   putchar('\n');
 }
 
-/* Funkcija vraca broj jedinica u binarnoj reprezentaciji broja
-   x pomeranjem broja x */
+/* Funkcija vraca broj jedinica u binarnoj reprezentaciji broja x
+   pomeranjem broja x */
 int count_bits1(int x)
 {
   int br = 0;
   unsigned wl = sizeof(int) * 8 - 1;
 
-  /* Kako je argument funkcije oznacen ceo broj x naredba x>>=1 vrsila 
-     bi aritmeticko pomeranje u desno, tj. popunjavanje bita najvece
-     tezine bitom znaka. U tom slucaju nikad ne bi bio ispunjen 
-     uslov x!=0 i program bi bio zarobljen u beskonacnoj petlji. 
-     Zbog toga se koristi pomeranj broja x ulevo i maska koja 
-     ocitava bit najvece tezine. */
+  /* Kako je argument funkcije oznacen ceo broj x naredba x>>=1
+     vrsila bi aritmeticko pomeranje u desno, tj. popunjavanje bita
+     najvece tezine bitom znaka. U tom slucaju nikad ne bi bio
+     ispunjen uslov x!=0 i program bi bio zarobljen u beskonacnoj
+     petlji. Zbog toga se koristi pomeranj broja x ulevo i maska
+     koja ocitava bit najvece tezine. */
 
   unsigned maska = 1 << wl;
   for (; x != 0; x <<= 1)

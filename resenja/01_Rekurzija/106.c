@@ -13,34 +13,33 @@ int F_rekurzivna(int n, int a, int b)
                                                           a, b);
 }
 
-/* NAPOMENA: U slucaju da se rekurzijom problem svodi na vise
-   manjih podproblema koji se mogu preklapati, postoji opasnost
-   da se pojedini podproblemi manjih dimenzija resavaju veci
-   broj puta. Npr. F(20) = a*F(19) + b*F(18), a F(19) = a*F(18) 
-   + b*F(17), tj. problem fibonacci(18) se resava dva puta!!
-   Problemi manjih dimenzija ce se resavati jos veci broj puta.
-   Resenje za ovaj problem je kombinacija rekurzije sa
-   dinamickim programiranjem. Podproblemi se resavaju samo
-   jednom, a njihova resenja se pamte u memoriji (obicno u
-   nizovima ili matricama), odakle se koriste ako tokom
-   resavanja ponovo budu potrebni.
+/* NAPOMENA: U slucaju da se rekurzijom problem svodi na vise manjih
+   podproblema koji se mogu preklapati, postoji opasnost da se
+   pojedini podproblemi manjih dimenzija resavaju veci broj puta.
+   Npr. F(20) = a*F(19) + b*F(18), a F(19) = a*F(18) + b*F(17), tj.
+   problem fibonacci(18) se resava dva puta!! Problemi manjih
+   dimenzija ce se resavati jos veci broj puta. Resenje za ovaj
+   problem je kombinacija rekurzije sa dinamickim programiranjem.
+   Podproblemi se resavaju samo jednom, a njihova resenja se pamte u
+   memoriji (obicno u nizovima ili matricama), odakle se koriste ako
+   tokom resavanja ponovo budu potrebni.
 
-   U narednoj funkciji vec izracunati clanovi niza se cuvaju 
-   u statickom nizu celih brojeva, jer taj niz onda nece biti 
-   smesten na stek, kao sto je slucaj sa lokalnim promenljivama, 
-   vec u statickoj memoriji odakle ce biti dostupan svim 
-   pozivima rekurzivne funkcije. */
+   U narednoj funkciji vec izracunati clanovi niza se cuvaju u
+   statickom nizu celih brojeva, jer taj niz onda nece biti smesten
+   na stek, kao sto je slucaj sa lokalnim promenljivama, vec u
+   statickoj memoriji odakle ce biti dostupan svim pozivima
+   rekurzivne funkcije. */
 
 /* Funkcija izracunava n-ti fibonacijev broj */
 int F_napredna(int n, int a, int b)
 {
   /* Niz koji cuva resenja podproblema. Kompajler inicijalizuje
-     staticke promenljive na podrazumevane vrednosti. Stoga,
-     elemente celobrojnog niza inicijalizuje na 0 */
+     staticke promenljive na podrazumevane vrednosti. Stoga, elemente 
+     celobrojnog niza inicijalizuje na 0 */
   static int f[20];
 
-  /* Ako je podproblem vec ranije resen, koristi se resenje koje je vec izracunato i  
-   */
+  /* Ako je podproblem vec ranije resen, koristi se resenje koje je
+     vec izracunato i */
   if (f[n] != 0)
     return f[n];
 
