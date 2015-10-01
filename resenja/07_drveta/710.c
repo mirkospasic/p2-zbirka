@@ -247,7 +247,7 @@ int main(int argc, char **argv)
 
   printf("Dubina stabla: %d\n", dubina_stabla(koren));
 
-  printf("Droj cvorova na %d. nivou: %d\n", i,
+  printf("Broj cvorova na %d. nivou: %d\n", i,
          broj_cvorova_na_itom_nivou(koren, i));
   printf("Elementi na %d. nivou: ", i);
   ispis_nivo(koren, i);
@@ -255,10 +255,10 @@ int main(int argc, char **argv)
   if (najveci_element_na_itom_nivou(koren, i) == NULL)
     printf("Nema elemenata na %d. nivou!\n", i);
   else
-    printf("Maksimalni na %d. nivou: %d\n", i,
+    printf("Maksimalni element na %d. nivou: %d\n", i,
            najveci_element_na_itom_nivou(koren, i)->broj);
 
-  printf("Zbir na %d. nivou: %d\n", i,
+  printf("Zbir elemenata na %d. nivou: %d\n", i,
          zbir_cvorova_na_itom_nivou(koren, i));
   printf("Zbir elemenata manjih ili jednakih od %d: %d\n", x,
          zbir_manjih_od_x(koren, x));
