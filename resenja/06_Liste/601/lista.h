@@ -17,8 +17,8 @@ Cvor *napravi_cvor(int broj);
    ciji se pokazivac glava nalazi na adresi adresa_glave. */
 void oslobodi_listu(Cvor ** adresa_glave);
 
-/* Funkcija dodaje broj na pocetak liste. Vraca 1 
-   ukoliko je bilo greske pri alokaciji memorije, inace vraca 0. */
+/* Funkcija dodaje broj na pocetak liste. Vraca 1 ukoliko je bilo
+   greske pri alokaciji memorije, inace vraca 0. */
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj);
 
 /* Funkcija pronalazi i vraca pokazivac na poslednji cvor liste, ili

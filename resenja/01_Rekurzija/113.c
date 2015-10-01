@@ -20,8 +20,7 @@ int main()
   /* Odredjuje se duzina niske */
   n = strlen(s);
 
-  /* Ispisuje se poruka da li je niska palindrom ili
-     nije */
+  /* Ispisuje se poruka da li je niska palindrom ili nije */
   if (palindrom(s, n))
     printf("da\n");
   else

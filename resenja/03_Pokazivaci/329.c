@@ -4,19 +4,18 @@
 
 #define MAX 1000
 
-/* NAPOMENA: Primer demonstrira "vracanje nizova iz funkcije".
-   Ovako nesto se moze improvizovati tako sto se u funkciji
-   dinamicki kreira niz potrebne velicine, popuni se potrebnim
-   informacijama, a zatim se vrati njegova adresa. Imajuci u
-   vidu cinjenicu da dinamicki kreiran objekat ne nestaje kada
-   se izadje iz funkcije koja ga je kreirala, vraceni pokazivac
-   se kasnije u pozivajucoj funkciji moze koristiti za pristup
-   "vracenom" nizu. Medjutim, pozivajuca funkcija ima
-   odgovornost i da se brine o dealokaciji istog prostora */
+/* NAPOMENA: Primer demonstrira "vracanje nizova iz funkcije". Ovako
+   nesto se moze improvizovati tako sto se u funkciji dinamicki
+   kreira niz potrebne velicine, popuni se potrebnim informacijama, a 
+   zatim se vrati njegova adresa. Imajuci u vidu cinjenicu da
+   dinamicki kreiran objekat ne nestaje kada se izadje iz funkcije
+   koja ga je kreirala, vraceni pokazivac se kasnije u pozivajucoj
+   funkciji moze koristiti za pristup "vracenom" nizu. Medjutim,
+   pozivajuca funkcija ima odgovornost i da se brine o dealokaciji
+   istog prostora */
 
-/* Funkcija dinamicki kreira niz karaktera u koji smesta
-   rezultat nadovezivanja niski. Adresa niza se vraca kao
-   povratna vrednost. */
+/* Funkcija dinamicki kreira niz karaktera u koji smesta rezultat
+   nadovezivanja niski. Adresa niza se vraca kao povratna vrednost. */
 char *nadovezi(char *s, char *t)
 {
   /* Dinamicki kreiramo prostor dovoljne velicine */

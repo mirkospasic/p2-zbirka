@@ -5,9 +5,8 @@
 #define MAX 51
 
 /* Struktura koja definise cvorove stabla: sadrzi ime i prezime
-   studenta, ukupan uspeh, uspeh iz matematike, uspeh iz
-   maternjeg jezika i redom pokazivace na levo i desno podstablo 
- */
+   studenta, ukupan uspeh, uspeh iz matematike, uspeh iz maternjeg
+   jezika i redom pokazivace na levo i desno podstablo */
 typedef struct cvor_stabla {
   char ime[MAX];
   char prezime[MAX];
@@ -76,14 +75,12 @@ void oslobodi_stablo(Cvor ** koren)
 
 /* Funkcija koja dodaje cvor sa zadatim vrednostima u stablo */
 void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
-                    double uspeh, double matematika,
-                    double jezik)
+                    double uspeh, double matematika, double jezik)
 {
   /* Ako je stablo prazno */
   if (*koren == NULL) {
     /* Kreira se novi cvor */
-    Cvor *novi =
-        napravi_cvor(ime, prezime, uspeh, matematika, jezik);
+    Cvor *novi = napravi_cvor(ime, prezime, uspeh, matematika, jezik);
     proveri_alokaciju(novi);
 
     /* I proglasava se korenom stabla */
@@ -92,8 +89,8 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
     return;
   }
 
-  /* Inace, dodaje se cvor u stablo tako da bude sortirano po
-     ukupnom broju poena */
+  /* Inace, dodaje se cvor u stablo tako da bude sortirano po ukupnom 
+     broju poena */
   if (uspeh + matematika + jezik >
       (*koren)->uspeh + (*koren)->matematika + (*koren)->jezik)
     dodaj_u_stablo(&(*koren)->levo, ime, prezime, uspeh,
@@ -103,11 +100,10 @@ void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
                    matematika, jezik);
 }
 
-/* Funkcija ispisuje sadrzaj stabla. Ukoliko je vrednost
-   argumenta polozili jednaka 0 ispisuju se informacije o
-   ucenicima koji nisu polozili prijemni, a ako je vrednost
-   argumenta razlicita od nule, ispisuju se informacije o
-   ucenicima koji su polozili prijemni */
+/* Funkcija ispisuje sadrzaj stabla. Ukoliko je vrednost argumenta
+   polozili jednaka 0 ispisuju se informacije o ucenicima koji nisu
+   polozili prijemni, a ako je vrednost argumenta razlicita od nule,
+   ispisuju se informacije o ucenicima koji su polozili prijemni */
 void stampaj(Cvor * koren, int polozili)
 {
   /* Stablo je prazno - prekida se sa ispisom */
@@ -133,23 +129,22 @@ void stampaj(Cvor * koren, int polozili)
   stampaj(koren->desno, polozili);
 }
 
-/* Funkcija koja odredjuje koliko studenata nije polozilo
-   prijemni ispit */
+/* Funkcija koja odredjuje koliko studenata nije polozilo prijemni
+   ispit */
 int nisu_polozili(Cvor * koren)
 {
   /* Ako je stablo prazno, broj onih koji nisu polozili je 0 */
   if (koren == NULL)
     return 0;
 
-  /* Pretraga se vrsi i u levom i u desnom podstablu - ako uslov
-     za polaganje nije ispunjen za koreni cvor, broj studenata se 
+  /* Pretraga se vrsi i u levom i u desnom podstablu - ako uslov za
+     polaganje nije ispunjen za koreni cvor, broj studenata se
      uvecava za 1 */
   if (koren->matematika + koren->jezik < 10)
     return 1 + nisu_polozili(koren->levo) +
         nisu_polozili(koren->desno);
 
-  return nisu_polozili(koren->levo) +
-      nisu_polozili(koren->desno);
+  return nisu_polozili(koren->levo) + nisu_polozili(koren->desno);
 }
 
 int main(int argc, char **argv)
@@ -170,19 +165,17 @@ int main(int argc, char **argv)
   koren = NULL;
   while (fscanf(in, "%s %s %lf %lf %lf", ime, prezime, &uspeh,
                 &matematika, &jezik) != EOF) {
-    dodaj_u_stablo(&koren, ime, prezime, uspeh, matematika,
-                   jezik);
+    dodaj_u_stablo(&koren, ime, prezime, uspeh, matematika, jezik);
   }
 
   /* Zatvaranje datoteke */
   fclose(in);
 
-  /* Stampaju se prvo podaci o ucenicima koji su polozili
-     prijemni */
+  /* Stampaju se prvo podaci o ucenicima koji su polozili prijemni */
   stampaj(koren, 1);
 
-  /* Linij se iscrtava samo ako postoje ucenici koji nisu
-     polozili prijemni */
+  /* Linij se iscrtava samo ako postoje ucenici koji nisu polozili
+     prijemni */
   if (nisu_polozili(koren) != 0)
     printf("-------------------------------------\n");
 

@@ -35,13 +35,13 @@ int jednake_matrice(int a[][MAX], int b[][MAX], int n)
 
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
-      /* Nasli smo elemente na istim pozicijama u matricama koji 
-         se razlikuju */
+      /* Nasli smo elemente na istim pozicijama u matricama koji se
+         razlikuju */
       if (a[i][j] != b[i][j])
         return 0;
 
-  /* Prosla je provera jednakosti za sve parove elemenata koji
-     su na istim pozicijama sto znaci da su matrice jednake */
+  /* Prosla je provera jednakosti za sve parove elemenata koji su na
+     istim pozicijama sto znaci da su matrice jednake */
   return 1;
 }
 

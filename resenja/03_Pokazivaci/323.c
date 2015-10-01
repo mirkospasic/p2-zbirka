@@ -6,10 +6,10 @@
 int max_sporedna_dijagonala(int m[][MAX], int n)
 {
   int i, j;
-  /* Trazimo najveci element na sporednoj dijagonali. Za
-     elemente sporedne dijagonale vazi da je zbir indeksa vrste
-     i indeksa kolone jednak n-1. Za pocetnu vrednost maksimuma
-     uzimamo element u gornjem desnom uglu */
+  /* Trazimo najveci element na sporednoj dijagonali. Za elemente
+     sporedne dijagonale vazi da je zbir indeksa vrste i indeksa
+     kolone jednak n-1. Za pocetnu vrednost maksimuma uzimamo element 
+     u gornjem desnom uglu */
   int max_na_sporednoj_dijagonali = m[0][n - 1];
   for (i = 1; i < n; i++)
     if (m[i][n - 1 - i] > max_na_sporednoj_dijagonali)
@@ -22,8 +22,8 @@ int max_sporedna_dijagonala(int m[][MAX], int n)
 int indeks_min(int m[][MAX], int n)
 {
   int i, j;
-  /* Za pocetnu vrednost minimuma uzimamo element u gornjem
-     levom uglu */
+  /* Za pocetnu vrednost minimuma uzimamo element u gornjem levom
+     uglu */
   int min = m[0][0], indeks_kolone = 0;
 
   for (i = 0; i < n; i++)
@@ -85,8 +85,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavamo vrednost dimenzije i proveravamo njenu korektnost 
-   */
+  /* Ucitavamo vrednost dimenzije i proveravamo njenu korektnost */
   n = atoi(argv[1]);
 
   if (n > MAX || n <= 0) {

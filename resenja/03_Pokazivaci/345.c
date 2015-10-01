@@ -4,22 +4,21 @@
 #include <math.h>
 #include <string.h>
 
-/* NAPOMENA: Zaglavlje math.h sadrzi deklaracije raznih
-   matematickih funkcija. Između ostalog, to su sledeće
-   funkcije: double sin(double x); double cos(double x); double
-   tan(double x); double asin(double x); double acos(double x);
-   double atan(double x); double atan2(double y, double x);
-   double sinh(double x); double cosh(double x); double
-   tanh(double x); double exp(double x); double log(double x);
-   double log10(double x); double pow(double x, double y);
-   double sqrt(double x); double ceil(double x); double
+/* NAPOMENA: Zaglavlje math.h sadrzi deklaracije raznih matematickih
+   funkcija. Između ostalog, to su sledeće funkcije: double
+   sin(double x); double cos(double x); double tan(double x); double
+   asin(double x); double acos(double x); double atan(double x);
+   double atan2(double y, double x); double sinh(double x); double
+   cosh(double x); double tanh(double x); double exp(double x);
+   double log(double x); double log10(double x); double pow(double x, 
+   double y); double sqrt(double x); double ceil(double x); double
    floor(double x); double fabs(double x); */
 
 /* Funkcija tabela() prihvata granice intervala a i b, broj
-   ekvidistantnih tačaka n, kao i pokazivač f koji pokazuje na 
-   funkciju koja prihvata double argument, i vraća double
-   vrednost. Za tako datu funkciju ispisuje njene vrednosti u
-   intervalu [a,b] u n ekvidistantnih tačaka intervala */
+   ekvidistantnih tačaka n, kao i pokazivač f koji pokazuje na
+   funkciju koja prihvata double argument, i vraća double vrednost.
+   Za tako datu funkciju ispisuje njene vrednosti u intervalu [a,b] u 
+   n ekvidistantnih tačaka intervala */
 void tabela(double a, double b, int n, double (*fp) (double))
 {
   int i;
@@ -44,15 +43,15 @@ int main(int argc, char *argv[])
 {
   double a, b;
   int n;
-  /* Imena funkicja koja ćemo navoditi su kraća ili tačno
-     duga 5 karaktera */
+  /* Imena funkicja koja ćemo navoditi su kraća ili tačno duga 5
+     karaktera */
   char ime_fje[6];
-  /* Pokazivac na funkciju koja ima jedan argument tipa double i 
+  /* Pokazivac na funkciju koja ima jedan argument tipa double i
      povratnu vrednost istog tipa */
   double (*fp) (double);
 
-  /* Ako korisnik nije uneo tražene argumente, prijavljujemo
-     grešku */
+  /* Ako korisnik nije uneo tražene argumente, prijavljujemo grešku 
+   */
   if (argc < 2) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
@@ -61,12 +60,12 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Niska ime_fje sadrži ime tražene funkcije koja je
-     navedena u komandnoj liniji */
+  /* Niska ime_fje sadrži ime tražene funkcije koja je navedena u
+     komandnoj liniji */
   strcpy(ime_fje, argv[1]);
 
-  /* Inicijalizujemo pokazivač na funkciju koja treba da se
-     tabelira */
+  /* Inicijalizujemo pokazivač na funkciju koja treba da se tabelira 
+   */
   if (strcmp(ime_fje, "sin") == 0)
     fp = &sin;
   else if (strcmp(ime_fje, "cos") == 0)
@@ -105,8 +104,8 @@ int main(int argc, char *argv[])
   printf("(ukljucujuci krajeve intervala)?\n");
   scanf("%d", &n);
 
-  /* Mreza mora da uključuje bar krajeve intervala, tako da se
-     mora uneti broj veci od 2 */
+  /* Mreza mora da uključuje bar krajeve intervala, tako da se mora
+     uneti broj veci od 2 */
   if (n < 2) {
     fprintf(stderr, "Broj tačaka mreže mora biti bar 2!\n");
     exit(EXIT_FAILURE);
@@ -115,8 +114,8 @@ int main(int argc, char *argv[])
   /* Ispisujemo ime funkcije */
   printf("     x %10s(x)\n", ime_fje);
 
-  /* Prosleđujemo funkciji tabela() funkciju zadatu kao
-     argument komandne linije */
+  /* Prosleđujemo funkciji tabela() funkciju zadatu kao argument
+     komandne linije */
   tabela(a, b, n, fp);
 
   exit(EXIT_SUCCESS);

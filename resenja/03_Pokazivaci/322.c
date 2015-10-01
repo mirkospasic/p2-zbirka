@@ -4,14 +4,13 @@
 #define MAX 64
 
 /* Funkcija proverava da li je relacija refleksivna. Relacija je
-   refleksivna ako je svaki element u relaciji sam sa sobom,
-   odnosno ako se u matrici relacije na glavnoj dijagonali nalaze 
-   jedinice */
+   refleksivna ako je svaki element u relaciji sam sa sobom, odnosno
+   ako se u matrici relacije na glavnoj dijagonali nalaze jedinice */
 int refleksivnost(int m[][MAX], int n)
 {
   int i;
 
-  /* Obilazimo glavnu dijagonalu matrice. Za elemente na glavnoj 
+  /* Obilazimo glavnu dijagonalu matrice. Za elemente na glavnoj
      dijagonali vazi da je indeks vrste jednak indeksu kolone */
   for (i = 0; i < n; i++) {
     if (m[i][i] != 1)
@@ -21,9 +20,9 @@ int refleksivnost(int m[][MAX], int n)
   return 1;
 }
 
-/* Funkcija odredjuje refleksivno zatvorenje zadate relacije.
-   Ono je odredjeno matricom koja sadrzi sve elemente polazne
-   matrice dopunjene jedinicama na glavnoj dijagonali */
+/* Funkcija odredjuje refleksivno zatvorenje zadate relacije. Ono je
+   odredjeno matricom koja sadrzi sve elemente polazne matrice
+   dopunjene jedinicama na glavnoj dijagonali */
 void ref_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 {
   int i, j;
@@ -39,10 +38,10 @@ void ref_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 }
 
 /* Funkcija proverava da li je relacija simetricna. Relacija je
-   simetricna ako za svaki par elemenata vazi: ako je element
-   "i" u relaciji sa elementom "j", onda je i element "j" u
-   relaciji sa elementom "i". Ovakve matrice su simetricne u
-   odnosu na glavnu dijagonalu */
+   simetricna ako za svaki par elemenata vazi: ako je element "i" u
+   relaciji sa elementom "j", onda je i element "j" u relaciji sa
+   elementom "i". Ovakve matrice su simetricne u odnosu na glavnu
+   dijagonalu */
 int simetricnost(int m[][MAX], int n)
 {
   int i, j;
@@ -57,10 +56,10 @@ int simetricnost(int m[][MAX], int n)
   return 1;
 }
 
-/* Funkcija odredjuje simetricno zatvorenje zadate relacije. Ono 
-   je odredjeno matricom koja sadrzi sve elemente polazne
-   matrice dopunjene tako da matrica postane simetricna u odnosu 
-   na glavnu dijagonalu */
+/* Funkcija odredjuje simetricno zatvorenje zadate relacije. Ono je
+   odredjeno matricom koja sadrzi sve elemente polazne matrice
+   dopunjene tako da matrica postane simetricna u odnosu na glavnu
+   dijagonalu */
 void sim_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 {
   int i, j;
@@ -78,11 +77,10 @@ void sim_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 }
 
 
-/* Funkcija proverava da li je relacija tranzitivna. Relacija je 
-   tranzitivna ako ispunjava sledece svojstvo: ako je element
-   "i" u relaciji sa elementom "j" i element "j" u relaciji sa
-   elementom "k", onda je i element "i" u relaciji sa elementom
-   "k" */
+/* Funkcija proverava da li je relacija tranzitivna. Relacija je
+   tranzitivna ako ispunjava sledece svojstvo: ako je element "i" u
+   relaciji sa elementom "j" i element "j" u relaciji sa elementom
+   "k", onda je i element "i" u relaciji sa elementom "k" */
 int tranzitivnost(int m[][MAX], int n)
 {
   int i, j, k;
@@ -139,8 +137,7 @@ int main(int argc, char *argv[])
   int pomocna[MAX][MAX];
   int n, i, j, k;
 
-  /* Ako korisnik nije uneo trazene argumente, prijavljujemo
-     gresku */
+  /* Ako korisnik nije uneo trazene argumente, prijavljujemo gresku */
   if (argc < 2) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
@@ -152,8 +149,7 @@ int main(int argc, char *argv[])
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "Greska: ");
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s.\n",
-            argv[1]);
+    fprintf(stderr, "Neuspesno otvaranje datoteke %s.\n", argv[1]);
     exit(EXIT_FAILURE);
   }
 
@@ -176,8 +172,7 @@ int main(int argc, char *argv[])
   printf("Refleksivnost: %s\n",
          refleksivnost(m, n) == 1 ? "da" : "ne");
 
-  printf("Simetricnost: %s\n",
-         simetricnost(m, n) == 1 ? "da" : "ne");
+  printf("Simetricnost: %s\n", simetricnost(m, n) == 1 ? "da" : "ne");
 
   printf("Tranzitivnost: %s\n",
          tranzitivnost(m, n) == 1 ? "da" : "ne");

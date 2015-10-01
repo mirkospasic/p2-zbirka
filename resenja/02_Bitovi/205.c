@@ -13,15 +13,16 @@
 unsigned rotate_left(int x, unsigned n)
 {
   unsigned first_bit;
-  /* Maska koja ima samo najvisi bit postavljen na 1 neophodna
-     da bi pre siftovanja u levo za 1 najvisi bit bio sacuvan.*/
+  /* Maska koja ima samo najvisi bit postavljen na 1 neophodna da bi
+     pre siftovanja u levo za 1 najvisi bit bio sacuvan. */
   unsigned first_bit_mask = 1 << (sizeof(unsigned) * 8 - 1);
   int i;
 
-  /* n puta se vrsi rotaciju za jedan bit u levo. U svakoj
-     iteraciji se odredi prvi bit, a potom se pomera binarna reprezentacija trenutne vrednosti promenljive
-     x u levo za 1. Nakon toga, potom najnizi bit se postavlja na vrednost
-     koju je imao prvi bit koji je istisnut siftovanjem */
+  /* n puta se vrsi rotaciju za jedan bit u levo. U svakoj iteraciji
+     se odredi prvi bit, a potom se pomera binarna reprezentacija
+     trenutne vrednosti promenljive x u levo za 1. Nakon toga, potom
+     najnizi bit se postavlja na vrednost koju je imao prvi bit koji
+     je istisnut siftovanjem */
   for (i = 0; i < n; i++) {
     first_bit = x & first_bit_mask;
     x = x << 1 | first_bit >> (sizeof(unsigned) * 8 - 1);
@@ -43,10 +44,12 @@ unsigned rotate_right(unsigned x, unsigned n)
   int i;
 
   /* n puta se ponavlja rotacija u desno za jedan bit. U svakoj
-     iteraciji se odredjuje bit najmanje tezine broja x, zatm
-     tako odredjeni bit se siftuje u levo tako da najnizi bit
-     dode do pozicije najviseg bita. Zatim, nakon siftovanja binarne reprezentacije trenutne vrednosti promenljive x za 1 u
-     desno, najvisi bit se postaljva na vrednost vec zapamcenog bita koji je bio na poziciji najmanje tezine. */
+     iteraciji se odredjuje bit najmanje tezine broja x, zatm tako
+     odredjeni bit se siftuje u levo tako da najnizi bit dode do
+     pozicije najviseg bita. Zatim, nakon siftovanja binarne
+     reprezentacije trenutne vrednosti promenljive x za 1 u desno,
+     najvisi bit se postaljva na vrednost vec zapamcenog bita koji je 
+     bio na poziciji najmanje tezine. */
   for (i = 0; i < n; i++) {
     last_bit = x & 1;
     x = x >> 1 | last_bit << (sizeof(unsigned) * 8 - 1);
@@ -55,21 +58,21 @@ unsigned rotate_right(unsigned x, unsigned n)
   return x;
 }
 
-/* Verzija funkcije koja broj x rotira u desno za n mesta, gde
-   je argument funkcije x oznaceni ceo broj */
+/* Verzija funkcije koja broj x rotira u desno za n mesta, gde je
+   argument funkcije x oznaceni ceo broj */
 int rotate_right_signed(int x, unsigned n)
 {
   unsigned last_bit;
   int i;
 
 
-  /* U svakoj iteraciji se odredjuje bit najmanje tezine i smesta u promenljivu
-     last_bit. Kako je x oznacen ceo broj, tada se prilikom
-     siftovanja u desno vrsi aritmeticki sift i cuva se znak
-     broja. Dakle, razlikuju se dva slucaja u zavisnosti od
-     znaka od x. Nije dovoljno da se ova provera izvrsi pre
-     petlje, s obzirom da rotiranjem u desno na mesto najviseg bita moze
-     doci i 0 i 1, nezavisno od pocetnog znaka broja smestenog u promenljivu x. */
+  /* U svakoj iteraciji se odredjuje bit najmanje tezine i smesta u
+     promenljivu last_bit. Kako je x oznacen ceo broj, tada se
+     prilikom siftovanja u desno vrsi aritmeticki sift i cuva se znak
+     broja. Dakle, razlikuju se dva slucaja u zavisnosti od znaka od
+     x. Nije dovoljno da se ova provera izvrsi pre petlje, s obzirom
+     da rotiranjem u desno na mesto najviseg bita moze doci i 0 i 1,
+     nezavisno od pocetnog znaka broja smestenog u promenljivu x. */
   for (i = 0; i < n; i++) {
     last_bit = x & 1;
 
@@ -107,7 +110,7 @@ int rotate_right_signed(int x, unsigned n)
 }
 
 
-/* Funkcija prikazuje na standardni ekran binarnu reprezentaciju 
+/* Funkcija prikazuje na standardni ekran binarnu reprezentaciju
    celog broja u memoriji */
 void print_bits(int x)
 {

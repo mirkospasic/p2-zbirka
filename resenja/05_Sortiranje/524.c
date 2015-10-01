@@ -20,8 +20,8 @@ int uporedi_poeni(const void *a, const void *b)
   return s.poeni - t.poeni;
 }
 
-/* Funkcija poredi studente prvo prema godini, zatim prema smeru i
-   na kraju prema indeksu */
+/* Funkcija poredi studente prvo prema godini, zatim prema smeru i na 
+   kraju prema indeksu */
 int uporedi_nalog(const void *a, const void *b)
 {
   Student s = *(Student *) a;
