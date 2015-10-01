@@ -94,7 +94,7 @@ standardnog ulaza učitati dimenziju $n$ ($0 < n \leq 100$)
 celobrojong niza, a zatim i elemente niza. Na standardni izlaz
 ispisati rezultat primene napisane funkcije nad učitanim nizom.
 
-\noindent
+%\noindent
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
@@ -115,6 +115,7 @@ ispisati rezultat primene napisane funkcije nad učitanim nizom.
 #\izlaz{5 -2 1 -2}#
 \end{upotreba}
 \end{miditest}
+
 \begin{miditest}
 \begin{upotreba}{3}
 #\naslovInt#
@@ -194,7 +195,7 @@ za datu nisku ispituje da li je palindrom. Napisati program koji
 vrši prebrojavanje argumenata komandne linije koji su
 palindromi.
 
-\noindent
+%\noindent
 \begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out a b 11 212}#
@@ -228,7 +229,7 @@ komandne linije. Smatrati da reč ne sadrži više od $100$ karaktera.
 U zadatku ne koristiti ugrađene funkcije za rad sa niskama, 
 već implementirati svoje koristeći pokazivačku sintaksu.
 
-\noindent
+%\noindent
 \begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out ulaz.txt 1}#
@@ -256,6 +257,7 @@ već implementirati svoje koristeći pokazivačku sintaksu.
 #\izlaz{./a.out ime\_dat br\_karaktera.}#
 \end{upotreba}
 \end{miditest}
+
 \begin{miditest}
 \begin{upotreba}{3}
 #\poziv{./a.out ulaz.txt 2}#
@@ -284,7 +286,7 @@ koliko reči ima zadati sufiks (ili prefiks). U zadatku ne
 koristiti ugrađene funkcije za rad sa niskama, već
 implementirati svoje koristeći pokazivačku sintaksu.
 
-\noindent
+%\noindent
 \begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out ulaz.txt ke -s}#
@@ -309,6 +311,7 @@ implementirati svoje koristeći pokazivačku sintaksu.
 #\izlaz{Broj reci koje pocinju na sa je 3.}#
 \end{upotreba}
 \end{miditest}
+
 \begin{miditest}
 \begin{upotreba}{3}
 #\poziv{./a.out ulaz.txt sa -p}#
@@ -356,7 +359,7 @@ ulaza učitati dimanziju kvadratne matrice $n$
 ispisati učitanu matricu a zatim trag, euklidsku normu i vandijagonalnu normu 
 učitane matrice.
 
-\noindent
+%\noindent
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
@@ -652,9 +655,9 @@ množenja.}
 \end{upotreba}
 \end{miditest}
 \end{Exercise}
-\begin{Answer}[ref=327]
+%\begin{Answer}[ref=327]
 %\includecode{resenja/03_Pokazivaci/327.c}
-\end{Answer}
+%\end{Answer}
 
 \section{Dinamička alokacija memorije}
 \begin{Exercise}[label=328]
@@ -832,9 +835,9 @@ više takvih, ispisati prvu.
 \end{miditest}
 
 \end{Exercise}
-\begin{Answer}[ref=336]
+%\begin{Answer}[ref=336]
 %\includecode{resenja/03_Pokazivaci/336.c}
-\end{Answer}
+%\end{Answer}
 
 \begin{Exercise}[label=337]
 Data je realna kvadratna matrica dimenzije $n$.
@@ -942,16 +945,16 @@ Rezultujuću matricu ispisati na standardni izlaz.
 \end{miditest}
 
 \end{Exercise}
-\begin{Answer}[ref=344]
+%\begin{Answer}[ref=344]
 %\includecode{resenja/03_Pokazivaci/344.c}
-\end{Answer}
+%\end{Answer}
 
 \begin{Exercise}[label=340]
 Petar sakuplja sličice igrača za predstojeće Svetsko
 prvenstvo u fudbalu. U datoteci ,,slicice.txt`` se nalaze
-informacije o sličicama koje mu nedostaju u formatu:
-\kckod{redni\_broj\_sličice
-ime\_reprezentacije\_kojoj\_sličica\_pripada}. Pomozite Petru
+informacije o sličicama koje mu nedostaju u formatu:\\
+\hspace*{5mm}\kckod{redni\_broj\_sličice ime\_reprezentacije\_kojoj\_sličica\_pripada} \\
+Pomozite Petru
 da otkrije koliko mu sličica ukupno nedostaje, kao i da
 pronađe ime reprezentacije čijih sličica ima najmanje.
 Dobijene podatke ispisati na standardni izlaz. \napomena{Za
@@ -975,9 +978,9 @@ realokaciju memorije koristiti \kckod{realloc()} funkciju.}
 \end{upotreba}
 \end{maxitest}
 \end{Exercise}
-\begin{Answer}[ref=340]
+%\begin{Answer}[ref=340]
 %\includecode{resenja/03_Pokazivaci/340.c}
-\end{Answer}
+%\end{Answer}
 
 \begin{Exercise}[difficulty=2, label=341]
 U datoteci ,,temena.txt`` se nalaze tačke koje predstavljaju
@@ -1001,9 +1004,9 @@ površine. Pretpostavka je da će mnogougao biti konveksan.
 \end{upotreba}
 \end{miditest}
 \end{Exercise}
-\begin{Answer}[ref=341]
+%\begin{Answer}[ref=341]
 %\includecode{resenja/03_Pokazivaci/341.c}
-\end{Answer}
+%\end{Answer}
 
 \section{Pokazivači na funkcije}
 
@@ -1025,8 +1028,8 @@ se zadaje kao argument komandne linije (\kckod{sin}, \kckod{cos}, \kckod{tan}, \
 #\naslovInt#
 #\izlaz{Unesite krajeve intervala:}#
 #\ulaz{-0.5 1}#
-#\izlaz{Koliko tacaka ima na ekvidistantnoj mrezi}#
-#\izlaz{(ukljucujuci krajeve intervala)?}#
+#\izlaz{Koliko tacaka ima na ekvidistantnoj}#
+#\izlaz{mrezi (ukljucujuci krajeve intervala)?}#
 #\ulaz{4}#
 #\izlaz{     x        sin(x)}#
 #\izlaz{-----------------------}#
@@ -1044,8 +1047,8 @@ se zadaje kao argument komandne linije (\kckod{sin}, \kckod{cos}, \kckod{tan}, \
 #\naslovInt#
 #\izlaz{Unesite krajeve intervala:}#
 #\ulaz{0 2}#
-#\izlaz{Koliko tacaka ima na ekvidistantnoj mrezi}#
-#\izlaz{(ukljucujuci krajeve intervala)?}#
+#\izlaz{Koliko tacaka ima na ekvidistantnoj}#
+#\izlaz{mrezi (ukljucujuci krajeve intervala)?}#
 #\ulaz{4}#
 #\izlaz{     x        cos(x)}#
 #\izlaz{-----------------------}#
@@ -1081,9 +1084,9 @@ $$ lim_{x \rightarrow a} f(x) = lim_{n \rightarrow \infty} f(a + \frac{1}{n})$$
 \end{upotreba}
 \end{miditest}
 \end{Exercise}
-\begin{Answer}[ref=346]
+%\begin{Answer}[ref=346]
 %\includecode{resenja/03_Pokazivaci/346.c}
-\end{Answer}
+%\end{Answer}
 
 \begin{Exercise}[label=347]
 Napisati funkciju koja određuje integral funkcije \kckod{f(x)} na
@@ -1105,9 +1108,9 @@ ulaza kao i ime funkcije iz zaglavlja
 \end{upotreba}
 \end{miditest}
 \end{Exercise}
-\begin{Answer}[ref=347]
+%\begin{Answer}[ref=347]
 %\includecode{resenja/03_Pokazivaci/347.c}
-\end{Answer}
+%\end{Answer}
 
 \begin{Exercise}[label=348]
 Napisati funkciju koja približno izračunava integral      
@@ -1129,8 +1132,8 @@ argumente komandne linije prihvata ime funkcije iz zaglavlja
 \end{upotreba}
 \end{miditest}
 \end{Exercise}
-\begin{Answer}[ref=348]
+%\begin{Answer}[ref=348]
 %\includecode{resenja/03_Pokazivaci/348.c}
-\end{Answer}
+%\end{Answer}
 \section{Rešenja}
 \shipoutAnswer
