@@ -3,7 +3,8 @@
 
 #define MAX 32
 
-/* Funkcija ucitava elemente kvadratne matrice sa standardnog ulaza */
+/* Funkcija ucitava elemente kvadratne matrice sa standardnog
+   ulaza */
 void ucitaj_matricu(int m[][MAX], int n)
 {
   int i, j;
@@ -13,7 +14,8 @@ void ucitaj_matricu(int m[][MAX], int n)
       scanf("%d", &m[i][j]);
 }
 
-/* Funkcija ispisuje elemente kvadratne matrice na standardni izlaz */
+/* Funkcija ispisuje elemente kvadratne matrice na standardni
+   izlaz */
 void ispisi_matricu(int m[][MAX], int n)
 {
   int i, j;
@@ -25,47 +27,42 @@ void ispisi_matricu(int m[][MAX], int n)
   }
 }
 
-/* Funkcija proverava da li je zadata matrica ortonormirana */
+/* Funkcija proverava da li je zadata matrica ortonormirana,
+   odnosno, da li je normirana i ortogonalna. Matrica je normirana
+   ako je proizvod svake vrste matrice sa samom sobom jednak jedinici. 
+   Matrica je ortogonalna, ako je proizvod dve bilo koje razlicite vrste 
+   matrice jednak nuli */
 int ortonormirana(int m[][MAX], int n)
 {
   int i, j, k;
   int proizvod;
-
-  /* Proveravamo uslov normiranosti, odnosno da li je proizvod svake
-     vrste matrice sa samom sobom jednak jedinici */
+  
+  /* Ispituje se uslov normiranosti */
   for (i = 0; i < n; i++) {
-
-    /* Izracunavamo skalarni proizvod vrste sa samom sobom */
     proizvod = 0;
 
     for (j = 0; j < n; j++)
       proizvod += m[i][j] * m[i][j];
-
-    /* Ako proizvod bar jedne vrste nije jednak jedinici, odmah
-       zakljucujemo da matrica nije normirana */
+ 
     if (proizvod != 1)
       return 0;
   }
 
-  /* Proveravamo uslov ortogonalnosti, odnosno da li je proizvod dve
-     bilo koje razlicite vrste matrice jednak nuli */
+  /* Ispituje se uslov ortogonalnosti */
   for (i = 0; i < n - 1; i++) {
     for (j = i + 1; j < n; j++) {
-
-      /* Izracunavamo skalarni proizvod */
+     
       proizvod = 0;
 
       for (k = 0; k < n; k++)
         proizvod += m[i][k] * m[j][k];
-
-      /* Ako proizvod dve bilo koje razlicite vrste nije jednak nuli, 
-         odmah zakljucujemo da matrica nije ortogonalna */
+ 
       if (proizvod != 0)
         return 0;
     }
   }
 
-  /* Ako su oba uslova ispunjena, vracamo jedinicu kao rezultat */
+  /* Ako su oba uslova ispunjena, matrica je ortonormirana */
   return 1;
 }
 
@@ -74,7 +71,7 @@ int main()
   int A[MAX][MAX];
   int n;
 
-  /* Ucitavamo vrednost dimenzije i proveravamo njenu korektnost */
+  printf("Unesite dimenziju matrice: ");
   scanf("%d", &n);
 
   if (n > MAX || n <= 0) {
@@ -83,14 +80,10 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavamo matricu */
+  printf("Unesite elemente matrice, vrstu po vrstu:\n");
   ucitaj_matricu(A, n);
 
-  /* Ispisujemo rezultat rada funkcije */
-  if (ortonormirana(A, n))
-    printf("da\n");
-  else
-    printf("ne\n");
-
+  printf("Matrica %s ortonormirana.\n", 
+                      ortonormirana(A, n) ? "je" : "nije");
   return 0;
 }

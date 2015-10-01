@@ -35,13 +35,11 @@ int jednake_matrice(int a[][MAX], int b[][MAX], int n)
 
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
-      /* Nasli smo elemente na istim pozicijama u matricama koji se
-         razlikuju */
       if (a[i][j] != b[i][j])
         return 0;
 
-  /* Prosla je provera jednakosti za sve parove elemenata koji su na
-     istim pozicijama sto znaci da su matrice jednake */
+  /* Prosla je provera jednakosti za sve parove elemenata koji
+     su na istim pozicijama. To znaci da su matrice jednake */
   return 1;
 }
 
@@ -62,7 +60,7 @@ void pomnozi(int a[][MAX], int b[][MAX], int c[][MAX], int n)
 
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++) {
-      /* Mnozimo i-tu vrstu prve sa j-tom kolonom druge matrice */
+      /* Mnozi se i-ta vrsta prve sa j-tom kolonom druge matrice */
       c[i][j] = 0;
       for (k = 0; k < n; k++)
         c[i][j] += a[i][k] * b[k][j];
@@ -72,39 +70,38 @@ void pomnozi(int a[][MAX], int b[][MAX], int c[][MAX], int n)
 int main()
 {
   /* Matrice ciji se elementi zadaju sa ulaza */
-  int a[MAX][MAX], b[MAX][MAX], c[MAX][MAX];
+  int a[MAX][MAX], b[MAX][MAX];
 
   /* Matrice zbira i proizvoda */
   int zbir[MAX][MAX], proizvod[MAX][MAX];
 
   /* Dimenzija matrica */
-  int n;
-  int i, j;
+  int n;  
 
-  /* Ucitavamo dimenziju kvadratnih matrica i proveravamo njenu
-     korektnost */
+  printf("Unesite dimenziju matrica:\n");
   scanf("%d", &n);
 
-  /* Proveravamo da li je prekoraceno ogranicenje */
+  /* Proverava se da li je doslo do prekoracenja dimenzije */
   if (n > MAX || n <= 0) {
     fprintf(stderr, "Greska: neodgovarajuca dimenzija ");
     fprintf(stderr, "matrica.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavamo matrice */
+  printf("Unesite elemente prve matrice, vrstu po vrstu:\n");
   ucitaj_matricu(a, n);
+  printf("Unesite elemente druge matrice, vrstu po vrstu:\n");
   ucitaj_matricu(b, n);
 
-  /* Izracunavamo zbir i proizvod matrica */
+  /* Izracunava se zbir i proizvod matrica */
   saberi(a, b, zbir, n);
   pomnozi(a, b, proizvod, n);
 
-  /* Ispisujemo rezultat */
+  /* Ispisuje se rezultat */
   if (jednake_matrice(a, b, n) == 1)
-    printf("da\n");
+    printf("Matrice su jednake.\n");
   else
-    printf("ne\n");
+    printf("Matrice nisu jednake.\n");
 
   printf("Zbir matrica je:\n");
   ispisi_matricu(zbir, n);

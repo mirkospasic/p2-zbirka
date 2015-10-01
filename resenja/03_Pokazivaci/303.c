@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #define MAX 100
 
-/* Funkcija povecava za jedan sve elemente u prvoj polovini niza a
-   smanjuje za jedan sve elemente u drugoj polovini niza. Ukoliko niz 
-   ima neparan broj elemenata, srednji element ostaje nepromenjen */
+/* Funkcija povecava za jedan sve elemente u prvoj polovini niza
+   a smanjuje za jedan sve elemente u drugoj polovini niza.
+   Ukoliko niz ima neparan broj elemenata, srednji element ostaje 
+   nepromenjen */
 void povecaj_smanji(int *a, int n)
 {
   int *prvi = a;
@@ -12,7 +13,8 @@ void povecaj_smanji(int *a, int n)
 
   while (prvi < poslednji) {
 
-    /* Povecava se vrednost elementa na koji pokazuje pokazivac prvi */
+    /* Povecava se vrednost elementa na koji pokazuje pokazivac
+       prvi */
     (*prvi)++;
 
     /* Pokazivac prvi se pomera na sledeci element */
@@ -25,7 +27,7 @@ void povecaj_smanji(int *a, int n)
     /* Pokazivac poslednji se pomera na prethodni element */
     poslednji--;
   }
-
+  
   /* Drugi nacin */
   while (prvi < poslednji) {
     (*prvi++)++;
@@ -42,7 +44,7 @@ int main()
   printf("Unesite dimenziju niza: ");
   scanf("%d", &n);
 
-  /* Proverava se da li je doslo do prekoracenja ogranicenja
+  /* Proverava se da li je doslo do prekoracenja ogranicenja 
      dimenzije */
   if (n <= 0 || n > MAX) {
     fprintf(stderr, "Greska: neodgovarajuca dimenzija niza.\n");
@@ -54,7 +56,7 @@ int main()
     scanf("%d", p);
 
   povecaj_smanji(a, n);
-
+  
   printf("Transformisan niz je:\n");
   for (p = a; p - a < n; p++)
     printf("%d ", *p);

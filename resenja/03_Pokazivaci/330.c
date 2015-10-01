@@ -21,84 +21,66 @@ int main(void)
   /* Inicijalizacija */
   alocirano = n = 0;
 
-  /* Unosimo brojeve sa ulaza */
+  printf("Unesite brojeve, nulu za kraj:\n");
   scanf("%d", &x);
 
-  /* Sve dok je procitani broj razlicit od nule... */
-  while (x != 0) {
-
-    /* Ako broj ucitanih elemenata niza odgovara broju alociranih
-       mesta, za smestanje novog elementa treba obezbediti dodatni
-       prostor. Da se ne bi za svaki sledeci element pojedinacno
-       alocirala memorija, prilikom alokacije se vrsi rezervacija za
-       jos KORAK dodatnih mesta za buduce elemente */
-    if (n == alocirano) {
-      /* Povecava se broj alociranih mesta */
+  while (x != 0) { 
+    if (n == alocirano) {      
       alocirano = alocirano + KORAK;
 
       /* Vrsi se realokacija memorije sa novom velicinom */
+	  
       /********************************************************/
       /* Resenje sa funkcijom malloc() */
       /********************************************************/
-      /* Vrsi se alokacija memorije sa novom velicinom, a adresa
-         pocetka novog memorijskog bloka se cuva u promenljivoj b */
+   
       b = (int *) malloc(alocirano * sizeof(int));
-
-      /* Ako prilikom alokacije dodje do neke greske */
-      if (b == NULL) {
-        /* poruku ispisujemo na izlaz za greske */
+      
+      if (b == NULL) {        
         fprintf(stderr, "malloc(): ");
         fprintf(stderr, "greska pri alokaciji memorije.\n");
-
-        /* Pre kraja programa moramo svu dinamicki alociranu memoriju 
-           da oslobodimo. U ovom slucaju samo memoriju na adresi a */
         free(a);
-
-        /* Zavrsavamo program */
         exit(EXIT_FAILURE);
       }
 
-      /* Svih n elemenata koji pocinju na adresi a prepisujemo na
-         novu aderesu b */
+      /* Svih n elemenata koji pocinju na adresi a prepisujemo
+         na novu aderesu b */
       for (i = 0; i < n; i++)
         b[i] = a[i];
-
-      /* Posle prepisivanja oslobadjamo blok memorije sa pocetnom
-         adresom u a */
+     
       free(a);
 
-      /* Promenljivoj a dodeljujemo adresu pocetka novog, veceg bloka 
-         koji je prilikom alokacije zapamcen u promenljivoj b */
+      /* Promenljivoj a dodeljuje se adresa pocetka novog, veceg
+         bloka koji je prilikom alokacije zapamcen 
+		 u promenljivoj b */
       a = b;
 
       /********************************************************/
       /* Resenje sa funkcijom realloc() */
       /********************************************************/
-      /* Zbog funkcije realloc je neophodno da i u prvoj iteraciji
-         "a" bude inicijalizovano na NULL */
+	  
+      /* Zbog funkcije realloc je neophodno da i u prvoj
+         iteraciji "a" bude inicijalizovano na NULL */
       /* 
          a = (int*) realloc(a,alocirano*sizeof(int));
 
          if(a == NULL) { fprintf(stderr, "realloc(): ");
          fprintf(stderr, "greska pri alokaciji memorije.\n");
          exit(EXIT_FAILURE); } */
-    }
+    }   
+    
+	a[n++] = x;
 
-    /* Smestamo element u niz */
-    a[n++] = x;
-
-    /* i ucitavamo sledeci element */
     scanf("%d", &x);
   }
 
-  /* Ispisujemo brojeve u obrnutom poretku */
+  printf("Niz u obrnutom poretku je: ");
   for (n--; n >= 0; n--)
     printf("%d ", a[n]);
   printf("\n");
 
-  /* Oslobadjamo dinamicki alociranu memoriju */
+  /* Oslobadja se dinamicki alocirana memorija */
   free(a);
 
-  /* Program se zavrsava */
   exit(EXIT_SUCCESS);
 }

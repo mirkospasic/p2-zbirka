@@ -4,61 +4,61 @@
 
 #define MAX 100
 
-/* Deklarisemo funkcije koje cemo kasnije da definisemo */
+/* Deklaracija funkcija koje ce kasnije biti definisane */
 double euklidska_norma(int M[][MAX], int n);
 int trag(int M[][MAX], int n);
 int gornja_vandijagonalna_norma(int M[][MAX], int n);
 
-int main()
+int main() 
 {
   int A[MAX][MAX];
   int i, j, n;
 
-  /* Unosimo dimenziju kvadratne matrice */
+  printf("Unesite dimenziju matrice: ");
   scanf("%d", &n);
 
-  /* Proveravamo da li je prekoraceno ogranicenje */
+  /* Provera prekoracenja dimenzije matrice */
   if (n > MAX || n <= 0) {
-    fprintf(stderr, "Greska: neodgovarajuca dimenzija ");
-    fprintf(stderr, "matrice.\n");
+    fprintf(stderr, "Greska: neodgovarajuca dimenzija matrice.\n");    
     exit(EXIT_FAILURE);
   }
 
-  /* Popunjavamo vrstu po vrstu matrice */
+  printf("Unesite elemente matrice, vrstu po vrstu:\n ");
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
       scanf("%d", &A[i][j]);
 
-  /* Ispis elemenata matrice koriscenjem indeksne sintakse. Ispis
-     vrsimo vrstu po vrstu */
+  /* Ispis sadrzaja matrice koriscenjem indeksne sintakse */
   for (i = 0; i < n; i++) {
-    /* Ispisujemo elemente i-te vrste */
+    /* Ispis elemenata i-te vrste */
     for (j = 0; j < n; j++)
       printf("%d ", A[i][j]);
     printf("\n");
   }
 
-  /* Ispis elemenata matrice koriscenjem pokazivacke sintakse. Kod
-     ovako definisane matrice, elementi su uzastopno smesteni u
-     memoriju, kao na traci. To znaci da su svi elementi prve vrste
-     redom smesteni jedan iza drugog. Odmah iza poslednjeg elementa
-     prve vrste smesten je prvi element druge vrste za kojim slede
-     svi elementi te vrste i tako dalje redom */
+  /* Ispisuju se elemenati matrice koriscenjem pokazivacke sintakse.
+     Kod ovako definisane matrice, elementi su uzastopno
+     smesteni u memoriju, kao na traci. To znaci da su svi
+     elementi prve vrste redom smesteni jedan iza drugog. Odmah
+     iza poslednjeg elementa prve vrste smesten je prvi element
+     druge vrste za kojim slede svi elementi te vrste i tako
+     dalje redom */
   /* 
-     for( i = 0; i<n; i++) { for ( j=0 ; j<n; j++) printf("%d ",
+     for( i = 0; i<n; i++) { for ( j=0 ; j<n; j++) printf("%d ", 
      *(*(A+i)+j)); printf("\n"); } */
-
+  
+  /* Ispisuje se rezultat na standardni izlaz */
   int tr = trag(A, n);
-  printf("trag = %d\n", tr);
+  printf("Trag matrice je %d.\n", tr);
 
-  printf("euklidska norma = %.2f\n", euklidska_norma(A, n));
-  printf("vandijagonalna norma = %d\n",
+  printf("Euklidska norma matrice je %.2f.\n", euklidska_norma(A, n));
+  printf("Vandijagonalna norma matrice je = %d.\n",
          gornja_vandijagonalna_norma(A, n));
 
   return 0;
 }
 
-/* Definisemo funkcije koju smo ranije deklarisali */
+/* Definicija funkcija koje su ranije bile deklarisane */
 
 /* Funkcija izracunava trag matrice */
 int trag(int M[][MAX], int n)

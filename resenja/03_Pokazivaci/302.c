@@ -9,18 +9,18 @@ double zbir(double *a, int n)
   double s = 0;
   int i;
 
-  for (i = 0; i < n; s += a[i++]);
+  for (i = 0; i < n; s += *(a+i++));
 
   return s;
 }
 
 /* Funkcija izracunava proizvod elemenata niza */
-double proizvod(double a[], int n)
+double proizvod(double *a, int n)
 {
   double p = 1;
 
-  for (; n; n--)
-    p *= *a++;
+  for (; n; n--)      
+    p *= (*(a+n-1));
 
   return p;
 }
@@ -29,14 +29,14 @@ double proizvod(double a[], int n)
 double min(double *a, int n)
 {
   /* Na pocetku, minimalni element je prvi element */
-  double min = a[0];
+  double min = *a;
   int i;
 
   /* Ispituje se da li se medju ostalim elementima niza nalazi
      minimalni */
   for (i = 1; i < n; i++)
-    if (a[i] < min)
-      min = a[i];
+    if (*(a+i) < min)
+      min = *(a+i);
 
   return min;
 }
@@ -65,7 +65,7 @@ int main()
   printf("Unesite dimenziju niza: ");
   scanf("%d", &n);
 
-  /* Proverava se da li je doslo do prekoracenja ogranicenja
+  /* Proverava se da li je doslo do prekoracenja ogranicenja 
      dimenzije */
   if (n <= 0 || n > MAX) {
     fprintf(stderr, "Greska: neodgovarajuca dimenzija niza.\n");

@@ -29,8 +29,9 @@ int main()
 {
   int i, n;
 
-  /* Deklarisemo niz niski koji moze imati najvise MAX_NISKI elementa 
-     od kojih je svaka niska duzine najvise MAX_DUZINA karaktera */
+  /* Deklarisemo niz niski koji moze imati najvise MAX_NISKI
+     elementa od kojih je svaka niska duzine najvise MAX_DUZINA
+     karaktera */
   char niske[MAX_NISKI][MAX_DUZINA];
   FILE *fp;
 

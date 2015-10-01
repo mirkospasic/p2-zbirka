@@ -4,7 +4,7 @@
 #define MAX_V 10
 #define MAX_K 10
 
-/* Funkcija proverava da li su ispisani svi elementi iz matrice,
+/* Funkcija proverava da li su ispisani svi elementi iz matrice, 
    odnosno da li se narusio prirodan poredak medju granicama */
 int krajIspisa(int top, int bottom, int left, int right)
 {
@@ -21,11 +21,11 @@ void ispisi_matricu_spiralno(int a[][MAX_K], int n, int m)
   right = m - 1;
 
   while (!krajIspisa(top, bottom, left, right)) {
-    /* Ispisuje se prvi red */
+    
     for (j = left; j <= right; j++)
       printf("%d ", a[top][j]);
 
-    /* Spustamo prvi red */
+    /* Spusta se prvi red */
     top++;
 
     if (krajIspisa(top, bottom, left, right))
@@ -34,28 +34,28 @@ void ispisi_matricu_spiralno(int a[][MAX_K], int n, int m)
     for (i = top; i <= bottom; i++)
       printf("%d ", a[i][right]);
 
-    /* Pomeramo desnu kolonu za naredni krug ispisa blize levom kraju 
-     */
+    /* Pomera se desna kolona za naredni krug ispisa blize levom
+       kraju */
     right--;
 
     if (krajIspisa(top, bottom, left, right))
       break;
 
-    /* Ispisujemo donju vrstu */
+    /* Ispisuje se donja vrsta */
     for (j = right; j >= left; j--)
       printf("%d ", a[bottom][j]);
 
-    /* Podizemo donju vrstu za naredni krug ispisa */
+    /* Podize se donja vrsta za naredni krug ispisa */
     bottom--;
 
     if (krajIspisa(top, bottom, left, right))
       break;
 
-    /* Ispisujemo prvu kolonu */
+    /* Ispisuje se prva kolona */
     for (i = bottom; i >= top; i--)
       printf("%d ", a[i][left]);
 
-    /* Pripremamo levu kolonu za naredni krug ispisa */
+    /* Priprema se leva kolona za naredni krug ispisa */
     left++;
   }
   putchar('\n');
@@ -75,9 +75,8 @@ int main()
   int a[MAX_V][MAX_K];
   int m, n;
 
-  /* Ucitaj broj vrsta i broj kolona matrice */
-  scanf("%d", &n);
-  scanf("%d", &m);
+  printf("Unesite broj vrsta i broj kolona matrice: ");
+  scanf("%d %d", &n, &m);
 
   if (n > MAX_V || n <= 0 || m > MAX_K || m <= 0) {
     fprintf(stderr, "Greska: neodgovarajuce dimenzije ");
@@ -85,7 +84,10 @@ int main()
     exit(EXIT_FAILURE);
   }
 
+  printf("Unesite elemente matrice, vrstu po vrstu:\n");
   ucitaj_matricu(a, n, m);
+  
+  printf("Spiralno ispisana matrica: ");
   ispisi_matricu_spiralno(a, n, m);
 
   return 0;
