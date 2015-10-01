@@ -182,8 +182,8 @@ int zbir_cvorova_na_itom_nivou(Cvor * koren, int i)
   if (i == 0)
     return koren->broj;
 
-  /* Inace, spustanje se nastavlja za jedan nivo nize i traze se
-     sume iz levog i desnog podstabla */
+  /* Inace, spustanje se nastavlja za jedan nivo nize i traze se sume 
+     iz levog i desnog podstabla */
   return zbir_cvorova_na_itom_nivou(koren->levo, i - 1)
       + zbir_cvorova_na_itom_nivou(koren->desno, i - 1);
 }

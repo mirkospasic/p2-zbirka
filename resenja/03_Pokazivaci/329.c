@@ -4,9 +4,8 @@
 
 #define MAX 1000
 
-/* Funkcija dinamicki kreira niz karaktera u koji smesta
-   rezultat nadovezivanja niski. Adresa niza se vraca kao
-   povratna vrednost. */
+/* Funkcija dinamicki kreira niz karaktera u koji smesta rezultat
+   nadovezivanja niski. Adresa niza se vraca kao povratna vrednost. */
 char *nadovezi(char *s, char *t)
 {
   char *p = (char *) malloc((strlen(s) + strlen(t) + 1)
@@ -19,10 +18,10 @@ char *nadovezi(char *s, char *t)
     exit(EXIT_FAILURE);
   }
 
-  /* Kopiraju se i nadovezuju niske karaktera */ 
+  /* Kopiraju se i nadovezuju niske karaktera */
   strcpy(p, s);
   strcat(p, t);
-  
+
   return p;
 }
 

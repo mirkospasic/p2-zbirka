@@ -41,7 +41,7 @@ unsigned najmanji(unsigned x)
   for (; x != 0; x >>= 1) {
     /* Za svaku jedinicu koja se koriscenjem vrednosti 1 za masku
        detektuje na poziciji najmanje tezine u binarnoj
-       reprezentaciji promenjive x, potiskuje se jedna nova jedinicu 
+       reprezentaciji promenjive x, potiskuje se jedna nova jedinicu
        sa desna u rezultat */
     if (x & 1) {
       rezultat <<= 1;

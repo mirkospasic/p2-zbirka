@@ -9,7 +9,7 @@ double euklidska_norma(int M[][MAX], int n);
 int trag(int M[][MAX], int n);
 int gornja_vandijagonalna_norma(int M[][MAX], int n);
 
-int main() 
+int main()
 {
   int A[MAX][MAX];
   int i, j, n;
@@ -19,7 +19,7 @@ int main()
 
   /* Provera prekoracenja dimenzije matrice */
   if (n > MAX || n <= 0) {
-    fprintf(stderr, "Greska: neodgovarajuca dimenzija matrice.\n");    
+    fprintf(stderr, "Greska: neodgovarajuca dimenzija matrice.\n");
     exit(EXIT_FAILURE);
   }
 
@@ -36,17 +36,21 @@ int main()
     printf("\n");
   }
 
-  /* Ispisuju se elemenati matrice koriscenjem pokazivacke sintakse.
-     Kod ovako definisane matrice, elementi su uzastopno
-     smesteni u memoriju, kao na traci. To znaci da su svi
-     elementi prve vrste redom smesteni jedan iza drugog. Odmah
-     iza poslednjeg elementa prve vrste smesten je prvi element
-     druge vrste za kojim slede svi elementi te vrste i tako
-     dalje redom */
-  /* 
-     for( i = 0; i<n; i++) { for ( j=0 ; j<n; j++) printf("%d ", 
-     *(*(A+i)+j)); printf("\n"); } */
-  
+  /***************************************************************
+   Ispisuju se elemenati matrice koriscenjem pokazivacke sintakse.
+   Kod ovako definisane matrice, elementi su uzastopno smesteni u
+   memoriju, kao na traci. To znaci da su svi elementi prve vrste
+   redom smesteni jedan iza drugog. Odmah iza poslednjeg elementa
+   prve vrste smesten je prvi element druge vrste za kojim slede
+   svi elementi te vrste i tako dalje redom.
+
+   for( i = 0; i < n ; i++) {
+     for ( j=0 ; j<n ; j++)
+       printf("%d ", *(*(A+i)+j));
+     printf("\n");
+   }
+   ****************************************************************/
+
   /* Ispisuje se rezultat na standardni izlaz */
   int tr = trag(A, n);
   printf("Trag matrice je %d.\n", tr);

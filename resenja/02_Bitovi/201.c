@@ -2,7 +2,7 @@
 
 /* Funkcija prikazuje na standardni izlaz binarnu reprezentaciju
    celog broja u memoriji. Bitove koji predstavljaju binarnu
-   reprezentaciju broja treba ispisati sa leva na desno, tj. od bita 
+   reprezentaciju broja treba ispisati sa leva na desno, tj. od bita
    najvece tezine ka bitu najmanje tezine.  */
 void print_bits(unsigned x)
 {
@@ -14,7 +14,7 @@ void print_bits(unsigned x)
 
   /* Pocetna vrednost maske se postavlja na broj ciji binarni zapis
      na mestu bita najvece tezine sadrzi jedinicu, a na svim ostalim
-     mestima sadrzi nulu. U svakoj iteraciji maska se menja tako sto 
+     mestima sadrzi nulu. U svakoj iteraciji maska se menja tako sto
      se jedini bit jedinica pomera udesno, kako bi se ocitao naredni
      bit broja x koji je argument funkcije. Odgovarajuci karakter,
      ('0' ili '1'), ispisuje se na standardnom izlazu. Neophodno je

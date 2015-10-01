@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Funkcija ucitava elemente matrice dimenzije n x m sa
-   standardnog ulaza */
+/* Funkcija ucitava elemente matrice dimenzije n x m sa standardnog
+   ulaza */
 void ucitaj_matricu(int **a, int n, int m)
 {
   int i, j;
@@ -24,8 +24,8 @@ int zbir_vrste(int **a, int v, int k)
   return zbir;
 }
 
-/* Funkcija sortira vrste matrice na osnovu zbira elemenata u
-   vrsti koriscenjem selection sort algoritma */
+/* Funkcija sortira vrste matrice na osnovu zbira elemenata u vrsti
+   koriscenjem selection sort algoritma */
 void sortiraj_vrste(int **a, int n, int m)
 {
   int i, j, k, min, tmp;
@@ -48,8 +48,8 @@ void sortiraj_vrste(int **a, int n, int m)
   }
 }
 
-/* Funkcija ispisuje elemente matrice dimenzije n x m na
-   standardni izlaz */
+/* Funkcija ispisuje elemente matrice dimenzije n x m na standardni
+   izlaz */
 void ispisi_matricu(int **a, int n, int m)
 {
   int i, j;

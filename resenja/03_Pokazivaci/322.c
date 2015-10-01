@@ -4,9 +4,8 @@
 #define MAX 64
 
 /* Funkcija proverava da li je relacija refleksivna. Relacija je
-   refleksivna ako je svaki element u relaciji sa sobom,
-   odnosno ako se u matrici relacije na glavnoj dijagonali nalaze 
-   jedinice */
+   refleksivna ako je svaki element u relaciji sa sobom, odnosno ako
+   se u matrici relacije na glavnoj dijagonali nalaze jedinice */
 int refleksivnost(int m[][MAX], int n)
 {
   int i;
@@ -19,9 +18,9 @@ int refleksivnost(int m[][MAX], int n)
   return 1;
 }
 
-/* Funkcija odredjuje refleksivno zatvorenje zadate relacije.
-   Ono je odredjeno matricom koja sadrzi sve elemente polazne
-   matrice dopunjene jedinicama na glavnoj dijagonali */
+/* Funkcija odredjuje refleksivno zatvorenje zadate relacije. Ono je
+   odredjeno matricom koja sadrzi sve elemente polazne matrice
+   dopunjene jedinicama na glavnoj dijagonali */
 void ref_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 {
   int i, j;
@@ -37,16 +36,16 @@ void ref_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 }
 
 /* Funkcija proverava da li je relacija simetricna. Relacija je
-   simetricna ako za svaki par elemenata vazi: ako je element
-   "i" u relaciji sa elementom "j", onda je i element "j" u
-   relaciji sa elementom "i". Ovakve matrice su simetricne u
-   odnosu na glavnu dijagonalu */
+   simetricna ako za svaki par elemenata vazi: ako je element "i" u
+   relaciji sa elementom "j", onda je i element "j" u relaciji sa
+   elementom "i". Ovakve matrice su simetricne u odnosu na glavnu
+   dijagonalu */
 int simetricnost(int m[][MAX], int n)
 {
   int i, j;
 
-  /* Obilaze se elementi ispod glavne dijagonale matrice i
-     uporedjuju se sa njima simetricnim elementima */
+  /* Obilaze se elementi ispod glavne dijagonale matrice i uporedjuju 
+     se sa njima simetricnim elementima */
   for (i = 0; i < n; i++)
     for (j = 0; j < i; j++)
       if (m[i][j] != m[j][i])
@@ -55,10 +54,10 @@ int simetricnost(int m[][MAX], int n)
   return 1;
 }
 
-/* Funkcija odredjuje simetricno zatvorenje zadate relacije. Ono 
-   je odredjeno matricom koja sadrzi sve elemente polazne
-   matrice dopunjene tako da matrica postane simetricna u odnosu 
-   na glavnu dijagonalu */
+/* Funkcija odredjuje simetricno zatvorenje zadate relacije. Ono je
+   odredjeno matricom koja sadrzi sve elemente polazne matrice
+   dopunjene tako da matrica postane simetricna u odnosu na glavnu
+   dijagonalu */
 void sim_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 {
   int i, j;
@@ -74,11 +73,10 @@ void sim_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 }
 
 
-/* Funkcija proverava da li je relacija tranzitivna. Relacija je 
-   tranzitivna ako ispunjava sledece svojstvo: ako je element
-   "i" u relaciji sa elementom "j" i element "j" u relaciji sa
-   elementom "k", onda je i element "i" u relaciji sa elementom
-   "k" */
+/* Funkcija proverava da li je relacija tranzitivna. Relacija je
+   tranzitivna ako ispunjava sledece svojstvo: ako je element "i" u
+   relaciji sa elementom "j" i element "j" u relaciji sa elementom
+   "k", onda je i element "i" u relaciji sa elementom "k" */
 int tranzitivnost(int m[][MAX], int n)
 {
   int i, j, k;
@@ -108,10 +106,10 @@ void ref_tran_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 
   /* Odredjuje se reflektivno zatvorenje matrice */
   for (i = 0; i < n; i++)
-    zatvorenje[i][i] = 1;	  
+    zatvorenje[i][i] = 1;
 
-  /* Primenom Varsalovog algoritma odredjuje se
-     tranzitivno zatvorenje matrice */
+  /* Primenom Varsalovog algoritma odredjuje se tranzitivno
+     zatvorenje matrice */
   for (k = 0; k < n; k++)
     for (i = 0; i < n; i++)
       for (j = 0; j < n; j++)
@@ -139,8 +137,7 @@ int main(int argc, char *argv[])
   int pomocna[MAX][MAX];
   int n, i, j;
 
-  /* Ako korisnik nije uneo trazene argumente, prijavljuje se 
-     greska */
+  /* Ako korisnik nije uneo trazene argumente, prijavljuje se greska */
   if (argc < 2) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
@@ -152,8 +149,7 @@ int main(int argc, char *argv[])
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "Greska: ");
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s.\n",
-            argv[1]);
+    fprintf(stderr, "Neuspesno otvaranje datoteke %s.\n", argv[1]);
     exit(EXIT_FAILURE);
   }
 

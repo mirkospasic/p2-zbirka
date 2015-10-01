@@ -8,18 +8,17 @@ void izmeni(float **a, int n)
   int i, j;
 
   for (i = 0; i < n; i++)
-    for (j = 0; j < n; j++)      
-      if (i < j)        
+    for (j = 0; j < n; j++)
+      if (i < j)
         a[i][j] /= 2;
-      else        
-      if (i > j)       
+      else if (i > j)
         a[i][j] *= 2;
 }
 
-/* Funkcija izracunava zbir apsolutnih vrednosti elemenata ispod 
-   sporedne dijagonale. Element se nalazi ispod sporedne dijagonale 
-   ukoliko je zbir indeksa vrste i indeksa kolone elementa veci 
-   od n-1 */
+/* Funkcija izracunava zbir apsolutnih vrednosti elemenata ispod
+   sporedne dijagonale. Element se nalazi ispod sporedne dijagonale
+   ukoliko je zbir indeksa vrste i indeksa kolone elementa veci od
+   n-1 */
 float zbir_ispod_sporedne_dijagonale(float **m, int n)
 {
   int i, j;
@@ -33,8 +32,8 @@ float zbir_ispod_sporedne_dijagonale(float **m, int n)
   return zbir;
 }
 
-/* Funkcija ucitava elemente kvadratne matrice dimenzije n iz
-   zadate datoteke */
+/* Funkcija ucitava elemente kvadratne matrice dimenzije n iz zadate
+   datoteke */
 void ucitaj_matricu(FILE * ulaz, float **m, int n)
 {
   int i, j;
@@ -68,12 +67,12 @@ float **alociraj_memoriju(int n)
     fprintf(stderr, "malloc(): Neuspela alokacija\n");
     exit(EXIT_FAILURE);
   }
-  
-  for (i = 0; i < n; i++) {   
+
+  for (i = 0; i < n; i++) {
     m[i] = (float *) malloc(n * sizeof(float));
-    
-    if (m[i] == NULL) {      
-      printf("malloc(): neuspela alokacija memorije!\n");      
+
+    if (m[i] == NULL) {
+      printf("malloc(): neuspela alokacija memorije!\n");
       for (j = 0; j < i; j++)
         free(m[i]);
       free(m);
@@ -83,8 +82,8 @@ float **alociraj_memoriju(int n)
   return m;
 }
 
-/* Funckija oslobadja memoriju zauzetu kvadratnom matricom
-   dimenzije n */
+/* Funckija oslobadja memoriju zauzetu kvadratnom matricom dimenzije
+   n */
 void oslobodi_memoriju(float **m, int n)
 {
   int i;
@@ -100,8 +99,7 @@ int main(int argc, char *argv[])
   float **a;
   int n;
 
-  /* Ako korisnik nije uneo trazene argumente, prijavljuje se
-     greska */
+  /* Ako korisnik nije uneo trazene argumente, prijavljuje se greska */
   if (argc < 2) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
@@ -113,8 +111,7 @@ int main(int argc, char *argv[])
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "Greska: ");
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s.\n",
-            argv[1]);
+    fprintf(stderr, "Neuspesno otvaranje datoteke %s.\n", argv[1]);
     exit(EXIT_FAILURE);
   }
 
@@ -144,6 +141,6 @@ int main(int argc, char *argv[])
 
   /* Zatvara se datoteka */
   fclose(ulaz);
-  
+
   return 0;
 }

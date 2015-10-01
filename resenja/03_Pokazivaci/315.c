@@ -38,8 +38,8 @@ int jednake_matrice(int a[][MAX], int b[][MAX], int n)
       if (a[i][j] != b[i][j])
         return 0;
 
-  /* Prosla je provera jednakosti za sve parove elemenata koji
-     su na istim pozicijama. To znaci da su matrice jednake */
+  /* Prosla je provera jednakosti za sve parove elemenata koji su na
+     istim pozicijama. To znaci da su matrice jednake */
   return 1;
 }
 
@@ -76,7 +76,7 @@ int main()
   int zbir[MAX][MAX], proizvod[MAX][MAX];
 
   /* Dimenzija matrica */
-  int n;  
+  int n;
 
   printf("Unesite dimenziju matrica:\n");
   scanf("%d", &n);

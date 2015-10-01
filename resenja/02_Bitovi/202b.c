@@ -24,8 +24,8 @@ int count_bits1(int x)
      vrsila bi aritmeticko pomeranje u desno, tj. popunjavanje bita
      najvece tezine bitom znaka. U tom slucaju nikad ne bi bio
      ispunjen uslov x!=0 i program bi bio zarobljen u beskonacnoj
-     petlji. Zbog toga se koristi pomeranj broja x ulevo i maska
-     koja ocitava bit najvece tezine. */
+     petlji. Zbog toga se koristi pomeranj broja x ulevo i maska koja 
+     ocitava bit najvece tezine. */
 
   unsigned maska = 1 << wl;
   for (; x != 0; x <<= 1)

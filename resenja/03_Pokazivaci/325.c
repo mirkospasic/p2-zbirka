@@ -4,7 +4,7 @@
 #define MAX_V 10
 #define MAX_K 10
 
-/* Funkcija proverava da li su ispisani svi elementi iz matrice, 
+/* Funkcija proverava da li su ispisani svi elementi iz matrice,
    odnosno da li se narusio prirodan poredak medju granicama */
 int krajIspisa(int top, int bottom, int left, int right)
 {
@@ -21,7 +21,7 @@ void ispisi_matricu_spiralno(int a[][MAX_K], int n, int m)
   right = m - 1;
 
   while (!krajIspisa(top, bottom, left, right)) {
-    
+
     for (j = left; j <= right; j++)
       printf("%d ", a[top][j]);
 
@@ -86,7 +86,7 @@ int main()
 
   printf("Unesite elemente matrice, vrstu po vrstu:\n");
   ucitaj_matricu(a, n, m);
-  
+
   printf("Spiralno ispisana matrica: ");
   ispisi_matricu_spiralno(a, n, m);
 

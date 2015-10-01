@@ -22,10 +22,10 @@ int count(int x)
      binarnog zapisa broja x se uvecava za 1. Najvisi bit je 0. Stoga 
      je broj jedinica u zapisu x isti kao broj jedinica u zapisu
      broja x<<1, jer se siftovanjem u levo sa desne stane dopisuju 0. 
-     Za rekurzicvni poziv se salje vrednost koja se dobija kada se x 
+     Za rekurzicvni poziv se salje vrednost koja se dobija kada se x
      siftuje u levo. Napomena: argument funkcije x je oznacen ceo
      broj, usled cega se ne koristi siftovanje udesno, jer funkciji
-     moze biti prosleden i negativan broj. Iz tog razloga, odlucujemo 
+     moze biti prosleden i negativan broj. Iz tog razloga, odlucujemo
      se da proveramo najvisi, umesto najnizeg bita */
   if (x & (1 << (sizeof(x) * 8 - 1)))
     return 1 + count(x << 1);

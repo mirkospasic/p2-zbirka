@@ -3,14 +3,14 @@
 
 #define MAX 32
 
-/* Funkcija izracunava najveci element na sporednoj dijagonali. 
-   Za elemente sporedne dijagonale vazi da je zbir indeksa vrste
-   i indeksa kolone jednak n-1 */
+/* Funkcija izracunava najveci element na sporednoj dijagonali. Za
+   elemente sporedne dijagonale vazi da je zbir indeksa vrste i
+   indeksa kolone jednak n-1 */
 int max_sporedna_dijagonala(int m[][MAX], int n)
 {
-  int i; 
+  int i;
   int max_na_sporednoj_dijagonali = m[0][n - 1];
-  
+
   for (i = 1; i < n; i++)
     if (m[i][n - 1 - i] > max_na_sporednoj_dijagonali)
       max_na_sporednoj_dijagonali = m[i][n - 1 - i];
@@ -26,24 +26,24 @@ int indeks_min(int m[][MAX], int n)
 
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
-      if (m[i][j] < min) {       
-        min = m[i][j];       
+      if (m[i][j] < min) {
+        min = m[i][j];
         indeks_kolone = j;
       }
-	  
+
   return indeks_kolone;
 }
 
 /* Funkcija izracunava indeks vrste najveceg elementa */
 int indeks_max(int m[][MAX], int n)
 {
-  int i, j;  
+  int i, j;
   int max = m[0][0], indeks_vrste = 0;
 
   for (i = 0; i < n; i++)
-    for (j = 0; j < n; j++)      
-      if (m[i][j] > max) {       
-        max = m[i][j];        
+    for (j = 0; j < n; j++)
+      if (m[i][j] > max) {
+        max = m[i][j];
         indeks_vrste = i;
       }
   return indeks_vrste;
@@ -59,7 +59,7 @@ int broj_negativnih(int m[][MAX], int n)
     for (j = 0; j < n; j++)
       if (m[i][j] < 0)
         broj_negativnih++;
-		
+
   return broj_negativnih;
 }
 
@@ -92,17 +92,17 @@ int main(int argc, char *argv[])
     for (j = 0; j < n; j++)
       scanf("%d", &m[i][j]);
 
-  printf("Najveci element matrice na sporednoj dijagonali je %d.\n", 
-                                     max_sporedna_dijagonala(m, n));	  
-  
-  printf("Indeks kolone koja sadrzi najmanji element matrice %d.\n", 
-                                                  indeks_min(m, n));
+  printf("Najveci element matrice na sporednoj dijagonali je %d.\n",
+         max_sporedna_dijagonala(m, n));
 
-  printf("Indeks vrste koja sadrzi najveci element matrice %d.\n", 
-                                                  indeks_max(m, n));
+  printf("Indeks kolone koja sadrzi najmanji element matrice %d.\n",
+         indeks_min(m, n));
 
-  printf("Broj negativnih elemenata matrice je %d.\n", 
-                                             broj_negativnih(m, n));									 
-   
+  printf("Indeks vrste koja sadrzi najveci element matrice %d.\n",
+         indeks_max(m, n));
+
+  printf("Broj negativnih elemenata matrice je %d.\n",
+         broj_negativnih(m, n));
+
   return 0;
 }

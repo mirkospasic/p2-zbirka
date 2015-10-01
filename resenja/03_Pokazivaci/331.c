@@ -6,8 +6,7 @@ int main()
 {
   int i, j;
 
-  /* Pokazivac na dinamicki alociran niz pokazivaca na vrste
-     matrice */
+  /* Pokazivac na dinamicki alociran niz pokazivaca na vrste matrice */
   double **A = NULL;
 
   /* Broj vrsta i broj kolona */
@@ -33,10 +32,10 @@ int main()
   for (i = 0; i < n; i++) {
     A[i] = malloc(sizeof(double) * m);
 
-	/* Ukoliko je alokacija neuspesna, pre zavrsetka programa 
-	   potrebno je osloboditi svih i-1 prethodno alociranih vrsta, 
-	   i alociran niz pokazivaca */
-    if (A[i] == NULL) {      
+    /* Ukoliko je alokacija neuspesna, pre zavrsetka programa
+       potrebno je osloboditi svih i-1 prethodno alociranih vrsta, i
+       alociran niz pokazivaca */
+    if (A[i] == NULL) {
       for (j = 0; j < i; j++)
         free(A[j]);
       free(A);

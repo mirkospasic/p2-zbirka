@@ -5,10 +5,10 @@
 #include <string.h>
 
 /* Funkcija tabela() prihvata granice intervala a i b, broj
-   ekvidistantnih tacaka n, kao i pokazivac f koji pokazuje na 
-   funkciju koja prihvata double argument, i vraca double
-   vrednost. Za tako datu funkciju ispisuju se njene vrednosti 
-   u intervalu [a,b] u n ekvidistantnih tacaka intervala */
+   ekvidistantnih tacaka n, kao i pokazivac f koji pokazuje na
+   funkciju koja prihvata double argument, i vraca double vrednost.
+   Za tako datu funkciju ispisuju se njene vrednosti u intervalu
+   [a,b] u n ekvidistantnih tacaka intervala */
 void tabela(double a, double b, int n, double (*fp) (double))
 {
   int i;
@@ -31,15 +31,14 @@ int main(int argc, char *argv[])
 {
   double a, b;
   int n;
-  
+
   char ime_fje[6];
-  
-  /* Pokazivac na funkciju koja ima jedan argument tipa double i 
+
+  /* Pokazivac na funkciju koja ima jedan argument tipa double i
      povratnu vrednost istog tipa */
   double (*fp) (double);
 
-  /* Ako korisnik nije uneo trazene argumente, prijavljuje se
-     greška */
+  /* Ako korisnik nije uneo trazene argumente, prijavljuje se greska */
   if (argc < 2) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
@@ -48,12 +47,12 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Niska ime_fje sadrzi ime trazene funkcije koja je
-     navedena u komandnoj liniji */
+  /* Niska ime_fje sadrzi ime trazene funkcije koja je navedena u
+     komandnoj liniji */
   strcpy(ime_fje, argv[1]);
 
-  /* Inicijalizuje se pokazivac na funkciju koja treba da se
-     tabelira */
+  /* Inicijalizuje se pokazivac na funkciju koja treba da se tabelira 
+   */
   if (strcmp(ime_fje, "sin") == 0)
     fp = &sin;
   else if (strcmp(ime_fje, "cos") == 0)
@@ -92,8 +91,8 @@ int main(int argc, char *argv[])
   printf("(ukljucujuci krajeve intervala)?\n");
   scanf("%d", &n);
 
-  /* Mreza mora da ukljucuje bar krajeve intervala, tako da se
-     mora uneti broj veci od 2 */
+  /* Mreza mora da ukljucuje bar krajeve intervala, tako da se mora
+     uneti broj veci od 2 */
   if (n < 2) {
     fprintf(stderr, "Broj tacaka mreze mora biti bar 2!\n");
     exit(EXIT_FAILURE);
@@ -102,8 +101,8 @@ int main(int argc, char *argv[])
   /* Ispisuje se ime funkcije */
   printf("     x %10s(x)\n", ime_fje);
 
-  /* Prosledjuje se funkciji tabela() funkcija zadata kao
-     argument komandne linije */
+  /* Prosledjuje se funkciji tabela() funkcija zadata kao argument
+     komandne linije */
   tabela(a, b, n, fp);
 
   exit(EXIT_SUCCESS);

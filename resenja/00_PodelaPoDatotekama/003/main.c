@@ -4,7 +4,7 @@
 /* 
    Prevodjenje: gcc -o test-polinom polinom.c main.c
 
-   ili: gcc -c polinom.c gcc -c main.c gcc -o test-polinom polinom.o 
+   ili: gcc -c polinom.c gcc -c main.c gcc -o test-polinom polinom.o
    main.o */
 
 int main(int argc, char **argv)

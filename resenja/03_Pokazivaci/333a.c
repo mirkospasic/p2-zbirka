@@ -11,8 +11,8 @@ typedef struct {
   int broj_gledanja;
 } Pesma;
 
-/* Funkcija za uporedjivanje pesama po broju gledanosti
-   (potrebna za rad qsort funkcije) */
+/* Funkcija za uporedjivanje pesama po broju gledanosti (potrebna za
+   rad qsort funkcije) */
 int uporedi_gledanost(const void *pp1, const void *pp2)
 {
   Pesma *p1 = (Pesma *) pp1;
@@ -21,8 +21,8 @@ int uporedi_gledanost(const void *pp1, const void *pp2)
   return p2->broj_gledanja - p1->broj_gledanja;
 }
 
-/* Funkcija za uporedjivanje pesama po naslovu (potrebna za rad
-   qsort funkcije) */
+/* Funkcija za uporedjivanje pesama po naslovu (potrebna za rad qsort 
+   funkcije) */
 int uporedi_naslove(const void *pp1, const void *pp2)
 {
   Pesma *p1 = (Pesma *) pp1;
@@ -31,8 +31,8 @@ int uporedi_naslove(const void *pp1, const void *pp2)
   return strcmp(p1->naslov, p2->naslov);
 }
 
-/* Funkcija za uporedjivanje pesama po izvodjacu (potrebna za
-   rad qsort funkcije) */
+/* Funkcija za uporedjivanje pesama po izvodjacu (potrebna za rad
+   qsort funkcije) */
 int uporedi_izvodjace(const void *pp1, const void *pp2)
 {
   Pesma *p1 = (Pesma *) pp1;
