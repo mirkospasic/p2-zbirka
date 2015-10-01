@@ -15,10 +15,10 @@ int faktorijelRepna(int n, int result)
    rekurzije koja postoji u funkciji faktorijelRepna, koristeci
    algoritam sa predavanja.
 
-   Najpre, funckija se transformise tako sto rekurzivni poziv zemeni 
+   Najpre, funckija se transformise tako sto rekurzivni poziv zemeni
    sa naredbama kojima se vrednost argumenta funkcije postavlja na
-   vrednost koja bi se prosledjivala rekurzivnom pozivu i
-   navodjenjem goto naredbe za vracanje na pocetak tela funkcije. */
+   vrednost koja bi se prosledjivala rekurzivnom pozivu i navodjenjem
+   goto naredbe za vracanje na pocetak tela funkcije. */
 
 int faktorijelRepna_v1(int n, int result)
 {
@@ -32,7 +32,7 @@ pocetak:
 }
 
 /* Pisanje bezuslovnih skokova (goto naredbi) nije dobra programerska 
-   praksa i prethodna funkcija se koristi samo kao medjukorak. Sledi 
+   praksa i prethodna funkcija se koristi samo kao medjukorak. Sledi
    iterativno resenje bez bezuslovnih skokova: */
 int faktorijelRepna_v2(int n, int result)
 {
@@ -45,13 +45,13 @@ int faktorijelRepna_v2(int n, int result)
 }
 
 /* Prilikom poziva prethodnih funkcija pored prvog argumenta celog
-   broja n, mora da se salje i 1 za vrednost drugog argumenta u kome 
+   broja n, mora da se salje i 1 za vrednost drugog argumenta u kome
    ce se akumulirati rezultat. Funkcija faktorijel(n) je ovde radi
    udobnosti korisnika, jer je sasvim prirodno da za faktorijel
    zahteva samo 1 parametar. Funkcija faktorijel izracunava n!, tako
    sto odgovarajucoj gore navedenoj funkciji koja zaista racuna
    faktorijel, salje ispravne argumente i vraca rezultat koju joj ta
-   funkcija vrati. Za testiranje, zameniti u telu funkcije faktorijel 
+   funkcija vrati. Za testiranje, zameniti u telu funkcije faktorijel
    poziv faktorijelRepna sa pozivom faktorijelRepna_v1, a zatim sa
    pozivom funkcije faktorijelRepna_v2. */
 int faktorijel(int n)

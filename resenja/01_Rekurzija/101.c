@@ -15,10 +15,13 @@ int sumaNiza(int *a, int n)
   return a[n - 1] + sumaNiza(a, n - 1);
 }
 
-/* 
-   Funkcija napisana na drugi nacin: n==0, suma(a,0) = 0 n >0,
-   suma(a,n) = a[0]+suma(a+1,n-1) Suma celog niza je jednaka zbiru
-   prvog elementa niza i sume preostalih n-1 elementa. */
+/****************************************************************
+  Funkcija napisana na drugi nacin:
+  n==0, suma(a,0) = 0
+  n >0, suma(a,n) = a[0] + suma(a+1,n-1)
+  Suma celog niza je jednaka zbiru prvog elementa niza i sume
+  preostalih n-1 elementa.
+*****************************************************************/
 int sumaNiza2(int *a, int n)
 {
   if (n <= 0)
@@ -40,7 +43,7 @@ int main()
     scanf("%d", &a[i]);
 
   printf("Suma elemenata je %d\n", sumaNiza(a, n));
-  // printf("Suma elemenata je %d\n",sumaNiza2(a, n));
+  /* printf("Suma elemenata je %d\n",sumaNiza2(a, n)); */
 
   return 0;
 }
