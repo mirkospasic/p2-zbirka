@@ -9,11 +9,14 @@ Napisati program u kojem se dinamički alocira memorija za zadati niz niski, a z
 
 U slučaju pojave bilo kakve greške na standardnom izlazu ispisati vrednost \argf{-1} i prekinuti izvršavanje programa.
 
+%\komentar{Milena: ovo nije upotreba nego test}
+%\komentar{Milena: Svi ispitni zadaci treba da budu testovi a ne upotrebe}
+
 \begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out ulaz.txt}#
 
-#\naslovDat{Ulazna datoteka (ulaz.txt)}#
+#\naslovDat{ulaz.txt}#
 #\datoteka{5}#
 #\datoteka{Programiranje}#
 #\datoteka{Matematika}#
@@ -31,7 +34,7 @@ U slučaju pojave bilo kakve greške na standardnom izlazu ispisati vrednost \ar
 \begin{upotreba}{2}
 #\poziv{./a.out ulaz.txt}#
 
-#\naslovDat{Ulazna datoteka (ulaz.txt)}#
+#\naslovDat{ulaz.txt}#
 #\datoteka{2}#
 #\datoteka{maksimalano}#
 #\datoteka{poena}#
@@ -42,7 +45,7 @@ U slučaju pojave bilo kakve greške na standardnom izlazu ispisati vrednost \ar
 \end{minitest}
 
 
-\begin{minitest}
+\begin{miditest}
 \begin{upotreba}{3}
 #\poziv{./a.out ulaz.txt}#
 
@@ -51,15 +54,15 @@ U slučaju pojave bilo kakve greške na standardnom izlazu ispisati vrednost \ar
 #\naslovInt#
 #\izlaz{  -1}#
 \end{upotreba}
-\end{minitest}
-\begin{minitest}
+\end{miditest}
+\begin{miditest}
 \begin{upotreba}{4}
 #\poziv{./a.out}#
 
 #\naslovInt#
 #\izlaz{-1}#
 \end{upotreba}
-\end{minitest}
+\end{miditest}
 
 \linkresenje{901}
 \end{Exercise}
@@ -153,7 +156,7 @@ Napisati program koji kao prvi arugment komandne linije prima ime dokumenta u ko
 bilo kakve greške ispisati \argf{-1} na standardni izlaz za greške.
 Pretpostaviti da linije datoteke neće biti duže od \argf{127}
 karaktera.\\
-Potpis funkcije strstr:\\
+Potpis funkcije \kckod{strstr}:\\
 \kckod{char *strstr(const char *haystack, const char *needle);}\\
 Funkcija traži prvo pojavljivanje podniske needle u nisci
 haystack, i vraća pokazivač na početak podniske, ili
@@ -163,7 +166,7 @@ NULL ako podniska nije pronađena.
 \begin{upotreba}{1}
 #\poziv{./a.out ulaz.txt test}#
 
-#\naslovDat{Ulazna datoteka (ulaz.txt)}#
+#\naslovDat{ulaz.txt}#
 #\datoteka{ Ovo je test primer. }#
 #\datoteka{ U njemu se rec test javlja}#
 #\datoteka{vise puta. testtesttest}#
@@ -195,7 +198,7 @@ NULL ako podniska nije pronađena.
 \begin{upotreba}{4}
 #\poziv{ ./a.out ulaz.txt .  }#
 
-#\naslovDat{Ulazna datoteka (ulaz.txt) je prazna}#
+#\naslovDat{Datoteka ulaz.txt je prazna}#
 
 #\naslovInt#
 #\izlaz{0}#
@@ -217,7 +220,7 @@ Na početku datoteke ,,trouglovi.txt'' nalazi se broj trouglova čije su koordin
 
 \begin{miditest}
 \begin{upotreba}{1}
-#\naslovDat{Ulazna datoteka (trouglovi.txt)}#
+#\naslovDat{trouglovi.txt}#
 #\datoteka{4}#
 #\datoteka{ 0 0 0 1.2 1 0 }#
 #\datoteka{ 0.3 0.3 0.5 0.5 0.9 1}#
@@ -233,7 +236,7 @@ Na početku datoteke ,,trouglovi.txt'' nalazi se broj trouglova čije su koordin
 \end{miditest}
 \begin{minitest}
 \begin{upotreba}{2}
-#\naslovDat{Ulazna datoteka (trouglovi.txt)}#
+#\naslovDat{trouglovi.txt}#
 #\datoteka{3}#
 #\datoteka{ 1.2 3.2 1.1 4.3}#
 
@@ -244,15 +247,15 @@ Na početku datoteke ,,trouglovi.txt'' nalazi se broj trouglova čije su koordin
 
 \begin{miditest}
 \begin{upotreba}{3}
-#\naslovDat{Datoteka (trouglovi.txt) ne postoji}#
+#\naslovDat{Datoteka trouglovi.txt ne postoji}#
 
 #\naslovInt#
 #\izlaz{-1}#
 \end{upotreba}
 \end{miditest}
 \begin{minitest}
-\begin{upotreba}{2}
-#\naslovDat{Ulazna datoteka (trouglovi.txt)}#
+\begin{upotreba}{4}
+#\naslovDat{trouglovi.txt}#
 #\datoteka{0}#
 
 #\naslovInt#

@@ -48,8 +48,6 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 
 \begin{miditest}
 \begin{upotreba}{1}
-#\poziv{./a.out}#
-
 #\naslovInt#
 #\izlaz{Unosite brojeve: (za kraj CTRL+D)}#
 #\ulaz{2}#
@@ -71,8 +69,6 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 \end{miditest}
 \begin{miditest}
 \begin{upotreba}{2}
-#\poziv{./a.out}#
-
 #\naslovInt#
 #\izlaz{Unosite brojeve: (za kraj CTRL+D)}#
 #\ulaz{23}#
@@ -104,8 +100,6 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 
 \begin{miditest}
 \begin{upotreba}{1}
-#\poziv{./a.out}#
-
 #\naslovInt#
 #\izlaz{Unosite brojeve: (za kraj CTRL+D)}#
 #\ulaz{2}#
@@ -129,8 +123,6 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 \end{miditest}
 \begin{miditest}
 \begin{upotreba}{2}
-#\poziv{./a.out}#
-
 #\naslovInt#
 #\izlaz{Unesite brojeve: (za kraj CTRL+D)}#
 #\ulaz{23}#
@@ -164,8 +156,6 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
     
 \begin{miditest}
 \begin{upotreba}{1}
-#\poziv{./a.out}#
-
 #\naslovInt#
 #\izlaz{Unesite brojeve: (za kraj CTRL+D)}#
 #\ulaz{2}#
@@ -190,8 +180,6 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 \end{miditest}
 \begin{miditest}
 \begin{upotreba}{2}
-#\poziv{./a.out}#
-
 #\naslovInt#
 #\izlaz{Unesite brojeve: (za kraj CTRL+D)}#
 #\ulaz{23}#
@@ -272,11 +260,8 @@ Sadržaj datoteke je aritmetički izraz koji može sadržati zagrade \{, [ i (.
 Napisati program koji učitava sadržaj datoteke \kckod{izraz.txt} i korišćenjem steka 
 utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa odgovarajuću poruku na standardni izlaz.
 
-\noindent
 \begin{miditest}
 \begin{test}{1}
-#\poziv{./a.out}#
-
 #\naslovDat{izraz.txt}#
 #\datoteka{\{[23 + 5344] * (24 - 234)\} - 23}#
   
@@ -286,8 +271,6 @@ utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
 \end{miditest}
 \begin{miditest}
 \begin{test}{2}
-#\poziv{./a.out}#
-
 #\naslovDat{izraz.txt}#
 #\datoteka{\{[23 + 5] * (9 * 2)\} - \{23\}}#
 
@@ -295,10 +278,9 @@ utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
 #\izlaz{Zagrade su ispravno uparene.}# 
 \end{test}
 \end{miditest}
+
 \begin{miditest}
 \begin{test}{3}
-#\poziv{./a.out}#
-
 #\naslovDat{izraz.txt}#
 #\datoteka{\{[2 + 54) / (24 * 87)\} + (234 + 23)}#
 
@@ -308,8 +290,6 @@ utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
 \end{miditest}
 \begin{miditest}
 \begin{test}{4}
-#\poziv{./a.out}#
-
 #\naslovDat{izraz.txt}#
 #\datoteka{\{(2 - 14) / (23 + 11)\}\} * (2 + 13)}#
 
@@ -319,10 +299,7 @@ utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
 \end{miditest}
 \begin{miditest}
 \begin{test}{5}
-#\poziv{./a.out}#
-
-#\naslovDat{izraz.txt}#
-#\datoteka{Datoteka je prazna.}#
+#\naslovDat{Datoteka izraz.txt je prazna}#
 
 #\naslovIzlaz#
 #\izlaz{Zagrade su ispravno uparene.}#
@@ -330,8 +307,6 @@ utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
 \end{miditest}
 \begin{miditest}
 \begin{test}{6}
-#\poziv{./a.out}#
-
 #\naslovDat{Datoteka izraz.txt ne postoji.}# 
 
 #\naslovIzlaz#
@@ -351,7 +326,7 @@ Napisati program koji proverava ispravnost uparivanja etiketa u \kckod{HTML} dat
 Poruke o greškama ispisivati na standardni izlaz za greške.
 \uputstvo{Za rešavanje problema koristiti stek implementiran preko liste čiji čvorovi sadrže \kckod{HTML} etikete.}
 
-\noindent
+
 \begin{miditest}      
 \begin{test}{1}
 #\poziv{./a.out datoteka.html}#
@@ -386,6 +361,7 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 #\izlaz{(nadjena je etiketa </html> koja nije otvorena)}# 
 \end{test}
 \end{miditest}
+
 \begin{miditest}
 \begin{test}{3}
 #\poziv{./a.out datoteka.html}#
@@ -426,6 +402,7 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 
 \end{test}
 \end{miditest}
+
 \begin{miditest}
 \begin{test}{5}
 #\poziv{./a.out datoteka.html}#
@@ -441,8 +418,7 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 \begin{test}{6}
 #\poziv{./a.out datoteka.html}#
 
-#\naslovDat{datoteka.html}#                     
-#\datoteka{Datoteka je prazna.}#
+#\naslovDat{datoteka.html je prazna}#                     
 
 #\naslovIzlaz#
 #\izlaz{Etikete su pravilno uparene!}#
@@ -467,8 +443,6 @@ Posle svakog $petog$ usluženog korisnika, službeniku se nudi mogućnost da pre
 
 \begin{maxitest}
 \begin{upotreba}{1}
-#\poziv{./a.out}#
-
 #\naslovInt#
 #\izlaz{Sluzbenik evidentira korisnicke zahteve:}# 
 #\izlaz{Novi zahtev [CTRL+D za kraj]}#
@@ -614,7 +588,7 @@ Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF). Poruke o
 % koja određuje da li student sa zadatim brojem indeksa pripada listi ili ne.
 % Nakon završenog pretraživanja rekurzivnom funkcijom \kckod{void oslobodi\_listu(Cvor** glava)} osloboditi memoriju koju je lista sa studentima zauzimala.
 
-\noindent
+
 \begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out studenti.txt}#
@@ -636,8 +610,7 @@ Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF). Poruke o
 \begin{upotreba}{2}
 #\poziv{./a.out  studenti.txt}#
 
-#\naslovDat{studenti.txt}#
-#\datoteka{Datoteka je prazna.}#
+#\naslovDat{Datoteka studenti.txt je prazna}#
 
 #\naslovInt#
 #\ulaz{3/2014} \izlaz{ne}#
@@ -679,7 +652,7 @@ Napisati program koji objedinjuje dve sortirane liste u jednu sortiranu listu. F
 kreira nove, već da samo preraspodeli postojeće čvorove. Prva lista se učitava iz datoteke čije ime se zadaje kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.
 \napomena{Koristiti biblioteku za rad sa listama celih brojeva iz zadatka \ref{601}.}
 
-\noindent
+
 \begin{miditest}
 \begin{test}{1}
 #\poziv{./a.out dat1.txt dat2.txt}#
@@ -736,12 +709,12 @@ kreira nove, već da samo preraspodeli postojeće čvorove. Prva lista se učita
 % #\izlaz{[2, 4, 6, 10, 15]}#
 % \end{test}
 % \end{miditest}
+
 \begin{miditest}
 \begin{test}{3}
 #\poziv{./a.out dat1.txt dat2.txt}#
 
-#\naslovDat{dat1.txt}#
-#\datoteka{Datoteka je prazna.}#
+#\naslovDat{Datoteka dat1.txt je prazna}#
 
 #\naslovDat{dat2.txt}#
 #\datoteka{5 6 11 12 14 16}#
@@ -778,7 +751,6 @@ drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.
 
 \napomena{Iskoristiti testove 2 - 6 za zadatak \ref{609}.}
 
-\noindent
 \begin{miditest}
 \begin{test}{1}
 #\poziv{./a.out dat1.txt dat2.txt}#
@@ -809,11 +781,9 @@ pronalazi maksimalan strogo rastući podniz.
 Napisati program koji u datoteku \kckod{rezultat.txt} upisuje nađeni strogo rastući podniz.
 %\komentar{Milena: I ovde me muci sto bi zadatak mogao da se resi i bez koriscenja listi... }
 
-\noindent
+
 \begin{minitest}
 \begin{test}{1}
-#\poziv{./a.out}#
-
 #\naslovDat{brojevi.txt}#
 #\datoteka{43 12 15 16 4 2 8}#
 
@@ -824,8 +794,6 @@ Napisati program koji u datoteku \kckod{rezultat.txt} upisuje nađeni strogo ras
 \end{minitest}
 \begin{minitest}
 \begin{test}{2}
-#\poziv{./a.out}#
-
 #\naslovDat{Datoteka brojevi.txt}#
 #\naslovDat{ne postoji.}#
 
@@ -837,10 +805,7 @@ Napisati program koji u datoteku \kckod{rezultat.txt} upisuje nađeni strogo ras
 \end{minitest}
 \begin{minitest}
 \begin{test}{3}
-#\poziv{./a.out }#
-
-#\naslovDat{brojevi.txt}#
-#\datoteka{Datoteka je prazna.}#
+#\naslovDat{Datoteka brojevi.txt je prazna}#
 
 #\naslovIzlaz#
 #\naslovDat{rezultat.txt}#
@@ -865,11 +830,9 @@ Celi brojevi $n$, $k$ ($k < n$) se učitavaju sa standardnog ulaza.
 Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u redosledu napuštanja kruga. 
 \uputstvo{Pri implementaciji koristiti jednostruko povezanu kružnu listu.}
 
-\noindent
+
 \begin{minitest}
 \begin{test}{1}
-#\poziv{./a.out}#
-
 #\naslovUlaz#
 #\ulaz{5 3}#
 
@@ -879,8 +842,6 @@ Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u 
 \end{minitest}
 \begin{minitest}
 \begin{test}{2}
-#\poziv{./a.out}#
-
 #\naslovUlaz#
 #\ulaz{8 4}#
 
@@ -890,8 +851,6 @@ Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u 
 \end{minitest}
 \begin{minitest}
 \begin{test}{3}
-#\poziv{./a.out}#
-
 #\naslovUlaz#
 #\ulaz{3 8}#
 
@@ -921,8 +880,6 @@ Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u 
 
 \begin{minitest}
 \begin{test}{1}
-#\poziv{./a.out}#
-
 #\naslovUlaz#
 #\ulaz{5 3}#
 
@@ -932,8 +889,6 @@ Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u 
 \end{minitest}
 \begin{minitest}
 \begin{test}{2}
-#\poziv{./a.out}#
-
 #\naslovUlaz#
 #\ulaz{8 4}#
 

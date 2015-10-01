@@ -10,12 +10,12 @@
   da vrati indeks pozicije na kojoj je pronađen traženi broj ili
   broj $-1$ ukoliko broj nije pronađen.
   \begin{enumerate}  
-  \item Napisati funkciju koja vrši linearnu pretragu niza 
+  \item Napisati funkciju \kckod{linarna\_pretraga} koja vrši linearnu pretragu niza 
     celih brojeva \argf{a}, dužine \argf{n}, tražeći u njemu broj
     \argf{x}.  
-  \item Napisati funkciju koja vrši binarnu pretragu
+  \item Napisati funkciju \kckod{binarna\_pretraga} koja vrši binarnu pretragu
     sortiranog niza \argf{a}, dužine \argf{n}, tražeći u njemu broj \argf{x}.
-  \item Napisati funkciju koja vrši interpolacionu pretragu
+  \item Napisati funkciju \kckod{interpolaciona\_pretraga}koja vrši interpolacionu pretragu
     sortiranog niza \argf{a}, dužine \argf{n}, tražeći u njemu broj \argf{x}.
   \end{enumerate}
   Napisati i program koji generiše rastući niz slučajnih brojeva dimenzije
@@ -23,6 +23,8 @@
   argument komandne linije prosleđuje prirodan broj \argf{n} koji nije veći od $1000000$ i broj \argf{x} kao drugi
   argument komandne linije. Potrebna vremena za izvršavanje ovih
   funkcija upisati u datoteku \kckod{vremena.txt}.
+  
+%\komentar{Milena: Da li bi ovde trebalo staviti i datoteku vremena.txt da se vidi i njen sadrzaj? I to je nekakav izlaz iz programa.}  
   
 \begin{miditest}
 \begin{test}{1}
@@ -41,7 +43,7 @@
 \end{test}
 \end{miditest}
 \begin{miditest}
-\begin{test}{Test 2}
+\begin{test}{2}
 #\poziv{./a.out 100000 37842}#
   
 #\naslovIzlaz#
@@ -449,59 +451,6 @@ ulaza.
 
 %\begin{Answer}[ref=410]
 %  \includecode{resenja/04_Pretrazivanje/410.c}
-%\end{Answer}
-%-----------------------------------------------------------------
-%-----------------------------------------------------------------
-\begin{Exercise}[label=411]
-  Napisati program u kome se prvo inicijalizuje statički niz struktura
-  osoba sa članovima ime i prezime, a zatim se učitava jedan
-  karakter i pronalazi i štampa jedna struktura iz niza osoba čije prezime počinje tim
-  karakterom. Ako takva osoba ne postoji, štampati $-1$ na standardnom
-  izlazu.
-  Niz struktura ima manje od 10 elemenata i uređen je u rastućem leksikografskom poretku po prezimenima.
-  Pretaživanje niza vršiti bibliotečkom funkcijom \kckod{bsearch}.
-\begin{ckod}
-Osoba niz_osoba[]={{"Mika", "Antic"},
-                   {"Dobrica", "Eric"},
-                   {"Desanka", "Maksimovic"},
-                   {"Dusko", "Radovic"},
-                   {"Ljubivoje", "Rsumovic"}};
-\end{ckod}
-  
-\begin{minitest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{R}#
-  
-#\naslovIzlaz#
-#\izlaz{Dusko Radovic}#
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{2}
-#\naslovUlaz#
-#\ulaz{E}#
-  
-#\naslovIzlaz#
-#\izlaz{Dobrica Eric}#
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{3}
-#\naslovUlaz#
-#\ulaz{A}#
-  
-#\naslovIzlaz#
-#\izlaz{Mika Antic}#
-\end{test}
-\end{minitest}
-
-%\linkresenje{411}
-
-\end{Exercise}
-
-%\begin{Answer}[ref=411]
-%  \includecode{resenja/04_Pretrazivanje/411.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------

@@ -149,6 +149,8 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 \end{miditest}
 \begin{miditest}
 \begin{upotreba}{2}
+#\naslovDat{Datoteka imenik1.txt ne postoji}#
+  
 #\naslovInt#
 #\izlaz{Unesite ime datoteke:}\ulaz{imenik1.txt}#
 #\izlaz{Greska prilikom otvaranja datoteke}#
@@ -203,18 +205,18 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 
 %6.zadatak
 \begin{Exercise}[label=706, difficulty=1]
-Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije. Svaka linija datoteke je formata \kckod{Ime Prezime DD.MM.} i sadži ime osobe, prezime osobe i dan i mesec rođenja. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj unosa. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima - prvo po mesecu, a zatim po danu u okviru istog meseca. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu \kckod{DD.MM.}.Takođe, može se pretpostaviti da će ime i prezime osobe biti kraće od 50 karaktera.
+Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije u formatu \kckod{Ime Prezime DD.MM.YYYY.} - za svaku osobu po jedna linija datoteke. Korisnik unosi datum u naznačenom formatu, a program pronala zi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj rada. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu \kckod{DD.MM.YYYY}.
 
 \begin{miditest}
 \begin{upotreba}{1}
-#\poziv{a.out rodjendani.txt}#
+#\poziv{./a.out rodjendani.txt}#
   
 #\naslovDat{rodjendani.txt}#
-#\datoteka{Marko Markovic 12.12.}#
-#\datoteka{Milan Jevremovic 04.06.}#
-#\datoteka{Maja Agic 23.04.}#
-#\datoteka{Nadica Zec 01.01.}#
-#\datoteka{Jovana Milic 05.05.}#
+#\datoteka{Marko Markovic 12.12.1990.}#
+#\datoteka{Milan Jevremovic 04.06.1989.}#
+#\datoteka{Maja Agic 23.04.2000.}#
+#\datoteka{Nadica Zec 01.01.1993.}#
+#\datoteka{Jovana Milic 05.05.1990.}#
 
 #\naslovInt#
 #\izlaz{Unesite datum:}\ulaz{23.04.}#
@@ -223,20 +225,15 @@ Napisati program koji implementira podsetnik za rođendane. Informacije o rođen
 #\izlaz{Slavljenik: Nadica Zec}#
 #\izlaz{Unesite datum:}\ulaz{01.05.}#
 #\izlaz{Slavljenik: Jovana Milic 05.05.}#
-#\izlaz{Unesite datum:}\ulaz{20.12.}#
-#\izlaz{Slavljenik: Nadica Zec 01.01.}#
 #\izlaz{Unesite datum:}#
 \end{upotreba}
 \end{miditest}
-
 \begin{miditest}
 \begin{upotreba}{2}
-#\poziv{./a.out rodjendani.txt}#
-
-#\naslovDat{Datoteka rodjendani.txt ne postoji}#
-
+#\poziv{./a.out rodjendani1.txt}#
+  
 #\naslovInt#
-#\izlaz{Greska: Neuspesno otvaranje datoteke rodjendani.txt.}#
+#\izlaz{Greska prilikom otvaranja datoteke!}#
 \end{upotreba}
 \end{miditest}
 \linkresenje{706}
@@ -379,8 +376,8 @@ sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ proč
 #\izlaz{Dubina stabla: 5}#
 #\izlaz{Broj cvorova na 2. nivou: 3}#
 #\izlaz{Elementi na 2. nivou: 3 12 30}#
-#\izlaz{Maksimalni element na 2. nivou: 30}#
-#\izlaz{Zbir elemenata na 2. nivou: 45}#
+#\izlaz{Maksimalni na 2. nivou: 30}#
+#\izlaz{Zbir na 2. nivou: 45}#
 #\izlaz{Zbir elemenata manjih ili jednakih od 15: 78}#
 \end{test}
 \end{miditest}
@@ -400,8 +397,8 @@ sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ proč
 #\izlaz{Dubina stabla: 4}#
 #\izlaz{Broj cvorova na 3. nivou: 2}#
 #\izlaz{Elementi na 3. nivou: 16 55}#
-#\izlaz{Maksimalni element na 3. nivou: 55}#
-#\izlaz{Zbir elemenata na 3. nivou: 71}#
+#\izlaz{Maksimalni na 3. nivou: 55}#
+#\izlaz{Zbir na 3. nivou: 71}#
 #\izlaz{Zbir elemenata manjih ili jednakih od 31: 76}#
 \end{test}
 \end{miditest}
@@ -486,9 +483,9 @@ Dva binarna stabla su {\em slična kao u ogledalu} ako su ili oba prazna ili ako
 %\linkresenje{713}
 \end{Exercise}
 
-\begin{Answer}[ref=713]
+%\begin{Answer}[ref=713]
 %\includecode{resenja/07_drveta/713.c}
-\end{Answer}
+%\end{Answer}
 
 
 %14.zadatak
@@ -567,7 +564,7 @@ Dato je binarno stablo celih brojeva.
 Napisati program koji testira gore navedene funkcije nad stablom zadatim slikom \ref{fig:zadatak711} i rezultat ispisuje na standardnom izlazu.  
 %\linkresenje{711}
 
-\begin{miditest}
+\begin{maxitest}
 \begin{test}{1}
 #\naslovIzlaz#
 #\izlaz{Vrednost u cvoru sa maksimalnim desnim zbirom:: 18}#
@@ -575,13 +572,13 @@ Napisati program koji testira gore navedene funkcije nad stablom zadatim slikom 
 #\izlaz{2 18 -10 4}#
 #\izlaz{2 20 -15}#
 \end{test}
-\end{miditest}
+\end{maxitest}
 
 \end{Exercise}
 
-\begin{Answer}[ref=711]
+%\begin{Answer}[ref=711]
 %\includecode{resenja/07_drveta/711.c}
-\end{Answer}
+%\end{Answer}
 
 \section{Rešenja}
 \shipoutAnswer
