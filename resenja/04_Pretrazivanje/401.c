@@ -135,7 +135,7 @@ int main(int argc, char **argv)
     a[i] = i == 0 ? random() % 100 : a[i - 1] + random() % 100;
 
   /* Lineara pretraga */
-  printf("Linearna pretraga\n");
+  printf("Linearna pretraga:\n");
   /* Vreme proteklo od Nove godine 1970 */
   clock_gettime(CLOCK_REALTIME, &time1);
   i = linearna_pretraga(a, n, x);
@@ -146,10 +146,9 @@ int main(int argc, char **argv)
     printf("Element nije u nizu\n");
   else
     printf("Element je u nizu na poziciji %d\n", i);
-  printf("---------------------------------\n");
 
   /* Binarna pretraga */
-  printf("Binarna pretraga\n");
+  printf("Binarna pretraga:\n");
   clock_gettime(CLOCK_REALTIME, &time3);
   i = binarna_pretraga(a, n, x);
   clock_gettime(CLOCK_REALTIME, &time4);
@@ -157,10 +156,9 @@ int main(int argc, char **argv)
     printf("Element nije u nizu\n");
   else
     printf("Element je u nizu na poziciji %d\n", i);
-  printf("---------------------------------\n");
 
   /* Interpolaciona pretraga */
-  printf("Interpolaciona pretraga\n");
+  printf("Interpolaciona pretraga:\n");
   clock_gettime(CLOCK_REALTIME, &time5);
   i = interpolaciona_pretraga(a, n, x);
   clock_gettime(CLOCK_REALTIME, &time6);
@@ -168,7 +166,6 @@ int main(int argc, char **argv)
     printf("Element nije u nizu\n");
   else
     printf("Element je u nizu na poziciji %d\n", i);
-  printf("---------------------------------\n");
 
   /* Podaci o izvrsavanju programa bivaju upisani u log fajl */
   if ((f = fopen("vremena.txt", "a")) == NULL) {
@@ -177,7 +174,7 @@ int main(int argc, char **argv)
   }
 
   fprintf(f, "Dimenzija niza: %d\n", n);
-  fprintf(f, "\tLinearna pretraga:%10ld ns\n",
+  fprintf(f, "\tLinearna:%10ld ns\n",
           (time2.tv_sec - time1.tv_sec) * 1000000000 +
           time2.tv_nsec - time1.tv_nsec);
   fprintf(f, "\tBinarna: %19ld ns\n",

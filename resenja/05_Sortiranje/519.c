@@ -85,6 +85,14 @@ int main()
   else
     printf("Niska nije pronadjena u nizu\n");
 
+  /* Sortiranje po duzini */
+  qsort(niske, n, MAX_DUZINA * sizeof(char), &poredi_duzine);
+
+  printf("Niske sortirane po duzini:\n");
+  for (i = 0; i < n; i++)
+    printf("%s ", niske[i]);
+  printf("\n");
+  
   /* Linearna pretraga */
   p = lfind(&x, niske, &n, MAX_DUZINA * sizeof(char),
             &poredi_leksikografski);
@@ -94,14 +102,6 @@ int main()
            p, (p - (char *) niske) / MAX_DUZINA);
   else
     printf("Niska nije pronadjena u nizu\n");
-
-  /* Sortiranje po duzini */
-  qsort(niske, n, MAX_DUZINA * sizeof(char), &poredi_duzine);
-
-  printf("Niske sortirane po duzini:\n");
-  for (i = 0; i < n; i++)
-    printf("%s ", niske[i]);
-  printf("\n");
 
   exit(EXIT_SUCCESS);
 }

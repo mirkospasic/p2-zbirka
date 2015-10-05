@@ -173,19 +173,24 @@
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=507]
-  Napraviti biblioteku koja
-  implementira algoritme sortiranja nizova celih brojeva. Biblioteka
-  treba da sadrži \kckod{selection}, \kckod{merge}, \kckod{quick},
-  \kckod{bubble}, \kckod{insertion} i \kckod{shell sort}. Upotrebiti
-  biblioteku kako bi se napravilo poređenje efikasnosti različitih
-  algoritama sortiranja. Efikasnost meriti na slučajno generisanim
-  nizovima, na rastuće sortiranim nizovima i na opadajuće sortiranim
-  nizovima. Izbor algoritma, veličine i početnog rasporeda elemenata
-  niza birati kroz argumente komandne linije.  Vreme meriti programom
+  Napraviti biblioteku koja implementira algoritme sortiranja nizova
+  celih brojeva. Biblioteka treba da sadrži \kckod{selection},
+  \kckod{merge}, \kckod{quick}, \kckod{bubble}, \kckod{insertion} i
+  \kckod{shell sort}. Upotrebiti biblioteku kako bi se napravilo
+  poređenje efikasnosti različitih algoritama sortiranja. Efikasnost
+  meriti na slučajno generisanim nizovima, na rastuće sortiranim
+  nizovima i na opadajuće sortiranim nizovima. Izbor algoritma,
+  veličine i početnog rasporeda elemenata niza birati kroz argumente
+  komandne linije. Moguće opcije kojima se bira algoritam sortiranja
+  su: \kckod{-m} za \kckod{merge}, \kckod{-q} za \kckod{quick},
+  \kckod{-b} za \kckod{bubble}, \kckod{-i} za \kckod{insertion} ili
+  \kckod{-s} za \kckod{shell sort}. U slučaju da nije prisutna ni
+  jedna od ovih opcija, niz sortirati \kckod{selection sort}
+  algoritmom. Niz koji se sortira generisati neopadajuće ako je
+  prisutna opcija \kckod{-r}, nerastuće ako je prisutna opcija
+  \kckod{-o} ili bez striktnog poretka. Vreme meriti programom
   \kckod{time}. Analizirati porast vremena sa porastom dimenzije
   \argf{n}.
-
-%\komentar{Milena:ovde u tekstu nedostaje objasnjenje koja su znacenja argumenata komandne linije. Ovako mi test primeri deluju nejasno}
 
 \begin{miditest}
 \begin{test}{1}
@@ -885,7 +890,6 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
                    {"Ljubivoje", "Rsumovic"}};
 \end{ckod}
   
-%\komentar{Milena: mozda ovde dodati test primer za stampanje poruke kada se ne pronadje vrednost?}  
   
 \begin{minitest}
 \begin{test}{1}
@@ -908,10 +912,10 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \begin{minitest}
 \begin{test}{3}
 #\naslovUlaz#
-#\ulaz{A}#
+#\ulaz{X}#
   
 #\naslovIzlaz#
-#\izlaz{Mika Antic}#
+#\izlaz{-1}#
 \end{test}
 \end{minitest}
 
@@ -983,8 +987,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
   poretku prema broju delilaca i tako dobijeni niz odštampati na
   standardnom izlazu.
   
-%  \komentar{Milena:dodati jos jedan testprimer}
-\begin{miditest}
+\begin{minitest}
 \begin{upotreba}{1}
 #\naslovInt#
 #\izlaz{Uneti dimenziju niza:}\ulaz{10}#
@@ -994,7 +997,29 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 #\izlaz{poretku prema broju delilaca:}# 
 #\izlaz{1 2 3 5 7 4 9 6 8 10}#
 \end{upotreba}
-\end{miditest}
+\end{minitest}
+\begin{minitest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Uneti dimenziju niza:}\ulaz{1}#
+#\izlaz{Uneti elemente niza:}#
+#\ulaz{234}#
+#\izlaz{Sortirani niz u rastucem}# 
+#\izlaz{poretku prema broju delilaca:}# 
+#\izlaz{234}#
+\end{upotreba}
+\end{minitest}
+\begin{minitest}
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Uneti dimenziju niza:}\ulaz{0}#
+#\izlaz{Uneti elemente niza:}#
+#\izlaz{Sortirani niz u rastucem}# 
+#\izlaz{poretku prema broju}#
+#\izlaz{delilaca:}# 
+#\izlaz{}#
+\end{upotreba}
+\end{minitest}
   
 \linkresenje{518}
 \end{Exercise}
@@ -1015,11 +1040,10 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
    $1000$ niski kao i da je svaka niska dužine najviše $30$ karaktera. Program prvo
    leksikografski sortira niz, primenjuje binarnu pretragu
    (\kckod{bsearch}) zarad traženja niske unete sa standardnog ulaza,
-   a potom linearnu pretragu koristeći funkciju \kckod{lfind}. Na
-   kraju, niske bivaju sortirane po dužini. Rezultate svih sortiranja
+   a potom traži istu nisku koristeći funkciju \kckod{lfind} u nizu koji je neposredno pre toga
+   sortiran po dužini. Rezultate svih sortiranja
    i pretraga ispisati na standardnom izlazu.
 
-%\komentar{Milena: ovo je malo besmislen zadatak. Mozda nakon binarne pretrage sortirati po duzini, pa onda primeniti linearnu pretragu jer niz vise nije sortiran leksikografski pa ne mozemo da trazimo binarnom po kriterijumu imena...}
    
 \begin{maxitest}
 \begin{upotreba}{1}
@@ -1031,9 +1055,9 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 #\izlaz{aleksandar ana andjela ljubica matej milica milos nikola petar }#
 #\izlaz{Uneti trazenu nisku:}\ulaz{matej}#
 #\izlaz{Niska "matej" je pronadjena u nizu na poziciji 4}#
-#\izlaz{Niska "matej" je pronadjena u nizu na poziciji 4}#
 #\izlaz{Niske sortirane po duzini:}#
 #\izlaz{ana matej milos petar milica nikola andjela ljubica aleksandar}#
+#\izlaz{Niska "matej" je pronadjena u nizu na poziciji 1}#
 \end{upotreba}
 \end{maxitest}
   

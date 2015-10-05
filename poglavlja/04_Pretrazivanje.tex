@@ -23,41 +23,50 @@
   argument komandne linije prosleđuje prirodan broj \argf{n} koji nije veći od $1000000$ i broj \argf{x} kao drugi
   argument komandne linije. Potrebna vremena za izvršavanje ovih
   funkcija upisati u datoteku \kckod{vremena.txt}.
+
   
-%\komentar{Milena: Da li bi ovde trebalo staviti i datoteku vremena.txt da se vidi i njen sadrzaj? I to je nekakav izlaz iz programa.}  
-  
-\begin{miditest}
+\begin{minitest}
 \begin{test}{1}
-#\poziv{./a.out 1000000 235423}#
+#\poziv{./a.out 1000000 23542}#
   
 #\naslovIzlaz#
-#\izlaz{Linearna pretraga}#
+#\izlaz{Linearna pretraga:}#
 #\izlaz{Element nije u nizu}#
-#\izlaz{---------------------------------}#
-#\izlaz{Binarna pretraga}#
+#\izlaz{Binarna pretraga:}#
 #\izlaz{Element nije u nizu}#
-#\izlaz{---------------------------------}#
-#\izlaz{Interpolaciona pretraga}#
+#\izlaz{Interpolaciona pretraga:}#
 #\izlaz{Element nije u nizu}#
-#\izlaz{---------------------------------}#
 \end{test}
-\end{miditest}
-\begin{miditest}
+\end{minitest}
+\begin{minitest}
 \begin{test}{2}
 #\poziv{./a.out 100000 37842}#
   
 #\naslovIzlaz#
-#\izlaz{Linearna pretraga}#
+#\izlaz{Linearna pretraga:}#
 #\izlaz{Element nije u nizu}#
-#\izlaz{---------------------------------}#
-#\izlaz{Binarna pretraga}#
+#\izlaz{Binarna pretraga:}#
 #\izlaz{Element nije u nizu}#
-#\izlaz{---------------------------------}#
-#\izlaz{Interpolaciona pretraga}#
+#\izlaz{Interpolaciona pretraga:}#
 #\izlaz{Element nije u nizu}#
-#\izlaz{---------------------------------}#
 \end{test}
-\end{miditest}
+\end{minitest}
+\begin{minitest}
+\begin{test2}{1}
+    
+#\naslovDat{vremena.txt}#
+
+#\datoteka{Dimenzija niza: 1000000}#
+#\datoteka{	Linearna:            3615091 ns}#
+#\datoteka{	Binarna:                1536 ns}#
+#\datoteka{	Interpolaciona:          558 ns}#
+#\datoteka{}#
+#\datoteka{Dimenzija niza: 100000}#
+#\datoteka{	Linearna:             360803 ns}#
+#\datoteka{	Binarna:                1187 ns}#
+#\datoteka{	Interpolaciona:          628 ns}#
+\end{test2}
+\end{minitest}
 
 \linkresenje{401}
 
