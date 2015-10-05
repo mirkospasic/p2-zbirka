@@ -72,7 +72,6 @@ int main(void)
   int n;
   int a[MAX_DUZINA_NIZA];
 
-  printf("Unesite duzinu permutacije: ");
   scanf("%d", &n);
   if (n < 0 || n >= MAX_DUZINA_NIZA) {
     fprintf(stderr,

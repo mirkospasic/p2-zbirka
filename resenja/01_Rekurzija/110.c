@@ -17,18 +17,21 @@ int main()
 {
   int i, a[MAX_DIM], b[MAX_DIM], n;
 
-  /* Unosi se dimenzija nizova, */
+  /* Unosi se dimenzija nizova. */
+  printf("Unesite dimenziju nizova:");
   scanf("%d", &n);
 
   /* A zatim i elementi nizova. */
+  printf("Unesite elemente prvog niza:");
   for (i = 0; i < n; i++)
     scanf("%d", &a[i]);
 
+  printf("Unesite elemente drugog niza:");
   for (i = 0; i < n; i++)
     scanf("%d", &b[i]);
 
   /* Ispisuje se rezultat skalarnog proizvoda dva ucitana niza. */
-  printf("%d\n", skalarno(a, b, n));
+  printf("Skalarni proizvod je %d\n", skalarno(a, b, n));
 
   return 0;
 }

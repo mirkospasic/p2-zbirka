@@ -20,8 +20,10 @@ int main()
 
   /* Ucitavaju se tri cela broja za koje se ispituje da li su
      uzastopni clanovi niza */
+  printf("Unesite tri cela broja:");
   scanf("%d%d%d", &x, &y, &z);
 
+  printf("Unesite elemente niza:");
   int i = 0;
   while (scanf("%d", &a[i]) != EOF) {
     i++;
@@ -29,9 +31,9 @@ int main()
   n = i;
 
   if (tri_uzastopna_clana(x, y, z, a, n))
-    printf("da\n");
+    printf("Uneti brojevi jesu uzastopni clanovi niza.\n");
   else
-    printf("ne\n");
+    printf("Uneti brojevi nisu uzastopni clanovi niza.\n");
 
   return 0;
 }
