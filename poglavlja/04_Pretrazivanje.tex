@@ -39,6 +39,19 @@
 \end{test}
 \end{minitest}
 \begin{minitest}
+\begin{test2}{1}
+    
+
+  #\naslovDat{vremena.txt}#
+
+  #\datoteka{Dimenzija niza: 1000000}#
+  #\datoteka{	Linearna:            3615091 ns}#
+  #\datoteka{	Binarna:                1536 ns}#
+  #\datoteka{	Interpolaciona:          558 ns}#
+\end{test2}
+\end{minitest}
+
+\begin{minitest}
 \begin{test}{2}
 #\poziv{./a.out 100000 37842}#
   
@@ -53,18 +66,19 @@
 \end{minitest}
 \begin{minitest}
 \begin{test2}{1}
-    
-#\naslovDat{vremena.txt}#
 
-#\datoteka{Dimenzija niza: 1000000}#
-#\datoteka{	Linearna:            3615091 ns}#
-#\datoteka{	Binarna:                1536 ns}#
-#\datoteka{	Interpolaciona:          558 ns}#
-#\datoteka{}#
-#\datoteka{Dimenzija niza: 100000}#
-#\datoteka{	Linearna:             360803 ns}#
-#\datoteka{	Binarna:                1187 ns}#
-#\datoteka{	Interpolaciona:          628 ns}#
+
+  #\naslovDat{vremena.txt}#
+
+  #\datoteka{Dimenzija niza: 1000000}#
+  #\datoteka{	Linearna:            3615091 ns}#
+  #\datoteka{	Binarna:                1536 ns}#
+  #\datoteka{	Interpolaciona:          558 ns}#
+  #\datoteka{}#
+  #\datoteka{Dimenzija niza: 100000}#
+  #\datoteka{	Linearna:             360803 ns}#
+  #\datoteka{	Binarna:                1187 ns}#
+  #\datoteka{	Interpolaciona:          628 ns}#
 \end{test2}
 \end{minitest}
 
@@ -139,7 +153,7 @@
   od $128$ studenata i da su imena i prezimena svih kraća od $16$
   slova.
   
-\begin{maxitest}
+\begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out datoteka.txt}#
   
@@ -152,14 +166,25 @@
 #\datoteka{20140104 Ivan Popovic}#
 #\datoteka{20140187 Vlada Stankovic}#
 #\datoteka{20140234 Darko Brankovic}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{test2}{1}
+  
   
 #\naslovInt#
-#\izlaz{Unesite indeks studenta cije informacije zelite:}\ulaz{20140076}#
-#\izlaz{Indeks: 20140076, Ime i prezime: Sonja Stevanovic}#
-#\izlaz{Unesite prezime studenta cije informacije zelite:}\ulaz{Popovic}#
-#\izlaz{Indeks: 20140032, Ime i prezime: Dejan Popovic}#
-\end{upotreba}
-\end{maxitest}
+#\izlaz{Unesite indeks studenta}# 
+#\izlaz{cije informacije zelite:}#
+#\ulaz{20140076}#
+#\izlaz{Indeks: 20140076,}# 
+#\izlaz{Ime i prezime: Sonja Stevanovic}#
+#\izlaz{Unesite prezime studenta }#
+#\izlaz{cije informacije zelite:}#
+#\ulaz{Popovic}#
+#\izlaz{Indeks: 20140032,}# 
+#\izlaz{Ime i prezime: Dejan Popovic}#
+\end{test2}
+\end{miditest}
 
 \linkresenje{403}
 
