@@ -188,30 +188,71 @@
   jedna od ovih opcija, niz sortirati \kckod{selection sort}
   algoritmom. Niz koji se sortira generisati neopadajuće ako je
   prisutna opcija \kckod{-r}, nerastuće ako je prisutna opcija
-  \kckod{-o} ili bez striktnog poretka. Vreme meriti programom
-  \kckod{time}. Analizirati porast vremena sa porastom dimenzije
-  \argf{n}.
+  \kckod{-o} ili potpuno slučajno ako nema nijedne. Vreme meriti
+  programom \kckod{time}. Analizirati porast vremena sa porastom
+  dimenzije \argf{n}.
 
-\begin{miditest}
+\begin{minitest}
 \begin{test}{1}
-#\poziv{time a.out 100000 -i -o}#
+#\poziv{time a.out 200000}#
   
 #\naslovIzlaz#
-#\izlaz{real    0m17.631s}#
-#\izlaz{user    0m17.604s}#
+#\izlaz{real    0m42.168s}#
+#\izlaz{user    0m42.100s}#
 #\izlaz{sys     0m0.000s}#
 \end{test}
-\end{miditest}
-\begin{miditest}
+\end{minitest}
+\begin{minitest}
 \begin{test}{2}
-#\poziv{time a.out 100000 -b -r}#
+#\poziv{time a.out 400000}#
   
 #\naslovIzlaz#
-#\izlaz{real    0m0.005s}#
-#\izlaz{user    0m0.004s}#
+#\izlaz{real    2m48.395s}#
+#\izlaz{user    2m48.128s}#
 #\izlaz{sys     0m0.000s}#
 \end{test}
-\end{miditest}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\poziv{time a.out 800000}#
+  
+#\naslovIzlaz#
+#\izlaz{real    11m13.703s}#
+#\izlaz{user    11m12.636s}#
+#\izlaz{sys     0m0.000s}#
+\end{test}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{4}
+#\poziv{time a.out 800000 -r}#
+  
+#\naslovIzlaz#
+#\izlaz{real    11m21.533s}#
+#\izlaz{user    11m20.436s}#
+#\izlaz{sys     0m0.020s}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{5}
+#\poziv{time a.out 800000 -q}#
+  
+#\naslovIzlaz#
+#\izlaz{real    0m0.159s}#
+#\izlaz{user    0m0.156s}#
+#\izlaz{sys     0m0.000s}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{6}
+#\poziv{time a.out 800000 -m}#
+  
+#\naslovIzlaz#
+#\izlaz{real    0m0.137s}#
+#\izlaz{user    0m0.136s}#
+#\izlaz{sys     0m0.000s}#
+\end{test}
+\end{minitest}
 
 \linkresenje{507}
 \end{Exercise}
