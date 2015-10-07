@@ -143,19 +143,20 @@
   Napisati program koji preko argumenta komandne linije dobija ime
   datoteke koja sadrži sortirani spisak studenta po broju indeksa
   rastuće. Za svakog studenta u jednom redu stoje informacije o
-  indeksu, imenu i prezimenu. Program učitava spisak studenata u niz
-  i traži od korisnika indeks studenta čije informacije se potom
-  prikazuju na ekranu. Zatim, korisnik unosi prezime studenta i
-  prikazuju mu se informacije o prvom studentu sa unetim prezimenom.
-  U slučaju neuspešnih pretragi, štampati odgovarajuću
-  poruku. Pretrage implementirati u vidu iterativnih funkcija što
-  manje složenosti. Pretpostaviti da u datoteci neće biti više
-  od $128$ studenata i da su imena i prezimena svih kraća od $16$
-  slova.
+  indeksu, imenu i prezimenu. Program učitava spisak studenata u niz i
+  traži od korisnika indeks ili prezime studenta čije informacije se
+  potom prikazuju na ekranu. U slučaju više studenata sa istim
+  prezimenom prikazati informacije o prvom takvom. Odabir kriterijuma
+  pretrage se vrši kroz poslednji argument komandne linije, koji može
+  biti \kckod{-indeks} ili \kckod{-prezime}. U slučaju neuspešnih
+  pretragi, štampati odgovarajuću poruku. Pretrage implementirati u
+  vidu iterativnih funkcija što manje složenosti. Pretpostaviti da u
+  datoteci neće biti više od $128$ studenata i da su imena i prezimena
+  svih kraća od $16$ slova.
   
 \begin{miditest}
 \begin{upotreba}{1}
-#\poziv{./a.out datoteka.txt}#
+#\poziv{./a.out datoteka.txt -indeks}#
   
 #\naslovDat{datoteka.txt}#
 #\datoteka{20140003 Marina Petrovic}#
@@ -178,6 +179,29 @@
 #\ulaz{20140076}#
 #\izlaz{Indeks: 20140076,}# 
 #\izlaz{Ime i prezime: Sonja Stevanovic}#
+\end{test2}
+\end{miditest}
+
+\begin{miditest}
+\begin{upotreba}{2}
+#\poziv{./a.out datoteka.txt -prezime}#
+  
+#\naslovDat{datoteka.txt}#
+#\datoteka{20140003 Marina Petrovic}#
+#\datoteka{20140012 Stefan Mitrovic}#
+#\datoteka{20140032 Dejan Popovic}#
+#\datoteka{20140049 Mirko Brankovic}#
+#\datoteka{20140076 Sonja Stevanovic}#
+#\datoteka{20140104 Ivan Popovic}#
+#\datoteka{20140187 Vlada Stankovic}#
+#\datoteka{20140234 Darko Brankovic}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{test2}{1}
+  
+  
+#\naslovInt#
 #\izlaz{Unesite prezime studenta }#
 #\izlaz{cije informacije zelite:}#
 #\ulaz{Popovic}#
