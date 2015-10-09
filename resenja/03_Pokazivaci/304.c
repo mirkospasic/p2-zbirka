@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     argv = argv - i;
     argc = i;
   }
-
+  
   printf("Pocetna slova argumenata komandne linije:\n");
   if (tip_ispisa == 'I') {
     /* koristeci indeksnu sintaksu */
