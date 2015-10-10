@@ -1,6 +1,17 @@
 % !TEX encoding = UTF-8 Unicode
 
-\documentclass[b5paper]{book}
+%\documentclass[b5paper]{book}
+
+\newif\ifstampanaverzija
+\stampanaverzijatrue
+%\stampanaverzijafalse
+
+\ifstampanaverzija
+\documentclass[pdftex,b5paper,oneside]{book}
+\setlength{\textheight}{190mm}
+\setlength{\topmargin}{0mm}
+\fi
+
 
 \input{podesavanja/paketi.tex}
 \input{podesavanja/definisane_komande.tex}
@@ -8,8 +19,9 @@
 \newif\ifpdf
 \pdftrue
 
+
 \begin{document}
-%.\newpage
+
 \pagenumbering{roman}
 
 \input{poglavlja/P1_naslovna.tex}
