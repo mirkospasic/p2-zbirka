@@ -68,7 +68,7 @@ Korišćenjem prethodnih funkcija, napisati program koji sa standardnog ulaza u�
 
 %2.zadatak
 \begin{Exercise}[label=702]
-Napisati program koji izračunava i na standardnom izlazu ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživackog stabla uređenog leksikografski po rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku \kckod{Nedostaje ime ulazne datoteke!}. Može se pretpostaviti da dužina reči neće biti veća od 50 karaktera.
+Napisati program koji izračunava i na standardni izlaz ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživackog stabla uređenog leksikografski po rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku \kckod{Nedostaje ime ulazne datoteke!}. Može se pretpostaviti da dužina reči neće biti veća od 50 karaktera.
 
 \begin{miditest}
 \begin{test}{1}
@@ -108,6 +108,16 @@ Napisati program koji izračunava i na standardnom izlazu ispisuje broj pojavlji
 
 \begin{miditest}
 \begin{test}{3}
+#\poziv{./a.out ulaz.txt}#
+
+#\naslovDat{Datoteka ulaz.txt ne postoji}#
+
+#\naslovInt#
+#\izlaz{Greska: Neuspesno otvaranje datoteke ulaz.txt.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{test}{4}
 #\poziv{./a.out}#
   
 #\naslovIzlaz#
@@ -153,7 +163,7 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
   
 #\naslovInt#
 #\izlaz{Unesite ime datoteke:}\ulaz{imenik1.txt}#
-#\izlaz{Greska prilikom otvaranja datoteke}#
+#\izlaz{Greska: Neuspesno otvaranje datoteke imenik1.txt.}#
 #\izlaz{imenik1.txt!}#	
 \end{upotreba}
 \end{miditest}
@@ -189,11 +199,10 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 \end{miditest}
 \begin{miditest}
 \begin{test}{2}
-#\naslovDat{prijemni.txt}#
-#\datoteka{[Ova datoteka ne postoji]}#
-  
+#\naslovDat{Datoteka prijemni.txt ne postoji}#  
+
 #\naslovIzlaz#
-#\izlaz{Greska prilikom otvaranja datoteke!}#
+#\izlaz{Greska: Neuspesno otvaranje datoteke prijemni.txt.}#
 \end{test}
 \end{miditest}
 \linkresenje{705}
@@ -230,12 +239,11 @@ Napisati program koji implementira podsetnik za rođendane. Informacije o rođen
 #\izlaz{Unesite datum:}#
 \end{upotreba}
 \end{miditest}
-
 \begin{miditest}
 \begin{upotreba}{2}
-#\naslovDat{Datoteka rodjendani.txt ne postoji}#
-
 #\poziv{./a.out rodjendani.txt}#
+
+#\naslovDat{Datoteka rodjendani.txt ne postoji}#
 
 #\naslovInt#
 #\izlaz{Greska: Neuspesno otvaranje datoteke rodjendani.txt.}#
@@ -251,7 +259,7 @@ Napisati program koji implementira podsetnik za rođendane. Informacije o rođen
 %7.zadatak
 \begin{Exercise}[label=707]
 Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj. ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor* koren1, Cvor* koren2)} koja proverava da li su binarna stabla \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identična, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih stabla unositi sa standardnog ulaza sve do pojave broja $0$.
-\napomena{Skup funkcija koje smo napisali u prvom zadatku možemo iskoristiti kao malu biblioteku za rad sa binarnim pretraživačkim stablima celih brojeva. Tako će u zadacima koji slede, datoteka stabla.h predstavljati popis funkcija biblioteke, a datoteka stabla.c njihove implementacije. Programe koji koriste ovu biblioteku treba prevoditi i pokretati u skladu sa smernicama iz poglavlja 1.1.}
+\napomena{Skup funkcija napisan u prvom zadatku se može iskoristiti kao mala biblioteka za rad sa binarnim pretraživačkim stablima celih brojeva. Tako će u zadacima koji slede, datoteka stabla.h predstavljati popis funkcija biblioteke, a datoteka stabla.c njihove implementacije. Programe koji koriste ovu biblioteku treba prevoditi i pokretati u skladu sa smernicama iz poglavlja 1.1.}
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -319,7 +327,7 @@ Napisati program koji za dva binarna pretraživačka stabla čiji se elementi za
 
 %9.zadatak
 \begin{Exercise}[label=709]
-Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih brojeva \argf{a} dimenzije \argf{n} korišćenjem binarnog pretraživačkog stabla. Napisati i program koji sa standardnog ulaza učitava ceo broj \argf{n} manji od 50 i niz \argf{a} celih brojeva dužine \argf{n}, poziva funkciju \kckod{sortiraj} i rezultat ispisuje na standardnom izlazu.  
+Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih brojeva \argf{a} dimenzije \argf{n} korišćenjem binarnog pretraživačkog stabla. Napisati i program koji sa standardnog ulaza učitava ceo broj \argf{n} manji od 50 i niz \argf{a} celih brojeva dužine \argf{n}, poziva funkciju \kckod{sortiraj} i rezultat ispisuje na standardni izlaz.  
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -525,12 +533,12 @@ AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina 
 
 %15.zadatak
 \begin{Exercise}[label=715]
-Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno stablo celih brojeva hip. Napisati zatim i glavni program koji kreira stablo kao na slici \ref{fig:zadatak715}, poziva funkciju \kckod{heap} i ispisuje rezultat na standardnom izlazu. 
+Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno stablo celih brojeva hip. Napisati zatim i glavni program koji kreira stablo zadato slikom \ref{fig:zadatak715}, poziva funkciju \kckod{heap} i ispisuje rezultat na standardni izlaz. 
 
 \begin{miditest}
 \begin{test}{1}
 #\naslovIzlaz#
-#\izlaz{Zadato stablo je heap!}#
+#\izlaz{Zadato stablo je hip!}#
 \end{test}
 \end{miditest}
 \linkresenje{715}
@@ -566,7 +574,7 @@ Dato je binarno stablo celih brojeva.
 \item Napisati funkciju koja štampa sadržaj svih čvorova stabla na putanji od korena do najdubljeg čvora.
 \item Napisati funkciju koja štampa sadržaj svih čvorova stabla na putanji od korena do čvora koji ima najmanju vrednost u stablu.
 \end{enumerate}
-Napisati program koji testira gore navedene funkcije nad stablom zadatim slikom \ref{fig:zadatak711} i rezultat ispisuje na standardnom izlazu.  
+Napisati program koji testira gore navedene funkcije nad stablom zadatim slikom \ref{fig:zadatak711} i rezultat ispisuje na standardni izlaz.  
 %\linkresenje{711}
 
 \begin{maxitest}
