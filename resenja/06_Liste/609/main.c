@@ -35,7 +35,12 @@ int main(int argc, char **argv)
     /* Ako je poslednji karakter nov red, eliminise se. */
     if (nov_zahtev.opis[strlen(nov_zahtev.opis) - 1] == '\n')
       nov_zahtev.opis[strlen(nov_zahtev.opis) - 1] = '\0';
-    dodaj_u_red(&pocetak, &kraj, &nov_zahtev);
+    if (dodaj_u_red(&pocetak, &kraj, &nov_zahtev) == 1) {
+      fprintf(stderr, "Neuspela alokacija za nov cvor\n");
+      oslobodi_red(&pocetak, &kraj);
+      exit(EXIT_FAILURE);
+    }
+
     printf("\nNovi zahtev [CTRL+D za kraj]\n\tJMBG: ");
   }
 

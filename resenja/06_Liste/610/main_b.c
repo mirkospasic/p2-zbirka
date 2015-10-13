@@ -2,52 +2,42 @@
 #include <stdlib.h>
 #include "lista.h"
 
-/* 3) Glavni program */
+/* 2) Glavni program */
 int main()
 {
   Cvor *glava = NULL;
-  Cvor *trazeni = NULL;
+  Cvor *kraj = NULL;
   int broj;
 
-  /* Testira se dodavanje u listu tako da ona bude neopadajuce
-     uredjena */
-  printf("Unosite brojeve (za kraj unesite CTRL+D)\n");
+  /* Testiranje dodavanja novog broja na kraj liste. */
+  printf("Unesite brojeve: (za kraj unesite CTRL+D)\n");
   while (scanf("%d", &broj) > 0) {
     /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
        memorije za nov cvor. Memoriju alociranu za cvorove liste
        treba osloboditi pre napustanja programa. */
-    if (dodaj_sortirano(&glava, broj) == 1) {
+    if (dodaj_na_kraj_liste(&glava, &kraj, broj) == 1) {
       fprintf(stderr, "Neuspela alokacija za cvor %d\n", broj);
-      oslobodi_listu(&glava);
+      oslobodi_listu(&glava, &kraj);
       exit(EXIT_FAILURE);
     }
     printf("\tLista: ");
     ispisi_listu(glava);
   }
 
-  printf("\nUnesite broj koji se trazi u listi: ");
-  scanf("%d", &broj);
-
-  trazeni = pretrazi_listu(glava, broj);
-  if (trazeni == NULL)
-    printf("Broj %d se ne nalazi u listi!\n", broj);
-  else
-    printf("Trazeni broj %d je u listi!\n", trazeni->vrednost);
-
   printf("\nUnesite broj koji se brise iz liste: ");
   scanf("%d", &broj);
 
   /* Brisu se cvorovi iz liste cije polje vrednost je jednako broju
      procitanom sa ulaza. */
-  obrisi_cvor_sortirane_liste(&glava, broj);
+  obrisi_cvor(&glava, &kraj, broj);
 
   printf("Lista nakon brisanja:  ");
   ispisi_listu(glava);
 
   printf("\nLista ispisana u nazad: ");
-  ispisi_listu_unazad(glava);
+  ispisi_listu_unazad(kraj);
 
-  oslobodi_listu(&glava);
+  oslobodi_listu(&glava, &kraj);
 
   return 0;
 }
