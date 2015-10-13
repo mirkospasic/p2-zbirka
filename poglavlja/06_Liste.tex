@@ -37,10 +37,10 @@ Napisati biblioteku za rad sa jednostruko povezanom listom čiji čvorovi sadrž
  \end{enumerate}
 
 Funkcije dodavanja novog elementa u postojeću listu poput, \kckod{dodaj\_na\_pocetak\_liste}, \kckod{dodaj\_na\_kraj\_liste} i \kckod{dodaj\_sortirano}, 
-treba da vrate 0, ukoliko je sve bilo u redu, odnosno 1, ukoliko se dogodila greška prilikom alokacije memorije za nov čvor.
+treba da vrate $0$, ukoliko je sve bilo u redu, odnosno $1$, ukoliko se dogodila greška prilikom alokacije memorije za nov čvor.
 \napomena{Sve funkcije za rad sa listom implementirati iterativno.}
 
-Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata koji se unose sa standardnog ulaza.  Unošenje novih brojeva u listu prekida se učitavanjem kraja ulaza (EOF). Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
+Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata koji se unose sa standardnog ulaza.  Unošenje novih brojeva u listu prekida se učitavanjem kraja ulaza (\kckod{EOF}). Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
 
 \begin{enumerate}
 \item[(1)] U programu se učitani celi brojevi dodaju na početak liste. 
@@ -312,7 +312,7 @@ U datoteci se nalaze podaci o studentima. U svakom redu datoteke nalazi se indek
 Napisati program kome se preko argumenata komandne linije prosleđuje ime datoteke sa studentskim podacima koje program treba da pročita i smesti u listu. 
 Nakon završenog učitavanja svih podataka o studentima, sa standardnog ulaza unose se, jedan po jedan, indeksi studenata koji se traže u učitanoj listi. 
 Posle svakog unetog indeksa, program ispisuje poruku \kckod{da} ili \kckod{ne}, u zavisnosti od toga da li u listi postoji student sa unetim indeksom ili ne. 
-Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF). Poruke o greškama ispisivati na standardni izlaz za greške.
+Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (\kckod{EOF}). Poruke o greškama ispisivati na standardni izlaz za greške.
 \uputstvo{Pretpostaviti da je 10 karaktera dovoljno za zapis indeksa i da je 20 karaktera maksimalna dužina bilo imena bilo prezimena studenta.}
 
 % Dodavanje novog studenta izdvojiti u funkciju \kckod{void dodaj\_na\_pocetak\_liste(Cvor** glava, char* broj\_indeksa, char* ime, char* prezime)}.
@@ -607,7 +607,8 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 
 #\naslovIzlaz#
 #\izlaz{Etikete nisu pravilno uparene}#
-#\izlaz{(nadjena je etiketa </html> koja nije otvorena)}# 
+#\izlaz{(nadjena je etiketa </html>}#
+#\izlaz{koja nije otvorena)}# 
 \end{test}
 \end{miditest}
 
@@ -680,13 +681,12 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 \end{Answer}
 %=========================================================================
 \begin{Exercise}[label=609]
-Napisati program kojim se simulira rad jednog šaltera na kojem se prvo kod službenika zakazuju 
-termini, a potom službenik uslužuje korisnike. 
-Službenik evidentira korisničke \kckod{JMBG} brojeve (niske koje sadrže po $13$ karaktera) i zahteve (niska koja sadrži najviše $999$ karaktera). 
+Napisati program koji pomaže službeniku u radu na šalteru.
+Službenik najpre evidentira sve korisničke \kckod{JMBG} brojeve (niske koje sadrže po $13$ karaktera) i zahteve (niska koja sadrži najviše $999$ karaktera). 
 Prijem zahteva korisnika se prekida unošenjem karaktera za kraj ulaza, (\kckod{EOF}).
-Službenik redom pregleda zahteve i odlučuje da li zahtev obrađuje odmah ili kasnije. Postavlja mu se pitanje 
+Službenik redom pregleda zahteve i odlučuje da li zahtev obrađuje odmah ili kasnije. Program mu postavlja pitanje 
 \kckod{Da li korisnika  vracate na kraj reda?} i ukoliko on da odgovor \kckod{Da}, 
-korisnik se stavlja na kraj reda, čime se obrada njegovog zahteva odlaže. Ukoliko odgovor nije \kckod{Da}, tada službenik obrađuje zahtev i podatke o korisniku dopisuje na kraj datoteke \kckod{izvestaj.txt}. Ova datoteka, za svaki obrađen zahtev, sadrži \kckod{JMBG} i zahtev usluženog korisnika.
+korisnik se stavlja na kraj reda, čime se obrada njegovog zahteva odlaže. Ukoliko odgovor nije \kckod{Da}, službenik obrađuje zahtev i podatke o korisniku dopisuje na kraj datoteke \kckod{izvestaj.txt}. Ova datoteka, za svaki obrađen zahtev, sadrži \kckod{JMBG} i zahtev usluženog korisnika.
 Posle svakog $petog$ usluženog korisnika, službeniku se nudi mogućnost da prekine sa radom, nevezano od broja korisnika koji i dalje čekaju u redu. 
 \uputstvo{Za čuvanje korisničkih zahteva koristiti red implementiran korišćenjem listi.}
 
@@ -758,8 +758,8 @@ Dopuniti bibilioteku novim funkcijama.
  \item Napisati funkciju \kckod{void ispisi\_listu\_unazad(Cvor * kraj)} koja ispisuje sadržaj liste od poslednjeg čvora ka glavi liste.
 \end{enumerate}
 
-Sve funkcije za rad sa listom implementirati iterativno. Zbog efikasnog izvršavanja operacija dodavanja na kraj liste i ispisivanja liste unazad treba pored pokazivača na glavu liste čuvati i pokazivač na poslednji cvor liste.
-\napomena{Funkcije testirati kroz \kckod{main} programe poput onih iz zadatka \ref{601} i koristiti test primere iz istog zadatka. }
+Sve funkcije za rad sa listom implementirati iterativno. Zbog efikasnog izvršavanja operacija dodavanja na kraj liste i ispisivanja liste unazad treba, pored pokazivača na glavu liste, čuvati i pokazivač na poslednji čvor liste.
+\napomena{Funkcije testirati kroz \kckod{main} programe iz zadatka \ref{601} i koristiti test primere iz istog zadatka. }
 \linkresenje{610}
 \end{Exercise}
 \begin{Answer}[ref=610]
@@ -878,7 +878,7 @@ sve dok svi plesači ne budu isključeni.
 Celi brojevi $n$, $k$ ($k < n$) se učitavaju sa standardnog ulaza. 
 Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u redosledu napuštanja kruga. 
 \uputstvo{Pri implementaciji koristiti dvostruko povezanu kružnu listu.}
-\napomena{Iskoristiti test 3 iz \ref{612}. zadatka.}
+%\napomena{Iskoristiti test 3 iz \ref{612}. zadatka.}
 
 \begin{minitest}
 \begin{test}{1}
@@ -896,6 +896,16 @@ Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u 
 
 #\naslovIzlaz# 
 #\izlaz{4 8 5 7 6 3 2 1}# 
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{5 8}#
+
+#\naslovIzlaz# 
+#\izlaz{n mora biti uvek vece}#
+#\izlaz{od k, a 5 < 8!}#
 \end{test}
 \end{minitest}
 \end{Exercise}
