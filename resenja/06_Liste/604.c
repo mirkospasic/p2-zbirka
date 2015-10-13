@@ -1,73 +1,127 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
-typedef struct cvor {
-  char zagrada;
-  struct cvor *sledeci;
+#define MAX_INDEKS 11
+#define MAX_IME_PREZIME 21
+
+/* Struktura kojom se predstavlja cvor liste koji sadrzi podatke o
+   studentu. */
+typedef struct _Cvor {
+  char broj_indeksa[MAX_INDEKS];
+  char ime[MAX_IME_PREZIME];
+  char prezime[MAX_IME_PREZIME];
+  struct _Cvor *sledeci;
 } Cvor;
 
-int main()
+/* Funkcija kreira, inicijalizuje cvor liste i vraca pokazivac na nov 
+   cvor ili NULL ukoliko alokacija nije prosla. */
+Cvor *napravi_cvor(char *broj_indeksa, char *ime, char *prezime)
 {
-  Cvor *stek = NULL;
-  FILE *ulaz = NULL;
-  char c;
-  Cvor *pomocni = NULL;
+  Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
+  if (novi == NULL)
+    return NULL;
+  /* Inicijalizacija polja novog cvora */
+  strcpy(novi->broj_indeksa, broj_indeksa);
+  strcpy(novi->ime, ime);
+  strcpy(novi->prezime, prezime);
+  novi->sledeci = NULL;
+  return novi;
+}
 
-  ulaz = fopen("izraz.txt", "r");
-  if (ulaz == NULL) {
+/* Funkcija oslobadja memoriju zauzetu za cvorove liste. */
+void oslobodi_listu(Cvor ** adresa_glave)
+{
+  if (*adresa_glave == NULL)
+    return;
+  /* Rep liste se oslobadja rekurzivnim pozivom. */
+  oslobodi_listu(&(*adresa_glave)->sledeci);
+  /* Potom se oslobadja i glava liste. */
+  free(*adresa_glave);
+  *adresa_glave = NULL;
+}
+
+/* Funkcija dodaje novi cvor na pocetak liste. Vraca 1 ako je doslo
+   do greske pri alokaciji memorije za nov cvor, inace vraca 0. */
+int dodaj_na_pocetak_liste(Cvor ** adresa_glave, char *broj_indeksa,
+                           char *ime, char *prezime)
+{
+  Cvor *novi = napravi_cvor(broj_indeksa, ime, prezime);
+  if (novi == NULL)
+    return 1;
+
+  novi->sledeci = *adresa_glave;
+  *adresa_glave = novi;
+  return 0;
+}
+
+/* Funkcija ispisuje sadrzaj cvorova liste. */
+void ispisi_listu(Cvor * glava)
+{
+  for (; glava != NULL; glava = glava->sledeci)
+    printf("%s %s %s\n", glava->broj_indeksa, glava->ime,
+           glava->prezime);
+}
+
+/* Funkcija vraca cvor koji kao vrednost sadrzi trazenu etiketu, u
+   suprotnom vraca NULL. */
+Cvor *pretrazi_listu(Cvor * glava, char *broj_indeksa)
+{
+  if (glava == NULL)
+    return NULL;
+  if (!strcmp(glava->broj_indeksa, broj_indeksa))
+    return glava;
+  return pretrazi_listu(glava->sledeci, broj_indeksa);
+}
+
+int main(int argc, char **argv)
+{
+  /* Argumenti komandne linije su neophodni jer se iz komandne linije 
+     dobija ime datoteke sa informacijama o studentima. */
+  if (argc != 2) {
     fprintf(stderr,
-            "Greska prilikom otvaranja datoteke izraz.txt!\n");
+            "Greska! Program se poziva sa: ./a.out ime_datoteke\n");
     exit(EXIT_FAILURE);
   }
 
-  while ((c = fgetc(ulaz)) != EOF) {
-    /* Ako je ucitana otvorena zagrada, stavlja se na stek. */
-    if (c == '(' || c == '{' || c == '[') {
-      pomocni = (Cvor *) malloc(sizeof(Cvor));
-      if (pomocni == NULL) {
-        fprintf(stderr, "Greska prilikom alokacije memorije!\n");
-        return 1;
-      }
-      pomocni->zagrada = c;
-      pomocni->sledeci = stek;
-      stek = pomocni;
-    }
-    /* Ako je ucitana zatvorena zagrada, proverava se da li je stek
-       prazan i ako nije, da li se na vrhu steka nalazi odgovarajuca
-       otvorena zagrada. */
-    else {
-      if (c == ')' || c == '}' || c == ']') {
-        if (stek != NULL && ((stek->zagrada == '(' && c == ')')
-                             || (stek->zagrada == '{' && c == '}')
-                             || (stek->zagrada == '[' && c == ']'))) {
-          /* Sa vrha steka se uklanja otvorena zagrada */
-          pomocni = stek->sledeci;
-          free(stek);
-          stek = pomocni;
-        } else {
-          /* Zagrade u izrazu nisu ispravno uparene. */
-          break;
-        }
-      }
-    }
+  /* Otvaranje datoteke za citanje */
+  FILE *in = NULL;
+  in = fopen(argv[1], "r");
+  if (in == NULL) {
+    fprintf(stderr,
+            "Greska prilikom otvaranja datoteke %s.\n", argv[1]);
+    exit(EXIT_FAILURE);
   }
-  /* Procitana je cela datoteka. Zatvaramo je. */
-  fclose(ulaz);
 
-  /* Ako je stek prazan i procitana je cela datoteka, zagrade su
-     ispravno uparene, u suprotnom, nisu. */
-  if (stek == NULL && c == EOF)
-    printf("Zagrade su ispravno uparene.\n");
-  else {
-    printf("Zagrade nisu ispravno uparene.\n");
-    /* U slucaju neispravnog uparivanja treba osloboditi memoriju
-       koja je ostala zauzeta stekom. */
-    while (stek != NULL) {
-      pomocni = stek->sledeci;
-      free(stek);
-      stek = pomocni;
+  /* Pomocne promenljive za citanje vrednosti koje treba smestiti u
+     listu */
+  char ime[MAX_IME_PREZIME], prezime[MAX_IME_PREZIME];
+  char broj_indeksa[MAX_INDEKS];
+  Cvor *glava = NULL;
+  Cvor *trazeni = NULL;
+
+  /* Ucitavanje vrednosti u listu */
+  while (fscanf(in, "%s %s %s", broj_indeksa, ime, prezime) != EOF)
+    if (dodaj_na_pocetak_liste(&glava, broj_indeksa, ime, prezime)) {
+      fprintf(stderr, "Neuspela alokacija za nov cvor\n");
+      oslobodi_listu(&glava);
+      exit(EXIT_FAILURE);
     }
+
+  /* Datoteka vise nije potrebna i zatvara se. */
+  fclose(in);
+
+  /* Ucitava se indeks po indeks studenta koji se trazi u listi. */
+  while (scanf("%s", broj_indeksa) != EOF) {
+    trazeni = pretrazi_listu(glava, broj_indeksa);
+    if (trazeni == NULL)
+      printf("ne\n");
+    else
+      printf("da: %s %s\n", trazeni->ime, trazeni->prezime);
   }
+
+  /* Oslobadja se memorija zauzeta za cvorove liste. */
+  oslobodi_listu(&glava);
 
   return 0;
 }

@@ -233,29 +233,277 @@ Napisati biblioteku za rad sa jednostruko povezanim listama koja sadrži sve fun
 \includecode{resenja/06_Liste/602/lista.c}
 \end{Answer}
 
-%=========================================================================
+%========================================================================
 \begin{Exercise}[label=603]
-Napisati biblioteku za rad sa dvostruko povezanom listom celih brojeva koja ima iste funkcionalnosti kao biblioteka iz zadatka \ref{601}. 
-Dopuniti bibilioteku novim funkcijama.
-\begin{enumerate}
- \item Napisati funkciju \kckod{void obrisi\_tekuci(Cvor ** adresa\_glave, Cvor * tekuci)} koja briše čvor na koji pokazuje pokazivač \kckod{tekuci} iz liste čiji se pokazivač na čvor koji je glava liste nalazi na adresi \kckod{adresa\_glave}.
- \item Napisati funkciju \kckod{void ispisi\_listu\_unazad(Cvor * glava)} koja ispisuje sadržaj liste od poslednjeg čvora ka glavi liste.
-\end{enumerate}
+Napisati program koji prebrojava pojavljivanja etiketa \kckod{HTML} 
+datoteke čije se ime zadaje kao argument komandne linije. Rezultat prebrojavanja 
+ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste koristiti strukturu:
+\begin{ckod} 
+ typedef struct _Element
+ {
+   unsigned broj_pojavljivanja;
+   char etiketa[20];
+   struct _Element *sledeci;
+ } Element;
+\end{ckod}
+\begin{miditest}
+\begin{test}{1}
+#\poziv{./a.out datoteka.html}#
 
-Sve funkcije za rad sa listom implementirati iterativno.
-\napomena{Koristiti iste \kckod{main} programe i test primere iz zadatka \ref{601}. Ove programe dopuniti pozivom funkcije koja ispisuje listu unazad. }
+#\naslovDat{datoteka.html}#
+#\datoteka{<html>}#                       
+#\datoteka{  <head><title>Primer</title></head>}#
+#\datoteka{  <body>}#
+#\datoteka{  \ \ <h1>Naslov</h1>}#
+#\datoteka{  \ \ Danas je lep i suncan dan. <br>}#
+#\datoteka{  \ \ A sutra ce biti jos lepsi.}#
+#\datoteka{  \ \ <a link='http://www.google.com'> Link 1</a>}#     
+#\datoteka{  \ \ <a link='http://www.math.rs'> Link 2</a>}# 
+#\datoteka{  </body>}# 
+#\datoteka{</html>}# 
+
+#\naslovIzlaz#
+#\izlaz{a - 4}#
+#\izlaz{br - 1}#
+#\izlaz{h1 - 2}#
+#\izlaz{body - 2}#
+#\izlaz{title - 2}#
+#\izlaz{head - 2}#
+#\izlaz{html - 2}#
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{2}
+#\poziv{./a.out datoteka.html}#
+
+#\naslovDat{Datoteka datoteka.html ne postoji.}#
+
+#\naslovIzlaz#
+#\izlaz{Greska prilikom otvaranja}#
+#\izlaz{datoteke datoteka.html.}#
+\end{test}
+\end{miditest}
+% \begin{miditest}
+% \begin{test}{3}
+% #\poziv{./a.out}#
+% 
+% #\naslovIzlaz#
+% #\izlaz{Greska! Program se poziva }#
+% #\izlaz{sa: ./a.out datoteka.html!}#
+% \end{test}
+% \end{miditest}
+% \begin{miditest}
+% \begin{test}{4}
+% #\poziv{./a.out datoteka.html}#
+% 
+% #\naslovDat{datoteka.html}#
+% #\datoteka{Datoteka je prazna.}#
+% \end{test}
+% \end{miditest}
 \linkresenje{603}
 \end{Exercise}
 \begin{Answer}[ref=603]
-\includecode{resenja/06_Liste/603/lista.h}
-\includecode{resenja/06_Liste/603/lista.c}
-\includecode{resenja/06_Liste/603/main_a.c}
-\includecode{resenja/06_Liste/603/main_b.c}
-\includecode{resenja/06_Liste/603/main_c.c}
+\includecode{resenja/06_Liste/603.c}
 \end{Answer}
 
 %=========================================================================
 \begin{Exercise}[label=604]
+U datoteci se nalaze podaci o studentima. U svakom redu datoteke nalazi se indeks, ime i prezime studenta. 
+Napisati program kome se preko argumenata komandne linije prosleđuje ime datoteke sa studentskim podacima koje program treba da pročita i smesti u listu. 
+Nakon završenog učitavanja svih podataka o studentima, sa standardnog ulaza unose se, jedan po jedan, indeksi studenata koji se traže u učitanoj listi. 
+Posle svakog unetog indeksa, program ispisuje poruku \kckod{da} ili \kckod{ne}, u zavisnosti od toga da li u listi postoji student sa unetim indeksom ili ne. 
+Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF). Poruke o greškama ispisivati na standardni izlaz za greške.
+\uputstvo{Pretpostaviti da je 10 karaktera dovoljno za zapis indeksa i da je 20 karaktera maksimalna dužina bilo imena bilo prezimena studenta.}
+
+% Dodavanje novog studenta izdvojiti u funkciju \kckod{void dodaj\_na\_pocetak\_liste(Cvor** glava, char* broj\_indeksa, char* ime, char* prezime)}.
+% Napisati rekurzivnu funkciju \kckod{Cvor* pretrazi\_listu(Cvor* glava, char* broj\_indeksa)} 
+% koja određuje da li student sa zadatim brojem indeksa pripada listi ili ne.
+% Nakon završenog pretraživanja rekurzivnom funkcijom \kckod{void oslobodi\_listu(Cvor** glava)} osloboditi memoriju koju je lista sa studentima zauzimala.
+
+
+\begin{miditest}
+\begin{upotreba}{1}
+#\poziv{./a.out studenti.txt}#
+
+#\naslovDat{studenti.txt}#
+#\datoteka{123/2014 Marko Lukic}#
+#\datoteka{3/2014   Ana Sokic}#
+#\datoteka{43/2013  Jelena Ilic}#
+#\datoteka{41/2009  Marija Zaric}#
+#\datoteka{13/2010  Milovan Lazic}#
+
+#\naslovInt#           
+#\ulaz{3/2014} \izlaz{da: Ana Sokic}#
+#\ulaz{235/2008} \izlaz{ne}#
+#\ulaz{41/2009} \izlaz{da: Marija Zaric}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\poziv{./a.out  studenti.txt}#
+
+#\naslovDat{Datoteka studenti.txt je prazna}#
+
+#\naslovInt#
+#\ulaz{3/2014} \izlaz{ne}#
+#\ulaz{235/2008} \izlaz{ne}#
+#\ulaz{41/2009} \izlaz{ne}#
+\end{upotreba}
+\end{miditest}
+% \begin{miditest}
+% \begin{upotreba}{3}
+% #\poziv{./a.out}#
+% 
+% #\naslovIzlaz# 
+% #\izlaz{Greska! Program se poziva sa: }#
+% #\izlaz{./a.out ime_datoteke}#
+% \end{upotreba}
+% \end{miditest}
+% \begin{miditest}
+% \begin{upotreba}{4}
+% #\poziv{./a.out  studenti.txt}#
+% 
+% #\naslovDat{Datoteka studenti.txt ne postoji.}#
+% 
+% #\naslovIzlaz#
+% #\izlaz{Greska prilikom otvaranja datoteke}#
+% #\izlaz{studenti.txt.}#
+% \end{upotreba}
+% \end{miditest}  
+
+\linkresenje{604}
+\end{Exercise}
+\begin{Answer}[ref=604]
+\includecode{resenja/06_Liste/604.c}
+\end{Answer}
+%=========================================================================
+
+\begin{Exercise}[label=605]
+%\komentar{Milena: malo me muci u ovom zadatku sto nema neki smisao. Naime, ako se samo vrsi ucitavanje iz datoteka i ispisivanje,  onda su ove liste zapravo visak jer isti rezultat moze da se dobije i bez koriscenja listi. Zato mi fali da program uradi nesto sto ne bi mogao da uradi bez koriscenja listi, npr da na osnovu unetog broja ispisuje svaki n-ti broj rezultujuce liste pa to u nekoj petlji da korisnik moze da ispisuje za razlicite unete n ili tako nesto... }
+Napisati program koji objedinjuje dve sortirane liste u jednu sortiranu listu. Funkcija ne treba da 
+kreira nove, već da samo preraspodeli postojeće čvorove. Prva lista se učitava iz datoteke čije ime se zadaje kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.
+\napomena{Koristiti biblioteku za rad sa listama celih brojeva iz zadatka \ref{601}.}
+
+
+\begin{miditest}
+\begin{test}{1}
+#\poziv{./a.out dat1.txt dat2.txt}#
+
+#\naslovDat{dat1.txt}#
+#\datoteka{2 4 6 10 15}#
+
+#\naslovDat{dat2.txt}#
+#\datoteka{5 6 11 12 14 16}#
+
+#\naslovIzlaz#
+#\izlaz{[2, 4, 5, 6, 6, 10, 11, 12, 14, 15, 16]}#
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{2}
+#\poziv{./a.out dat1.txt dat2.txt}#
+
+#\naslovDat{dat1.txt}#
+#\datoteka{2 4 6 10 15}#
+
+#\naslovDat{Datoteka dat2.txt ne postoji.}#
+
+#\naslovIzlaz#
+#\izlaz{Greska prilikom otvaranja datoteke}#
+#\izlaz{dat2.txt.}#
+\end{test}
+\end{miditest}
+% \begin{miditest}
+% \begin{test}{3}
+% #\poziv{./a.out dat1.txt dat2.txt}#
+% 
+% #\naslovDat{Datoteka dat1.txt ne postoji.}#
+% 
+% #\naslovDat{dat2.txt}#
+% #\datoteka{5 6 11 12 14 16}#
+% 
+% #\naslovIzlaz#
+% #\izlaz{Greska prilikom otvaranja datoteke}#
+% #\izlaz{dat1.txt.}#
+% \end{test}
+% \end{miditest}  
+% \begin{miditest}
+% \begin{test}{4}
+% #\poziv{./a.out dat1.txt dat2.txt}#
+% 
+% #\naslovDat{dat1.txt}#
+% #\datoteka{2 4 6 10 15}#
+% 
+% #\naslovDat{dat2.txt}#
+% #\datoteka{Datoteka je prazna.}#
+% 
+% #\naslovIzlaz#
+% #\izlaz{[2, 4, 6, 10, 15]}#
+% \end{test}
+% \end{miditest}
+
+\begin{miditest}
+\begin{test}{3}
+#\poziv{./a.out dat1.txt dat2.txt}#
+
+#\naslovDat{Datoteka dat1.txt je prazna}#
+
+#\naslovDat{dat2.txt}#
+#\datoteka{5 6 11 12 14 16}#
+
+#\naslovIzlaz#
+#\izlaz{[5, 6, 11, 12, 14, 16]}#
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{4}
+#\poziv{./a.out dat1.txt}#
+
+#\naslovIzlaz# 
+#\izlaz{Program se poziva sa:}# 
+#\izlaz{./a.out dat1.txt dat2.txt!}#
+\end{test}
+\end{miditest}
+
+\linkresenje{605}  
+\end{Exercise}
+\begin{Answer}[ref=605]
+\includecode{resenja/06_Liste/605.c}
+\end{Answer}
+
+%% Dodatni
+%=========================================================================
+\begin{Exercise}[label=606]
+Date su dve jednostruko povezane liste \kckod{L1} i \kckod{L2}. Napisati funkciju koja od 
+ovih listi formira novu listu \kckod{L} koja sadrži naizmenično raspoređene čvorove 
+listi \kckod{L1} i \kckod{L2}: prvi čvor iz \kckod{L1}, prvi čvor iz \kckod{L2}, drugi čvor \kckod{L1},
+drugi čvor \kckod{L2}, itd. Ne formirati nove čvorove, već samo postojeće rasporediti u jednu listu. Prva lista se učitava iz datoteke čije se ime zadaje kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao 
+drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz. 
+%\komentar{Milena: Sta ako je neka lista duza? To precizirati. I ovde me muci sto nedostaje neki smisao zadatku, nesto sto ne bi moglo da se uradi da nismo koristili liste. }
+
+\napomena{Iskoristiti testove 2 - 6 za zadatak \ref{605}.}
+
+\begin{miditest}
+\begin{test}{1}
+#\poziv{./a.out dat1.txt dat2.txt}#
+
+#\naslovDat{dat1.txt}#
+#\datoteka{2 4 6 10 15}#
+
+#\naslovDat{dat2.txt}#
+#\datoteka{5 6 11 12 14 16}#
+
+#\naslovIzlaz#
+#\izlaz{2 5 4 6 6 11 10 12 15 14 16}#
+\end{test}
+\end{miditest}
+\end{Exercise}
+%\begin{Answer}[ref=606]
+% \includecode{resenja/06_Liste/601.c}
+%\end{Answer}
+
+%=========================================================================
+\begin{Exercise}[label=607]
 Sadržaj datoteke je aritmetički izraz koji može sadržati zagrade \{, [ i (. 
 Napisati program koji učitava sadržaj datoteke \kckod{izraz.txt} i korišćenjem steka 
 utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa odgovarajuću poruku na standardni izlaz.
@@ -297,6 +545,7 @@ utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
 #\izlaz{Zagrade nisu ispravno uparene.}#
 \end{test}
 \end{miditest}
+
 \begin{miditest}
 \begin{test}{5}
 #\naslovDat{Datoteka izraz.txt je prazna}#
@@ -314,14 +563,14 @@ utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
 #\izlaz{datoteke izraz.txt!}#
 \end{test}
 \end{miditest}
-\linkresenje{604}
+\linkresenje{607}
 \end{Exercise}
-\begin{Answer}[ref=604]
-\includecode{resenja/06_Liste/604.c}
+\begin{Answer}[ref=607]
+\includecode{resenja/06_Liste/607.c}
 \end{Answer}
 
 %=========================================================================
-\begin{Exercise}[label=605]
+\begin{Exercise}[label=608]
 Napisati program koji proverava ispravnost uparivanja etiketa u \kckod{HTML} datoteci. Ime datoteke se zadaje kao argument komandne linije.
 Poruke o greškama ispisivati na standardni izlaz za greške.
 \uputstvo{Za rešavanje problema koristiti stek implementiran preko liste čiji čvorovi sadrže \kckod{HTML} etikete.}
@@ -424,13 +673,13 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 #\izlaz{Etikete su pravilno uparene!}#
 \end{test}
 \end{miditest}
-\linkresenje{605}
+\linkresenje{608}
 \end{Exercise}
-\begin{Answer}[ref=605]
-\includecode{resenja/06_Liste/605.c}
+\begin{Answer}[ref=608]
+\includecode{resenja/06_Liste/608.c}
 \end{Answer}
 %=========================================================================
-\begin{Exercise}[label=606]
+\begin{Exercise}[label=609]
 Napisati program kojim se simulira rad jednog šaltera na kojem se prvo kod službenika zakazuju 
 termini, a potom službenik uslužuje korisnike. 
 Službenik evidentira korisničke \kckod{JMBG} brojeve (niske koje sadrže po $13$ karaktera) i zahteve (niska koja sadrži najviše $999$ karaktera). 
@@ -492,285 +741,38 @@ Posle svakog $petog$ usluženog korisnika, službeniku se nudi mogućnost da pre
 #\datoteka{  JMBG: 1234567890123     Zahtev: Otvaranje racuna}#
 \end{upotreba}
 \end{maxitest}
-\linkresenje{606}
-\end{Exercise}
-\begin{Answer}[ref=606]
-\includecode{resenja/06_Liste/606/red.h}
-\includecode{resenja/06_Liste/606/red.c}
-\includecode{resenja/06_Liste/606/main.c}
-\end{Answer}
-
-%%% Obavezni sa praktikuma
-%=========================================================================
-\begin{Exercise}[label=607]
-Napisati program koji prebrojava pojavljivanja etiketa \kckod{HTML} 
-datoteke čije se ime zadaje kao argument komandne linije. Rezultat prebrojavanja 
-ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste koristiti strukturu:
-\begin{ckod} 
- typedef struct _Element
- {
-   unsigned broj_pojavljivanja;
-   char etiketa[20];
-   struct _Element *sledeci;
- } Element;
-\end{ckod}
-\begin{miditest}
-\begin{test}{1}
-#\poziv{./a.out datoteka.html}#
-
-#\naslovDat{datoteka.html}#
-#\datoteka{<html>}#                       
-#\datoteka{  <head><title>Primer</title></head>}#
-#\datoteka{  <body>}#
-#\datoteka{  \ \ <h1>Naslov</h1>}#
-#\datoteka{  \ \ Danas je lep i suncan dan. <br>}#
-#\datoteka{  \ \ A sutra ce biti jos lepsi.}#
-#\datoteka{  \ \ <a link='http://www.google.com'> Link 1</a>}#     
-#\datoteka{  \ \ <a link='http://www.math.rs'> Link 2</a>}# 
-#\datoteka{  </body>}# 
-#\datoteka{</html>}# 
-
-#\naslovIzlaz#
-#\izlaz{a - 4}#
-#\izlaz{br - 1}#
-#\izlaz{h1 - 2}#
-#\izlaz{body - 2}#
-#\izlaz{title - 2}#
-#\izlaz{head - 2}#
-#\izlaz{html - 2}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{2}
-#\poziv{./a.out datoteka.html}#
-
-#\naslovDat{Datoteka datoteka.html ne postoji.}#
-
-#\naslovIzlaz#
-#\izlaz{Greska prilikom otvaranja}#
-#\izlaz{datoteke datoteka.html.}#
-\end{test}
-\end{miditest}
-% \begin{miditest}
-% \begin{test}{3}
-% #\poziv{./a.out}#
-% 
-% #\naslovIzlaz#
-% #\izlaz{Greska! Program se poziva }#
-% #\izlaz{sa: ./a.out datoteka.html!}#
-% \end{test}
-% \end{miditest}
-% \begin{miditest}
-% \begin{test}{4}
-% #\poziv{./a.out datoteka.html}#
-% 
-% #\naslovDat{datoteka.html}#
-% #\datoteka{Datoteka je prazna.}#
-% \end{test}
-% \end{miditest}
-\linkresenje{607}
-\end{Exercise}
-\begin{Answer}[ref=607]
-\includecode{resenja/06_Liste/607.c}
-\end{Answer}
-
-%=========================================================================
-\begin{Exercise}[label=608]
-U datoteci se nalaze podaci o studentima. U svakom redu datoteke nalazi se indeks, ime i prezime studenta. 
-Napisati program kome se preko argumenata komandne linije prosleđuje ime datoteke sa studentskim podacima koje program treba da pročita i smesti u listu. 
-Nakon završenog učitavanja svih podataka o studentima, sa standardnog ulaza unose se, jedan po jedan, indeksi studenata koji se traže u učitanoj listi. 
-Posle svakog unetog indeksa, program ispisuje poruku \kckod{da} ili \kckod{ne}, u zavisnosti od toga da li u listi postoji student sa unetim indeksom ili ne. 
-Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF). Poruke o greškama ispisivati na standardni izlaz za greške.
-\uputstvo{Pretpostaviti da je 10 karaktera dovoljno za zapis indeksa i da je 20 karaktera maksimalna dužina bilo imena bilo prezimena studenta.}
-
-% Dodavanje novog studenta izdvojiti u funkciju \kckod{void dodaj\_na\_pocetak\_liste(Cvor** glava, char* broj\_indeksa, char* ime, char* prezime)}.
-% Napisati rekurzivnu funkciju \kckod{Cvor* pretrazi\_listu(Cvor* glava, char* broj\_indeksa)} 
-% koja određuje da li student sa zadatim brojem indeksa pripada listi ili ne.
-% Nakon završenog pretraživanja rekurzivnom funkcijom \kckod{void oslobodi\_listu(Cvor** glava)} osloboditi memoriju koju je lista sa studentima zauzimala.
-
-
-\begin{miditest}
-\begin{upotreba}{1}
-#\poziv{./a.out studenti.txt}#
-
-#\naslovDat{studenti.txt}#
-#\datoteka{123/2014 Marko Lukic}#
-#\datoteka{3/2014   Ana Sokic}#
-#\datoteka{43/2013  Jelena Ilic}#
-#\datoteka{41/2009  Marija Zaric}#
-#\datoteka{13/2010  Milovan Lazic}#
-
-#\naslovInt#           
-#\ulaz{3/2014} \izlaz{da: Ana Sokic}#
-#\ulaz{235/2008} \izlaz{ne}#
-#\ulaz{41/2009} \izlaz{da: Marija Zaric}#
-\end{upotreba}
-\end{miditest}
-\begin{miditest}
-\begin{upotreba}{2}
-#\poziv{./a.out  studenti.txt}#
-
-#\naslovDat{Datoteka studenti.txt je prazna}#
-
-#\naslovInt#
-#\ulaz{3/2014} \izlaz{ne}#
-#\ulaz{235/2008} \izlaz{ne}#
-#\ulaz{41/2009} \izlaz{ne}#
-\end{upotreba}
-\end{miditest}
-% \begin{miditest}
-% \begin{upotreba}{3}
-% #\poziv{./a.out}#
-% 
-% #\naslovIzlaz# 
-% #\izlaz{Greska! Program se poziva sa: }#
-% #\izlaz{./a.out ime_datoteke}#
-% \end{upotreba}
-% \end{miditest}
-% \begin{miditest}
-% \begin{upotreba}{4}
-% #\poziv{./a.out  studenti.txt}#
-% 
-% #\naslovDat{Datoteka studenti.txt ne postoji.}#
-% 
-% #\naslovIzlaz#
-% #\izlaz{Greska prilikom otvaranja datoteke}#
-% #\izlaz{studenti.txt.}#
-% \end{upotreba}
-% \end{miditest}  
-
-\linkresenje{608}
-\end{Exercise}
-\begin{Answer}[ref=608]
-\includecode{resenja/06_Liste/608.c}
-\end{Answer}
-
-%=========================================================================
-\begin{Exercise}[label=609]
-%\komentar{Milena: malo me muci u ovom zadatku sto nema neki smisao. Naime, ako se samo vrsi ucitavanje iz datoteka i ispisivanje,  onda su ove liste zapravo visak jer isti rezultat moze da se dobije i bez koriscenja listi. Zato mi fali da program uradi nesto sto ne bi mogao da uradi bez koriscenja listi, npr da na osnovu unetog broja ispisuje svaki n-ti broj rezultujuce liste pa to u nekoj petlji da korisnik moze da ispisuje za razlicite unete n ili tako nesto... }
-Napisati program koji objedinjuje dve sortirane liste u jednu sortiranu listu. Funkcija ne treba da 
-kreira nove, već da samo preraspodeli postojeće čvorove. Prva lista se učitava iz datoteke čije ime se zadaje kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.
-\napomena{Koristiti biblioteku za rad sa listama celih brojeva iz zadatka \ref{601}.}
-
-
-\begin{miditest}
-\begin{test}{1}
-#\poziv{./a.out dat1.txt dat2.txt}#
-
-#\naslovDat{dat1.txt}#
-#\datoteka{2 4 6 10 15}#
-
-#\naslovDat{dat2.txt}#
-#\datoteka{5 6 11 12 14 16}#
-
-#\naslovIzlaz#
-#\izlaz{[2, 4, 5, 6, 6, 10, 11, 12, 14, 15, 16]}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{2}
-#\poziv{./a.out dat1.txt dat2.txt}#
-
-#\naslovDat{dat1.txt}#
-#\datoteka{2 4 6 10 15}#
-
-#\naslovDat{Datoteka dat2.txt ne postoji.}#
-
-#\naslovIzlaz#
-#\izlaz{Greska prilikom otvaranja datoteke}#
-#\izlaz{dat2.txt.}#
-\end{test}
-\end{miditest}
-% \begin{miditest}
-% \begin{test}{3}
-% #\poziv{./a.out dat1.txt dat2.txt}#
-% 
-% #\naslovDat{Datoteka dat1.txt ne postoji.}#
-% 
-% #\naslovDat{dat2.txt}#
-% #\datoteka{5 6 11 12 14 16}#
-% 
-% #\naslovIzlaz#
-% #\izlaz{Greska prilikom otvaranja datoteke}#
-% #\izlaz{dat1.txt.}#
-% \end{test}
-% \end{miditest}  
-% \begin{miditest}
-% \begin{test}{4}
-% #\poziv{./a.out dat1.txt dat2.txt}#
-% 
-% #\naslovDat{dat1.txt}#
-% #\datoteka{2 4 6 10 15}#
-% 
-% #\naslovDat{dat2.txt}#
-% #\datoteka{Datoteka je prazna.}#
-% 
-% #\naslovIzlaz#
-% #\izlaz{[2, 4, 6, 10, 15]}#
-% \end{test}
-% \end{miditest}
-
-\begin{miditest}
-\begin{test}{3}
-#\poziv{./a.out dat1.txt dat2.txt}#
-
-#\naslovDat{Datoteka dat1.txt je prazna}#
-
-#\naslovDat{dat2.txt}#
-#\datoteka{5 6 11 12 14 16}#
-
-#\naslovIzlaz#
-#\izlaz{[5, 6, 11, 12, 14, 16]}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{4}
-#\poziv{./a.out dat1.txt}#
-
-#\naslovIzlaz# 
-#\izlaz{Program se poziva sa:}# 
-#\izlaz{./a.out dat1.txt dat2.txt!}#
-\end{test}
-\end{miditest}
-
-\linkresenje{609}  
+\linkresenje{609}
 \end{Exercise}
 \begin{Answer}[ref=609]
-\includecode{resenja/06_Liste/609.c}
+\includecode{resenja/06_Liste/609/red.h}
+\includecode{resenja/06_Liste/609/red.c}
+\includecode{resenja/06_Liste/609/main.c}
 \end{Answer}
 
-%% Dodatni
 %=========================================================================
 \begin{Exercise}[label=610]
-Date su dve jednostruko povezane liste \kckod{L1} i \kckod{L2}. Napisati funkciju koja od 
-ovih listi formira novu listu \kckod{L} koja sadrži naizmenično raspoređene čvorove 
-listi \kckod{L1} i \kckod{L2}: prvi čvor iz \kckod{L1}, prvi čvor iz \kckod{L2}, drugi čvor \kckod{L1},
-drugi čvor \kckod{L2}, itd. Ne formirati nove čvorove, već samo postojeće rasporediti u jednu listu. Prva lista se učitava iz datoteke čije se ime zadaje kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao 
-drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz. 
-%\komentar{Milena: Sta ako je neka lista duza? To precizirati. I ovde me muci sto nedostaje neki smisao zadatku, nesto sto ne bi moglo da se uradi da nismo koristili liste. }
+Napisati biblioteku za rad sa dvostruko povezanom listom celih brojeva koja ima iste funkcionalnosti kao biblioteka iz zadatka \ref{601}. 
+Dopuniti bibilioteku novim funkcijama.
+\begin{enumerate}
+ \item Napisati funkciju \kckod{void obrisi\_tekuci(Cvor ** adresa\_glave, Cvor ** adresa\_kraja, Cvor * tekuci)} koja briše čvor na koji pokazuje pokazivač \kckod{tekuci} iz liste čiji se pokazivač na čvor koji je glava liste nalazi na adresi \kckod{adresa\_glave} i poslednji čvor liste na adresi \kckod{adresa\_kraja}.
+ \item Napisati funkciju \kckod{void ispisi\_listu\_unazad(Cvor * kraj)} koja ispisuje sadržaj liste od poslednjeg čvora ka glavi liste.
+\end{enumerate}
 
-\napomena{Iskoristiti testove 2 - 6 za zadatak \ref{609}.}
-
-\begin{miditest}
-\begin{test}{1}
-#\poziv{./a.out dat1.txt dat2.txt}#
-
-#\naslovDat{dat1.txt}#
-#\datoteka{2 4 6 10 15}#
-
-#\naslovDat{dat2.txt}#
-#\datoteka{5 6 11 12 14 16}#
-
-#\naslovIzlaz#
-#\izlaz{2 5 4 6 6 11 10 12 15 14 16}#
-\end{test}
-\end{miditest}
+Sve funkcije za rad sa listom implementirati iterativno. Zbog efikasnog izvršavanja operacija dodavanja na kraj liste i ispisivanja liste unazad treba pored pokazivača na glavu liste čuvati i pokazivač na poslednji cvor liste.
+\napomena{Funkcije testirati kroz \kckod{main} programe poput onih iz zadatka \ref{601} i koristiti test primere iz istog zadatka. }
+\linkresenje{610}
 \end{Exercise}
-%\begin{Answer}[ref=610]
-% \includecode{resenja/06_Liste/601.c}
-%\end{Answer}
+\begin{Answer}[ref=610]
+\includecode{resenja/06_Liste/610/lista.h}
+\includecode{resenja/06_Liste/610/lista.c}
+\includecode{resenja/06_Liste/610/main_a.c}
+\includecode{resenja/06_Liste/610/main_b.c}
+\includecode{resenja/06_Liste/610/main_c.c}
+\end{Answer}
+
 
 %=========================================================================
+
 \begin{Exercise}[label=611]
 Data je datoteka \kckod{brojevi.txt} koja sadrži cele brojeve.
 \begin{enumerate}

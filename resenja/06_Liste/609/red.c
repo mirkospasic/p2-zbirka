@@ -23,25 +23,14 @@ void oslobodi_red(Cvor ** pocetak, Cvor ** kraj)
   *kraj = NULL;
 }
 
-void proveri_alokaciju(Cvor ** adresa_pocetka,
-                       Cvor ** adresa_kraja, Cvor * novi)
-{
-  if (novi == NULL) {
-    fprintf(stderr, "Neuspela alokacija za nov cvor\n");
-    oslobodi_red(adresa_pocetka, adresa_kraja);
-    exit(EXIT_FAILURE);
-  }
-}
-
-void dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
-                 Zahtev * zahtev)
+int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
+                Zahtev * zahtev)
 {
   Cvor *novi = napravi_cvor(zahtev);
-  proveri_alokaciju(adresa_pocetka, adresa_kraja, novi);
-
-  /* U red se uvek dodaje na kraj, ali zbog postojanja pokazivaca na
-     kraj, dodavanje na kraj je podjednako efikasno kao dodavanje na
-     pocetak. */
+  if (novi == NULL)
+    return 1;
+  /* U red se uvek dodaje na kraj. Zbog postojanja pokazivaca na
+     kraj, to je podjednako efikasno kao dodavanje na pocetak liste */
   if (*adresa_kraja != NULL) {
     (*adresa_kraja)->sledeci = novi;
     *adresa_kraja = novi;
@@ -50,6 +39,7 @@ void dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
     *adresa_pocetka = novi;
     *adresa_kraja = novi;
   }
+  return 0;
 }
 
 int skini_sa_reda(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
