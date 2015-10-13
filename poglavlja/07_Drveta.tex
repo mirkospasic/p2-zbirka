@@ -4,7 +4,7 @@
 \begin{Exercise}[label=701]
 Napisati program za rad sa binarnim pretraživačkim stablima.
 \begin{enumerate}
-\item Definisati strukturu \kckod{Cvor} kojom se opisuje čvor binarnog pretraživačkog stabla koja sadrži ceo broj \kckod{broj} i pokazivače \kckod{levo} i \kckod{desno} redom na levo i desno podstablo.
+\item Definisati strukturu \kckod{Cvor} kojom se opisuje čvor binarnog pretraživačkog stabla, a koja sadrži ceo broj \kckod{broj} i pokazivače \kckod{levo} i \kckod{desno} redom na levo i desno podstablo.
 
 \item Napisati funkciju \kckod{Cvor* napravi\_cvor(int broj)} koja alocira memoriju za novi čvor stabla i vrši njegovu inicijalizaciju zadatim celim brojem \argf{broj}.
 
@@ -163,7 +163,8 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
   
 #\naslovInt#
 #\izlaz{Unesite ime datoteke:}\ulaz{imenik1.txt}#
-#\izlaz{Greska: Neuspesno otvaranje datoteke imenik1.txt.}#
+#\izlaz{Greska: Neuspesno otvaranje datoteke}#
+#\izlaz{imenik1.txt.}#
 #\izlaz{imenik1.txt!}#	
 \end{upotreba}
 \end{miditest}
@@ -177,7 +178,7 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 
 %5.zadatak
 \begin{Exercise}[label=705]
-  U datoteci \kckod{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jedne osnovne škole tako što je u svakom redu navedeno ime i prezime učenika (niz najviše $50$ karaktera), broj poena na osnovu uspeha (realan broj), broj poena na prijemnom ispitu iz matematike (realan broj) i broj poena na prijemnom ispitu iz maternjeg jezika (realan broj). Za učenika koji u zbiru osvoji manje od $10$ poena na oba prijemna ispita smatra se da nije položio prijemni. Napisati program koji na osnovu podataka iz ove datoteke formira i prikazuje rang listu učenika. Rang lista sadrži redni broj učenika, njegovo ime i prezime, broj poena na osnovu uspeha, broj poena na prijemnom ispitu iz matematike, broj poena na prijemnom ispitu iz maternjeg jezika i ukupan broj poena i sortirana je opadajuće po ukupnom broju poena. Na rang listi se prvo navode oni učenici koji su položili prijemni ispit, a potom i učenici koji ga nisu položili. Između ovih dveju grupa učenika postoji i horizontalna linija koja ih vizuelno razdvaja.
+  U datoteci \kckod{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jedne osnovne škole tako što je u svakom redu navedeno ime i prezime učenika (niska od najviše $50$ karaktera), broj poena na osnovu uspeha (realan broj), broj poena na prijemnom ispitu iz matematike (realan broj) i broj poena na prijemnom ispitu iz maternjeg jezika (realan broj). Za učenika koji u zbiru osvoji manje od $10$ poena na oba prijemna ispita smatra se da nije položio prijemni. Napisati program koji na osnovu podataka iz ove datoteke formira i prikazuje rang listu učenika. Rang lista sadrži redni broj učenika, njegovo ime i prezime, broj poena na osnovu uspeha, broj poena na prijemnom ispitu iz matematike, broj poena na prijemnom ispitu iz maternjeg jezika i ukupan broj poena i sortirana je opadajuće po ukupnom broju poena. Na rang listi se prvo navode oni učenici koji su položili prijemni ispit, a potom i učenici koji ga nisu položili. Između ovih dveju grupa učenika postoji i horizontalna linija koja ih vizuelno razdvaja.
 
 \begin{miditest}
 \begin{test}{1}
@@ -202,7 +203,8 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 #\naslovDat{Datoteka prijemni.txt ne postoji}#  
 
 #\naslovIzlaz#
-#\izlaz{Greska: Neuspesno otvaranje datoteke prijemni.txt.}#
+#\izlaz{Greska: Neuspesno otvaranje datoteke}#
+#\izlaz{prijemni.txt.}#
 \end{test}
 \end{miditest}
 \linkresenje{705}
@@ -246,7 +248,8 @@ Napisati program koji implementira podsetnik za rođendane. Informacije o rođen
 #\naslovDat{Datoteka rodjendani.txt ne postoji}#
 
 #\naslovInt#
-#\izlaz{Greska: Neuspesno otvaranje datoteke rodjendani.txt.}#
+#\izlaz{Greska: Neuspesno otvaranje datoteke}# 
+#\izlaz{rodjendani.txt.}#
 \end{upotreba}
 \end{miditest}
 \linkresenje{706}
@@ -258,7 +261,7 @@ Napisati program koji implementira podsetnik za rođendane. Informacije o rođen
 
 %7.zadatak
 \begin{Exercise}[label=707]
-Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj. ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor* koren1, Cvor* koren2)} koja proverava da li su binarna stabla \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identična, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih stabla unositi sa standardnog ulaza sve do pojave broja $0$.
+Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj.~ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor* koren1, Cvor* koren2)} koja proverava da li su binarna stabla \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identična, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih stabla unositi sa standardnog ulaza sve do pojave broja $0$.
 \napomena{Skup funkcija napisan u prvom zadatku se može iskoristiti kao mala biblioteka za rad sa binarnim pretraživačkim stablima celih brojeva. Tako će u zadacima koji slede, datoteka stabla.h predstavljati popis funkcija biblioteke, a datoteka stabla.c njihove implementacije. Programe koji koriste ovu biblioteku treba prevoditi i pokretati u skladu sa smernicama iz poglavlja 1.1.}
 
 \begin{miditest}
@@ -391,7 +394,8 @@ sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ proč
 #\izlaz{Elementi na 2. nivou: 3 12 30}#
 #\izlaz{Maksimalni element na 2. nivou: 30}#
 #\izlaz{Zbir elemenata na 2. nivou: 45}#
-#\izlaz{Zbir elemenata manjih ili jednakih od 15: 78}#
+#\izlaz{Zbir elemenata manjih ili jednakih od 15:}# 
+#\izlaz{78}#
 \end{test}
 \end{miditest}
 \begin{miditest}
@@ -412,7 +416,8 @@ sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ proč
 #\izlaz{Elementi na 3. nivou: 16 55}#
 #\izlaz{Maksimalni element na 3. nivou: 55}#
 #\izlaz{Zbir elemenata na 3. nivou: 71}#
-#\izlaz{Zbir elemenata manjih ili jednakih od 31: 76}#
+#\izlaz{Zbir elemenata manjih ili jednakih od 31:}#
+#\izlaz{76}#
 \end{test}
 \end{miditest}
 
