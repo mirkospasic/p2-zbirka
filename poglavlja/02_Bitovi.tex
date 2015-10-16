@@ -24,10 +24,10 @@ Napisati program koji testira prethodno napisane funkcije. Program najpre za kom
 Napisati program koji testira prethodno napisane funkcije tako što redom:
 \begin{enumerate}
 \item pozivanjem funkcije \kckod{ucitaj\_kompleksan\_broj} omogućava da se kompleksan broj $z1$  unese sa standardnog ulaza,
-\item ispisuje realni deo, imaginarni deo i moduo kompleksnog broja $z1$,
 \item pozivanjem funkcije \kckod{ucitaj\_kompleksan\_broj} omogućava da se kompleksan broj $z2$  unosi sa standardnog ulaza,
-\item ispisuje konjugovano kompleksan broj i argument broja $z2$,
-\item ispisuje zbir, razliku i proizvod brojeva $z1$ i $z2$.
+\item računa i ispisuje kompleksan broj $z$ koji predstavlja zbir, razliku ili proizvod brojeva $z1$ i $z2$ u zavisnosti od znaka ('+', '-', '*') koji se unosi sa standardnog ulaza,
+\item ispisuje realni deo, imaginarni deo i moduo kompleksnog broja $z$,
+\item ispisuje konjugovano kompleksan broj i argument broja $z$,
 \end{enumerate}
 \fi
 
@@ -38,16 +38,15 @@ Napisati program koji testira prethodno napisane funkcije tako što redom:
 #\naslovInt#
 #\izlaz{Unesite realan i imaginaran deo kompleksnog broja:} \ulaz{1 -3}#
 #\izlaz{(1.00 - 3.00 i)}#
-#\izlaz{realan\_deo: 1}#
-#\izlaz{imaginaran\_deo: -3.000000}#
-#\izlaz{moduo 3.162278}#
 #\izlaz{Unesite realan i imaginaran deo kompleksnog broja:} \ulaz{-1 4}#
 #\izlaz{(-1.00 + 4.00 i)}#
-#\izlaz{Njegov konjugovano kompleksan broj: (-1.00 - 4.00 i)}#
-#\izlaz{Argument kompleksnog broja: 1.815775}#
-#\izlaz{(1.00 - 3.00 i) + (-1.00 + 4.00 i)  =  (1.00 i)}#
-#\izlaz{(1.00 - 3.00 i) - (-1.00 + 4.00 i)  =  (2.00 - 7.00 i)}#
-#\izlaz{(1.00 - 3.00 i) * (-1.00 + 4.00 i)  =  (11.00 + 7.00 i)}#
+#\izlaz{Unesite znak:} \ulaz{-}#
+#\izlaz{(1.00 - 3.00 i) + (-1.00 + 4.00 i)  =  (2.00 - 7.00 i)}#
+#\izlaz{realan\_deo: 2}#
+#\izlaz{imaginaran\_deo: -7.000000}#
+#\izlaz{moduo 7.280110}#
+#\izlaz{Njegov konjugovano kompleksan broj: (2.00 + 7.00 i)}#
+#\izlaz{Argument kompleksnog broja: - 1.292497}#
 \end{upotreba}
 \end{maxitest}
 
@@ -93,25 +92,24 @@ Napisati biblioteku za rad sa polinomima.
   \item Napisati funkciju koja množi dva polinoma.
   \end{enumerate}
 
-Napisati program koji testira prethodno napisane funkcije. Program najpre učitava polinom \argf{p} sa standardnog ulaza i ispisuje ga na standardni izlaz u odgovarajućem obliku. Nakon toga program računa i ispisuje vrednost tog polinoma (zaokruženu na dve decimale) u tački koju unosi korisnik.  Potom se unosi polinom \argf{q}, i ispisuju se zbir i proizvod polinoma \argf{p} i \argf{q}. Na kraju se sa standardnog ulaza unosi broj \argf{n}, i ispisuje \argf{n}-ti izvod polinoma \argf{p}.
-
-%\komentar{Milena: I ovaj program je poprilicno besmislen --- smisliti nesto bolje.}
+Napisati program koji testira prethodno napisane funkcije. Najpre se polinomi \argf{p} i \argf{q} unose sa standardnog ulaza i ispisuju na standardni izlaz u odgovarajućem obliku. Zatim se računa i i ispisuje se zbir i proizvod polinoma \argf{p} i \argf{q}. Označimo izračunati proizvod sa  \argf{r}. Nakon toga program računa i ispisuje vrednost polinoma \argf{r} (zaokruženu na dve decimale) u tački koju unosi korisnik. Na kraju se sa standardnog ulaza unosi broj \argf{n}, i ispisuje \argf{n}-ti izvod polinoma \argf{r}.
 
 \begin{maxitest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Unesite polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
+#\izlaz{Unesite polinom p (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
 #\ulaz{3 1.2 3.5 2.1 4.2}#
-#\izlaz{Unesite tacku u kojoj racunate vrednost polinoma}#
-#\ulaz{5}#
-#\izlaz{Vrednost polinoma u tacki je 252.20}#
-#\izlaz{Unesite polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
+#\izlaz{Unesite polinom q (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
 #\ulaz{2 2.1 0 -3.9}#
 #\izlaz{Zbir polinoma je: 1.20x\^{}3+5.60x\^{}2+2.10x+0.30}#
-#\izlaz{Prozvod polinoma je: 2.52x\^{}5+7.35x\^{}4-0.27x\^{}3-4.83x\^{}2-8.19x-16.38}#
+#\izlaz{Prozvod polinoma je polinom r:}#
+#\izlaz{2.52x\^{}5+7.35x\^{}4-0.27x\^{}3-4.83x\^{}2-8.19x-16.38}#
+#\izlaz{Unesite tacku u kojoj racunate vrednost polinoma r}#
+#\ulaz{0}#
+#\izlaz{Vrednost polinoma u tacki je -16.38}#
 #\izlaz{Unesite izvod polinoma koji zelite:}#
-#\ulaz{2}#
-#\izlaz{2. izvod prvog polinoma je: 7.20x+7.00}#
+#\ulaz{3}#
+#\izlaz{3. izvod polinoma r je: 151.20x\^{}2+176.40x-1.62}#
 \end{upotreba}
 \end{maxitest}
 
@@ -149,11 +147,11 @@ Napisati program koji testira prethodne funkcije tako što se sa standardnog ula
 \begin{upotreba}{1}
 #\naslovInt#
 #\izlaz{Unesite imenilac i brojilac prvog razlomka:}\ulaz{1 2}#
-#\izlaz{Unesite imenilac i brojilac drugog razlomka:}\ulaz{3 1}#
-#\izlaz{Zbir je 5/6}#
-#\izlaz{Razlika je 1/6}#
-#\izlaz{Zbir je 5/6}#
-#\izlaz{Kolicnik je 3/2}#
+#\izlaz{Unesite imenilac i brojilac drugog razlomka:}\ulaz{3 2}#
+#\izlaz{1/2 + 3/2 = 2}#
+#\izlaz{1/2 - 3/2 =  -1}#
+#\izlaz{1/2 * 3/2 =  3/4}#
+#\izlaz{1/2 / 3/2 =  1/3}#
 \end{upotreba}
 \end{maxitest}
 
@@ -224,41 +222,36 @@ Napisati funkcije \kckod{count\_bits1} i \kckod{count\_bits2} koje broje bitove 
 \item formiranjem odgovarajuće maske i njenim pomeranjem
 \item formiranjem odgovarajuće maske i pomeranjem promenljive $x$.
 \end{enumerate} 
-
-%\komentar{Milena: Bilo bi lepo ovaj zadatk preformulisati da bude kao kod jeleninog zadatka 2.4 gde se od korisnika trazi da na neki nacin izabere koju od te dve funkcije ce koristiti}
  
-Napisati program koji testira te funkcije za brojeve koji se zadaju u heksadekasnom formatu sa standardnog ulaza.
+Napisati program koji za broj koji unosi u heksadekasnom formatu sa standardnog ulaza računa broj bitova sa vrednošću \argf{1} korišćenjem funkcije \kckod{count\_bits1} ili funkcije \kckod{count\_bits2}. Od korisnika sa standardnog ulaza tražiti da izabere koju od ove funkcije treba koristiit u zavisnosti da li unese \argf{1} ili \argf{2} .
 
 \begin{miditest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{0x7F}#
-#\naslovIzlaz#
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite broj:}\ulaz{0x7F}#
+#\izlaz{Unesite redni broj funkcije:}\ulaz{1}#
 #\izlaz{Broj jedinica u zapisu je}#
 #\izlaz{funkcija count\_bits1: 7}#
-#\izlaz{funkcija count\_bits2: 7}#
-\end{test}
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{2}
-#\naslovUlaz#
-#\ulaz{0x80}#
-#\naslovIzlaz#
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite broj:}\ulaz{0x80}#
+#\izlaz{Unesite redni broj funkcije:}\ulaz{2}#
 #\izlaz{Broj jedinica u zapisu je}#
-#\izlaz{funkcija count\_bits1: 1}#
 #\izlaz{funkcija count\_bits2: 1}#
-\end{test}
+\end{upotreba}
 \end{miditest}
 
 \begin{miditest}
-\begin{test}{3}
-#\naslovUlaz#
-#\ulaz{0x00FF00FF}#
-#\naslovIzlaz#
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesite broj:}\ulaz{0x00FF00FF}#
+#\izlaz{Unesite redni broj funkcije:}\ulaz{2}#
 #\izlaz{Broj jedinica u zapisu je}#
-#\izlaz{funkcija count\_bits1: 16}#
 #\izlaz{funkcija count\_bits2: 16}#
-\end{test}
+\end{upotreba}
 \end{miditest}
 % \begin{miditest}
 % \begin{test}{4}
@@ -271,14 +264,13 @@ Napisati program koji testira te funkcije za brojeve koji se zadaju u heksadekas
 % \end{test}
 % \end{miditest}
 \begin{miditest}
-\begin{test}{4}
-#\naslovUlaz#
-#\ulaz{0xABCDE123}#
-#\naslovIzlaz#
+\begin{upotreba}{4}
+#\naslovInt#
+#\izlaz{Unesite broj:}\ulaz{0xABCDE123}#
+#\izlaz{Unesite redni broj funkcije:}\ulaz{1}#
 #\izlaz{Broj jedinica u zapisu je}#
 #\izlaz{funkcija count\_bits1: 17}#
-#\izlaz{funkcija count\_bits2: 17}#
-\end{test}
+\end{upotreba}
 \end{miditest}
 
 \linkresenje{202}
@@ -361,31 +353,30 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 \begin{Exercise}[label=204]
 Napisati funkcije za rad sa bitovima.
 \begin{enumerate}
-\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$, postave na \argf{0}.
-\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$, postave na \argf{1}.
-\item Napisati funkciju koja određuje broj koji se dobija od $n$ bitova datog broja, počevši od pozicije $p$, i vraća ih kao bitove najmanje težine rezultata.
+\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{0}.
+\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{1}.
+\item Napisati funkciju koja određuje broj koji se dobija od $n$ bitova datog broja $x$, počevši od pozicije $p$, i vraća ih kao bitove najmanje težine rezultata.
 \item Napisati funkciju koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
 \item Napisati funkciju koja vraća broj koji se dobija invertovanjem $n$ bitova broja $x$ počevši od pozicije $p$.
-% \item Napisati program koji testira prethodno napisane funkcije.
 \end{enumerate}
-Napisati program koji testira prethodno napisane funkcije nad neoznačenim celim brojem koji se unosi sa standardnog ulaza.
+Napisati program koji testira prethodno napisane funkcije za neoznačene cele brojeve $x$, $n$, $p$, $y$ koji se unose sa standardnog ulaza. Program treba nakon učitavanja odgovarajućih vrednosti ispiše najpre binarne reprezenatacije brojeva $x$ i $y$, a potom i binarne reprezentacije brojeva koji se dobijaju pozivanjem prethodno napisanih funkcija.
 \napomena{Pozicije se broje počev od pozicije bita najmanje težine, pri čemu je bit najmanje težine na poziciji nula.}
 
-%\komentar{Milena: Ovo treba da bude upotreba, a ne test. Takodje, prvo odstampati broj i y, pa onda redom pozive funkcija. Ovako ono y zbunjuje u sredini}
-
 \begin{maxitest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{235 5 10 127}#
-#\naslovIzlaz#
-#\izlaz{Broj   235                          = 00000000000000000000000011101011}#
-#\izlaz{reset(235,    5,   10)            = 00000000000000000000000000101011}#
-#\izlaz{set(235,    5,   10)              = 00000000000000000000011111101011}#
-#\izlaz{get\_bits(235,    5,   10)         = 00000000000000000000000000000011}#
-#\izlaz{y =                             127 = 00000000000000000000000001111111}#
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite neoznacen ceo broj x:}\ulaz{235}#
+#\izlaz{Unesite neoznacen ceo broj n:}\ulaz{5}#
+#\izlaz{Unesite neoznacen ceo broj p:}\ulaz{10}#
+#\izlaz{Unesite neoznacen ceo broj y:}\ulaz{127}#
+#\izlaz{x = 235 = 00000000000000000000000011101011}#
+#\izlaz{y = 127 = 00000000000000000000000001111111}#
+#\izlaz{reset(235,    5,   10) = 00000000000000000000000000101011}#
+#\izlaz{set(235,    5,   10) = 00000000000000000000011111101011}#
+#\izlaz{get\_bits(235,    5,   10) = 00000000000000000000000000000011}#
 #\izlaz{set\_n\_bits(235,    5,   10,  127) = 00000000000000000000011111101011}#
-#\izlaz{invert(235,    5,   10)           = 00000000000000000000011100101011}#
-\end{test}
+#\izlaz{invert(235,   5,   10)  = 00000000000000000000011100101011}#
+\end{upotreba}
 \end{maxitest}
 
 \linkresenje{204}
@@ -403,18 +394,17 @@ Pod rotiranjem ulevo podrazumeva se pomeranje svih bitova za jednu poziciju ulev
 \end{enumerate}
 Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i broj \argf{k} koji se unose u heksadekasnom formatu sa standardnog ulaza.
 
-%\komentar{Milena: Po pravilima bi i ovo trebala da bude upotreba}
 
 \begin{maxitest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{B10011A7 5}#
-#\naslovIzlaz#
-#\izlaz{x                                      = 10110001000000000001000110100111 }#
-#\izlaz{rotate\_left(2969571751,     5)         = 00100000000000100011010011110110}#
-#\izlaz{rotate\_right(2969571751,     5)        = 00111101100010000000000010001101}#
-#\izlaz{rotate\_right\_signed(2969571751,     5) = 00111101100010000000000010001101 }#
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite neoznacen ceo broj x:}\ulaz{B10011A7}#
+#\izlaz{Unesite neoznacen ceo broj k:}\ulaz{5}#
+#\izlaz{x  = 10110001000000000001000110100111 }#
+#\izlaz{rotate\_left(2969571751, 5) = 00100000000000100011010011110110}#
+#\izlaz{rotate\_right(2969571751, 5) = 00111101100010000000000010001101}#
+#\izlaz{rotate\_right\_signed(2969571751, 5) = 00111101100010000000000010001101 }#
+\end{upotreba}
 \end{maxitest}
 
 \linkresenje{205}
@@ -426,9 +416,6 @@ Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i bro
 \begin{Exercise}[label=206]
 Napisati funkciju \kckod{mirror} koja određuje ceo broj čiji je binarni zapis slika u ogledalu binarnog zapisa argumenta funkcije. Napisati i program koji testira datu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu, tako što najpre ispisuje binarnu reprezentaciju unetog broja, a potom i binarnu reprezentaciju broja dobijenog nakon poziva funkcije \kckod{mirror} za uneti broj.
 
-%\komentar{Milena: nedostaje bar jedan test primer}
-
-
 \begin{miditest}
 \begin{test}{1}
 #\naslovUlaz#
@@ -436,6 +423,13 @@ Napisati funkciju \kckod{mirror} koja određuje ceo broj čiji je binarni zapis 
 #\naslovIzlaz#
 #\izlaz{00000000000000000000001001010101}#
 #\izlaz{10101010010000000000000000000000}#
+\end{test}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{-15}#
+#\naslovIzlaz#
+#\izlaz{11111111111111111111111111101011}#
+#\izlaz{11010111111111111111111111111111}#
 \end{test}
 \end{miditest}
 
