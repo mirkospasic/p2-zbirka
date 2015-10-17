@@ -9,11 +9,8 @@ Napisati program u kojem se dinamički alocira memorija za zadati niz niski, a z
 
 U slučaju pojave bilo kakve greške na standardnom izlazu ispisati vrednost \argf{-1} i prekinuti izvršavanje programa.
 
-%\komentar{Milena: ovo nije upotreba nego test}
-%\komentar{Milena: Svi ispitni zadaci treba da budu testovi a ne upotrebe}
-
 \begin{miditest}
-\begin{upotreba}{1}
+\begin{test}{1}
 #\poziv{./a.out ulaz.txt}#
 
 #\naslovDat{ulaz.txt}#
@@ -23,15 +20,15 @@ U slučaju pojave bilo kakve greške na standardnom izlazu ispisati vrednost \ar
 #\datoteka{12345}#
 #\datoteka{dInAmiCnArEc}#
 #\datoteka{Ispit}#
-
-#\naslovInt#
+  
+#\naslovIzlaz#
 #\izlaz{Ispit}#
 #\izlaz{Matematika}#
 #\izlaz{Programiranje}#
-\end{upotreba}
+\end{test}
 \end{miditest}
 \begin{minitest}
-\begin{upotreba}{2}
+\begin{test}{2}
 #\poziv{./a.out ulaz.txt}#
 
 #\naslovDat{ulaz.txt}#
@@ -39,29 +36,29 @@ U slučaju pojave bilo kakve greške na standardnom izlazu ispisati vrednost \ar
 #\datoteka{maksimalano}#
 #\datoteka{poena}#
 
-#\naslovInt#
+#\naslovIzlaz#
 #\izlaz{}#
-\end{upotreba}
+\end{test}
 \end{minitest}
 
 
 \begin{miditest}
-\begin{upotreba}{3}
+\begin{test}{3}
 #\poziv{./a.out ulaz.txt}#
 
 #\naslovDat{Datoteka ulaz.txt ne postoji}#
 
-#\naslovInt#
+#\naslovIzlaz#
 #\izlaz{  -1}#
-\end{upotreba}
+\end{test}
 \end{miditest}
 \begin{miditest}
-\begin{upotreba}{4}
+\begin{test}{4}
 #\poziv{./a.out}#
 
-#\naslovInt#
+#\naslovIzlaz#
 #\izlaz{-1}#
-\end{upotreba}
+\end{test}
 \end{miditest}
 
 \linkresenje{901}
@@ -163,7 +160,7 @@ haystack, i vraća pokazivač na početak podniske, ili
 NULL ako podniska nije pronađena.
 
 \begin{miditest}
-\begin{upotreba}{1}
+\begin{test}{1}
 #\poziv{./a.out ulaz.txt test}#
 
 #\naslovDat{ulaz.txt}#
@@ -171,38 +168,38 @@ NULL ako podniska nije pronađena.
 #\datoteka{ U njemu se rec test javlja}#
 #\datoteka{vise puta. testtesttest}#
 
-#\naslovInt#
+#\naslovIzlaz#
 #\izlaz{5}#
-\end{upotreba}
+\end{test}
 \end{miditest}
 \begin{miditest}
-\begin{upotreba}{2}
+\begin{test}{2}
 #\poziv{./a.out}#
 
-#\naslovInt#
+#\naslovIzlaz#
 #\izlaz{(na stderr) -1}#
-\end{upotreba}
+\end{test}
 \end{miditest}
 
 \begin{miditest}
-\begin{upotreba}{3}
+\begin{test}{3}
 #\poziv{./a.out ulaz.txt foo}#
 
 #\naslovDat{Datoteka ulaz.txt ne postoji}#
 
-#\naslovInt#
+#\naslovIzlaz#
 #\izlaz{(na stderr) -1}#
-\end{upotreba}
+\end{test}
 \end{miditest}
 \begin{miditest}
-\begin{upotreba}{4}
+\begin{test}{4}
 #\poziv{ ./a.out ulaz.txt .  }#
 
 #\naslovDat{Datoteka ulaz.txt je prazna}#
 
-#\naslovInt#
+#\naslovIzlaz#
 #\izlaz{0}#
-\end{upotreba}
+\end{test}
 \end{miditest}
 
 \linkresenje{904}
@@ -219,7 +216,7 @@ Na početku datoteke ,,trouglovi.txt'' nalazi se broj trouglova čije su koordin
   $P = \sqrt{s*(s-a)*(s-b)*(s-c)}$, gde je $s$ poluobim trougla). U slučaju bilo kakve greške ispisati \argf{-1} na standardni izlaz za greške. Ne praviti nikave pretpostavke o broju trouglova u datoteci, i proveriti da li je datoteka ispravno zadata.
 
 \begin{miditest}
-\begin{upotreba}{1}
+\begin{test}{1}
 #\naslovDat{trouglovi.txt}#
 #\datoteka{4}#
 #\datoteka{ 0 0 0 1.2 1 0 }#
@@ -227,40 +224,40 @@ Na početku datoteke ,,trouglovi.txt'' nalazi se broj trouglova čije su koordin
 #\datoteka{-2 0 0 0 0 1}#
 #\datoteka{-2 0 0 0 0 1}#
 
-#\naslovInt#
+#\naslovIzlaz#
 #\izlaz{2 0 2 2 -1 -1}#
 #\izlaz{-2 0 0 0 0 1}#
 #\izlaz{0 0 0 1.2 1 0}#
 #\izlaz{0.3 0.3 0.5 0.5 0.9 1}#
-\end{upotreba}
+\end{test}
 \end{miditest}
 \begin{minitest}
-\begin{upotreba}{2}
+\begin{test}{2}
 #\naslovDat{trouglovi.txt}#
 #\datoteka{3}#
 #\datoteka{ 1.2 3.2 1.1 4.3}#
 
-#\naslovInt#
+#\naslovIzlaz#
 #\izlaz{-1}#
-\end{upotreba}
+\end{test}
 \end{minitest}
 
 \begin{miditest}
-\begin{upotreba}{3}
+\begin{test}{3}
 #\naslovDat{Datoteka trouglovi.txt ne postoji}#
 
-#\naslovInt#
+#\naslovIzlaz#
 #\izlaz{-1}#
-\end{upotreba}
+\end{test}
 \end{miditest}
 \begin{minitest}
-\begin{upotreba}{4}
+\begin{test}{4}
 #\naslovDat{trouglovi.txt}#
 #\datoteka{0}#
 
-#\naslovInt#
+#\naslovIzlaz#
 #\izlaz{}#
-\end{upotreba}
+\end{test}
 \end{minitest}
 
 \linkresenje{905}

@@ -6,16 +6,16 @@
 Napisati program za rad sa kompleksnim brojevima.
 \begin{enumerate}
 \item Definisati strukturu \kckod{KompleksanBroj} koja opisuje kompleksan broj njegovim realnim i imaginarnim delom.
-\item Napisati funkciju \kckod{ucitaj\_kompleksan\_broj} koja učitava kompleksan broj sa standardnog ulaza.
-\item Napisati funkciju \kckod{ispisi\_kompleksan\_broj} koja ispisuje kompleksan broj na standardni izlaz u odgovarajućem formatu (npr. broj čiji je realan deo \argf{2}, a imaginarni \argf{-3} ispisati kao $(2 - 3 i)$ na standardni izlaz).
-\item Napisati funkciju \kckod{realan\_deo} koja vraća vrednost realnog dela broja.
-\item Napisati funkciju \kckod{imaginaran\_deo} koja vraća vrednost imaginarnog dela broja.
-\item Napisati funkciju \kckod{moduo} koja računa moduo kompleksnog broja.
-\item Napisati funkciju \kckod{konjugovan} koja računa konjugovano-kompleksni broj svog argumenta.
-\item Napisati funkciju \kckod{saberi} koja sabira dva kompleksna broja.
-\item Napisati funkciju \kckod{oduzmi} koja oduzima dva kompleksna broja.
-\item Napisati funkciju \kckod{mnozi} koja množi dva kompleksna broja.
-\item Napisati funkciju \kckod{argument} koja računa argument kompleksnog broja.
+\item Napisati funkciju \kckod{void ucitaj\_kompleksan\_broj(KompleksanBroj * z)} koja učitava kompleksan broj sa standardnog ulaza.
+\item Napisati funkciju \kckod{void ispisi\_kompleksan\_broj(KompleksanBroj z)} koja ispisuje kompleksan broj na standardni izlaz u odgovarajućem formatu (npr. broj čiji je realan deo \argf{2}, a imaginarni \argf{-3} ispisati kao $(2 - 3 i)$ na standardni izlaz).
+\item Napisati funkciju \kckod{float realan\_deo(KompleksanBroj z)} koja vraća vrednost realnog dela broja.
+\item Napisati funkciju \kckod{float imaginaran\_deo(KompleksanBroj z)} koja vraća vrednost imaginarnog dela broja.
+\item Napisati funkciju \kckod{float moduo(KompleksanBroj z)} koja računa moduo kompleksnog broja.
+\item Napisati funkciju \kckod{KompleksanBroj konjugovan(KompleksanBroj z)} koja računa konjugovano-kompleksni broj svog argumenta \kckod{z}.
+\item Napisati funkciju \kckod{KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj z2)} koja sabira dva kompleksna broja \kckod{z1} i \kckod{z2}.
+\item Napisati funkciju \kckod{KompleksanBroj oduzmi(KompleksanBroj z1, KompleksanBroj z2)} koja oduzima dva kompleksna broja \kckod{z1} i \kckod{z2}.
+\item Napisati funkciju \kckod{KompleksanBroj mnozi(KompleksanBroj z1, KompleksanBroj z2)} koja množi dva kompleksna broja \kckod{z1} i \kckod{z2}.
+\item Napisati funkciju \kckod{float argument(KompleksanBroj z)} koja računa argument kompleksnog broja \kckod{z}.
 \end{enumerate}
 
 Napisati program koji testira prethodno napisane funkcije. Program najpre za kompleksan broj $z1$ koji se unosi sa standardnog ulaza ispisuje njegov realni deo, imaginarni deo i moduo. Zatim za naredni kompleksan broj $z2$ koji se unosi sa standardnog ulaza ispisuje njegov konjugovano-kompleksan broj i argument. Na kraju program ispisuje zbir, razliku i proizvod brojeva $z1$ i $z2$.
@@ -31,7 +31,6 @@ Napisati program koji testira prethodno napisane funkcije tako što redom:
 \end{enumerate}
 \fi
 
-%\komentar{Milena: Ovaj program je potpuno besmislen. Treba napraviti drugaciji, koji ima smisla. Npr, unose se dva kompleksna broja, znak +, - ili *, racuna se rezultat i ispisuju svi podaci od tog rezultata, tj relani deo, img deo, moduo, arg, konjug.}
 
 \begin{maxitest}
 \begin{upotreba}{1}
@@ -72,8 +71,12 @@ Uraditi prethodni zadatak tako da su sve napisane funkcije za rad sa kompleksnim
 
 \end{Exercise}
 \begin{Answer}[ref=002]
+
+complex.c
 \includecode{resenja/00_PodelaPoDatotekama/002/complex.c}
+complex.h
 \includecode{resenja/00_PodelaPoDatotekama/002/complex.h}
+main.c
 \includecode{resenja/00_PodelaPoDatotekama/002/main.c}
 \end{Answer}
 
@@ -83,13 +86,15 @@ Napisati biblioteku za rad sa polinomima.
   \begin{enumerate}
   \item Definisati strukturu \kckod{Polinom} koja opisuje polinom stepena najviše 20. \uputstvo{Struktura sadrži stepen i niz
     koeficijenata. Redosled navođenja koeficijenata u nizu treba da bude takav da na nultoj poziciji u nizu bude koeficijent uz slobodan član, na prvoj koeficijent uz prvi stepen, itd.}
-  \item Napisati funkciju koja ispisuje polinom na standardni izlaz.
-  \item Napisati funkciju koja učitava polinom sa standardnog
+  \item Napisati funkciju \kckod{void ispisi(const Polinom * p)} koja ispisuje polinom \kckod{p} na standardni izlaz.
+  \item Napisati funkciju \kckod{Polinom ucitaj()} koja učitava polinom sa standardnog
     ulaza. Za polinom se najpre unosi stepen pa njegovi koeficijenti.
-  \item Napisati funkciju za izračunavanje vrednosti polinoma u
-    datoj tački koristeći Hornerov algoritam.
-  \item Napisati funkciju koja sabira dva polinoma.
-  \item Napisati funkciju koja množi dva polinoma.
+  \item Napisati funkciju \kckod{double izracunaj(const Polinom * p, double x)} za izračunavanje vrednosti polinoma \kckod{p} u
+    datoj tački \kckod{x} koristeći Hornerov algoritam.
+  \item Napisati funkciju \kckod{Polinom saberi(const Polinom * p, const Polinom * q)} koja sabira dva polinoma \kckod{p} i \kckod{q}.
+  \item Napisati funkciju \kckod{Polinom pomnozi(const Polinom * p, const Polinom * q)} koja množi dva polinoma \kckod{p} i \kckod{q}.
+  \item Napisati funkciju \kckod{Polinom izvod(const Polinom * p)} koja računa izvod polinoma \kckod{p}.
+  \item Napisati funkciju \kckod{Polinom nIzvod(const Polinom * p, int n)} koja računa \kckod{n}-ti izvod polinoma \kckod{p}.
   \end{enumerate}
 
 Napisati program koji testira prethodno napisane funkcije. Najpre se polinomi \argf{p} i \argf{q} unose sa standardnog ulaza i ispisuju na standardni izlaz u odgovarajućem obliku. Zatim se računa i i ispisuje se zbir i proizvod polinoma \argf{p} i \argf{q}. Označimo izračunati proizvod sa  \argf{r}. Nakon toga program računa i ispisuje vrednost polinoma \argf{r} (zaokruženu na dve decimale) u tački koju unosi korisnik. Na kraju se sa standardnog ulaza unosi broj \argf{n}, i ispisuje \argf{n}-ti izvod polinoma \argf{r}.
@@ -117,8 +122,12 @@ Napisati program koji testira prethodno napisane funkcije. Najpre se polinomi \a
 
 \end{Exercise}
 \begin{Answer}[ref=003]
+
+polinom.c
 \includecode{resenja/00_PodelaPoDatotekama/003/polinom.c}
+polinom.h
 \includecode{resenja/00_PodelaPoDatotekama/003/polinom.h}
+main.c
 \includecode{resenja/00_PodelaPoDatotekama/003/main.c}
 %\includecode{resenja/02_Bitovi/003/Makefile}
 \end{Answer}
@@ -128,20 +137,24 @@ Napisati biblioteku za rad sa razlomcima.
 
   \begin{enumerate}
 
-  \item Definisati strukturu za reprezentovanje razlomaka.
-  \item Napisati funkcije za učitavanje i ispis razlomaka.
-  \item Napisati funkcije koje vraćaju brojilac i imenilac razlomka.
-  \item Napisati funkciju koja vraća odgovarajuću realnu vrednost razlomka (tipa \kckod{double}).
-  \item Napisati funkciju koja izračunava recipročnu vrednost
-    razlomka.
-  \item Napisati funkciju koja skraćuje dati razlomak.
-  \item Napisati funkcije koje sabiraju, oduzimaju, množe i dele
-    dva razlomka.
+  \item Definisati strukturu \kckod{Razlomak} za reprezentovanje razlomaka.
+  \item Napisati funkciju \kckod{Razlomak ucitaj()} za učitavanje razlomaka.
+  \item Napisati funkciju \kckod{void ispisi(const Razlomak * r)} koja ispisuje razlomak.
+  \item Napisati funkciju \kckod{int brojilac(const Razlomak * r)} koje vraćaju brojilac razlomka \kckod{r}.
+   \item Napisati funkciju \kckod{int imenilac(const Razlomak * r)} koje vraćaju imenilac razlomka \kckod{r}.
+  \item Napisati funkciju \kckod{double realna\_vrednost(const Razlomak * r)} koja vraća odgovarajuću realnu vrednost razlomka \kckod{r}.
+  \item Napisati funkciju  \kckod{double reciprocna\_vrednost(const Razlomak * r)} koja izračunava recipročnu vrednost
+    razlomka \kckod{r}.
+  \item Napisati funkciju \kckod{Razlomak skrati(const Razlomak * r)} koja skraćuje dati razlomak \kckod{r}.
+  \item Napisati funkciju \kckod{Razlomak saberi(const Razlomak * r1, const Razlomak * r2)} koja sabira dva razlomka \kckod{r1} i \kckod{r2}.
+ \item Napisati funkciju \kckod{Razlomak oduzmi(const Razlomak * r1, const Razlomak * r2)} koja oduzima dva razlomka \kckod{r1} i \kckod{r2}.
+ \item Napisati funkciju \kckod{Razlomak pomnozi(const Razlomak * r1, const Razlomak * r2)} koja množi
+    dva razlomka \kckod{r1} i \kckod{r2}.
+ \item Napisati funkciju \kckod{Razlomak podeli(const Razlomak * r1, const Razlomak * r2)} koja deli
+    dva razlomka \kckod{r1} i \kckod{r2}.
 \end{enumerate}
 
 Napisati program koji testira prethodne funkcije tako što se sa standardnog ulaza unose dva razlomka \argf{r1} i \argf{r2} i na standardni izlaz se ispisuju skraćene vrednosti razlomaka koji su dobijeni kao zbir, razlika, proizvod i količnik razlomka \argf{r1} i recipročne vrednosti razlomka \argf{r2}.
-
-%\komentar{Milena: Bilo bi lepo da kod stampanja zbira bude odstampan prvi razlomak pa drugi pa = pa zbir, i tako redom}
 
 \begin{maxitest}
 \begin{upotreba}{1}
@@ -424,6 +437,8 @@ Napisati funkciju \kckod{mirror} koja određuje ceo broj čiji je binarni zapis 
 #\izlaz{00000000000000000000001001010101}#
 #\izlaz{10101010010000000000000000000000}#
 \end{test}
+\end{miditest}
+\begin{miditest}
 \begin{test}{2}
 #\naslovUlaz#
 #\ulaz{-15}#
@@ -488,7 +503,7 @@ Napisati funkciju \kckod{int Broj01(unsigned int n)} koja za dati broj \argf{n} 
 \begin{Exercise}[label=208]
 Napisati funkciju koja broji koliko se puta dve uzastopne jedinice pojavljuju u binarnom zapisu
   celog neoznačenog broja $x$. Napisati program koji tu funkciju testira za broj koji se
-  zadaje sa standardnog ulaza. \napomena{Tri uzastopne jedinice se broje dva puta.}
+  zadaje sa standardnog ulaza. \napomena{Tri uzastopne jedinice sadrže dve uzastopne jedinice dva puta.}
   
 \begin{minitest}
 \begin{test}{1}
