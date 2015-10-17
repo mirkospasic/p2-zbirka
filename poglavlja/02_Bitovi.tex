@@ -6,16 +6,16 @@
 Napisati program za rad sa kompleksnim brojevima.
 \begin{enumerate}
 \item Definisati strukturu \kckod{KompleksanBroj} koja opisuje kompleksan broj njegovim realnim i imaginarnim delom.
-\item Napisati funkciju \kckod{ucitaj\_kompleksan\_broj} koja učitava kompleksan broj sa standardnog ulaza.
-\item Napisati funkciju \kckod{ispisi\_kompleksan\_broj} koja ispisuje kompleksan broj na standardni izlaz u odgovarajućem formatu (npr. broj čiji je realan deo \argf{2}, a imaginarni \argf{-3} ispisati kao $(2 - 3 i)$ na standardni izlaz).
-\item Napisati funkciju \kckod{realan\_deo} koja vraća vrednost realnog dela broja.
-\item Napisati funkciju \kckod{imaginaran\_deo} koja vraća vrednost imaginarnog dela broja.
-\item Napisati funkciju \kckod{moduo} koja računa moduo kompleksnog broja.
-\item Napisati funkciju \kckod{konjugovan} koja računa konjugovano-kompleksni broj svog argumenta.
-\item Napisati funkciju \kckod{saberi} koja sabira dva kompleksna broja.
-\item Napisati funkciju \kckod{oduzmi} koja oduzima dva kompleksna broja.
-\item Napisati funkciju \kckod{mnozi} koja množi dva kompleksna broja.
-\item Napisati funkciju \kckod{argument} koja računa argument kompleksnog broja.
+\item Napisati funkciju \kckod{void ucitaj\_kompleksan\_broj(KompleksanBroj * z)} koja učitava kompleksan broj sa standardnog ulaza.
+\item Napisati funkciju \kckod{void ispisi\_kompleksan\_broj(KompleksanBroj z)} koja ispisuje kompleksan broj na standardni izlaz u odgovarajućem formatu (npr. broj čiji je realan deo \argf{2}, a imaginarni \argf{-3} ispisati kao $(2 - 3 i)$ na standardni izlaz).
+\item Napisati funkciju \kckod{float realan\_deo(KompleksanBroj z)} koja vraća vrednost realnog dela broja.
+\item Napisati funkciju \kckod{float imaginaran\_deo(KompleksanBroj z)} koja vraća vrednost imaginarnog dela broja.
+\item Napisati funkciju \kckod{float moduo(KompleksanBroj z)} koja računa moduo kompleksnog broja.
+\item Napisati funkciju \kckod{KompleksanBroj konjugovan(KompleksanBroj z)} koja računa konjugovano-kompleksni broj svog argumenta \kckod{z}.
+\item Napisati funkciju \kckod{KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj z2)} koja sabira dva kompleksna broja \kckod{z1} i \kckod{z2}.
+\item Napisati funkciju \kckod{KompleksanBroj oduzmi(KompleksanBroj z1, KompleksanBroj z2)} koja oduzima dva kompleksna broja \kckod{z1} i \kckod{z2}.
+\item Napisati funkciju \kckod{KompleksanBroj mnozi(KompleksanBroj z1, KompleksanBroj z2)} koja množi dva kompleksna broja \kckod{z1} i \kckod{z2}.
+\item Napisati funkciju \kckod{float argument(KompleksanBroj z)} koja računa argument kompleksnog broja \kckod{z}.
 \end{enumerate}
 
 Napisati program koji testira prethodno napisane funkcije. Program najpre za kompleksan broj $z1$ koji se unosi sa standardnog ulaza ispisuje njegov realni deo, imaginarni deo i moduo. Zatim za naredni kompleksan broj $z2$ koji se unosi sa standardnog ulaza ispisuje njegov konjugovano-kompleksan broj i argument. Na kraju program ispisuje zbir, razliku i proizvod brojeva $z1$ i $z2$.
@@ -24,30 +24,28 @@ Napisati program koji testira prethodno napisane funkcije. Program najpre za kom
 Napisati program koji testira prethodno napisane funkcije tako što redom:
 \begin{enumerate}
 \item pozivanjem funkcije \kckod{ucitaj\_kompleksan\_broj} omogućava da se kompleksan broj $z1$  unese sa standardnog ulaza,
-\item ispisuje realni deo, imaginarni deo i moduo kompleksnog broja $z1$,
 \item pozivanjem funkcije \kckod{ucitaj\_kompleksan\_broj} omogućava da se kompleksan broj $z2$  unosi sa standardnog ulaza,
-\item ispisuje konjugovano kompleksan broj i argument broja $z2$,
-\item ispisuje zbir, razliku i proizvod brojeva $z1$ i $z2$.
+\item računa i ispisuje kompleksan broj $z$ koji predstavlja zbir, razliku ili proizvod brojeva $z1$ i $z2$ u zavisnosti od znaka ('+', '-', '*') koji se unosi sa standardnog ulaza,
+\item ispisuje realni deo, imaginarni deo i moduo kompleksnog broja $z$,
+\item ispisuje konjugovano kompleksan broj i argument broja $z$,
 \end{enumerate}
 \fi
 
-%\komentar{Milena: Ovaj program je potpuno besmislen. Treba napraviti drugaciji, koji ima smisla. Npr, unose se dva kompleksna broja, znak +, - ili *, racuna se rezultat i ispisuju svi podaci od tog rezultata, tj relani deo, img deo, moduo, arg, konjug.}
 
 \begin{maxitest}
 \begin{upotreba}{1}
 #\naslovInt#
 #\izlaz{Unesite realan i imaginaran deo kompleksnog broja:} \ulaz{1 -3}#
 #\izlaz{(1.00 - 3.00 i)}#
-#\izlaz{realan\_deo: 1}#
-#\izlaz{imaginaran\_deo: -3.000000}#
-#\izlaz{moduo 3.162278}#
 #\izlaz{Unesite realan i imaginaran deo kompleksnog broja:} \ulaz{-1 4}#
 #\izlaz{(-1.00 + 4.00 i)}#
-#\izlaz{Njegov konjugovano kompleksan broj: (-1.00 - 4.00 i)}#
-#\izlaz{Argument kompleksnog broja: 1.815775}#
-#\izlaz{(1.00 - 3.00 i) + (-1.00 + 4.00 i)  =  (1.00 i)}#
-#\izlaz{(1.00 - 3.00 i) - (-1.00 + 4.00 i)  =  (2.00 - 7.00 i)}#
-#\izlaz{(1.00 - 3.00 i) * (-1.00 + 4.00 i)  =  (11.00 + 7.00 i)}#
+#\izlaz{Unesite znak:} \ulaz{-}#
+#\izlaz{(1.00 - 3.00 i) + (-1.00 + 4.00 i)  =  (2.00 - 7.00 i)}#
+#\izlaz{realan\_deo: 2}#
+#\izlaz{imaginaran\_deo: -7.000000}#
+#\izlaz{moduo 7.280110}#
+#\izlaz{Njegov konjugovano kompleksan broj: (2.00 + 7.00 i)}#
+#\izlaz{Argument kompleksnog broja: - 1.292497}#
 \end{upotreba}
 \end{maxitest}
 
@@ -73,8 +71,12 @@ Uraditi prethodni zadatak tako da su sve napisane funkcije za rad sa kompleksnim
 
 \end{Exercise}
 \begin{Answer}[ref=002]
+
+complex.c
 \includecode{resenja/00_PodelaPoDatotekama/002/complex.c}
+complex.h
 \includecode{resenja/00_PodelaPoDatotekama/002/complex.h}
+main.c
 \includecode{resenja/00_PodelaPoDatotekama/002/main.c}
 \end{Answer}
 
@@ -84,34 +86,35 @@ Napisati biblioteku za rad sa polinomima.
   \begin{enumerate}
   \item Definisati strukturu \kckod{Polinom} koja opisuje polinom stepena najviše 20. \uputstvo{Struktura sadrži stepen i niz
     koeficijenata. Redosled navođenja koeficijenata u nizu treba da bude takav da na nultoj poziciji u nizu bude koeficijent uz slobodan član, na prvoj koeficijent uz prvi stepen, itd.}
-  \item Napisati funkciju koja ispisuje polinom na standardni izlaz.
-  \item Napisati funkciju koja učitava polinom sa standardnog
+  \item Napisati funkciju \kckod{void ispisi(const Polinom * p)} koja ispisuje polinom \kckod{p} na standardni izlaz.
+  \item Napisati funkciju \kckod{Polinom ucitaj()} koja učitava polinom sa standardnog
     ulaza. Za polinom se najpre unosi stepen pa njegovi koeficijenti.
-  \item Napisati funkciju za izračunavanje vrednosti polinoma u
-    datoj tački koristeći Hornerov algoritam.
-  \item Napisati funkciju koja sabira dva polinoma.
-  \item Napisati funkciju koja množi dva polinoma.
+  \item Napisati funkciju \kckod{double izracunaj(const Polinom * p, double x)} za izračunavanje vrednosti polinoma \kckod{p} u
+    datoj tački \kckod{x} koristeći Hornerov algoritam.
+  \item Napisati funkciju \kckod{Polinom saberi(const Polinom * p, const Polinom * q)} koja sabira dva polinoma \kckod{p} i \kckod{q}.
+  \item Napisati funkciju \kckod{Polinom pomnozi(const Polinom * p, const Polinom * q)} koja množi dva polinoma \kckod{p} i \kckod{q}.
+  \item Napisati funkciju \kckod{Polinom izvod(const Polinom * p)} koja računa izvod polinoma \kckod{p}.
+  \item Napisati funkciju \kckod{Polinom nIzvod(const Polinom * p, int n)} koja računa \kckod{n}-ti izvod polinoma \kckod{p}.
   \end{enumerate}
 
-Napisati program koji testira prethodno napisane funkcije. Program najpre učitava polinom \argf{p} sa standardnog ulaza i ispisuje ga na standardni izlaz u odgovarajućem obliku. Nakon toga program računa i ispisuje vrednost tog polinoma (zaokruženu na dve decimale) u tački koju unosi korisnik.  Potom se unosi polinom \argf{q}, i ispisuju se zbir i proizvod polinoma \argf{p} i \argf{q}. Na kraju se sa standardnog ulaza unosi broj \argf{n}, i ispisuje \argf{n}-ti izvod polinoma \argf{p}.
-
-%\komentar{Milena: I ovaj program je poprilicno besmislen --- smisliti nesto bolje.}
+Napisati program koji testira prethodno napisane funkcije. Najpre se polinomi \argf{p} i \argf{q} unose sa standardnog ulaza i ispisuju na standardni izlaz u odgovarajućem obliku. Zatim se računa i i ispisuje se zbir i proizvod polinoma \argf{p} i \argf{q}. Označimo izračunati proizvod sa  \argf{r}. Nakon toga program računa i ispisuje vrednost polinoma \argf{r} (zaokruženu na dve decimale) u tački koju unosi korisnik. Na kraju se sa standardnog ulaza unosi broj \argf{n}, i ispisuje \argf{n}-ti izvod polinoma \argf{r}.
 
 \begin{maxitest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Unesite polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
+#\izlaz{Unesite polinom p (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
 #\ulaz{3 1.2 3.5 2.1 4.2}#
-#\izlaz{Unesite tacku u kojoj racunate vrednost polinoma}#
-#\ulaz{5}#
-#\izlaz{Vrednost polinoma u tacki je 252.20}#
-#\izlaz{Unesite polinom (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
+#\izlaz{Unesite polinom q (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):}#
 #\ulaz{2 2.1 0 -3.9}#
 #\izlaz{Zbir polinoma je: 1.20x\^{}3+5.60x\^{}2+2.10x+0.30}#
-#\izlaz{Prozvod polinoma je: 2.52x\^{}5+7.35x\^{}4-0.27x\^{}3-4.83x\^{}2-8.19x-16.38}#
+#\izlaz{Prozvod polinoma je polinom r:}#
+#\izlaz{2.52x\^{}5+7.35x\^{}4-0.27x\^{}3-4.83x\^{}2-8.19x-16.38}#
+#\izlaz{Unesite tacku u kojoj racunate vrednost polinoma r}#
+#\ulaz{0}#
+#\izlaz{Vrednost polinoma u tacki je -16.38}#
 #\izlaz{Unesite izvod polinoma koji zelite:}#
-#\ulaz{2}#
-#\izlaz{2. izvod prvog polinoma je: 7.20x+7.00}#
+#\ulaz{3}#
+#\izlaz{3. izvod polinoma r je: 151.20x\^{}2+176.40x-1.62}#
 \end{upotreba}
 \end{maxitest}
 
@@ -119,8 +122,12 @@ Napisati program koji testira prethodno napisane funkcije. Program najpre učita
 
 \end{Exercise}
 \begin{Answer}[ref=003]
+
+polinom.c
 \includecode{resenja/00_PodelaPoDatotekama/003/polinom.c}
+polinom.h
 \includecode{resenja/00_PodelaPoDatotekama/003/polinom.h}
+main.c
 \includecode{resenja/00_PodelaPoDatotekama/003/main.c}
 %\includecode{resenja/02_Bitovi/003/Makefile}
 \end{Answer}
@@ -130,30 +137,34 @@ Napisati biblioteku za rad sa razlomcima.
 
   \begin{enumerate}
 
-  \item Definisati strukturu za reprezentovanje razlomaka.
-  \item Napisati funkcije za učitavanje i ispis razlomaka.
-  \item Napisati funkcije koje vraćaju brojilac i imenilac razlomka.
-  \item Napisati funkciju koja vraća odgovarajuću realnu vrednost razlomka (tipa \kckod{double}).
-  \item Napisati funkciju koja izračunava recipročnu vrednost
-    razlomka.
-  \item Napisati funkciju koja skraćuje dati razlomak.
-  \item Napisati funkcije koje sabiraju, oduzimaju, množe i dele
-    dva razlomka.
+  \item Definisati strukturu \kckod{Razlomak} za reprezentovanje razlomaka.
+  \item Napisati funkciju \kckod{Razlomak ucitaj()} za učitavanje razlomaka.
+  \item Napisati funkciju \kckod{void ispisi(const Razlomak * r)} koja ispisuje razlomak.
+  \item Napisati funkciju \kckod{int brojilac(const Razlomak * r)} koje vraćaju brojilac razlomka \kckod{r}.
+   \item Napisati funkciju \kckod{int imenilac(const Razlomak * r)} koje vraćaju imenilac razlomka \kckod{r}.
+  \item Napisati funkciju \kckod{double realna\_vrednost(const Razlomak * r)} koja vraća odgovarajuću realnu vrednost razlomka \kckod{r}.
+  \item Napisati funkciju  \kckod{double reciprocna\_vrednost(const Razlomak * r)} koja izračunava recipročnu vrednost
+    razlomka \kckod{r}.
+  \item Napisati funkciju \kckod{Razlomak skrati(const Razlomak * r)} koja skraćuje dati razlomak \kckod{r}.
+  \item Napisati funkciju \kckod{Razlomak saberi(const Razlomak * r1, const Razlomak * r2)} koja sabira dva razlomka \kckod{r1} i \kckod{r2}.
+ \item Napisati funkciju \kckod{Razlomak oduzmi(const Razlomak * r1, const Razlomak * r2)} koja oduzima dva razlomka \kckod{r1} i \kckod{r2}.
+ \item Napisati funkciju \kckod{Razlomak pomnozi(const Razlomak * r1, const Razlomak * r2)} koja množi
+    dva razlomka \kckod{r1} i \kckod{r2}.
+ \item Napisati funkciju \kckod{Razlomak podeli(const Razlomak * r1, const Razlomak * r2)} koja deli
+    dva razlomka \kckod{r1} i \kckod{r2}.
 \end{enumerate}
 
 Napisati program koji testira prethodne funkcije tako što se sa standardnog ulaza unose dva razlomka \argf{r1} i \argf{r2} i na standardni izlaz se ispisuju skraćene vrednosti razlomaka koji su dobijeni kao zbir, razlika, proizvod i količnik razlomka \argf{r1} i recipročne vrednosti razlomka \argf{r2}.
-
-%\komentar{Milena: Bilo bi lepo da kod stampanja zbira bude odstampan prvi razlomak pa drugi pa = pa zbir, i tako redom}
 
 \begin{maxitest}
 \begin{upotreba}{1}
 #\naslovInt#
 #\izlaz{Unesite imenilac i brojilac prvog razlomka:}\ulaz{1 2}#
-#\izlaz{Unesite imenilac i brojilac drugog razlomka:}\ulaz{3 1}#
-#\izlaz{Zbir je 5/6}#
-#\izlaz{Razlika je 1/6}#
-#\izlaz{Zbir je 5/6}#
-#\izlaz{Kolicnik je 3/2}#
+#\izlaz{Unesite imenilac i brojilac drugog razlomka:}\ulaz{3 2}#
+#\izlaz{1/2 + 3/2 = 2}#
+#\izlaz{1/2 - 3/2 =  -1}#
+#\izlaz{1/2 * 3/2 =  3/4}#
+#\izlaz{1/2 / 3/2 =  1/3}#
 \end{upotreba}
 \end{maxitest}
 
@@ -224,41 +235,36 @@ Napisati funkcije \kckod{count\_bits1} i \kckod{count\_bits2} koje broje bitove 
 \item formiranjem odgovarajuće maske i njenim pomeranjem
 \item formiranjem odgovarajuće maske i pomeranjem promenljive $x$.
 \end{enumerate} 
-
-%\komentar{Milena: Bilo bi lepo ovaj zadatk preformulisati da bude kao kod jeleninog zadatka 2.4 gde se od korisnika trazi da na neki nacin izabere koju od te dve funkcije ce koristiti}
  
-Napisati program koji testira te funkcije za brojeve koji se zadaju u heksadekasnom formatu sa standardnog ulaza.
+Napisati program koji za broj koji unosi u heksadekasnom formatu sa standardnog ulaza računa broj bitova sa vrednošću \argf{1} korišćenjem funkcije \kckod{count\_bits1} ili funkcije \kckod{count\_bits2}. Od korisnika sa standardnog ulaza tražiti da izabere koju od ove funkcije treba koristiit u zavisnosti da li unese \argf{1} ili \argf{2} .
 
 \begin{miditest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{0x7F}#
-#\naslovIzlaz#
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite broj:}\ulaz{0x7F}#
+#\izlaz{Unesite redni broj funkcije:}\ulaz{1}#
 #\izlaz{Broj jedinica u zapisu je}#
 #\izlaz{funkcija count\_bits1: 7}#
-#\izlaz{funkcija count\_bits2: 7}#
-\end{test}
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{2}
-#\naslovUlaz#
-#\ulaz{0x80}#
-#\naslovIzlaz#
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite broj:}\ulaz{0x80}#
+#\izlaz{Unesite redni broj funkcije:}\ulaz{2}#
 #\izlaz{Broj jedinica u zapisu je}#
-#\izlaz{funkcija count\_bits1: 1}#
 #\izlaz{funkcija count\_bits2: 1}#
-\end{test}
+\end{upotreba}
 \end{miditest}
 
 \begin{miditest}
-\begin{test}{3}
-#\naslovUlaz#
-#\ulaz{0x00FF00FF}#
-#\naslovIzlaz#
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesite broj:}\ulaz{0x00FF00FF}#
+#\izlaz{Unesite redni broj funkcije:}\ulaz{2}#
 #\izlaz{Broj jedinica u zapisu je}#
-#\izlaz{funkcija count\_bits1: 16}#
 #\izlaz{funkcija count\_bits2: 16}#
-\end{test}
+\end{upotreba}
 \end{miditest}
 % \begin{miditest}
 % \begin{test}{4}
@@ -271,14 +277,13 @@ Napisati program koji testira te funkcije za brojeve koji se zadaju u heksadekas
 % \end{test}
 % \end{miditest}
 \begin{miditest}
-\begin{test}{4}
-#\naslovUlaz#
-#\ulaz{0xABCDE123}#
-#\naslovIzlaz#
+\begin{upotreba}{4}
+#\naslovInt#
+#\izlaz{Unesite broj:}\ulaz{0xABCDE123}#
+#\izlaz{Unesite redni broj funkcije:}\ulaz{1}#
 #\izlaz{Broj jedinica u zapisu je}#
 #\izlaz{funkcija count\_bits1: 17}#
-#\izlaz{funkcija count\_bits2: 17}#
-\end{test}
+\end{upotreba}
 \end{miditest}
 
 \linkresenje{202}
@@ -361,31 +366,30 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 \begin{Exercise}[label=204]
 Napisati funkcije za rad sa bitovima.
 \begin{enumerate}
-\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$, postave na \argf{0}.
-\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja, počevši od pozicije $p$, postave na \argf{1}.
-\item Napisati funkciju koja određuje broj koji se dobija od $n$ bitova datog broja, počevši od pozicije $p$, i vraća ih kao bitove najmanje težine rezultata.
+\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{0}.
+\item Napisati funkciju koja određuje broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{1}.
+\item Napisati funkciju koja određuje broj koji se dobija od $n$ bitova datog broja $x$, počevši od pozicije $p$, i vraća ih kao bitove najmanje težine rezultata.
 \item Napisati funkciju koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
 \item Napisati funkciju koja vraća broj koji se dobija invertovanjem $n$ bitova broja $x$ počevši od pozicije $p$.
-% \item Napisati program koji testira prethodno napisane funkcije.
 \end{enumerate}
-Napisati program koji testira prethodno napisane funkcije nad neoznačenim celim brojem koji se unosi sa standardnog ulaza.
+Napisati program koji testira prethodno napisane funkcije za neoznačene cele brojeve $x$, $n$, $p$, $y$ koji se unose sa standardnog ulaza. Program treba nakon učitavanja odgovarajućih vrednosti ispiše najpre binarne reprezenatacije brojeva $x$ i $y$, a potom i binarne reprezentacije brojeva koji se dobijaju pozivanjem prethodno napisanih funkcija.
 \napomena{Pozicije se broje počev od pozicije bita najmanje težine, pri čemu je bit najmanje težine na poziciji nula.}
 
-%\komentar{Milena: Ovo treba da bude upotreba, a ne test. Takodje, prvo odstampati broj i y, pa onda redom pozive funkcija. Ovako ono y zbunjuje u sredini}
-
 \begin{maxitest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{235 5 10 127}#
-#\naslovIzlaz#
-#\izlaz{Broj   235                          = 00000000000000000000000011101011}#
-#\izlaz{reset(235,    5,   10)            = 00000000000000000000000000101011}#
-#\izlaz{set(235,    5,   10)              = 00000000000000000000011111101011}#
-#\izlaz{get\_bits(235,    5,   10)         = 00000000000000000000000000000011}#
-#\izlaz{y =                             127 = 00000000000000000000000001111111}#
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite neoznacen ceo broj x:}\ulaz{235}#
+#\izlaz{Unesite neoznacen ceo broj n:}\ulaz{5}#
+#\izlaz{Unesite neoznacen ceo broj p:}\ulaz{10}#
+#\izlaz{Unesite neoznacen ceo broj y:}\ulaz{127}#
+#\izlaz{x = 235 = 00000000000000000000000011101011}#
+#\izlaz{y = 127 = 00000000000000000000000001111111}#
+#\izlaz{reset(235,    5,   10) = 00000000000000000000000000101011}#
+#\izlaz{set(235,    5,   10) = 00000000000000000000011111101011}#
+#\izlaz{get\_bits(235,    5,   10) = 00000000000000000000000000000011}#
 #\izlaz{set\_n\_bits(235,    5,   10,  127) = 00000000000000000000011111101011}#
-#\izlaz{invert(235,    5,   10)           = 00000000000000000000011100101011}#
-\end{test}
+#\izlaz{invert(235,   5,   10)  = 00000000000000000000011100101011}#
+\end{upotreba}
 \end{maxitest}
 
 \linkresenje{204}
@@ -403,18 +407,17 @@ Pod rotiranjem ulevo podrazumeva se pomeranje svih bitova za jednu poziciju ulev
 \end{enumerate}
 Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i broj \argf{k} koji se unose u heksadekasnom formatu sa standardnog ulaza.
 
-%\komentar{Milena: Po pravilima bi i ovo trebala da bude upotreba}
 
 \begin{maxitest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{B10011A7 5}#
-#\naslovIzlaz#
-#\izlaz{x                                      = 10110001000000000001000110100111 }#
-#\izlaz{rotate\_left(2969571751,     5)         = 00100000000000100011010011110110}#
-#\izlaz{rotate\_right(2969571751,     5)        = 00111101100010000000000010001101}#
-#\izlaz{rotate\_right\_signed(2969571751,     5) = 00111101100010000000000010001101 }#
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite neoznacen ceo broj x:}\ulaz{B10011A7}#
+#\izlaz{Unesite neoznacen ceo broj k:}\ulaz{5}#
+#\izlaz{x  = 10110001000000000001000110100111 }#
+#\izlaz{rotate\_left(2969571751, 5) = 00100000000000100011010011110110}#
+#\izlaz{rotate\_right(2969571751, 5) = 00111101100010000000000010001101}#
+#\izlaz{rotate\_right\_signed(2969571751, 5) = 00111101100010000000000010001101 }#
+\end{upotreba}
 \end{maxitest}
 
 \linkresenje{205}
@@ -426,9 +429,6 @@ Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i bro
 \begin{Exercise}[label=206]
 Napisati funkciju \kckod{mirror} koja određuje ceo broj čiji je binarni zapis slika u ogledalu binarnog zapisa argumenta funkcije. Napisati i program koji testira datu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu, tako što najpre ispisuje binarnu reprezentaciju unetog broja, a potom i binarnu reprezentaciju broja dobijenog nakon poziva funkcije \kckod{mirror} za uneti broj.
 
-%\komentar{Milena: nedostaje bar jedan test primer}
-
-
 \begin{miditest}
 \begin{test}{1}
 #\naslovUlaz#
@@ -436,6 +436,15 @@ Napisati funkciju \kckod{mirror} koja određuje ceo broj čiji je binarni zapis 
 #\naslovIzlaz#
 #\izlaz{00000000000000000000001001010101}#
 #\izlaz{10101010010000000000000000000000}#
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{-15}#
+#\naslovIzlaz#
+#\izlaz{11111111111111111111111111101011}#
+#\izlaz{11010111111111111111111111111111}#
 \end{test}
 \end{miditest}
 
@@ -494,7 +503,7 @@ Napisati funkciju \kckod{int Broj01(unsigned int n)} koja za dati broj \argf{n} 
 \begin{Exercise}[label=208]
 Napisati funkciju koja broji koliko se puta dve uzastopne jedinice pojavljuju u binarnom zapisu
   celog neoznačenog broja $x$. Napisati program koji tu funkciju testira za broj koji se
-  zadaje sa standardnog ulaza. \napomena{Tri uzastopne jedinice se broje dva puta.}
+  zadaje sa standardnog ulaza. \napomena{Tri uzastopne jedinice sadrže dve uzastopne jedinice dva puta.}
   
 \begin{minitest}
 \begin{test}{1}

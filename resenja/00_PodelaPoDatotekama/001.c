@@ -115,60 +115,73 @@ float argument(KompleksanBroj z)
 
 int main()
 {
-  /* Deklaracija 2 promenljive tipa KompleksanBroj */
-  KompleksanBroj z1, z2;
+  char c;
+  /* Deklaracija 3 promenljive tipa KompleksanBroj */
+  KompleksanBroj z1, z2, z;
+  
 
   /* Ucitavanje prvog kompleksnog broja u promenljivu z1, a potom
      njegovo ispisivanje na standardni izlaz */
   ucitaj_kompleksan_broj(&z1);
   ispisi_kompleksan_broj(z1);
-
-  /* Ispisuje se na standardni izlaz realan, imaginaran deo i moduo
-     kompleksnog broja z1 */
-  printf("\nrealan_deo: %.f\nimaginaran_deo: %f\nmoduo %f\n",
-         realan_deo(z1), imaginaran_deo(z1), moduo(z1));
   printf("\n");
-
+  
   /* Ucitavanje drugog kompleksnog broja u promenljivu z2, a potom
      njegovo ispisivanje na standardni izlaz */
   ucitaj_kompleksan_broj(&z2);
-  ispisi_kompleksan_broj(z2);
+  ispisi_kompleksan_broj(z2);	  
+  printf("\n");
+  getchar();
+
+  printf("Unesite znak (+,-,*):");
+  c = getchar();  
+
+  if(c == '+'){
+	  /* Sabiranje kompleksnih brojeva */
+	  z = saberi(z1, z2);
+	  printf("\n");
+	  ispisi_kompleksan_broj(z1);
+	  printf(" + ");
+	  ispisi_kompleksan_broj(z2);
+	  printf("  =  ");
+	  ispisi_kompleksan_broj(z);
+	  printf("\n");
+  }
+  else if(c == '-'){
+	  /* Oduzimanje kompleksnih brojeva */
+	  z = oduzmi(z1, z2);
+	  printf("\n");
+	  ispisi_kompleksan_broj(z1);
+	  printf(" - ");
+	  ispisi_kompleksan_broj(z2);
+	  printf("  =  ");
+	  ispisi_kompleksan_broj(z);
+	  printf("\n");
+  }
+  else{
+	  /* Mnozenje kompleksnih brojeva */
+	  z = mnozi(z1, z2);
+	  printf("\n");
+	  ispisi_kompleksan_broj(z1);
+	  printf(" * ");
+	  ispisi_kompleksan_broj(z2);
+	  printf("  =  ");
+	  ispisi_kompleksan_broj(z);
+  }
+   
+  /* Ispisuje se na standardni izlaz realan, imaginaran deo i moduo
+  kompleksnog broja z1 */
+  printf("\nrealan_deo: %.f\nimaginaran_deo: %f\nmoduo %f\n",
+         realan_deo(z), imaginaran_deo(z), moduo(z));
+  printf("\n");
 
   /* Racunanje i ispisivanje konjugovano kompleksan broj od z2 */
   printf("\nNjegov konjugovano kompleksan broj: ");
-  ispisi_kompleksan_broj(konjugovan(z2));
+  ispisi_kompleksan_broj(konjugovan(z));
   printf("\n");
-
-  /* Sabiranje kompleksnih brojeva */
-  printf("\n");
-  ispisi_kompleksan_broj(z1);
-  printf(" + ");
-  ispisi_kompleksan_broj(z2);
-  printf("  =  ");
-  ispisi_kompleksan_broj(saberi(z1, z2));
-  printf("\n");
-
-  /* Oduzimanje kompleksnih brojeva */
-  printf("\n");
-  ispisi_kompleksan_broj(z1);
-  printf(" - ");
-  ispisi_kompleksan_broj(z2);
-  printf("  =  ");
-  ispisi_kompleksan_broj(oduzmi(z1, z2));
-  printf("\n");
-
-  /* Mnozenje kompleksnih brojeva */
-  printf("\n");
-  ispisi_kompleksan_broj(z1);
-  printf(" * ");
-  ispisi_kompleksan_broj(z2);
-  printf("  =  ");
-  ispisi_kompleksan_broj(mnozi(z1, z2));
-
+  
   /* Testiranje funkcije koja racuna argument kompleksnih brojeva */
-  printf("\n");
-  ispisi_kompleksan_broj(z2);
-  printf("\nArgument kompleksnog broja %f\n", argument(z2));
-
+  printf("\nArgument kompleksnog broja %f\n", argument(z));
+  
   return 0;
 }
