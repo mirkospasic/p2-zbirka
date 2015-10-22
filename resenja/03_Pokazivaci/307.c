@@ -33,9 +33,11 @@ int duzina_niske(char *s)
    sufiks niske zadate prvi argumentom funkcije */
 int sufiks_niske(char *niska, char *sufiks)
 {
-  if (duzina_niske(sufiks) <= duzina_niske(niska) &&
-      poredjenje_niski(niska + duzina_niske(niska) -
-                       duzina_niske(sufiks), sufiks) == 0)
+  int duzina_sufiksa = duzina_niske(sufiks);
+  int duzina_niske_pom = duzina_niske(niska);
+  if (duzina_sufiksa <= duzina_niske_pom &&
+      poredjenje_niski(niska + duzina_niske_pom -
+                       duzina_sufiksa, sufiks) == 0)
     return 1;
   return 0;
 }
@@ -45,8 +47,10 @@ int sufiks_niske(char *niska, char *sufiks)
 int prefiks_niske(char *niska, char *prefiks)
 {
   int i;
-  if (duzina_niske(prefiks) <= duzina_niske(niska)) {
-    for (i = 0; i < duzina_niske(prefiks); i++)
+  int duzina_prefiksa = duzina_niske(prefiks);
+  int duzina_niske_pom = duzina_niske(niska);
+  if (duzina_prefiksa <= duzina_niske_pom) {
+    for (i = 0; i < duzina_prefiksa; i++)
       if (*(prefiks + i) != *(niska + i))
         return 0;
     return 1;

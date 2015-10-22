@@ -8,8 +8,8 @@ int main(int argc, char *argv[])
   printf("Broj argumenata komandne linije je %d.\n",
          argc);
 
-  printf("Kako zelite da ispisete argumente, ");
-  printf("koriscenjem indeksne ili pokazivacke sintakse (I ili P)? ");
+  printf("Kako zelite da ispisete argumente, koriscenjem"  
+          " indeksne ili pokazivacke sintakse (I ili P)? ");
   scanf("%c", &tip_ispisa);
 
   printf("Argumenti komandne linije su:\n");

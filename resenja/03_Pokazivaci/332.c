@@ -12,6 +12,7 @@ void ucitaj_matricu(int **M, int n, int m)
       scanf("%d", &M[i][j]);
 }
 
+/* Funkcija ispisuje elemente matrice ispod glavne dijagonale */
 void ispisi_elemente_ispod_dijagonale(int **M, int n, int m)
 {
   int i, j;

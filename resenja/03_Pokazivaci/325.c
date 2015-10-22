@@ -61,6 +61,7 @@ void ispisi_matricu_spiralno(int a[][MAX_K], int n, int m)
   putchar('\n');
 }
 
+/* Funkcija ucitava matricu */
 void ucitaj_matricu(int a[][MAX_K], int n, int m)
 {
   int i, j;

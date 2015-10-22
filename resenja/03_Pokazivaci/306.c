@@ -3,7 +3,7 @@
 
 #define MAX_KARAKTERA 100
 
-/* Implementacija funkcija strlen() iz standardne biblioteke */
+/* Implementacija funkcije strlen() iz standardne biblioteke */
 int duzina(char *s)
 {
   int i;

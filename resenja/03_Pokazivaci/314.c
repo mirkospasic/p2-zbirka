@@ -4,10 +4,41 @@
 
 #define MAX 100
 
-/* Deklaracija funkcija koje ce kasnije biti definisane */
-double euklidska_norma(int M[][MAX], int n);
-int trag(int M[][MAX], int n);
-int gornja_vandijagonalna_norma(int M[][MAX], int n);
+/* Funkcija izracunava trag matrice */
+int trag(int M[][MAX], int n)
+{
+  int trag = 0, i;
+  for (i = 0; i < n; i++)
+    trag += M[i][i];
+  return trag;
+}
+
+/* Funkcija izracunava euklidsku normu matrice */
+double euklidska_norma(int M[][MAX], int n)
+{
+  double norma = 0.0;
+  int i, j;
+
+  for (i = 0; i < n; i++)
+    for (j = 0; j < n; j++)
+      norma += M[i][j] * M[i][j];
+
+  return sqrt(norma);
+}
+
+/* Funkcija izracunava gornju vandijagonalnu normu matrice */
+int gornja_vandijagonalna_norma(int M[][MAX], int n)
+{
+  int norma = 0;
+  int i, j;
+
+  for (i = 0; i < n; i++) {
+    for (j = i + 1; j < n; j++)
+      norma += abs(M[i][j]);
+  }
+
+  return norma;
+}
 
 int main()
 {
@@ -62,40 +93,3 @@ int main()
   return 0;
 }
 
-/* Definicija funkcija koje su ranije bile deklarisane */
-
-/* Funkcija izracunava trag matrice */
-int trag(int M[][MAX], int n)
-{
-  int trag = 0, i;
-  for (i = 0; i < n; i++)
-    trag += M[i][i];
-  return trag;
-}
-
-/* Funkcija izracunava euklidsku normu matrice */
-double euklidska_norma(int M[][MAX], int n)
-{
-  double norma = 0.0;
-  int i, j;
-
-  for (i = 0; i < n; i++)
-    for (j = 0; j < n; j++)
-      norma += M[i][j] * M[i][j];
-
-  return sqrt(norma);
-}
-
-/* Funkcija izracunava gornju vandijagonalnu normu matrice */
-int gornja_vandijagonalna_norma(int M[][MAX], int n)
-{
-  int norma = 0;
-  int i, j;
-
-  for (i = 0; i < n; i++) {
-    for (j = i + 1; j < n; j++)
-      norma += abs(M[i][j]);
-  }
-
-  return norma;
-}

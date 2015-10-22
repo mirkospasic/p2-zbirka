@@ -41,12 +41,12 @@ njegove elemente korišćenjem pokazivačke sintakse i prikazati sadržaj niza.
 \end{Answer}
 
 \begin{Exercise}[label=302]
-Dat je niz realnih brojeva dimenzije $n$. 
+Dat je niz realnih brojeva dimenzije $n$. Korišćenjem pokazivačke sintakse, napisati: 
 \begin{enumerate}
-\item Napisati funkciju \kckod{zbir} koja izračunava zbir elemenata niza.
-\item Napisati funkciju \kckod{proizvod} koja izračunava proizvod elemenata niza.
-\item Napisati funkciju \kckod{min\_element}  koja izračunava najmanji elemenat niza.
-\item Napisati funkciju \kckod{max\_element}  koja izračunava najveći elemenat niza.
+\item funkciju \kckod{zbir} koja izračunava zbir elemenata niza,
+\item funkciju \kckod{proizvod} koja izračunava proizvod elemenata niza,
+\item funkciju \kckod{min\_element}  koja izračunava najmanji elemenat niza,
+\item funkciju \kckod{max\_element}  koja izračunava najveći elemenat niza.
 \end{enumerate}
 Napisati program koji testira napisane funkcije. Sa standardnog ulaza 
 učitati dimenziju $n$ ($0 < n \leq 100$) realnog niza, a zatim i 
@@ -91,7 +91,7 @@ drugoj polovini smanjuje za jedan. Ukoliko niz ima neparan broj
 elemenata, onda vrednost srednjeg elementa niza ostaviti
 nepromenjenim. Napisati program koji testira napisanu funkciju. Sa
 standardnog ulaza učitati dimenziju $n$ ($0 < n \leq 100$)
-celobrojong niza, a zatim i elemente niza. Na standardni izlaz
+celobrojnog niza, a zatim i elemente niza. Na standardni izlaz
 ispisati rezultat primene napisane funkcije nad učitanim nizom.
 
 %\noindent
@@ -146,7 +146,7 @@ Zadatak rešiti:
 \item korišćenjem indeksne sintakse,
 \item korišćenjem pokazivačke sintakse.
 \end{enumerate} 
-Od korisnika sa ulaza tražiti da izabere da li koje od ova dva
+Od korisnika sa ulaza tražiti da izabere koje od ova dva
 rešenja treba koristiti prilikom ispisa.
 
 \begin{miditest}
@@ -357,7 +357,7 @@ Data je kvadratna matrica dimenzije $n$.
 Napisati program koji testira napisane funkcije. Sa standardnog
 ulaza učitati dimanziju kvadratne matrice $n$
 ($0 < n \leq 100$), a zatim i elemente matrice. Na standardni izlaz
-ispisati učitanu matricu a zatim trag, euklidsku normu i vandijagonalnu normu 
+ispisati učitanu matricu, a zatim trag, euklidsku normu i vandijagonalnu normu 
 učitane matrice.
 
 %\noindent
@@ -396,7 +396,7 @@ Date su dve kvadratne matrice istih dimenzija $n$.
 \item Napisati funkciju koja izračunava proizvod matrica.
 \end{enumerate}
 Napisati program koji testira napisane funkcije. Sa standardnog
-ulaza učitati dimanziju kvadratnih matrica $n$
+ulaza učitati dimenziju kvadratnih matrica $n$
 ($0 < n \leq 100$), a zatim i elemente matrica. Na standardni izlaz
 ispisati da li su matrice jednake, a zatim ispisati
 zbir i proizvod učitanih matrica.
@@ -444,7 +444,7 @@ tu nalazi broj $0$.
 \item Napisati funkciju koja određuje refleksivno zatvorenje relacije (najmanju refleksivnu relaciju koja sadrži datu).
 \item Napisati funkciju koja određuje simetrično zatvorenje relacije (najmanju simetričnu relaciju koja sadrži datu).
 \item Napisati funkciju koja određuje refleksivno-tranzitivno zatvorenje relacije (najmanju refleksivnu i tranzitivnu relaciju
-koja sadrži datu)(Napomena: koristiti Varšalov algoritam).
+koja sadrži datu).
 \end{enumerate}
 Napisati program koji učitava matricu iz datoteke čije se ime zadaje kao prvi argument komandne linije.
 U prvoj liniji datoteke nalazi se dimenzija matrice $n$ ($0 < n \leq 64$), a potom i sami elementi matrice.
@@ -585,13 +585,12 @@ matricu.
 \begin{Exercise}[label=325]
 Data je matrica dimenzije $n \times m$.
 \begin{enumerate}
-\item Napsiati funkciju koja učitava elemente matrice sa standardnog ulaza
-\item Napsiati funkciju koja na standardni izlaz spiralno ispisuje elemente matrice.
+\item Napisati funkciju koja učitava elemente matrice sa standardnog ulaza
+\item Napisati funkciju koja na standardni izlaz spiralno ispisuje elemente matrice.
 \end{enumerate}
 Napisati program koji testira napisane funkcije. Sa standardnog
 ulaza učitati dimenzije matrice $n$ ($0 < n \leq 10$) i
-$m$ ($0 < n \leq 10$), a zatim i elemente matrice (pozivom gore
-napisane funkcije). Na standardni izlaz spiralno ispisati elemente
+$m$ ($0 < n \leq 10$), a zatim i elemente matrice. Na standardni izlaz spiralno ispisati elemente
 učitane matrice.
 
 
@@ -662,7 +661,7 @@ množenja.}
 \section{Dinamička alokacija memorije}
 \begin{Exercise}[label=328]
 Napisati program koji sa standardnog ulaza učitava dimenziju  
-niza celih brojeva a zatim i njegove elemente. Ne praviti
+niza celih brojeva, a zatim i njegove elemente. Ne praviti
 nikakve pretpostavke o dimenziji niza. Na standardni izlaz 
 ispisati ove brojeve u obrnutom poretku. 
 
@@ -699,15 +698,26 @@ ispisati ovaj niz brojeva u obrnutom poretku. Zadatak uraditi na dva načina:
 \item realokaciju memorije niza vršiti korišćenjem \kckod{malloc()} funkcije,
 \item realokaciju memorije niza vršiti korišćenjem \kckod{realloc()} funkcije.
 \end{enumerate}
+Od korisnika sa ulaza tražiti da izabere način realokacije memorije. 
 
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
+#\izlaz{Unesite zeljeni nacin realokacije (M ili R):}#
+#\ulaz{M}#
 #\izlaz{Unesite brojeve, nulu za kraj:}#
 #\ulaz{1 -2 3 -4 0}#
-#\izlaz{Unesite elemente niza:}#
-#\ulaz{1 -2 3 -4 0}#
 #\izlaz{Niz u obrnutom poretku je: -4 3 -2 1}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite zeljeni nacin realokacije (M ili R):}#
+#\ulaz{R}#
+#\izlaz{Unesite brojeve, nulu za kraj:}#
+#\ulaz{6 -1 5 -2 4 -3 0}#
+#\izlaz{Niz u obrnutom poretku je: -3 4 -2 5 -1 6}#
 \end{upotreba}
 \end{miditest}
 
@@ -722,7 +732,7 @@ Napisati funkciju koja kao rezultat vraća nisku koja se dobija
 nadovezivanjem dve niske, bez promene njihovog sadržaja.
 Napisati program koji testira rad napisane funkcije. Sa
 standardnog ulaza učitati dve niske karaktera (pretpostaviti da 
-niske nisu duže od $1000$ karaktera i da ne sadrže praznine). Na 
+niske nisu duže od $50$ karaktera i da ne sadrže praznine). Na 
 standardni izlaz ispisati nisku koja se dobija njihovim nadovezivanjem. 
 Za rezultujuću nisku dinamički alocirati memoriju.
 
@@ -733,6 +743,14 @@ Za rezultujuću nisku dinamički alocirati memoriju.
 #\izlaz{Unesite dve niske karaktera:}#
 #\ulaz{Jedan Dva}#
 #\izlaz{Nadovezane niske: JedanDva}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite dve niske karaktera:}#
+#\ulaz{Ana Marija}#
+#\izlaz{Nadovezane niske: AnaMarija}#
 \end{upotreba}
 \end{miditest}
 
@@ -761,6 +779,17 @@ matrice.
 #\izlaz{Trag unete matrice je 6.80.}#
 \end{upotreba}
 \end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite broj vrsta i broj kolona matrice:}#
+#\ulaz{2 2}#
+#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\ulaz{-0.1 -0.2}#
+#\ulaz{-0.3 -0.4}#
+#\izlaz{Trag unete matrice je -0.50.}#
+\end{upotreba}
+\end{miditest}
 
 \linkresenje{331}
 \end{Exercise}
@@ -770,12 +799,9 @@ matrice.
 
 \begin{Exercise}[label=332]
 Data je celobrojna matrica dimenzije $n \times m$.
-\begin{enumerate}
-\item Napisati funkciju koja vrši učitavanje matrice sa standardnog ulaza.
-\item Napisati funkciju koja ispisuje elemente ispod glavne dijagonale matrice 
+Napisati funkciju koja ispisuje elemente ispod glavne dijagonale matrice 
 (uključujući i glavnu dijagonalu).
-\end{enumerate}
-Napisati program koji testira napisane funkcije. Sa standardnog
+Napisati program koji testira napisanu funkciju. Sa standardnog
 ulaza učitati $n$ i $m$ (ne praviti nikakve
 pretpostavke o njihovoj veličini), zatim učitati elemente
 matrice i na standardni izlaz ispisati elemente ispod glavne
@@ -890,7 +916,7 @@ U datoteci se nalazi prvo dimenzija matrice, a zatim redom elementi matrice.
 Napisati program koji na osnovu dve realne matrice dimenzija $m \times n$
 formira matricu dimenzije $2 \cdot m \times n$ tako što
 naizmenično kombinuje jednu vrstu prve matrice i jednu vrstu
-druge matrice. Matrice su zapisane u datoteci ,,matrice.txt``. U
+druge matrice. Matrice su zapisane u datoteci \kckod{matrice.txt}. U
 prvom redu se nalaze dimenzije matrica $m$ i $n$, u
 narednih $m$ redova se nalaze vrste prve matrice, a u
 narednih $m$ redova vrste druge matrice. Rezultujuću
@@ -949,6 +975,18 @@ Rezultujuću matricu ispisati na standardni izlaz.
 #\izlaz{3 1 2}#
 \end{upotreba}
 \end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite elemente niza, nulu za kraj:}#
+#\ulaz{-5 -2 -4 -1 0}#
+#\izlaz{Trazena matrica je:}#
+#\izlaz{-5 -2 -4 -1}#
+#\izlaz{-2 -4 -1 -5}#
+#\izlaz{-4 -1 -5 -2}#
+#\izlaz{-1 -5 -2 -4}#
+\end{upotreba}
+\end{miditest}
 
 \end{Exercise}
 %\begin{Answer}[ref=344]
@@ -957,7 +995,7 @@ Rezultujuću matricu ispisati na standardni izlaz.
 
 \begin{Exercise}[label=340]
 Petar sakuplja sličice igrača za predstojeće Svetsko
-prvenstvo u fudbalu. U datoteci ,,slicice.txt`` se nalaze
+prvenstvo u fudbalu. U datoteci \kckod{slicice.txt} se nalaze
 informacije o sličicama koje mu nedostaju u formatu:\\
 \hspace*{5mm}\kckod{redni\_broj\_sličice ime\_reprezentacije\_kojoj\_sličica\_pripada} \\
 Pomozite Petru
@@ -996,7 +1034,7 @@ realokaciju memorije koristiti \kckod{realloc()} funkciju.}
 %\end{Answer}
 
 \begin{Exercise}[difficulty=2, label=341]
-U datoteci ,,temena.txt`` se nalaze tačke koje predstavljaju
+U datoteci \kckod{temena.txt} se nalaze tačke koje predstavljaju
 temena nekog $n$-tougla. Napisati program koji na osnovu
 sadržaja datoteke na standardni izlaz ispisuje o kom
 $n$-touglu je reč, a zatim i vrednosti njegovog obima i
@@ -1022,6 +1060,7 @@ površine. Pretpostavka je da će mnogougao biti konveksan.
 #\izlaz{Povrsina je 4.}#
 \end{test2}
 \end{miditest}
+
 \begin{miditest}
 \begin{upotreba}{2}
 #\naslovDat{temena.txt}#

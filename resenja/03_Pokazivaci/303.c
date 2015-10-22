@@ -26,11 +26,11 @@ void povecaj_smanji(int *a, int n)
     poslednji--;
   }
 
-  /* Drugi nacin */
+  /* Drugi nacin 
   while (prvi < poslednji) {
     (*prvi++)++;
     (*poslednji--)--;
-  }
+  } */
 }
 
 int main()
