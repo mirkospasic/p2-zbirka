@@ -149,28 +149,37 @@ void print_bits(int x)
 
 int main()
 {
-  unsigned broj, p, n, y;
-  scanf("%u%u%u%u", &broj, &n, &p, &y);
-  printf("Broj %u %s= ", broj, "");
-  print_bits(broj);
-
-
-  printf("reset(%u,%u,%u)%s = ", broj, n, p, "");
-  print_bits(reset(broj, n, p));
-
-  printf("set(%u,%u,%u)%s = ", broj, n, p, "");
-  print_bits(set(broj, n, p));
-
-  printf("get_bits(%u,%u,%u)%s = ", broj, n, p, "");
-  print_bits(get_bits(broj, n, p));
-
+  unsigned x, p, n, y;
+  printf("Unesite neoznacen ceo broj x:\n");
+  scanf("%u", &x);
+  printf("Unesite neoznacen ceo broj n:\n");
+  scanf("%u", &n);
+  printf("Unesite neoznacen ceo broj p:\n");
+  scanf("%u", &p);
+  printf("Unesite neoznacen ceo broj y:\n");
+  scanf("%u", &y);
+  
+  /*Stampanje broja x i y*/
+  printf("x = %u = ", x);
+  print_bits(x);
+ 
   printf("y = %u = ", y);
   print_bits(y);
-  printf("set_n_bits(%u,%u,%u,%u) = ", broj, n, p, y);
-  print_bits(set_n_bits(broj, n, p, y));
 
-  printf("invert(%u,%u,%5u)%s = ", broj, n, p, "");
-  print_bits(invert(broj, n, p));
+  printf("reset(%u,%u,%u) = ", x, n, p);
+  print_bits(reset(x, n, p));
+
+  printf("set(%u,%u,%u) = ", x, n, p);
+  print_bits(set(x, n, p));
+
+  printf("get_bits(%u,%u,%u) = ", x, n, p);
+  print_bits(get_bits(x, n, p));
+
+  printf("set_n_bits(%u,%u,%u,%u) = ", x, n, p, y);
+  print_bits(set_n_bits(x, n, p, y));
+
+  printf("invert(%u,%u,%5u) = ", x, n, p);
+  print_bits(invert(x, n, p));
 
   return 0;
 }

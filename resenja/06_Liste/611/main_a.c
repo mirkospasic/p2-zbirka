@@ -6,7 +6,12 @@
 int main()
 {
   /* Lista je prazna na pocetku. */
+  /* Cuvaju se pokazivaci na glavu liste i na poslednji cvor liste,
+     da bi operacije poput dodavanja na kraj liste i ispisivanja
+     liste unazad bile efikasne poput dodavanja na pocetak liste i
+     ispisivanja liste od pocetnog do poslednjeg cvora. */
   Cvor *glava = NULL;
+  Cvor *kraj = NULL;
   Cvor *trazeni = NULL;
   int broj;
 
@@ -16,9 +21,9 @@ int main()
     /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
        memorije za nov cvor. Memoriju alociranu za cvorove liste
        treba osloboditi pre napustanja programa. */
-    if (dodaj_na_pocetak_liste(&glava, broj) == 1) {
+    if (dodaj_na_pocetak_liste(&glava, &kraj, broj) == 1) {
       fprintf(stderr, "Neuspela alokacija za cvor %d\n", broj);
-      oslobodi_listu(&glava);
+      oslobodi_listu(&glava, &kraj);
       exit(EXIT_FAILURE);
     }
     printf("\tLista: ");
@@ -35,9 +40,9 @@ int main()
     printf("Trazeni broj %d je u listi!\n", trazeni->vrednost);
 
   printf("\nLista ispisana u nazad: ");
-  ispisi_listu_unazad(glava);
+  ispisi_listu_unazad(kraj);
 
-  oslobodi_listu(&glava);
+  oslobodi_listu(&glava, &kraj);
 
   return 0;
 }

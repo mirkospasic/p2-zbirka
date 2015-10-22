@@ -1,3 +1,4 @@
+/* polinom.h */
 
 /* Ovim pretrocesorskim direktivama zakljucavamo zaglavlje i time
    onemogucujemo da se sadrzaj zaglavlja vise puta ukljuci */

@@ -43,7 +43,7 @@ Koristeći uzajamnu (posrednu) rekurziju napisati:
 \item funkciju \kckod{paran} koja proverava da li je broj cifara nekog broja paran i vraća 1 ako jeste, a 0 inače;
 \item i funkciju \kckod{neparan} koja vraća 1, ukoliko je broj cifara nekog broja neparan, a 0 inače.
  \end{itemize}
- Napisati program koji testira napisanu funkciju tako što za heksadekadnu broj koji se unosi sa standardnog ulaza ispisuje da li je broj njenih cifara paran ili neparan.
+Napisati program koji testira napisanu funkciju tako što za heksadekadni broj koji se unosi sa standardnog ulaza ispisuje da li je broj njegovih cifara paran ili neparan.
  
  \begin{miditest}
 \begin{test}{1}
@@ -71,13 +71,18 @@ Koristeći uzajamnu (posrednu) rekurziju napisati:
 \begin{Exercise}[label=105]
 Napisati repno-rekurzivnu funkciju koja izračunava faktorijel broja $n$. Napisati program koji testira napisanu funkciju za proizvoljan broj $n$ ($n \le 12$) unet sa standardnog ulaza.
 
-%\komentar{Milena: dodati jos test primera}
-  
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
 #\izlaz{Unesite n (<= 12):} \ulaz{5}#
 #\izlaz{5! = 120}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite n (<= 12):} \ulaz{0}#
+#\izlaz{0! = 1}#
 \end{upotreba}
 \end{miditest}
 
@@ -96,8 +101,6 @@ Elementi funkcije $F$ izračunavaju se na osnovu sledećih rekurentnih relacija:
 Napisati rekurzivnu funkciju  koja računa $n$-ti element u nizu $F$, ali tako da se problemi manje dimenzije rešavaju samo jedan put.
 Napisati program koji testira napisanu funkciju za vrednosti koeficijenata i prirodan broj $n$ koji se unose sa standardnog ulaza.
   
-%\komentar{Milena: dodati jos test primera}
-
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
@@ -106,12 +109,20 @@ Napisati program koji testira napisanu funkciju za vrednosti koeficijenata i pri
 #\izlaz{F(5) = 61}#
 \end{upotreba}
 \end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite koeficijente} \ulaz{4 2}#
+#\izlaz{Unesite koji clan niza se racuna} \ulaz{8}#
+#\izlaz{F(8) = 31360}#
+\end{upotreba}
+\end{miditest}
 
 \linkresenje{106}
 \end{Exercise}
-%\begin{Answer}[ref=106]
-%\includecode{resenja/01_Rekurzija/106.c}
-%\end{Answer}
+\begin{Answer}[ref=106]
+\includecode{resenja/01_Rekurzija/106.c}
+\end{Answer}
 
 \begin{Exercise}[label=111]
 Napisati rekurzivnu funkciju koja sabira dekadne cifre datog celog broja $x$. Napisati program koji testira ovu funkciju, za broj koji se unosi sa standardnog ulaza.
@@ -171,16 +182,24 @@ Napisati rekurzivnu funkciju koja sumira elemente niza celih brojeva.  Napisati 
 rezultat primene napisane funkcije nad učitanim nizom.
 
 \begin{miditest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{5 1 2 3 4 5 }#
-#\naslovIzlaz#
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza:} \ulaz{5}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{1 2 3 4 5}#
 #\izlaz{Suma elemenata je 15}#
-\end{test}
+\end{upotreba}
 \end{miditest}
-	
-%\komentar{Milena: ovo bi trebalo da je upotreba, i nedostaje jos neki test primer}	
-	
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite dimenziju niza:} \ulaz{4}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{-5 2 -3 6}#
+#\izlaz{Suma elemenata je 0}#
+\end{upotreba}
+\end{miditest}
+
 \linkresenje{101}
 \end{Exercise}
 \begin{Answer}[ref=101]
@@ -232,33 +251,37 @@ Napisati rekurzivnu funkciju koja određuje maksimum niza celih brojeva. Napisat
 \begin{Exercise}[label=110]
 Napisati rekurzivnu funkciju \kckod{skalarno} koja izračunava skalarni proizvod dva data vektora.  Napisati program koji testira ovu funkciju, za nizove koji se unose sa standardnog ulaza. Prvo se unosi dimenzija nizova, a zatim i njihovi elementi. Nizovi neće imati više od $256$ elemenata.
 
-%\komentar{Milena: ovo bi moralo da bude upotreba, jer je ovako potpuno nejasno}	
-
+\begin{miditest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite dimenziju nizova:} \ulaz{3}#
+#\izlaz{Unesite elemente prvog niza:}#
+#\ulaz{1 2 3}#
+#\izlaz{Unesite elemente drugog niza:}#
+#\ulaz{1 2 3}#
+#\izlaz{Skalarni proizvod je 14}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite dimenziju nizova:} \ulaz{2}#
+#\izlaz{Unesite elemente prvog niza:}#
+#\ulaz{3 5}#
+#\izlaz{Unesite elemente drugog niza:}#
+#\ulaz{2 6}#
+#\izlaz{Skalarni proizvod je 36}#
+\end{upotreba}
+\end{miditest}
   
-\begin{minitest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{3 1 2 3 1 2 3 }#
-#\naslovIzlaz#
-#\izlaz{14}#
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{2}
-#\naslovUlaz#
-#\ulaz{ 2 3 5 2 6 }#
-#\naslovIzlaz#
-#\izlaz{36}#
-\end{test}
-\end{minitest}  
-\begin{minitest}
-\begin{test}{3}
-#\naslovUlaz#
-#\ulaz{ 0 }#
-#\naslovIzlaz#
-#\izlaz{0}#
-\end{test}
-\end{minitest}  
+%\begin{minitest}
+%\begin{test}{3}
+%#\naslovUlaz#
+%#\ulaz{ 0 }#
+%#\naslovIzlaz#
+%#\izlaz{0}#
+%\end{test}
+%\end{minitest}  
 
 \linkresenje{110}
 \end{Exercise}
@@ -270,32 +293,38 @@ Napisati rekurzivnu funkciju \kckod{skalarno} koja izračunava skalarni proizvod
 Napisati rekurzivnu funkciju \kckod{br\_pojave} koja računa broj pojavljivanja
 elementa $x$ u nizu $a$ dužine $n$. Napisati program koji testira ovu funkciju za broj $x$ i niz  $a$ koji se unose sa standardnog ulaza. Prvo se unosi $x$, a zatim elementi niza sve do unosa kraja ulaza. Niz neće imati više od $256$ elemenata. 
 
-%\komentar{Milena: i ovo bi trebalo da je upotreba}	
-  
-\begin{minitest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{4 1 2 3 4 }#
-#\naslovIzlaz#
-#\izlaz{1}#
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{2}
-#\naslovUlaz#
-#\ulaz{11 3 2 11 14 11 43 1 }#
-#\naslovIzlaz#
-#\izlaz{2}#
-\end{test}
-\end{minitest}  
-\begin{minitest}
-\begin{test}{3}
-#\naslovUlaz#
-#\ulaz{ 1 3 21 5 6 }#
-#\naslovIzlaz#
-#\izlaz{0}#
-\end{test}
-\end{minitest}  
+\begin{miditest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite ceo broj:}#
+#\ulaz{4}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{1 2 3 4}#
+#\izlaz{Broj pojavljivanja je 1}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite ceo broj:}#
+#\ulaz{11}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{3 2 11 14 11 43 1}#
+#\izlaz{Broj pojavljivanja je 2}#
+\end{upotreba}
+\end{miditest}
+
+
+\begin{miditest}
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesite ceo broj:}#
+#\ulaz{1}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{3 21 5 6}#
+#\izlaz{Broj pojavljivanja je 0}#
+\end{upotreba}
+\end{miditest}
 
 \linkresenje{112}
 \end{Exercise}
@@ -308,26 +337,27 @@ Napisati rekurzivnu funkciju \kckod{tri\_uzastopna\_clana} kojom se proverava da
   je testira. Sa standardnog ulaza se unose najpre tri tražena
   broja, a zatim elementi niza, sve do kraja ulaza. Pretpostaviti da
 neće biti uneto više od $256$ brojeva.
-
-%\komentar{Milena: ovo bi moralo da bude upotreba, jer je ovako potpuno nejasno}	
-  
   
 \begin{miditest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{1 2 3 4 1 2 3 4 5}#
-#\naslovIzlaz#
-#\izlaz{da}#
-\end{test}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite tri cela broja:}#
+#\ulaz{1 2 3}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{4 1 2 3 4 5}#
+#\izlaz{Uneti brojevi jesu uzastopni clanovi niza.}#
+\end{upotreba}
 \end{miditest}
 \begin{miditest}
-\begin{test}{2}
-#\naslovUlaz#
-#\ulaz{1 2 3 11 1 2 4 3 6 }#
-#\naslovIzlaz#
-#\izlaz{ne}#
-\end{test}
-\end{miditest}    
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite tri cela broja:}#
+#\ulaz{1 2 3}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{11 1 2 4 3 6}#
+#\izlaz{Uneti brojevi nisu uzastopni clanovi niza.}#
+\end{upotreba}
+\end{miditest}
 %
 %\begin{miditest}
 %\begin{test}{Test 3}
@@ -394,9 +424,6 @@ Napisati rekurzivnu funkciju koja štampa bitovsku
   reprezentaciju neoznačenog celog broja, i program koji je
   testira za vrednost koja se zadaje sa standardnog ulaza.
 
-%\komentar{Milena: nedostaje test primer}	
-
-
 \begin{miditest}
 \begin{test}{1}
 #\naslovUlaz#
@@ -405,7 +432,16 @@ Napisati rekurzivnu funkciju koja štampa bitovsku
 #\izlaz{00000000000000000000000000001010}#
 \end{test}
 \end{miditest}
+\begin{miditest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{0}#
+#\naslovIzlaz#
+#\izlaz{00000000000000000000000000000000}#
+\end{test}
+\end{miditest}
 \end{Exercise}
+
 %\begin{Answer}[ref=115]
 %\includecode{resenja/01_Rekurzija/115.c}
 %\end{Answer}
@@ -552,18 +588,40 @@ Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,
 
 %komentar{Milena: Dodati test primer za n=2. Ovo bi moglo da bude test, nema razloga da bude upotreba kada se unosi samo jedan broj}
 
-\begin{miditest}
-\begin{upotreba}{1}
-#\naslovInt#
-#\izlaz{Unesite duzinu permutacije: }\ulaz{3}#
+\begin{minitest}
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{2}#
+#\naslovIzlaz#
+#\izlaz{1 2}#
+#\izlaz{2 1}#
+\end{test}
+\end{minitest}  
+\begin{minitest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{3}#
 #\izlaz{1 2 3}#
 #\izlaz{1 3 2}#
 #\izlaz{2 1 3}#
 #\izlaz{2 3 1}#
 #\izlaz{3 1 2}#
 #\izlaz{3 2 1}#
-\end{upotreba}
-\end{miditest}
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{-5}#
+#\izlaz{Duzina }#
+#\izlaz{permutacije}#
+#\izlaz{mora biti}#
+#\izlaz{broj veci}#
+#\izlaz{od 0 i manji}#
+#\izlaz{50!}#
+\end{test}
+\end{minitest}
+
 
 \linkresenje{107}
 \end{Exercise}
@@ -572,7 +630,7 @@ Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,
 \end{Answer}
 
 \begin{Exercise}[label=108, difficulty=1]
-Paskalov trougao sadrži brojeve čije se vrednsti računaju tako što svako polje ima vrednost
+Paskalov trougao sadrži brojeve čije se vrednosti računaju tako što svako polje ima vrednost
  zbira jednog polja levo i jednog polja iznad. Izuzetak su jedinice na krajevima. Vrednosti
  brojeva Paskalovog trougla odgovaraju binomnim koeficijentima tj.~vrednost polja \argf{(n, k)}, gde je $n$ redni broj hipotenuze, a $k$ redni broj elementa u tom redu (na toj hipotenuzi) odgovara binomnom koeficijentu $\binom{n}{k}$, pri čemu brojanje počinje od nule. Na primer, vrednost polja \argf{(4, 2)} je $6$. 
 
@@ -593,8 +651,6 @@ Paskalov trougao sadrži brojeve čije se vrednsti računaju tako što svako pol
 Napisati program koji za unetu veličinu Paskalovog trougla i hipotenuzu 
 najpre iscrtava Paskalov trougao, a zatim štampa sumu elemenata hipotenuze.
 
-%\komentar{Milena: dodati test primer}
-
 \begin{miditest}
 \begin{test}{1}
 #\naslovUlaz#
@@ -610,36 +666,22 @@ najpre iscrtava Paskalov trougao, a zatim štampa sumu elemenata hipotenuze.
 #\izlaz{8}#
 \end{test}
 \end{miditest}
-
-%\begin{miditest}
-%\begin{test}{Test 1}
-%Ulaz:   5 3
-%Izlaz:  
-%               1
-%             1   1
-%           1   2   1
-%         1   3   3   1
-%       1   4   6   4   1
-%     1   5   10  10  5  1
-%
-%    8
-%\end{test}
-%\end{miditest}
-%\begin{miditest}
-%\begin{test}{Test 2}
-%Ulaz:   6 5
-%Izlaz:  
-%  		           1
-%               1   1
-%             1   2   1
-%           1   3   3   1
-%         1   4   6   4   1
-%       1   5   10  10   5  1
-%     1   6  15   20  15  6   1
-%
-%     32
-%\end{test}
-%\end{miditest}
+\begin{miditest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{6 5}#
+#\naslovIzlaz#
+            #\izlaz{1}#
+          #\izlaz{1}#   #\izlaz{1}#
+        #\izlaz{1}#   #\izlaz{2}#   #\izlaz{1}#
+      #\izlaz{1}#   #\izlaz{3}#   #\izlaz{3}#   #\izlaz{1}#
+    #\izlaz{1}#   #\izlaz{4}#   #\izlaz{6}#   #\izlaz{4}#   #\izlaz{1}#
+  #\izlaz{1}#   #\izlaz{5}#   #\izlaz{10}#  #\izlaz{10}#  #\izlaz{5}#  #\izlaz{1}#
+#\izlaz{1}#   #\izlaz{6}#   #\izlaz{15}#  #\izlaz{20}# #\izlaz{15}#  #\izlaz{6}#  #\izlaz{1}#
+#\izlaz{}#
+#\izlaz{32}#
+\end{test}
+\end{miditest}
 
 \linkresenje{108}
 \end{Exercise}
@@ -658,10 +700,19 @@ Napisati rekurzivnu funkciju koja prikazuje sve varijacije sa
    ponavljanjem dužine $n$ skupa $\{a, b\}$, i program koji je
    testira, za $n$ koje se unosi sa standardnog ulaza.
 
-%\komentar{Milena: dodati test primer}
-
 \begin{miditest}
 \begin{test}{1}
+#\naslovUlaz#
+#\ulaz{2}#
+#\naslovIzlaz#
+#\izlaz{a a}#
+#\izlaz{a b}#
+#\izlaz{b a}#
+#\izlaz{b b}#
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{2}
 #\naslovUlaz#
 #\ulaz{3}#
 #\naslovIzlaz#
@@ -683,7 +734,7 @@ Napisati rekurzivnu funkciju koja prikazuje sve varijacije sa
 \begin{Exercise}[label=117]%\marker+{2}
 {\em Hanojske kule}: Data su tri
   vertikalna štapa, na jednom se nalazi $n$ diskova poluprečnika
-  $1$,$2$,$3$,... do $n$, tako da se najveći nalazi na dnu, a
+  $1$, $2$, $3$,... do $n$, tako da se najveći nalazi na dnu, a
   najmanji na vrhu. Ostala dva štapa su prazna. Potrebno je
   premestiti diskove na drugi štap tako da budu u istom redosledu, pri čemu se ni u jednom
   trenutku ne sme staviti veći disk preko manjeg, a preostali štap se koristi kao pomoćni štap prilikom
@@ -698,7 +749,7 @@ Napisati rekurzivnu funkciju koja prikazuje sve varijacije sa
 \begin{Exercise}[label=118]%\marker+{2}
 {\em Modifikacija Hanojskih kula}: Data su četiri
   vertikalna štapa, na jednom se nalazi $n$ diskova poluprečnika
-  $1$,$2$,$3$,... do $n$, tako da se najveći nalazi na dnu, a
+  $1$, $2$, $3$,... do $n$, tako da se najveći nalazi na dnu, a
   najmanji na vrhu. Ostala tri štapa su prazna. Potrebno je
   premestiti diskove na drugi štap tako da budu u istom redosledu,
   premestajući jedan po jedan disk, pri čemu se ni u jednom

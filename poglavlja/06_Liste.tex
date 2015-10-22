@@ -37,10 +37,10 @@ Napisati biblioteku za rad sa jednostruko povezanom listom čiji čvorovi sadrž
  \end{enumerate}
 
 Funkcije dodavanja novog elementa u postojeću listu poput, \kckod{dodaj\_na\_pocetak\_liste}, \kckod{dodaj\_na\_kraj\_liste} i \kckod{dodaj\_sortirano}, 
-treba da vrate 0, ukoliko je sve bilo u redu, odnosno 1, ukoliko se dogodila greška prilikom alokacije memorije za nov čvor.
+treba da vrate $0$, ukoliko je sve bilo u redu, odnosno $1$, ukoliko se dogodila greška prilikom alokacije memorije za nov čvor.
 \napomena{Sve funkcije za rad sa listom implementirati iterativno.}
 
-Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata koji se unose sa standardnog ulaza.  Unošenje novih brojeva u listu prekida se učitavanjem kraja ulaza (EOF). Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
+Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata koji se unose sa standardnog ulaza.  Unošenje novih brojeva u listu prekida se učitavanjem kraja ulaza (\kckod{EOF}). Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
 
 \begin{enumerate}
 \item[(1)] U programu se učitani celi brojevi dodaju na početak liste. 
@@ -233,276 +233,8 @@ Napisati biblioteku za rad sa jednostruko povezanim listama koja sadrži sve fun
 \includecode{resenja/06_Liste/602/lista.c}
 \end{Answer}
 
-%=========================================================================
+%========================================================================
 \begin{Exercise}[label=603]
-Napisati biblioteku za rad sa dvostruko povezanom listom celih brojeva koja ima iste funkcionalnosti kao biblioteka iz zadatka \ref{601}. 
-Dopuniti bibilioteku novim funkcijama.
-\begin{enumerate}
- \item Napisati funkciju \kckod{void obrisi\_tekuci(Cvor ** adresa\_glave, Cvor * tekuci)} koja briše čvor na koji pokazuje pokazivač \kckod{tekuci} iz liste čiji se pokazivač na čvor koji je glava liste nalazi na adresi \kckod{adresa\_glave}.
- \item Napisati funkciju \kckod{void ispisi\_listu\_unazad(Cvor * glava)} koja ispisuje sadržaj liste od poslednjeg čvora ka glavi liste.
-\end{enumerate}
-
-Sve funkcije za rad sa listom implementirati iterativno.
-\napomena{Koristiti iste \kckod{main} programe i test primere iz zadatka \ref{601}. Ove programe dopuniti pozivom funkcije koja ispisuje listu unazad. }
-\linkresenje{603}
-\end{Exercise}
-\begin{Answer}[ref=603]
-\includecode{resenja/06_Liste/603/lista.h}
-\includecode{resenja/06_Liste/603/lista.c}
-\includecode{resenja/06_Liste/603/main_a.c}
-\includecode{resenja/06_Liste/603/main_b.c}
-\includecode{resenja/06_Liste/603/main_c.c}
-\end{Answer}
-
-%=========================================================================
-\begin{Exercise}[label=604]
-Sadržaj datoteke je aritmetički izraz koji može sadržati zagrade \{, [ i (. 
-Napisati program koji učitava sadržaj datoteke \kckod{izraz.txt} i korišćenjem steka 
-utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa odgovarajuću poruku na standardni izlaz.
-
-\begin{miditest}
-\begin{test}{1}
-#\naslovDat{izraz.txt}#
-#\datoteka{\{[23 + 5344] * (24 - 234)\} - 23}#
-  
-#\naslovIzlaz#
-#\izlaz{Zagrade su ispravno uparene.}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{2}
-#\naslovDat{izraz.txt}#
-#\datoteka{\{[23 + 5] * (9 * 2)\} - \{23\}}#
-
-#\naslovIzlaz#
-#\izlaz{Zagrade su ispravno uparene.}# 
-\end{test}
-\end{miditest}
-
-\begin{miditest}
-\begin{test}{3}
-#\naslovDat{izraz.txt}#
-#\datoteka{\{[2 + 54) / (24 * 87)\} + (234 + 23)}#
-
-#\naslovIzlaz#
-#\izlaz{Zagrade nisu ispravno uparene.}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{4}
-#\naslovDat{izraz.txt}#
-#\datoteka{\{(2 - 14) / (23 + 11)\}\} * (2 + 13)}#
-
-#\naslovIzlaz#
-#\izlaz{Zagrade nisu ispravno uparene.}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{5}
-#\naslovDat{Datoteka izraz.txt je prazna}#
-
-#\naslovIzlaz#
-#\izlaz{Zagrade su ispravno uparene.}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{6}
-#\naslovDat{Datoteka izraz.txt ne postoji.}# 
-
-#\naslovIzlaz#
-#\izlaz{Greska prilikom otvaranja }#
-#\izlaz{datoteke izraz.txt!}#
-\end{test}
-\end{miditest}
-\linkresenje{604}
-\end{Exercise}
-\begin{Answer}[ref=604]
-\includecode{resenja/06_Liste/604.c}
-\end{Answer}
-
-%=========================================================================
-\begin{Exercise}[label=605]
-Napisati program koji proverava ispravnost uparivanja etiketa u \kckod{HTML} datoteci. Ime datoteke se zadaje kao argument komandne linije.
-Poruke o greškama ispisivati na standardni izlaz za greške.
-\uputstvo{Za rešavanje problema koristiti stek implementiran preko liste čiji čvorovi sadrže \kckod{HTML} etikete.}
-
-
-\begin{miditest}      
-\begin{test}{1}
-#\poziv{./a.out datoteka.html}#
-
-#\naslovDat{datoteka.html}#                     
-#\datoteka{<html>}#                                
-#\datoteka{  <head>}#
-#\datoteka{  \ \ <title>Primer</title>}#
-#\datoteka{  </head>}#
-#\datoteka{  <body>}#
-#\datoteka{  </body>}#
-
-#\naslovIzlaz#
-#\izlaz{Etikete nisu pravilno uparene}#
-#\izlaz{(etiketa <html> nije zatvorena)}# 
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{2}
-#\poziv{./a.out datoteka.html}#
-
-#\naslovDat{datoteka.html}#                                                 
-#\datoteka{  <head>}#
-#\datoteka{  \ \ <title>Primer</title>}#
-#\datoteka{  </head>}#
-#\datoteka{  <body>}#
-#\datoteka{  </body>}#
-#\datoteka{</html>}#  
-
-#\naslovIzlaz#
-#\izlaz{Etikete nisu pravilno uparene}#
-#\izlaz{(nadjena je etiketa </html> koja nije otvorena)}# 
-\end{test}
-\end{miditest}
-
-\begin{miditest}
-\begin{test}{3}
-#\poziv{./a.out datoteka.html}#
-
-#\naslovDat{datoteka.html}#                     
-#\datoteka{<html>}#
-#\datoteka{  <head>}#
-#\datoteka{  \ \ <title>Primer</title>}#
-#\datoteka{  </head>}#
-#\datoteka{  <body>}#
-#\datoteka{  \ \ <h1>Naslov</h1>}#
-#\datoteka{  \ \ Danas je lep i suncan dan. <br>}#
-#\datoteka{  \ \ Sutra ce biti jos lepsi.}#
-#\datoteka{  \ \ <a link='http://www.math.rs'>Link</a>}#
-#\datoteka{  </body>}#
-#\datoteka{</html>}#
-
-#\naslovIzlaz#
-#\izlaz{Etikete su pravilno uparene!}#
-\end{test}
-\end{miditest}
-\begin{miditest}    
-\begin{test}{4}
-#\poziv{./a.out datoteka.html}#
-
-#\naslovDat{datoteka.html}#                     
-#\datoteka{<html>}#
-#\datoteka{  <head>}#
-#\datoteka{  \ \ <title>Primer</title>}#
-#\datoteka{  </head>}#
-#\datoteka{  <body>}#
-#\datoteka{</html>}#
-
-#\naslovIzlaz#
-#\izlaz{Etikete nisu pravilno uparene}#
-#\izlaz{(nadjena je etiketa </html>, a poslednja }#
-#\izlaz{otvorena je <body>)}#
-
-\end{test}
-\end{miditest}
-
-\begin{miditest}
-\begin{test}{5}
-#\poziv{./a.out datoteka.html}#
-
-#\naslovDat{Datoteka datoteka.html ne postoji.}#
-
-#\naslovIzlaz#
-#\izlaz{Greska prilikom otvaranja}# 
-#\izlaz{datoteke datoteka.html.}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{6}
-#\poziv{./a.out datoteka.html}#
-
-#\naslovDat{datoteka.html je prazna}#                     
-
-#\naslovIzlaz#
-#\izlaz{Etikete su pravilno uparene!}#
-\end{test}
-\end{miditest}
-\linkresenje{605}
-\end{Exercise}
-\begin{Answer}[ref=605]
-\includecode{resenja/06_Liste/605.c}
-\end{Answer}
-%=========================================================================
-\begin{Exercise}[label=606]
-Napisati program kojim se simulira rad jednog šaltera na kojem se prvo kod službenika zakazuju 
-termini, a potom službenik uslužuje korisnike. 
-Službenik evidentira korisničke \kckod{JMBG} brojeve (niske koje sadrže po $13$ karaktera) i zahteve (niska koja sadrži najviše $999$ karaktera). 
-Prijem zahteva korisnika se prekida unošenjem karaktera za kraj ulaza, (\kckod{EOF}).
-Službenik redom pregleda zahteve i odlučuje da li zahtev obrađuje odmah ili kasnije. Postavlja mu se pitanje 
-\kckod{Da li korisnika  vracate na kraj reda?} i ukoliko on da odgovor \kckod{Da}, 
-korisnik se stavlja na kraj reda, čime se obrada njegovog zahteva odlaže. Ukoliko odgovor nije \kckod{Da}, tada službenik obrađuje zahtev i podatke o korisniku dopisuje na kraj datoteke \kckod{izvestaj.txt}. Ova datoteka, za svaki obrađen zahtev, sadrži \kckod{JMBG} i zahtev usluženog korisnika.
-Posle svakog $petog$ usluženog korisnika, službeniku se nudi mogućnost da prekine sa radom, nevezano od broja korisnika koji i dalje čekaju u redu. 
-\uputstvo{Za čuvanje korisničkih zahteva koristiti red implementiran korišćenjem listi.}
-
-\begin{maxitest}
-\begin{upotreba}{1}
-#\naslovInt#
-#\izlaz{Sluzbenik evidentira korisnicke zahteve:}# 
-#\izlaz{Novi zahtev [CTRL+D za kraj]}#
-#\izlaz{  JMBG:} \ulaz{1234567890123}#
-#\izlaz{  Opis problema:} \ulaz{Otvaranje racuna}#
-
-#\izlaz{Novi zahtev [CTRL+D za kraj]}#
-#\izlaz{  JMBG:} \ulaz{2345678901234}#
-#\izlaz{  Opis problema:} \ulaz{Podizanje novca}#
-
-#\izlaz{Novi zahtev [CTRL+D za kraj]}#
-#\izlaz{  JMBG:} \ulaz{3456789012345}#
-#\izlaz{  Opis problema:} \ulaz{Reklamacija}#
-
-#\izlaz{Novi zahtev [CTRL+D za kraj]}#
-#\izlaz{  JMBG:}#
-
-#\izlaz{Sledeci je korisnik sa JMBG: 1234567890123}#
-#\izlaz{i zahtevom: Otvaranje racuna}#
-#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Da}#
-
-#\izlaz{Sledeci je korisnik sa JMBG: 2345678901234}#
-#\izlaz{i zahtevom: Podizanje novca}#
-#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Ne}#
-
-#\izlaz{Sledeci je korisnik sa JMBG: 3456789012345}#
-#\izlaz{i zahtevom: Reklamacija}#
-#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Da}#
-
-#\izlaz{Sledeci je korisnik sa JMBG: 1234567890123}#
-#\izlaz{i zahtevom: Otvaranje racuna}#
-#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Da}#
-
-#\izlaz{Sledeci je korisnik sa JMBG: 3456789012345}#
-#\izlaz{i zahtevom: Reklamacija}#
-#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Ne}#
-
-#\izlaz{Da li je kraj smene? [Da/Ne]} \ulaz{Ne}#
-
-#\izlaz{Sledeci je korisnik sa JMBG: 1234567890123}#
-#\izlaz{i zahtevom: Otvaranje racuna}#
-#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Ne}#
-
-#\naslovDat{izvestaj.txt}#
-#\datoteka{  JMBG: 2345678901234     Zahtev: Podizanje novca}#
-#\datoteka{  JMBG: 3456789012345     Zahtev: Reklamacija}#
-#\datoteka{  JMBG: 1234567890123     Zahtev: Otvaranje racuna}#
-\end{upotreba}
-\end{maxitest}
-\linkresenje{606}
-\end{Exercise}
-\begin{Answer}[ref=606]
-\includecode{resenja/06_Liste/606/red.h}
-\includecode{resenja/06_Liste/606/red.c}
-\includecode{resenja/06_Liste/606/main.c}
-\end{Answer}
-
-%%% Obavezni sa praktikuma
-%=========================================================================
-\begin{Exercise}[label=607]
 Napisati program koji prebrojava pojavljivanja etiketa \kckod{HTML} 
 datoteke čije se ime zadaje kao argument komandne linije. Rezultat prebrojavanja 
 ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste koristiti strukturu:
@@ -568,19 +300,19 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
 % #\datoteka{Datoteka je prazna.}#
 % \end{test}
 % \end{miditest}
-\linkresenje{607}
+\linkresenje{603}
 \end{Exercise}
-\begin{Answer}[ref=607]
-\includecode{resenja/06_Liste/607.c}
+\begin{Answer}[ref=603]
+\includecode{resenja/06_Liste/603.c}
 \end{Answer}
 
 %=========================================================================
-\begin{Exercise}[label=608]
+\begin{Exercise}[label=604]
 U datoteci se nalaze podaci o studentima. U svakom redu datoteke nalazi se indeks, ime i prezime studenta. 
 Napisati program kome se preko argumenata komandne linije prosleđuje ime datoteke sa studentskim podacima koje program treba da pročita i smesti u listu. 
 Nakon završenog učitavanja svih podataka o studentima, sa standardnog ulaza unose se, jedan po jedan, indeksi studenata koji se traže u učitanoj listi. 
 Posle svakog unetog indeksa, program ispisuje poruku \kckod{da} ili \kckod{ne}, u zavisnosti od toga da li u listi postoji student sa unetim indeksom ili ne. 
-Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF). Poruke o greškama ispisivati na standardni izlaz za greške.
+Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (\kckod{EOF}). Poruke o greškama ispisivati na standardni izlaz za greške.
 \uputstvo{Pretpostaviti da je 10 karaktera dovoljno za zapis indeksa i da je 20 karaktera maksimalna dužina bilo imena bilo prezimena studenta.}
 
 % Dodavanje novog studenta izdvojiti u funkciju \kckod{void dodaj\_na\_pocetak\_liste(Cvor** glava, char* broj\_indeksa, char* ime, char* prezime)}.
@@ -639,14 +371,66 @@ Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (EOF). Poruke o
 % \end{upotreba}
 % \end{miditest}  
 
-\linkresenje{608}
+\linkresenje{604}
 \end{Exercise}
-\begin{Answer}[ref=608]
-\includecode{resenja/06_Liste/608.c}
+\begin{Answer}[ref=604]
+\includecode{resenja/06_Liste/604.c}
 \end{Answer}
 
+
 %=========================================================================
-\begin{Exercise}[label=609]
+
+\begin{Exercise}[label=605]
+Data je datoteka \kckod{brojevi.txt} koja sadrži cele brojeve.
+\begin{enumerate}
+ \item Napisati funkciju koja iz zadate datoteke učitava brojeve i smešta ih u listu.
+ \item Napisati funkciju koja u jednom prolazu kroz zadatu listu celih brojeva 
+pronalazi maksimalan strogo rastući podniz.
+\end{enumerate}
+Napisati program koji u datoteku \kckod{rezultat.txt} upisuje nađeni strogo rastući podniz.
+%\komentar{Milena: I ovde me muci sto bi zadatak mogao da se resi i bez koriscenja listi... }
+
+
+\begin{minitest}
+\begin{test}{1}
+#\naslovDat{brojevi.txt}#
+#\datoteka{43 12 15 16 4 2 8}#
+
+#\naslovIzlaz#
+#\naslovDat{rezultat.txt}#
+#\datoteka{12 15 16}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+#\naslovDat{Datoteka brojevi.txt}#
+#\naslovDat{ne postoji.}#
+
+#\naslovIzlaz#
+#\naslovDat{rezultat.txt}#
+#\datoteka{Greska prilikom otvaranja}#
+#\datoteka{datoteke brojevi.txt.}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovDat{Datoteka brojevi.txt je prazna}#
+
+#\naslovIzlaz#
+#\naslovDat{rezultat.txt}#
+#\datoteka{Rezultat.txt ce biti prazna.}#
+\end{test}
+\end{minitest}
+\end{Exercise}
+
+%\begin{Answer}[ref=611]
+% \includecode{resenja/06_Liste/...}
+%\end{Answer}
+
+
+%=========================================================================
+
+\begin{Exercise}[label=606]
 %\komentar{Milena: malo me muci u ovom zadatku sto nema neki smisao. Naime, ako se samo vrsi ucitavanje iz datoteka i ispisivanje,  onda su ove liste zapravo visak jer isti rezultat moze da se dobije i bez koriscenja listi. Zato mi fali da program uradi nesto sto ne bi mogao da uradi bez koriscenja listi, npr da na osnovu unetog broja ispisuje svaki n-ti broj rezultujuce liste pa to u nekoj petlji da korisnik moze da ispisuje za razlicite unete n ili tako nesto... }
 Napisati program koji objedinjuje dve sortirane liste u jednu sortiranu listu. Funkcija ne treba da 
 kreira nove, već da samo preraspodeli postojeće čvorove. Prva lista se učitava iz datoteke čije ime se zadaje kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.
@@ -733,15 +517,15 @@ kreira nove, već da samo preraspodeli postojeće čvorove. Prva lista se učita
 \end{test}
 \end{miditest}
 
-\linkresenje{609}  
+\linkresenje{606}  
 \end{Exercise}
-\begin{Answer}[ref=609]
-\includecode{resenja/06_Liste/609.c}
+\begin{Answer}[ref=606]
+\includecode{resenja/06_Liste/606.c}
 \end{Answer}
 
 %% Dodatni
 %=========================================================================
-\begin{Exercise}[label=610]
+\begin{Exercise}[label=607]
 Date su dve jednostruko povezane liste \kckod{L1} i \kckod{L2}. Napisati funkciju koja od 
 ovih listi formira novu listu \kckod{L} koja sadrži naizmenično raspoređene čvorove 
 listi \kckod{L1} i \kckod{L2}: prvi čvor iz \kckod{L1}, prvi čvor iz \kckod{L2}, drugi čvor \kckod{L1},
@@ -749,7 +533,7 @@ drugi čvor \kckod{L2}, itd. Ne formirati nove čvorove, već samo postojeće ra
 drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz. 
 %\komentar{Milena: Sta ako je neka lista duza? To precizirati. I ovde me muci sto nedostaje neki smisao zadatku, nesto sto ne bi moglo da se uradi da nismo koristili liste. }
 
-\napomena{Iskoristiti testove 2 - 6 za zadatak \ref{609}.}
+\napomena{Iskoristiti testove 2 - 6 za zadatak \ref{606}.}
 
 \begin{miditest}
 \begin{test}{1}
@@ -766,57 +550,278 @@ drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.
 \end{test}
 \end{miditest}
 \end{Exercise}
-%\begin{Answer}[ref=610]
+%\begin{Answer}[ref=607]
 % \includecode{resenja/06_Liste/601.c}
 %\end{Answer}
 
 %=========================================================================
-\begin{Exercise}[label=611]
-Data je datoteka \kckod{brojevi.txt} koja sadrži cele brojeve.
-\begin{enumerate}
- \item Napisati funkciju koja iz zadate datoteke učitava brojeve i smešta ih u listu.
- \item Napisati funkciju koja u jednom prolazu kroz zadatu listu celih brojeva 
-pronalazi maksimalan strogo rastući podniz.
-\end{enumerate}
-Napisati program koji u datoteku \kckod{rezultat.txt} upisuje nađeni strogo rastući podniz.
-%\komentar{Milena: I ovde me muci sto bi zadatak mogao da se resi i bez koriscenja listi... }
+\begin{Exercise}[label=608]
+Sadržaj datoteke je aritmetički izraz koji može sadržati zagrade \{, [ i (. 
+Napisati program koji učitava sadržaj datoteke \kckod{izraz.txt} i korišćenjem steka 
+utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa odgovarajuću poruku na standardni izlaz.
 
-
-\begin{minitest}
+\begin{miditest}
 \begin{test}{1}
-#\naslovDat{brojevi.txt}#
-#\datoteka{43 12 15 16 4 2 8}#
-
+#\naslovDat{izraz.txt}#
+#\datoteka{\{[23 + 5344] * (24 - 234)\} - 23}#
+  
 #\naslovIzlaz#
-#\naslovDat{rezultat.txt}#
-#\datoteka{12 15 16}#
+#\izlaz{Zagrade su ispravno uparene.}#
 \end{test}
-\end{minitest}
-\begin{minitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{2}
-#\naslovDat{Datoteka brojevi.txt}#
-#\naslovDat{ne postoji.}#
+#\naslovDat{izraz.txt}#
+#\datoteka{\{[23 + 5] * (9 * 2)\} - \{23\}}#
 
 #\naslovIzlaz#
-#\naslovDat{rezultat.txt}#
-#\datoteka{Greska prilikom otvaranja}#
-#\datoteka{datoteke brojevi.txt.}#
+#\izlaz{Zagrade su ispravno uparene.}# 
 \end{test}
-\end{minitest}
-\begin{minitest}
+\end{miditest}
+
+\begin{miditest}
 \begin{test}{3}
-#\naslovDat{Datoteka brojevi.txt je prazna}#
+#\naslovDat{izraz.txt}#
+#\datoteka{\{[2 + 54) / (24 * 87)\} + (234 + 23)}#
 
 #\naslovIzlaz#
-#\naslovDat{rezultat.txt}#
-#\datoteka{Rezultat.txt ce biti prazna.}#
+#\izlaz{Zagrade nisu ispravno uparene.}#
 \end{test}
-\end{minitest}
-\end{Exercise}
+\end{miditest}
+\begin{miditest}
+\begin{test}{4}
+#\naslovDat{izraz.txt}#
+#\datoteka{\{(2 - 14) / (23 + 11)\}\} * (2 + 13)}#
 
-%\begin{Answer}[ref=611]
-% \includecode{resenja/06_Liste/601.c}
-%\end{Answer}
+#\naslovIzlaz#
+#\izlaz{Zagrade nisu ispravno uparene.}#
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{5}
+#\naslovDat{Datoteka izraz.txt je prazna}#
+
+#\naslovIzlaz#
+#\izlaz{Zagrade su ispravno uparene.}#
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{6}
+#\naslovDat{Datoteka izraz.txt ne postoji.}# 
+
+#\naslovIzlaz#
+#\izlaz{Greska prilikom otvaranja }#
+#\izlaz{datoteke izraz.txt!}#
+\end{test}
+\end{miditest}
+\linkresenje{608}
+\end{Exercise}
+\begin{Answer}[ref=608]
+\includecode{resenja/06_Liste/608.c}
+\end{Answer}
+
+%=========================================================================
+\begin{Exercise}[label=609]
+Napisati program koji proverava ispravnost uparivanja etiketa u \kckod{HTML} datoteci. Ime datoteke se zadaje kao argument komandne linije.
+Poruke o greškama ispisivati na standardni izlaz za greške.
+\uputstvo{Za rešavanje problema koristiti stek implementiran preko liste čiji čvorovi sadrže \kckod{HTML} etikete.}
+
+
+\begin{miditest}      
+\begin{test}{1}
+#\poziv{./a.out datoteka.html}#
+
+#\naslovDat{datoteka.html}#                     
+#\datoteka{<html>}#                                
+#\datoteka{  <head>}#
+#\datoteka{  \ \ <title>Primer</title>}#
+#\datoteka{  </head>}#
+#\datoteka{  <body>}#
+#\datoteka{  </body>}#
+
+#\naslovIzlaz#
+#\izlaz{Etikete nisu pravilno uparene}#
+#\izlaz{(etiketa <html> nije zatvorena)}# 
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{2}
+#\poziv{./a.out datoteka.html}#
+
+#\naslovDat{datoteka.html}#                                                 
+#\datoteka{  <head>}#
+#\datoteka{  \ \ <title>Primer</title>}#
+#\datoteka{  </head>}#
+#\datoteka{  <body>}#
+#\datoteka{  </body>}#
+#\datoteka{</html>}#  
+
+#\naslovIzlaz#
+#\izlaz{Etikete nisu pravilno uparene}#
+#\izlaz{(nadjena je etiketa </html>}#
+#\izlaz{koja nije otvorena)}# 
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{3}
+#\poziv{./a.out datoteka.html}#
+
+#\naslovDat{datoteka.html}#                     
+#\datoteka{<html>}#
+#\datoteka{  <head>}#
+#\datoteka{  \ \ <title>Primer</title>}#
+#\datoteka{  </head>}#
+#\datoteka{  <body>}#
+#\datoteka{  \ \ <h1>Naslov</h1>}#
+#\datoteka{  \ \ Danas je lep i suncan dan. <br>}#
+#\datoteka{  \ \ Sutra ce biti jos lepsi.}#
+#\datoteka{  \ \ <a link='http://www.math.rs'>Link</a>}#
+#\datoteka{  </body>}#
+#\datoteka{</html>}#
+
+#\naslovIzlaz#
+#\izlaz{Etikete su pravilno uparene!}#
+\end{test}
+\end{miditest}
+\begin{miditest}    
+\begin{test}{4}
+#\poziv{./a.out datoteka.html}#
+
+#\naslovDat{datoteka.html}#                     
+#\datoteka{<html>}#
+#\datoteka{  <head>}#
+#\datoteka{  \ \ <title>Primer</title>}#
+#\datoteka{  </head>}#
+#\datoteka{  <body>}#
+#\datoteka{</html>}#
+
+#\naslovIzlaz#
+#\izlaz{Etikete nisu pravilno uparene}#
+#\izlaz{(nadjena je etiketa </html>, a poslednja }#
+#\izlaz{otvorena je <body>)}#
+
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{5}
+#\poziv{./a.out datoteka.html}#
+
+#\naslovDat{Datoteka datoteka.html ne postoji.}#
+
+#\naslovIzlaz#
+#\izlaz{Greska prilikom otvaranja}# 
+#\izlaz{datoteke datoteka.html.}#
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{6}
+#\poziv{./a.out datoteka.html}#
+
+#\naslovDat{datoteka.html je prazna}#                     
+
+#\naslovIzlaz#
+#\izlaz{Etikete su pravilno uparene!}#
+\end{test}
+\end{miditest}
+\linkresenje{609}
+\end{Exercise}
+\begin{Answer}[ref=609]
+\includecode{resenja/06_Liste/609.c}
+\end{Answer}
+%=========================================================================
+\begin{Exercise}[label=610]
+Napisati program koji pomaže službeniku u radu na šalteru.
+Službenik najpre evidentira sve korisničke \kckod{JMBG} brojeve (niske koje sadrže po $13$ karaktera) i zahteve (niska koja sadrži najviše $999$ karaktera). 
+Prijem zahteva korisnika se prekida unošenjem karaktera za kraj ulaza, (\kckod{EOF}).
+Službenik redom pregleda zahteve i odlučuje da li zahtev obrađuje odmah ili kasnije. Program mu postavlja pitanje 
+\kckod{Da li korisnika  vracate na kraj reda?} i ukoliko on da odgovor \kckod{Da}, 
+korisnik se stavlja na kraj reda, čime se obrada njegovog zahteva odlaže. Ukoliko odgovor nije \kckod{Da}, službenik obrađuje zahtev i podatke o korisniku dopisuje na kraj datoteke \kckod{izvestaj.txt}. Ova datoteka, za svaki obrađen zahtev, sadrži \kckod{JMBG} i zahtev usluženog korisnika.
+Posle svakog $petog$ usluženog korisnika, službeniku se nudi mogućnost da prekine sa radom, nevezano od broja korisnika koji i dalje čekaju u redu. 
+\uputstvo{Za čuvanje korisničkih zahteva koristiti red implementiran korišćenjem listi.}
+
+\begin{maxitest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Sluzbenik evidentira korisnicke zahteve:}# 
+#\izlaz{Novi zahtev [CTRL+D za kraj]}#
+#\izlaz{  JMBG:} \ulaz{1234567890123}#
+#\izlaz{  Opis problema:} \ulaz{Otvaranje racuna}#
+
+#\izlaz{Novi zahtev [CTRL+D za kraj]}#
+#\izlaz{  JMBG:} \ulaz{2345678901234}#
+#\izlaz{  Opis problema:} \ulaz{Podizanje novca}#
+
+#\izlaz{Novi zahtev [CTRL+D za kraj]}#
+#\izlaz{  JMBG:} \ulaz{3456789012345}#
+#\izlaz{  Opis problema:} \ulaz{Reklamacija}#
+
+#\izlaz{Novi zahtev [CTRL+D za kraj]}#
+#\izlaz{  JMBG:}#
+
+#\izlaz{Sledeci je korisnik sa JMBG: 1234567890123}#
+#\izlaz{i zahtevom: Otvaranje racuna}#
+#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Da}#
+
+#\izlaz{Sledeci je korisnik sa JMBG: 2345678901234}#
+#\izlaz{i zahtevom: Podizanje novca}#
+#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Ne}#
+
+#\izlaz{Sledeci je korisnik sa JMBG: 3456789012345}#
+#\izlaz{i zahtevom: Reklamacija}#
+#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Da}#
+
+#\izlaz{Sledeci je korisnik sa JMBG: 1234567890123}#
+#\izlaz{i zahtevom: Otvaranje racuna}#
+#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Da}#
+
+#\izlaz{Sledeci je korisnik sa JMBG: 3456789012345}#
+#\izlaz{i zahtevom: Reklamacija}#
+#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Ne}#
+
+#\izlaz{Da li je kraj smene? [Da/Ne]} \ulaz{Ne}#
+
+#\izlaz{Sledeci je korisnik sa JMBG: 1234567890123}#
+#\izlaz{i zahtevom: Otvaranje racuna}#
+#\izlaz{  Da li ga vracate na kraj reda? [Da/Ne]} \ulaz{Ne}#
+
+#\naslovDat{izvestaj.txt}#
+#\datoteka{  JMBG: 2345678901234     Zahtev: Podizanje novca}#
+#\datoteka{  JMBG: 3456789012345     Zahtev: Reklamacija}#
+#\datoteka{  JMBG: 1234567890123     Zahtev: Otvaranje racuna}#
+\end{upotreba}
+\end{maxitest}
+\linkresenje{610}
+\end{Exercise}
+\begin{Answer}[ref=610]
+\includecode{resenja/06_Liste/610/red.h}
+\includecode{resenja/06_Liste/610/red.c}
+\includecode{resenja/06_Liste/610/main.c}
+\end{Answer}
+
+%=========================================================================
+\begin{Exercise}[label=611]
+Napisati biblioteku za rad sa dvostruko povezanom listom celih brojeva koja ima iste funkcionalnosti kao biblioteka iz zadatka \ref{601}. 
+Dopuniti bibilioteku novim funkcijama.
+\begin{enumerate}
+ \item Napisati funkciju \kckod{void obrisi\_tekuci(Cvor ** adresa\_glave, Cvor ** adresa\_kraja, Cvor * tekuci)} koja briše čvor na koji pokazuje pokazivač \kckod{tekuci} iz liste čiji se pokazivač na čvor koji je glava liste nalazi na adresi \kckod{adresa\_glave} i poslednji čvor liste na adresi \kckod{adresa\_kraja}.
+ \item Napisati funkciju \kckod{void ispisi\_listu\_unazad(Cvor * kraj)} koja ispisuje sadržaj liste od poslednjeg čvora ka glavi liste.
+\end{enumerate}
+
+Sve funkcije za rad sa listom implementirati iterativno. Zbog efikasnog izvršavanja operacija dodavanja na kraj liste i ispisivanja liste unazad treba, pored pokazivača na glavu liste, čuvati i pokazivač na poslednji čvor liste.
+\napomena{Funkcije testirati kroz \kckod{main} programe iz zadatka \ref{601} i koristiti test primere iz istog zadatka. }
+\linkresenje{611}
+\end{Exercise}
+\begin{Answer}[ref=611]
+\includecode{resenja/06_Liste/611/lista.h}
+\includecode{resenja/06_Liste/611/lista.c}
+\includecode{resenja/06_Liste/611/main_a.c}
+\includecode{resenja/06_Liste/611/main_b.c}
+\includecode{resenja/06_Liste/611/main_c.c}
+\end{Answer}
+
 
 %=========================================================================
 \begin{Exercise}[label=612]
@@ -876,7 +881,7 @@ sve dok svi plesači ne budu isključeni.
 Celi brojevi $n$, $k$ ($k < n$) se učitavaju sa standardnog ulaza. 
 Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u redosledu napuštanja kruga. 
 \uputstvo{Pri implementaciji koristiti dvostruko povezanu kružnu listu.}
-\napomena{Iskoristiti test 3 iz \ref{612}. zadatka.}
+%\napomena{Iskoristiti test 3 iz \ref{612}. zadatka.}
 
 \begin{minitest}
 \begin{test}{1}
@@ -894,6 +899,16 @@ Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u 
 
 #\naslovIzlaz# 
 #\izlaz{4 8 5 7 6 3 2 1}# 
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{5 8}#
+
+#\naslovIzlaz# 
+#\izlaz{n mora biti uvek vece}#
+#\izlaz{od k, a 5 < 8!}#
 \end{test}
 \end{minitest}
 \end{Exercise}

@@ -1,3 +1,5 @@
+/* main.c */
+
 /**************************************************************
 Ovaj program koristi korektno definisanu biblioteku kompleksnih 
 brojeva. U zaglavlju complex.h nalazi se definicija komplesnog 

@@ -1,193 +1,247 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include "601/lista.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
-/* Funkcija objedinjuje dve liste ciji se pokazivaci na glave nalaze
-   na adresama adresa_glave_1 i adresa_glave_2 prevezivanjem
-   pokazivaca postojecih cvorova listi. */
-Cvor *objedini(Cvor ** adresa_glave_1, Cvor ** adresa_glave_2)
+#define MAX 100
+
+#define OTVORENA 1
+#define ZATVORENA 2
+
+#define VAN_ETIKETE 0
+#define PROCITANO_MANJE 1
+#define U_ETIKETI 2
+
+/* Struktura kojim se predstavlja cvor liste sadrzi ime etikete i
+   pokazivac na sledeci cvor. */
+typedef struct cvor {
+  char etiketa[MAX];
+  struct cvor *sledeci;
+} Cvor;
+
+/* Funkcija kreira novi cvor, upisuje u njega etiketu i vraca njegovu 
+   adresu ili NULL ako alokacija nije bila uspesna. */
+Cvor *napravi_cvor(char *etiketa)
 {
-  /* Pokazivac na glavu rezultujuce liste. */
-  Cvor *rezultujuca = NULL;
-  /* Tekuci je pokazivac na pokazivac kome sledecem treba promeniti
-     vrednosti. Inicijalizuje se na adresu pokazivaca rezultujuca jer 
-     prvo treba odrediti glavu rezultujuce liste. */
-  Cvor **tekuci = &rezultujuca;
-
-  /* Ako su obe liste prazne, rezultat je isto prazna lista. */
-  if (*adresa_glave_1 == NULL && *adresa_glave_2 == NULL)
+  Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
+  if (novi == NULL)
     return NULL;
 
-  /* Ako je prva lista prazna, rezultat je druga lista. */
-  if (*adresa_glave_1 == NULL)
-    return *adresa_glave_2;
-
-  /* Ako je druga lista prazna, rezultat je prva lista. */
-  if (*adresa_glave_2 == NULL)
-    return *adresa_glave_1;
-
-  /* Sve dok u obe liste ima cvorova, azurira se vrednost pokazivaca
-     na koji tekuci pokazuje. U prvoj iteraciji tekuci pokazuje na
-     pokazivac rezultujuca i ovako se pokazivac rezultujuca usmerava
-     da pokazuje na pocetak nove liste, tj. na cvor sa vrednoscu
-     manjeg od brojeva sadrzanih u cvorovima na koje vode pokazivaci
-     na adresama adresa_glave_1 i adresa_glave_2. U svim ostalim
-     iteracijama to isto se dogadja samo pokazivacu na koji tekuci u
-     tom trenutku pokazuje. */
-  while (*adresa_glave_1 != NULL && *adresa_glave_2 != NULL) {
-    if ((*adresa_glave_1)->vrednost < (*adresa_glave_2)->vrednost) {
-      /* Pokazivac na koji tekuci pokazuje dobija vrednosti
-         pokazivaca koji se nalazi na adresa_glave_1. Time sledbenik
-         poslednjeg uvezanog cvora postaje cvor koji je aktuelna
-         glava prve liste. */
-      *tekuci = *adresa_glave_1;
-      /* Pomera se glava prve liste na sledeci cvor prve liste.
-
-         Ova promena bice vidljiva i van funkcije jer se direktno
-         menja promenljiva koja se nalazi na adresi adresa_glave_1. */
-      *adresa_glave_1 = (*adresa_glave_1)->sledeci;
-    } else {
-      /* Sledbenik poslednjeg uvezanog cvora bice cvor koji je
-         aktuelna glava druge liste. */
-      *tekuci = *adresa_glave_2;
-      /* Pomera se glava druge liste na sledeci cvor druge liste */
-      *adresa_glave_2 = (*adresa_glave_2)->sledeci;
-    }
-    /* Tekuci se pomera na pokazivac sledeci od poslednjeg uvezanog,
-       jer je upravo to pokazivac koji treba da bude azuriran u
-       sledecoj iteraciji petlje. */
-    tekuci = &((*tekuci)->sledeci);
+  /* Inicijalizacija polja u novom cvoru */
+  if (strlen(etiketa) >= MAX) {
+    fprintf(stderr, "Etiketa je preduga, bice skracena.\n");
+    etiketa[MAX - 1] = '\0';
   }
-
-  /* Ako se iz petlje izaslo jer se stiglo do kraja prve liste, na
-     rezultujucu listu treba nadovezati ostatak druge liste. Tako
-     sledbenik poslednjeg uvezanog cvora treba da bude ostatak druge
-     liste. */
-  if (*adresa_glave_1 == NULL)
-    *tekuci = *adresa_glave_2;
-  else {
-    if (*adresa_glave_2 == NULL)
-      *tekuci = *adresa_glave_1;
-  }
-
-  return rezultujuca;
+  strcpy(novi->etiketa, etiketa);
+  novi->sledeci = NULL;
+  return novi;
 }
 
-/* Druga verzija prethodne funkcije koja ne pristupa pokazivacima
-   preko adresa vec direktno. Ne salju joj se adrese, vec vrednosti
-   pokazivaca na glave listi. */
-Cvor *objedini_v2(Cvor * lista1, Cvor * lista2)
+/* Funkcija oslobadja memoriju zauzetu stekom. */
+void oslobodi_stek(Cvor ** adresa_vrha)
 {
-  Cvor *rezultujuca = NULL;
-  Cvor *tekuci = NULL;
-
-  /* Ako su obe liste prazne i rezultat je prazna lista. */
-  if (lista1 == NULL && lista2 == NULL)
-    return NULL;
-
-  /* Ako je prva lista prazna, rezultat je druga lista. */
-  if (lista1 == NULL)
-    return lista2;
-
-  /* Ako je druga lista prazna, rezultat je prva lista. */
-  if (lista2 == NULL)
-    return lista1;
-
-  /* Rezultujuca pokazuje na pocetak nove liste, tj. na cvor sa
-     vrednoscu manjeg od brojeva sadrzanih u cvorovima na koje
-     pokazuju lista1 i lista2. */
-  if (lista1->vrednost < lista2->vrednost) {
-    rezultujuca = lista1;
-    lista1 = lista1->sledeci;
-  } else {
-    rezultujuca = lista2;
-    lista2 = lista2->sledeci;
+  Cvor *pomocni;
+  while (*adresa_vrha != NULL) {
+    pomocni = *adresa_vrha;
+    *adresa_vrha = (*adresa_vrha)->sledeci;
+    free(pomocni);
   }
-  tekuci = rezultujuca;
-
-  /* Kako rezultujuca pokazuje na pocetak nove liste i ne sme joj se
-     menjati vrednost, koristi se pokazivac tekuci koji trenutno
-     sadrzi adresu promenljive rezultujuca. U svakoj iteraciji
-     petlje, dobijace adekvatnog sledbenika tako da i nova lista bude
-     uredjena neopadajuce i pomerace se na adresu sledeceg. */
-  while (lista1 != NULL && lista2 != NULL) {
-    if (lista1->vrednost < lista2->vrednost) {
-      tekuci->sledeci = lista1;
-      lista1 = lista1->sledeci;
-    } else {
-      tekuci->sledeci = lista2;
-      lista2 = lista2->sledeci;
-    }
-    tekuci = tekuci->sledeci;
-  }
-
-  /* Ako se iz petlje izaslo jer se stiglo do kraja prve liste, na
-     rezultujucu listu treba nadovezati ostatak druge liste. */
-  if (lista1 == NULL)
-    tekuci->sledeci = lista2;
-  else
-    tekuci->sledeci = lista1;
-
-  return rezultujuca;
 }
 
-/* Glavni program */
+/* Funkcija postavlja na vrh steka novu etiketu. U slucaju greske pri 
+   alokacij memorije za novi cvor funkcija vraca 1, inace vraca 0. */
+int potisni_na_stek(Cvor ** adresa_vrha, char *etiketa)
+{
+  Cvor *novi = napravi_cvor(etiketa);
+  if (novi == NULL)
+    return 1;
+
+  novi->sledeci = *adresa_vrha;
+  *adresa_vrha = novi;
+  return 0;
+}
+
+/* Funkcija skida sa vrha steka etiketu. Ako je drugi argument
+   pokazivac razlicit od NULL, tada u niz karaktera na koji on
+   pokazuje upisuje ime etikete koja je upravo skinuta sa steka dok u 
+   suprotnom ne radi nista. Funkcija vraca 0 ako je stek prazan (pa
+   samim tim nije bilo moguce skinuti vrednost sa steka) ili 1 u
+   suprotnom. */
+int skini_sa_steka(Cvor ** adresa_vrha, char *etiketa)
+{
+  Cvor *pomocni;
+
+  /* Pokusaj skidanja vrednost sa vrha praznog steka rezultuje
+     greskom i vraca se 0. */
+  if (*adresa_vrha == NULL)
+    return 0;
+
+  /* Ako adresa na koju se smesta etiketa nije NULL, onda se na tu
+     adresu kopira etiketa sa vrha steka. */
+  if (etiketa != NULL)
+    strcpy(etiketa, (*adresa_vrha)->etiketa);
+
+  /* Element sa vrha steka se uklanja. */
+  pomocni = *adresa_vrha;
+  *adresa_vrha = (*adresa_vrha)->sledeci;
+  free(pomocni);
+
+  return 1;
+}
+
+/* Funkcija vraca pokazivac na string koji sadrzi etiketu na vrhu
+   steka. Ukoliko je stek prazan, vraca NULL. */
+char *vrh_steka(Cvor * vrh)
+{
+  if (vrh == NULL)
+    return NULL;
+  return vrh->etiketa;
+}
+
+/* Funkcija prikazuje stek od vrha prema dnu. */
+void prikazi_stek(Cvor * vrh)
+{
+  for (; vrh != NULL; vrh = vrh->sledeci)
+    printf("<%s>\n", vrh->etiketa);
+}
+
+/* Funkcija iz datoteke kojoj odgovara pokazivac f cita sledecu
+   etiketu, i upisuje je u nisku na koju pokazuje pokazivac etiketa.
+   Vraca EOF u slucaju da se dodje do kraja datoteke pre nego sto se
+   procita etiketa. Vraca OTVORENA, ako je procitana otvorena
+   etiketa, odnosno ZATVORENA, ako je procitana zatvorena etiketa. */
+int uzmi_etiketu(FILE * f, char *etiketa)
+{
+  int c;
+  int i = 0;
+  /* Stanje predstavlja informaciju dokle se stalo sa citanjem
+     etikete. Inicijalizuje se vrednoscu VAN_ETIKETE jer jos uvek
+     nije zapoceto citanje. */
+  /* Tip predstavlja informaciju o tipu etikete. Uzima vrednosti
+     OTVORENA ili ZATVORENA. */
+  int stanje = VAN_ETIKETE;
+  int tip;
+
+  /* HTML je neosetljiv na razliku izmedju malih i velikih slova, dok 
+     to u C-u ne vazi. Zato ce sve etikete biti prevedene u zapis
+     samo malim slovima. */
+  while ((c = fgetc(f)) != EOF) {
+    switch (stanje) {
+    case VAN_ETIKETE:
+      if (c == '<')
+        stanje = PROCITANO_MANJE;
+      break;
+    case PROCITANO_MANJE:
+      if (c == '/') {
+        /* Cita se zatvorena etiketa. */
+        tip = ZATVORENA;
+      } else {
+        if (isalpha(c)) {
+          /* Cita se otvorena etiketa */
+          tip = OTVORENA;
+          etiketa[i++] = tolower(c);
+        }
+      }
+      /* Od sada se cita etiketa i zato se menja stanje. */
+      stanje = U_ETIKETI;
+      break;
+    case U_ETIKETI:
+      if (isalpha(c) && i < MAX - 1) {
+        /* Ako je procitani karakter slovo i nije premasena
+           dozvoljena duzina etikete, procitani karakter se smanjuje
+           i smesta u etiketu. */
+        etiketa[i++] = tolower(c);
+      } else {
+        /* Inace, staje se sa citanjem etikete. Korektno se zavrsava
+           niska koja sadrzi procitanu etiketu i vraca se njen tip. */
+        etiketa[i] = '\0';
+        return tip;
+      }
+      break;
+    }
+  }
+  /* Doslo se do kraja datoteke pre nego sto je procitana naredna
+     etiketa i vraca se EOF. */
+  return EOF;
+}
+
 int main(int argc, char **argv)
 {
-  /* Argumenti komandne linije su neophodni. */
-  if (argc != 3) {
-    fprintf(stderr,
-            "Program se poziva sa: ./a.out dat1.txt dat2.txt\n");
-    exit(EXIT_FAILURE);
+  /* Na pocetku, stek je prazan i etikete su uparene jer nijedna jos
+     nije procitana. */
+  Cvor *vrh = NULL;
+  char etiketa[MAX];
+  int tip;
+  int uparene = 1;
+  FILE *f = NULL;
+
+  /* Ime datoteke se preuzima iz komandne linije. */
+  if (argc < 2) {
+    fprintf(stderr, "Koriscenje: %s ime_html_datoteke\n", argv[0]);
+    exit(0);
   }
 
-  /* Otvaramo datoteke sa elementima obe liste. */
-  FILE *in1 = NULL;
-  in1 = fopen(argv[1], "r");
-  if (in1 == NULL) {
-    fprintf(stderr,
-            "Greska prilikom otvaranja datoteke %s.\n", argv[1]);
-    exit(EXIT_FAILURE);
+  /* Datoteka se otvara za citanje. */
+  if ((f = fopen(argv[1], "r")) == NULL) {
+    fprintf(stderr, "Greska prilikom otvaranja datoteke %s.\n",
+            argv[1]);
+    exit(1);
   }
 
-  FILE *in2 = NULL;
-  in2 = fopen(argv[2], "r");
-  if (in2 == NULL) {
-    fprintf(stderr,
-            "Greska prilikom otvaranja datoteke %s.\n", argv[2]);
-    exit(EXIT_FAILURE);
+  /* Cita se etiketa po etiketa, sve dok ih ima u datoteci. */
+  while ((tip = uzmi_etiketu(f, etiketa)) != EOF) {
+    /* Ako je otvorena etiketa, stavlja se na stek. Izuzetak su
+       etikete <br>, <hr> i <meta> koje nemaju sadrzaj, pa ih nije
+       potrebno zatvoriti. U HTML-u postoje jos neke etikete koje
+       koje nemaju sadrzaj (npr link). Zbog jednostavnosti
+       pretpostavlja se da njih nema u HTML dokumentu. */
+    if (tip == OTVORENA) {
+      if (strcmp(etiketa, "br") != 0
+          && strcmp(etiketa, "hr") != 0
+          && strcmp(etiketa, "meta") != 0)
+        if (potisni_na_stek(&vrh, etiketa) == 1) {
+          fprintf(stderr, "Neuspela alokacija za nov cvor\n");
+          oslobodi_stek(&vrh);
+          exit(EXIT_FAILURE);
+        }
+    }
+    /* Ako je zatvorena etiketa, tada je uslov dobre uparenosti da je 
+       u pitanju zatvaranje etikete koja je poslednja otvorena, a jos 
+       uvek nije zatvorena. Ona se mora nalaziti na vrhu steka. Ako
+       je taj uslov ispunjen, skida se sa steka, jer je upravo
+       zatvorena. U suprotnom, pronadjena je nepravilnost i etikete
+       nisu pravilno uparene. */
+    else if (tip == ZATVORENA) {
+      if (vrh_steka(vrh) != NULL
+          && strcmp(vrh_steka(vrh), etiketa) == 0)
+        skini_sa_steka(&vrh, NULL);
+      else {
+        printf("Etikete nisu pravilno uparene\n");
+        printf("(nadjena je etiketa </%s>", etiketa);
+        if (vrh_steka(vrh) != NULL)
+          printf(", a poslednja otvorena je <%s>)\n", vrh_steka(vrh));
+        else
+          printf(" koja nije otvorena)\n");
+        uparene = 0;
+        break;
+      }
+    }
   }
+  /* Zavrseno je citanje datoteke i zatvara se. */
+  fclose(f);
 
-  int broj;
-  Cvor *lista1 = NULL;
-  Cvor *lista2 = NULL;
-  Cvor *rezultat = NULL;
-
-  /* Ucitavanje listi */
-  while (fscanf(in1, "%d", &broj) != EOF)
-    dodaj_na_kraj_liste(&lista1, broj);
-  while (fscanf(in2, "%d", &broj) != EOF)
-    dodaj_na_kraj_liste(&lista2, broj);
-
-  /* Pokazivac rezultat ce pokazivati na glavu liste koja se dobila
-     objedinjavanjem listi */
-  rezultat = objedini(&lista1, &lista2);
-
- /***************************************************************** 
-  Poziv druge verzije prethodne funkcije
-  
-  rezultat = objedini_v2(lista1, lista2);
-  *****************************************************************/
-
-  /* Ispis rezultujuce liste. */
-  ispisi_listu(rezultat);
-
-  /* Kako je lista rezultat dobijena prevezivanjem cvorova polaznih
-     listi, njenim oslobadjanjem bice oslobodjena sva zauzeta
-     memorija. */
-  oslobodi_listu(&rezultat);
-
-  fclose(in1);
-  fclose(in2);
+  /* Ako do sada nije pronadjeno pogresno uparivanje, stek bi trebalo 
+     da bude prazan. Ukoliko nije, tada postoje etikete koje su
+     ostale otvorene. */
+  if (uparene) {
+    if (vrh_steka(vrh) == NULL)
+      printf("Etikete su pravilno uparene!\n");
+    else {
+      printf("Etikete nisu pravilno uparene\n");
+      printf("(etiketa <%s> nije zatvorena)\n", vrh_steka(vrh));
+      /* Oslobadja se memorija zauzeta stekom. */
+      oslobodi_stek(&vrh);
+    }
+  }
   return 0;
 }

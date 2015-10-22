@@ -125,13 +125,16 @@ void print_bits(int x)
 int main()
 {
   unsigned x, k;
-  scanf("%x%x", &x, &k);
-  printf("x %s = ", "");
+  printf("Unesite neoznacen ceo broj x:");
+  scanf("%x", &x);
+  printf("Unesite neoznacen ceo broj k:");
+  scanf("%x", &k);
+  printf("x = ", "");
   print_bits(x);
-  printf("rotate_left(%u,%u)%s = ", x, k, "");
+  printf("rotate_left(%u,%u) = ", x, k);
   print_bits(rotate_left(x, k));
 
-  printf("rotate_right(%u,%u)%s = ", x, k, "");
+  printf("rotate_right(%u,%u) = ", x, k);
   print_bits(rotate_right(x, k));
 
   printf("rotate_right_signed(%u,%u) = ", x, k);

@@ -35,27 +35,18 @@ void oslobodi_listu(Cvor ** adresa_glave)
   }
 }
 
-/* Funkcija proverava uspesnost alokacije memorije za cvor novi i
-   ukoliko alokacija nije bila uspesna, oslobadja se sva prethodno
-   zauzeta memorija za listu ciji pokazivac glava se nalazi na adresi
-   adresa_glave i prekida program. */
-void provera_alokacije(Cvor * novi, Cvor ** adresa_glave)
-{
-  if (novi == NULL) {
-    fprintf(stderr, "malloc() greska u funkciji napravi_cvor()!\n");
-    oslobodi_listu(adresa_glave);
-    exit(EXIT_FAILURE);
-  }
-}
-
-/* Funkcija dodaje novi cvor na pocetak liste. */
-void dodaj_na_pocetak_liste(Cvor ** adresa_glave, unsigned br,
-                            char *etiketa)
+/* Funkcija dodaje novi cvor na pocetak liste. Vraca 1 ako je doslo
+   do greske pri alokaciji memorije za nov cvor, inace vraca 0. */
+int dodaj_na_pocetak_liste(Cvor ** adresa_glave, unsigned br,
+                           char *etiketa)
 {
   Cvor *novi = napravi_cvor(br, etiketa);
-  provera_alokacije(novi, adresa_glave);
+  if (novi == NULL)
+    return 1;
+
   novi->sledeci = *adresa_glave;
   *adresa_glave = novi;
+  return 0;
 }
 
 /* Funkcija vraca cvor koji kao vrednost sadrzi trazenu etiketu ili
@@ -123,9 +114,13 @@ int main(int argc, char **argv)
          sa brojem pojavljivanja 1, inace uvecava se broj
          pojavljivanja etikete. */
       trazeni = pretrazi_listu(glava, procitana);
-      if (trazeni == NULL)
-        dodaj_na_pocetak_liste(&glava, 1, procitana);
-      else
+      if (trazeni == NULL) {
+        if (dodaj_na_pocetak_liste(&glava, 1, procitana) == 1) {
+          fprintf(stderr, "Neuspela alokacija za nov cvor\n");
+          oslobodi_listu(&glava);
+          exit(EXIT_FAILURE);
+        }
+      } else
         trazeni->broj_pojavljivanja++;
     }
   }

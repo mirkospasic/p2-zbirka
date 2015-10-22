@@ -177,8 +177,8 @@ int main(int argc, char **argv)
   if (argc < 2) {
     /* Ako nije, ispisuje se poruka i prekida se sa izvrsavanjem
        programa */
-    printf("Nedostaje ime ulazne datoteke!\n");
-    return 0;
+    fprintf(stderr, "Nedostaje ime ulazne datoteke!\n");
+    exit(EXIT_FAILURE);
   }
 
   /* Inace, priprema se datoteka za citanje */

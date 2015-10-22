@@ -13,7 +13,7 @@ Cvor *napravi_cvor(int broj)
   return novi;
 }
 
-void oslobodi_listu(Cvor ** adresa_glave)
+void oslobodi_listu(Cvor ** adresa_glave, Cvor ** adresa_kraja)
 {
   Cvor *pomocni = NULL;
 
@@ -26,9 +26,11 @@ void oslobodi_listu(Cvor ** adresa_glave)
     /* Sledeci cvor je nova glava liste. */
     *adresa_glave = pomocni;
   }
+  *adresa_kraja = NULL;
 }
 
-int dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj)
+int dodaj_na_pocetak_liste(Cvor ** adresa_glave, Cvor **
+                           adresa_kraja, int broj)
 {
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
@@ -37,54 +39,40 @@ int dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj)
   /* Sledbenik novog cvora je glava stare liste */
   novi->sledeci = *adresa_glave;
   /* Ako stara lista nije bila prazna, onda prethodni od glave treba
-     da bude nov cvor. */
+     da bude nov cvor. Inace, nov cvor je ujedno pocetni i krajnji. */
   if (*adresa_glave != NULL)
     (*adresa_glave)->prethodni = novi;
+  else
+    *adresa_kraja = novi;
   /* Novi cvor je nova glava liste. */
   *adresa_glave = novi;
 
   return 0;
 }
 
-Cvor *pronadji_poslednji(Cvor * glava)
-{
-  /* U praznoj listi nema ni poslednjeg cvora i vraca se NULL. */
-  if (glava == NULL)
-    return NULL;
-
-  /* Sve dok glava pokazuje na cvor koji ima sledeceg, pokazivac
-     glava se pomera na sledeci cvor. Nakon izlaska iz petlje, glava
-     ce pokazivati na cvor liste koji nema sledeceg, tj. na poslednji
-     cvor liste i vraca se vrednost pokazivaca glava.
-
-     Pokazivac glava je argument funkcije i njegove promene nece se
-     odraziti na vrednost pokazivaca glava u pozivajucoj funkciji. */
-  while (glava->sledeci != NULL)
-    glava = glava->sledeci;
-
-  return glava;
-}
-
-int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
+int dodaj_na_kraj_liste(Cvor ** adresa_glave, Cvor ** adresa_kraja,
+                        int broj)
 {
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
     return 1;
 
   /* U slucaju prazne liste, glava nove liste je upravo novi cvor i
-     ujedno i cela lista. Azurira se vrednost na koju pokazuje
-     adresa_glave i tako se azurira i pokazivacka promenljiva u
-     pozivajucoj funkciji. */
+     ujedno i cela lista. Azurira se vrednost na koju pokazuju
+     adresa_glave i adresa_kraja tako se azurira i pokazivacka
+     promenljiva u pozivajucoj funkciji. */
   if (*adresa_glave == NULL) {
     *adresa_glave = novi;
+    *adresa_kraja = novi;
     return 0;
   }
 
-  /* Kako lista nije prazna, pronalazi se poslednji cvor i novi cvor
-     se dodaje na kraj liste kao sledbenik poslednjeg. */
-  Cvor *poslednji = pronadji_poslednji(*adresa_glave);
-  poslednji->sledeci = novi;
-  novi->prethodni = poslednji;
+  /* Kako lista nije prazna, novi cvor se dodaje na kraj liste kao
+     sledbenik poslednjeg i azurira se pokazivac na kraj u
+     pozivajucoj funkciji. */
+  (*adresa_kraja)->sledeci = novi;
+  novi->prethodni = (*adresa_kraja);
+  *adresa_kraja = novi;
 
   return 0;
 }
@@ -125,21 +113,23 @@ void dodaj_iza(Cvor * tekuci, Cvor * novi)
   tekuci->sledeci = novi;
 }
 
-int dodaj_sortirano(Cvor ** adresa_glave, int broj)
+int dodaj_sortirano(Cvor ** adresa_glave, Cvor ** adresa_kraja, int
+                    broj)
 {
-  /* Ako je lista prazna, glava nove liste je novi cvor. */
+  /* Ako je lista prazna, nov cvor je i prvi i poslednji cvor liste. */
   if (*adresa_glave == NULL) {
     Cvor *novi = napravi_cvor(broj);
     if (novi == NULL)
       return 1;
     *adresa_glave = novi;
+    *adresa_kraja = novi;
     return 0;
   }
 
   /* Ukoliko je vrednost glave liste veca ili jednaka od nove
      vrednosti onda nov cvor treba staviti na pocetak liste. */
   if ((*adresa_glave)->vrednost >= broj) {
-    dodaj_na_pocetak_liste(adresa_glave, broj);
+    dodaj_na_pocetak_liste(adresa_glave, adresa_kraja, broj);
     return 0;
   }
 
@@ -150,6 +140,10 @@ int dodaj_sortirano(Cvor ** adresa_glave, int broj)
   /* Pronazi se cvor iza koga treba uvezati nov cvor. */
   Cvor *pomocni = pronadji_mesto_umetanja(*adresa_glave, broj);
   dodaj_iza(pomocni, novi);
+  /* Ako pomocni pokazuje na poslednji element onda je novi cvor
+     poslednji u listi. */
+  if (pomocni == *adresa_kraja)
+    *adresa_kraja = novi;
 
   return 0;
 }
@@ -179,7 +173,8 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
 /* Kod dvostruko povezane liste brisanje cvora na koji pokazuje
    tekuci moze se lako uraditi jer sadrzi pokazivace na svog
    sledbenika i prethodnika u listi. */
-void obrisi_tekuci(Cvor ** adresa_glave, Cvor * tekuci)
+void obrisi_tekuci(Cvor ** adresa_glave, Cvor ** adresa_kraja, Cvor *
+                   tekuci)
 {
   /* Ako je tekuci NULL pokazivac, nema sta da se brise. */
   if (tekuci == NULL)
@@ -200,25 +195,31 @@ void obrisi_tekuci(Cvor ** adresa_glave, Cvor * tekuci)
   if (tekuci == *adresa_glave)
     *adresa_glave = tekuci->sledeci;
 
+  /* Ako je cvor koji se brise, poslednji u listi, azurira se i
+     pokazivac na kraj liste u pozivajucoj funkciji. */
+  if (tekuci == *adresa_kraja)
+    *adresa_kraja = tekuci->prethodni;
+
   /* Oslobadja se dinamicki alociran prostor za cvor tekuci. */
   free(tekuci);
 }
 
-void obrisi_cvor(Cvor ** adresa_glave, int broj)
+void obrisi_cvor(Cvor ** adresa_glave, Cvor ** adresa_kraja, int broj)
 {
   Cvor *tekuci = *adresa_glave;
 
   while ((tekuci = pretrazi_listu(*adresa_glave, broj)) != NULL)
-    obrisi_tekuci(adresa_glave, tekuci);
+    obrisi_tekuci(adresa_glave, adresa_kraja, tekuci);
 }
 
-void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, int broj)
+void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, Cvor **
+                                 adresa_kraja, int broj)
 {
   Cvor *tekuci = *adresa_glave;
 
   while ((tekuci =
           pretrazi_sortiranu_listu(*adresa_glave, broj)) != NULL)
-    obrisi_tekuci(adresa_glave, tekuci);
+    obrisi_tekuci(adresa_glave, adresa_kraja, tekuci);
 }
 
 void ispisi_listu(Cvor * glava)
@@ -236,19 +237,17 @@ void ispisi_listu(Cvor * glava)
   printf("]\n");
 }
 
-void ispisi_listu_unazad(Cvor * glava)
+void ispisi_listu_unazad(Cvor * kraj)
 {
   putchar('[');
-  if (glava == NULL) {
+  if (kraj == NULL) {
     printf("]\n");
     return;
   }
 
-  glava = pronadji_poslednji(glava);
-
-  for (; glava != NULL; glava = glava->prethodni) {
-    printf("%d", glava->vrednost);
-    if (glava->prethodni != NULL)
+  for (; kraj != NULL; kraj = kraj->prethodni) {
+    printf("%d", kraj->vrednost);
+    if (kraj->prethodni != NULL)
       printf(", ");
   }
   printf("]\n");

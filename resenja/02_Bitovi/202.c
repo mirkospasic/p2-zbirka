@@ -56,10 +56,15 @@ int count_bits2(int x)
 
 int main()
 {
-  int x;
+  int x, i;
+  printf("Unesite broj:\n");
   scanf("%x", &x);
+  printf("Unesite redni broj funkcije:\n");
+  scanf("%d", &i);
   printf("Broj jedinica u zapisu je\n");
-  printf("funkcija count_bits1: %d\n", count_bits1(x));
-  printf("funkcija count_bits2: %d\n", count_bits2(x));
+  if(i==1)
+	printf("funkcija count_bits1: %d\n", count_bits1(x));
+  else
+	printf("funkcija count_bits2: %d\n", count_bits2(x));
   return 0;
 }

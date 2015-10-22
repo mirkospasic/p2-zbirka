@@ -32,16 +32,10 @@ Cvor *napravi_cvor(Zahtev * zahtev);
 /* Funkcija prazni red, oslobadjajuci memoriju koji je red zauzeo. */
 void oslobodi_red(Cvor ** pocetak, Cvor ** kraj);
 
-/* Funkcija proverava uspesnost alokacije memorije za cvor novi i
-   ukoliko alokacija nije bila uspesna, oslobadja se sva prethodno
-   zauzeta memorija za listu ciji se pokazivac pocetak se nalazi na
-   adresi adresa_pocetka i prekida program. */
-void proveri_alokaciju(Cvor ** adresa_pocetka,
-                       Cvor ** adresa_kraja, Cvor * novi);
-
-/* Funkcija dodaje na kraj reda novi zahtev. */
-void dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
-                 Zahtev * zahtev);
+/* Funkcija dodaje na kraj reda novi zahtev. Vraca 1 ako je doslo do
+   greske pri alokaciji memorije za nov cvor, inace vraca 0. */
+int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
+                Zahtev * zahtev);
 
 /* Funkcija skida sa pocetka reda zahtev. Ako je poslednji argument
    pokazivac razlicit od NULL, tada se u strukturu na koju on
