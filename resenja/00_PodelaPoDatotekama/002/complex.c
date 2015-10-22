@@ -1,3 +1,5 @@
+/* complex.c */
+
 /* Ukljucuje se zaglavlje neophodno za rad sa kompleksnim brojevima.
    Ovde je to neophodno jer nam je neophodno da bude poznata
    definicija tipa KompleksanBroj. Takodje, time su ukljucena

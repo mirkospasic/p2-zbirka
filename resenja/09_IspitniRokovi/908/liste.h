@@ -1,3 +1,5 @@
+/* liste.h */
+
 #ifndef __LISTE_H__
 #define __LISTE_H__ 1
 
