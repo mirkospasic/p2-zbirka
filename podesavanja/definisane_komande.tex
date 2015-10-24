@@ -44,7 +44,7 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 
 
 
-
+\renewcommand{\lstlistingname}{Datoteka}
 
 \lstdefinestyle{customc}{
  belowcaptionskip=1\baselineskip,
@@ -194,7 +194,7 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 \DeclareCaptionFormat{listing} {
   \parbox[top][10pt][l]{\textwidth}{\hspace{0pt}#1#2#3}
 }
-\captionsetup[lstlisting]{format=listing}
+\captionsetup[lstlisting]{format=listing, font={small,tt}}
 
 \newenvironment{minitest}
 {\begin{minipage}[t]{40mm}} 
