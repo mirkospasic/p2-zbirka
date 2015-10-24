@@ -1,4 +1,3 @@
-/* complex.h */
 /* 
    Zaglavlje complex.h sadrzi definiciju tipa KompleksanBroj i
    deklaracije funkcija za rad sa kompleksnim brojevima. Zaglavlje

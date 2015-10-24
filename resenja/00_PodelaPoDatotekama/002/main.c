@@ -1,5 +1,3 @@
-/* main.c */
-
 /**************************************************************
 Ovaj program koristi korektno definisanu biblioteku kompleksnih 
 brojeva. U zaglavlju complex.h nalazi se definicija komplesnog 
@@ -17,7 +15,7 @@ gcc -lm -o complex complex.o main.o
 
 
 #include <stdio.h>
-/* Ukljucuje aw zaglavlje neophodno za rad sa kompleksnim brojevima */
+/* Ukljucuje se zaglavlje neophodno za rad sa kompleksnim brojevima */
 #include "complex.h"
 
 /* U glavnoj funkciji se za uneti kompleksan broj ispisuje njegov

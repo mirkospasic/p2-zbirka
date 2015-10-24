@@ -1,5 +1,3 @@
-/* stabla.h */
-
 #ifndef __STABLA_H__
 #define __STABLA_H__ 1
 

@@ -1,9 +1,8 @@
-/* complex.c */
-
-/* Ukljucuje se zaglavlje neophodno za rad sa kompleksnim brojevima.
-   Ovde je to neophodno jer nam je neophodno da bude poznata
-   definicija tipa KompleksanBroj. Takodje, time su ukljucena
-   zaglavlja standardne biblioteke koja su navedena u complex.h */
+/* Ukljucuje se zaglavlje za rad sa kompleksnim
+   brojevima, jer je neophodno da bude poznata 
+   definicija tipa KompleksanBroj. Takodje, time su 
+   ukljucena zaglavlja standardne biblioteke koja su
+   navedena u complex.h */
 #include "complex.h"
 
 /* Funkcija ucitava sa standardnog ulaza realan i imaginaran deo
