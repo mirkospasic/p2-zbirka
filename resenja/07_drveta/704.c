@@ -228,6 +228,7 @@ int main(int argc, char **argv)
    */
   printf("Unesite ime datoteke: ");
   scanf("%s", ime_datoteke);
+  getchar();
   if ((f = fopen(ime_datoteke, "r")) == NULL) {
     fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s.\n",
             ime_datoteke);

@@ -6,9 +6,9 @@
 
 #define MAX 50
 
-/* Funkcija koja obilazi stablo sa leva na desno i smesta vrednosti
-   cvorova u niz. Povratna vrednost funkcije je broj vrednosti koje
-   su smestene u niz. */
+/* Funkcija koja obilazi stablo sa leva na desno i smesta
+   vrednosti cvorova u niz. Povratna vrednost funkcije je broj
+   vrednosti koje su smestene u niz. */
 int kreiraj_niz(Cvor * koren, int a[])
 {
   int r, s;
@@ -20,8 +20,9 @@ int kreiraj_niz(Cvor * koren, int a[])
   /* Dodaju se u niz elementi iz levog podstabla */
   r = kreiraj_niz(koren->levo, a);
 
-  /* Tekuca vrednost promenljive r je broj elemenata koji su upisani
-     u niz i na osnovu nje se moze odrediti indeks novog elementa */
+  /* Tekuca vrednost promenljive r je broj elemenata koji su
+     upisani u niz i na osnovu nje se moze odrediti indeks novog 
+     elementa */
 
   /* Smesta se vrednost iz korena */
   a[r] = koren->broj;
@@ -34,13 +35,13 @@ int kreiraj_niz(Cvor * koren, int a[])
 }
 
 /* Funkcija sortira niz tako sto najpre elemente niza smesti u
-   stablo, a zatim kreira novi niz prolazeci kroz stablo sa leva u
-   desno.
+   stablo, a zatim kreira novi niz prolazeci kroz stablo sa leva 
+   u desno.
 
-   Ovaj nacin sortiranja je primer sortiranja koje nije "u mestu" kao 
-   sto je to slucaj sa ostalim opisanim algoritmima sortiranja jer se 
-   sortiranje vrsi u pomocnoj dinamickoj strukturi, a ne razmenom
-   elemenata niza. */
+   Ovaj nacin sortiranja je primer sortiranja koje nije "u
+   mestu" kao sto je to slucaj sa ostalim opisanim algoritmima
+   sortiranja jer se sortiranje vrsi u pomocnoj dinamickoj
+   strukturi, a ne razmenom elemenata niza. */
 void sortiraj(int a[], int n)
 {
   int i;
@@ -51,11 +52,12 @@ void sortiraj(int a[], int n)
   for (i = 0; i < n; i++)
     dodaj_u_stablo(&koren, a[i]);
 
-  /* Infiksnim obilaskom stabla elementi iz stabla se prepisuju u niz 
-     a */
+  /* Infiksnim obilaskom stabla elementi iz stabla se prepisuju
+     u niz a */
   kreiraj_niz(koren, a);
 
-  /* Stablo vise nije potrebno pa se oslobadja memorija koju zauzima */
+  /* Stablo vise nije potrebno pa se oslobadja memorija koju
+     zauzima */
   oslobodi_stablo(&koren);
 }
 

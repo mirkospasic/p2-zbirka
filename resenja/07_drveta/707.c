@@ -15,7 +15,8 @@ int identitet(Cvor * koren1, Cvor * koren2)
   if (koren1 == NULL && koren2 == NULL)
     return 1;
 
-  /* Ako je jedno stablo prazno, a drugo nije, stabla nisu jednaka */
+  /* Ako je jedno stablo prazno, a drugo nije, stabla nisu
+     jednaka */
   if (koren1 == NULL || koren2 == NULL)
     return 0;
 
@@ -53,8 +54,8 @@ int main()
     scanf("%d", &broj);
   }
 
-  /* Poziva se funkcija koja ispituje identitet stabala i ispisuje se 
-     njen rezultat. */
+  /* Poziva se funkcija koja ispituje identitet stabala i
+     ispisuje se njen rezultat. */
   if (identitet(koren1, koren2))
     printf("Stabla jesu identicna.\n");
   else

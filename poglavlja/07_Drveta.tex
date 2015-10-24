@@ -2,32 +2,33 @@
 
 % 1.zadatak
 \begin{Exercise}[label=701]
-Napisati program za rad sa binarnim pretraživačkim stablima.
+Napisati biblioteku za rad sa binarnim pretraživačkim stablima.
+
 \begin{enumerate}
-\item Definisati strukturu \kckod{Cvor} kojom se opisuje čvor binarnog pretraživačkog stabla, a koja sadrži ceo broj \kckod{broj} i pokazivače \kckod{levo} i \kckod{desno} redom na levo i desno podstablo.
+\item Definisati strukturu \kckod{Cvor} kojom se opisuje čvor stabla, a koja sadrži ceo broj \kckod{broj} i pokazivače \kckod{levo} i \kckod{desno} redom na levo i desno podstablo.
 
-\item Napisati funkciju \kckod{Cvor* napravi\_cvor(int broj)} koja alocira memoriju za novi čvor stabla i vrši njegovu inicijalizaciju zadatim celim brojem \argf{broj}.
+\item Napisati funkciju \kckod{Cvor *napravi\_cvor(int broj)} koja alocira memoriju za novi čvor stabla i vrši njegovu inicijalizaciju zadatim celim brojem \argf{broj}.
 
-\item Napisati funkciju \kckod{void dodaj\_u\_stablo(Cvor** koren, int broj)} koja u stablo na koje pokazuje argument \argf{koren} dodaje ceo broj \argf{broj}.
+\item Napisati funkciju \kckod{void dodaj\_u\_stablo(Cvor ** adresa_korena, int broj)} koja u stablo na koje pokazuje argument \argf{koren} dodaje ceo broj \argf{broj}.
 
-\item Napisati funkciju \kckod{Cvor* pretrazi\_stablo(Cvor* koren, int broj)} koja proverava da li se ceo broj \argf{broj} nalazi u stablu sa korenom \argf{koren}. Funkcija vraća pokazivač na čvor stabla koji sadrži traženu vrednost ili NULL ukoliko takav čvor ne postoji.
+\item Napisati funkciju \kckod{Cvor *pretrazi\_stablo(Cvor * koren, int broj)} koja proverava da li se ceo broj \argf{broj} nalazi u stablu sa korenom \argf{koren}. Funkcija vraća pokazivač na čvor stabla koji sadrži traženu vrednost ili NULL ukoliko takav čvor ne postoji.
 
-\item Napisati funkciju \kckod{Cvor* pronadji\_najmanji(Cvor* koren)} koja pronalazi čvor koji sadrži najmanju vrednost u stablu sa korenom \argf{koren}. 
+\item Napisati funkciju \kckod{Cvor *pronadji\_najmanji(Cvor * koren)} koja pronalazi čvor koji sadrži najmanju vrednost u stablu sa korenom \argf{koren}. 
 
-\item Napisati funkciju \kckod{Cvor* pronadji\_najveci(Cvor* koren)} koja pronalazi čvor koji sadrži najveću vrednost u stablu sa korenom \argf{koren}.
+\item Napisati funkciju \kckod{Cvor *pronadji\_najveci(Cvor * koren)} koja pronalazi čvor koji sadrži najveću vrednost u stablu sa korenom \argf{koren}.
 
-\item Napisati funkciju \kckod{void obrisi\_element(Cvor** koren, int broj)} koja briše čvor koji sadrži vrednost \argf{broj} iz stabla na koje pokazuje argument \argf{koren}.
+\item Napisati funkciju \kckod{void obrisi\_element(Cvor ** adresa_korena, int broj)} koja briše čvor koji sadrži vrednost \argf{broj} iz stabla na koje pokazuje argument \argf{koren}.
 
-\item Napisati funkciju \kckod{void ispisi\_stablo\_infiksno(Cvor* koren)} koja infiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Infiksni ispis podrazumeva ispis levog podstabla, korena, a zatim i desnog podstabla.
+\item Napisati funkciju \kckod{void ispisi\_stablo\_infiksno(Cvor * koren)} koja infiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Infiksni ispis podrazumeva ispis levog podstabla, korena, a zatim i desnog podstabla.
 
-\item Napisati funkciju \kckod{void ispisi\_stablo\_prefiksno(Cvor* koren)} koja prefiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Prefiksni ispis podrazumeva ispis korena, levog podstabla, a zatim i desnog podstabla.
+\item Napisati funkciju \kckod{void ispisi\_stablo\_prefiksno(Cvor * koren)} koja prefiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Prefiksni ispis podrazumeva ispis korena, levog podstabla, a zatim i desnog podstabla.
 
-\item Napisati funkciju \kckod{void ispisi\_stablo\_postfiksno(Cvor* koren)} koja postfiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Postfiksni ispis podrazumeva ispis levog podstabla, desnog podstabla, a zatim i korena.
+\item Napisati funkciju \kckod{void ispisi\_stablo\_postfiksno(Cvor * koren)} koja postfiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Postfiksni ispis podrazumeva ispis levog podstabla, desnog podstabla, a zatim i korena.
 
-\item Napisati funkciju \kckod{void oslobodi\_stablo(Cvor** koren)} koja oslobađa memoriju zauzetu stablom na koje pokazuje argument \argf{koren}.
+\item Napisati funkciju \kckod{void oslobodi\_stablo(Cvor ** adresa_korena)} koja oslobađa memoriju zauzetu stablom na koje pokazuje argument \argf{koren}.
 \end{enumerate}
 
-Korišćenjem prethodnih funkcija, napisati program koji sa standardnog ulaza učitava cele brojeve sve do kraja ulaza, dodaje ih u binarno pretraživačko stablo i ispisuje stablo u svakoj od navedenih notacija. Zatim omogućiti unos još dva cela broja i demonstrirati rad funkcije za pretragu nad prvim unetim brojem i rad funkcije za brisanje elemenata nad drugim unetim brojem. 
+Korišćenjem kreirane biblioteke, napisati program koji sa standardnog ulaza učitava cele brojeve sve do kraja ulaza, dodaje ih u binarno pretraživačko stablo i ispisuje stablo u svakoj od navedenih notacija. Zatim omogućiti unos još dva cela broja i demonstrirati rad funkcije za pretragu nad prvim unetim brojem i rad funkcije za brisanje elemenata nad drugim unetim brojem. 
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -62,7 +63,9 @@ Korišćenjem prethodnih funkcija, napisati program koji sa standardnog ulaza u�
 \end{Exercise}
 
 \begin{Answer}[ref=701]
-\includecode{resenja/07_drveta/701.c}
+\includecodeLib{resenja/07_drveta/701/stabla.h}{stabla.h}
+\includecodeLib{resenja/07_drveta/701/stabla.c}{stabla.c}
+\includecodeLib{resenja/07_drveta/701/701.c}{main.c}
 \end{Answer}
 
 
@@ -261,8 +264,8 @@ Napisati program koji implementira podsetnik za rođendane. Informacije o rođen
 
 %7.zadatak
 \begin{Exercise}[label=707]
-Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj.~ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor* koren1, Cvor* koren2)} koja proverava da li su binarna stabla \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identična, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih stabla unositi sa standardnog ulaza sve do pojave broja $0$.
-\napomena{Skup funkcija napisan u prvom zadatku se može iskoristiti kao mala biblioteka za rad sa binarnim pretraživačkim stablima celih brojeva. Tako će u zadacima koji slede, datoteka stabla.h predstavljati popis funkcija biblioteke, a datoteka stabla.c njihove implementacije. Programe koji koriste ovu biblioteku treba prevoditi i pokretati u skladu sa smernicama iz poglavlja 1.1.}
+Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj.~ako oba korena imaju isti sadržaj i identična odgovarajuća podstabla. Napistati funkciju \kckod{int identitet(Cvor * koren1, Cvor * koren2)} koja proverava da li su binarna stabla \argf{koren1} i \argf{koren2} koja sadrže cele brojeve identična, a zatim i glavni program koji testira njen rad. Elemente pojedinačnih stabla unositi sa standardnog ulaza sve do pojave broja $0$.
+\napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -289,21 +292,19 @@ Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj.~ako ob
 \end{Exercise}
 
 \begin{Answer}[ref=707]
-\includecode{resenja/07_drveta/stabla.h}
-\includecode{resenja/07_drveta/stabla.c}
 \includecode{resenja/07_drveta/707.c}
 \end{Answer}
 
 
 %8.zadatak
 \begin{Exercise}[label=708, difficulty=1]
-Napisati program koji za dva binarna pretraživačka stabla čiji se elementi zadaju sa standardnog ulaza, sve do kraja ulaza, ispisuje uniju, presek i razliku stabla. Unija dva stabala je stablo koje sadrži vrednosti iz oba stabla. Presek dva stabala je stablo koje sadrži vrednosti koje se pojavljuju i u prvom i u drugom stablu. Razlika dva stabla je stablo koje sadrži sve vrednosti prvog stabla koje se ne pojavljuju u drugom stablu. 
+Napisati program za rad sa skupovima u kojem se skupovi predstavljaju pomoću binarnih pretraživačkih stabala. Program za dva skupa čiji se elementi zadaju sa standardnog ulaza, sve do kraja ulaza, ispisuje uniju, presek i razliku skupova. %Unija dva stabala je stablo koje sadrži vrednosti iz oba stabla. Presek dva stabala je stablo koje sadrži vrednosti koje se pojavljuju i u prvom i u drugom stablu. Razlika dva stabla je stablo koje sadrži sve vrednosti prvog stabla koje se ne pojavljuju u drugom stablu. 
 
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Prvo stablo:}\ulaz{1 7 8 9 2 2}#
-#\izlaz{Drugo stablo:}\ulaz{3 9 6 11 1}#
+#\izlaz{Prvi skup:}\ulaz{1 7 8 9 2 2}#
+#\izlaz{Drugi skup:}\ulaz{3 9 6 11 1}#
 #\izlaz{Unija: 1 1 2 2 3 6 7 8 9 9 11}#
 #\izlaz{Presek: 1 9}#
 #\izlaz{Razlika: 2 2 7 8}#
@@ -312,8 +313,8 @@ Napisati program koji za dva binarna pretraživačka stabla čiji se elementi za
 \begin{miditest}
 \begin{upotreba}{2}
 #\naslovInt#
-#\izlaz{Prvo stablo:}\ulaz{11 2 7 5}#
-#\izlaz{Drugo stablo:}\ulaz{4 3 3 7}#
+#\izlaz{Prvi skup:}\ulaz{11 2 7 5}#
+#\izlaz{Drugi skup:}\ulaz{4 3 3 7}#
 #\izlaz{Unija: 2 3 3 4 5 7 7 11}#
 #\izlaz{Presek: 7}#
 #\izlaz{Razlika: 2 5 11}#
@@ -508,7 +509,7 @@ Dva binarna stabla su {\em slična kao u ogledalu} ako su ili oba prazna ili ako
 
 %14.zadatak
 \begin{Exercise}[label=714]
-AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina levog i desnog podstabla svakog elementa nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor* koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod{avl} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
+AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina levog i desnog podstabla svakog elementa nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor * koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod{avl} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
 
 \begin{miditest}
 \begin{test}{1}
@@ -538,7 +539,7 @@ AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina 
 
 %15.zadatak
 \begin{Exercise}[label=715]
-Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor* koren)} koja proverava da li je dato binarno stablo celih brojeva hip. Napisati zatim i glavni program koji kreira stablo zadato slikom \ref{fig:zadatak715}, poziva funkciju \kckod{heap} i ispisuje rezultat na standardni izlaz. 
+Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor * koren)} koja proverava da li je dato binarno stablo celih brojeva hip. Napisati zatim i glavni program koji kreira stablo zadato slikom \ref{fig:zadatak715}, poziva funkciju \kckod{heap} i ispisuje rezultat na standardni izlaz. 
 
 \begin{miditest}
 \begin{test}{1}
