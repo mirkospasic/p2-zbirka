@@ -1,5 +1,3 @@
-/* polinom.c */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "polinom.h"
