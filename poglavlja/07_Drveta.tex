@@ -299,7 +299,7 @@ Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj.~ako ob
 %8.zadatak
 \begin{Exercise}[label=708, difficulty=1]
 Napisati program za rad sa skupovima u kojem se skupovi predstavljaju pomoću binarnih pretraživačkih stabala. Program za dva skupa čiji se elementi zadaju sa standardnog ulaza, sve do kraja ulaza, ispisuje uniju, presek i razliku skupova. %Unija dva stabala je stablo koje sadrži vrednosti iz oba stabla. Presek dva stabala je stablo koje sadrži vrednosti koje se pojavljuju i u prvom i u drugom stablu. Razlika dva stabla je stablo koje sadrži sve vrednosti prvog stabla koje se ne pojavljuju u drugom stablu. 
-
+\napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
@@ -331,7 +331,7 @@ Napisati program za rad sa skupovima u kojem se skupovi predstavljaju pomoću bi
 
 %9.zadatak
 \begin{Exercise}[label=709]
-Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih brojeva \argf{a} dimenzije \argf{n} korišćenjem binarnog pretraživačkog stabla. Napisati i program koji sa standardnog ulaza učitava ceo broj \argf{n} manji od 50 i niz \argf{a} celih brojeva dužine \argf{n}, poziva funkciju \kckod{sortiraj} i rezultat ispisuje na standardni izlaz.  
+Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih brojeva \argf{a} dimenzije \argf{n} korišćenjem binarnog pretraživačkog stabla. Napisati i program koji sa standardnog ulaza učitava ceo broj \argf{n} manji od 50 i niz \argf{a} celih brojeva dužine \argf{n}, poziva funkciju \kckod{sortiraj} i rezultat ispisuje na standardni izlaz. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -375,7 +375,7 @@ Dato je binarno pretraživačko stablo celih brojeva.
 \item Napisati funkciju koja izračunava zbir svih vrednosti stabla koje su manje ili jednake od date vrednosti $x$.
 \end{enumerate}
 Napisati program koji testira prethodne funkcije. Stablo formirati na osnovu vrednosti koje se unose
-sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ pročitati kao argumente komandne linije. 
+sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ pročitati kao argumente komandne linije. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}
 
 \begin{miditest}
 \begin{test}{1}
@@ -433,7 +433,7 @@ sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ proč
 
 %12.zadatak
 \begin{Exercise}[label=712]
-Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivoima. Elementi stabla se učitavaju sa standardnog ulaza sve do kraja ulaza.
+Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivoima. Elementi stabla se učitavaju sa standardnog ulaza sve do kraja ulaza. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}
 
 \begin{minitest}
 \begin{test}{1}
@@ -509,7 +509,7 @@ Dva binarna stabla su {\em slična kao u ogledalu} ako su ili oba prazna ili ako
 
 %14.zadatak
 \begin{Exercise}[label=714]
-AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina levog i desnog podstabla svakog elementa nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor * koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod{avl} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza.
+AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina levog i desnog podstabla svakog elementa nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor * koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod{avl} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}
 
 \begin{miditest}
 \begin{test}{1}
@@ -539,7 +539,7 @@ AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina 
 
 %15.zadatak
 \begin{Exercise}[label=715]
-Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor * koren)} koja proverava da li je dato binarno stablo celih brojeva hip. Napisati zatim i glavni program koji kreira stablo zadato slikom \ref{fig:zadatak715}, poziva funkciju \kckod{heap} i ispisuje rezultat na standardni izlaz. 
+Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor * koren)} koja proverava da li je dato binarno stablo celih brojeva hip. Napisati zatim i glavni program koji kreira stablo zadato slikom \ref{fig:zadatak715}, poziva funkciju \kckod{heap} i ispisuje rezultat na standardni izlaz. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}
 
 \begin{miditest}
 \begin{test}{1}

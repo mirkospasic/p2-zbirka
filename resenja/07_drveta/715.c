@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /* Ukljucuje se biblioteka za rad sa stablima */
 #include "stabla.h"
@@ -9,8 +9,8 @@
    pronalazenje maksimalne vrednosti levog i maksimalne vrednosti
    desnog podstabla - ako je vrednost u korenu veca od izracunatih
    vrednosti, uoceni fragment stabla zadovoljava uslov za hip. Zato
-   ce funkcija vracati maksimalne vrednosti iz uocenog podstabala
-   ili vrednost -1 ukoliko se zakljuci da stablo nije hip. */
+   ce funkcija vracati maksimalne vrednosti iz uocenog podstabala ili 
+   vrednost -1 ukoliko se zakljuci da stablo nije hip. */
 int heap(Cvor * koren)
 {
   int max_levo, max_desno;

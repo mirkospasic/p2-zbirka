@@ -24,8 +24,8 @@ Cvor *napravi_cvor(char *rec)
     return NULL;
 
   /* Alocira se memorija za zadatu rec: potrebno je rezervisati
-     memoriju za svaki karakter reci ukljucujuci i terminirajucu
-     nulu */
+     memoriju za svaki karakter reci ukljucujuci i terminirajucu nulu 
+   */
   novi_cvor->rec = (char *) malloc((strlen(rec) + 1) * sizeof(char));
   if (novi_cvor->rec == NULL) {
     free(novi_cvor);

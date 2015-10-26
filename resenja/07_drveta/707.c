@@ -1,10 +1,8 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-/* Ukljucuje se biblioteka za rad sa stablima - pogledati uvodni
-   zadatak ove glave */
+/* Ukljucuje se biblioteka za rad sa stablima */
 #include "stabla.h"
-
 
 /* Funkcija koja proverava da li su dva stabla koja sadrze cele
    brojeve identicna. Povratna vrednost funkcije je 1 ako jesu,

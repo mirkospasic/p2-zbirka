@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Uklucuje se biblioteka za rad sa stablima */
+/* Ukljucuje se biblioteka za rad sa stablima */
 #include "stabla.h"
 
 /* Funkcija kreira novo stablo identicno stablu koje je dato korenom. 

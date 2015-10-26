@@ -7,8 +7,8 @@
 #define MAX_CIFARA 13
 #define MAX_IME_I_PREZIME 100
 
-/* Struktura kojom se opisuje cvor stabla: sadrzi ime i prezime,
-   broj telefona i redom pokazivace na levo i desno podstablo */
+/* Struktura kojom se opisuje cvor stabla: sadrzi ime i prezime, broj 
+   telefona i redom pokazivace na levo i desno podstablo */
 typedef struct cvor {
   char ime_i_prezime[MAX_IME_I_PREZIME];
   char telefon[MAX_CIFARA];
@@ -122,8 +122,8 @@ void prikazi_stablo(Cvor * koren)
   prikazi_stablo(koren->desno);
 }
 
-/* Funkcija ucitava sledeci kontakt iz zadate datoteke i upisuje ime 
-   i prezime i broj telefona u odgovarajuce nizove. Maksimalna duzina 
+/* Funkcija ucitava sledeci kontakt iz zadate datoteke i upisuje ime
+   i prezime i broj telefona u odgovarajuce nizove. Maksimalna duzina
    imena i prezimena odredjena je konstantom MAX_IME_PREZIME, a
    maksimalna duzina broja telefona konstantom MAX_CIFARA. Funkcija
    vraca EOF ako nema vise kontakata ili 0 u suprotnom. */

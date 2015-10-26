@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /* Ukljucuje se biblioteka za rad sa stablima */
 #include "stabla.h"

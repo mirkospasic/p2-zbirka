@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /* Ukljucuje se biblioteka za rad sa stablima */
 #include "stabla.h"
@@ -113,8 +113,8 @@ int broj_cvorova_na_itom_nivou(Cvor * koren, int i)
   if (koren == NULL)
     return 0;
 
-  /* Ako se stiglo do trazenog nivoa, vraca se 1 - to ce kasnije
-     zbog rekurzivnih poziva uvecati broj cvorova za 1 */
+  /* Ako se stiglo do trazenog nivoa, vraca se 1 - to ce kasnije zbog 
+     rekurzivnih poziva uvecati broj cvorova za 1 */
   if (i == 0)
     return 1;
 
@@ -182,8 +182,8 @@ int zbir_cvorova_na_itom_nivou(Cvor * koren, int i)
   if (i == 0)
     return koren->broj;
 
-  /* Inace, spustanje se nastavlja za jedan nivo nize i traze se
-     sume iz levog i desnog podstabla */
+  /* Inace, spustanje se nastavlja za jedan nivo nize i traze se sume 
+     iz levog i desnog podstabla */
   return zbir_cvorova_na_itom_nivou(koren->levo, i - 1)
       + zbir_cvorova_na_itom_nivou(koren->desno, i - 1);
 }
