@@ -69,8 +69,8 @@ Polinom saberi(const Polinom * p, const Polinom * q)
   for (i = 0; i <= rez.stepen; i++)
     rez.koef[i] =
         (i > p->stepen ? 0 : p->koef[i]) + (i >
-                                            q->
-                                            stepen ? 0 : q->koef[i]);
+                                            q->stepen ? 0 : q->
+                                            koef[i]);
   return rez;
 
 }

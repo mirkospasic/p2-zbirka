@@ -23,17 +23,17 @@ int main()
   alocirano = n = 0;
 
   printf("Unesite zeljeni nacin realokacije (M ili R):\n");
-  scanf("%c", &realokacija); 
+  scanf("%c", &realokacija);
 
   printf("Unesite brojeve, nulu za kraj:\n");
-  scanf("%d", &x);  
+  scanf("%d", &x);
 
   while (x != 0) {
     if (n == alocirano) {
       alocirano = alocirano + KORAK;
-      
+
       if (realokacija == 'M') {
-        /* Vrsi se realokacija memorije sa novom velicinom */      
+        /* Vrsi se realokacija memorije sa novom velicinom */
         b = (int *) malloc(alocirano * sizeof(int));
 
         if (b == NULL) {
@@ -51,15 +51,16 @@ int main()
         free(a);
 
         /* Promenljivoj a dodeljuje se adresa pocetka novog, veceg
-           bloka koji je prilikom alokacije zapamcen u promenljivoj b */
+           bloka koji je prilikom alokacije zapamcen u promenljivoj b 
+         */
         a = b;
       } else if (realokacija == 'R') {
 
         /* Zbog funkcije realloc je neophodno da i u prvoj iteraciji
            "a" bude inicijalizovano na NULL */
 
-        a = (int*) realloc(a, alocirano * sizeof(int));
-        if(a == NULL) {
+        a = (int *) realloc(a, alocirano * sizeof(int));
+        if (a == NULL) {
           fprintf(stderr, "realloc(): ");
           fprintf(stderr, "greska pri alokaciji memorije.\n");
           exit(EXIT_FAILURE);

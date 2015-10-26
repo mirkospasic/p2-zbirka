@@ -17,8 +17,8 @@ int dubina_stabla(Cvor * koren)
   /* Izracunava se dubina desnog podstabla */
   int dubina_desno = dubina_stabla(koren->desno);
 
-  /* Dubina stabla odgovara vecoj od dubina podstabala - 1 se
-     dodaje jer se racuna i koren */
+  /* Dubina stabla odgovara vecoj od dubina podstabala - 1 se dodaje
+     jer se racuna i koren */
   return dubina_levo >
       dubina_desno ? dubina_levo + 1 : dubina_desno + 1;
 }
@@ -36,8 +36,8 @@ void ispisi_nivo(Cvor * koren, int i)
     printf("%d ", koren->broj);
     return;
   }
-  /* Inace, vrsi se spustanje za jedan nivo nize i u levom i u
-     desnom podstablu */
+  /* Inace, vrsi se spustanje za jedan nivo nize i u levom i u desnom 
+     podstablu */
   ispisi_nivo(koren->levo, i - 1);
   ispisi_nivo(koren->desno, i - 1);
 }

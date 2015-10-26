@@ -62,9 +62,9 @@ int main()
   printf("Unesite redni broj funkcije:\n");
   scanf("%d", &i);
   printf("Broj jedinica u zapisu je\n");
-  if(i==1)
-	printf("funkcija count_bits1: %d\n", count_bits1(x));
+  if (i == 1)
+    printf("funkcija count_bits1: %d\n", count_bits1(x));
   else
-	printf("funkcija count_bits2: %d\n", count_bits2(x));
+    printf("funkcija count_bits2: %d\n", count_bits2(x));
   return 0;
 }

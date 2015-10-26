@@ -67,8 +67,8 @@ int main()
   printf("Unesite n (<= 12): ");
   scanf("%d", &n);
   printf("%d! = %d\n", n, faktorijel(n));
-  
-  while(1);
+
+  while (1);
 
   return 0;
 }

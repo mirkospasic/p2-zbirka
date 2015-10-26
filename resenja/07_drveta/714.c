@@ -17,14 +17,14 @@ int dubina_stabla(Cvor * koren)
   /* Izracunava se dubina desnog podstabla */
   int dubina_desno = dubina_stabla(koren->desno);
 
-  /* Dubina stabla odgovara vecoj od dubina podstabala - 1 se
-     dodaje jer se racuna i koren */
+  /* Dubina stabla odgovara vecoj od dubina podstabala - 1 se dodaje
+     jer se racuna i koren */
   return dubina_levo >
       dubina_desno ? dubina_levo + 1 : dubina_desno + 1;
 }
 
-/* Funkcija koja racuna broj cvorova koji ispunjavaju uslov za
-   AVL stablo */
+/* Funkcija koja racuna broj cvorova koji ispunjavaju uslov za AVL
+   stablo */
 int avl(Cvor * koren)
 {
   int dubina_levo, dubina_desno;

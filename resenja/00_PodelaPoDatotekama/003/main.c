@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 
   /* Ispisujemo vrednost polinoma u toj tacki */
   printf("Vrednost polinoma u tacki je %.2f\n", izracunaj(&r, x));
-  
+
   /* Izvod polinoma */
   printf("Unesite izvod polinoma koji zelite:\n");
   scanf("%d", &n);

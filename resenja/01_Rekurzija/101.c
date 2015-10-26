@@ -9,9 +9,9 @@
 ****************************************************************/
 int sumaNiza(int *a, int n)
 {
-  /* Nije postavljena stroga jednakost n==0, za slucaj da 
-     korisnik prilikom prvog poziva, posalje negativan broj 
-	 za velicinu niza. */
+  /* Nije postavljena stroga jednakost n==0, za slucaj da korisnik
+     prilikom prvog poziva, posalje negativan broj za velicinu niza. 
+   */
   if (n <= 0)
     return 0;
 

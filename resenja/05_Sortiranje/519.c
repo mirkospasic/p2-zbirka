@@ -92,7 +92,7 @@ int main()
   for (i = 0; i < n; i++)
     printf("%s ", niske[i]);
   printf("\n");
-  
+
   /* Linearna pretraga */
   p = lfind(&x, niske, &n, MAX_DUZINA * sizeof(char),
             &poredi_leksikografski);

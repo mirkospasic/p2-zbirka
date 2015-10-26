@@ -4,14 +4,13 @@
 /* Ukljucuje se biblioteka za rad sa stablima */
 #include "stabla.h"
 
-/* Funkcija proverava da li je zadato binarno stablo celih
-   pozitivnih brojeva hip. Ideja koja ce biti implementirana u
-   osnovi ima pronalazenje maksimalne vrednosti levog i
-   maksimalne vrednosti desnog podstabla - ako je vrednost u
-   korenu veca od izracunatih vrednosti, uoceni fragment stabla
-   zadovoljava uslov za hip. Zato ce funkcija vracati maksimalne 
-   vrednosti iz uocenog podstabala ili vrednost -1 ukoliko se
-   zakljuci da stablo nije hip. */
+/* Funkcija proverava da li je zadato binarno stablo celih pozitivnih 
+   brojeva hip. Ideja koja ce biti implementirana u osnovi ima
+   pronalazenje maksimalne vrednosti levog i maksimalne vrednosti
+   desnog podstabla - ako je vrednost u korenu veca od izracunatih
+   vrednosti, uoceni fragment stabla zadovoljava uslov za hip. Zato
+   ce funkcija vracati maksimalne vrednosti iz uocenog podstabala
+   ili vrednost -1 ukoliko se zakljuci da stablo nije hip. */
 int heap(Cvor * koren)
 {
   int max_levo, max_desno;
@@ -34,14 +33,13 @@ int heap(Cvor * koren)
   /* Proverava se svojstvo za desno podstablo. */
   max_desno = heap(koren->desno);
 
-  /* Ako levo ili desno podstablo uocenog cvora nije hip, onda
-     nije ni celo stablo. */
+  /* Ako levo ili desno podstablo uocenog cvora nije hip, onda nije
+     ni celo stablo. */
   if (max_levo == -1 || max_desno == -1) {
     return -1;
   }
 
-  /* U suprotonom proverava se da li svojstvo vazi za uoceni
-     cvor. */
+  /* U suprotonom proverava se da li svojstvo vazi za uoceni cvor. */
   if (koren->broj > max_levo && koren->broj > max_desno) {
     /* Ako vazi, vraca se vrednost korena */
     return koren->broj;
@@ -56,8 +54,7 @@ int main(int argc, char **argv)
   Cvor *koren;
   int hip_indikator;
 
-  /* Kreira se stablo koje sadrzi brojeve 100 19 36 17 3 25 1 2
-     7 */
+  /* Kreira se stablo koje sadrzi brojeve 100 19 36 17 3 25 1 2 7 */
   koren = NULL;
   koren = napravi_cvor(100);
   koren->levo = napravi_cvor(19);

@@ -8,9 +8,8 @@
 #define MAX_STEPEN 20
 
 
-/* Polinome predstavljamo strukturom koja cuva koeficijente 
-  (koef[i] je koeficijent uz clan x^i) i stepen
-  polinoma */
+/* Polinome predstavljamo strukturom koja cuva koeficijente (koef[i] 
+   je koeficijent uz clan x^i) i stepen polinoma */
 typedef struct {
   double koef[MAX_STEPEN + 1];
   int stepen;

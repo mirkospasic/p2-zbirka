@@ -25,8 +25,8 @@ void proveri_alokaciju(Cvor * novi_cvor)
   /* Ukoliko je cvor neuspesno kreiran */
   if (novi_cvor == NULL) {
 
-    /* Ispisuje se odgovarajuca poruka i prekida izvrsavanje
-       programa */
+    /* Ispisuje se odgovarajuca poruka i prekida izvrsavanje programa 
+     */
     fprintf(stderr, "Malloc greska za novi cvor!\n");
     exit(EXIT_FAILURE);
   }
@@ -55,16 +55,15 @@ void dodaj_u_stablo(Cvor ** adresa_korena, int broj)
     dodaj_u_stablo(&(*adresa_korena)->levo, broj);
 
   else
-    /* Inace, broj je veci (ili jednak) od vrednosti u korenu pa 
-       se dodaje u desno podstablo */
+    /* Inace, broj je veci (ili jednak) od vrednosti u korenu pa se
+       dodaje u desno podstablo */
     dodaj_u_stablo(&(*adresa_korena)->desno, broj);
 }
 
 Cvor *pretrazi_stablo(Cvor * koren, int broj)
 {
 
-  /* Ako je stablo prazno, vrednost se sigurno ne nalazi u njemu 
-   */
+  /* Ako je stablo prazno, vrednost se sigurno ne nalazi u njemu */
   if (koren == NULL)
     return NULL;
 
@@ -93,8 +92,8 @@ Cvor *pronadji_najmanji(Cvor * koren)
   if (koren == NULL)
     return NULL;
 
-  /* Vrednosti koje su manje od vrednosti u korenu stabla nalaze 
-     se levo od njega */
+  /* Vrednosti koje su manje od vrednosti u korenu stabla nalaze se
+     levo od njega */
 
   /* Ako je koren cvor koji nema levo podstablo, onda on sadrzi
      najmanju vrednost */
@@ -111,8 +110,8 @@ Cvor *pronadji_najveci(Cvor * koren)
   if (koren == NULL)
     return NULL;
 
-  /* Vrednosti koje su vece od vrednosti u korenu stabla nalaze
-     se desno od njega */
+  /* Vrednosti koje su vece od vrednosti u korenu stabla nalaze se
+     desno od njega */
 
   /* Ako je koren cvor koji nema desno podstablo, onda on sadrzi
      najvecu vrednost */
@@ -131,30 +130,30 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
   if (*adresa_korena == NULL)
     return;
 
-  /* Ako je vrednost koju treba obrisati manja od vrednosti u
-     korenu stabla, ona se eventualno nalazi u levom podstablu,
-     pa treba rekurzivno primeniti postupak na levo podstablo.
-     Koren ovako modifikovanog stabla je nepromenjen. */
+  /* Ako je vrednost koju treba obrisati manja od vrednosti u korenu
+     stabla, ona se eventualno nalazi u levom podstablu, pa treba
+     rekurzivno primeniti postupak na levo podstablo. Koren ovako
+     modifikovanog stabla je nepromenjen. */
   if (broj < (*adresa_korena)->broj) {
     obrisi_element(&(*adresa_korena)->levo, broj);
     return;
   }
 
-  /* Ako je vrednost koju treba obrisati veca od vrednosti u
-     korenu stabla, ona se eventualno nalazi u desnom podstablu
-     pa treba rekurzivno primeniti postupak na desno podstablo.
-     Koren ovako modifikovanog stabla je nepromenjen. */
+  /* Ako je vrednost koju treba obrisati veca od vrednosti u korenu
+     stabla, ona se eventualno nalazi u desnom podstablu pa treba
+     rekurzivno primeniti postupak na desno podstablo. Koren ovako
+     modifikovanog stabla je nepromenjen. */
   if ((*adresa_korena)->broj < broj) {
     obrisi_element(&(*adresa_korena)->desno, broj);
     return;
   }
 
-  /* Slede podslucajevi vezani za slucaj kada je vrednost u
-     korenu jednaka broju koji se brise (tj. slucaj kada treba
-     obrisati koren) */
+  /* Slede podslucajevi vezani za slucaj kada je vrednost u korenu
+     jednaka broju koji se brise (tj. slucaj kada treba obrisati
+     koren) */
 
-  /* Ako koren nema sinova, tada se on prosto brise, i rezultat
-     je prazno stablo (vraca se NULL) */
+  /* Ako koren nema sinova, tada se on prosto brise, i rezultat je
+     prazno stablo (vraca se NULL) */
   if ((*adresa_korena)->levo == NULL
       && (*adresa_korena)->desno == NULL) {
     free(*adresa_korena);
@@ -162,8 +161,8 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
     return;
   }
 
-  /* Ako koren ima samo levog sina, tada se brisanje vrsi tako
-     sto se brise koren, a novi koren postaje levi sin */
+  /* Ako koren ima samo levog sina, tada se brisanje vrsi tako sto se 
+     brise koren, a novi koren postaje levi sin */
   if ((*adresa_korena)->levo != NULL
       && (*adresa_korena)->desno == NULL) {
     pomocni_cvor = (*adresa_korena)->levo;
@@ -172,8 +171,8 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
     return;
   }
 
-  /* Ako koren ima samo desnog sina, tada se brisanje vrsi tako
-     sto se brise koren, a novi koren postaje desni sin */
+  /* Ako koren ima samo desnog sina, tada se brisanje vrsi tako sto
+     se brise koren, a novi koren postaje desni sin */
   if ((*adresa_korena)->desno != NULL
       && (*adresa_korena)->levo == NULL) {
     pomocni_cvor = (*adresa_korena)->desno;
@@ -182,17 +181,16 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
     return;
   }
 
-  /* Slucaj kada koren ima oba sina - najpre se potrazi
-     sledbenik korena (u smislu poretka) u stablu. To je upravo
-     po vrednosti najmanji cvor u desnom podstablu. On se moze
-     pronaci npr. funkcijom pronadji_najmanji(). Nakon toga se u 
-     koren smesti vrednost tog cvora, a u taj cvor se smesti
-     vrednost korena (tj. broj koji se brise).  Zatim se prosto
-     rekurzivno pozove funkcija za brisanje na desno podstablo. 
-     S obzirom da u njemu treba obrisati najmanji element, a on
-     zasigurno ima najvise jednog potomka, jasno je da ce
-     njegovo brisanje biti obavljeno na jedan od jednostavnijih 
-     nacina koji su gore opisani. */
+  /* Slucaj kada koren ima oba sina - najpre se potrazi sledbenik
+     korena (u smislu poretka) u stablu. To je upravo po vrednosti
+     najmanji cvor u desnom podstablu. On se moze pronaci npr.
+     funkcijom pronadji_najmanji(). Nakon toga se u koren smesti
+     vrednost tog cvora, a u taj cvor se smesti vrednost korena (tj.
+     broj koji se brise).  Zatim se prosto rekurzivno pozove funkcija 
+     za brisanje na desno podstablo. S obzirom da u njemu treba
+     obrisati najmanji element, a on zasigurno ima najvise jednog
+     potomka, jasno je da ce njegovo brisanje biti obavljeno na jedan 
+     od jednostavnijih nacina koji su gore opisani. */
   pomocni_cvor = pronadji_najmanji((*adresa_korena)->desno);
   (*adresa_korena)->broj = pomocni_cvor->broj;
   pomocni_cvor->broj = broj;

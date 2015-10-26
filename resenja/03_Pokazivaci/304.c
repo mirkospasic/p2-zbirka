@@ -5,11 +5,10 @@ int main(int argc, char *argv[])
   int i;
   char tip_ispisa;
 
-  printf("Broj argumenata komandne linije je %d.\n",
-         argc);
+  printf("Broj argumenata komandne linije je %d.\n", argc);
 
-  printf("Kako zelite da ispisete argumente, koriscenjem"  
-          " indeksne ili pokazivacke sintakse (I ili P)? ");
+  printf("Kako zelite da ispisete argumente, koriscenjem"
+         " indeksne ili pokazivacke sintakse (I ili P)? ");
   scanf("%c", &tip_ispisa);
 
   printf("Argumenti komandne linije su:\n");
@@ -33,7 +32,7 @@ int main(int argc, char *argv[])
     argv = argv - i;
     argc = i;
   }
-  
+
   printf("Pocetna slova argumenata komandne linije:\n");
   if (tip_ispisa == 'I') {
     /* koristeci indeksnu sintaksu */

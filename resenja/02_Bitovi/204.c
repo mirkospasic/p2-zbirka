@@ -158,11 +158,11 @@ int main()
   scanf("%u", &p);
   printf("Unesite neoznacen ceo broj y:\n");
   scanf("%u", &y);
-  
-  /*Stampanje broja x i y*/
+
+  /* Stampanje broja x i y */
   printf("x = %u = ", x);
   print_bits(x);
- 
+
   printf("y = %u = ", y);
   print_bits(y);
 

@@ -24,10 +24,9 @@ Cvor *napravi_cvor(char *rec)
     return NULL;
 
   /* Alocira se memorija za zadatu rec: potrebno je rezervisati
-     memoriju za svaki karakter reci ukljucujuci i terminirajucu 
+     memoriju za svaki karakter reci ukljucujuci i terminirajucu
      nulu */
-  novi_cvor->rec =
-      (char *) malloc((strlen(rec) + 1) * sizeof(char));
+  novi_cvor->rec = (char *) malloc((strlen(rec) + 1) * sizeof(char));
   if (novi_cvor->rec == NULL) {
     free(novi_cvor);
     return NULL;
@@ -43,14 +42,13 @@ Cvor *napravi_cvor(char *rec)
   return novi_cvor;
 }
 
-/* Funkcija koja proverava uspesnost kreiranja novog cvora
-   stabla */
+/* Funkcija koja proverava uspesnost kreiranja novog cvora stabla */
 void proveri_alokaciju(Cvor * novi_cvor)
 {
   /* Ukoliko je cvor neuspesno kreiran */
   if (novi_cvor == NULL) {
-    /* Ispisuje se odgovarajuca poruka i prekida izvrsavanje
-       programa */
+    /* Ispisuje se odgovarajuca poruka i prekida izvrsavanje programa 
+     */
     fprintf(stderr, "Malloc greska za novi cvor!\n");
     exit(EXIT_FAILURE);
   }
@@ -72,14 +70,14 @@ void dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
 
   /* U suprotnom se trazi odgovarajuca pozicija za novu rec */
 
-  /* Ako je rec leksikografski manja od reci u korenu ubacuje se 
-     u levo podstablo */
+  /* Ako je rec leksikografski manja od reci u korenu ubacuje se u
+     levo podstablo */
   if (strcmp(rec, (*adresa_korena)->rec) < 0)
     dodaj_u_stablo(&(*adresa_korena)->levo, rec);
 
   else
-    /* Ako je rec leksikografski veca od reci u korenu ubacuje
-       se u desno podstablo */
+    /* Ako je rec leksikografski veca od reci u korenu ubacuje se u
+       desno podstablo */
   if (strcmp(rec, (*adresa_korena)->rec) > 0)
     dodaj_u_stablo(&(*adresa_korena)->desno, rec);
 
@@ -111,8 +109,8 @@ void oslobodi_stablo(Cvor ** adresa_korena)
   *adresa_korena = NULL;
 }
 
-/* Funkcija koja pronalazi cvor koji sadrzi najfrekventniju rec
-   (rec sa najvecim brojem pojavljivanja) */
+/* Funkcija koja pronalazi cvor koji sadrzi najfrekventniju rec (rec
+   sa najvecim brojem pojavljivanja) */
 Cvor *nadji_najfrekventniju_rec(Cvor * koren)
 {
   Cvor *max, *max_levo, *max_desno;
@@ -139,16 +137,16 @@ Cvor *nadji_najfrekventniju_rec(Cvor * koren)
   return max;
 }
 
-/* Funkcija koja ispisuje reci iz stabla u leksikografskom
-   poretku pracene brojem pojavljivanja */
+/* Funkcija koja ispisuje reci iz stabla u leksikografskom poretku
+   pracene brojem pojavljivanja */
 void prikazi_stablo(Cvor * koren)
 {
   /* Ako je stablo prazno, zavrsava se sa ispisom */
   if (koren == NULL)
     return;
 
-  /* Zbog leksikografskog poretka, prvo se ispisuju sve reci iz
-     levog podstabla */
+  /* Zbog leksikografskog poretka, prvo se ispisuju sve reci iz levog 
+     podstabla */
   prikazi_stablo(koren->levo);
 
   /* Zatim rec iz korena */
@@ -158,9 +156,9 @@ void prikazi_stablo(Cvor * koren)
   prikazi_stablo(koren->desno);
 }
 
-/* Funkcija ucitava sledecu rec iz zadate datoteke f i upisuje
-   je u niz rec. Maksimalna duzina reci je odredjena argumentom
-   max. Funkcija vraca EOF ako u datoteci nema vise reci ili 0 u
+/* Funkcija ucitava sledecu rec iz zadate datoteke f i upisuje je u
+   niz rec. Maksimalna duzina reci je odredjena argumentom max.
+   Funkcija vraca EOF ako u datoteci nema vise reci ili 0 u
    suprotnom. Rec je niz malih ili velikih slova. */
 int procitaj_rec(FILE * f, char rec[], int max)
 {
@@ -170,19 +168,19 @@ int procitaj_rec(FILE * f, char rec[], int max)
   /* Indeks pozicije na koju se smesta procitani karakter */
   int i = 0;
 
-  /* Sve dok ima mesta za jos jedan karakter u nizu i dokle se
-     god nije stiglo do kraja datoteke... */
+  /* Sve dok ima mesta za jos jedan karakter u nizu i dokle se god
+     nije stiglo do kraja datoteke... */
   while (i < max - 1 && (c = fgetc(f)) != EOF) {
     /* Proverava se da li je procitani karakter slovo */
     if (isalpha(c))
-      /* Ako jeste, smesta se u niz - pritom se vrsi konverzija
-         u mala slova jer program treba da bude neosetljiv na
-         razliku izmedju malih i velikih slova */
+      /* Ako jeste, smesta se u niz - pritom se vrsi konverzija u
+         mala slova jer program treba da bude neosetljiv na razliku
+         izmedju malih i velikih slova */
       rec[i++] = tolower(c);
 
     else
-      /* Ako nije, proverava se da li je procitano barem jedno
-         slovo nove reci */
+      /* Ako nije, proverava se da li je procitano barem jedno slovo
+         nove reci */
       /* Ako jeste, prekida se sa citanjem */
     if (i > 0)
       break;
