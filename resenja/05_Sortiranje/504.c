@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 #define MAX_DIM 256
 
 /* Funkcija za sortiranje niza */

@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 #define MAX_DIM 256
 
 int br_pojave(int x, int a[], int n)

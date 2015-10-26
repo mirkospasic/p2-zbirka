@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 #define MAX_DIM 256
 
 int tri_uzastopna_clana(int x, int y, int z, int a[], int n)

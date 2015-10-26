@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "lista.h"
 
 /* Funkcija objedinjuje dve liste ciji se pokazivaci na glave nalaze

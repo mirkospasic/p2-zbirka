@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 
 
 /* Rekurzivna funkcija za odredjivanje najvece oktalne cifre u broju */
