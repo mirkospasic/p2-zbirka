@@ -1,5 +1,3 @@
-/* Datoteka sort.c */
-
 #include "sort.h"
 
 #define MAX 1000000
