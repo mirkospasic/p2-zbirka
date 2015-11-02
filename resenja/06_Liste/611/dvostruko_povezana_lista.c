@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lista.h"
+#include "dvostruko_povezana_lista.h"
 
 Cvor *napravi_cvor(int broj)
 {

@@ -1,5 +1,5 @@
-#ifndef _RED_H
-#define _RED_H
+#ifndef _RED_H_
+#define _RED_H_
 
 #include <stdio.h>
 #include <stdlib.h>

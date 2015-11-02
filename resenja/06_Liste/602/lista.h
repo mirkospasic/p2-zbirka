@@ -1,5 +1,5 @@
-#ifndef _LISTA_H
-#define _LISTA_H
+#ifndef _LISTA_H_
+#define _LISTA_H_
 
 /* Struktura kojom je predstavljen cvor liste sadrzi celobrojni
    podatak vrednost i pokazivac na sledeci cvor liste. */

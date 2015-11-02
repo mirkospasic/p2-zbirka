@@ -1,5 +1,5 @@
-#ifndef _LISTA_H
-#define _LISTA_H
+#ifndef _DVOSTRUKO_POVEZANA_LISTA_H_
+#define _DVOSTRUKO_POVEZANA_LISTA_H_
 
 /* Struktura kojom je predstavljen cvor liste sadrzi celobrojnu
    vrednost i pokazivace na sledeci i prethodni cvor liste. */
