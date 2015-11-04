@@ -11,10 +11,14 @@ int main()
   /* Proglasava se stablo praznim */
   koren = NULL;
 
-  /* Dodaju se vrednosti u stablo */
+  /* Citaju se vrednosti i dodaju u stablo uz proveru uspesnosti */
   printf("Unesite brojeve (CTRL+D za kraj unosa): ");
   while (scanf("%d", &n) != EOF) {
-    dodaj_u_stablo(&koren, n);
+    if (dodaj_u_stablo(&koren, n) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje broja %d\n", n);
+      oslobodi_stablo(&koren);
+      return 0;
+    }
   }
 
   /* Generisu se trazeni ispisi: */

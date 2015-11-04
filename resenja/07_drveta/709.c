@@ -34,29 +34,36 @@ int kreiraj_niz(Cvor * koren, int a[])
 }
 
 /* Funkcija sortira niz tako sto najpre elemente niza smesti u
-   stablo, a zatim kreira novi niz prolazeci kroz stablo sa leva u
-   desno.
+   stablo, a zatim kreira novi niz prolazeci kroz stablo sa leva na
+   desno. Povratna vrednost funkcije je 0 ukoliko je niz uspesno
+   kreiran i sortiran, a 1 ukoliko je doslo do greske.
 
    Ovaj nacin sortiranja je primer sortiranja koje nije "u mestu" kao 
    sto je to slucaj sa ostalim opisanim algoritmima sortiranja jer se 
    sortiranje vrsi u pomocnoj dinamickoj strukturi, a ne razmenom
    elemenata niza. */
-void sortiraj(int a[], int n)
+int sortiraj(int a[], int n)
 {
   int i;
   Cvor *koren;
 
   /* Kreira se stablo smestanjem elemenata iz niza u stablo */
   koren = NULL;
-  for (i = 0; i < n; i++)
-    dodaj_u_stablo(&koren, a[i]);
-
+  for (i = 0; i < n; i++) {
+    if (dodaj_u_stablo(&koren, a[i]) == 1) {
+      oslobodi_stablo(&koren);
+      return 1;
+    }
+  }
   /* Infiksnim obilaskom stabla elementi iz stabla se prepisuju u niz 
      a */
   kreiraj_niz(koren, a);
 
   /* Stablo vise nije potrebno pa se oslobadja memorija koju zauzima */
   oslobodi_stablo(&koren);
+
+  /* Vraca se indikator uspesnog sortiranja */
+  return 0;
 }
 
 int main()
@@ -77,12 +84,15 @@ int main()
     scanf("%d", &a[i]);
 
   /* Poziva se funkcija za sortiranje */
-  sortiraj(a, n);
-
-  /* Ispisuje se rezultat */
-  for (i = 0; i < n; i++)
-    printf("%d ", a[i]);
-  printf("\n");
+  if (sortiraj(a, n) == 0) {
+    /* Ako je niz uspesno sortiran, ispisuje se rezultujuci niz */
+    for (i = 0; i < n; i++)
+      printf("%d ", a[i]);
+    printf("\n");
+  } else {
+    /* Inace, obavestava se korisnik da je doslo do greske */
+    printf("Greska: problem prilikom sortiranja niza!\n");
+  }
 
   return 0;
 }

@@ -220,11 +220,17 @@ int main(int argc, char **argv)
   int i = atoi(argv[1]);
   int x = atoi(argv[2]);
 
-  /* Kreira se stablo */
+  /* Kreira se stablo uz proveru uspesnosti dodavanja novih vrednosti 
+   */
   Cvor *koren = NULL;
   int broj;
-  while (scanf("%d", &broj) != EOF)
-    dodaj_u_stablo(&koren, broj);
+  while (scanf("%d", &broj) != EOF) {
+    if (dodaj_u_stablo(&koren, broj) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje broja %d\n", broj);
+      oslobodi_stablo(&koren);
+      return 0;
+    }
+  }
 
   /* ispisuju se rezultati rada funkcija */
   printf("Broj cvorova: %d\n", broj_cvorova(koren));

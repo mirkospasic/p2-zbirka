@@ -42,44 +42,41 @@ Cvor *napravi_cvor(char *rec)
   return novi_cvor;
 }
 
-/* Funkcija koja proverava uspesnost kreiranja novog cvora stabla */
-void proveri_alokaciju(Cvor * novi_cvor)
-{
-  /* Ukoliko je cvor neuspesno kreiran */
-  if (novi_cvor == NULL) {
-    /* Ispisuje se odgovarajuca poruka i prekida izvrsavanje programa 
-     */
-    fprintf(stderr, "Malloc greska za novi cvor!\n");
-    exit(EXIT_FAILURE);
-  }
-}
-
-/* Funkcija koja dodaje novu rec u stablo. */
-void dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
+/* Funkcija koja dodaje novu rec u stablo - ukoliko je dodavanje
+   uspesno povratna vrednost je 0, u suprotnom povratna vrednost je 1 
+ */
+int dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
 {
   /* Ako je stablo prazno */
   if (*adresa_korena == NULL) {
     /* Kreira se cvor koji sadrzi zadatu rec */
-    Cvor *novi = napravi_cvor(rec);
-    proveri_alokaciju(novi);
+    Cvor *novi_cvor = napravi_cvor(rec);
+    /* Proverava se uspesnost kreiranja novog cvora */
+    if (novi_cvor == NULL) {
+      /* I ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
+       */
+      return 1;
+    }
+    /* Inace... */
+    /* Novi cvor se proglasava korenom stabla */
+    *adresa_korena = novi_cvor;
 
-    /* I proglasava se korenom stabla */
-    *adresa_korena = novi;
-    return;
+    /* I vraca se indikator uspesnog dodavanja */
+    return 0;
   }
 
-  /* U suprotnom se trazi odgovarajuca pozicija za novu rec */
+  /* Ako stablo nije prazno, trazi odgovarajuca pozicija za novu rec */
 
   /* Ako je rec leksikografski manja od reci u korenu ubacuje se u
      levo podstablo */
   if (strcmp(rec, (*adresa_korena)->rec) < 0)
-    dodaj_u_stablo(&(*adresa_korena)->levo, rec);
+    return dodaj_u_stablo(&(*adresa_korena)->levo, rec);
 
   else
     /* Ako je rec leksikografski veca od reci u korenu ubacuje se u
        desno podstablo */
   if (strcmp(rec, (*adresa_korena)->rec) > 0)
-    dodaj_u_stablo(&(*adresa_korena)->desno, rec);
+    return dodaj_u_stablo(&(*adresa_korena)->desno, rec);
 
   else
     /* Ako je rec jednaka reci u korenu, uvecava se njen broj
@@ -216,9 +213,14 @@ int main(int argc, char **argv)
   }
 
   /* Ucitavanje reci iz datoteke i smestanje u binarno stablo
-     pretrage. */
-  while (procitaj_rec(f, rec, MAX) != EOF)
-    dodaj_u_stablo(&koren, rec);
+     pretrage uz proveru uspesnosti dodavanja */
+  while (procitaj_rec(f, rec, MAX) != EOF) {
+    if (dodaj_u_stablo(&koren, rec) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje reci %s\n", rec);
+      oslobodi_stablo(&koren);
+      return 0;
+    }
+  }
 
   /* Posto je citanjem reci zavrseno, zatvara se datoteka */
   fclose(f);

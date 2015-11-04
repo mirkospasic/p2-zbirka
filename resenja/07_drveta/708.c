@@ -5,84 +5,108 @@
 #include "stabla.h"
 
 /* Funkcija kreira novo stablo identicno stablu koje je dato korenom. 
- */
-void kopiraj_stablo(Cvor * koren, Cvor ** duplikat)
+   Povratna vrednost funkcije je 0 ukoliko je kopiranje uspesno,
+   odnosno 1 ukoliko je doslo do greske */
+int kopiraj_stablo(Cvor * koren, Cvor ** duplikat)
 {
   /* Izlaz iz rekurzije */
   if (koren == NULL) {
     *duplikat = NULL;
-    return;
+    return 0;
   }
 
   /* Duplira se koren stabla i postavlja da bude koren novog stabla */
   *duplikat = napravi_cvor(koren->broj);
-  proveri_alokaciju(*duplikat);
+  if (*duplikat == NULL) {
+    return 1;
+  }
 
-  /* Rekurzivno se duplira levo podstablo i njegova adresa se cuva u
-     pokazivacu na levo podstablo korena duplikata. */
-  kopiraj_stablo(koren->levo, &(*duplikat)->levo);
+  /* Rekurzivno se duplirju levo i desno podstablo i njihove adrese
+     se cuvaju redom u pokazivacima na levo i desno podstablo korena
+     duplikata */
+  int kopija_levo = kopiraj_stablo(koren->levo, &(*duplikat)->levo);
+  int kopija_desno =
+      kopiraj_stablo(koren->desno, &(*duplikat)->desno);
+  if (kopija_levo == 0 && kopija_desno == 0)
+    return 0;
+  else
+    return 1;
 
-  /* Rekurzivno se duplira desno podstablo i njegova adresa se cuva u 
-     pokazivacu na desno podstablo korena duplikata. */
-  kopiraj_stablo(koren->desno, &(*duplikat)->desno);
 }
 
 /* Funkcija izracunava uniju dva skupa predstavljena stablima -
    rezultujuci skup tj. stablo se dobija modifikacijom prvog stabla */
-void kreiraj_uniju(Cvor ** adresa_korena1, Cvor * koren2)
+int kreiraj_uniju(Cvor ** adresa_korena1, Cvor * koren2)
 {
   /* Ako drugo stablo nije prazno */
   if (koren2 != NULL) {
     /* Dodaje se njegov koren u prvo stablo */
-    dodaj_u_stablo(adresa_korena1, koren2->broj);
+    if (dodaj_u_stablo(adresa_korena1, koren2->broj) == 1) {
+      return 1;
+    }
 
     /* Rekurzivno se racuna unija levog i desnog podstabla drugog
        stabla sa prvim stablom */
-    kreiraj_uniju(adresa_korena1, koren2->levo);
-    kreiraj_uniju(adresa_korena1, koren2->desno);
+    int unija_levo = kreiraj_uniju(adresa_korena1, koren2->levo);
+    int unija_desno = kreiraj_uniju(adresa_korena1, koren2->desno);
+
+    if (unija_levo == 0 && unija_desno == 0)
+      return 0;
+    else
+      return 1;
   }
+
+  return 0;
 }
 
 /* Funkcija izracunava presek dva skupa predstavljana stablima -
    rezultujuci skup tj. stablo se dobija modifikacijom prvog stabla */
-void kreiraj_presek(Cvor ** adresa_korena1, Cvor * koren2)
+int kreiraj_presek(Cvor ** adresa_korena1, Cvor * koren2)
 {
   /* Ako je prvo stablo prazno, tada je i rezultat prazno stablo */
   if (*adresa_korena1 == NULL)
-    return;
+    return 0;
 
   /* Inace... */
   /* Kreira se presek levog i desnog podstabla sa drugim stablom, tj. 
      iz levog i desnog podstabla prvog stabla brisu se svi oni
      elementi koji ne postoje u drugom stablu */
-  kreiraj_presek(&(*adresa_korena1)->levo, koren2);
-  kreiraj_presek(&(*adresa_korena1)->desno, koren2);
+  if (kreiraj_presek(&(*adresa_korena1)->levo, koren2) == 0 &&
+      kreiraj_presek(&(*adresa_korena1)->desno, koren2) == 0) {
 
-  /* Ako se koren prvog stabla ne nalazi u drugom stablu tada se on
-     uklanja iz prvog stabla */
-  if (pretrazi_stablo(koren2, (*adresa_korena1)->broj) == NULL)
-    obrisi_element(adresa_korena1, (*adresa_korena1)->broj);
+    /* Ako se koren prvog stabla ne nalazi u drugom stablu tada se on
+       uklanja iz prvog stabla */
+    if (pretrazi_stablo(koren2, (*adresa_korena1)->broj) == NULL)
+      obrisi_element(adresa_korena1, (*adresa_korena1)->broj);
+
+    return 0;
+  } else
+    return 1;
 }
 
 /* Funkcija izracunava razliku dva skupa predstavljana stablima -
    rezultujuci skup tj. stablo se dobija modifikacijom prvog stabla */
-void kreiraj_razliku(Cvor ** adresa_korena1, Cvor * koren2)
+int kreiraj_razliku(Cvor ** adresa_korena1, Cvor * koren2)
 {
   /* Ako je prvo stablo prazno, tada je i rezultat prazno stablo */
   if (*adresa_korena1 == NULL)
-    return;
+    return 0;
 
   /* Inace... */
   /* Kreira se razlika levog i desnog podstabla sa drugim stablom,
      tj. iz levog i desnog podstabla prvog stabla se brisu svi oni
      elementi koji postoje i u drugom stablu */
-  kreiraj_razliku(&(*adresa_korena1)->levo, koren2);
-  kreiraj_razliku(&(*adresa_korena1)->desno, koren2);
+  if (kreiraj_razliku(&(*adresa_korena1)->levo, koren2) == 0 &&
+      kreiraj_razliku(&(*adresa_korena1)->desno, koren2) == 0) {
 
-  /* Ako se koren prvog stabla nalazi i u drugom stablu tada se isti
-     uklanja iz prvog stabla */
-  if (pretrazi_stablo(koren2, (*adresa_korena1)->broj) != NULL)
-    obrisi_element(adresa_korena1, (*adresa_korena1)->broj);
+    /* Ako se koren prvog stabla nalazi i u drugom stablu tada se
+       isti uklanja iz prvog stabla */
+    if (pretrazi_stablo(koren2, (*adresa_korena1)->broj) != NULL)
+      obrisi_element(adresa_korena1, (*adresa_korena1)->broj);
+
+    return 0;
+  } else
+    return 1;
 }
 
 int main()
@@ -96,20 +120,36 @@ int main()
   skup1 = NULL;
   printf("Prvi skup: ");
   while (scanf("%d", &n) != EOF) {
-    dodaj_u_stablo(&skup1, n);
+    if (dodaj_u_stablo(&skup1, n) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje broja %d\n", n);
+      oslobodi_stablo(&skup1);
+      return 0;
+    }
   }
 
   /* Ucitavaju se elementi drugog skupa */
   skup2 = NULL;
   printf("Drugi skup: ");
   while (scanf("%d", &n) != EOF) {
-    dodaj_u_stablo(&skup2, n);
+    if (dodaj_u_stablo(&skup2, n) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje broja %d\n", n);
+      oslobodi_stablo(&skup2);
+      return 0;
+    }
   }
 
   /* Kreira se unija skupova: prvo se napravi kopija prvog skupa kako 
      bi se isti mogao iskoristiti i za preostale operacije */
-  kopiraj_stablo(skup1, &pomocni_skup);
-  kreiraj_uniju(&pomocni_skup, skup2);
+  if (kopiraj_stablo(skup1, &pomocni_skup) == 1) {
+    oslobodi_stablo(&skup1);
+    oslobodi_stablo(&pomocni_skup);
+    return 0;
+  }
+  if (kreiraj_uniju(&pomocni_skup, skup2) == 1) {
+    oslobodi_stablo(&pomocni_skup);
+    oslobodi_stablo(&skup2);
+    return 0;
+  }
   printf("Unija: ");
   ispisi_stablo_infiksno(pomocni_skup);
   putchar('\n');
@@ -120,8 +160,16 @@ int main()
 
   /* Kreira se presek skupova: prvo se napravi kopija prvog skupa
      kako bi se isti mogao iskoristiti i za preostale operacije */
-  kopiraj_stablo(skup1, &pomocni_skup);
-  kreiraj_presek(&pomocni_skup, skup2);
+  if (kopiraj_stablo(skup1, &pomocni_skup) == 1) {
+    oslobodi_stablo(&skup1);
+    oslobodi_stablo(&pomocni_skup);
+    return 0;
+  }
+  if (kreiraj_presek(&pomocni_skup, skup2) == 1) {
+    oslobodi_stablo(&pomocni_skup);
+    oslobodi_stablo(&skup2);
+    return 0;
+  }
   printf("Presek: ");
   ispisi_stablo_infiksno(pomocni_skup);
   putchar('\n');
@@ -132,8 +180,16 @@ int main()
 
   /* Kreira se razlika skupova: prvo se napravi kopija prvog skupa
      kako bi se isti mogao iskoristiti i za preostale operacije */
-  kopiraj_stablo(skup1, &pomocni_skup);
-  kreiraj_razliku(&pomocni_skup, skup2);
+  if (kopiraj_stablo(skup1, &pomocni_skup) == 1) {
+    oslobodi_stablo(&skup1);
+    oslobodi_stablo(&pomocni_skup);
+    return 0;
+  }
+  if (kreiraj_razliku(&pomocni_skup, skup2) == 1) {
+    oslobodi_stablo(&pomocni_skup);
+    oslobodi_stablo(&skup2);
+    return 0;
+  }
   printf("Razlika: ");
   ispisi_stablo_infiksno(pomocni_skup);
   putchar('\n');

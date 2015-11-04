@@ -35,50 +35,49 @@ Cvor *napravi_cvor(char *ime_i_prezime, char *telefon)
   return novi_cvor;
 }
 
-/* Funkcija koja proverava uspesnost kreiranja novog cvora stabla */
-void proveri_alokaciju(Cvor * novi_cvor)
-{
-  /* Ukoliko je cvor neuspesno kreiran */
-  if (novi_cvor == NULL) {
-    /* Ispisuje se odgovarajuca poruka i prekida izvrsavanje programa 
-     */
-    fprintf(stderr, "Malloc greska za novi cvor!\n");
-    exit(EXIT_FAILURE);
-  }
-}
-
-/* Funkcija koja dodaje novu osobu i njen broj telefona u stablo. */
-void
+/* Funkcija koja dodaje novu osobu i njen broj telefona u stablo -
+   ukoliko je dodavanje uspesno povratna vrednost je 0, u suprotnom
+   povratna vrednost je 1 */
+int
 dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
                char *telefon)
 {
   /* Ako je stablo prazno */
   if (*adresa_korena == NULL) {
     /* Kreira se novi cvor */
-    Cvor *novi = napravi_cvor(ime_i_prezime, telefon);
-    proveri_alokaciju(novi);
+    Cvor *novi_cvor = napravi_cvor(ime_i_prezime, telefon);
+    /* Proverava se uspesnost kreiranja novog cvora */
+    if (novi_cvor == NULL) {
+      /* I ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
+       */
+      return 1;
+    }
+    /* Inace... */
+    /* Novi cvor se proglasava korenom stabla */
+    *adresa_korena = novi_cvor;
 
-    /* I proglasava se korenom stabla */
-    *adresa_korena = novi;
-    return;
+    /* I vraca se indikator uspesnog dodavanja */
+    return 0;
   }
 
-  /* U suprotnom trazi se odgovarajuca pozicija za novi unos. Kako
-     pretragu treba vrsiti po imenu i prezimenu, stablo treba da bude 
-     pretrazivacko po ovom polju */
+  /* Ako stablo nije prazno, trazi se odgovarajuca pozicija za novi
+     unos. Kako pretragu treba vrsiti po imenu i prezimenu, stablo
+     treba da bude pretrazivacko po ovom polju */
 
   /* Ako je zadato ime i prezime leksikografski manje od imena i
      prezimena sadrzanog u korenu, podaci se dodaju u levo podstablo */
   if (strcmp(ime_i_prezime, (*adresa_korena)->ime_i_prezime)
       < 0)
-    dodaj_u_stablo(&(*adresa_korena)->levo, ime_i_prezime, telefon);
+    return dodaj_u_stablo(&(*adresa_korena)->levo, ime_i_prezime,
+                          telefon);
 
   else
     /* Ako je zadato ime i prezime leksikografski vece od imena i
        prezimena sadrzanog u korenu, podaci se dodaju u desno
        podstablo */
   if (strcmp(ime_i_prezime, (*adresa_korena)->ime_i_prezime) > 0)
-    dodaj_u_stablo(&(*adresa_korena)->desno, ime_i_prezime, telefon);
+    return dodaj_u_stablo(&(*adresa_korena)->desno, ime_i_prezime,
+                          telefon);
 }
 
 /* Funkcija koja oslobadja memoriju zauzetu stablom */
@@ -227,10 +226,15 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Podaci se citaju iz datoteke i smestanju u binarno stablo
-     pretrage. */
+  /* Citaju se podaci iz datoteke i smestanju u binarno stablo
+     pretrage uz proveru uspesnosti dodavanja */
   while (procitaj_kontakt(f, ime_i_prezime, telefon) != EOF)
-    dodaj_u_stablo(&koren, ime_i_prezime, telefon);
+    if (dodaj_u_stablo(&koren, ime_i_prezime, telefon) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje podataka za osobu %s\n",
+              ime_i_prezime);
+      oslobodi_stablo(&koren);
+      return 0;
+    }
 
   /* Zatvara se datoteka */
   fclose(f);

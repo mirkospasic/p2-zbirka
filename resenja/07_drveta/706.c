@@ -36,68 +36,43 @@ Cvor *napravi_cvor(char ime[], char prezime[], int dan, int mesec)
   return novi;
 }
 
-/* Funkcija koja proverava uspesnost alokacije */
-void proveri_alokaciju(Cvor * novi_cvor)
-{
-  /* Ako memorija nije uspesno alocirana */
-  if (novi_cvor == NULL) {
-    /* Ispisuje se poruka i prekida se sa izvrsavanjem programa */
-    fprintf(stderr, "Malloc greska za novi cvor!\n");
-    exit(EXIT_FAILURE);
-  }
-}
-
-/* Funkcija koja oslobadja memoriju zauzetu stablom */
-void oslobodi_stablo(Cvor ** koren)
-{
-  /* Stablo je prazno */
-  if (*koren == NULL)
-    return;
-
-  /* Oslobadja se memorija zauzeta levim podstablom (ako postoji) */
-  if ((*koren)->levo)
-    oslobodi_stablo(&(*koren)->levo);
-
-  /* Oslobadja se memorija zauzeta desnim podstablom (ako postoji) */
-  if ((*koren)->desno)
-    oslobodi_stablo(&(*koren)->desno);
-
-  /* Oslobadja se memorija zauzeta korenom */
-  free(*koren);
-
-  /* Proglasava se stablo praznim */
-  *koren = NULL;
-}
-
-/* Funkcija koja dodaje novi cvor u stablo - stablo treba da bude
-   uredjeno po datumu - prvo po mesecu, a zatim po danu */
-void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
-                    int dan, int mesec)
+/* Funkcija koja dodaje novi cvor u stablo. Stablo treba da bude
+   uredjeno po datumu - prvo po mesecu, a zatim po danu. Ukoliko je
+   dodavanje uspesno povratna vrednost je 0, u suprotnom povratna
+   vrednost je 1 */
+int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
+                   int dan, int mesec)
 {
   /* Ako je stablo prazno */
   if (*koren == NULL) {
 
     /* Kreira se novi cvor */
     Cvor *novi_cvor = napravi_cvor(ime, prezime, dan, mesec);
-    proveri_alokaciju(novi_cvor);
-
-    /* I proglasava se korenom */
+    /* Proverava se uspesnost kreiranja novog cvora */
+    if (novi_cvor == NULL) {
+      /* I ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
+       */
+      return 1;
+    }
+    /* Inace... */
+    /* Novi cvor se proglasava korenom stabla */
     *koren = novi_cvor;
 
-    return;
+    /* I vraca se indikator uspesnog dodavanja */
+    return 0;
   }
 
   /* Stablo se uredjuje po mesecu, a zatim po danu u okviru istog
      meseca */
   if (mesec < (*koren)->mesec)
-    dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan, mesec);
+    return dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan, mesec);
   else if (mesec == (*koren)->mesec && dan < (*koren)->dan)
-    dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan, mesec);
+    return dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan, mesec);
   else
-    dodaj_u_stablo(&(*koren)->desno, ime, prezime, dan, mesec);
+    return dodaj_u_stablo(&(*koren)->desno, ime, prezime, dan, mesec);
 }
 
-/* Funkcija vrsi pretragu stabla i vraca cvor sa trazenim datumom.  */
+/* Funkcija vrsi pretragu stabla i vraca cvor sa trazenim datumom */
 Cvor *pretrazi(Cvor * koren, int dan, int mesec)
 {
   /* Stablo je prazno, obustavlja se pretraga */
@@ -164,6 +139,28 @@ void datum_u_nisku(int dan, int mesec, char datum[])
   datum[6] = '\0';
 }
 
+/* Funkcija koja oslobadja memoriju zauzetu stablom */
+void oslobodi_stablo(Cvor ** koren)
+{
+  /* Stablo je prazno */
+  if (*koren == NULL)
+    return;
+
+  /* Oslobadja se memorija zauzeta levim podstablom (ako postoji) */
+  if ((*koren)->levo)
+    oslobodi_stablo(&(*koren)->levo);
+
+  /* Oslobadja se memorija zauzeta desnim podstablom (ako postoji) */
+  if ((*koren)->desno)
+    oslobodi_stablo(&(*koren)->desno);
+
+  /* Oslobadja se memorija zauzeta korenom */
+  free(*koren);
+
+  /* Proglasava se stablo praznim */
+  *koren = NULL;
+}
+
 int main(int argc, char **argv)
 {
   FILE *in;
@@ -189,11 +186,16 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* I stablo se popunjava podacima */
+  /* I stablo se popunjava podacima uz proveru uspesnosti dodavanja */
   koren = NULL;
   while (fscanf
          (in, "%s %s %d.%d.", ime, prezime, &dan, &mesec) != EOF)
-    dodaj_u_stablo(&koren, ime, prezime, dan, mesec);
+    if (dodaj_u_stablo(&koren, ime, prezime, dan, mesec) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje podataka za %s %s\n", ime,
+              prezime);
+      oslobodi_stablo(&koren);
+      return 0;
+    }
 
   /* Datoteka se zatvara */
   fclose(in);

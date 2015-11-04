@@ -64,10 +64,15 @@ int main(int argc, char **argv)
   Cvor *koren;
   int broj;
 
-  /* Citaju se vrednosti sa ulaza i dodaju se u stablo */
+  /* Citaju se vrednosti sa ulaza i dodaju se u stablo uz proveru
+     uspesnosti dodavanja */
   koren = NULL;
   while (scanf("%d", &broj) != EOF) {
-    dodaj_u_stablo(&koren, broj);
+    if (dodaj_u_stablo(&koren, broj) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje broja %d\n", broj);
+      oslobodi_stablo(&koren);
+      return 0;
+    }
   }
 
   /* Ispisuje se stablo po nivoima */

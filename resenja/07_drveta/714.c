@@ -56,10 +56,15 @@ int main(int argc, char **argv)
   Cvor *koren;
   int broj;
 
-  /* Ucitavaju se vrednosti sa ulaza i dodaju u stablo */
+  /* Ucitavaju se vrednosti sa ulaza i dodaju u stablo uz proveru
+     uspesnosti dodavanja */
   koren = NULL;
   while (scanf("%d", &broj) != EOF) {
-    dodaj_u_stablo(&koren, broj);
+    if (dodaj_u_stablo(&koren, broj) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje broja %d\n", broj);
+      oslobodi_stablo(&koren);
+      return 0;
+    }
   }
 
   /* Racuna se i ispisuje broj AVL cvorova */

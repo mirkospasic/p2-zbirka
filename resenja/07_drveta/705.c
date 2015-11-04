@@ -40,17 +40,42 @@ Cvor *napravi_cvor(char ime[], char prezime[], double uspeh,
   return novi;
 }
 
-/* Funkcija kojom se proverava uspesnost alociranja memorije */
-void proveri_alokaciju(Cvor * novi_cvor)
+/* Funkcija koja dodaje cvor sa zadatim vrednostima u stablo -
+   ukoliko je dodavanje uspesno povratna vrednost je 0, u suprotnom
+   povratna vrednost je 1 */
+int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
+                   double uspeh, double matematika, double jezik)
 {
-  /* Ukoliko je cvor neuspesno kreiran */
-  if (novi_cvor == NULL) {
-    /* Ispisuje se odgovarajuca poruka i prekida se izvrsavanje
-       programa */
-    fprintf(stderr, "Malloc greska za novi cvor!\n");
-    exit(EXIT_FAILURE);
+  /* Ako je stablo prazno */
+  if (*koren == NULL) {
+    /* Kreira se novi cvor */
+    Cvor *novi_cvor =
+        napravi_cvor(ime, prezime, uspeh, matematika, jezik);
+    /* Proverava se uspesnost kreiranja novog cvora */
+    if (novi_cvor == NULL) {
+      /* I ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
+       */
+      return 1;
+    }
+    /* Inace... */
+    /* Novi cvor se proglasava korenom stabla */
+    *koren = novi_cvor;
+
+    /* I vraca se indikator uspesnog dodavanja */
+    return 0;
   }
+
+  /* Ako stablo nije prazno, dodaje se cvor u stablo tako da bude
+     sortirano po ukupnom broju poena */
+  if (uspeh + matematika + jezik >
+      (*koren)->uspeh + (*koren)->matematika + (*koren)->jezik)
+    return dodaj_u_stablo(&(*koren)->levo, ime, prezime, uspeh,
+                          matematika, jezik);
+  else
+    return dodaj_u_stablo(&(*koren)->desno, ime, prezime, uspeh,
+                          matematika, jezik);
 }
+
 
 /* Funkcija kojom se oslobadja memorija zauzeta stablom */
 void oslobodi_stablo(Cvor ** koren)
@@ -73,32 +98,6 @@ void oslobodi_stablo(Cvor ** koren)
   *koren = NULL;
 }
 
-/* Funkcija koja dodaje cvor sa zadatim vrednostima u stablo */
-void dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
-                    double uspeh, double matematika, double jezik)
-{
-  /* Ako je stablo prazno */
-  if (*koren == NULL) {
-    /* Kreira se novi cvor */
-    Cvor *novi = napravi_cvor(ime, prezime, uspeh, matematika, jezik);
-    proveri_alokaciju(novi);
-
-    /* I proglasava se korenom stabla */
-    *koren = novi;
-
-    return;
-  }
-
-  /* Inace, dodaje se cvor u stablo tako da bude sortirano po ukupnom 
-     broju poena */
-  if (uspeh + matematika + jezik >
-      (*koren)->uspeh + (*koren)->matematika + (*koren)->jezik)
-    dodaj_u_stablo(&(*koren)->levo, ime, prezime, uspeh,
-                   matematika, jezik);
-  else
-    dodaj_u_stablo(&(*koren)->desno, ime, prezime, uspeh,
-                   matematika, jezik);
-}
 
 /* Funkcija ispisuje sadrzaj stabla. Ukoliko je vrednost argumenta
    polozili jednaka 0 ispisuju se informacije o ucenicima koji nisu
@@ -162,11 +161,18 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Citanje podataka i dodavanje u stablo */
+  /* Citanje podataka i dodavanje u stablo uz proveru uspesnosti
+     dodavanja */
   koren = NULL;
   while (fscanf(in, "%s %s %lf %lf %lf", ime, prezime, &uspeh,
                 &matematika, &jezik) != EOF) {
-    dodaj_u_stablo(&koren, ime, prezime, uspeh, matematika, jezik);
+    if (dodaj_u_stablo(&koren, ime, prezime, uspeh, matematika, jezik)
+        == 1) {
+      fprintf(stderr, "Neuspelo dodavanje podataka za %s %s\n", ime,
+              prezime);
+      oslobodi_stablo(&koren);
+      return 0;
+    }
   }
 
   /* Zatvaranje datoteke */
@@ -175,7 +181,7 @@ int main(int argc, char **argv)
   /* Stampaju se prvo podaci o ucenicima koji su polozili prijemni */
   stampaj(koren, 1);
 
-  /* Linij se iscrtava samo ako postoje ucenici koji nisu polozili
+  /* Linija se iscrtava samo ako postoje ucenici koji nisu polozili
      prijemni */
   if (nisu_polozili(koren) != 0)
     printf("-------------------------------------\n");

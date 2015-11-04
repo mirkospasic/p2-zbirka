@@ -1,5 +1,5 @@
-#ifndef __STABLA_H__
-#define __STABLA_H__ 1
+#ifndef _STABLA_H_
+#define _STABLA_H_ 1
 
 /* a) Struktura kojom se predstavlja cvor binarnog pretrazivackog
    stabla */
@@ -13,11 +13,8 @@ typedef struct cvor {
    inicijalizuje polja strukture i vraca pokazivac na novi cvor */
 Cvor *napravi_cvor(int broj);
 
-/* Funkcija koja proverava uspesnost kreiranja novog cvora stabla */
-void proveri_alokaciju(Cvor * novi_cvor);
-
 /* c) Funkcija koja dodaje zadati broj u stablo */
-void dodaj_u_stablo(Cvor ** adresa_korena, int broj);
+int dodaj_u_stablo(Cvor ** adresa_korena, int broj);
 
 /* d) Funkcija koja proverava da li se zadati broj nalazi stablu */
 Cvor *pretrazi_stablo(Cvor * koren, int broj);

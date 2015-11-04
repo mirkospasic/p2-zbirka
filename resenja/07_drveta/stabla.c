@@ -19,45 +19,43 @@ Cvor *napravi_cvor(int broj)
   return novi;
 }
 
-void proveri_alokaciju(Cvor * novi_cvor)
-{
-
-  /* Ukoliko je cvor neuspesno kreiran */
-  if (novi_cvor == NULL) {
-
-    /* Ispisuje se odgovarajuca poruka i prekida izvrsavanje programa 
-     */
-    fprintf(stderr, "Malloc greska za novi cvor!\n");
-    exit(EXIT_FAILURE);
-  }
-}
-
-void dodaj_u_stablo(Cvor ** adresa_korena, int broj)
+int dodaj_u_stablo(Cvor ** adresa_korena, int broj)
 {
   /* Ako je stablo prazno */
   if (*adresa_korena == NULL) {
 
     /* Kreira se novi cvor */
-    Cvor *novi = napravi_cvor(broj);
-    proveri_alokaciju(novi);
+    Cvor *novi_cvor = napravi_cvor(broj);
 
-    /* I proglasava se korenom stabla */
-    *adresa_korena = novi;
-    return;
+    /* Proverava se uspesnost kreiranja */
+    if (novi_cvor == NULL) {
+
+      /* I ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
+       */
+      return 1;
+    }
+    /* Inace ... */
+
+    /* Novi cvor se proglasava korenom stabla */
+    *adresa_korena = novi_cvor;
+
+    /* I vraca se indikator uspesnog kreiranja */
+    return 0;
   }
 
-  /* U suprotnom trazi se odgovarajuca pozicija za zadati broj: */
+  /* Ako stablo nije prazno, trazi se odgovarajuca pozicija za zadati 
+     broj: */
 
   /* Ako je zadata vrednost manja od vrednosti korena */
   if (broj < (*adresa_korena)->broj)
 
     /* Broj se dodaje u levo podstablo */
-    dodaj_u_stablo(&(*adresa_korena)->levo, broj);
+    return dodaj_u_stablo(&(*adresa_korena)->levo, broj);
 
   else
     /* Inace, broj je veci (ili jednak) od vrednosti u korenu pa se
        dodaje u desno podstablo */
-    dodaj_u_stablo(&(*adresa_korena)->desno, broj);
+    return dodaj_u_stablo(&(*adresa_korena)->desno, broj);
 }
 
 Cvor *pretrazi_stablo(Cvor * koren, int broj)

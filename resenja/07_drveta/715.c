@@ -27,19 +27,19 @@ int heap(Cvor * koren)
   }
   /* Inace... */
 
-  /* Proverava se svojstvo za levo podstablo. */
+  /* Proverava se svojstvo za levo podstablo */
   max_levo = heap(koren->levo);
 
-  /* Proverava se svojstvo za desno podstablo. */
+  /* Proverava se svojstvo za desno podstablo */
   max_desno = heap(koren->desno);
 
   /* Ako levo ili desno podstablo uocenog cvora nije hip, onda nije
-     ni celo stablo. */
+     ni celo stablo */
   if (max_levo == -1 || max_desno == -1) {
     return -1;
   }
 
-  /* U suprotonom proverava se da li svojstvo vazi za uoceni cvor. */
+  /* U suprotonom proverava se da li svojstvo vazi za uoceni cvor */
   if (koren->broj > max_levo && koren->broj > max_desno) {
     /* Ako vazi, vraca se vrednost korena */
     return koren->broj;
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
   Cvor *koren;
   int hip_indikator;
 
-  /* Kreira se stablo koje sadrzi brojeve 100 19 36 17 3 25 1 2 7 */
+  /* Kreira se stablo prema zadatoj slici */
   koren = NULL;
   koren = napravi_cvor(100);
   koren->levo = napravi_cvor(19);
@@ -76,7 +76,7 @@ int main(int argc, char **argv)
     printf("Zadato stablo je hip!\n");
   }
 
-  /* Oslobadja se memorija zauzeta stablom. */
+  /* Oslobadja se memorija zauzeta stablom */
   oslobodi_stablo(&koren);
 
   return 0;

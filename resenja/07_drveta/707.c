@@ -38,7 +38,11 @@ int main()
   printf("Prvo stablo: ");
   scanf("%d", &broj);
   while (broj != 0) {
-    dodaj_u_stablo(&koren1, broj);
+    if (dodaj_u_stablo(&koren1, broj) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje broja %d\n", broj);
+      oslobodi_stablo(&koren);
+      return 0;
+    }
     scanf("%d", &broj);
   }
 
@@ -47,7 +51,11 @@ int main()
   printf("Drugo stablo: ");
   scanf("%d", &broj);
   while (broj != 0) {
-    dodaj_u_stablo(&koren2, broj);
+    if (dodaj_u_stablo(&koren2, broj) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje broja %d\n", broj);
+      oslobodi_stablo(&koren);
+      return 0;
+    }
     scanf("%d", &broj);
   }
 
