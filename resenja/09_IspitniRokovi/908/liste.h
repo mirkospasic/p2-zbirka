@@ -1,5 +1,5 @@
-#ifndef __LISTE_H__
-#define __LISTE_H__ 1
+#ifndef _LISTE_H_
+#define _LISTE_H_ 1
 
 /* Struktura koja predstavlja cvor liste */
 typedef struct cvor {

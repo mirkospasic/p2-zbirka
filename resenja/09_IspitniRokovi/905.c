@@ -44,21 +44,25 @@ int main()
   int n, i;
   trougao *niz;
 
+  /* Otvaranje datoteke ciji je naziv trouglovi.txt */
   if ((f = fopen("trouglovi.txt", "r")) == NULL) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
 
+  /* Ucitavanje podtaka o broju trouglova iz datoteke */
   if (fscanf(f, "%d", &n) != 1) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
 
+  /* Dinamicka alokacija memotije za niz trouglova duzine n */
   if ((niz = malloc(n * sizeof(trougao))) == NULL) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
 
+  /* Ucitavanje podataka u niz iz otvorene datoteke */
   for (i = 0; i < n; i++) {
     if (fscanf(f, "%lf%lf%lf%lf%lf%lf",
                &niz[i].xa, &niz[i].ya,
@@ -68,8 +72,11 @@ int main()
     }
   }
 
+  /* Pozivanje funkcije qsort da sortira niz na osnovu funkcije
+     poredi*/
   qsort(niz, n, sizeof(trougao), &poredi);
 
+  /* Ispisivanje sortiranog niza na standardni izlaz */
   for (i = 0; i < n; i++)
     printf("%g %g %g %g %g %g\n",
            niz[i].xa, niz[i].ya,

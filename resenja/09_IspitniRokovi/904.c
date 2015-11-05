@@ -9,6 +9,7 @@ int main(int argc, char **argv)
   int brojac = 0;
   char linija[MAX], *p;
 
+  /* Provera da li je broj argumenata komandne linije 3 */
   if (argc != 3) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
@@ -21,19 +22,27 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
+  /* Ucitavanje iz otvorene datoteke - liniju po liniju */
   while (fgets(linija, MAX, f) != NULL) {
     p = linija;
     while (1) {
       p = strstr(p, argv[2]);
+	  /* Ukoliko nije podniska tj. p je NULL izlazi se iz 
+         petlje */
       if (p == NULL)
         break;
+	  /* Inace se uvecava brojac */
       brojac++;
+	  /* p se pomera da bi se u sledecoj iteraciji posmatra 
+	     ostatak linije nakon uocene podniske */
       p = p + strlen(argv[2]);
     }
   }
-
+  
+  /* Zatvaranje datoteke */
   fclose(f);
 
+  /* Ispisivanje vrednosti brojaca */
   printf("%d\n", brojac);
 
   return 0;

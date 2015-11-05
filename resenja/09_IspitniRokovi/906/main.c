@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include "stabla.h"
 
+int ucitaj_stablo(Cvor ** koren)
+{
+  *koren = NULL;
+  int x;
+  while (scanf("%d", &x) == 1)
+    if (dodaj_u_stablo(koren, x) == 1)
+      return 1;
+
+  return 0;
+}
+
 int f3(Cvor * koren, int n)
 {
   if (koren == NULL || n < 0)
