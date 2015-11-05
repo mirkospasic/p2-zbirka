@@ -9,8 +9,7 @@ Cvor *napravi_cvor(int broj)
 
   /* U slucaju greske ... */
   if (novi == NULL) {
-    fprintf(stderr, "-1\n");
-    exit(1);
+    return NULL;
   }
 
   /* Inicijalizacija */
@@ -22,23 +21,28 @@ Cvor *napravi_cvor(int broj)
   return novi;
 }
 
-void dodaj_u_stablo(Cvor ** koren, int broj)
+int dodaj_u_stablo(Cvor ** koren, int broj)
 {
   /* Izlaz iz rekurzije: ako je stablo bilo prazno, novi koren je
      upravo novi cvor */
   if (*koren == NULL) {
     *koren = napravi_cvor(broj);
-    return;
+    /* Ako je kreiranje novog cvora neuspesno */
+    if (*koren == NULL)
+      /* Funkcija vraca indikator greske */
+      return 1;
+    /* U suprotnom, cvor je uspesno kreiran i dodat */
+    return 0;
   }
 
   /* Ako je stablo neprazno, i koren sadrzi manju vrednost od datog
      broja, broj se umece u desno podstablo, rekurzivnim pozivom */
   if ((*koren)->vrednost < broj)
-    dodaj_u_stablo(&(*koren)->desni, broj);
+    return dodaj_u_stablo(&(*koren)->desni, broj);
   /* Ako je stablo neprazno, i koren sadrzi vecu vrednost od datog
      broja, broj se umece u levo podstablo, rekurzivnim pozivom */
   else if ((*koren)->vrednost > broj)
-    dodaj_u_stablo(&(*koren)->levi, broj);
+    return dodaj_u_stablo(&(*koren)->levi, broj);
 }
 
 void prikazi_stablo(Cvor * koren)
@@ -52,13 +56,15 @@ void prikazi_stablo(Cvor * koren)
   prikazi_stablo(koren->desni);
 }
 
-Cvor *ucitaj_stablo()
+int ucitaj_stablo(Cvor ** koren)
 {
-  Cvor *koren = NULL;
+  *koren = NULL;
   int x;
   while (scanf("%d", &x) == 1)
-    dodaj_u_stablo(&koren, x);
-  return koren;
+    if (dodaj_u_stablo(koren, x) == 1)
+      return 1;
+
+  return 0;
 }
 
 void oslobodi_stablo(Cvor ** koren)

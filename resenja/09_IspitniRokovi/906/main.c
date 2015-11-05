@@ -21,7 +21,12 @@ int main()
   int n;
 
   scanf("%d", &n);
-  koren = ucitaj_stablo();
+
+  if (ucitaj_stablo(&koren) == 1) {
+    fprintf(stderr, "Neuspelo kreiranje stabla!\n");
+    oslobodi_stablo(&koren);
+    return 0;
+  }
 
   printf("%d\n", f3(koren, n));
 
