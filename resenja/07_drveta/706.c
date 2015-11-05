@@ -140,25 +140,25 @@ void datum_u_nisku(int dan, int mesec, char datum[])
 }
 
 /* Funkcija koja oslobadja memoriju zauzetu stablom */
-void oslobodi_stablo(Cvor ** koren)
+void oslobodi_stablo(Cvor ** adresa_korena)
 {
   /* Stablo je prazno */
-  if (*koren == NULL)
+  if (*adresa_korena == NULL)
     return;
 
   /* Oslobadja se memorija zauzeta levim podstablom (ako postoji) */
-  if ((*koren)->levo)
-    oslobodi_stablo(&(*koren)->levo);
+  if ((*adresa_korena)->levo)
+    oslobodi_stablo(&(*adresa_korena)->levo);
 
   /* Oslobadja se memorija zauzeta desnim podstablom (ako postoji) */
-  if ((*koren)->desno)
-    oslobodi_stablo(&(*koren)->desno);
+  if ((*adresa_korena)->desno)
+    oslobodi_stablo(&(*adresa_korena)->desno);
 
   /* Oslobadja se memorija zauzeta korenom */
-  free(*koren);
+  free(*adresa_korena);
 
   /* Proglasava se stablo praznim */
-  *koren = NULL;
+  *adresa_korena = NULL;
 }
 
 int main(int argc, char **argv)

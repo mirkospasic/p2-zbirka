@@ -11,7 +11,8 @@ int main()
   /* Proglasava se stablo praznim */
   koren = NULL;
 
-  /* Citaju se vrednosti i dodaju u stablo uz proveru uspesnosti */
+  /* Citaju se vrednosti i dodaju u stablo uz proveru uspesnosti
+     dodavanja */
   printf("Unesite brojeve (CTRL+D za kraj unosa): ");
   while (scanf("%d", &n) != EOF) {
     if (dodaj_u_stablo(&koren, n) == 1) {

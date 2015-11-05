@@ -39,12 +39,12 @@ int dodaj_u_stablo(Cvor ** adresa_korena, int broj)
     /* Novi cvor se proglasava korenom stabla */
     *adresa_korena = novi_cvor;
 
-    /* I vraca se indikator uspesnog kreiranja */
+    /* I vraca se indikator uspesnosti kreiranja */
     return 0;
   }
 
   /* Ako stablo nije prazno, trazi se odgovarajuca pozicija za zadati 
-     broj: */
+     broj */
 
   /* Ako je zadata vrednost manja od vrednosti korena */
   if (broj < (*adresa_korena)->broj)

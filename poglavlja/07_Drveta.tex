@@ -9,7 +9,7 @@ Napisati biblioteku za rad sa binarnim pretraživačkim stablima.
 
 \item Napisati funkciju \kckod{Cvor *napravi\_cvor(int broj)} koja alocira memoriju za novi čvor stabla i vrši njegovu inicijalizaciju zadatim celim brojem \argf{broj}.
 
-\item Napisati funkciju \kckod{int dodaj\_u\_stablo(Cvor ** adresa\_korena, int broj)} koja u stablo na koje pokazuje argument \argf{koren} dodaje ceo broj \argf{broj}. Povratna vrednost funkcije je 0 ako je dodavanje uspešno, odnosno 1 ukoliko je došlo do greške.  
+\item Napisati funkciju \kckod{int dodaj\_u\_stablo(Cvor ** adresa\_korena, int broj)} koja u stablo na koje pokazuje argument \argf{adresa\_korena} dodaje ceo broj \argf{broj}. Povratna vrednost funkcije je 0 ako je dodavanje uspešno, odnosno 1 ukoliko je došlo do greške.  
 
 \item Napisati funkciju \kckod{Cvor *pretrazi\_stablo(Cvor * koren, int broj)} koja proverava da li se ceo broj \argf{broj} nalazi u stablu sa korenom \argf{koren}. Funkcija vraća pokazivač na čvor stabla koji sadrži traženu vrednost ili NULL ukoliko takav čvor ne postoji.
 
@@ -17,7 +17,7 @@ Napisati biblioteku za rad sa binarnim pretraživačkim stablima.
 
 \item Napisati funkciju \kckod{Cvor *pronadji\_najveci(Cvor * koren)} koja pronalazi čvor koji sadrži najveću vrednost u stablu sa korenom \argf{koren}.
 
-\item Napisati funkciju \kckod{void obrisi\_element(Cvor ** adresa\_korena, int broj)} koja briše čvor koji sadrži vrednost \argf{broj} iz stabla na koje pokazuje argument \argf{koren}.
+\item Napisati funkciju \kckod{void obrisi\_element(Cvor ** adresa\_korena, int broj)} koja briše čvor koji sadrži vrednost \argf{broj} iz stabla na koje pokazuje argument \argf{adresa\_korena}.
 
 \item Napisati funkciju \kckod{void ispisi\_stablo\_infiksno(Cvor * koren)} koja infiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Infiksni ispis podrazumeva ispis levog podstabla, korena, a zatim i desnog podstabla.
 
@@ -25,7 +25,7 @@ Napisati biblioteku za rad sa binarnim pretraživačkim stablima.
 
 \item Napisati funkciju \kckod{void ispisi\_stablo\_postfiksno(Cvor * koren)} koja postfiksno ispisuje sadržaj stabla sa korenom \argf{koren}. Postfiksni ispis podrazumeva ispis levog podstabla, desnog podstabla, a zatim i korena.
 
-\item Napisati funkciju \kckod{void oslobodi\_stablo(Cvor ** adresa\_korena)} koja oslobađa memoriju zauzetu stablom na koje pokazuje argument \argf{koren}.
+\item Napisati funkciju \kckod{void oslobodi\_stablo(Cvor ** adresa\_korena)} koja oslobađa memoriju zauzetu stablom na koje pokazuje argument \argf{adresa\_korena}.
 \end{enumerate}
 
 Korišćenjem kreirane biblioteke, napisati program koji sa standardnog ulaza učitava cele brojeve sve do kraja ulaza, dodaje ih u binarno pretraživačko stablo i ispisuje stablo u svakoj od navedenih notacija. Zatim omogućiti unos još dva cela broja i demonstrirati rad funkcije za pretragu nad prvim unetim brojem i rad funkcije za brisanje elemenata nad drugim unetim brojem. 

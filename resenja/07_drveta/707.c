@@ -40,7 +40,7 @@ int main()
   while (broj != 0) {
     if (dodaj_u_stablo(&koren1, broj) == 1) {
       fprintf(stderr, "Neuspelo dodavanje broja %d\n", broj);
-      oslobodi_stablo(&koren);
+      oslobodi_stablo(&koren1);
       return 0;
     }
     scanf("%d", &broj);
@@ -53,7 +53,7 @@ int main()
   while (broj != 0) {
     if (dodaj_u_stablo(&koren2, broj) == 1) {
       fprintf(stderr, "Neuspelo dodavanje broja %d\n", broj);
-      oslobodi_stablo(&koren);
+      oslobodi_stablo(&koren2);
       return 0;
     }
     scanf("%d", &broj);
