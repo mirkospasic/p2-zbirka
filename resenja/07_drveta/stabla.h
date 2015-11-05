@@ -13,7 +13,9 @@ typedef struct cvor {
    inicijalizuje polja strukture i vraca pokazivac na novi cvor */
 Cvor *napravi_cvor(int broj);
 
-/* c) Funkcija koja dodaje zadati broj u stablo */
+/* c) Funkcija koja dodaje zadati broj u stablo. Povratna vrednost
+   funkcije je 0 ako je dodavanje uspesno, odnosno 1 ukoliko je doslo 
+   do greske */
 int dodaj_u_stablo(Cvor ** adresa_korena, int broj);
 
 /* d) Funkcija koja proverava da li se zadati broj nalazi stablu */
