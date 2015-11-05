@@ -1,5 +1,5 @@
-#ifndef __STABLA_H__
-#define __STABLA_H__ 1
+#ifndef _STABLA_H_
+#define _STABLA_H_ 1
 
 /* Struktura kojom se predstavlja Cvor stabla */
 typedef struct dcvor {
@@ -16,12 +16,9 @@ Cvor *napravi_cvor(int b);
    je stablo prazno */
 void oslobodi_stablo(Cvor ** adresa_korena);
 
-/* Funkcija proverava da li je novi Cvor ispravno alociran, i nakon
-   toga prekida program */
-void proveri_alokaciju(Cvor * novi);
-
-/* Funkcija dodaje nov Cvor u stablo i azurira vrednost korena stabla 
-   u pozivajucoj funkciji. */
-void dodaj_u_stablo(Cvor ** adresa_korena, int broj);
+/* Funkcija dodaje novi broj u stablo i azurira vrednost korena
+   stabla u pozivajucoj funkciji. Povratna vrednost funkcije je 0
+   ako je dodavanje uspesno, odnosno 1 ukoliko je doslo do greske */
+int dodaj_u_stablo(Cvor ** adresa_korena, int broj);
 
 #endif

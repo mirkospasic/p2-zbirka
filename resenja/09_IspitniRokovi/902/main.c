@@ -27,7 +27,11 @@ int main()
       break;
 
     /* Ako nije, dodaje se procitani broj u stablo. */
-    dodaj_u_stablo(&koren, n);
+    if (dodaj_u_stablo(&koren, n) == 1) {
+      fprintf(stderr, "Neuspelo dodavanje broja %d\n", n);
+      oslobodi_stablo(&koren);
+      return 0;
+    }
   }
 
   /* Ispisuje se rezultat rada trazene funkcije */
