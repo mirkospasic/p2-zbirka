@@ -29,7 +29,7 @@ int main()
     }
   }
 
-  /* Pronalazenje kolone koja sadrzi najveci broj negativnih
+  /* Pronalazenje kolone koja sadrzi najveci broj negativnih 
      elemenata */
   max_indeks_kolone = 0;
 

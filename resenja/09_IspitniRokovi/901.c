@@ -21,9 +21,8 @@ int main(int argc, char *argv[])
     greska();
   }
 
-  /* Otvaranje datoteke cije ime je navedeno kao argument 
-     komandne linije neposredno nakon imena programa koji se 
-	 poziva. */
+  /* Otvaranje datoteke cije ime je navedeno kao argument komandne 
+     linije neposredno nakon imena programa koji se poziva. */
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     greska();

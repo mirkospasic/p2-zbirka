@@ -100,7 +100,8 @@ Napisati program koji sa standardnog ulaza učitava najpre prirodan broj $n$, a 
 %\includecode{resenja/09_IspitniRokovi/902/stabla.h}
 %\includecodeLib{resenja/09_IspitniRokovi/902/stabla.h}{stabla.h}
 %\includecodeLib{resenja/09_IspitniRokovi/902/stabla.c}{stabla.c}
-\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}\\
+\\
+\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}
 \includecodeLib{resenja/09_IspitniRokovi/902/main.c}{main.c}
 %\includecode{resenja/09_IspitniRokovi/902/stabla.c}
 %\includecode{resenja/09_IspitniRokovi/902/main.c}
@@ -327,7 +328,8 @@ Data je biblioteka za rad sa binarnim pretraživačkim stablima celih brojeva. N
 %%\includecode{resenja/09_IspitniRokovi/906/stabla.h}  
 %\includecodeLib{resenja/09_IspitniRokovi/906/stabla.h}{stabla.h}
 %\includecodeLib{resenja/09_IspitniRokovi/906/stabla.c}{stabla.c}
-\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}\\
+\\
+\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}
 \includecodeLib{resenja/09_IspitniRokovi/906/main.c}{main.c}
 %%\includecode{resenja/09_IspitniRokovi/906/stabla.c}
 %%\includecode{resenja/09_IspitniRokovi/906/main.c}
@@ -392,9 +394,9 @@ Sa standardnog ulaza se učitavaju neoznačeni celi brojevi \texttt{x} i \texttt
 
 
 \begin{Exercise}[label=908]
-Napisati funkciju \kckod{void dopuni\_listu(Cvor ** adresa\_glave)}
+Napisati funkciju \kckod{int dopuni\_listu(Cvor ** adresa\_glave)}
 koja samo čvorovima koji imaju sledbenika u jednostruko povezanoj listi realnih brojeva,
-  dodaje između čvora i njegovog sledbenika nov čvor čija vrednost je aritmetička sredina njihovih vrednosti.
+  dodaje između čvora i njegovog sledbenika nov čvor čija vrednost je aritmetička sredina njihovih vrednosti. Funkcija vraća 1 ukoliko je bilo greške pri alokaciji memorije, inače vraća 0.
  Ispravnost napisane funkcije testirati koristeći dostupnu biblioteku za rad sa listama i \kckod{main} funkciju koja najpre
  učitava elemente liste, poziva pomenutu funkciju i ispisuje sadržaj liste.
 

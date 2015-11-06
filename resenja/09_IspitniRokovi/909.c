@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Funkcija proverava da li je magican kvadrat koji joj se
-   prosledjuje kao argument. Ukoliko jeste magican funkcija vraca 1,
-   inace 0. */
+/* Funkcija proverava da li je kvadrat koji joj se prosledjuje kao 
+   argument magican. Ukoliko jeste magican funkcija vraca 1, inace 0.
+   */
 int magicni_kvadrat(int **M, int n)
 {
   int i, j;
@@ -38,11 +38,13 @@ int main()
 
   scanf("%d", &n);
 
+  /* Provera da li je n strogo pozitivan */
   if (n <= 0) {
     printf("-1\n");
     exit(EXIT_FAILURE);
   }
 
+  /* Dinamicka alokacija matrice dimenzije nxn */
   matrica = (int **) malloc(n * sizeof(int *));
   if (matrica == NULL) {
     printf("-1\n");
@@ -62,10 +64,12 @@ int main()
     }
   }
 
+  /* Ucitavanje elemenata matrice sa standardnog ulaza */
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
       scanf("%d", &matrica[i][j]);
 
+  /* Ispisivanje rezultata na osnovu fukcije magicni_kvadrat */
   if (magicni_kvadrat(matrica, n)) {
     for (i = 0; i < n; i++)
       zbir += matrica[0][i];
@@ -73,6 +77,7 @@ int main()
   } else
     printf("-\n");
 
+  /* Oslobadjanje dinamicki alocirane memorije */
   for (j = 0; j < n; j++)
     free(matrica[j]);
 
