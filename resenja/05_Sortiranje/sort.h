@@ -1,5 +1,5 @@
-#ifndef __SORT_H__
-#define __SORT_H__ 1
+#ifndef _SORT_H_
+#define _SORT_H_ 1
 
 /* Selection sort */
 void selection_sort(int a[], int n);
