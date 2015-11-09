@@ -1,22 +1,6 @@
 #include <stdio.h>
+#include "sort.h"
 #define MAX_DIM 256
-
-/* Funkcija za sortiranje niza */
-void selectionSort(int a[], int n)
-{
-  int i, j, min, pom;
-  for (i = 0; i < n - 1; i++) {
-    min = i;
-    for (j = i + 1; j < n; j++)
-      if (a[j] < a[min])
-        min = j;
-    if (min != i) {
-      pom = a[i];
-      a[i] = a[min];
-      a[min] = pom;
-    }
-  }
-}
 
 /* Funkcija za binarnu pretragu niza vraca 1 ako se element x nalazi
    u nizu, a 0 inace. Pretpostavlja se da je niz sortiran u rastucem
@@ -53,7 +37,7 @@ int main()
   n = i;
 
   /* Sortira se niz */
-  selectionSort(a, n);
+  selection_sort(a, n);
 
   for (i = 0; i < n; i++)
     /* Za i-ti element niza binarno se pretrazuje da li se u ostatku

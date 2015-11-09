@@ -9,7 +9,7 @@
    u nizu. U i-toj iteraciji najmanjih i elemenata su vec na svojim
    pozicijama, pa se od i+1 do n-1 elementa trazi najmanji, koji se
    dovodi na i+1 poziciju. */
-void selectionsort(int a[], int n)
+void selection_sort(int a[], int n)
 {
   int i, j;
   int min;
@@ -50,7 +50,7 @@ void selectionsort(int a[], int n)
    dalje potiskivanje elementa u levo, poredeci ga sa njegovim novim
    levim susedom. Ovim uzastopnim premestanjem se a[i] umece na pravo 
    mesto u nizu. */
-void insertionsort(int a[], int n)
+void insertion_sort(int a[], int n)
 {
   int i, j;
 
@@ -82,7 +82,7 @@ void insertionsort(int a[], int n)
    poziciju. Nakon toga se isti postupak ponavlja nad sve kracim i
    kracim prefiksima niza, cime se jedan po jedan istiskuju
    elemenenti na svoje prave pozicije. */
-void bubblesort(int a[], int n)
+void bubble_sort(int a[], int n)
 {
   int i, j;
   int ind;
@@ -124,7 +124,7 @@ void bubblesort(int a[], int n)
    algoritma, ali bilo koja vrednost ce rezultovati ispravnim
    sortiranjem, pod uslovom da je u poslednjoj iteraciji h imalo
    vrednost 1. */
-void shellsort(int a[], int n)
+void shell_sort(int a[], int n)
 {
   int h = n / 2, i, j;
   while (h > 0) {
@@ -152,7 +152,7 @@ void shellsort(int a[], int n)
    elementa koji se smesta u pomocni niz. Na kraju algoritma,
    sortirani elementi su u pomocnom nizu, koji se kopira u originalni 
    niz. */
-void mergesort(int a[], int l, int d)
+void merge_sort(int a[], int l, int d)
 {
   int s;
   static int b[MAX];            /* Pomocni niz */
@@ -166,8 +166,8 @@ void mergesort(int a[], int l, int d)
   s = (l + d) / 2;
 
   /* Rekurzivni pozivi */
-  mergesort(a, l, s);
-  mergesort(a, s + 1, d);
+  merge_sort(a, l, s);
+  merge_sort(a, s + 1, d);
 
   /* Inicijalizacija indeksa. Indeks i prolazi krozi levu polovinu
      niza, dok indeks j prolazi kroz desnu polovinu niza. Indeks k
@@ -219,7 +219,7 @@ void swap(int a[], int i, int j)
    elemente desno (vece). Kako su dimenzije ova dva podniza manje od
    dimenzije pocetnog niza koji je trebalo sortirati, ovaj deo moze
    se uraditi rekurzivno. */
-void quicksort(int a[], int l, int r)
+void quick_sort(int a[], int l, int r)
 {
   int i, pivot_position;
 
@@ -244,7 +244,7 @@ void quicksort(int a[], int l, int r)
   swap(a, l, pivot_position);
 
   /* Rekurzivno sortiranje elementa manjih od pivota */
-  quicksort(a, l, pivot_position - 1);
+  quick_sort(a, l, pivot_position - 1);
   /* Rekurzivno sortiranje elementa vecih od pivota */
-  quicksort(a, pivot_position + 1, r);
+  quick_sort(a, pivot_position + 1, r);
 }

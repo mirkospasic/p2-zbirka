@@ -110,17 +110,17 @@ int main(int argc, char *argv[])
 
   /* Sortiranje niza na odgovarajuci nacin */
   if (tip_sortiranja == 0)
-    selectionsort(niz, dimenzija);
+    selection_sort(niz, dimenzija);
   else if (tip_sortiranja == 1)
-    insertionsort(niz, dimenzija);
+    insertion_sort(niz, dimenzija);
   else if (tip_sortiranja == 2)
-    bubblesort(niz, dimenzija);
+    bubble_sort(niz, dimenzija);
   else if (tip_sortiranja == 3)
-    shellsort(niz, dimenzija);
+    shell_sort(niz, dimenzija);
   else if (tip_sortiranja == 4)
-    mergesort(niz, 0, dimenzija - 1);
+    merge_sort(niz, 0, dimenzija - 1);
   else
-    quicksort(niz, 0, dimenzija - 1);
+    quick_sort(niz, 0, dimenzija - 1);
 
   /* Ispis elemenata niza */
   /*****************************************************************

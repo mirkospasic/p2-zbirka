@@ -2,176 +2,6 @@
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=501]
-  U datom nizu brojeva treba pronaći dva broja koja su na najmanjem
-  rastojanju. Niz se zadaje sa standardnog ulaza, sve do kraja ulaza,
-  ali neće sadržati više od $256$ i manje od $2$ elemenata. Na izlaz
-  ispisati razliku pronađena dva broja. \uputstvo{Prvo sortirati niz.}
-
-\begin{minitest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{23 64 123 76 22 7}#
-
-#\naslovIzlaz#
-#\izlaz{1}#
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{2}
-#\naslovUlaz#
-#\ulaz{21 654 65 123 65 12 61}#
-  
-#\naslovIzlaz#
-#\izlaz{0}#
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{3}
-#\naslovUlaz#
-#\ulaz{34 30}#
-
-#\naslovIzlaz#
-#\izlaz{4}#
-\end{test}
-\end{minitest}
-  
-\linkresenje{501}
-\end{Exercise}
-
-\begin{Answer}[ref=501]
-  \includecode{resenja/05_Sortiranje/501.c}
-\end{Answer}
-%-----------------------------------------------------------------
-%-----------------------------------------------------------------
-\begin{Exercise}[label=502]
-  Dve niske su anagrami ako se sastoje od istog broja istih
-  karaktera. Napisati program koji proverava da li su dve niske
-  karaktera anagrami. Niske se zadaju sa standardnog ulaza i neće
-  biti duže od $127$ karaktera.  \uputstvo{Napisati funkciju koja
-  sortira slova unutar niske karaktera, a zatim za sortirane niske
-  proveriti da li su identične.}
-  
-\begin{minitest}
-\begin{upotreba}{1}
-#\naslovInt#
-#\izlaz{Unesite prvu nisku}\ulaz{anagram}#
-#\izlaz{Unesite drugu nisku}\ulaz{ramgana}#
-#\izlaz{jesu}#
-\end{upotreba}
-\end{minitest}
-\begin{minitest}
-\begin{upotreba}{2}
-#\naslovInt#
-#\izlaz{Unesite prvu nisku}\ulaz{anagram}#
-#\izlaz{Unesite drugu nisku}\ulaz{anagrm}#
-#\izlaz{nisu}#
-\end{upotreba}
-\end{minitest}
-\begin{minitest}
-\begin{upotreba}{3}
-#\naslovInt#
-#\izlaz{Unesite prvu nisku}\ulaz{test}#
-#\izlaz{Unesite drugu nisku}\ulaz{tset}#
-#\izlaz{jesu}#
-\end{upotreba}
-\end{minitest}
-  
-\linkresenje{502}
-\end{Exercise}
-
-\begin{Answer}[ref=502]
-  \includecode{resenja/05_Sortiranje/502.c}
-\end{Answer}
-%-----------------------------------------------------------------
-%-----------------------------------------------------------------
-\begin{Exercise}[label=503]
-  Napisati program koji pronalazi broj koji se najviše puta
-  pojavljivao u datom nizu. Niz se zadaje sa standardnog ulaza sve do
-  kraja ulaza i neće biti duži od $256$ i kraći od jednog
-  elemenata. \uputstvo{Prvo sortirati niz, a zatim naći najdužu
-  sekvencu jednakih elemenata.}
-
-\begin{minitest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{4 23 5 2 4 6 7 34 6 4 5}#
-  
-#\naslovIzlaz#
-#\izlaz{4}#
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{2}
-#\naslovUlaz#
-#\ulaz{2 4 6 2 6 7 99 1}#
-  
-#\naslovIzlaz#
-#\izlaz{2}#
-\end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{3}
-#\naslovUlaz#
-#\ulaz{123}#
-  
-#\naslovIzlaz#
-#\izlaz{123}#
-\end{test}
-\end{minitest}
-
-\linkresenje{503}
-\end{Exercise}
-
-\begin{Answer}[ref=503]
-  \includecode{resenja/05_Sortiranje/503.c}
-\end{Answer}
-%-----------------------------------------------------------------
-%-----------------------------------------------------------------
-\begin{Exercise}[label=504]
-  Napisati funkciju koja proverava da li u datom nizu postoje dva
-  elementa čiji zbir je jednak zadatom celom broju. Napisati i program koji
-  testira ovu funkciju. U programu se prvo učitava broj, a zatim i niz.
-  Elementi niza se unose sve do kraja ulaza.
-  Pretpostaviti da u niz neće biti uneto više od $256$ brojeva.
-  \uputstvo{Prvo sortirati niz.}
-  
-\begin{minitest}
-\begin{upotreba}{1}
-#\naslovInt#
-#\izlaz{Unesite trazeni zbir:}\ulaz{34}#
-#\izlaz{Unesite elemente niza:}#
-#\ulaz{134 4 1 6 30 23}#
-#\izlaz{da}#
-\end{upotreba}
-\end{minitest}
-\begin{minitest}
-\begin{upotreba}{2}
-#\naslovInt#
-#\izlaz{Unesite trazeni zbir:}\ulaz{12}#
-#\izlaz{Unesite elemente niza:}#
-#\ulaz{53 1 43 3 56 13}#
-#\izlaz{ne}#
-\end{upotreba}
-\end{minitest}
-\begin{minitest}
-\begin{upotreba}{3}
-#\naslovInt#
-#\izlaz{Unesite trazeni zbir:}\ulaz{52}#
-#\izlaz{Unesite elemente niza:}#
-#\ulaz{52}#
-#\izlaz{ne}#
-\end{upotreba}
-\end{minitest}
-  
-\linkresenje{504}
-\end{Exercise}
-
-\begin{Answer}[ref=504]
-  \includecode{resenja/05_Sortiranje/504.c}
-\end{Answer}
-%-----------------------------------------------------------------
-%-----------------------------------------------------------------
 \begin{Exercise}[label=507]
   Napraviti biblioteku koja implementira algoritme sortiranja nizova
   celih brojeva. Biblioteka treba da sadrži \kckod{selection},
@@ -264,6 +94,182 @@
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
+\begin{Exercise}[label=502]
+  Dve niske su anagrami ako se sastoje od istog broja istih
+  karaktera. Napisati program koji proverava da li su dve niske
+  karaktera anagrami. Niske se zadaju sa standardnog ulaza i neće
+  biti duže od $127$ karaktera.  \uputstvo{Napisati funkciju koja
+  sortira slova unutar niske karaktera, a zatim za sortirane niske
+  proveriti da li su identične.}
+  
+\begin{minitest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite prvu nisku}\ulaz{anagram}#
+#\izlaz{Unesite drugu nisku}\ulaz{ramgana}#
+#\izlaz{jesu}#
+\end{upotreba}
+\end{minitest}
+\begin{minitest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite prvu nisku}\ulaz{anagram}#
+#\izlaz{Unesite drugu nisku}\ulaz{anagrm}#
+#\izlaz{nisu}#
+\end{upotreba}
+\end{minitest}
+\begin{minitest}
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesite prvu nisku}\ulaz{test}#
+#\izlaz{Unesite drugu nisku}\ulaz{tset}#
+#\izlaz{jesu}#
+\end{upotreba}
+\end{minitest}
+  
+\linkresenje{502}
+\end{Exercise}
+
+\begin{Answer}[ref=502]
+  \includecode{resenja/05_Sortiranje/502.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=501]
+  U datom nizu brojeva treba pronaći dva broja koja su na najmanjem
+  rastojanju. Niz se zadaje sa standardnog ulaza, sve do kraja ulaza,
+  ali neće sadržati više od $256$ i manje od $2$ elemenata. Na izlaz
+  ispisati razliku pronađena dva broja. \uputstvo{Prvo sortirati niz.}
+  \napomena{Koristiti biblioteku za sortiranje celih brojeva iz
+    zadatka \ref{507}.}
+
+\begin{minitest}
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{23 64 123 76 22 7}#
+
+#\naslovIzlaz#
+#\izlaz{1}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{21 654 65 123 65 12 61}#
+  
+#\naslovIzlaz#
+#\izlaz{0}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{34 30}#
+
+#\naslovIzlaz#
+#\izlaz{4}#
+\end{test}
+\end{minitest}
+  
+\linkresenje{501}
+\end{Exercise}
+
+\begin{Answer}[ref=501]
+  \includecode{resenja/05_Sortiranje/501.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=503]
+  Napisati program koji pronalazi broj koji se najviše puta
+  pojavljivao u datom nizu. Niz se zadaje sa standardnog ulaza sve do
+  kraja ulaza i neće biti duži od $256$ i kraći od jednog
+  elemenata. \uputstvo{Prvo sortirati niz, a zatim naći najdužu
+    sekvencu jednakih elemenata.}  \napomena{Koristiti biblioteku za
+    sortiranje celih brojeva iz zadatka \ref{507}.}
+
+\begin{minitest}
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{4 23 5 2 4 6 7 34 6 4 5}#
+  
+#\naslovIzlaz#
+#\izlaz{4}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{2 4 6 2 6 7 99 1}#
+  
+#\naslovIzlaz#
+#\izlaz{2}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{123}#
+  
+#\naslovIzlaz#
+#\izlaz{123}#
+\end{test}
+\end{minitest}
+
+\linkresenje{503}
+\end{Exercise}
+
+\begin{Answer}[ref=503]
+  \includecode{resenja/05_Sortiranje/503.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=504]
+  Napisati funkciju koja proverava da li u datom nizu postoje dva
+  elementa čiji zbir je jednak zadatom celom broju. Napisati i program
+  koji testira ovu funkciju. U programu se prvo učitava broj, a zatim
+  i niz.  Elementi niza se unose sve do kraja ulaza.  Pretpostaviti da
+  u niz neće biti uneto više od $256$ brojeva.  \uputstvo{Prvo
+    sortirati niz.}  \napomena{Koristiti biblioteku za sortiranje
+    celih brojeva iz zadatka \ref{507}.}
+  
+\begin{minitest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite trazeni zbir:}\ulaz{34}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{134 4 1 6 30 23}#
+#\izlaz{da}#
+\end{upotreba}
+\end{minitest}
+\begin{minitest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite trazeni zbir:}\ulaz{12}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{53 1 43 3 56 13}#
+#\izlaz{ne}#
+\end{upotreba}
+\end{minitest}
+\begin{minitest}
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesite trazeni zbir:}\ulaz{52}#
+#\izlaz{Unesite elemente niza:}#
+#\ulaz{52}#
+#\izlaz{ne}#
+\end{upotreba}
+\end{minitest}
+  
+\linkresenje{504}
+\end{Exercise}
+
+\begin{Answer}[ref=504]
+  \includecode{resenja/05_Sortiranje/504.c}
+\end{Answer}
+
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+
 \begin{Exercise}[label=505]
   Napisati funkciju potpisa \kckod{int merge(int *niz1, int dim1, int
     *niz2, int dim2, int *niz3, int dim3)} koja prima dva sortirana
