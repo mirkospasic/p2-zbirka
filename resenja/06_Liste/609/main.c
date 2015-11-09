@@ -62,7 +62,7 @@ int main(int argc, char **argv)
       }
     }
   }
-  /* Zavrseno je citanje datoteke i zatvara se. */
+  /* Zavrseno je citanje i datoteka se zatvara. */
   fclose(f);
 
   /* Ako do sada nije pronadjeno pogresno uparivanje, stek bi trebalo 
@@ -78,5 +78,6 @@ int main(int argc, char **argv)
       oslobodi_stek(&vrh);
     }
   }
+
   return 0;
 }

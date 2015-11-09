@@ -18,24 +18,31 @@ typedef struct _Cvor {
    cvor ili NULL ukoliko alokacija nije prosla. */
 Cvor *napravi_cvor(char *broj_indeksa, char *ime, char *prezime)
 {
+  /* Alocira se memorija za novi cvor liste i proverava uspesnost
+     alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
-  /* Inicijalizacija polja novog cvora */
+
+  /* Inicijalizacija polja strukture */
   strcpy(novi->broj_indeksa, broj_indeksa);
   strcpy(novi->ime, ime);
   strcpy(novi->prezime, prezime);
   novi->sledeci = NULL;
+
   return novi;
 }
 
 /* Funkcija oslobadja memoriju zauzetu za cvorove liste. */
 void oslobodi_listu(Cvor ** adresa_glave)
 {
+  /* Ako je lista prazna, nema zauzete memorije. */
   if (*adresa_glave == NULL)
     return;
+
   /* Rep liste se oslobadja rekurzivnim pozivom. */
   oslobodi_listu(&(*adresa_glave)->sledeci);
+
   /* Potom se oslobadja i glava liste. */
   free(*adresa_glave);
   *adresa_glave = NULL;
@@ -46,18 +53,22 @@ void oslobodi_listu(Cvor ** adresa_glave)
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, char *broj_indeksa,
                            char *ime, char *prezime)
 {
+  /* Kreira se nov cvor i proverava se da li je bilo greske pri
+     alokaciji. */
   Cvor *novi = napravi_cvor(broj_indeksa, ime, prezime);
   if (novi == NULL)
     return 1;
 
   novi->sledeci = *adresa_glave;
   *adresa_glave = novi;
+
   return 0;
 }
 
 /* Funkcija ispisuje sadrzaj cvorova liste. */
 void ispisi_listu(Cvor * glava)
 {
+  /* Pocevsi od glave liste */
   for (; glava != NULL; glava = glava->sledeci)
     printf("%s %s %s\n", glava->broj_indeksa, glava->ime,
            glava->prezime);
@@ -67,13 +78,20 @@ void ispisi_listu(Cvor * glava)
    suprotnom vraca NULL. */
 Cvor *pretrazi_listu(Cvor * glava, char *broj_indeksa)
 {
+  /* Ako je lista prazna, ne postoji trazeni cvor. */
   if (glava == NULL)
     return NULL;
+
+  /* Poredi se trazeni sa brojem indeksa u cvoru koji je glava liste */
   if (!strcmp(glava->broj_indeksa, broj_indeksa))
     return glava;
+
+  /* Ukoliko u cvoru glava nije trazeni indeks, pretraga se nastavlja 
+     u repu liste. */
   return pretrazi_listu(glava->sledeci, broj_indeksa);
 }
 
+/* Glavni program */
 int main(int argc, char **argv)
 {
   /* Argumenti komandne linije su neophodni jer se iz komandne linije 

@@ -4,10 +4,13 @@
 
 Cvor *napravi_cvor(int broj)
 {
+  /* Alocira se memorija za novi cvor liste i proverava uspesnost
+     alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
 
+  /* Inicijalizacija polja strukture */
   novi->vrednost = broj;
   novi->sledeci = NULL;
   return novi;
@@ -15,7 +18,7 @@ Cvor *napravi_cvor(int broj)
 
 void oslobodi_listu(Cvor ** adresa_glave)
 {
-  /* Lista je vec prazna */
+  /* Ako je lista vec prazna */
   if (*adresa_glave == NULL)
     return;
 
@@ -45,6 +48,7 @@ int dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj)
 
 int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
 {
+  /* Ako je lista prazna */
   if (*adresa_glave == NULL) {
     /* Glava liste je upravo novi cvor i ujedno i cela lista. */
     Cvor *novi = napravi_cvor(broj);
@@ -94,7 +98,7 @@ int dodaj_sortirano(Cvor ** adresa_glave, int broj)
 
 Cvor *pretrazi_listu(Cvor * glava, int broj)
 {
-  /* U praznoj listi ga sigurno nema */
+  /* U praznoj listi takvog cvora sigurno nema */
   if (glava == NULL)
     return NULL;
 

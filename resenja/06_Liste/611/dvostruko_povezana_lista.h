@@ -75,7 +75,7 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, Cvor **
    liste, razdvojene zapetama i uokvirene zagradama. */
 void ispisi_listu(Cvor * glava);
 
-/* Funkcija prikazuje cvorove liste pocev od kraja ka glavi liste. */
+/* Funkcija prikazuje cvorove liste pocevsi od kraja ka glavi liste. */
 void ispisi_listu_unazad(Cvor * kraj);
 
 #endif

@@ -99,10 +99,10 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
+  /* Liste su na pocetku prazne */
   int broj;
   Cvor *lista1 = NULL;
   Cvor *lista2 = NULL;
-  Cvor *rezultat = NULL;
 
   /* Ucitavanje listi */
   while (fscanf(in1, "%d", &broj) != EOF)
@@ -111,18 +111,20 @@ int main(int argc, char **argv)
   while (fscanf(in2, "%d", &broj) != EOF)
     dodaj_na_kraj_liste(&lista2, broj);
 
-  /* Pokazivac rezultat ce pokazivati na glavu liste koja se dobila
+  /* Datoteke vise nisu potrebne i treba ih zatvoriti. */
+  fclose(in1);
+  fclose(in2);
+
+  /* Pokazivac rezultat ce pokazivati na glavu liste dobijene
      objedinjavanjem listi */
-  rezultat = objedini(&lista1, &lista2);
+  Cvor *rezultat = objedini(&lista1, &lista2);
 
   /* Ispis rezultujuce liste. */
   ispisi_listu(rezultat);
 
-  /* Lista rezultat dobijena prevezivanjem cvorova polaznih listi.
+  /* Lista rezultat dobijena je prevezivanjem cvorova polaznih listi.
      Njenim oslobadjanjem bice oslobodjena sva zauzeta memorija. */
   oslobodi_listu(&rezultat);
 
-  fclose(in1);
-  fclose(in2);
   return 0;
 }

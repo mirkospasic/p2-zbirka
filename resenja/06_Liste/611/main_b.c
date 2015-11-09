@@ -5,6 +5,7 @@
 /* 2) Glavni program */
 int main()
 {
+  /* Lista je prazna na pocetku. */
   Cvor *glava = NULL;
   Cvor *kraj = NULL;
   int broj;
@@ -37,6 +38,7 @@ int main()
   printf("\nLista ispisana u nazad: ");
   ispisi_listu_unazad(kraj);
 
+  /* Oslobadja se memorija zauzeta za cvorove liste. */
   oslobodi_listu(&glava, &kraj);
 
   return 0;

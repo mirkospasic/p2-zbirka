@@ -4,10 +4,13 @@
 
 Cvor *napravi_cvor(int broj)
 {
+  /* Alocira se memorija za novi cvor liste i proverava uspesnost
+     alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
 
+  /* Inicijalizacija polja strukture */
   novi->vrednost = broj;
   novi->sledeci = NULL;
   return novi;
@@ -23,6 +26,7 @@ void oslobodi_listu(Cvor ** adresa_glave)
        osloboditi cvor koji predstavlja glavu liste */
     pomocni = (*adresa_glave)->sledeci;
     free(*adresa_glave);
+
     /* Sledeci cvor je nova glava liste. */
     *adresa_glave = pomocni;
   }
@@ -64,6 +68,7 @@ Cvor *pronadji_poslednji(Cvor * glava)
 
 int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
 {
+  /* Kreira se novi cvor koji treba da se uveze na kraj liste */
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
     return 1;

@@ -1,18 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Struktura kojom je predstavljen cvor liste sadrzi karakter zagrade 
+   i pokazivac na sledeci cvor liste. */
 typedef struct cvor {
   char zagrada;
   struct cvor *sledeci;
 } Cvor;
 
+/* Glavni program */
 int main()
 {
+  /* Stek je na pocetku prazan. */
   Cvor *stek = NULL;
   FILE *ulaz = NULL;
   char c;
   Cvor *pomocni = NULL;
 
+  /* Otvaranje datotoke za citanje izraza */
   ulaz = fopen("izraz.txt", "r");
   if (ulaz == NULL) {
     fprintf(stderr,
@@ -20,14 +25,20 @@ int main()
     exit(EXIT_FAILURE);
   }
 
+  /* Cita je karakter po karakter iz datoteke dok se ne dodje do
+     kraja. */
   while ((c = fgetc(ulaz)) != EOF) {
     /* Ako je ucitana otvorena zagrada, stavlja se na stek. */
     if (c == '(' || c == '{' || c == '[') {
+      /* Alocira se memorija za novi cvor liste i proverava uspesnost 
+         alokacije */
       pomocni = (Cvor *) malloc(sizeof(Cvor));
       if (pomocni == NULL) {
         fprintf(stderr, "Greska prilikom alokacije memorije!\n");
         return 1;
       }
+
+      /* Inicijalizacija polja strukture */
       pomocni->zagrada = c;
       pomocni->sledeci = stek;
       stek = pomocni;
@@ -51,7 +62,8 @@ int main()
       }
     }
   }
-  /* Procitana je cela datoteka. Zatvaramo je. */
+
+  /* Procitana je cela datoteka i treba je zatvoriti. */
   fclose(ulaz);
 
   /* Ako je stek prazan i procitana je cela datoteka, zagrade su

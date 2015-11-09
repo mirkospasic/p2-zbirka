@@ -2,6 +2,8 @@
 
 Cvor *napravi_cvor(char *etiketa)
 {
+  /* Alocira se memorija za novi cvor liste i proverava uspesnost
+     alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -19,19 +21,29 @@ Cvor *napravi_cvor(char *etiketa)
 void oslobodi_stek(Cvor ** adresa_vrha)
 {
   Cvor *pomocni;
+
+  /* Sve dok stek nije prazan, brise se cvor koji je vrh steka. */
   while (*adresa_vrha != NULL) {
+    /* Potrebno je prvo zapamtiti adresu sledeceg cvora i onda
+       osloboditi cvor koji predstavlja vrh steka. */
     pomocni = *adresa_vrha;
+    /* Sledeci cvor je novi vrh steka. */
     *adresa_vrha = (*adresa_vrha)->sledeci;
     free(pomocni);
   }
+  /* Nakon izlaska iz petlje stek je prazan i pokazivac na adresi
+     adresa_vrha ce pokazivati na NULL. */
 }
 
 int potisni_na_stek(Cvor ** adresa_vrha, char *etiketa)
 {
+  /* Kreira se nov cvor i proverava se da li je bilo greske pri
+     alokaciji. */
   Cvor *novi = napravi_cvor(etiketa);
   if (novi == NULL)
     return 1;
 
+  /* Novi cvor se uvezuje na vrh i postaje nov vrh steka. */
   novi->sledeci = *adresa_vrha;
   *adresa_vrha = novi;
   return 0;
@@ -61,13 +73,18 @@ int skini_sa_steka(Cvor ** adresa_vrha, char *etiketa)
 
 char *vrh_steka(Cvor * vrh)
 {
+  /* Prazan stek nema cvor koji je vrh i vraca se NULL. */
   if (vrh == NULL)
     return NULL;
+
+  /* Inace, vraca se pokazivac na nisku etiketa koja je polje cvora
+     koji je na vrhu steka. */
   return vrh->etiketa;
 }
 
 void prikazi_stek(Cvor * vrh)
 {
+  /* Ispisuje se spisak etiketa na steku od vrha ka dnu. */
   for (; vrh != NULL; vrh = vrh->sledeci)
     printf("<%s>\n", vrh->etiketa);
 }

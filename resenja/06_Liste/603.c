@@ -3,9 +3,11 @@
 #include <stdlib.h>
 #define MAX_DUZINA 20
 
+/* Struktura kojom je predstavljen cvor liste sadrzi nayiv etikete,
+   broj pojavljivanja te etikete i pokazivac na sledeci cvor liste. */
 typedef struct _Cvor {
-  unsigned broj_pojavljivanja;
   char etiketa[20];
+  unsigned broj_pojavljivanja;
   struct _Cvor *sledeci;
 } Cvor;
 
@@ -13,10 +15,13 @@ typedef struct _Cvor {
    ili NULL ako alokacija nije uspesno izvrsena. */
 Cvor *napravi_cvor(unsigned br, char *etiketa)
 {
+  /* Alocira se memorija za novi cvor liste i proverava uspesnost
+     alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
 
+  /* Inicijalizacija polja strukture */
   novi->broj_pojavljivanja = br;
   strcpy(novi->etiketa, etiketa);
   novi->sledeci = NULL;
@@ -28,11 +33,15 @@ void oslobodi_listu(Cvor ** adresa_glave)
 {
   Cvor *pomocni = NULL;
 
+  /* Sve dok lista ni bude prazna, brise tekuca glava liste i azurira 
+     se vrednost glave liste. */
   while (*adresa_glave != NULL) {
     pomocni = (*adresa_glave)->sledeci;
     free(*adresa_glave);
     *adresa_glave = pomocni;
   }
+  /* Nakon izlaska iz petlje pokazivac glava u main funkciji koji se
+     nalazi na adresi adresa_glave bice postavljen na NULL vrednost. */
 }
 
 /* Funkcija dodaje novi cvor na pocetak liste. Vraca 1 ako je doslo
@@ -40,12 +49,15 @@ void oslobodi_listu(Cvor ** adresa_glave)
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, unsigned br,
                            char *etiketa)
 {
+  /* Kreira se nov cvor i proverava se da li je bilo greske pri
+     alokaciji. */
   Cvor *novi = napravi_cvor(br, etiketa);
   if (novi == NULL)
     return 1;
 
   novi->sledeci = *adresa_glave;
   *adresa_glave = novi;
+
   return 0;
 }
 
@@ -57,12 +69,15 @@ Cvor *pretrazi_listu(Cvor * glava, char etiketa[])
   for (tekuci = glava; tekuci != NULL; tekuci = tekuci->sledeci)
     if (strcmp(tekuci->etiketa, etiketa) == 0)
       return tekuci;
+
   return NULL;
 }
 
 /* Funkcija ispisuje sadrzaj liste */
 void ispisi_listu(Cvor * glava)
 {
+  /* Pocevsi od cvora koji je glava lista, ispisuju se sve etikete i
+     broj njihovog pojavljivanja u HTML datoteci. */
   for (; glava != NULL; glava = glava->sledeci)
     printf("%s - %u\n", glava->etiketa, glava->broj_pojavljivanja);
 }
@@ -70,13 +85,14 @@ void ispisi_listu(Cvor * glava)
 /* Glavni program */
 int main(int argc, char **argv)
 {
+  /* Provera da li je program pozvan sa ispravnim brojem argumenata. */
   if (argc != 2) {
     fprintf(stderr,
             "Greska! Program se poziva sa: ./a.out datoteka.html!\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaramo datoteku za citanje */
+  /* Otvaranje datoteku za citanje */
   FILE *in = NULL;
   in = fopen(argv[1], "r");
   if (in == NULL) {
@@ -91,6 +107,7 @@ int main(int argc, char **argv)
   Cvor *glava = NULL;
   Cvor *trazeni = NULL;
 
+  /* Cita se karakter po karakter dok se ne procita cela datoteka. */
   while ((c = fgetc(in)) != EOF) {
 
     if (c == '<') {
@@ -125,9 +142,13 @@ int main(int argc, char **argv)
     }
   }
 
+  /* Zatvaranje datoteke */
   fclose(in);
 
+  /* Ispisuje se sadrzaj cvorova liste */
   ispisi_listu(glava);
+
+  /* Oslobadja se memorija zauzeta za cvorove liste. */
   oslobodi_listu(&glava);
 
   return 0;

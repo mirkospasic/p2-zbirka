@@ -4,10 +4,13 @@
 
 Cvor *napravi_cvor(int broj)
 {
+  /* Alocira se memorija za novi cvor liste i proverava uspesnost
+     alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
 
+  /* Inicijalizacija polja strukture */
   novi->vrednost = broj;
   novi->sledeci = NULL;
   return novi;
@@ -26,12 +29,16 @@ void oslobodi_listu(Cvor ** adresa_glave, Cvor ** adresa_kraja)
     /* Sledeci cvor je nova glava liste. */
     *adresa_glave = pomocni;
   }
+  /* Nakon izlaska iz petlje lista je prazna. Pokazivac na kraj liste 
+     treba postaviti na NULL. */
   *adresa_kraja = NULL;
 }
 
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, Cvor **
                            adresa_kraja, int broj)
 {
+  /* Kreira se nov cvor i proverava se da li je bilo greske pri
+     alokaciji. */
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
     return 1;
@@ -53,6 +60,8 @@ int dodaj_na_pocetak_liste(Cvor ** adresa_glave, Cvor **
 int dodaj_na_kraj_liste(Cvor ** adresa_glave, Cvor ** adresa_kraja,
                         int broj)
 {
+  /* Kreira se nov cvor i proverava se da li je bilo greske pri
+     alokaciji. */
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
     return 1;
@@ -208,6 +217,8 @@ void obrisi_cvor(Cvor ** adresa_glave, Cvor ** adresa_kraja, int broj)
 {
   Cvor *tekuci = *adresa_glave;
 
+  /* Sve dok ima cvorova sa vrednosti jednakom argumentu broj, takvi
+     cvorovi se brisu iz liste. */
   while ((tekuci = pretrazi_listu(*adresa_glave, broj)) != NULL)
     obrisi_tekuci(adresa_glave, adresa_kraja, tekuci);
 }
@@ -217,6 +228,8 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, Cvor **
 {
   Cvor *tekuci = *adresa_glave;
 
+  /* Sve dok ima cvorova sa vrednosti jednakom argumentu broj, takvi
+     cvorovi se brisu iz liste. */
   while ((tekuci =
           pretrazi_sortiranu_listu(*adresa_glave, broj)) != NULL)
     obrisi_tekuci(adresa_glave, adresa_kraja, tekuci);
@@ -228,6 +241,8 @@ void ispisi_listu(Cvor * glava)
      jer nece menjati listu, pa nema ni potrebe da azuriza pokazivac
      na glavu liste iz pozivajuce funkcije. */
   putchar('[');
+  /* Unutar zagrada ispisuju se vrednosti u cvorovima liste od
+     pocetka prema kraju liste. */
   for (; glava != NULL; glava = glava->sledeci) {
     printf("%d", glava->vrednost);
     if (glava->sledeci != NULL)
@@ -240,11 +255,8 @@ void ispisi_listu(Cvor * glava)
 void ispisi_listu_unazad(Cvor * kraj)
 {
   putchar('[');
-  if (kraj == NULL) {
-    printf("]\n");
-    return;
-  }
-
+  /* Unutar zagrada ispisuju se vrednosti u cvorovima liste od kraja
+     prema pocetku liste. */
   for (; kraj != NULL; kraj = kraj->prethodni) {
     printf("%d", kraj->vrednost);
     if (kraj->prethodni != NULL)
