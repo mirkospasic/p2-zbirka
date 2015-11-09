@@ -36,8 +36,10 @@ int main()
     i++;
   n = i;
 
-  /* Sortira se niz */
-  selection_sort(a, n);
+  /* Za sortiranje niza moze se koristiti bilo koja od funkcija
+     sortiranja iz sort.h. Ilustracije radi, u ovom zadatku koristi
+     se quick sort. */
+  quick_sort(a, 0, n - 1);
 
   for (i = 0; i < n; i++)
     /* Za i-ti element niza binarno se pretrazuje da li se u ostatku

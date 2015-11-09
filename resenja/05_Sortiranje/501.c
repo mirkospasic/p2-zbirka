@@ -24,7 +24,9 @@ int main()
   while (scanf("%d", &a[i]) != EOF)
     i++;
 
-  /* Sortiranje */
+  /* Za sortiranje niza moze se koristiti bilo koja od funkcija
+     sortiranja iz sort.h. Ilustracije radi, u ovom zadatku koristi
+     se selection sort. */
   selection_sort(a, i);
 
   /* Ispis rezultata */

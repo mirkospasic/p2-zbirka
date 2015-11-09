@@ -32,8 +32,10 @@ int main()
   while (scanf("%d", &a[i]) != EOF)
     i++;
 
-  /* Niz se sortira */
-  selection_sort(a, i);
+  /* Za sortiranje niza moze se koristiti bilo koja od funkcija
+     sortiranja iz sort.h. Ilustracije radi, u ovom zadatku koristi
+     se merge sort. */
+  merge_sort(a, 0, i - 1);
 
   /* Odredjuje se broj koji se najvise puta pojavio u nizu */
   printf("%d\n", najvise_puta(a, i));
