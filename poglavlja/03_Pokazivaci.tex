@@ -797,6 +797,140 @@ matrice.
 \includecode{resenja/03_Pokazivaci/331.c}
 \end{Answer}
 
+
+\begin{Exercise}[label=biblioteka]
+Napisati biblioteku za rad sa celobrojnim matricama. 
+\begin{enumerate}
+\item Napisati funkciju \kckod{int **alociraj\_matricu(int n, int m)}
+  koja dinamički alocira memoriju potrebnu za matricu dimenzija $n
+  \times m$.
+\item Napisati funkciju \kckod{int **alociraj\_kvadratnu\_matricu(int
+  n)} koja alocira memoriju za kvadratnu matricu dimenzije $n$.
+\item Napisati funkciju \kckod{int **dealociraj\_matricu(int **A, int
+  n)} koja dealocira memoriju matrice sa $n$ vrsta. Povratna vrednost
+  ove funkcije treba da bude ``prazna'' matrica.
+\item Napisati funkciju \kckod{void ucitaj\_matricu(int **A, int n,
+  int m)} koja učitava već alociranu matricu dimenzija $n \times m$ sa
+  standardnog ulaza.
+\item Napisati funkciju \kckod{void ucitaj\_kvadratnu\_matricu(int
+  **A, int n)} koja učitava već alociranu kvadratnu matricu dimenzije
+  $n$ sa standardnog ulaza.
+\item Napisati funkciju \kckod{void ispisi\_matricu(int **A, int n,
+  int m)} koja ispisuje matricu dimenzija $n \times m$ na standardnom
+  izlazu.
+\item Napisati funkciju \kckod{void ispisi\_kvadratnu\_matricu(int
+  **A, int n)} koja ispisuje kvadratnu matricu dimenzije $n$ na
+  standardnom izlazu.
+\item Napisati funkciju \kckod{int ucitaj\_matricu\_iz\_datoteke(int
+  **A, int n, int m, FILE * f)} koja učitava već alociranu matricu
+  dimenzija $n \times m$ iz već otvorene datoteke $f$. U slučaju
+  neuspešnog učitavanja vratiti vrednost različitu od $0$.
+\item Napisati funkciju \kckod{int
+  ucitaj\_kvadratnu\_matricu\_iz\_datoteke(int **A, int n, FILE * f)}
+  koja učitava već alociranu kvadratnu matricu dimenzije $n$ iz već
+  otvorene datoteke $f$.  U slučaju neuspešnog učitavanja vratiti
+  vrednost različitu od $0$.
+\item Napisati funkciju \kckod{int upisi\_matricu\_u\_datoteku(int
+  **A, int n, int m, FILE * f)} koja upisuje matricu dimenzija $n
+  \times m$ u već otvorenu datoteku $f$. U slučaju neuspešnog
+  upisivanja vratiti vrednost različitu od $0$.
+\item Napisati funkciju \kckod{int
+  upisi\_kvadratnu\_matricu\_u\_datoteku(int **A, int n, FILE * f)}
+  koja upisuje kvadratnu matricu dimenzije $n$ u već otvorenu datoteku
+  $f$. U slučaju neuspešnog upisivanja vratiti vrednost različitu od
+  $0$.
+\end{enumerate}
+
+Napisati programe koji testiraju napisanu biblioteku.
+
+\begin{enumerate}
+\item[(1)] Program učitava dimenzije nekvadratne matrice sa
+  standardnog ulaza, a zatim i samu matricu. Potom, matricu upisati u
+  datoteku $matrica.txt$.
+
+\begin{miditest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesi broj vrsta matrice:}##\ulaz{3}#
+#\izlaz{Unesi broj kolona matrice:}##\ulaz{4}#
+#\izlaz{Unesi elemente matrice po vrstama:}#
+#\ulaz{1 2 3 4}#
+#\ulaz{5 6 7 8}#
+#\ulaz{9 10 11 12}#
+
+#\naslovDat{matrica.txt}#
+#\datoteka{1 2 3 4}#
+#\datoteka{5 6 7 8}#
+#\datoteka{9 10 11 12}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesi broj vrsta matrice:}##\ulaz{5}#
+#\izlaz{Unesi broj kolona matrice:}##\ulaz{0}#
+#\izlaz{Neodgovarajce dimenzije matrice}#
+\end{upotreba}
+\end{miditest}
+
+\item[(2)] Program prima kao prvi argument komandne linije putanju do
+  datoteke u kojoj se redom nalazi dimenzija kvadratne matrice i sama
+  matrica, koju treba ispisati na standardnom izlazu.
+  
+\begin{minitest}
+\begin{test}{1}
+#\poziv{./a.out ulaz.txt}#
+
+#\naslovDat{ulaz.txt}#  
+#\datoteka{4}#
+#\datoteka{1 2 3 4}#
+#\datoteka{5 6 7 8}#
+#\datoteka{9 10 11 12}#
+#\datoteka{13 14 15 16}#
+
+#\naslovIzlaz#
+#\izlaz{1 2 3 4}#
+#\izlaz{5 6 7 8}#
+#\izlaz{9 10 11 12}#
+#\izlaz{13 14 15 16}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+#\poziv{./a.out ulaz.txt}#
+
+#\naslovDat{ulaz.txt}#  
+#\datoteka{dimenzija: 4}#
+#\datoteka{1 2 3 4}#
+#\datoteka{5 6 7 8}#
+#\datoteka{9 10 11 12}#
+#\datoteka{13 14 15 16}#
+
+#\naslovIzlaz#
+#\izlaz{Neispravan pocetak fajla}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\poziv{./a.out}#
+
+#\naslovIzlaz#
+#\izlaz{Koriscenje programa:}#
+#\izlaz{./a.out datoteka}#
+\end{test}
+\end{minitest}
+
+\end{enumerate}
+\linkresenje{biblioteka}
+\end{Exercise}
+\begin{Answer}[ref=biblioteka]
+\includecodeLib{resenja/03_Pokazivaci/biblioteka/matrica.h}{matrica.h}
+\includecodeLib{resenja/03_Pokazivaci/biblioteka/matrica.c}{matrica.c}
+\includecodeLib{resenja/03_Pokazivaci/biblioteka/main_a.c}{main\_a.c}
+\includecodeLib{resenja/03_Pokazivaci/biblioteka/main_b.c}{main\_b.c}
+\end{Answer}
+
+
 \begin{Exercise}[label=332]
 Data je celobrojna matrica dimenzije $n \times m$.
 Napisati funkciju koja ispisuje elemente ispod glavne dijagonale matrice 
