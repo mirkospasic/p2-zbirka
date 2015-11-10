@@ -921,6 +921,101 @@ okretanja.}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
+\begin{Exercise}[label=526]
+  Za zadatu celobrojnu matricu dimenzije $n \times m$ napisati
+  funkciju koja vrši sortiranje vrsta matrice rastuće na osnovu sume
+  elemenata u vrsti. Napisati potom program koji testira ovu funkciju. Sa
+  standardnog ulaza se prvo unose dimenzije matrice, a zatim redom
+  elementi matrice. Rezultujuću matricu ispisati na standardnom izlazu.
+  \napomena{Koristiti biblioteku sa celobrojnim matricama iz
+    zadatka \ref{biblioteka}.}
+
+\begin{miditest}
+\begin{test}{1}
+#\naslovInt#
+#\izlaz{Unesite dimenzije matrice:}\ulaz{3 2}#
+#\izlaz{Unesite elemente matrice po vrstama:}#
+#\ulaz{6 -5}#
+#\ulaz{-4 3}#
+#\ulaz{2 1}#
+#\izlaz{Sortirana matrica je:}#
+#\izlaz{-4 3}#
+#\izlaz{6 -5}# 
+#\izlaz{2 1}#  
+\end{test}
+\end{miditest}
+\begin{miditest}
+\begin{test}{2}
+#\naslovInt#
+#\izlaz{Unesite dimenzije matrice:}\ulaz{4 4}#
+#\izlaz{Unesite elemente matrice po vrstama:}#
+#\ulaz{34 12 54 642}#
+#\ulaz{1 2 3 4}#
+#\ulaz{53 2 1 5}#
+#\ulaz{54 23 5 671}#
+#\izlaz{Sortirana matrica je:}#
+#\izlaz{1 2 3 4}#
+#\izlaz{53 2 1 5}#
+#\izlaz{34 12 54 642}#
+#\izlaz{54 23 5 671}#
+\end{test}
+\end{miditest}
+
+\linkresenje{526}
+\end{Exercise}
+
+\begin{Answer}[ref=526]
+  \includecode{resenja/05_Sortiranje/526.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=527]
+  Za zadatu kvadratnu matricu dimenzije $n$ napisati funkciju koja
+  sortira kolone matrice opadajuće na osnovu vrednosti prvog elementa
+  u koloni.  Napisati program koji testira ovu funkciju. Sa
+  standardnog ulaza se prvo unosi dimenzija matrice, a zatim redom
+  elementi matrice.  Rezultujuću matricu ispisati na standardnom
+  izlazu.  \napomena{Koristiti biblioteku sa celobrojnim matricama iz
+    zadatka \ref{biblioteka}.}
+
+
+\begin{miditest}
+\begin{upotreba}{1}
+#\naslovInt#  
+#\izlaz{Unesite dimenziju matrice:}\ulaz{2}#
+#\izlaz{Unesite elemente matrice po vrstama:}#
+#\ulaz{6 -5}#
+#\ulaz{-4 3}#
+#\izlaz{Sortirana matrica je:}#
+#\izlaz{-5 6}#
+#\izlaz{3 -4}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#  
+#\izlaz{Unesite dimenziju matrice:}\ulaz{4}#
+#\izlaz{Unesite elemente matrice po vrstama:}#
+#\ulaz{34 12 54 642}#
+#\ulaz{1 2 3 4}#
+#\ulaz{53 2 1 5}#
+#\ulaz{54 23 5 671}#
+#\izlaz{Sortirana matrica je:}#
+#\izlaz{12 34 54 642}#
+#\izlaz{2 1 3 4}#
+#\izlaz{2 53 1 5}#
+#\izlaz{23 54 5 671}#
+\end{upotreba}
+\end{miditest}
+  
+%\linkresenje{527}
+\end{Exercise}
+
+%\begin{Answer}[ref=527]
+%  \includecode{resenja/05_Sortiranje/527.c}
+%\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
 \section{Bibliotečke funkcije pretrage i sortiranja}
 
 %-----------------------------------------------------------------
@@ -1368,98 +1463,6 @@ Definisati strukturu \kckod{Datum}. \iffalse
 
 %\begin{Answer}[ref=525]
 %  \includecode{resenja/05_Sortiranje/525.c}
-%\end{Answer}
-%-----------------------------------------------------------------
-%-----------------------------------------------------------------
-\begin{Exercise}[label=526]
-  Za zadatu celobrojnu matricu dimenzije $n \times m$ napisati
-  funkciju koja vrši sortiranje vrsta matrice rastuće na osnovu sume
-  elemenata u vrsti. Napisati potom program koji testira ovu funkciju. Sa
-  standardnog ulaza se prvo unose dimenzije matrice, a zatim redom
-  elementi matrice. Rezultujuću matricu ispisati na standardnom izlazu.
-
-\begin{miditest}
-\begin{test}{1}
-#\naslovInt#
-#\izlaz{Unesite dimenzije matrice:}\ulaz{3 2}#
-#\izlaz{Unesite elemente matrice po vrstama:}#
-#\ulaz{6 -5}#
-#\ulaz{-4 3}#
-#\ulaz{2 1}#
-#\izlaz{Sortirana matrica je:}#
-#\izlaz{-4 3}#
-#\izlaz{6 -5}# 
-#\izlaz{2 1}#  
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{2}
-#\naslovInt#
-#\izlaz{Unesite dimenzije matrice:}\ulaz{4 4}#
-#\izlaz{Unesite elemente matrice po vrstama:}#
-#\ulaz{34 12 54 642}#
-#\ulaz{1 2 3 4}#
-#\ulaz{53 2 1 5}#
-#\ulaz{54 23 5 671}#
-#\izlaz{Sortirana matrica je:}#
-#\izlaz{1 2 3 4}#
-#\izlaz{53 2 1 5}#
-#\izlaz{34 12 54 642}#
-#\izlaz{54 23 5 671}#
-\end{test}
-\end{miditest}
-
-\linkresenje{526}
-\end{Exercise}
-
-\begin{Answer}[ref=526]
-  \includecode{resenja/05_Sortiranje/526.c}
-\end{Answer}
-%-----------------------------------------------------------------
-%-----------------------------------------------------------------
-\begin{Exercise}[label=527]
-  Za zadatu kvadratnu matricu dimenzije $n$ napisati funkciju koja
-  sortira kolone matrice opadajuće na osnovu vrednosti prvog elementa
-  u koloni.  Napisati program koji testira ovu funkciju. Sa
-  standardnog ulaza se prvo unosi dimenzija matrice, a zatim redom
-  elementi matrice.  Rezultujuću matricu ispisati na standardnom
-  izlazu.
-
-
-\begin{miditest}
-\begin{upotreba}{1}
-#\naslovInt#  
-#\izlaz{Unesite dimenziju matrice:}\ulaz{2}#
-#\izlaz{Unesite elemente matrice po vrstama:}#
-#\ulaz{6 -5}#
-#\ulaz{-4 3}#
-#\izlaz{Sortirana matrica je:}#
-#\izlaz{-5 6}#
-#\izlaz{3 -4}#
-\end{upotreba}
-\end{miditest}
-\begin{miditest}
-\begin{upotreba}{2}
-#\naslovInt#  
-#\izlaz{Unesite dimenziju matrice:}\ulaz{4}#
-#\izlaz{Unesite elemente matrice po vrstama:}#
-#\ulaz{34 12 54 642}#
-#\ulaz{1 2 3 4}#
-#\ulaz{53 2 1 5}#
-#\ulaz{54 23 5 671}#
-#\izlaz{Sortirana matrica je:}#
-#\izlaz{12 34 54 642}#
-#\izlaz{2 1 3 4}#
-#\izlaz{2 53 1 5}#
-#\izlaz{23 54 5 671}#
-\end{upotreba}
-\end{miditest}
-  
-%\linkresenje{527}
-\end{Exercise}
-
-%\begin{Answer}[ref=527]
-%  \includecode{resenja/05_Sortiranje/527.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------

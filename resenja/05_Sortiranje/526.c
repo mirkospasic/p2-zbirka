@@ -1,19 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-/* Funkcija koja ucitava elemente matrice a dimenzije nxm sa
-   standardnog ulaza */
-void ucitaj_matricu(int **a, int n, int m)
-{
-  printf("Unesite elemente matrice po vrstama:\n");
-  int i, j;
-
-  for (i = 0; i < n; i++) {
-    for (j = 0; j < m; j++) {
-      scanf("%d", &a[i][j]);
-    }
-  }
-}
+#include "../03_Pokazivaci/biblioteka/matrica.h"
 
 /* Funkcija koja odredjuje zbir v-te vrste matrice a koja ima m
    kolona */
@@ -49,61 +36,6 @@ void sortiraj_vrste(int **a, int n, int m)
   }
 }
 
-/* Funkcija koja ispisuje elemente matrice a dimenzije nxm na
-   standardni izlaz */
-void ispisi_matricu(int **a, int n, int m)
-{
-  int i, j;
-
-  for (i = 0; i < n; i++) {
-    for (j = 0; j < m; j++) {
-      printf("%d ", a[i][j]);
-    }
-    printf("\n");
-  }
-}
-
-/* Funkcija koja alocira memoriju za matricu dimenzija nxm */
-int **alociraj_memoriju(int n, int m)
-{
-  int i, j;
-  int **a;
-
-  a = (int **) malloc(n * sizeof(int *));
-  if (a == NULL) {
-    fprintf(stderr, "Problem sa alokacijom memorije!\n");
-    exit(EXIT_FAILURE);
-  }
-  /* Za svaku vrstu ponaosob */
-  for (i = 0; i < n; i++) {
-    /* Alocira se memorija */
-    a[i] = (int *) malloc(m * sizeof(int));
-    /* Proverava se da li je doslo do greske prilikom alokacije */
-    if (a[i] == NULL) {
-      /* Ako jeste, ispisuje se poruka */
-      fprintf(stderr, "Problem sa alokacijom memorije!\n");
-      /* I oslobadja memorija zauzeta do ovog koraka */
-      for (j = 0; j < i; j++) {
-        free(a[i]);
-      }
-      free(a);
-      exit(EXIT_FAILURE);
-    }
-  }
-
-  return a;
-}
-
-/* Funkcija koja oslobadja memoriju zauzetu matricom a dimenzije nxm */
-void oslobodi_memoriju(int **a, int n, int m)
-{
-  int i;
-  for (i = 0; i < n; i++) {
-    free(a[i]);
-  }
-  free(a);
-}
-
 int main(int argc, char *argv[])
 {
   int **a;
@@ -114,9 +46,10 @@ int main(int argc, char *argv[])
   scanf("%d %d", &n, &m);
 
   /* Alokacija memorije */
-  a = alociraj_memoriju(n, m);
+  a = alociraj_matricu(n, m);
 
   /* Ucitavanje elementa matrice */
+  printf("Unesite elemente matrice po vrstama:\n");
   ucitaj_matricu(a, n, m);
 
   /* Poziv funkcije koja sortira vrste matrice prema zbiru */
@@ -127,7 +60,7 @@ int main(int argc, char *argv[])
   ispisi_matricu(a, n, m);
 
   /* Oslobadjanje memorije */
-  oslobodi_memoriju(a, n, m);
+  a = dealociraj_matricu(a, n);
 
   return 0;
 }

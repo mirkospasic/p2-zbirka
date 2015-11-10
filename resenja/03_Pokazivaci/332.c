@@ -1,16 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
-/* Funkcija ucitava matricu sa ulaza */
-void ucitaj_matricu(int **M, int n, int m)
-{
-  int i, j;
-
-  for (i = 0; i < n; i++)
-    for (j = 0; j < m; j++)
-      scanf("%d", &M[i][j]);
-}
+#include "biblioteka/matrica.h"
 
 /* Funkcija ispisuje elemente matrice ispod glavne dijagonale */
 void ispisi_elemente_ispod_dijagonale(int **M, int n, int m)
@@ -26,30 +17,18 @@ void ispisi_elemente_ispod_dijagonale(int **M, int n, int m)
 
 int main()
 {
-  int m, n, i, j;
+  int m, n;
   int **matrica = NULL;
 
   printf("Unesite broj vrsta i broj kolona matrice:\n ");
   scanf("%d %d", &n, &m);
 
-  /* Alocira se prostor za niz pokazivaca na vrste matrice */
-  matrica = (int **) malloc(n * sizeof(int *));
+  /* Alocira se matrica */
+  matrica = alociraj_matricu(n, m);
+  /* Provera alokacije */
   if (matrica == NULL) {
-    fprintf(stderr, "malloc(): Neuspela alokacija\n");
+    fprintf(stderr, "Neuspesna alokacija matrice\n");
     exit(EXIT_FAILURE);
-  }
-
-  /* Alocira se prostor za svaku vrstu matrice */
-  for (i = 0; i < n; i++) {
-    matrica[i] = (int *) malloc(m * sizeof(int));
-
-    if (matrica[i] == NULL) {
-      fprintf(stderr, "malloc(): Neuspela alokacija\n");
-      for (j = 0; j < i; j++)
-        free(matrica[j]);
-      free(matrica);
-      exit(EXIT_FAILURE);
-    }
   }
 
   printf("Unesite elemente matrice, vrstu po vrstu:\n");
@@ -58,13 +37,8 @@ int main()
   printf("Elementi ispod glavne dijagonale matrice:\n");
   ispisi_elemente_ispod_dijagonale(matrica, n, m);
 
-  /* Oslobadja se dinamicki alocirana memorija za matricu. Prvo se
-     oslobadja memorija rezervisana za svaku vrstu */
-  for (j = 0; j < n; j++)
-    free(matrica[j]);
-
-  /* Zatim se oslobadja memorija za niz pokazivaca na vrste matrice */
-  free(matrica);
+  /* Oslobadjanje memorije */
+  matrica = dealociraj_matricu(matrica, n);
 
   return 0;
 }
