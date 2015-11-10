@@ -4,23 +4,27 @@
 %-----------------------------------------------------------------
 \begin{Exercise}[label=507]
   Napraviti biblioteku koja implementira algoritme sortiranja nizova
-  celih brojeva. Biblioteka treba da sadrži \kckod{selection},
-  \kckod{merge}, \kckod{quick}, \kckod{bubble}, \kckod{insertion} i
-  \kckod{shell sort}. Upotrebiti biblioteku kako bi se napravilo
-  poređenje efikasnosti različitih algoritama sortiranja. Efikasnost
-  meriti na slučajno generisanim nizovima, na rastuće sortiranim
-  nizovima i na opadajuće sortiranim nizovima. Izbor algoritma,
-  veličine i početnog rasporeda elemenata niza birati kroz argumente
-  komandne linije. Moguće opcije kojima se bira algoritam sortiranja
-  su: \kckod{-m} za \kckod{merge}, \kckod{-q} za \kckod{quick},
-  \kckod{-b} za \kckod{bubble}, \kckod{-i} za \kckod{insertion} ili
-  \kckod{-s} za \kckod{shell sort}. U slučaju da nije prisutna ni
-  jedna od ovih opcija, niz sortirati \kckod{selection sort}
-  algoritmom. Niz koji se sortira generisati neopadajuće ako je
-  prisutna opcija \kckod{-r}, nerastuće ako je prisutna opcija
-  \kckod{-o} ili potpuno slučajno ako nema nijedne opcije. Vreme meriti
-  programom \kckod{time}. Analizirati porast vremena sa porastom
-  dimenzije \argf{n}.
+  celih brojeva. Biblioteka treba da sadrži algoritam sortiranja
+  izborom (engl. \kckod{selection sort}), sortiranja spajanjem
+  (engl. \kckod{merge sort}), brzog sortiranja (engl. \kckod{quick
+    sort}), mehurastog sortiranja (engl. \kckod{bubble sort}),
+  sortiranja direktnim umetanjem (engl. \kckod{insertion sort}) i
+  sortiranja umetanjem sa inkrementom (engl. \kckod{shell
+    sort}). Upotrebiti biblioteku kako bi se napravilo poređenje
+  efikasnosti različitih algoritama sortiranja. Efikasnost meriti na
+  slučajno generisanim nizovima, na rastuće sortiranim nizovima i na
+  opadajuće sortiranim nizovima. Izbor algoritma, veličine i početnog
+  rasporeda elemenata niza birati kroz argumente komandne
+  linije. Moguće opcije kojima se bira algoritam sortiranja su:
+  \kckod{-m} za sortiranje spajanjem, \kckod{-q} za brzo sortiranje,
+  \kckod{-b} za mehurasto, \kckod{-i} za sortiranje direktnim
+  umetanjem ili \kckod{-s} za sortiranje umetanjem sa inkrementom. U
+  slučaju da nije prisutna ni jedna od ovih opcija, niz sortirati
+  algoritmom sortiranja izborom. Niz koji se sortira generisati
+  neopadajuće ako je prisutna opcija \kckod{-r}, nerastuće ako je
+  prisutna opcija \kckod{-o} ili potpuno slučajno ako nema nijedne
+  opcije. Vreme meriti programom \kckod{time}. Analizirati porast
+  vremena sa porastom dimenzije \argf{n}.
 
 \begin{minitest}
 \begin{test}{1}
