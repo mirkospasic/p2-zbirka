@@ -7,8 +7,13 @@ int skalarno(int a[], int b[], int n)
   if (n == 0)
     return 0;
 
-  /* Na osnovu resenja problema dimenzije n-1, resava se problem
-     dimenzije n */
+  /******************************************************************
+     Na osnovu resenja problema dimenzije n-1, resava se problem
+     dimenzije n primenom definicije skalarnog proizvoda
+     a*b = a[0]*b[0] + a[1]*b[1] +...+  a[n-2]*a[n-2] + a[n-1]*a[n-1]
+	 Dakle,
+	 skalarno(a,b,n) = skalarno(a, b, n - 1) +  a[n-1]*a[n-1]
+  ******************************************************************/
   else
     return a[n - 1] * b[n - 1] + skalarno(a, b, n - 1);
 }

@@ -26,7 +26,6 @@ Polinom ucitaj();
 
 /* Funkcija racuna vrednost polinoma p u tacki x Hornerovim
    algoritmom */
-/* x^4+2x^3+3x^2+2x+1 = ( ( (x+2)*x + 3)*x + 2)*x + 1 */
 double izracunaj(const Polinom * p, double x);
 
 /* Funkcija koja sabira dva polinoma */

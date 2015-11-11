@@ -35,8 +35,8 @@ int count(int x)
 }
 
 /*************************************************************
-     Telo prethodne funkcije je moglo biti zapisano i krace:
-     jednolinijska return naredba sa proverom i rekurzivnim pozivom 
+     Telo prethodne funkcije se moze zapisati i krace (jednolinijska
+	 return naredba sa proverom i rekurzivnim pozivom):
      return ((x& (1<<(sizeof(x)*8-1))) ? 1 : 0) + count(x<<1); 
 *************************************************************/
 

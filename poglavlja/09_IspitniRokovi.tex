@@ -7,7 +7,7 @@ Kao argument komandne linije zadaje se ime ulazne datoteke u kojoj se nalaze nis
   
 Napisati program u kojem se dinamički alocira memorija za zadati niz niski, a zatim se na standardnom izlazu u redosledu suprotnom od redosleda čitanja ispisuju sve niske koje počinju velikim slovom. 
 
-U slučaju pojave bilo kakve greške na standardnom izlazu ispisati vrednost \argf{-1} i prekinuti izvršavanje programa.
+U slučaju pojave bilo kakve greške na standardnom izlazu za grešku ispisati vrednost \argf{-1} i prekinuti izvršavanje programa.
 
 \begin{miditest}
 \begin{test}{1}
@@ -274,7 +274,7 @@ Na početku datoteke ,,trouglovi.txt'' nalazi se broj trouglova čije su koordin
 
 \begin{Exercise}[label=906]
 Data je biblioteka za rad sa binarnim pretraživačkim stablima celih brojeva. Napisati funkciju\\ 
-\kckod{int f3(Cvor *koren, int n)}\\
+\kckod{int prebrojN(Cvor *koren, int n)}\\
   koja u datom stablu prebrojava čvorove na $n$-tom nivou, koji
   imaju tačno jednog potomka. Pretpostaviti da se koren nalazi na
   nivou \argf{0}. Ispravnost napisane funkcije testirati na osnovu zadate
@@ -454,7 +454,7 @@ Sa standardnog ulaza se učitava dimenzija \kckod{n} kvadratne celobrojne
     u svakom redu i svakoj koloni jednaka). Ukoliko jeste, ispisati na
     standardnom izlazu sumu brojeva jedne vrste ili kolone te matrice,
     a ukoliko nije ispisati "-". Broj vrsta i broj kolona matrice nije
-    unapred poznat. U slučaju greške ispisati \argf{-1}.
+    unapred poznat. U slučaju greške ispisati \argf{-1} na standardni izlaz za grešku.
 
 \begin{minitest}
 \begin{test}{1}

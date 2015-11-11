@@ -10,17 +10,24 @@ double duzina(double x1, double y1, double x2, double y2)
 {
   return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));}
 
-/* Funkcija racuna povrsinu trougla */ 
+/* Funkcija racuna povrsinu trougla koristeci Heronov obrazac */ 
 double povrsina(trougao t) 
 {
+  /* Racunanje duzina stranica trougla */
   double a = duzina(t.xb, t.yb, t.xc, t.yc);
   double b = duzina(t.xa, t.ya, t.xc, t.yc);
   double c = duzina(t.xa, t.ya, t.xb, t.yb);
+  /* Poluobim */
   double s = (a + b + c) / 2;
+  /* Primena Heronovog obrasca */
   return sqrt(s * (s - a) * (s - b) * (s - c));}
 
-/* Funkcija racuna poredi dva trougla, napisana tako da se moze
-   proslediti funkciji qsort */ 
+/* Funkcija racuna poredi dva trougla tako da ukoliko je povrsina 
+   trougla koji je prvi argument funkcije manja od povrsine trougla 
+   koji je drugi element funkcije funcija vraca 1, ukoliko je veca 
+   -1, a ukoliko su povrsine dva trougla jednake vraca nulu. Dakle,
+    funkcija je napisana tako da se moze proslediti funkciji qsort da 
+	se niz trouglova sortira po povrsini opadajuce. */ 
 int poredi(const void *a, const void *b) 
 {
   trougao x = *(trougao *) a;
@@ -73,8 +80,11 @@ int main()
   for (i = 0; i < n; i++)
     printf("%g %g %g %g %g %g\n", niz[i].xa, niz[i].ya, niz[i].xb,
             niz[i].yb, niz[i].xc, niz[i].yc);
-			
+  
+  /* Oslobadjanje dinamicki alocirane memorije  */
   free(niz);
+  
+  /* Zatvranje datoteke */
   fclose(f);
   return 0;
 }

@@ -2,16 +2,13 @@
 #define MAX_DIM 1000
 
 /***************************************************************
-   Ako je n==0, onda je suma(a,0) = 0 
+   Ako je n<=0, onda je suma(a,0) = 0 
    Ako je n>0, onda je suma(a,n) = a[n-1] + suma(a,n-1) 
    Suma celog niza je jednaka sumi prvih n-1 elementa uvecenoj 
    za poslednji element celog niza. 
 ****************************************************************/
 int sumaNiza(int *a, int n)
 {
-  /* Nije postavljena stroga jednakost n==0, za slucaj da korisnik
-     prilikom prvog poziva, posalje negativan broj za velicinu niza. 
-   */
   if (n <= 0)
     return 0;
 
@@ -20,7 +17,7 @@ int sumaNiza(int *a, int n)
 
 /***************************************************************
   Funkcija napisana na drugi nacin:
-  n==0, suma(a,0) = 0
+  n<=0, suma(a,0) = 0
   n >0, suma(a,n) = a[0] + suma(a+1,n-1)
   Suma celog niza je jednaka zbiru prvog elementa niza i sume
   preostalih n-1 elementa.
@@ -36,7 +33,11 @@ int sumaNiza2(int *a, int n)
 int main()
 {
   int a[MAX_DIM];
-  int n, i = 0;
+  int n, i = 0, ind;
+  
+  /* Ucitava se redni broj funkcije */
+  printf("Unesite redni broj funkcije (1 ili 2):\n");
+  scanf("%d", &ind);
 
   /* Ucitava se broj elemenata niza */
   printf("Unesite dimenziju niza:");
@@ -47,8 +48,12 @@ int main()
   for (i = 0; i < n; i++)
     scanf("%d", &a[i]);
 
-  printf("Suma elemenata je %d\n", sumaNiza(a, n));
-  /* printf("Suma elemenata je %d\n",sumaNiza2(a, n)); */
+  /* Na osnovu vrednosti promenljive ind ispisuje se rezultat poziva
+     funkcije sumaNiza, ondosno sumaNiza2  */
+  if(ind == 1)
+    printf("Suma elemenata je %d\n", sumaNiza(a, n));
+  else
+    printf("Suma elemenata je %d\n", sumaNiza2(a, n));
 
   return 0;
 }

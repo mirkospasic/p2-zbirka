@@ -20,7 +20,11 @@ int max_heksadekadna_cifra(unsigned x)
 int main()
 {
   unsigned x;
+  
+  /* Ucitava se neoznacen ceo broj */
   scanf("%u", &x);
+  
+  /* Ispisuje se vrednost najvece heksadekadne cifre unetog broja */
   printf("%d\n", max_heksadekadna_cifra(x));
   return 0;
 }

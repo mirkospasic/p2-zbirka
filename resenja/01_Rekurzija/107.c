@@ -72,6 +72,7 @@ int main(void)
   int n;
   int a[MAX_DUZINA_NIZA];
 
+  /* Ucitavanje broja n i provera da li je u odgovarajucem opsegu */
   scanf("%d", &n);
   if (n < 0 || n >= MAX_DUZINA_NIZA) {
     fprintf(stderr,

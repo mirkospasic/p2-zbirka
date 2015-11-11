@@ -5,8 +5,13 @@
 
 int palindrom(char s[], int n)
 {
+  /*Izlaz iz rekurzije - trivijalno, niska duzine 0 ili 1 je 
+    palindrom */
   if ((n == 1) || (n == 0))
     return 1;
+  /* Da bi niska bila palindrom potrebno je da se poklapaju prvi i
+     poslednji karakter i da je palindrom niska koja nastaje kada se
+     polaznoj nisci otklone prvi i poslednji karakter */
   return (s[n - 1] == s[0]) && palindrom(s + 1, n - 2);
 }
 
@@ -15,6 +20,7 @@ int main()
   char s[MAX_DIM];
   int n;
 
+  /* Ucitavanje niske sa standardnog ulaza */
   scanf("%s", s);
 
   /* Odredjuje se duzina niske */

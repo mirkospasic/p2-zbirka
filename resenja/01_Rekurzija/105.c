@@ -59,7 +59,6 @@ int faktorijel(int n)
   return faktorijelRepna(n, 1);
 }
 
-/* Test program */
 int main()
 {
   int n;

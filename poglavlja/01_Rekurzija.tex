@@ -50,7 +50,7 @@ Napisati program koji testira napisanu funkciju tako što za heksadekadni broj k
 #\naslovUlaz#
 #\ulaz{11}#
 #\naslovIzlaz#
-#\izlaz{Uneti broj ima paran broj cifara}#
+#\izlaz{Uneti broj ima paran broj cifara.}#
 \end{test}
 \end{miditest}
 \begin{miditest}
@@ -58,7 +58,7 @@ Napisati program koji testira napisanu funkciju tako što za heksadekadni broj k
 #\naslovUlaz#
 #\ulaz{123}#
 #\naslovIzlaz#
-#\izlaz{Uneti broj ima neparan broj cifara}#
+#\izlaz{Uneti broj ima neparan broj cifara.}#
 \end{test}
 \end{miditest}
  
@@ -98,22 +98,37 @@ Elementi funkcije $F$ izračunavaju se na osnovu sledećih rekurentnih relacija:
  $$F(0) = 0$$
  $$F(1) = 1$$
  $$F(n) = a* F(n-1) + b*F(n-2)$$
-Napisati rekurzivnu funkciju  koja računa $n$-ti element u nizu $F$, ali tako da se problemi manje dimenzije rešavaju samo jedan put.
-Napisati program koji testira napisanu funkciju za vrednosti koeficijenata i prirodan broj $n$ koji se unose sa standardnog ulaza.
+Napisati funkciju koja računa $n$-ti element u nizu $F$
+\begin{enumerate}
+\item iterativno,
+\item tako da funkcija bude rekurzivna i da koristi navedene rekurentne relacije,
+\item tako da funkcija bude rekurzivna ali da se problemi manje dimenzije rešavaju samo jedan put.
+\end{enumerate}
+Napisati program koji testira napisane funkciju tako što se sa standardnog ulaza najpre unosi redni broj funckije koja se primenjuje, a zatim i vrednosti koeficijenata $a$ i $b$ i prirodan broj $n$. Na standardni izlaz se ispisuje rezultat primene odabrane funkcije na unete vrednosti koeficijenata $a$ i $b$ i prirodan broj  $n$.
   
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Unesite koeficijente} \ulaz{ 2 3}#
-#\izlaz{Unesite koji clan niza se racuna} \ulaz{ 5}#
+#\izlaz{Unesite redni broj funkcije koju zelite:}# 
+#\izlaz{1 - iterativna}# 
+#\izlaz{2 - rekurzivna}# 
+#\izlaz{3 - rekurzivna napredna}# 
+#\ulaz{1}#
+#\izlaz{Unesite koeficijente:} \ulaz{ 2 3}#
+#\izlaz{Unesite koji clan niza se racuna:} \ulaz{ 5}#
 #\izlaz{F(5) = 61}#
 \end{upotreba}
 \end{miditest}
 \begin{miditest}
 \begin{upotreba}{2}
 #\naslovInt#
-#\izlaz{Unesite koeficijente} \ulaz{4 2}#
-#\izlaz{Unesite koji clan niza se racuna} \ulaz{8}#
+#\izlaz{Unesite redni broj funkcije koju zelite:}# 
+#\izlaz{1 - iterativna}# 
+#\izlaz{2 - rekurzivna}# 
+#\izlaz{3 - rekurzivna napredna}# 
+#\ulaz{3}#
+#\izlaz{Unesite koeficijente:} \ulaz{4 2}#
+#\izlaz{Unesite koji clan niza se racuna:} \ulaz{8}#
 #\izlaz{F(8) = 31360}#
 \end{upotreba}
 \end{miditest}
@@ -178,12 +193,17 @@ Napisati rekurzivnu funkciju koja sabira dekadne cifre datog celog broja $x$. Na
 %%%\subsection{Rekurzivne funkcije za rad sa nizovima}
 
 \begin{Exercise}[label=101]
-Napisati rekurzivnu funkciju koja sumira elemente niza celih brojeva.  Napisati program koji testira napisanu funkciju. Sa standardnog ulaza učitati dimenziju $n$  ($0 < n \leq 100$) celobrojnog niza, a zatim i elemente niza. Na standardni izlaz ispisati
-rezultat primene napisane funkcije nad učitanim nizom.
+Napisati rekurzivnu funkciju koja sumira elemente niza celih brojeva
+\begin{enumerate}
+\item sabirajući elemente počev od početka niza ka kraju niza,
+\item sabirajući elemente počev od kraja niza ka početku niza.
+\end{enumerate}
+Napisati program koji testira napisane funkcije. Sa standardnog ulaza učitati redni broj funkcije, zatim dimenziju $n$  ($0 < n \leq 100$) celobrojnog niza, a potom i elemente niza. Na standardni izlaz ispisati rezultat primene odabrane funkcije nad učitanim nizom.
 
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
+#\izlaz{Unesite redni broj funkcije (1 ili 2):} \ulaz{1}#
 #\izlaz{Unesite dimenziju niza:} \ulaz{5}#
 #\izlaz{Unesite elemente niza:}#
 #\ulaz{1 2 3 4 5}#
@@ -193,6 +213,7 @@ rezultat primene napisane funkcije nad učitanim nizom.
 \begin{miditest}
 \begin{upotreba}{2}
 #\naslovInt#
+#\izlaz{Unesite redni broj funkcije (1 ili 2):} \ulaz{2}#
 #\izlaz{Unesite dimenziju niza:} \ulaz{4}#
 #\izlaz{Unesite elemente niza:}#
 #\ulaz{-5 2 -3 6}#

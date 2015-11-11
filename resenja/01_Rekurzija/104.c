@@ -37,7 +37,7 @@ int main()
 {
   int n;
   scanf("%d", &n);
-  printf("Uneti broj ima %sparan broj cifara\n",
+  printf("Uneti broj ima %sparan broj cifara.\n",
          (paran(n) == 1 ? "" : "ne"));
   return 0;
 }

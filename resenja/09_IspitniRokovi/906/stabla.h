@@ -1,36 +1,50 @@
 #ifndef _STABLA_H_
 #define _STABLA_H_ 1
 
-/* Struktura koja predstavlja cvor stabla, sadrzi vrednost koja se
-   cuva i pokazivace na levo i desno podstablo. */
+/* a) Struktura kojom se predstavlja cvor binarnog pretrazivackog
+   stabla */
 typedef struct cvor {
-  int vrednost;
-  struct cvor *levi;
-  struct cvor *desni;
+  int broj;
+  struct cvor *levo;
+  struct cvor *desno;
 } Cvor;
 
-/* Pomocna funkcija za kreiranje cvora. Cvor se kreira dinamicki,
-   funkcijom malloc(). Povratna vrednost funkcije je NULL ukoliko
-   dodje do greske, a ukoliko je alokoacija uspesna, cvor se
-   inicijalizuje datim brojem i pokazivaci na podstabla se
-   postavljaju na NULL. Funkcija vraca adresu novokreiranog cvora */
+/* b) Funkcija koja alocira memoriju za novi cvor stabla,
+   inicijalizuje polja strukture i vraca pokazivac na novi cvor */
 Cvor *napravi_cvor(int broj);
 
-/* Funkcija dodaje novi cvor u stablo sa datim korenom. Ukoliko je
-   dodavanje uspesno, povratna vrednost funkcije je 1, dok je u
-   suprotnom povratna vrednost 0 */
-int dodaj_u_stablo(Cvor ** koren, int broj);
+/* c) Funkcija koja dodaje zadati broj u stablo. Povratna vrednost
+   funkcije je 0 ako je dodavanje uspesno, odnosno 1 ukoliko je doslo 
+   do greske */
+int dodaj_u_stablo(Cvor ** adresa_korena, int broj);
 
-/* Funkcija prikazuje stablo s leva u desno (tj. prikazuje elemente u 
-   rastucem poretku) */
-void prikazi_stablo(Cvor * koren);
+/* d) Funkcija koja proverava da li se zadati broj nalazi stablu */
+Cvor *pretrazi_stablo(Cvor * koren, int broj);
 
-/* Funkcija ucitava stablo sa standardnog ulaza do kraja ulaza.
-   Povratna vrednost funkcije je 0 ukoliko je stablo uspesno
-   kreirano, odnosno 1 ako je doslo do greske */
-int ucitaj_stablo(Cvor ** koren);
+/* e) Funkcija koja pronalazi cvor koji sadrzi najmanju vrednost u
+   stablu */
+Cvor *pronadji_najmanji(Cvor * koren);
 
-/* Funkcija oslobadja prostor koji je alociran za cvorove stabla. */
-void oslobodi_stablo(Cvor ** koren);
+/* f) Funkcija koja pronalazi cvor koji sadrzi najvecu vrednost u
+   stablu */
+Cvor *pronadji_najveci(Cvor * koren);
+
+/* g) Funkcija koja brise cvor stabla koji sadrzi zadati broj */
+void obrisi_element(Cvor ** adresa_korena, int broj);
+
+/* h) Funkcija koja ispisuje stablo u infiksnoj notaciji (Levo
+   postablo - Koren - Desno podstablo ) */
+void ispisi_stablo_infiksno(Cvor * koren);
+
+/* i) Funkcija koja ispisuje stablo u prefiksnoj notaciji ( Koren -
+   Levo podstablo - Desno podstablo ) */
+void ispisi_stablo_prefiksno(Cvor * koren);
+
+/* j) Funkcija koja ispisuje stablo postfiksnoj notaciji ( Levo
+   podstablo - Desno postablo - Koren) */
+void ispisi_stablo_postfiksno(Cvor * koren);
+
+/* k) Funkcija koja oslobadja memoriju zauzetu stablom.  */
+void oslobodi_stablo(Cvor ** adresa_korena);
 
 #endif

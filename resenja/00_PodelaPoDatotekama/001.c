@@ -119,6 +119,10 @@ int main()
   /* Deklaracija 3 promenljive tipa KompleksanBroj */
   KompleksanBroj z1, z2, z;
 
+  /* Ucitavanje znaka na osnovu koga korisnik bira koja aritmeticka
+     operacija ce se vrsiti nad kompleksnim brojevima.  */
+  printf("Unesite znak (+,-,*):");
+  scanf("%c", &c);
 
   /* Ucitavanje prvog kompleksnog broja u promenljivu z1, a potom
      njegovo ispisivanje na standardni izlaz */
@@ -131,10 +135,6 @@ int main()
   ucitaj_kompleksan_broj(&z2);
   ispisi_kompleksan_broj(z2);
   printf("\n");
-  getchar();
-
-  printf("Unesite znak (+,-,*):");
-  c = getchar();
 
   if (c == '+') {
     /* Sabiranje kompleksnih brojeva */
