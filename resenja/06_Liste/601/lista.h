@@ -2,7 +2,7 @@
 #define _LISTA_H_
 
 /* Struktura kojom je predstavljen cvor liste sadrzi celobrojni
-   podatak vrednost i pokazivac na sledeci cvor liste. */
+   podatak vrednost i pokazivac na sledeci cvor liste */
 typedef struct cvor {
   int vrednost;
   struct cvor *sledeci;
@@ -33,8 +33,9 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj);
    nov cvor sa vrednoscu broj. */
 Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj);
 
-/* Funkcija uvezuje cvor novi iza postojeceg cvora tekuci. */
-void dodaj_iza(Cvor * tekuci, Cvor * novi);
+/* Funkcija dodaje broj iza zadatog cvora. Vraca 1 ukoliko je
+   dodavanje uspesno, odnosno 0 ukoliko je doslo do greske. */
+int dodaj_iza(Cvor * tekuci, Cvor * novi);
 
 /* Funkcija dodaje broj u sortiranu listu tako da lista ostane
    sortirana. Vraca 1 ukoliko je bilo greske pri alokaciji memorije,

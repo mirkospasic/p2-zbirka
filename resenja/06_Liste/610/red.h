@@ -24,16 +24,16 @@ typedef struct cvor {
 /* Funkcija kreira novi cvor, inicijalizuje polje nalog na zahtev sa
    poslate adrese i vraca adresu novog cvora ili NULL ako je doslo do 
    greske pri alokaciji. Prosledjuje joj se pokazivac na zahtev koji
-   treba smestiti u nov cvor zbog smestanja manjeg podatka na
+   treba smestiti u novi cvor zbog smestanja manjeg podatka na
    sistemski stek. Pokazivac na strukturu Zahtev je manje velicine u
    bajtovima(B) u odnosu na strukturu Zahtev. */
 Cvor *napravi_cvor(Zahtev * zahtev);
 
-/* Funkcija prazni red, oslobadjajuci memoriju koji je red zauzeo. */
+/* Funkcija prazni red oslobadjajuci memoriju koji je red zauzimao */
 void oslobodi_red(Cvor ** pocetak, Cvor ** kraj);
 
 /* Funkcija dodaje na kraj reda novi zahtev. Vraca 1 ako je doslo do
-   greske pri alokaciji memorije za nov cvor, inace vraca 0. */
+   greske pri alokaciji memorije za novi cvor, inace vraca 0. */
 int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
                 Zahtev * zahtev);
 
@@ -45,8 +45,8 @@ int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
 int skini_sa_reda(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
                   Zahtev * zahtev);
 
-/* Funkcija vraca pokazivac na strukturu koji sadrzi zahtev korisnika 
-   na pocetku reda. Ukoliko je red prazan, vraca NULL. */
+/* Funkcija vraca pokazivac na strukturu koja sadrzi zahtev korisnika 
+   na pocetku reda. Ukoliko je red prazan funkcija vraca NULL. */
 Zahtev *pocetak_reda(Cvor * pocetak);
 
 /* Funkcija prikazuje sadrzaj reda. */

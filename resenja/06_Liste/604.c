@@ -6,7 +6,7 @@
 #define MAX_IME_PREZIME 21
 
 /* Struktura kojom se predstavlja cvor liste koji sadrzi podatke o
-   studentu. */
+   studentu */
 typedef struct _Cvor {
   char broj_indeksa[MAX_INDEKS];
   char ime[MAX_IME_PREZIME];
@@ -14,11 +14,11 @@ typedef struct _Cvor {
   struct _Cvor *sledeci;
 } Cvor;
 
-/* Funkcija kreira, inicijalizuje cvor liste i vraca pokazivac na nov 
-   cvor ili NULL ukoliko alokacija nije prosla. */
+/* Funkcija kreira i inicijalizuje cvor liste i vraca pokazivac na
+   novi cvor ili NULL ukoliko je doslo do greske */
 Cvor *napravi_cvor(char *broj_indeksa, char *ime, char *prezime)
 {
-  /* Alocira se memorija za novi cvor liste i proverava uspesnost
+  /* Alocira se memorija za novi cvor liste i proverava se uspesnost
      alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
@@ -30,21 +30,24 @@ Cvor *napravi_cvor(char *broj_indeksa, char *ime, char *prezime)
   strcpy(novi->prezime, prezime);
   novi->sledeci = NULL;
 
+  /* Vraca se adresa novog cvora */
   return novi;
 }
 
-/* Funkcija oslobadja memoriju zauzetu za cvorove liste. */
+/* Funkcija oslobadja memoriju zauzetu cvorovima liste */
 void oslobodi_listu(Cvor ** adresa_glave)
 {
-  /* Ako je lista prazna, nema zauzete memorije. */
+  /* Ako je lista prazna, nema potrebe oslobadjati memoriju */
   if (*adresa_glave == NULL)
     return;
 
-  /* Rep liste se oslobadja rekurzivnim pozivom. */
+  /* Rekurzivnim pozivom se oslobadja rep liste */
   oslobodi_listu(&(*adresa_glave)->sledeci);
 
-  /* Potom se oslobadja i glava liste. */
+  /* Potom se oslobadja i glava liste */
   free(*adresa_glave);
+
+  /* Proglasava se lista praznom */
   *adresa_glave = NULL;
 }
 
@@ -53,15 +56,16 @@ void oslobodi_listu(Cvor ** adresa_glave)
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, char *broj_indeksa,
                            char *ime, char *prezime)
 {
-  /* Kreira se nov cvor i proverava se da li je bilo greske pri
-     alokaciji. */
+  /* Kreira se novi cvor i proverava se uspesnost alokacije */
   Cvor *novi = napravi_cvor(broj_indeksa, ime, prezime);
   if (novi == NULL)
     return 1;
 
+  /* Dodaje se novi cvor na pocetak liste */
   novi->sledeci = *adresa_glave;
   *adresa_glave = novi;
 
+  /* Vraca se indikator uspesnog dodavanja */
   return 0;
 }
 
@@ -74,35 +78,34 @@ void ispisi_listu(Cvor * glava)
            glava->prezime);
 }
 
-/* Funkcija vraca cvor koji kao vrednost sadrzi trazenu etiketu, u
-   suprotnom vraca NULL. */
+/* Funkcija vraca cvor koji kao vrednost sadrzi trazeni broj indeksa. 
+   U suprotnom funkcija vraca NULL */
 Cvor *pretrazi_listu(Cvor * glava, char *broj_indeksa)
 {
-  /* Ako je lista prazna, ne postoji trazeni cvor. */
+  /* Ako je lista prazna, ne postoji trazeni cvor */
   if (glava == NULL)
     return NULL;
 
-  /* Poredi se trazeni sa brojem indeksa u cvoru koji je glava liste */
+  /* Poredi se trazeni broj indeksa sa brojem indeksa u glavi liste */
   if (!strcmp(glava->broj_indeksa, broj_indeksa))
     return glava;
 
-  /* Ukoliko u cvoru glava nije trazeni indeks, pretraga se nastavlja 
-     u repu liste. */
+  /* Ukoliko u glavi liste nije trazeni indeks, pretraga se nastavlja 
+     u repu liste */
   return pretrazi_listu(glava->sledeci, broj_indeksa);
 }
 
-/* Glavni program */
 int main(int argc, char **argv)
 {
   /* Argumenti komandne linije su neophodni jer se iz komandne linije 
-     dobija ime datoteke sa informacijama o studentima. */
+     dobija ime datoteke sa informacijama o studentima */
   if (argc != 2) {
     fprintf(stderr,
             "Greska! Program se poziva sa: ./a.out ime_datoteke\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke za citanje */
+  /* Priprema datoteke za citanje */
   FILE *in = NULL;
   in = fopen(argv[1], "r");
   if (in == NULL) {

@@ -16,7 +16,7 @@ int main(int argc, char **argv)
     exit(0);
   }
 
-  /* Datoteka se otvara za citanje. */
+  /* Datoteka se otvara za citanje */
   if ((f = fopen(argv[1], "r")) == NULL) {
     fprintf(stderr, "Greska prilikom otvaranja datoteke %s.\n",
             argv[1]);
@@ -62,19 +62,19 @@ int main(int argc, char **argv)
       }
     }
   }
-  /* Zavrseno je citanje i datoteka se zatvara. */
+  /* Zavrseno je citanje i datoteka se zatvara */
   fclose(f);
 
   /* Ako do sada nije pronadjeno pogresno uparivanje, stek bi trebalo 
      da bude prazan. Ukoliko nije, tada postoje etikete koje su
-     ostale otvorene. */
+     ostale otvorene */
   if (uparene) {
     if (vrh_steka(vrh) == NULL)
       printf("Etikete su pravilno uparene!\n");
     else {
       printf("Etikete nisu pravilno uparene\n");
       printf("(etiketa <%s> nije zatvorena)\n", vrh_steka(vrh));
-      /* Oslobadja se memorija zauzeta stekom. */
+      /* Oslobadja se memorija zauzeta stekom */
       oslobodi_stek(&vrh);
     }
   }

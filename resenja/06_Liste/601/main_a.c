@@ -5,7 +5,7 @@
 /* 1) Glavni program */
 int main()
 {
-  /* Lista je prazna na pocetku. */
+  /* Lista je prazna na pocetku */
   Cvor *glava = NULL;
   Cvor *trazeni = NULL;
   int broj;
@@ -25,6 +25,7 @@ int main()
     ispisi_listu(glava);
   }
 
+  /* Testiranje funkcije za pretragu liste */
   printf("\nUnesite broj koji se trazi: ");
   scanf("%d", &broj);
 
@@ -34,6 +35,7 @@ int main()
   else
     printf("Trazeni broj %d je u listi!\n", trazeni->vrednost);
 
+  /* Oslobadja se memorija zauzeta listom */
   oslobodi_listu(&glava);
 
   return 0;

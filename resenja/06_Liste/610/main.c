@@ -17,25 +17,31 @@ int main(int argc, char **argv)
   /* Sluzbenik evidentira korisnicke zahteve unosenjem njihovog JMBG
      broja i opisa potrebne usluge. */
   printf("Sluzbenik evidentira korisnicke zahteve:\n");
+  while (1) {
 
-  printf("\nNovi zahtev [CTRL+D za kraj]\n\tJMBG: ");
-  while (scanf("%s", nov_zahtev.jmbg) != EOF) {
+    /* Ucitava se JMBG */
+    printf("\nNovi zahtev [CTRL+D za kraj]\n\tJMBG: ");
+    if (scanf("%s", nov_zahtev.jmbg) == EOF)
+      break;
+
     /* Neophodan je poziv funkcije getchar da bi se i nov red nakon
        JMBG broja procitao i da bi fgets nakon toga procitala
-       ispravan red sa opisom zahteva. */
+       ispravan red sa opisom zahteva */
     getchar();
+
+    /* Ucitava se opis problema */
     printf("\tOpis problema: ");
     fgets(nov_zahtev.opis, MAX - 1, stdin);
-    /* Ako je poslednji karakter nov red, eliminise se. */
+    /* Ako je poslednji karakter nov red, eliminise se */
     if (nov_zahtev.opis[strlen(nov_zahtev.opis) - 1] == '\n')
       nov_zahtev.opis[strlen(nov_zahtev.opis) - 1] = '\0';
+
+    /* Dodaje se zahtev u red i proverava se uspesnost dodavanja */
     if (dodaj_u_red(&pocetak, &kraj, &nov_zahtev) == 1) {
       fprintf(stderr, "Neuspela alokacija za nov cvor\n");
       oslobodi_red(&pocetak, &kraj);
       exit(EXIT_FAILURE);
     }
-
-    printf("\nNovi zahtev [CTRL+D za kraj]\n\tJMBG: ");
   }
 
   /* Otvaranje datoteke za dopisivanje izvestaja */
@@ -45,10 +51,10 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Dokle god ima korisnika u redu, treba ih usluziti. */
+  /* Dokle god ima korisnika u redu, treba ih usluziti */
   while (1) {
     sledeci = pocetak_reda(pocetak);
-    /* Ako nema nikog vise u redu, prekida se petlja. */
+    /* Ako nema nikog vise u redu, prekida se petlja */
     if (sledeci == NULL)
       break;
 

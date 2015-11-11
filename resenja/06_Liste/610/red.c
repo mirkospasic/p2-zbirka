@@ -11,6 +11,8 @@ Cvor *napravi_cvor(Zahtev * zahtev)
   /* Inicijalizacija polja strukture */
   novi->nalog = *zahtev;
   novi->sledeci = NULL;
+
+  /* Vraca se adresa novog cvora */
   return novi;
 }
 
@@ -18,10 +20,10 @@ void oslobodi_red(Cvor ** pocetak, Cvor ** kraj)
 {
   Cvor *pomocni = NULL;
 
-  /* Sve dok red nije prazan brise se cvor koji je pocetka reda. */
+  /* Sve dok red nije prazan brise se cvor koji je pocetka reda */
   while (*pocetak != NULL) {
     /* Potrebno je prvo zapamtiti adresu sledeceg cvora i onda
-       osloboditi cvor sa pocetka reda. */
+       osloboditi cvor sa pocetka reda */
     pomocni = *pocetak;
     *pocetak = (*pocetak)->sledeci;
     free(pomocni);
@@ -34,11 +36,11 @@ void oslobodi_red(Cvor ** pocetak, Cvor ** kraj)
 int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
                 Zahtev * zahtev)
 {
-  /* Kreira se nov cvor i proverava se da li je bilo greske pri
-     alokaciji. */
+  /* Kreira se novi cvor i proverava se uspesnost kreiranja */
   Cvor *novi = napravi_cvor(zahtev);
   if (novi == NULL)
     return 1;
+
   /* U red se uvek dodaje na kraj. Zbog postojanja pokazivaca na
      kraj, to je podjednako efikasno kao dodavanje na pocetak liste */
   if (*adresa_kraja != NULL) {
@@ -49,6 +51,8 @@ int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
     *adresa_pocetka = novi;
     *adresa_kraja = novi;
   }
+
+  /* Vraca se indikator uspesnog dodavanja */
   return 0;
 }
 
@@ -74,27 +78,28 @@ int skini_sa_reda(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
   free(pomocni);
 
   /* Ukoliko red nakon oslobadjanja pocetnog cvora ostane prazan,
-     potrebno je azurirati i vrednost pokazivaca na aredi
-     adresa_kraja na NULL, jer je red prazan. */
+     potrebno je azurirati i vrednost pokazivaca na adresi
+     adresa_kraja na NULL */
   if (*adresa_pocetka == NULL)
     *adresa_kraja = NULL;
+
 
   return 1;
 }
 
 Zahtev *pocetak_reda(Cvor * pocetak)
 {
-  /* U praznom redu nema zahteva. */
+  /* U praznom redu nema zahteva */
   if (pocetak == NULL)
     return NULL;
 
-  /* Inace, vraca se pokazivac na zahtev sa pocetka reda. */
+  /* Inace, vraca se pokazivac na zahtev sa pocetka reda */
   return &(pocetak->nalog);
 }
 
 void prikazi_red(Cvor * pocetak)
 {
-  /* Prikazuje se sadrzaj reda od pocetka prema kraju. */
+  /* Prikazuje se sadrzaj reda od pocetka prema kraju */
   for (; pocetak != NULL; pocetak = pocetak->sledeci)
     printf("%s %s\n", (pocetak->nalog).jmbg, (pocetak->nalog).opis);
 

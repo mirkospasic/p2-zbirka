@@ -2,7 +2,7 @@
 
 Cvor *napravi_cvor(char *etiketa)
 {
-  /* Alocira se memorija za novi cvor liste i proverava uspesnost
+  /* Alocira se memorija za novi cvor liste i proverava se uspesnost
      alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
@@ -15,6 +15,8 @@ Cvor *napravi_cvor(char *etiketa)
   }
   strcpy(novi->etiketa, etiketa);
   novi->sledeci = NULL;
+
+  /* Vraca se adresa novog cvora */
   return novi;
 }
 
@@ -22,28 +24,28 @@ void oslobodi_stek(Cvor ** adresa_vrha)
 {
   Cvor *pomocni;
 
-  /* Sve dok stek nije prazan, brise se cvor koji je vrh steka. */
+  /* Sve dok stek nije prazan, brise se cvor koji je vrh steka */
   while (*adresa_vrha != NULL) {
     /* Potrebno je prvo zapamtiti adresu sledeceg cvora i onda
-       osloboditi cvor koji predstavlja vrh steka. */
+       osloboditi cvor koji predstavlja vrh steka */
     pomocni = *adresa_vrha;
-    /* Sledeci cvor je novi vrh steka. */
+    /* Sledeci cvor je novi vrh steka */
     *adresa_vrha = (*adresa_vrha)->sledeci;
     free(pomocni);
   }
+
   /* Nakon izlaska iz petlje stek je prazan i pokazivac na adresi
      adresa_vrha ce pokazivati na NULL. */
 }
 
 int potisni_na_stek(Cvor ** adresa_vrha, char *etiketa)
 {
-  /* Kreira se nov cvor i proverava se da li je bilo greske pri
-     alokaciji. */
+  /* Kreira se novi cvor i proverava se uspesnost kreiranja */
   Cvor *novi = napravi_cvor(etiketa);
   if (novi == NULL)
     return 1;
 
-  /* Novi cvor se uvezuje na vrh i postaje nov vrh steka. */
+  /* Novi cvor se uvezuje na vrh i postaje nov vrh steka */
   novi->sledeci = *adresa_vrha;
   *adresa_vrha = novi;
   return 0;
@@ -53,27 +55,28 @@ int skini_sa_steka(Cvor ** adresa_vrha, char *etiketa)
 {
   Cvor *pomocni;
 
-  /* Pokusaj skidanja vrednost sa vrha praznog steka rezultuje
-     greskom i vraca se 0. */
+  /* Pokusaj skidanja vrednosti sa praznog steka rezultuje greskom i
+     vraca se 0 */
   if (*adresa_vrha == NULL)
     return 0;
 
   /* Ako adresa na koju se smesta etiketa nije NULL, onda se na tu
-     adresu kopira etiketa sa vrha steka. */
+     adresu kopira etiketa sa vrha steka */
   if (etiketa != NULL)
     strcpy(etiketa, (*adresa_vrha)->etiketa);
 
-  /* Element sa vrha steka se uklanja. */
+  /* Element sa vrha steka se uklanja */
   pomocni = *adresa_vrha;
   *adresa_vrha = (*adresa_vrha)->sledeci;
   free(pomocni);
 
+  /* Vraca se indikator uspesno izvrsene radnje */
   return 1;
 }
 
 char *vrh_steka(Cvor * vrh)
 {
-  /* Prazan stek nema cvor koji je vrh i vraca se NULL. */
+  /* Prazan stek nema cvor koji je vrh i vraca se NULL */
   if (vrh == NULL)
     return NULL;
 
@@ -112,7 +115,7 @@ int uzmi_etiketu(FILE * f, char *etiketa)
       break;
     case PROCITANO_MANJE:
       if (c == '/') {
-        /* Cita se zatvorena etiketa. */
+        /* Cita se zatvorena etiketa */
         tip = ZATVORENA;
       } else {
         if (isalpha(c)) {
@@ -121,18 +124,18 @@ int uzmi_etiketu(FILE * f, char *etiketa)
           etiketa[i++] = tolower(c);
         }
       }
-      /* Od sada se cita etiketa i zato se menja stanje. */
+      /* Od sada se cita etiketa i zato se menja stanje */
       stanje = U_ETIKETI;
       break;
     case U_ETIKETI:
       if (isalpha(c) && i < MAX - 1) {
-        /* Ako je procitani karakter slovo i nije premasena
+        /* Ako je procitani karakter slovo i nije prekoracena
            dozvoljena duzina etikete, procitani karakter se smanjuje
-           i smesta u etiketu. */
+           i smesta u etiketu */
         etiketa[i++] = tolower(c);
       } else {
         /* Inace, staje se sa citanjem etikete. Korektno se zavrsava
-           niska koja sadrzi procitanu etiketu i vraca se njen tip. */
+           niska koja sadrzi procitanu etiketu i vraca se njen tip */
         etiketa[i] = '\0';
         return tip;
       }

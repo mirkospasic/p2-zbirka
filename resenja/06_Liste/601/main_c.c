@@ -5,12 +5,13 @@
 /* 3) Glavni program */
 int main()
 {
+  /* Lista je prazna na pocetku */
   Cvor *glava = NULL;
   Cvor *trazeni = NULL;
   int broj;
 
-  /* Testira se dodavanje u listu tako da ona bude neopadajuce
-     uredjena */
+  /* Testira se funkcija za dodavanje vrednosti u listu tako da bude
+     uredjena neopadajuce */
   printf("Unosite brojeve (za kraj CTRL+D)\n");
   while (scanf("%d", &broj) > 0) {
     /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
@@ -25,6 +26,7 @@ int main()
     ispisi_listu(glava);
   }
 
+  /* Testira se funkcija za pretragu liste */
   printf("\nUnesite broj koji se trazi: ");
   scanf("%d", &broj);
 
@@ -34,6 +36,7 @@ int main()
   else
     printf("Trazeni broj %d je u listi!\n", trazeni->vrednost);
 
+  /* Testira se funkcija kojom se brise cvor liste */
   printf("\nUnesite broj koji se brise: ");
   scanf("%d", &broj);
 
@@ -44,6 +47,7 @@ int main()
   printf("Lista nakon brisanja:  ");
   ispisi_listu(glava);
 
+  /* Oslobadja se memorija zauzeta listom */
   oslobodi_listu(&glava);
 
   return 0;
