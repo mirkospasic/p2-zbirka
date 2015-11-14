@@ -1,59 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-/* Funkcija dinamicki alocira prostor za kvadratnu matricu dimenzije 
-   n  */
-int **alociraj_matricu(int n)
-{
-  int **matrica = NULL;
-  int i, j;
-
-  /* Alocira se prostor za niz vrsti matrice */
-  matrica = (int **) malloc(n * sizeof(int *));
-  /* Ako alokacija nije prosla uspesno, povratna vrednost funkcije ce
-     biti NULL, sto mora biti provereno u main funkciji */
-  if (matrica == NULL)
-    return NULL;
-
-  /* Alocira se prostor za svaku vrstu matrice */
-  for (i = 0; i < n; i++) {
-    matrica[i] = (int *) malloc(n * sizeof(int));
-    /* Ako alokacija nije prosla uspesno, oslobadjaju se svi
-       prethodno alocirani resursi, i povratna vrednost je NULL */
-    if (matrica[i] == NULL) {
-      for (j = 0; j < i; j++)
-        free(matrica[j]);
-      free(matrica);
-      return NULL;
-    }
-  }
-  return matrica;
-}
-
-/* Funkcija oslobadja dinamicki alociranu memoriju */
-int **dealociraj_matricu(int **matrica, int n)
-{
-  int i;
-  /* Oslobadja se prostor rezervisan za svaku vrstu */
-  for (i = 0; i < n; i++)
-    free(matrica[i]);
-  /* Oslobadja se memorija za niz pokazivaca na vrste */
-  free(matrica);
-
-  /* Matrica postaje prazna, tj. nealocirana */
-  return NULL;
-}
-
-/* Funkcija ucitava sa standardnog ulaza elemente matrice */
-void ucitaj_matricu(int **matrica, int n)
-{
-  int i, j;
-  /* Elementi matrice se ucitacaju po vrstama */
-  for (i = 0; i < n; i++)
-    for (j = 0; j < n; j++)
-      scanf("%d", &matrica[i][j]);
-}
-
+#inlcude "matrica.h"
 
 /* Funkcija racuna zbir elemenata v-te vrste */
 int zbir_vrste(int **M, int n, int v)

@@ -8,7 +8,6 @@
 char **alociranje_memorije(int n)
 {
   char **linije = NULL;	
-  printf("Usli u funkciju ");
   int i, j;
   /* Alocira se prostor za niz vrsti matrice */
   linije = (char **) malloc(n * sizeof(char *));
@@ -98,7 +97,7 @@ int main(int argc, char *argv[])
   
   /* Zatvaranje datoteku. */ 
   fclose(ulaz);
-  return 0;
+  exit(EXIT_SUCCESS);
 }
 
 

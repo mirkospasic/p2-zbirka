@@ -3,32 +3,42 @@
 %%%\subsection{Rekurzivne funkcije nad brojevima}
 
 \begin{Exercise}[label=102]
-Napisati rekurzivnu funkciju koja izračunava  $x^k$,  za dati ceo broj $x$ i prirodan broj $k$.
-Napisati program koji testira napisanu funkciju za vrednosti koje se unose sa standardnog ulaza.
+Napisati rekurzivnu funkciju koja izračunava  $x^k$, za dati ceo broj $x$ i prirodan broj $k$
+\begin{enumerate}
+\item tako da rešenje bude linearno,
+\item tako da rešenje bude logaritamsko.
+\end{enumerate}
+Napisati program koji testira napisane funkciju tako što se sa standardnog ulaza najpre unosi redni broj funckije koja se primenjuje, a zatim i ceo broj $x$ i prirodan broj $k$, a potom se na standarni izlaz ispisuje rezultat primene odgovarajuće funkcije na unete brojeve.
  
 \begin{minitest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{2 10}#
-#\naslovIzlaz#
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite redni broj funkcije (1/2):}# 
+#\ulaz{1}#
+#\izlaz{Unesite broj x:} \ulaz{ 2}#
+#\izlaz{Unesite broj k:} \ulaz{ 10}#
 #\izlaz{1024}#
-\end{test}
+\end{upotreba}
 \end{minitest}
 \begin{minitest}
-\begin{test}{2}
-#\naslovUlaz#
-#\ulaz{5 3}#
-#\naslovIzlaz#
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite redni broj funkcije (1/2):}# 
+#\ulaz{1}#
+#\izlaz{Unesite broj x:} \ulaz{ 5}#
+#\izlaz{Unesite broj k:} \ulaz{ 3}#
 #\izlaz{125}#
-\end{test}
+\end{upotreba}
 \end{minitest}
 \begin{minitest}
-\begin{test}{3}
-#\naslovUlaz#
-#\ulaz{9 4}#
-#\naslovIzlaz#
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesite redni broj funkcije (1/2):}# 
+#\ulaz{1}#
+#\izlaz{Unesite broj x:} \ulaz{ 9}#
+#\izlaz{Unesite broj k:} \ulaz{ 4}#
 #\izlaz{6561}#
-\end{test}
+\end{upotreba}
 \end{minitest}    
  
 \linkresenje{102}

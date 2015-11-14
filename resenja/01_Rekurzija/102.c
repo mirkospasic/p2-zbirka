@@ -7,7 +7,6 @@
 *************************************************************/
 int stepen(int x, int k)
 {
-  // printf("Racunam stepen (%d, %d)\n", x, k); 
   if (k == 0)
     return 1;
 
@@ -29,7 +28,6 @@ int stepen(int x, int k)
 *************************************************************/
 int stepen2(int x, int k)
 {
-  // printf("Racunam stepen2 (%d, %d)\n",x,k); 
   if (k == 0)
     return 1;
 
@@ -40,18 +38,23 @@ int stepen2(int x, int k)
   return x * stepen2(x * x, k / 2);
 }
 
-/* U prethodnim funkcijama iskomentarisan je poziv funkcije prinf
-   koji ispisuje odgovarajucu poruku prilikom svakog ulaska us
-   funkciju. Odkomentarisati pozive printf funkcije u obe funkcije da 
-   uocite razliku u broju rekurzivnih poziva obe verzije. */
-
 int main()
 {
-  int x, k;
-  scanf("%d%d", &x, &k);
+  int x, k, ind;
+  /*Unosi se redni broj funkcije koja ce se primeniti */
+  printf("Unesite redni broj funkcije (1/2):\n");
+  scanf("%d", &ind);
+  /* Unose se vrednosti za x i k */
+  printf("Unesite broj x:\n");
+  scanf("%d%d", &x);
+  printf("Unesite broj k:\n");
+  scanf("%d%d", &k);
 
-  printf("%d\n", stepen(x, k));
-  // printf("\n------------------\n");
-  // printf("%d\n",stepen2(2,10));
+  /* Ispisivanje vrednsoti koju vraca odgovarajuca funkcija */
+  if(x == 1)
+    printf("%d\n", stepen(x, k));
+  else
+    printf("%d\n",stepen2(x, k));
+	
   return 0;
 }

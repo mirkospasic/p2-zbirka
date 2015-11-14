@@ -31,20 +31,19 @@ int count(int x)
     return 1 + count(x << 1);
   else
     return count(x << 1);
-
+  /******************************************************************
+    Krace napisano
+    return ((x& (1<<(sizeof(x)*8-1))) ? 1 : 0) + count(x<<1);
+  ******************************************************************/
 }
-
-/*************************************************************
-     Telo prethodne funkcije se moze zapisati i krace (jednolinijska
-	 return naredba sa proverom i rekurzivnim pozivom):
-     return ((x& (1<<(sizeof(x)*8-1))) ? 1 : 0) + count(x<<1); 
-*************************************************************/
-
 
 int main()
 {
   int x;
+  /* Sa standardnog ulaza se ucitava ceo broj */
   scanf("%x", &x);
+  /* Na standardni izlaz se ispisuje rezultat poziva funkcije count 
+     za uneti broj */
   printf("%d\n", count(x));
 
   return 0;

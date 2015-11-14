@@ -72,5 +72,5 @@ int main()
   /* Pronalazenje kolone koja sadrzi najveci broj negativnih 
      elemenata i ispisivanje trazenog rezultata */ 
   printf("%d\n", max_indeks(m, v, k));
-  return 0;
+  exit(EXIT_SUCCESS);
 }

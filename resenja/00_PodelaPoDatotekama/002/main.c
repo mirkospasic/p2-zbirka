@@ -5,7 +5,7 @@ i popis deklaracija podrzanih funkcija, a u complex.c se nalaze
 njihove definicije.
 
 Kompilacija programa se najjednostavnije postize naredbom
-gcc -Wall -lm -o izvrsni complex.c main.c 
+gcc -Wall -lm -o complex complex.c main.c 
  
 Kompilacija se moze uraditi i na sledeci nacin:
 gcc -Wall -c -o complex.o complex.c
@@ -15,8 +15,8 @@ gcc -lm -o complex complex.o main.o
 Napomena: Prethodne komande se koriste kada se sva tri navedena 
 dokumenta nalaze u istom direktorijumu. Ukoliko se biblioteka (npr. 
 complex.c complex.h) nalazi u direktorijumu header_dir prevodjenje 
-se vrsi koriscenjem opcije
--I header_dir
+se vrsi dodavanjem opcije opcije -I header_dir
+gcc -I header_dir -Wall -lm -o complex complex.c main.c 
 ********************************************************************/
 
 

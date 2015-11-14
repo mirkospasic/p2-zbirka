@@ -52,7 +52,7 @@ unsigned najmanji(unsigned x)
   return rezultat;
 }
 
-/* Funkcija prikazuje na standardni ekran binarnu reprezentaciju
+/* Funkcija prikazuje na standardni izlaz binarnu reprezentaciju
    celog broja u memoriji */
 void print_bits(int x)
 {

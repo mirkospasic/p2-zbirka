@@ -86,7 +86,6 @@ int main()
   
   /* Zatvranje datoteke */
   fclose(f);
-  return 0;
-}
+  exit(EXIT_SUCCESS);}
 
 

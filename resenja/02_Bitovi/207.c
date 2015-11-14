@@ -42,6 +42,7 @@ int main()
 {
   unsigned int n;
 
+  /* Sa standardnog ulaza se unosi neoznacen ceo broj */
   scanf("%u", &n);
 
   printf("%d\n", Broj01(n));

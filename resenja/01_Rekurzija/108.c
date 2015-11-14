@@ -1,17 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Rekurzivna funkcija za racunanje binomnog koeficijenta  */
+/* Rekurzivna funkcija za racunanje binomnog koeficijenta */
 int binomniKoeficijent(int n, int k)
 {
-  /*******************************************************************
+  /******************************************************************
     Ako je k=0 ili k=n, onda je binomni koeficijent 0 
 	Ako je k izmedju 0 i n, onda je bk(n,k) = bk(n-1,k-1) + bk(n-1,k)
   ******************************************************************/
-  return (0 < k
-          && k < n) ? binomniKoeficijent(n - 1,
-                                         k - 1) +
-      binomniKoeficijent(n - 1, k) : 1;
+  return (0 < k && k < n) ? binomniKoeficijent(n - 1,k - 1) + 
+								binomniKoeficijent(n - 1, k) : 1;
 }
 
 /******************************************************************
