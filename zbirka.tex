@@ -2,9 +2,12 @@
 
 %\documentclass[b5paper]{book}
 
+\newif\ifrecenzija
+\recenzijatrue
+
 \newif\ifstampanaverzija
-\stampanaverzijatrue
-%\stampanaverzijafalse
+%\stampanaverzijatrue
+\stampanaverzijafalse
 
 \ifstampanaverzija
 \documentclass[pdftex,b5paper,oneside]{book}
@@ -12,6 +15,12 @@
 \setlength{\topmargin}{0mm}
 \fi
 
+\ifrecenzija
+\documentclass[a4paper]{book}
+\setlength{\textheight}{280mm}
+\setlength{\topmargin}{0mm}
+\usepackage[lmargin=3.0cm, rmargin=3.0cm,tmargin=2.5cm,bmargin=2.50cm]{geometry}
+\fi
 
 \input{podesavanja/paketi.tex}
 \input{podesavanja/definisane_komande.tex}
