@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "biblioteka/matrica.h"
+#include "matrica.h"
 
 /* Funkcija ispisuje elemente matrice ispod glavne dijagonale */
 void ispisi_elemente_ispod_dijagonale(int **M, int n, int m)
