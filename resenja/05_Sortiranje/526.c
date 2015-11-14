@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../03_Pokazivaci/biblioteka/matrica.h"
+#include "matrica.h"
 
 /* Funkcija koja odredjuje zbir v-te vrste matrice a koja ima m
    kolona */
