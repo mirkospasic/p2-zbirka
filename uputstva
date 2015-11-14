@@ -1,3 +1,31 @@
+###############################################################################
+
+Preostali poslovi
+
+1. Srediti numeraciju kod listinga
+
+2. Srediti repozitorijum:
+a) treba da sadrzi poddirektorijume za datoteke 
+b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci
+c) napraviti makefile koji ce sve odjednom da prevede, nazubi i upakuje.
+d) dodati readme fajl u koreni foleder repozitorijuma
+
+3. Srediti stderr i stdout izlaz
+
+4. Pregledati konvencije imenovanja koje se koriste kroz zbirku i to usaglasiti
+
+
+###############################################################################
+
+
+
+
+
+
+
+
+
+
 
 Osnovna datoteka je
 zbirka.tex
