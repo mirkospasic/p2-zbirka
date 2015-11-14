@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "matrica.h"
+#include "biblioteka/matrica.h"
 
 /* Funkcija ispisuje elemente matrice ispod glavne dijagonale */
 void ispisi_elemente_ispod_dijagonale(int **M, int n, int m)
@@ -40,5 +40,5 @@ int main()
   /* Oslobadjanje memorije */
   matrica = dealociraj_matricu(matrica, n);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

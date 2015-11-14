@@ -38,5 +38,5 @@ int main()
   /* Oslobadja se memorija zauzeta listom */
   oslobodi_listu(&glava);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

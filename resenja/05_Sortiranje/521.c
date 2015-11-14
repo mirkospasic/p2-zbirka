@@ -128,5 +128,5 @@ int main(int argc, char *argv[])
   else
     printf("Nema studenta sa unetim prezimenom\n");
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

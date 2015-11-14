@@ -13,14 +13,14 @@ int main(int argc, char **argv)
   /* Ime datoteke se preuzima iz komandne linije. */
   if (argc < 2) {
     fprintf(stderr, "Koriscenje: %s ime_html_datoteke\n", argv[0]);
-    exit(0);
+    exit(EXIT_FAILURE);
   }
 
   /* Datoteka se otvara za citanje */
   if ((f = fopen(argv[1], "r")) == NULL) {
     fprintf(stderr, "Greska prilikom otvaranja datoteke %s.\n",
             argv[1]);
-    exit(1);
+    exit(EXIT_FAILURE);
   }
 
   /* Cita se etiketa po etiketa, sve dok ih ima u datoteci. */
@@ -79,5 +79,5 @@ int main(int argc, char **argv)
     }
   }
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

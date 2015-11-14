@@ -90,5 +90,5 @@ int main()
   printf("Vandijagonalna norma matrice je = %d.\n",
          gornja_vandijagonalna_norma(A, n));
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

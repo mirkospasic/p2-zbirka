@@ -194,7 +194,7 @@ int main(int argc, char **argv)
       fprintf(stderr, "Neuspelo dodavanje podataka za %s %s\n", ime,
               prezime);
       oslobodi_stablo(&koren);
-      return 0;
+      exit(EXIT_SUCCESS);
     }
 
   /* Datoteka se zatvara */
@@ -247,5 +247,5 @@ int main(int argc, char **argv)
   /* Oslobadja se memorija zauzeta stablom */
   oslobodi_stablo(&koren);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

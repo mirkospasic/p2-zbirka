@@ -43,5 +43,5 @@ int main()
   /* Oslobadja se memorija alocirana u funkciji nadovezi() */
   free(s);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

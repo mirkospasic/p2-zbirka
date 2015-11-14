@@ -120,5 +120,5 @@ int main(int argc, char **argv)
      koju zauzima red sa neobradjenim zahtevima korisnika. */
   oslobodi_red(&pocetak, &kraj);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

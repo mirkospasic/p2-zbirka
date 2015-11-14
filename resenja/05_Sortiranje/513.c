@@ -162,5 +162,5 @@ int main(int argc, char *argv[])
   /* Zatvaranje datoteke */
   fclose(fp);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

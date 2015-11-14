@@ -104,5 +104,5 @@ int main(int argc, char *argv[])
   printf("Broj negativnih elemenata matrice je %d.\n",
          broj_negativnih(m, n));
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

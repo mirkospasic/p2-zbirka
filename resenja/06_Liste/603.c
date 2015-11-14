@@ -163,5 +163,5 @@ int main(int argc, char **argv)
   /* Oslobadja se memorija zauzeta listom */
   oslobodi_listu(&glava);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

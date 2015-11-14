@@ -28,5 +28,5 @@ int main()
   /* Oslobadja se prostor rezervisan funkcijom malloc() */
   free(p);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

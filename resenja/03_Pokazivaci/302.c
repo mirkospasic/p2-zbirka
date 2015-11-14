@@ -82,5 +82,5 @@ int main()
   printf("Minimalni element niza je %5.3f.\n", min(a, n));
   printf("Maksimalni element niza je %5.3f.\n", max(a, n));
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

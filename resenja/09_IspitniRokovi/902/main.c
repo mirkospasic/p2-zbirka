@@ -41,6 +41,6 @@
     /* Oslobadja se memorija */ 
   oslobodi_stablo(&koren);
   
-  return 0;}
+  exit(EXIT_SUCCESS);}
 
 

@@ -50,5 +50,5 @@ int main()
   /* Ispis povratnih vrednosti funkcija */
   printf("%u %u\n", logaritam_a(x), logaritam_b(x));
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

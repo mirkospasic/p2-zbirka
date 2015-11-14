@@ -101,5 +101,5 @@ int main()
     oslobodi_stek(&stek);
   }
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

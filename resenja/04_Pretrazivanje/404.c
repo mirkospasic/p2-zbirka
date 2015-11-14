@@ -145,5 +145,5 @@ int main(int argc, char *argv[])
       printf("Indeks: %ld, Ime i prezime: %s %s\n",
              dosije[i].indeks, dosije[i].ime, dosije[i].prezime);
   }
-  return 0;
+  exit(EXIT_SUCCESS);
 }

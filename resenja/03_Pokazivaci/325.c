@@ -91,5 +91,5 @@ int main()
   printf("Spiralno ispisana matrica: ");
   ispisi_matricu_spiralno(a, n, m);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

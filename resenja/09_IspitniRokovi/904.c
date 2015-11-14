@@ -37,6 +37,7 @@
   fclose(f);
   /* Ispisivanje vrednosti brojaca */ 
   printf("%d\n", brojac);
-  return 0;}
+  
+  exit(EXIT_SUCCESS);}
 
 

@@ -83,5 +83,6 @@ int main()
 
   printf("Matrica %s ortonormirana.\n",
          ortonormirana(A, n) ? "je" : "nije");
-  return 0;
+  
+  exit(EXIT_SUCCESS);
 }

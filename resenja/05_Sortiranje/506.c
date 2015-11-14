@@ -89,5 +89,5 @@ int main(int argc, char *argv[])
   fclose(fin2);
   fclose(fout);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

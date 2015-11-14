@@ -83,7 +83,7 @@ int main()
   /* Oslobadjanje dinamicki alocirane memorije */ 
   matrica = dealociraj_matricu(matrica, n);
   
-  return 0;
+  exit(EXIT_SUCCESS);
 }
 
 

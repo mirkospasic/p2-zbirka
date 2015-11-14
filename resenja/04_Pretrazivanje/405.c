@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
   if (argc < 2) {
     fprintf(stderr,
             "koriscenje programa: %s ime_datoteke\n", argv[0]);
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
   }
 
   /* Otvaranje datoteke za citanje */
@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
   if (ulaz == NULL) {
     fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
             argv[1]);
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
   }
 
   /* Sve dok ima tacaka u datoteci, one bivaju smestane u niz sa
@@ -113,7 +113,7 @@ int main(int argc, char *argv[])
     /* Ako nije zadata opcija -x ili -y, ispisuje se obavestenje za
        korisnika i prekida se izvrsavanje programa */
     fprintf(stderr, "Pogresna opcija\n");
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
   }
 
   /* Stampanje koordinata trazene tacke */
@@ -122,5 +122,5 @@ int main(int argc, char *argv[])
   /* Zatvaranje datoteke */
   fclose(ulaz);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

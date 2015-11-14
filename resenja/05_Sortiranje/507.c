@@ -137,5 +137,5 @@ int main(int argc, char *argv[])
       printf("%d\n", niz[i]); 
   ******************************************************************/
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

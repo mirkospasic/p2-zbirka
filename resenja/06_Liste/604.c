@@ -144,5 +144,5 @@ int main(int argc, char **argv)
   /* Oslobadja se memorija zauzeta za cvorove liste. */
   oslobodi_listu(&glava);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

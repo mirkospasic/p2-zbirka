@@ -215,7 +215,7 @@ int main(int argc, char **argv)
   if (argc != 3) {
     fprintf(stderr,
             "Greska! Program se poziva sa: ./a.out nivo broj_za_pretragu\n");
-    exit(EXIT_FAILURE);
+    return 1;
   }
   int i = atoi(argv[1]);
   int x = atoi(argv[2]);

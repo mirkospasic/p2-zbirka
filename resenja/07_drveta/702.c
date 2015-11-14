@@ -218,7 +218,7 @@ int main(int argc, char **argv)
     if (dodaj_u_stablo(&koren, rec) == 1) {
       fprintf(stderr, "Neuspelo dodavanje reci %s\n", rec);
       oslobodi_stablo(&koren);
-      return 0;
+      exit(EXIT_SUCCESS);
     }
   }
 
@@ -246,5 +246,5 @@ int main(int argc, char **argv)
   /* Oslobadja se dinamicki alociran prostor za stablo */
   oslobodi_stablo(&koren);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

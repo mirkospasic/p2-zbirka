@@ -69,6 +69,6 @@ int dopuni_listu(Cvor ** adresa_glave)
     /* Oslobadjanje liste */ 
   oslobodi_listu(&glava);
   
-  return 0;}
+  exit(EXIT_SUCCESS);}
 
 

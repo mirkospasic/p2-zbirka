@@ -187,5 +187,5 @@ int main(int argc, char **argv)
   /* Zatvaranje datoteke */
   fclose(f);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

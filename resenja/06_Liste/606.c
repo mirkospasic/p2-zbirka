@@ -128,5 +128,5 @@ int main(int argc, char **argv)
      Njenim oslobadjanjem bice oslobodjena sva zauzeta memorija. */
   oslobodi_listu(&rezultat);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

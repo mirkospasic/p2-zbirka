@@ -83,7 +83,6 @@ int skini_sa_reda(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
   if (*adresa_pocetka == NULL)
     *adresa_kraja = NULL;
 
-
   return 1;
 }
 

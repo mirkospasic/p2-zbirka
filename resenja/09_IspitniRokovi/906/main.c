@@ -57,6 +57,6 @@ int prebrojN(Cvor * koren, int n)
   /* Oslobadjanje dinamicki alociranog stabla */
   oslobodi_stablo(&koren);
   
-  return 0;}
+  exit(EXIT_SUCCESS);}
 
 

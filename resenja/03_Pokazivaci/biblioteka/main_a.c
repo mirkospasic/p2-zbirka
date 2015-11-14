@@ -51,5 +51,5 @@ int main()
   /* Dealokacija matrice */
   matrica = dealociraj_matricu(matrica, n);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

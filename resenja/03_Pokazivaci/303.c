@@ -62,5 +62,5 @@ int main()
     printf("%d ", *p);
   printf("\n");
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

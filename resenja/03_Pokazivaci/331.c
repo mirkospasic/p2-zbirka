@@ -64,5 +64,5 @@ int main()
   /* Oslobadja se memorija za niz pokazivaca na vrste */
   free(A);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

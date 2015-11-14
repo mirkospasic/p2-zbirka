@@ -109,5 +109,5 @@ int main()
   printf("Proizvod matrica je:\n");
   ispisi_matricu(proizvod, n);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

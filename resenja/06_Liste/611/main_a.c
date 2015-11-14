@@ -48,5 +48,5 @@ int main()
   /* Oslobadja se memorija zauzeta za cvorove liste */
   oslobodi_listu(&glava, &kraj);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }
