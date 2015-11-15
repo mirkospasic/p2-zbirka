@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 /***************************************************************
    Funckija postavlja na nulu n bitova pocev od pozicije p.
    Pozicije se broje pocev od pozicije najnizeg bita, pri cemu
@@ -56,7 +55,6 @@ unsigned set(unsigned x, unsigned n, unsigned p)
 
   return x | maska;
 }
-
 
 /***************************************************************
    Funkcija vraca celobrojno polje bitova, desno poravnato, koje 
@@ -158,8 +156,6 @@ void print_bits(int x)
 
   putchar('\n');
 }
-
-
 
 int main()
 {

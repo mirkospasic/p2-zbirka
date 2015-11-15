@@ -3,7 +3,6 @@
 
 /* Funkcija koja proverava da li su tri zadata broja uzastopni
    clanovi niza */
-
 int tri_uzastopna_clana(int x, int y, int z, int a[], int n)
 {
   /* Ako niz ima manje od tri elementa izlazi se iz rekurzije i vraca 

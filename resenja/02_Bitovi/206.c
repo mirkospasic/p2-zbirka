@@ -34,7 +34,6 @@ unsigned mirror(unsigned x)
   return rezultat;
 }
 
-
 /* Funkcija prikazuje na standardni izlaz binarnu reprezentaciju
    celog broja u memoriji */
 void print_bits(int x)

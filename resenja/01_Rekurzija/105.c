@@ -14,13 +14,12 @@ int faktorijelRepna(int n, int result)
 }
 
 /* U sledecim dvema funkcijama je prikazan postupak oslobadjanja od
-   repne rekurzije koja postoji u funkciji faktorijelRepna.
+   repne rekurzije koja postoji u funkciji faktorijelRepna. */
 
-   Funkcija se transformise tako sto rekurzivni poziv zemeni sa
+/* Funkcija se transformise tako sto rekurzivni poziv zemeni sa
    naredbama kojima se vrednost argumenta funkcije postavlja na
    vrednost koja bi se prosledjivala rekurzivnom pozivu i navodjenjem
    goto naredbe za vracanje na pocetak tela funkcije. */
-
 int faktorijelRepna_v1(int n, int result)
 {
 pocetak:

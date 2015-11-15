@@ -1,15 +1,6 @@
 #include <stdio.h>
 
-/*************************************************************
-   Funkcija koja broji bitove svog argumenta
-
-   ako je x ==0, onda je count(x) = 0 
-   inace count(x) = najvisi_bit +count(x<<1)
-
-   Za svaki naredni rekurzivan poziv prosleduje se x<<1. Kako se 
-   pomeranjem sa desne strane uvek dopisuju 0, argument x ce u
-   nekom rekurzivnom pozivu biti bas 0 i izacice se iz rekurzije. 
-*************************************************************/
+/* Funkcija koja broji bitove svog argumenta. */
 int count(int x)
 {
   /* Izlaz iz rekurzije */

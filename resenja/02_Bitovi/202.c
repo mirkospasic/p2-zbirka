@@ -53,7 +53,6 @@ int count_bits2(int x)
   return br;
 }
 
-
 int main()
 {
   int x, i;

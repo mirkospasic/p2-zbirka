@@ -54,18 +54,15 @@ void permutacija(int a[], int m, int n)
      funkcija zavrsava sa radom. Ukoliko takav broj postoji, onda se
      ponovo poziva rekurzivno pronalazenje odgovarajucih permutacija, 
      ali sada sa drugacije postavljenim prefiksom. */
-
-
   for (i = 1; i <= n; i++) {
     /* Ako se broj i nije do sada pojavio u permutaciji od 1 do m-1
-       pozicije, onda se on postavlja na poziciju m i poziva se
-       funkcija da napravi permutaciju za jedan vece duzine, tj. m+1. 
+       pozicije, onda se on postavlja na poziciju m i poziva se 
+	   ponovo funkcija da dopuni ostatak permutacije posle upisivanja
+	   i na poziciju m.. 
        Inace, nastavlja se dalje, trazeci broj koji se nije pojavio
        do sada u permutaciji. */
     if (!koriscen(a, m - 1, i)) {
       a[m] = i;
-      /* Poziva se ponovo funkcija da dopuni ostatak permutacije
-         posle upisivanja i na poziciju m. */
       permutacija(a, m + 1, n);
     }
   }

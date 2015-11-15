@@ -10,7 +10,6 @@
    funkcija koristi u telu funkcije paran, tj. koristi se pre svoje
    definicije. Funkcija je mogla biti deklarisana i u telu funkcije
    paran. */
-
 unsigned neparan(unsigned n);
 
  /* Funkcija vraca 1 ako broj n ima paran broj cifara, inace vraca 0 */

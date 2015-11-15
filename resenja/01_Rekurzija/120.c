@@ -5,7 +5,8 @@
    broju */
 int max_heksadekadna_cifra(unsigned x)
 {
-  /* Izlazak iz rekurzije */
+  /* Izlazak iz rekurzije: ako je vrednost broja 0, onda je i 
+     vrednost najvece heksadekadne cifre u broju 0 */
   if (x == 0)
     return 0;
 
