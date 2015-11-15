@@ -74,5 +74,5 @@ int main()
   /* Ispisuje se rezultat */
   printf("%d! = %d\n", n, faktorijel(n));
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }
