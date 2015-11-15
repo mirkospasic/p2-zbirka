@@ -29,11 +29,15 @@ int main()
   scanf("%d%d%d", &x, &y, &z);
 
   /* Sve dok se ne stigne do kraja ulaza, brojeve se ucitavaju u niz. 
-     Promenljiva i predstavlja indeks tekuceg broja. */
+     Promenljiva i predstavlja indeks tekuceg broja. U niz se ne moze 
+     ucitati vise od MAX_DIM brojeva, pa se u slucaju da promenljiva 
+     i dostigne vrednost MAX_DIM prekida unos novih brojeva. */
   printf("Unesite elemente niza:");
   int i = 0;
   while (scanf("%d", &a[i]) != EOF) {
     i++;
+	if(i == MAX_DIM)
+	  break;
   }
   n = i;
 

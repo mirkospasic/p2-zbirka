@@ -27,6 +27,12 @@ int main()
   /* Unosi se dimenzija nizova */
   printf("Unesite dimenziju nizova:");
   scanf("%d", &n);
+  
+  /* Provera da li je dimenzija niza odgovarajuca */
+  if(n<0 || n > MAX_DIM){
+	printf("Dimenzija mora biti prirodan broj <= %d!\n", MAX_DIM);
+	return 0;
+  }
 
   /* A zatim i elementi nizova */
   printf("Unesite elemente prvog niza:");
