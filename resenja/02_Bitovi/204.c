@@ -3,7 +3,7 @@
 /***************************************************************
    Funckija postavlja na nulu n bitova pocev od pozicije p.
    Pozicije se broje pocev od pozicije najnizeg bita, pri cemu
-   se broji od nule . 
+   se broji od nule. 
    
    Npr, za n=5, p=10 1010 1011 1100 1101 1110 
    1010 1110 0111 1010 1011 1100 1101 1110 1000 0010 0111 */
@@ -34,7 +34,7 @@ unsigned reset(unsigned x, unsigned n, unsigned p)
 /***************************************************************
    Funckija postavlja na 1 n bitova pocev od pozicije p.
    Pozicije se broje pocev od pozicije najnizeg bita, pri cemu
-   se broji od nule . 
+   se broji od nule. 
    
    Npr, za n=5, p=10 
    1010 1011 1100 1101 1110 1010 1110 0111 

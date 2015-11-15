@@ -1,11 +1,9 @@
 #include <stdio.h>
 #define MAX_DIM 1000
 
-/********************************************************************
-   Ako je n<=0, onda je suma niza jednaka 0 
-   Ako je n>0, onda je suma celog niza je jednaka sumi prvih n-1 
-   elementa uvecenoj za poslednji element celog niza. 
-********************************************************************/
+/* Ako je n<=0, onda je suma niza jednaka nuli. 
+   Ako je n>0, onda je suma niza jednaka sumi prvih n-1 
+   elementa uvecenoj za poslednji element niza. */
 int sumaNiza(int *a, int n)
 {
   if (n <= 0)
@@ -14,12 +12,10 @@ int sumaNiza(int *a, int n)
   return sumaNiza(a, n - 1) + a[n - 1];
 }
 
-/********************************************************************
-  Funkcija napisana na drugi nacin:
-  Ako je n<=0, onda je suma niza jednaka 0 
-  Ako je n >0, suma celog niza je jednaka zbiru prvog elementa niza i 
-  sume preostalih n-1 elementa.
-********************************************************************/
+/* Funkcija napisana na drugi nacin:
+   Ako je n<=0, onda je suma niza jednaka nuli. 
+   Ako je n>0, suma niza je jednaka zbiru prvog elementa niza i 
+   sume preostalih n-1 elementa. */
 int sumaNiza2(int *a, int n)
 {
   if (n <= 0)

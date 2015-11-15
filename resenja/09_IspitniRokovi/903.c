@@ -8,8 +8,8 @@ void ucitaj_matricu(int m[][MAX], int v, int k)
   int i, j;
   for (i = 0; i < v; i++) {
     for (j = 0; j < k; j++) {
-	  scanf("%d", &m[i][j]);
-	}
+      scanf("%d", &m[i][j]);
+    }
   }
 }
 
@@ -21,7 +21,7 @@ int broj_negativnih_u_koloni(int m[][MAX], int v, int k)
   int i;
   for(i=0; i<v; i++){
     if(m[i][k]<0)
-	broj_negativnih++;
+    broj_negativnih++;
   }
   return broj_negativnih;
 }
@@ -32,20 +32,20 @@ int max_indeks(int m[][MAX], int v, int k)
   int broj_negativnih;
   /* Inicijalizujemo na nulu indeks kolone sa maksimalnim brojem 
      negativnih (max_indeks_kolone), kao i maksimalni broj negativnih
- 	 elemenata u nekoj koloni (max_broj_negativnih) */
+     elemenata u nekoj koloni (max_broj_negativnih) */
   int max_indeks_kolone = 0;
   int max_broj_negativnih = 0;
   
   for (j = 0; j < k; j++) {
-  	/* Racunamo broj negativnih u j-oj koloni */
+    /* Racunamo broj negativnih u j-oj koloni */
     broj_negativnih = broj_negativnih_u_koloni(m, v, j);
-	/* Ukoliko broj negativnih u j-toj koloni veci od trenutnog 
+    /* Ukoliko broj negativnih u j-toj koloni veci od trenutnog 
        maksimalnog, azuriramo trenutni maksimalni broj negativnih 
        kao i indeks kolone sa maksimalnim brojem negativnih */
     if(max_broj_negativnih < broj_negativnih ){
       max_indeks_kolone = j;
       max_broj_negativnih = broj_negativnih;
-	}
+    }
   }
   return max_indeks_kolone;
 }

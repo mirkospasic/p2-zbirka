@@ -1,18 +1,5 @@
 #include <stdio.h>
 
-/* Funkcija prikazuje na standardni izlaz binarnu reprezentaciju
-   celog broja u memoriji */
-void print_bits(int x)
-{
-  unsigned velicina = sizeof(int) * 8;
-  unsigned maska;
-
-  for (maska = 1 << (velicina - 1); maska != 0; maska >>= 1)
-    putchar(x & maska ? '1' : '0');
-
-  putchar('\n');
-}
-
 /* Funkcija vraca broj jedinica u binarnoj reprezentaciji broja x
    kreiranjem odgovarajuce maske i njenim pomeranjem */
 int count_bits1(int x)

@@ -12,11 +12,11 @@ int skalarno(int a[], int b[], int n)
     Na osnovu resenja problema dimenzije n-1, resava se problem
     dimenzije n primenom definicije skalarnog proizvoda
     a*b = a[0]*b[0] + a[1]*b[1] +...+  a[n-2]*a[n-2] + a[n-1]*a[n-1]
-	Dakle, skalarni proizvod dva vektora duzine n se dobija kada se 
-	na skalarni proizvod dva vektora duzine n-1 koji se dobiju od 
-    polazna	dva vektora otklanjanjem poslednjih elemenata, doda 
-	proizvod poslednja dva elementa polaznih vektora tj.
-	skalarno(a,b,n) = skalarno(a, b, n - 1) +  a[n-1]*a[n-1]
+    Dakle, skalarni proizvod dva vektora duzine n se dobija kada se 
+    na skalarni proizvod dva vektora duzine n-1 koji se dobiju od 
+    polazna dva vektora otklanjanjem poslednjih elemenata, doda 
+    proizvod poslednja dva elementa polaznih vektora tj.
+    skalarno(a,b,n) = skalarno(a, b, n - 1) + a[n-1]*a[n-1]
   ******************************************************************/
   else
     return skalarno(a, b, n - 1) + a[n - 1] * b[n - 1];
@@ -32,8 +32,8 @@ int main()
   
   /* Provera da li je dimenzija niza odgovarajuca */
   if(n<0 || n > MAX_DIM){
-	printf("Dimenzija mora biti prirodan broj <= %d!\n", MAX_DIM);
-	return 0;
+    printf("Dimenzija mora biti prirodan broj <= %d!\n", MAX_DIM);
+    return 0;
   }
 
   /* A zatim i elementi nizova */

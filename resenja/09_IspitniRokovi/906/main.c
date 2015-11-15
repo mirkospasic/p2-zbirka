@@ -15,7 +15,8 @@ int ucitaj_stablo(Cvor ** koren)
   while (scanf("%d", &x) == 1)
     if (dodaj_u_stablo(koren, x) == 1)
       return 1;
-  return 0;}
+  return 0;
+}
 
 /* Funkcija prebrojava broj cvorova na n-tom nivou u stablu  */
 int prebrojN(Cvor * koren, int n) 
@@ -25,7 +26,7 @@ int prebrojN(Cvor * koren, int n)
   if (koren == NULL || n < 0)
     return 0;
   /* Ukoliko je n = 0, na tom nivou je samo koren. Ukoliko ima jednog
-     potomka funkcija vraca 1, inace 0 */	
+     potomka funkcija vraca 1, inace 0 */
   if (n == 0) {
     if (koren->levo == NULL && koren->desno != NULL)
       return 1;
@@ -35,9 +36,11 @@ int prebrojN(Cvor * koren, int n)
   }
   /* Broj cvorova na n-tom nivou je jednak zbiru broja cvorova na 
     (n-1)-om nivou levog podstabla i broja cvorova na (n-1)-om nivou
-  	levog podstabla*/	
-  return prebrojN(koren->levo, n - 1) + prebrojN(koren->desno, n - 1);}
-int main() 
+    levog podstabla*/
+  return prebrojN(koren->levo, n - 1) + prebrojN(koren->desno, n - 1);
+}
+
+int main() 
 {
   Cvor * koren;
   int n;
@@ -57,6 +60,7 @@ int prebrojN(Cvor * koren, int n)
   /* Oslobadjanje dinamicki alociranog stabla */
   oslobodi_stablo(&koren);
   
-  exit(EXIT_SUCCESS);}
+  exit(EXIT_SUCCESS);
+}
 
 

@@ -35,8 +35,8 @@ int main()
   i = 0;
   while (scanf("%d", &a[i]) != EOF) {
     i++;
-	if(i == MAX_DIM)
-	  break;
+    if(i == MAX_DIM)
+      break;
   }
   n = i;
 

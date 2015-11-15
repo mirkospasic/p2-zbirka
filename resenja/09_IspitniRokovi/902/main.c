@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stabla.h"
-int sumirajN(Cvor * koren, int n) 
+
+int sumirajN(Cvor * koren, int n) 
 {
   /* Ako je stablo prazno, suma je nula */
   if (koren == NULL)
@@ -13,10 +14,12 @@
   /* Inace, izracunava se suma na (n-1)-om nivou u levom podstablu, 
      kao i suma na (n-1)-om nivou u desnom podstablu i vraca se zbir
      te dve izracunate vrednosti jer predstavlja zbir svih cvorova na
-	 n-tom nivou u pocetnom stablu */
+     n-tom nivou u pocetnom stablu */
   return sumirajN(koren->levo, n - 1) + sumirajN(koren->desno,
-                                                   n - 1);}
-int main() 
+                                                   n - 1);
+}
+
+int main() 
 {
   Cvor * koren = NULL;
   int n;
@@ -36,11 +39,14 @@
       exit(EXIT_FAILURE);
     }
   }
-    /* Ispisuje se rezultat rada trazene funkcije */ 
+  
+  /* Ispisuje se rezultat rada trazene funkcije */ 
   printf("%d\n", sumirajN(koren, nivo));
-    /* Oslobadja se memorija */ 
+  
+  /* Oslobadja se memorija */ 
   oslobodi_stablo(&koren);
   
-  exit(EXIT_SUCCESS);}
+  exit(EXIT_SUCCESS);
+}
 
 

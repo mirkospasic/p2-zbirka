@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* Funkcija koja broji bitove svog argumenta. */
+/* Funkcija koja broji bitove postavljene na 1. */
 int count(int x)
 {
   /* Izlaz iz rekurzije */
@@ -23,7 +23,7 @@ int count(int x)
   else
     return count(x << 1);
   /******************************************************************
-    Krace napisano
+    Krace zapisano
     return ((x& (1<<(sizeof(x)*8-1))) ? 1 : 0) + count(x<<1);
   ******************************************************************/
 }

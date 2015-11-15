@@ -30,8 +30,8 @@ int main()
   int i = 0;
   while (scanf("%d", &brojevi[i]) != EOF) {
     i++;
-	if(i == MAX_DIM)
-	  break;
+    if(i == MAX_DIM)
+      break;
   }
   n = i;
 

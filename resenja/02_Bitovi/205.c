@@ -86,23 +86,23 @@ int rotate_right_signed(int x, unsigned n)
     if (x < 0)
   /******************************************************************
     Siftovanjem u desno broja koji je negativan dobija se 1 kao bit 
-	na najvisoj poziciji. Na primer ako je x      
-	1010 1011 1100 1101 1110 0001 0010 001b 
+    na najvisoj poziciji. Na primer ako je x      
+    1010 1011 1100 1101 1110 0001 0010 001b 
       (sa b je oznacen ili 1 ili 0 na najnizoj poziciji) 
     Onda je sadrzaj promenljive last_bit:
     0000 0000 0000 0000 0000 0000 0000 000b 
     Nakon siftovanja sadrzaja promenljive x za 1 u desno 
-	1101 0101 1110 0110 1111 0000 1001 0001 
-	Kako bi umesto 1 na najvisoj poziciji u trenutnoj binarnoj 
-	reprezentaciji x bilo postavljeno b nije dovoljno da se pomeri na 
-	najvisu poziciju jer bi se time dobile 0, a u ovom slucaju su 
-	potrebne jedinice zbog bitovskog & zato se prvo vrsi 
-	komplementiranje, a zatim pomeranje 
-	~last_bit << (sizeof(int)*8 -1) 
-	B000 0000 0000 0000 0000 0000 0000 0000 
+    1101 0101 1110 0110 1111 0000 1001 0001 
+    Kako bi umesto 1 na najvisoj poziciji u trenutnoj binarnoj 
+    reprezentaciji x bilo postavljeno b nije dovoljno da se pomeri na 
+    najvisu poziciju jer bi se time dobile 0, a u ovom slucaju su 
+    potrebne jedinice zbog bitovskog & zato se prvo vrsi 
+    komplementiranje, a zatim pomeranje 
+    ~last_bit << (sizeof(int)*8 -1) 
+    B000 0000 0000 0000 0000 0000 0000 0000 
     gde B oznacava ~b.
     Potom se ponovo vrsi komplementiranje kako bi se b nalazilo na 
-	najvisoj poziciji i sve jedinice na ostalim pozicijama 
+    najvisoj poziciji i sve jedinice na ostalim pozicijama 
     ~(~last_bit << (sizeof(int)*8 -1)) 
     b111 1111 1111 1111 1111 1111 1111 1111 
   ******************************************************************/

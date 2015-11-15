@@ -57,8 +57,8 @@ void permutacija(int a[], int m, int n)
   for (i = 1; i <= n; i++) {
     /* Ako se broj i nije do sada pojavio u permutaciji od 1 do m-1
        pozicije, onda se on postavlja na poziciju m i poziva se 
-	   ponovo funkcija da dopuni ostatak permutacije posle upisivanja
-	   i na poziciju m.. 
+       ponovo funkcija da dopuni ostatak permutacije posle upisivanja
+       i na poziciju m.. 
        Inace, nastavlja se dalje, trazeci broj koji se nije pojavio
        do sada u permutaciji. */
     if (!koriscen(a, m - 1, i)) {

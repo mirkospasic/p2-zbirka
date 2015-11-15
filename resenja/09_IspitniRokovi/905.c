@@ -4,11 +4,14 @@
 
 /* Struktura trougao */ 
 typedef struct _trougao {
-  double xa, ya, xb, yb, xc, yc;} trougao;
-/* Funkcija racuna duzinu duzi */ 
+  double xa, ya, xb, yb, xc, yc;
+} trougao;
+
+/* Funkcija racuna duzinu duzi */ 
 double duzina(double x1, double y1, double x2, double y2) 
 {
-  return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));}
+  return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+}
 
 /* Funkcija racuna povrsinu trougla koristeci Heronov obrazac */ 
 double povrsina(trougao t) 
@@ -20,14 +23,15 @@ double povrsina(trougao t)
   /* Poluobim */
   double s = (a + b + c) / 2;
   /* Primena Heronovog obrasca */
-  return sqrt(s * (s - a) * (s - b) * (s - c));}
+  return sqrt(s * (s - a) * (s - b) * (s - c));
+}
 
-/* Funkcija racuna poredi dva trougla tako da ukoliko je povrsina 
+/* Funkcija poredi dva trougla: ukoliko je povrsina 
    trougla koji je prvi argument funkcije manja od povrsine trougla 
    koji je drugi element funkcije funcija vraca 1, ukoliko je veca 
    -1, a ukoliko su povrsine dva trougla jednake vraca nulu. Dakle,
-    funkcija je napisana tako da se moze proslediti funkciji qsort da 
-	se niz trouglova sortira po povrsini opadajuce. */ 
+   funkcija je napisana tako da se moze proslediti funkciji qsort da 
+   se niz trouglova sortira po povrsini opadajuce. */ 
 int poredi(const void *a, const void *b) 
 {
   trougao x = *(trougao *) a;
@@ -38,7 +42,8 @@ int poredi(const void *a, const void *b)
     return 1;
   if (xp > yp)
     return -1;
-  return 0;}
+  return 0;
+}
 
 int main() 
 {
@@ -72,7 +77,8 @@ int main()
       exit(EXIT_FAILURE);
     }
   }
-    /* Pozivanje funkcije qsort da sortira niz na osnovu funkcije
+  
+  /* Pozivanje funkcije qsort da sortira niz na osnovu funkcije
      poredi */ 
   qsort(niz, n, sizeof(trougao), &poredi);
   
@@ -86,6 +92,7 @@ int main()
   
   /* Zatvranje datoteke */
   fclose(f);
-  exit(EXIT_SUCCESS);}
+  exit(EXIT_SUCCESS);
+}
 
 

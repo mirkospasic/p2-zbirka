@@ -7,7 +7,7 @@
    tj. n niski od kojih nijedna nije duza od MAX karaktera. */
 char **alociranje_memorije(int n)
 {
-  char **linije = NULL;	
+  char **linije = NULL;
   int i, j;
   /* Alocira se prostor za niz vrsti matrice */
   linije = (char **) malloc(n * sizeof(char *));
@@ -19,7 +19,7 @@ char **alociranje_memorije(int n)
   /* Alocira se prostor za svaku vrstu matrice */
   for (i = 0; i < n; i++) {
     linije[i] = malloc(MAX * sizeof(char));
-	/* Ako alokacija nije prosla uspesno, oslobadjaju se svi
+    /* Ako alokacija nije prosla uspesno, oslobadjaju se svi
        prethodno alocirani resursi, i povratna vrednost je NULL */
     if (linije[i] == NULL) {
       for (j = 0; j < i; j++) {

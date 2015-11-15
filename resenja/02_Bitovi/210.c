@@ -23,7 +23,7 @@ void prevod(unsigned int x, char s[])
 
   /******************************************************************
     Broj se posmatra od pozicije najmanje tezine ka poziciji najvece 
-	tezine. Na primer za broj cija je binarna reprezentacija
+    tezine. Na primer za broj cija je binarna reprezentacija
     00000000001101000100001111010101 
     u prvom koraku se citaju bitovi izdvojeni sa <...>: 
     0000000000110100010000111101<0101>
@@ -31,8 +31,8 @@ void prevod(unsigned int x, char s[])
     000000000011010001000011<1101>0101 
     u trecem koraku:
     00000000001101000100<0011>11010101 i tako redom...
-	
-	Indeks i oznacava poziciju na koju se smesta vrednost.
+    
+    Indeks i oznacava poziciju na koju se smesta vrednost.
   ******************************************************************/
   for (i = MAX_DUZINA - 2; i >= 0; i--) {
     /* Vrednost izdvojene cifre */

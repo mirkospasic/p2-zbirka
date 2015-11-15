@@ -11,7 +11,9 @@ void dodaj_iza(Cvor * tekuci , Cvor * novi)
 }
 
 
-/* Funkcija koja dopunjuje listu na nacin opisan u tekstu zadatka.   Vraca 1 ukoliko je bilo greske pri alokaciji memorije, inace vraca   0. */ 
+/* Funkcija koja dopunjuje listu na nacin opisan u tekstu zadatka.
+   Vraca 1 ukoliko je bilo greske pri alokaciji memorije, inace vraca
+   0. */ 
 int dopuni_listu(Cvor ** adresa_glave) 
 {
   Cvor * tekuci;
@@ -25,32 +27,37 @@ int dopuni_listu(Cvor ** adresa_glave)
   tekuci = *adresa_glave;
   /* Sve dok ima cvorova u listi racuna se aritmeticka sredina 
      vrednosti u susednim cvorovims i kreira cvor sa tom vrednoscu.
-	 U slucaju neupele alokacije novog cvora, funkcija vraca 1. 
-	 Inace, novi cvor se umece izmedju dva cvora za koje racunata 
-	 aritmeticka sredina */
+     U slucaju neupele alokacije novog cvora, funkcija vraca 1. 
+     Inace, novi cvor se umece izmedju dva cvora za koje racunata 
+     aritmeticka sredina */
   while (tekuci->sledeci != NULL) {
     aritmeticka_sredina = 
         ((tekuci)->vrednost + ((tekuci)->sledeci)->vrednost) / 2;
     novi = napravi_cvor(aritmeticka_sredina);
     if (novi == NULL)
       return 1;
-	/* Poziva se funkcija koja umece novi cvor iza tekuceg cvora */
+    /* Poziva se funkcija koja umece novi cvor iza tekuceg cvora */
     dodaj_iza(tekuci, novi);
-	/* Tekuci cvor se pomera na narednog u listi (to je novoumetnuti 
+    /* Tekuci cvor se pomera na narednog u listi (to je novoumetnuti 
        cvor), a zatim jos jednom da bi pokazivao na naredni cvor iz 
        polazne liste */
     tekuci = tekuci->sledeci;
-	tekuci = tekuci->sledeci;
+    tekuci = tekuci->sledeci;
   }
   return 0;
 }
-int main() 
-{   Cvor * glava = NULL;
+
+int main() 
+{ 
+  Cvor * glava = NULL;
   double broj;
   
-  /* Ucitavanje se vrsi do kraja ulaza. Elementi se dodaju na kraj      liste! */ 
+  /* Ucitavanje se vrsi do kraja ulaza. Elementi se dodaju na kraj 
+     liste! */ 
   while (scanf("%lf", &broj) > 0) {
-    /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji       memorije za nov cvor. Memoriju alociranu za cvorove liste        treba osloboditi. */ 
+    /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
+       memorije za nov cvor. Memoriju alociranu za cvorove liste 
+       treba osloboditi. */ 
     if (dodaj_na_kraj_liste(&glava, broj) == 1) {
       fprintf(stderr, "Neuspela alokacija za cvor %d\n", broj);
       oslobodi_listu(&glava);
@@ -58,17 +65,22 @@ int dopuni_listu(Cvor ** adresa_glave)
     }
   }
   
-  /* Pozivanje funkcije da dopuni listu. Ako je funkcija vratila 1,      onda je bilo greske pri alokaciji memorije za nov cvor. Memoriju     alociranu za cvorove liste treba osloboditi. */ 
+  /* Pozivanje funkcije da dopuni listu. Ako je funkcija vratila 1, 
+     onda je bilo greske pri alokaciji memorije za nov cvor. Memoriju
+     alociranu za cvorove liste treba osloboditi. */ 
   if (dopuni_listu(&glava) == 1) {
     fprintf(stderr, "Neuspela alokacija za cvor %d\n", broj);
     oslobodi_listu(&glava);
     exit(EXIT_FAILURE);
   }
-    /* Ispisivanje liste */ 
+  
+  /* Ispisivanje liste */ 
   ispisi_listu(glava);
-    /* Oslobadjanje liste */ 
+  
+  /* Oslobadjanje liste */ 
   oslobodi_listu(&glava);
   
-  exit(EXIT_SUCCESS);}
+  exit(EXIT_SUCCESS);
+}
 
 
