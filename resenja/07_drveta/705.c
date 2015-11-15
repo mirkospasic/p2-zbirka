@@ -171,7 +171,7 @@ int main(int argc, char **argv)
       fprintf(stderr, "Neuspelo dodavanje podataka za %s %s\n", ime,
               prezime);
       oslobodi_stablo(&koren);
-      exit(EXIT_SUCCESS);
+      exit(EXIT_FAILURE);
     }
   }
 

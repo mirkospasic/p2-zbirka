@@ -64,5 +64,5 @@ int main()
   /* Ispisuje se suma elemenata hipotenuze */
   printf("%d\n", sumaElemenataHipotenuze(r));
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

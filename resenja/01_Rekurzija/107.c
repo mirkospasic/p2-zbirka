@@ -88,5 +88,5 @@ int main(void)
   /* Ispisuju se permutacije duzine n */
   permutacija(a, 1, n);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

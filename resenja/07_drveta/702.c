@@ -218,7 +218,7 @@ int main(int argc, char **argv)
     if (dodaj_u_stablo(&koren, rec) == 1) {
       fprintf(stderr, "Neuspelo dodavanje reci %s\n", rec);
       oslobodi_stablo(&koren);
-      exit(EXIT_SUCCESS);
+      exit(EXIT_FAILURE);
     }
   }
 
