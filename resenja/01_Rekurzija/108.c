@@ -8,17 +8,19 @@ int binomniKoeficijent(int n, int k)
     Ako je k=0 ili k=n, onda je binomni koeficijent 0 
 	Ako je k izmedju 0 i n, onda je bk(n,k) = bk(n-1,k-1) + bk(n-1,k)
   ******************************************************************/
-  return (0 < k && k < n) ? binomniKoeficijent(n - 1,k - 1) + 
-								binomniKoeficijent(n - 1, k) : 1;
+  return (0 < k && k < n) ?
+      binomniKoeficijent(n - 1, k - 1) + binomniKoeficijent(n - 1,
+                                                            k) : 1;
 }
 
 /******************************************************************
-  Iterativno izracunavanje datog binomnog koeficijenta.
+  Iterativno izracunavanje datog binomnog koeficijenta
 
   int binomniKoeficijent (int n, int k) {
     int i, j, b;
-    for (b=i=1, j=n; i<=k; b =b * j-- / i++)
-      ;
+    
+    for (b=i=1, j=n; i<=k; b =b * j-- / i++);
+      
     return b;
   }
   
@@ -26,9 +28,9 @@ int binomniKoeficijent(int n, int k)
   resenje je navedeno u cilju demonstracije rekurzivnih tehnika.
 *******************************************************************/
 
-/* Svaki element n-te hipotenuze (osim ivicnih jedinica) dobija kao 
-   zbir 2 elementa iz n-1 hipotenuze. Ukljucujuci i pomenute dve 
-   ivicne jedinice suma elemenata n-te hipotenuze je tacno 2 puta 
+/* Svaki element n-te hipotenuze (osim ivicnih jedinica) dobija kao
+   zbir 2 elementa iz n-1 hipotenuze. Ukljucujuci i pomenute dve
+   ivicne jedinice suma elemenata n-te hipotenuze je tacno 2 puta
    veca od sume elemenata prethodne hipotenuze. */
 int sumaElemenataHipotenuze(int n)
 {
@@ -39,10 +41,10 @@ int main()
 {
   int n, k, i, d, r;
 
-  /* Ucitavanje brojeva d i r */
+  /* Ucitavaju se brojevi d i r */
   scanf("%d %d", &d, &r);
 
-  /* Ispisivanje Paskalovog trougla */
+  /* Ispisuje se Paskalov trougao */
   putchar('\n');
   for (n = 0; n <= d; n++) {
     for (i = 0; i < d - n; i++)
@@ -58,9 +60,9 @@ int main()
             "Redni broj hipotenuze mora biti veci ili jednak od 0!\n");
     exit(EXIT_FAILURE);
   }
-  
-  /* Ispisivanje sume elemenata hipotenuze */
+
+  /* Ispisuje se suma elemenata hipotenuze */
   printf("%d\n", sumaElemenataHipotenuze(r));
 
-  exit(EXIT_SUCCESS);
+  return 0;
 }

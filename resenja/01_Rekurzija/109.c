@@ -33,5 +33,7 @@ int main()
 
   /* Stampa se maksimum unetog niza brojeva */
   printf("%d\n", maksimum_niza(brojevi, n));
+
+
   return 0;
 }

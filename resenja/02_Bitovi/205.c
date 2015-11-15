@@ -4,6 +4,7 @@
    Funkcija binarnu reprezentaciju svog argumenta x rotira u 
    levo za n mesta i vraca odgovarajuci neoznacen ceo broj cija
    je binarna reprezentacija dobijena nakon rotacije.
+   
    Na primer za n =5 i x cija je interna reprezentacija 
    1010 1011 1100 1101 1110 0001 0010 0011 
    funkcija vraca neoznacen ceo broj cija je binarna 
@@ -13,25 +14,29 @@
 unsigned rotate_left(int x, unsigned n)
 {
   unsigned first_bit;
-  /* Maska koja ima samo najvisi bit postavljen na 1 neophodna da bi
-     pre siftovanja u levo za 1 najvisi bit bio sacuvan. */
+
+  /* Maska koja ima samo najvisi bit postavljen na 1 je neophodna da
+     bi pre pomeranja u levo za 1 najvisi bit bio sacuvan */
   unsigned first_bit_mask = 1 << (sizeof(unsigned) * 8 - 1);
   int i;
 
   /* n puta se vrsi rotaciju za jedan bit u levo. U svakoj iteraciji
      se odredi prvi bit, a potom se pomera binarna reprezentacija
-     trenutne vrednosti promenljive x u levo za 1. Nakon toga, potom
+     trenutne vrednosti promenljive x u levo za 1. Nakon toga,
      najnizi bit se postavlja na vrednost koju je imao prvi bit koji
-     je istisnut siftovanjem */
+     je istisnut pomeranjem */
   for (i = 0; i < n; i++) {
     first_bit = x & first_bit_mask;
     x = x << 1 | first_bit >> (sizeof(unsigned) * 8 - 1);
   }
+
+  /* Vraca se dobijena vrednost */
   return x;
 }
 
 /***************************************************************
-   Funkcija neoznacen broj x rotira u desno za n.
+   Funkcija neoznacen broj x rotira u desno za n mesta.
+   
    Na primer za n=5 i x cija je binarna reprezentacija 
    1010 1011 1100 1101 1110 0001 0010 0011 
    funkcija vraca neoznacen ceo broj cija je binarna 
@@ -44,9 +49,9 @@ unsigned rotate_right(unsigned x, unsigned n)
   int i;
 
   /* n puta se ponavlja rotacija u desno za jedan bit. U svakoj
-     iteraciji se odredjuje bit najmanje tezine broja x, zatm tako
-     odredjeni bit se siftuje u levo tako da najnizi bit dode do
-     pozicije najviseg bita. Zatim, nakon siftovanja binarne
+     iteraciji se odredjuje bit najmanje tezine broja x, zatim tako
+     odredjeni bit se pomera u levo tako da najnizi bit dodje do
+     pozicije najviseg bita. Zatim, nakon pomeranja binarne
      reprezentacije trenutne vrednosti promenljive x za 1 u desno,
      najvisi bit se postaljva na vrednost vec zapamcenog bita koji je 
      bio na poziciji najmanje tezine. */
@@ -55,6 +60,7 @@ unsigned rotate_right(unsigned x, unsigned n)
     x = x >> 1 | last_bit << (sizeof(unsigned) * 8 - 1);
   }
 
+  /* Vraca se dobijena vrednost */
   return x;
 }
 
@@ -68,11 +74,12 @@ int rotate_right_signed(int x, unsigned n)
 
   /* U svakoj iteraciji se odredjuje bit najmanje tezine i smesta u
      promenljivu last_bit. Kako je x oznacen ceo broj, tada se
-     prilikom siftovanja u desno vrsi aritmeticki sift i cuva se znak
-     broja. Dakle, razlikuju se dva slucaja u zavisnosti od znaka od
-     x. Nije dovoljno da se ova provera izvrsi pre petlje, s obzirom
-     da rotiranjem u desno na mesto najviseg bita moze doci i 0 i 1,
-     nezavisno od pocetnog znaka broja smestenog u promenljivu x. */
+     prilikom pomeranja u desno vrsi aritmeticko pomeranje i cuva se
+     znak broja. Dakle, razlikuju se dva slucaja u zavisnosti od
+     znaka broja x. Nije dovoljno da se ova provera izvrsi pre
+     petlje, s obzirom da rotiranjem u desno na mesto najviseg bita
+     moze doci i 0 i 1, nezavisno od pocetnog znaka broja smestenog u 
+     promenljivu x. */
   for (i = 0; i < n; i++) {
     last_bit = x & 1;
 
@@ -91,7 +98,7 @@ int rotate_right_signed(int x, unsigned n)
          dovoljno da se siftuje na najvisu poziciju jer bi se 
          time dobile 0, a u ovom slucaju su potrebne jedinice
          zbog bitovskog & zato se prvo vrsi komplementiranje, a
-         zatim siftovanje
+         zatim pomeranje
          ~last_bit << (sizeof(int)*8 -1) 
          B000 0000 0000 0000 0000 0000 0000 0000 
          gde B oznacava ~b.
@@ -106,6 +113,7 @@ int rotate_right_signed(int x, unsigned n)
       x = (x >> 1) | last_bit << (sizeof(int) * 8 - 1);
   }
 
+  /* Vraca se dobijena vrednost */
   return x;
 }
 
@@ -125,12 +133,18 @@ void print_bits(int x)
 int main()
 {
   unsigned x, k;
+
+  /* Ucitavaju se vrednosti sa standardnog ulaza */
   printf("Unesite neoznacen ceo broj x:");
   scanf("%x", &x);
   printf("Unesite neoznacen ceo broj k:");
   scanf("%x", &k);
+
+  /* Ispisuje se binarna reprezentacija broja x */
   printf("x = ", "");
   print_bits(x);
+
+  /* Testira se rad napisanih funkcija */
   printf("rotate_left(%u,%u) = ", x, k);
   print_bits(rotate_left(x, k));
 

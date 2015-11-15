@@ -30,17 +30,16 @@ int main(int argc, char **argv)
   printf("Prozvod polinoma je polinom r:\n");
   ispisi(&r);
 
+  /* Ispisuje se vrednost polinoma u unetoj tacki */
   printf("Unesite tacku u kojoj racunate vrednost polinoma r\n");
   scanf("%lf", &x);
-
-  /* Ispisuje se vrednost polinoma u unetoj tacki */
   printf("Vrednost polinoma u tacki je %.2f\n", izracunaj(&r, x));
 
-  /* Racunanje n-tog izvoda polinoma p i ispisivanje dobijenog 
-     polinoma */
+
+  /* Racuna se n-ti izvoda polinoma i ispisuje se dobijeni polinoma */
   printf("Unesite izvod polinoma koji zelite:\n");
   scanf("%d", &n);
-  r = nIzvod(&p, n);
+  r = nIzvod(&r, n);
   printf("%d. izvod polinoma r je: ", n);
   ispisi(&r);
 

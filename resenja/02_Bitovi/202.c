@@ -39,8 +39,8 @@ int count_bits2(int x)
   int br = 0;
   unsigned wl = sizeof(int) * 8 - 1;
 
-  /* Kako je argument funkcije oznacen ceo broj x naredba x>>=1
-     vrsila bi aritmeticko pomeranje u desno, tj. popunjavanje bita
+  /* Kako je argument funkcije oznacen ceo broj x naredba x>>=1 bi
+     vrsila aritmeticko pomeranje u desno, tj. popunjavanje bita
      najvece tezine bitom znaka. U tom slucaju nikad ne bi bio
      ispunjen uslov x!=0 i program bi bio zarobljen u beskonacnoj
      petlji. Zbog toga se koristi pomeranje broja x ulevo i maska
@@ -57,14 +57,22 @@ int count_bits2(int x)
 int main()
 {
   int x, i;
+
+  /* Ucitava se broj sa ulaza */
   printf("Unesite broj:\n");
   scanf("%x", &x);
+
+  /* Dozvoljava se korisniku da bira na koji nacin ce biti izracunat
+     broj jedinica u zapisu broja */
   printf("Unesite redni broj funkcije:\n");
   scanf("%d", &i);
+
+  /* Ispisuje se rezultat */
   printf("Broj jedinica u zapisu je\n");
   if (i == 1)
     printf("funkcija count_bits1: %d\n", count_bits1(x));
   else
     printf("funkcija count_bits2: %d\n", count_bits2(x));
+
   return 0;
 }

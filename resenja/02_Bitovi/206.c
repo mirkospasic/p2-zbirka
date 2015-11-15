@@ -3,11 +3,11 @@
 /***************************************************************
    Funkcija vraca vrednost cija je binarna reprezentacija slika
    u ogledalu binarne reprezentacije broja x koji se prosledjuje
-   kao argument funkcije. Na primer za x
-   cija binarna reprezentacija izgleda ovako
+   kao argument funkcije. 
+   
+   Na primer za x cija binarna reprezentacija izgleda ovako
    101010111100110111100100100100011 
-   funkcija treba da vrati broj cija binarna reprezentacija 
-   izgleda:
+   funkcija treba da vrati broj cija je binarna reprezentacija:
    11000100100001111011001111010101 
 ***************************************************************/
 unsigned mirror(unsigned x)
@@ -18,8 +18,8 @@ unsigned mirror(unsigned x)
   int i;
   /* U svakoj iteraciji najnizi bit u binarnoj reprezentaciji tekuce
      vrednosti broja x se odredjuje i pamti u promenljivoj
-     najnizi_bit, nakon cega se na promenljivu x primeni siftovanje u 
-     desno. */
+     najnizi_bit, nakon cega se na promenljivu x primeni pomeranje u
+     desno */
   for (i = 0; i < sizeof(x) * 8; i++) {
     najnizi_bit = x & 1;
     x >>= 1;
@@ -29,6 +29,8 @@ unsigned mirror(unsigned x)
     rezultat <<= 1;
     rezultat |= najnizi_bit;
   }
+
+  /* Vraca se dobijena vrednost */
   return rezultat;
 }
 
@@ -48,12 +50,14 @@ void print_bits(int x)
 int main()
 {
   int broj;
+
+  /* Ucitava se broj sa ulaza */
   scanf("%x", &broj);
 
-  /* Ispisuje se binarna reprezentaciju unetog broja */
+  /* Ispisuje se njegova binarna reprezentacija */
   print_bits(broj);
 
-  /* Ispisuje se binarna reprezentaciju broja dobijenog pozivom
+  /* Ispisuje se i binarna reprezentacija broja dobijenog pozivom
      funkcije mirror */
   print_bits(mirror(broj));
 

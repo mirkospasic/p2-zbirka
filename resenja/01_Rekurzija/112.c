@@ -1,14 +1,16 @@
 #include <stdio.h>
 #define MAX_DIM 256
 
+/* Funkcija koja racuna broj pojavljivanja elementa x u nizu a duzine 
+   n */
 int br_pojave(int x, int a[], int n)
 {
-  /* Izlazak iz rekurzije: za niz duzine jedan broj pojava broja x
-     u nizu je 1 ukoliko je jedini element a[0] bas x ili 0 inace */
+  /* Izlazak iz rekurzije: za niz duzine jedan broj pojava broja x u
+     nizu je 1 ukoliko je jedini element a[0] bas x ili 0 inace */
   if (n == 1)
     return a[0] == x ? 1 : 0;
 
-  /* U promenljivu bp se smesta broj pojave broja x u prvih n-1 
+  /* U promenljivu bp se smesta broj pojave broja x u prvih n-1
      elemenata niza a. Ukupan broj pojavljivanja broja x u celom nizu
      a je jednak bp uvecanom za jedan ukoliko je se na poziciji n-1 u
      nizu a nalazi broj x */
@@ -21,7 +23,7 @@ int main()
   int x, a[MAX_DIM];
   int n, i = 0;
 
-  /* Unosi se ceo broj */
+  /* Ucitava se ceo broj */
   printf("Unesite ceo broj:");
   scanf("%d", &x);
 
@@ -36,5 +38,6 @@ int main()
 
   /* Ispisuje se broj pojavljivanja */
   printf("Broj pojavljivanja je %d\n", br_pojave(x, a, n));
+
   return 0;
 }

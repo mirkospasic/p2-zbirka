@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #define  MAX_DUZINA_NIZA 50
 
+/* Funkcija koja ispisuje elemente niza a duzine n */
 void ispisiNiz(int a[], int n)
 {
   int i;
@@ -11,23 +12,26 @@ void ispisiNiz(int a[], int n)
   printf("\n");
 }
 
-/* Funkcija proverava da li se x vec nalazi u permutaciji na
-   prethodnih 1...n mesta */
+/* Funkcija koja proverava da li se broj x nalazi u nizu a duzine n */
 int koriscen(int a[], int n, int x)
 {
   int i;
+
+  /* Obilaze se svi elementi niza */
   for (i = 1; i <= n; i++)
+    /* Ukoliko se naidje na trazenu vrednost, pretraga se prekida */
     if (a[i] == x)
       return 1;
 
+  /* Zakljucuje se da broj nije pronadjen */
   return 0;
 }
 
-/* F-ja koja ispisuje sve permutacije od skupa {1,2,...,n} a[] je niz 
-   u koji smesta permutacije m - oznacava da se na m-tu poziciju u
-   permutaciji smesta jedan od preostalih celih brojeva n- je
+/* Funkcija koja ispisuje sve permutacije od skupa {1,2,...,n} a[] je 
+   niz u koji se smesta permutacija m oznacava da se na m-tu poziciju 
+   u permutaciji smesta jedan od preostalih celih brojeva n je
    velicina skupa koji se permutuje Funkciju se poziva sa argumentom
-   m=1 jer formiranje permutacije pocinje od 1. pozicije. Stoga, nece 
+   m=1 jer formiranje permutacije pocinje od 1. pozicije. Stoga, nece
    se koristi a[0]. */
 void permutacija(int a[], int m, int n)
 {
@@ -72,7 +76,7 @@ int main(void)
   int n;
   int a[MAX_DUZINA_NIZA];
 
-  /* Ucitavanje broja n i provera da li je u odgovarajucem opsegu */
+  /* Ucitava se broja n i provera se da li je u odgovarajucem opsegu */
   scanf("%d", &n);
   if (n < 0 || n >= MAX_DUZINA_NIZA) {
     fprintf(stderr,
@@ -81,7 +85,8 @@ int main(void)
     exit(EXIT_FAILURE);
   }
 
+  /* Ispisuju se permutacije duzine n */
   permutacija(a, 1, n);
 
-  exit(EXIT_SUCCESS);
+  return 0;
 }

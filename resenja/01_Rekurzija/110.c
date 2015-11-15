@@ -1,9 +1,11 @@
 #include <stdio.h>
 #define MAX_DIM 256
 
+/* Funkcija koja izracunava skalarni proizvod dva data vektora */
+
 int skalarno(int a[], int b[], int n)
 {
-  /* Izlazak iz rekurzije */
+  /* Izlazak iz rekurzije: vektori su duzine 0 */
   if (n == 0)
     return 0;
 
@@ -22,11 +24,11 @@ int main()
 {
   int i, a[MAX_DIM], b[MAX_DIM], n;
 
-  /* Unosi se dimenzija nizova. */
+  /* Unosi se dimenzija nizova */
   printf("Unesite dimenziju nizova:");
   scanf("%d", &n);
 
-  /* A zatim i elementi nizova. */
+  /* A zatim i elementi nizova */
   printf("Unesite elemente prvog niza:");
   for (i = 0; i < n; i++)
     scanf("%d", &a[i]);
@@ -35,7 +37,7 @@ int main()
   for (i = 0; i < n; i++)
     scanf("%d", &b[i]);
 
-  /* Ispisuje se rezultat skalarnog proizvoda dva ucitana niza. */
+  /* Ispisuje se rezultat skalarnog proizvoda dva ucitana niza */
   printf("Skalarni proizvod je %d\n", skalarno(a, b, n));
 
   return 0;

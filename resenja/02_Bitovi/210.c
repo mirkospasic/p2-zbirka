@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-/* 
-   Niska koja se formiramo je duzine (sizeof(unsigned int)*8)/4 +1
+/* Niska koja se formiramo je duzine (sizeof(unsigned int)*8)/4 +1
    jer su za svaku heksadekadnu cifru potrebne 4 binarne cifre i
    jedna dodatna pozicija za terminirajucu nulu.
 
@@ -9,7 +8,8 @@
 
 #define MAX_DUZINA sizeof(unsigned int)*2 +1
 
-
+/* Funkcija za neoznacen broj x formira nisku s koja sadrzi njegov
+   heksadekadni zapis */
 void prevod(unsigned int x, char s[])
 {
 
@@ -52,10 +52,11 @@ void prevod(unsigned int x, char s[])
     }
 
     /* Primenljiva x se pomera za 4 bita u desnu stranu i time ce u
-       narednoj iteraciji biti posmatrane sledece 4 cifre */
+       narednoj iteraciji biti posmatrana sledeca 4 bita */
     x = x >> 4;
   }
 
+  /* Upisuje se terminirajuca nula */
   s[MAX_DUZINA - 1] = '\0';
 }
 
@@ -65,10 +66,13 @@ int main()
   unsigned int x;
   char s[MAX_DUZINA];
 
+  /* Ucitava se broj sa ulaza */
   scanf("%u", &x);
 
+  /* Poziva se funkcija za prevodjenje */
   prevod(x, s);
 
+  /* I stampa se dobijena niska */
   printf("%s\n", s);
 
   return 0;

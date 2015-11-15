@@ -42,9 +42,10 @@ int main()
 {
   unsigned int n;
 
-  /* Sa standardnog ulaza se unosi neoznacen ceo broj */
+  /* Ucitava se broj sa ulaza */
   scanf("%u", &n);
 
+  /* Ispisuje se rezultat */
   printf("%d\n", Broj01(n));
 
   return 0;

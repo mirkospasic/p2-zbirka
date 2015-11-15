@@ -14,7 +14,7 @@ int stepen(int x, int k)
 }
 
 /*************************************************************
-   Celo telo funkcije se moze ovako kratko zapisati 
+   Celo telo funkcije se moze kratko zapisati 
    return k == 0 ? 1 : x * stepen(x,k-1);
 
    Druga verzija prethodne funkcije. Obratiti paznju na
@@ -24,7 +24,7 @@ int stepen(int x, int k)
    x^k = x * (x^2 )^(k/2) , za neparno k 
    x^k = (x^2)^(k/2) , za parno k
    Ovom resenju ce biti potrebno manje rekurzivnih poziva da bi
-   doslo do rezultata, i stoga je efikasnije. 
+   se doslo do rezultata, i stoga je efikasnije. 
 *************************************************************/
 int stepen2(int x, int k)
 {
@@ -34,6 +34,7 @@ int stepen2(int x, int k)
   /* Ako je stepen paran */
   if ((k % 2) == 0)
     return stepen2(x * x, k / 2);
+
   /* Inace (ukoliko je stepen neparan) */
   return x * stepen2(x * x, k / 2);
 }
@@ -41,20 +42,22 @@ int stepen2(int x, int k)
 int main()
 {
   int x, k, ind;
-  /*Unosi se redni broj funkcije koja ce se primeniti */
+
+  /* Ucitava se redni broj funkcije koja ce se primeniti */
   printf("Unesite redni broj funkcije (1/2):\n");
   scanf("%d", &ind);
-  /* Unose se vrednosti za x i k */
+
+  /* Ucitavaju se vrednosti za x i k */
   printf("Unesite broj x:\n");
   scanf("%d%d", &x);
   printf("Unesite broj k:\n");
   scanf("%d%d", &k);
 
-  /* Ispisivanje vrednsoti koju vraca odgovarajuca funkcija */
-  if(x == 1)
+  /* Ispisuje se vrednost koju vraca odgovarajuca funkcija */
+  if (x == 1)
     printf("%d\n", stepen(x, k));
   else
-    printf("%d\n",stepen2(x, k));
-	
+    printf("%d\n", stepen2(x, k));
+
   return 0;
 }

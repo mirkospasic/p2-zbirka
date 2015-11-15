@@ -8,17 +8,17 @@
 #define MAX_STEPEN 20
 
 
-/* Polinome predstavljamo strukturom koja cuva koeficijente (koef[i] 
-   je koeficijent uz clan x^i) i stepen polinoma */
+/* Polinomi se predstavljaju strukturom koja cuva koeficijente
+   (koef[i] je koeficijent uz clan x^i) i stepen polinoma */
 typedef struct {
   double koef[MAX_STEPEN + 1];
   int stepen;
 } Polinom;
 
-/* Funkcija koja ispisuje polinom na stdout u citljivom obliku
-   Polinom prenosimo po adresi, da bi ustedeli kopiranje cele
-   strukture, vec samo prenosimo adresu na kojoj se nalazi polinom
-   kog ispisujemo */
+/* Funkcija koja ispisuje polinom na standardni izlaz u citljivom
+   obliku. Polinom se prenosi po adresi da bi se ustedela memorija:
+   ne kopira se cela struktura, vec se samo prenosi adresa na kojoj
+   se nalazi polinom koji ispisujemo */
 void ispisi(const Polinom * p);
 
 /* Funkcija koja ucitava polinom sa tastature */
@@ -31,12 +31,12 @@ double izracunaj(const Polinom * p, double x);
 /* Funkcija koja sabira dva polinoma */
 Polinom saberi(const Polinom * p, const Polinom * q);
 
-/* Funkcija mnozi dva polinoma p i q */
+/* Funkcija koja mnozi dva polinoma p i q */
 Polinom pomnozi(const Polinom * p, const Polinom * q);
 
-/* Funkcija racuna izvod polinoma p */
+/* Funkcija koja racuna izvod polinoma p */
 Polinom izvod(const Polinom * p);
 
-/* Funkcija racuna n-ti izvod polinoma p */
+/* Funkcija koja racuna n-ti izvod polinoma p */
 Polinom nIzvod(const Polinom * p, int n);
 #endif

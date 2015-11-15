@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+/* Funkcija odredjuje zbir cifara zadatog broja x */
 int zbir_cifara(unsigned int x)
 {
   /* Izlazak iz rekurzije: ako je broj jednocifren */
@@ -15,7 +16,7 @@ int main()
 {
   unsigned int x;
 
-  /* Ucitava se ceo broj sa ulaza */
+  /* Ucitava se ceo broj */
   scanf("%u", &x);
 
   /* Ispisuje se zbir cifara ucitanog broja */

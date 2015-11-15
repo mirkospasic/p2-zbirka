@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+/* Funkcija broji koliko se puta dve uzastopne jedinice pojavljuju u
+   binarnom zapisu celog neoznačenog broja x */
 int broj_parova(unsigned int x)
 {
 
@@ -24,10 +26,11 @@ int broj_parova(unsigned int x)
 
     /* Pomera se broj u desnu stranu da bi se u narednoj iteraciji
        proveravao sledeci par bitova. Pomeranjem u desno bit najvece
-       tezine se popunjava nulom jer je x neoznacen broj. */
+       tezine se popunjava nulom jer je x neoznacen broj */
     x = x >> 1;
   }
 
+  /* Vraca se dobijena vrednost */
   return broj_parova;
 
 }
@@ -36,8 +39,10 @@ int main()
 {
   unsigned int x;
 
+  /* Ucitava se broj sa ulaza */
   scanf("%u", &x);
 
+  /* Ispisuje se rezultat */
   printf("%d\n", broj_parova(x));
 
   return 0;

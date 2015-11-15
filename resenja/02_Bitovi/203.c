@@ -25,6 +25,7 @@ unsigned najveci(unsigned x)
     }
   }
 
+  /* Vraca se dobijena vrednost */
   return rezultat;
 }
 
@@ -49,6 +50,7 @@ unsigned najmanji(unsigned x)
     }
   }
 
+  /* Vraca se dobijena vrednost */
   return rezultat;
 }
 
@@ -68,8 +70,12 @@ void print_bits(int x)
 int main()
 {
   int broj;
+
+  /* Ucitava se broj sa ulaza */
   scanf("%x", &broj);
 
+  /* Ispisuju se, redom, najveci i najmanji broj formirani od bitova
+     unetog broja */
   printf("Najveci:\n");
   print_bits(najveci(broj));
 

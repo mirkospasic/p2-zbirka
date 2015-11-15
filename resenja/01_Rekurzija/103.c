@@ -7,8 +7,8 @@
    inace count(x) = najvisi_bit +count(x<<1)
 
    Za svaki naredni rekurzivan poziv prosleduje se x<<1. Kako se 
-   siftovanjem sa desne strane uvek dopisuju 0, argument x ce u
-   nekom rekurzivnom pozivu biti bas 0 i izacicemo iz rekurzije. 
+   pomeranjem sa desne strane uvek dopisuju 0, argument x ce u
+   nekom rekurzivnom pozivu biti bas 0 i izacice se iz rekurzije. 
 *************************************************************/
 int count(int x)
 {
@@ -21,12 +21,12 @@ int count(int x)
      vrednost najviseg bita. Rezultat koliko ima jedinica u ostatku
      binarnog zapisa broja x se uvecava za 1. Najvisi bit je 0. Stoga 
      je broj jedinica u zapisu x isti kao broj jedinica u zapisu
-     broja x<<1, jer se siftovanjem u levo sa desne stane dopisuju 0. 
-     Za rekurzicvni poziv se salje vrednost koja se dobija kada se x
-     siftuje u levo. Napomena: argument funkcije x je oznacen ceo
-     broj, usled cega se ne koristi siftovanje udesno, jer funkciji
-     moze biti prosleden i negativan broj. Iz tog razloga, odlucujemo
-     se da proveramo najvisi, umesto najnizeg bita */
+     broja x<<1, jer se pomeranjem u levo sa desne stane dopisuju 0.
+     Za rekurzivni poziv se salje vrednost koja se dobija kada se x
+     pomeri u levo. Napomena: argument funkcije x je oznacen ceo
+     broj, usled cega se ne koristi pomeranje udesno, jer funkciji
+     moze biti prosledjen i negativan broj. Iz tog razloga,
+     odlucujemo se da proveramo najvisi, umesto najnizeg bita */
   if (x & (1 << (sizeof(x) * 8 - 1)))
     return 1 + count(x << 1);
   else
@@ -40,10 +40,11 @@ int count(int x)
 int main()
 {
   int x;
-  /* Sa standardnog ulaza se ucitava ceo broj */
+
+  /* Ucitava se ceo broj */
   scanf("%x", &x);
-  /* Na standardni izlaz se ispisuje rezultat poziva funkcije count 
-     za uneti broj */
+
+  /* Ispisuje se rezultat */
   printf("%d\n", count(x));
 
   return 0;

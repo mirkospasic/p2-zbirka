@@ -34,7 +34,7 @@ int main()
 {
   int a[MAX_DIM];
   int n, i = 0, ind;
-  
+
   /* Ucitava se redni broj funkcije */
   printf("Unesite redni broj funkcije (1 ili 2):\n");
   scanf("%d", &ind);
@@ -49,8 +49,8 @@ int main()
     scanf("%d", &a[i]);
 
   /* Na osnovu vrednosti promenljive ind ispisuje se rezultat poziva
-     funkcije sumaNiza, ondosno sumaNiza2  */
-  if(ind == 1)
+     funkcije sumaNiza, ondosno sumaNiza2 */
+  if (ind == 1)
     printf("Suma elemenata je %d\n", sumaNiza(a, n));
   else
     printf("Suma elemenata je %d\n", sumaNiza2(a, n));

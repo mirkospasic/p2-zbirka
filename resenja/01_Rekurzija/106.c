@@ -29,8 +29,9 @@ int F_rekurzivna(int n, int a, int b)
     return n;
 
   /* Rekurzivni pozivi */
-  return a * F_rekurzivna(n - 1, a, b) + b * F_rekurzivna(n - 2,
-                                                          a, b);
+  return a * F_rekurzivna(n - 1, a, b) +
+      b * F_rekurzivna(n - 2, a, b);
+
 }
 
 /* NAPOMENA: U slucaju da se rekurzijom problem svodi na vise manjih
@@ -50,7 +51,7 @@ int F_rekurzivna(int n, int a, int b)
    statickoj memoriji odakle ce biti dostupan svim pozivima
    rekurzivne funkcije. */
 
-/* c) Funkcija racuna n-ti fibonacijev broj - napredna rekurzivna 
+/* c) Funkcija racuna n-ti fibonacijev broj - napredna rekurzivna
    verzija */
 int F_napredna(int n, int a, int b)
 {
@@ -76,30 +77,27 @@ int F_napredna(int n, int a, int b)
 int main()
 {
   int n, a, b, ind;
-  
-  /*Unosi se redni broj funkcije koja ce se primeniti */
+
+  /* Unosi se redni broj funkcije koja ce se primeniti */
   printf("Unesite redni broj funkcije koju zelite:\n");
   printf("1 - iterativna\n");
   printf("2 - rekurzivna\n");
   printf("3 - rekurzivna napredna\n");
   scanf("%d", &ind);
 
-  /* Ucitavanje koeficijenata a i b */
+  /* Ucitavaju se koeficijenti a i b */
   printf("Unesite koeficijente:\n");
   scanf("%d%d", &a, &b);
-  
-  /* Ucitavanje prirodnog broja n */
+
+  /* Ucitava se broj n */
   printf("Unesite koji clan niza se racuna:\n");
   scanf("%d", &n);
 
-  /* Testirati program za razlicite vrednosti promenljive n. Na
-     primer za n=20, 30, 40, 50, 55, 60 ... */
-  
   /* Na osnovu vrednosti promenljive ind ispisuje se rezultat poziva
-     funkcije F_iterativna, F_rekurzivna ili F_napredna  */
-  if(ind == 0)
+     funkcije F_iterativna, F_rekurzivna ili F_napredna */
+  if (ind == 0)
     printf("F(%d) = %d\n", n, F_iterativna(n, a, b));
-  else if(ind == 1)
+  else if (ind == 1)
     printf("F(%d) = %d\n", n, F_rekurzivna(n, a, b));
   else
     printf("F(%d) = %d\n", n, F_napredna(n, a, b));

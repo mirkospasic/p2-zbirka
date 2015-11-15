@@ -14,8 +14,8 @@ gcc -lm -o complex complex.o main.o
 
 Napomena: Prethodne komande se koriste kada se sva tri navedena 
 dokumenta nalaze u istom direktorijumu. Ukoliko se biblioteka (npr. 
-complex.c complex.h) nalazi u direktorijumu header_dir prevodjenje 
-se vrsi dodavanjem opcije opcije -I header_dir
+complex.c complex.h) nalazi u direktorijumu sa imenom header_dir 
+prevodjenje se vrsi dodavanjem opcije opcije -I header_dir
 gcc -I header_dir -Wall -lm -o complex complex.c main.c 
 ********************************************************************/
 
@@ -33,6 +33,7 @@ int main()
   /* Ucitavamo kompleksan broj */
   ucitaj_kompleksan_broj(&z);
 
+  /* Ispisujemo njegov polarni oblik */
   printf("Polarni oblik kompleksnog broja je %.2f *  e^i * %.2f\n",
          moduo(z), argument(z));
 
