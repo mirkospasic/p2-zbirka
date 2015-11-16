@@ -3,9 +3,7 @@
 /* Niska koja se formira je duzine (sizeof(unsigned int)*8)/4 +1 jer
    su za svaku heksadekadnu cifru potrebne 4 binarne cifre i jedna
    dodatna pozicija za terminirajucu nulu.
-
-   Prethodni izraz je identican sa sizeof(unsigned int)*2+1. */
-
+   Prethodni izraz se moze zapisati kao sizeof(unsigned int)*2+1. */
 #define MAX_DUZINA sizeof(unsigned int)*2 +1
 
 /* Funkcija za neoznacen broj x formira nisku s koja sadrzi njegov

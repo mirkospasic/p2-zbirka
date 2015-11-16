@@ -1,15 +1,7 @@
 #include <stdio.h>
 
-/***************************************************************
-   Funkcija vraca vrednost cija je binarna reprezentacija slika
-   u ogledalu binarne reprezentacije broja x koji se prosledjuje
-   kao argument funkcije. 
-   
-   Na primer za x cija binarna reprezentacija izgleda ovako
-   101010111100110111100100100100011 
-   funkcija treba da vrati broj cija je binarna reprezentacija:
-   11000100100001111011001111010101 
-***************************************************************/
+/* Funkcija vraca vrednost cija je binarna reprezentacija slika
+   u ogledalu binarne reprezentacije broja x. */
 unsigned mirror(unsigned x)
 {
   unsigned najnizi_bit;

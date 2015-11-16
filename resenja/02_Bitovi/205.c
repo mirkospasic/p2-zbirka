@@ -1,16 +1,6 @@
 #include <stdio.h>
 
-/***************************************************************
-   Funkcija binarnu reprezentaciju svog argumenta x rotira u 
-   levo za n mesta i vraca odgovarajuci neoznacen ceo broj cija
-   je binarna reprezentacija dobijena nakon rotacije.
-   
-   Na primer za n =5 i x cija je interna reprezentacija 
-   1010 1011 1100 1101 1110 0001 0010 0011 
-   funkcija vraca neoznacen ceo broj cija je binarna 
-   reprezentacija:
-   0111 1001 1011 1100 0010 0100 0111 0101 
-***************************************************************/
+/* Funkcija neoznacen broj x rotira u levo za n mesta. */
 unsigned rotate_left(int x, unsigned n)
 {
   unsigned first_bit;
@@ -34,15 +24,7 @@ unsigned rotate_left(int x, unsigned n)
   return x;
 }
 
-/***************************************************************
-   Funkcija neoznacen broj x rotira u desno za n mesta.
-   
-   Na primer za n=5 i x cija je binarna reprezentacija 
-   1010 1011 1100 1101 1110 0001 0010 0011 
-   funkcija vraca neoznacen ceo broj cija je binarna 
-   reprezentacija:
-   0001 1101 0101 1110 0110 1111 0000 1001 
-***************************************************************/
+/* Funkcija neoznacen broj x rotira u desno za n mesta. */
 unsigned rotate_right(unsigned x, unsigned n)
 {
   unsigned last_bit;

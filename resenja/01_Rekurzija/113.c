@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-/* Niska moze imati najvise 32 karaktera + 1 za terminalnu nulu */
-#define MAX_DIM 33
+/* Niska moze imati najvise 31 karaktera + 1 za terminalnu nulu */
+#define MAX_DIM 32
 
 /* Funkcija ispituje da li je zadata niska duzine n palindrom */
 int palindrom(char s[], int n)

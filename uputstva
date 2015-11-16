@@ -18,6 +18,12 @@ d) dodati readme fajl u koreni foleder repozitorijuma
 
 6. Izdvojiti print_bits u biblioteku
 
+7. Voditi racuna da se ne mesa rad sa Windows-a i Linux-a jer to posle pravi probleme indent-u
+   zbog znaka za novi red
+
+8. Dodati napomenu da je F uopstenje za fibonacijeve brojeve
+9. Resenje 1.32 nije tacno, tj ne odgovara tekstu zadatka, nesto sam ispravljala, mozda sam zabrljala
+
 ###############################################################################
 
 

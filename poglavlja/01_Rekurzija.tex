@@ -5,8 +5,8 @@
 \begin{Exercise}[label=102]
 Napisati rekurzivnu funkciju koja izračunava  $x^k$, za dati ceo broj $x$ i prirodan broj $k$
 \begin{enumerate}
-\item tako da rešenje bude linearno,
-\item tako da rešenje bude logaritamsko.
+\item tako da rešenje bude linearne složenosti,
+\item tako da rešenje bude logaritamske složenosti.
 \end{enumerate}
 Napisati program koji testira napisane funkciju tako što se sa standardnog ulaza najpre unosi redni broj funckije koja se primenjuje, a zatim i ceo broj $x$ i prirodan broj $k$, a potom se na standarni izlaz ispisuje rezultat primene odgovarajuće funkcije na unete brojeve.
  
@@ -39,11 +39,11 @@ Napisati program koji testira napisane funkciju tako što se sa standardnog ulaz
 
 \begin{Exercise}[label=104]
 Koristeći uzajamnu (posrednu) rekurziju napisati:
- \begin{itemize}
+ \begin{enumerate}
 \item funkciju \kckod{paran} koja proverava da li je broj cifara nekog broja paran i vraća 1 ako jeste, a 0 inače;
 \item i funkciju \kckod{neparan} koja vraća 1, ukoliko je broj cifara nekog broja neparan, a 0 inače.
- \end{itemize}
-Napisati program koji testira napisanu funkciju tako što za heksadekadni broj koji se unosi sa standardnog ulaza ispisuje da li je broj njegovih cifara paran ili neparan.
+ \end{enumerate}
+Napisati program koji testira napisane funkcije tako što za heksadekadni broj koji se unosi sa standardnog ulaza ispisuje da li je broj njegovih cifara paran ili neparan.
  
  \begin{miditest}
 \begin{test}{1}
@@ -94,7 +94,7 @@ Napisati repno-rekurzivnu funkciju koja izračunava faktorijel broja $n$. Napisa
 
 
 \begin{Exercise}[label=106]
-Elementi funkcije $F$ izračunavaju se na osnovu sledećih rekurentnih relacija:
+Elementi niza $F$ izračunavaju se na osnovu sledećih rekurentnih relacija:
  $$F(0) = 0$$
  $$F(1) = 1$$
  $$F(n) = a* F(n-1) + b*F(n-2)$$
@@ -270,7 +270,7 @@ Napisati rekurzivnu funkciju koja određuje maksimum niza celih brojeva. Napisat
 \end{Answer}
 
 \begin{Exercise}[label=110]
-Napisati rekurzivnu funkciju \kckod{skalarno} koja izračunava skalarni proizvod dva data vektora.  Napisati program koji testira ovu funkciju, za nizove koji se unose sa standardnog ulaza. Prvo se unosi dimenzija nizova, a zatim i njihovi elementi. Nizovi neće imati više od $256$ elemenata.
+Napisati rekurzivnu funkciju koja izračunava skalarni proizvod dva data vektora.  Napisati program koji testira ovu funkciju, za nizove koji se unose sa standardnog ulaza. Prvo se unosi dimenzija nizova, a zatim i njihovi elementi. Nizovi neće imati više od $256$ elemenata.
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -311,7 +311,7 @@ Napisati rekurzivnu funkciju \kckod{skalarno} koja izračunava skalarni proizvod
 \end{Answer}
 
 \begin{Exercise}[label=112]
-Napisati rekurzivnu funkciju \kckod{br\_pojave} koja računa broj pojavljivanja
+Napisati rekurzivnu funkciju koja računa broj pojavljivanja
 elementa $x$ u nizu $a$ dužine $n$. Napisati program koji testira ovu funkciju za broj $x$ i niz  $a$ koji se unose sa standardnog ulaza. Prvo se unosi $x$, a zatim elementi niza sve do unosa kraja ulaza. Niz neće imati više od $256$ elemenata. 
 
 \begin{miditest}
@@ -354,7 +354,7 @@ elementa $x$ u nizu $a$ dužine $n$. Napisati program koji testira ovu funkciju 
 \end{Answer}
 
 \begin{Exercise}[label=114]
-Napisati rekurzivnu funkciju \kckod{tri\_uzastopna\_clana} kojom se proverava da li su tri zadata broja uzastopni članovi niza. Potom, napisati program koji
+Napisati rekurzivnu funkciju kojom se proverava da li su tri zadata broja uzastopni članovi niza. Potom, napisati program koji
   je testira. Sa standardnog ulaza se unose najpre tri tražena
   broja, a zatim elementi niza, sve do kraja ulaza. Pretpostaviti da
 neće biti uneto više od $256$ brojeva.
@@ -635,9 +635,9 @@ Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,
 #\izlaz{Duzina }#
 #\izlaz{permutacije}#
 #\izlaz{mora biti}#
-#\izlaz{broj veci}#
-#\izlaz{od 0 i manji}#
-#\izlaz{50!}#
+#\izlaz{broj iz }#
+#\izlaz{intervala}#
+#\izlaz{[0, 50]!}#
 \end{test}
 \end{minitest}
 
@@ -667,7 +667,7 @@ Paskalov trougao sadrži brojeve čije se vrednosti računaju tako što svako po
 \item Napisati rekurzivnu funkciju koja izračunava $d_n$ kao sumu elemenata $n$-te hipotenuze Paskalovog trougla.
 \end{enumerate}
 
-Napisati program koji za unetu veličinu Paskalovog trougla i hipotenuzu 
+Napisati program koji za unetu veličinu Paskalovog trougla i redni broj hipotenuze
 najpre iscrtava Paskalov trougao, a zatim štampa sumu elemenata hipotenuze.
 
 \begin{miditest}

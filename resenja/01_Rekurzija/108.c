@@ -4,12 +4,10 @@
 /* Rekurzivna funkcija za racunanje binomnog koeficijenta */
 int binomniKoeficijent(int n, int k)
 {
-  /******************************************************************
-    Ako je k=0 ili k=n, onda je binomni koeficijent 0 
-    Ako je k izmedju 0 i n, onda se koristi formula
-    bk(n,k) = bk(n-1,k-1) + bk(n-1,k)
-    koja se moze izvesti iz definicije binomnog koeficijenata
-  ******************************************************************/
+  /* Ukoliko je k=0 ili k=n, onda je binomni koeficijent 0. 
+     Ukoliko je k izmedju 0 i n, onda se koristi formula
+     bk(n,k) = bk(n-1,k-1) + bk(n-1,k)
+     koja se moze izvesti iz definicije binomnog koeficijenata */
   return (0 < k && k < n) ?
       binomniKoeficijent(n - 1, k - 1) + binomniKoeficijent(n - 1,
                                                             k) : 1;

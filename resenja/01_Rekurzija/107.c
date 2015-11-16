@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define  MAX_DUZINA_NIZA 50
+#define  MAX_DUZINA_PERMUTACIJE 50
 
 /* Funkcija koja ispisuje elemente niza a duzine n */
 void ispisiNiz(int a[], int n)
@@ -70,14 +70,14 @@ void permutacija(int a[], int m, int n)
 int main(void)
 {
   int n;
-  int a[MAX_DUZINA_NIZA];
+  int a[MAX_DUZINA_PERMUTACIJE+1];
 
   /* Ucitava se broja n i provera se da li je u odgovarajucem opsegu */
   scanf("%d", &n);
-  if (n < 0 || n >= MAX_DUZINA_NIZA) {
+  if (n < 0 || n > MAX_DUZINA_PERMUTACIJE) {
     fprintf(stderr,
-            "Duzina permutacije mora biti broj veci od 0 i manji od %d!\n",
-            MAX_DUZINA_NIZA);
+            "Duzina permutacije mora biti broj iz intervala [0, %d]!\n",
+            MAX_DUZINA_PERMUTACIJE);
     exit(EXIT_FAILURE);
   }
 

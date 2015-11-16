@@ -1,22 +1,13 @@
 #include <stdio.h>
 
-/***************************************************************
-   Funckija postavlja na nulu n bitova pocev od pozicije p.
-   Pozicije se broje pocev od pozicije najnizeg bita, pri cemu
-   se broji od nule. 
-   
-   Npr, za n=5, p=10 1010 1011 1100 1101 1110 
-   1010 1110 0111 1010 1011 1100 1101 1110 1000 0010 0111 */
+/* Funckija postavlja na nulu n bitova pocev od pozicije p. */
 unsigned reset(unsigned x, unsigned n, unsigned p)
 {
 /***************************************************************
-     Cilj je anulirati samo zeljene bitove, a da ostali
-     ostanu nepromenjeni. Maska koja ce se koristiti je ona cija 
-     binarna reprezentacija ima n bitova
-     postavljenih na 0 pocev od pozicije p, dok su svi ostali
-     postavljeni na 1.
-
-     Na primer, za n=5 i p=10 cilj je maska oblika 
+     Formira se maska cija binarna reprezentacija ima n bitova 
+     postavljenih na 0 pocev od pozicije p, dok su svi ostali 
+     postavljeni na 1. Na primer, za n=5 i p=10 formira se 
+     maska oblika 
      1111 1111 1111 1111 1111 1000 0011 1111 
      To se postize na sledeci nacin: 
      ~0                  1111 1111 1111 1111 1111 1111 1111 1111 
@@ -31,51 +22,30 @@ unsigned reset(unsigned x, unsigned n, unsigned p)
 }
 
 
-/***************************************************************
-   Funckija postavlja na 1 n bitova pocev od pozicije p.
-   Pozicije se broje pocev od pozicije najnizeg bita, pri cemu
-   se broji od nule. 
-   
-   Npr, za n=5, p=10 
-   1010 1011 1100 1101 1110 1010 1110 0111 
-   1010 1011 1100 1101 1110 1111 1110 0111 
-***************************************************************/
+/* Funckija postavlja na jedinicu n bitova pocev od pozicije p. */
 unsigned set(unsigned x, unsigned n, unsigned p)
 {
 
 /***************************************************************
-     Cilj je samo odredjenih n bitova postaviti na 1, dok 
-     ostali treba da ostanu netaknuti. 
-     
+     Formira se maska kod koje je samo n bitova pocev od 
+     pocev od pozicije p jednako 1, a ostali su 0. 
      Na primer, za n=5 i p=10 formira se maska oblika 
      0000 0000 0000 0000 0000 0111 1100 0000 
-     prateci vrlo slican postupak kao za prethodnu funkciju 
 ***************************************************************/
   unsigned maska = ~(~0 << n) << (p - n + 1);
 
   return x | maska;
 }
 
-/***************************************************************
-   Funkcija vraca celobrojno polje bitova, desno poravnato, koje 
+/* Funkcija vraca celobrojno polje bitova, desno poravnato, koje 
    predstavlja n bitova pocev od pozicije p u binarnoj
-   reprezentaciji broja x, pri cemu se pozicija broji sa desna
-   ulevo, gde je pocetna pozicija 0. 
-   
-   Na primer za n = 5 i p = 10 
-   i broj cija je binarna reprezentacija:
-   1010 1011 1100 1101 1110 1010 1110 0111 
-   trazi se
-   0000 0000 0000 0000 0000 0000 0000 1011 
-***************************************************************/
+   reprezentaciji broja x. */
 unsigned get_bits(unsigned x, unsigned n, unsigned p)
 {
 
 /***************************************************************
      Kreira se maska kod koje su poslednjih n bitova 1, a
-     ostali su 0. 
-     
-     Na primer za n=5 
+     ostali su 0. Na primer, za n=5 
      0000 0000 0000 0000 0000 0000 0001 1111 
 ***************************************************************/
   unsigned maska = ~(~0 << n);
@@ -92,22 +62,13 @@ unsigned get_bits(unsigned x, unsigned n, unsigned p)
    reprezentacije broja y */
 unsigned set_n_bits(unsigned x, unsigned n, unsigned p, unsigned y)
 {
-/***************************************************************
-     Kreira se maska kod kod koje su poslednjih n bitova 1, a
-     ostali su 0. 
-     
-     Na primer za n=5 
-     0000 0000 0000 0000 0000 0000 0001 1111 
-***************************************************************/
+  /* Kreira se maska kod kod koje su poslednjih n bitova 1, a
+     ostali su 0. */
   unsigned last_n_1 = ~(~0 << n);
-/***************************************************************
-     Kao sto je i u funkciji reset, i ovde se kreira masku koja ima n
+
+  /* Kao i kod funkcije reset, i ovde se kreira maska koja ima n
      bitova postavljenih na 0 pocevsi od pozicije p, dok su
-     ostali bitovi 1. 
-     
-     Na primer za n=5 i p =10 
-     1111 1111 1111 1111 1111 1000 0011 1111 
-***************************************************************/
+     ostali bitovi 1. */
   unsigned middle_n_0 = ~(~(~0 << n) << (p - n + 1));
 
   /* U promenljivu x_reset se smesta vrednost dobijena kada se u
@@ -130,12 +91,7 @@ unsigned set_n_bits(unsigned x, unsigned n, unsigned p, unsigned y)
    njih n */
 unsigned invert(unsigned x, unsigned n, unsigned p)
 {
-/***************************************************************
-     Formira se maska sa n jedinica pocev od pozicije p.
-     
-     Na primer za n=5 i p=10 
-     0000 0000 0000 0000 0000 0111 1100 0000 
-***************************************************************/
+  /* Formira se maska sa n jedinica pocev od pozicije p. */
   unsigned maska = ~(~0 << n) << (p - n + 1);
 
   /* Operator ekskluzivno ili invertuje sve bitove gde je

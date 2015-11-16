@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-
 /********************************************************************
-  Linearno resenje se zasniva na cinjenici: 
-  x^0 = 1 x^k = x * x^(k-1) 
+  Resenje linearne slozenosti: 
+  x^0 = 1 
+  x^k = x * x^(k-1) 
 ********************************************************************/
 int stepen(int x, int k)
 {
@@ -11,16 +11,11 @@ int stepen(int x, int k)
     return 1;
 
   return x * stepen(x, k - 1);
-  /******************************************************************
-    Celo telo funkcije se moze kratko zapisati 
-    return k == 0 ? 1 : x * stepen(x,k-1); 
-  ******************************************************************/
+  /* kraci zapis: return k == 0 ? 1 : x * stepen(x,k-1); */
 }
 
 /********************************************************************
-   Druga verzija prethodne funkcije. Obratiti paznju na efikasnost u
-   odnosu na prvu verziju! 
-   Logaritamsko resenje je zasnovano na cinjenicama: 
+   Resenje logaritamske slozenosti: 
    x^0 =1;  
    x^k = x * (x^2 )^(k/2) , za neparno k 
    x^k = (x^2)^(k/2) , za parno k
