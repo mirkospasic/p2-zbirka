@@ -3,18 +3,17 @@
 #include <ctype.h>
 #define MAX 50
 
-/* Funkcija vrsi dinamicku alokaciju memorije potrebne n linija 
-   tj. n niski od kojih nijedna nije duza od MAX karaktera. */
+/* Funkcija vrsi dinamicku alokaciju memorije potrebne n linija tj.
+   n niski od kojih nijedna nije duza od MAX karaktera. */
 char **alociranje_memorije(int n)
 {
   char **linije = NULL;
   int i, j;
   /* Alocira se prostor za niz vrsti matrice */
   linije = (char **) malloc(n * sizeof(char *));
-  /* U slucaju
-   neuspesnog otvaranja ispisuje se -1 na stderr i program zavrsava.
-   */ 
-  if (linije == NULL) 
+  /* U slucaju neuspesnog otvaranja ispisuje se -1 na stderr i
+     program zavrsava. */
+  if (linije == NULL)
     return NULL;
   /* Alocira se prostor za svaku vrstu matrice */
   for (i = 0; i < n; i++) {
@@ -25,7 +24,7 @@ char **alociranje_memorije(int n)
       for (j = 0; j < i; j++) {
         free(linije[j]);
       }
-      free(linije);   
+      free(linije);
       return NULL;
     }
   }
@@ -41,63 +40,60 @@ char **oslobadjanje_memorije(char **linije, int n)
   }
   /* Oslobadja se memorija za niz pokazivaca na vrste */
   free(linije);
-  
+
   /* Matrica postaje prazna, tj. nealocirana */
   return NULL;
 }
 
-int main(int argc, char *argv[]) 
+int main(int argc, char *argv[])
 {
-  FILE * ulaz;
+  FILE *ulaz;
   char **linije;
   int i, j, n;
- 
-  /* Proverava argumenata komandne linije. */ 
+
+  /* Proverava argumenata komandne linije. */
   if (argc != 2) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
-  
+
   /* Otvaranje datoteke cije ime je navedeno kao argument komandne
-   linije neposredno nakon imena programa koji se poziva. U slucaju
-   neuspesnog otvaranja ispisuje se -1 na stderr i program zavrsava.
-   */ 
+     linije neposredno nakon imena programa koji se poziva. U slucaju
+     neuspesnog otvaranja ispisuje se -1 na stderr i program zavrsava. */
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
-  	fprintf(stderr, "-1\n");
+    fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
-  /* Ucitavanje broja linija. */ 
+  /* Ucitavanje broja linija. */
   fscanf(ulaz, "%d", &n);
 
-  /* Alociranje memorije na osnovu ucitanog broja linija. */   
+  /* Alociranje memorije na osnovu ucitanog broja linija. */
   linije = alociranje_memorije(n);
-  
-  /*U slucaju neuspesne alokacije ispisuje se -1 na stderr i program
-    zavrsava. */ 
+
+  /* U slucaju neuspesne alokacije ispisuje se -1 na stderr i program
+     zavrsava. */
   if (ulaz == NULL) {
-  	fprintf(stderr, "-1\n");
+    fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje svih n linija iz datoteke. */ 
+  /* Ucitavanje svih n linija iz datoteke. */
   for (i = 0; i < n; i++) {
     fscanf(ulaz, "%s", linije[i]);
   }
 
   /* Ispisivanje u odgovarajucem poretku ucitane linije koje
-     zadovoljavaju kriterijum. */ 
+     zadovoljavaju kriterijum. */
   for (i = n - 1; i >= 0; i--) {
     if (isupper(linije[i][0])) {
-      printf("%s\n", linije[i]);   
-	}
+      printf("%s\n", linije[i]);
+    }
   }
-  /* Oslobadjanje memorije koja je dinamicki alocirana. */ 
+  /* Oslobadjanje memorije koja je dinamicki alocirana. */
   linije = oslobadjanje_memorije(linije, n);
-  
-  /* Zatvaranje datoteku. */ 
+
+  /* Zatvaranje datoteku. */
   fclose(ulaz);
   exit(EXIT_SUCCESS);
 }
-
-

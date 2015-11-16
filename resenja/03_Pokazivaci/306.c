@@ -47,6 +47,6 @@ int main(int argc, char **argv)
 
   /* Zatvara se datoteka */
   fclose(in);
-  
+
   exit(EXIT_SUCCESS);
 }

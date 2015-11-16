@@ -250,8 +250,8 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, int broj)
   }
 
   /* Ako je nakon ovog brisanja lista ostala prazna, funkcija se
-     prekida. Isto se radi i ukoliko glava liste sadrzi vrednost
-     koja je veca od broja, jer kako je lista sortirana rastuce nema
+     prekida. Isto se radi i ukoliko glava liste sadrzi vrednost koja 
+     je veca od broja, jer kako je lista sortirana rastuce nema
      potrebe broj traziti u repu liste. */
   if (*adresa_glave == NULL || (*adresa_glave)->vrednost > broj)
     return;

@@ -96,6 +96,6 @@ int main(int argc, char **argv)
   }
 
   fclose(in);
-  
+
   exit(EXIT_SUCCESS);
 }

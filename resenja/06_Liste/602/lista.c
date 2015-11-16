@@ -71,12 +71,12 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
   /* Ako lista nije prazna, broj se dodaje u rep liste. */
   /* Prilikom dodavanja u listu na kraj u velikoj vecini slucajeva
      novi broj se dodaje u rep liste u rekurzivnom pozivu.
-     Informaciju o uspesnosti alokacije u rekurzivnom pozivu
-     funkcija prosledjuje visem rekurzivnom pozivu koji tu
-     informaciju vraca u rekurzivni poziv iznad, sve dok se ne vrati
-     u main. Tek je iz main funkcije moguce pristupiti pravom pocetku 
-     liste i osloboditi je celu, ako ima potrebe. Ako je funkcija
-     vratila 0, onda nije bilo greske. */
+     Informaciju o uspesnosti alokacije u rekurzivnom pozivu funkcija 
+     prosledjuje visem rekurzivnom pozivu koji tu informaciju vraca u 
+     rekurzivni poziv iznad, sve dok se ne vrati u main. Tek je iz
+     main funkcije moguce pristupiti pravom pocetku liste i
+     osloboditi je celu, ako ima potrebe. Ako je funkcija vratila 0,
+     onda nije bilo greske. */
   return dodaj_na_kraj_liste(&(*adresa_glave)->sledeci, broj);
 }
 

@@ -20,8 +20,8 @@ void ispisi_kompleksan_broj(KompleksanBroj z)
 
   /* Razlikuju se dva slucaja: 1) realni deo kompleksnog broja
      razlicit od nule: tada se realni deo ispisuje na standardni
-     izlaz, nakon cega se ispisuje znak + ili - u zavisnosti da li
-     je imaginarni deo pozitivan ili negativan, a potom i apsolutna
+     izlaz, nakon cega se ispisuje znak + ili - u zavisnosti da li je 
+     imaginarni deo pozitivan ili negativan, a potom i apsolutna
      vrednost imaginarnog dela kompleksnog broja 2) realni deo
      kompleksnog broja je nula: tada se samo ispisuje imaginaran deo, 
      s tim sto se ukoliko su oba dela nula ispisuje samo 0, bez

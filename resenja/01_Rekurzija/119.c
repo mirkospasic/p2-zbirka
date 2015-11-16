@@ -3,7 +3,7 @@
 /* Rekurzivna funkcija za odredjivanje najvece oktalne cifre u broju */
 int max_oktalna_cifra(unsigned x)
 {
-  /* Izlazak iz rekurzije: ako je vrednost broja 0, onda je i 
+  /* Izlazak iz rekurzije: ako je vrednost broja 0, onda je i
      vrednost najvece oktalne cifre u broju 0 */
   if (x == 0)
     return 0;

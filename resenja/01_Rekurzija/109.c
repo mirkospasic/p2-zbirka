@@ -25,12 +25,12 @@ int main()
 
   /* Sve dok se ne stigne do kraja ulaza, brojeve se ucitavaju u niz. 
      Promenljiva i predstavlja indeks tekuceg broja. U niz se ne moze 
-     ucitati vise od MAX_DIM brojeva, pa se u slucaju da promenljiva 
+     ucitati vise od MAX_DIM brojeva, pa se u slucaju da promenljiva
      i dostigne vrednost MAX_DIM prekida unos novih brojeva. */
   int i = 0;
   while (scanf("%d", &brojevi[i]) != EOF) {
     i++;
-    if(i == MAX_DIM)
+    if (i == MAX_DIM)
       break;
   }
   n = i;
