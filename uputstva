@@ -2,28 +2,36 @@
 
 Preostali poslovi
 
-1. Srediti numeraciju kod listinga
+1. Srediti numeraciju kod listinga (Milena)
 
 2. Srediti repozitorijum:
-a) treba da sadrzi poddirektorijume za datoteke 
-b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci
-c) napraviti makefile koji ce sve odjednom da prevede, nazubi i upakuje.
-d) dodati readme fajl u koreni foleder repozitorijuma
+a) treba da sadrzi poddirektorijume za biblioteke (svako svoju)
+b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci (Svi)
+c) napraviti makefile koji ce sve odjednom da prevede, nazubi i upakuje (Mirko)
+d) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
+e) dodati licencnu poruku na pocetak svake datoteke (smisliti poruku --- svi)
 
-3. Srediti stderr i stdout izlaz
+3. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni, razmisliti koji bi bio adekvatan naslov da li 
+Izlaz i Izlaz za gresku 
+ili mozda
+Izlaz (stdout) i Izlaz (stderr)
 
-4. Pregledati konvencije imenovanja koje se koriste kroz zbirku i to usaglasiti
+4. Pregledati konvencije imenovanja koje se koriste kroz zbirku i to usaglasiti (Svi)
 
-5. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava
+5. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Svi)
 
-6. Izdvojiti print_bits u biblioteku
+6. Izdvojiti print_bits u biblioteku (Nina)
 
 7. Voditi racuna da se ne mesa rad sa Windows-a i Linux-a jer to posle pravi probleme indent-u
    zbog znaka za novi red
 
-8. Dodati napomenu da je F uopstenje za fibonacijeve brojeve
-9. Resenje 1.32 nije tacno, tj ne odgovara tekstu zadatka, nesto sam ispravljala, mozda sam zabrljala, nisam testirala
-10 Detaljno treba precesljati prvo poglavlje i to po svim pitanjima
+8. Dodati napomenu da je F uopstenje za fibonacijeve brojeve (gde su nestali fibonacijevi brojevi?) (Nina)
+9. Resenje 1.32 nije tacno, tj ne odgovara tekstu zadatka, nesto sam ispravljala, mozda sam zabrljala, nisam testirala (Nina)
+10. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Nina, Jelena)
+
+11. Dopuniti predgovor (svi)
+12. Napraviti dizajn korica (Andjelka)
+13. Napraviti finalni prelom (Milena)
 
 ###############################################################################
 
