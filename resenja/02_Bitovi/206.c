@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "stampanje_bitova.h"
 
 /* Funkcija vraca vrednost cija je binarna reprezentacija slika
    u ogledalu binarne reprezentacije broja x. */
@@ -24,18 +25,6 @@ unsigned mirror(unsigned x)
 
   /* Vraca se dobijena vrednost */
   return rezultat;
-}
-
-/* Funkcija prikazuje na standardni izlaz binarnu reprezentaciju
-   celog broja u memoriji */
-void print_bits(int x)
-{
-  unsigned velicina = sizeof(int) * 8;
-  unsigned maska;
-  for (maska = 1 << (velicina - 1); maska != 0; maska >>= 1)
-    putchar(x & maska ? '1' : '0');
-
-  putchar('\n');
 }
 
 int main()

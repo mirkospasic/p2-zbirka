@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "stampanje_bitova.h"
 
 /* Funkcija neoznacen broj x rotira u levo za n mesta. */
 unsigned rotate_left(int x, unsigned n)
@@ -95,18 +96,6 @@ int rotate_right_signed(int x, unsigned n)
 
   /* Vraca se dobijena vrednost */
   return x;
-}
-
-/* Funkcija prikazuje na standardni izlaz binarnu reprezentaciju
-   celog broja u memoriji */
-void print_bits(int x)
-{
-  unsigned velicina = sizeof(int) * 8;
-  unsigned maska;
-  for (maska = 1 << (velicina - 1); maska != 0; maska >>= 1)
-    putchar(x & maska ? '1' : '0');
-
-  putchar('\n');
 }
 
 int main()

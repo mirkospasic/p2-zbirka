@@ -171,7 +171,7 @@ Napisati program koji testira prethodne funkcije tako što se sa standardnog ula
 \section{Algoritmi za rad sa bitovima}
 
 \begin{Exercise}[label=201]
-Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu neoznačenog celog broja $x$. Napisati program koja testira funkciju \kckod{print\_bits} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
+Napisati biblioteku \kckod{stampanje\_bitova}  za rad sa bitovima koja sadrži funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu neoznačenog celog broja $x$. Napisati program koja testira funkciju \kckod{print\_bits} za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
 
 \begin{miditest}
 \begin{test}{1}
@@ -218,7 +218,9 @@ Napisati funkciju \kckod{print\_bits} koja štampa bitove u binarnom zapisu neoz
 \linkresenje{201}
 \end{Exercise}
 \begin{Answer}[ref=201]
-\includecode{resenja/02_Bitovi/201.c}
+\includecodeLib{resenja/02_Bitovi/stampanje_bitova.h}{stampanje\_bitova.h}
+\includecodeLib{resenja/02_Bitovi/stampanje_bitova.c}{stampanje\_bitova.c}
+\includecodeLib{resenja/02_Bitovi/201.c}{main.c}
 \end{Answer}
 
 \begin{Exercise}[label=202]
@@ -282,7 +284,6 @@ Napisati program koji za broj koji unosi u heksadekasnom formatu sa standardnog 
 \end{Exercise}
 \begin{Answer}[ref=202]
 \includecode{resenja/02_Bitovi/202.c}
-%\includecode{resenja/02_Bitovi/202b.c}
 \end{Answer}
 
 \begin{Exercise}[label=203]
@@ -351,12 +352,13 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 \linkresenje{203}
 \end{Exercise}
 \begin{Answer}[ref=203]
+\napomena{Rešenje koristi biblioteku za štampanje bitova iz zadatka \ref{201}.}
 \includecode{resenja/02_Bitovi/203.c}
 \end{Answer}
 
 
 \begin{Exercise}[label=204]
-Napisati funkcije za rad sa bitovima. \napomena{Pozicije se broje počev od pozicije bita najmanje težine, pri čemu je bit najmanje težine na poziciji nula.}
+Napisati funkcije za rad sa bitovima. 
 \begin{enumerate}
 \item Napisati funkciju \kckod{reset} koja određuje broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{0}. Na primer, za n=5, p=10 za broj čija je binarna reprezentacija:
 1010 1011 1100 1101 1110 1010 1110 0111 
@@ -381,28 +383,53 @@ funkcija  \kckod{reset} vraća broj čija je binarna reprezentacija:
 1010 1011 1100 1101 1110 1101 0010 0111.
 \end{enumerate}
 Napisati program koji testira prethodno napisane funkcije za neoznačene cele brojeve $x$, $n$, $p$, $y$ koji se unose sa standardnog ulaza. Program treba nakon učitavanja odgovarajućih vrednosti ispiše najpre binarne reprezenatacije brojeva $x$ i $y$, a potom i binarne reprezentacije brojeva koji se dobijaju pozivanjem prethodno napisanih funkcija.
-
+\napomena{Pozicije se broje počev od pozicije bita najmanje težine, pri čemu je bit najmanje težine na poziciji nula.}
 
 \begin{maxitest}
 \begin{upotreba}{1}
 #\naslovInt#
 #\izlaz{Unesite neoznacen ceo broj x:}\ulaz{235}#
+#\izlaz{Unesite neoznacen ceo broj n:}\ulaz{9}#
+#\izlaz{Unesite neoznacen ceo broj p:}\ulaz{24}#
+#\izlaz{Unesite neoznacen ceo broj y:}\ulaz{127}#
+#\izlaz{x =    235                              = 00000000000000000000000011101011}#
+#\izlaz{reset(   235,     9,    24)             = 00000000000000000000000011101011}#
+#\izlaz{x =    235                              = 00000000000000000000000011101011}#
+#\izlaz{set(   235,     9,    24)               = 00000001111111110000000011101011}#
+#\izlaz{x =    235                              = 00000000000000000000000011101011}#
+#\izlaz{get\_bits(   235,     9,    24)          = 00000000000000000000000000000000}#
+#\izlaz{x =    235                              = 00000000000000000000000011101011}#
+#\izlaz{y =    127                              = 00000000000000000000000001111111}#
+#\izlaz{set\_n\_bits(   235,     9,    24,   127) = 00000000011111110000000011101011}#
+#\izlaz{x =    235                              = 00000000000000000000000011101011}#
+#\izlaz{invert(   235,     9,    24)            = 00000001111111110000000011101011}#
+\end{upotreba}
+\end{maxitest}
+\begin{maxitest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite neoznacen ceo broj x:}\ulaz{2882398951}#
 #\izlaz{Unesite neoznacen ceo broj n:}\ulaz{5}#
 #\izlaz{Unesite neoznacen ceo broj p:}\ulaz{10}#
-#\izlaz{Unesite neoznacen ceo broj y:}\ulaz{127}#
-#\izlaz{x = 235 = 00000000000000000000000011101011}#
-#\izlaz{y = 127 = 00000000000000000000000001111111}#
-#\izlaz{reset(235,    5,   10) = 00000000000000000000000000101011}#
-#\izlaz{set(235,    5,   10) = 00000000000000000000011111101011}#
-#\izlaz{get\_bits(235,    5,   10) = 00000000000000000000000000000011}#
-#\izlaz{set\_n\_bits(235,    5,   10,  127) = 00000000000000000000011111101011}#
-#\izlaz{invert(235,   5,   10)  = 00000000000000000000011100101011}#
+#\izlaz{Unesite neoznacen ceo broj y:}\ulaz{35156526}#
+#\izlaz{x = 2882398951                              = 10101011110011011110101011100111}#
+#\izlaz{reset(2882398951,     5,    10)             = 10101011110011011110100000100111}#
+#\izlaz{x = 2882398951                              = 10101011110011011110101011100111}#
+#\izlaz{set(2882398951,     5,    10)               = 10101011110011011110111111100111}#
+#\izlaz{x = 2882398951                              = 10101011110011011110101011100111}#
+#\izlaz{get\_bits(2882398951,     5,    10)          = 00000000000000000000000000001011}#
+#\izlaz{x = 2882398951                              = 10101011110011011110101011100111}#
+#\izlaz{y =   35156526                              = 00000010000110000111001000101110}#
+#\izlaz{set\_n\_bits(2882398951,   5,  10,  35156526) = 10101011110011011110101110100111}#
+#\izlaz{x = 2882398951                              = 10101011110011011110101011100111}#
+#\izlaz{invert(2882398951,     5,    10)            = 10101011110011011110110100100111}#
 \end{upotreba}
 \end{maxitest}
 
 \linkresenje{204}
 \end{Exercise}
 \begin{Answer}[ref=204]
+\napomena{Rešenje koristi biblioteku za štampanje bitova iz zadatka \ref{201}.}
 \includecode{resenja/02_Bitovi/204.c}
 \end{Answer}
 
@@ -431,6 +458,7 @@ Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i bro
 \linkresenje{205}
 \end{Exercise}
 \begin{Answer}[ref=205]
+\napomena{Rešenje koristi biblioteku za štampanje bitova iz zadatka \ref{201}.}
 \includecode{resenja/02_Bitovi/205.c}
 \end{Answer}
 
@@ -459,6 +487,7 @@ Napisati funkciju \kckod{mirror} koja određuje ceo broj čiji je binarni zapis 
 \linkresenje{206}
 \end{Exercise}
 \begin{Answer}[ref=206]
+\napomena{Rešenje koristi biblioteku za štampanje bitova iz zadatka \ref{201}.}
 \includecode{resenja/02_Bitovi/206.c}
 \end{Answer}
 

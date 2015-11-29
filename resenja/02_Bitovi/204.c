@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "stampanje_bitova.h"
 
 /* Funckija postavlja na nulu n bitova pocev od pozicije p. */
 unsigned reset(unsigned x, unsigned n, unsigned p)
@@ -99,20 +100,6 @@ unsigned invert(unsigned x, unsigned n, unsigned p)
   return maska ^ x;
 }
 
-
-/* Funkcija prikazuje na standardni izlaz binarnu reprezentaciju
-   celog broja u memoriji */
-void print_bits(int x)
-{
-  unsigned velicina = sizeof(int) * 8;
-  unsigned maska;
-
-  for (maska = 1 << (velicina - 1); maska != 0; maska >>= 1)
-    putchar(x & maska ? '1' : '0');
-
-  putchar('\n');
-}
-
 int main()
 {
   unsigned x, p, n, y;
@@ -126,29 +113,43 @@ int main()
   scanf("%u", &p);
   printf("Unesite neoznacen ceo broj y:\n");
   scanf("%u", &y);
-
-  /* Ispisuju se binarne reprezentacije brojeva x i y */
-  printf("x = %u = ", x);
+  
+  /* Ispisuju se binarne reprezentacije broja x i broja koji se 
+     dobije kada se primeni funkcija reset za x, n i p*/
+  printf("x = %6u %28s = ", x, "");
   print_bits(x);
+  printf("reset(%10u,%6u,%6u)%12s = ", x, n, p, "");
+  print_bits( reset(x, n, p));
 
-  printf("y = %u = ", y);
+  /* Ispisuju se binarne reprezentacije broja x i broja koji se 
+     dobije kada se primeni funkcija set za x, n i p*/
+  printf("x = %10u %28s = ", x, "");
+  print_bits(x);
+  printf("set(%10u,%6u,%6u)%14s = ", x, n, p, "");
+  print_bits( set(x, n, p));
+
+  /* Ispisuju se binarne reprezentacije broja x i broja koji se 
+     dobije kada se primeni funkcija get_bits za x, n i p*/
+  printf("x = %10u %28s = ", x, "");
+  print_bits(x);
+  printf("get_bits(%10u,%6u,%6u)%9s = ", x, n, p, "");
+  print_bits( get_bits(x, n, p));
+
+  /* Ispisuju se binarne reprezentacije brojeva x, y i broja koji se 
+     dobije kada se primeni funkcija set_n_bits za x, n i p*/
+  printf("x = %10u %28s = ", x, "");
+  print_bits(x);
+  printf("y = %10u %29s= ", y, "");
   print_bits(y);
+  printf("set_n_bits(%10u,%4u,%4u,%10u) = ", x, n, p, y);
+  print_bits( set_n_bits(x, n, p, y));
 
-  /* Testira se rad napisanih funkcija */
-  printf("reset(%u,%u,%u) = ", x, n, p);
-  print_bits(reset(x, n, p));
-
-  printf("set(%u,%u,%u) = ", x, n, p);
-  print_bits(set(x, n, p));
-
-  printf("get_bits(%u,%u,%u) = ", x, n, p);
-  print_bits(get_bits(x, n, p));
-
-  printf("set_n_bits(%u,%u,%u,%u) = ", x, n, p, y);
-  print_bits(set_n_bits(x, n, p, y));
-
-  printf("invert(%u,%u,%5u) = ", x, n, p);
-  print_bits(invert(x, n, p));
+  /* Ispisuju se binarne reprezentacije broja x i broja koji se 
+     dobije kada se primeni funkcija invert za x, n i p*/
+  printf("x = %10u %28s = ", x, "");
+  print_bits(x);
+  printf("invert(%10u,%6u,%6u)%11s = ", x, n, p, "");
+  print_bits( invert(x, n, p));
 
   return 0;
 }
