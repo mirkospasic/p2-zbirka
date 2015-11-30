@@ -5,6 +5,7 @@
 
 #define VREME_ZA_PAUZU 5
 
+/* Glavni program */
 int main(int argc, char **argv)
 {
   /* Red je prazan. */

@@ -215,11 +215,11 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 \linkresenje{601}
 \end{Exercise}
 \begin{Answer}[ref=601]
-\includecodeLib{resenja/06_Liste/601/lista.h}{lista.h}
-\includecodeLib{resenja/06_Liste/601/lista.c}{lista.c}
-\includecodeLib{resenja/06_Liste/601/main_a.c}{main\_a.c}
-\includecodeLib{resenja/06_Liste/601/main_b.c}{main\_b.c}
-\includecodeLib{resenja/06_Liste/601/main_c.c}{main\_c.c}
+\includecodeLib{resenja/06_Liste/biblioteke/lista_iterativna/lista.h}{lista.h}
+\includecodeLib{resenja/06_Liste/biblioteke/lista_iterativna/lista.c}{lista.c}
+\includecodeLib{resenja/06_Liste/401_i_402/main_a.c}{main\_a.c}
+\includecodeLib{resenja/06_Liste/401_i_402/main_b.c}{main\_b.c}
+\includecodeLib{resenja/06_Liste/401_i_402/main_c.c}{main\_c.c}
 \end{Answer}
 
 %=========================================================================
@@ -229,8 +229,8 @@ Napisati biblioteku za rad sa jednostruko povezanim listama koja sadrži sve fun
 \linkresenje{602}
 \end{Exercise}
 \begin{Answer}[ref=602]
-\includecodeLib{resenja/06_Liste/602/lista.h}{lista.h}
-\includecodeLib{resenja/06_Liste/602/lista.c}{lista.c}
+\includecodeLib{resenja/06_Liste/biblioteke/lista_rekurzivna/lista.h}{lista.h}
+\includecodeLib{resenja/06_Liste/biblioteke/lista_rekurzivna/lista.c}{lista.c}
 \end{Answer}
 
 %========================================================================
@@ -278,7 +278,7 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
 
 #\naslovDat{Datoteka datoteka.html ne postoji.}#
 
-#\naslovIzlaz#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska prilikom otvaranja}#
 #\izlaz{datoteke datoteka.html.}#
 \end{test}
@@ -287,7 +287,7 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
 % \begin{test}{3}
 % #\poziv{./a.out}#
 % 
-% #\naslovIzlaz#
+% #\naslovIzlazZaGresku#
 % #\izlaz{Greska! Program se poziva }#
 % #\izlaz{sa: ./a.out datoteka.html!}#
 % \end{test}
@@ -303,7 +303,7 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
 \linkresenje{603}
 \end{Exercise}
 \begin{Answer}[ref=603]
-\includecode{resenja/06_Liste/603.c}
+\includecode{resenja/06_Liste/403.c}
 \end{Answer}
 
 %=========================================================================
@@ -354,7 +354,7 @@ Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (\kckod{EOF}). 
 % \begin{upotreba}{3}
 % #\poziv{./a.out}#
 % 
-% #\naslovIzlaz# 
+% #\naslovIzlazZaGresku# 
 % #\izlaz{Greska! Program se poziva sa: }#
 % #\izlaz{./a.out ime_datoteke}#
 % \end{upotreba}
@@ -365,7 +365,7 @@ Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (\kckod{EOF}). 
 % 
 % #\naslovDat{Datoteka studenti.txt ne postoji.}#
 % 
-% #\naslovIzlaz#
+% #\naslovIzlazZaGresku#
 % #\izlaz{Greska prilikom otvaranja datoteke}#
 % #\izlaz{studenti.txt.}#
 % \end{upotreba}
@@ -374,7 +374,7 @@ Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (\kckod{EOF}). 
 \linkresenje{604}
 \end{Exercise}
 \begin{Answer}[ref=604]
-\includecode{resenja/06_Liste/604.c}
+\includecode{resenja/06_Liste/404.c}
 \end{Answer}
 
 
@@ -406,8 +406,7 @@ Napisati program koji u datoteku \kckod{rezultat.txt} upisuje nađeni strogo ras
 #\naslovDat{Datoteka brojevi.txt}#
 #\naslovDat{ne postoji.}#
 
-#\naslovIzlaz#
-#\naslovDat{rezultat.txt}#
+#\naslovIzlazZaGresku#
 #\datoteka{Greska prilikom otvaranja}#
 #\datoteka{datoteke brojevi.txt.}#
 \end{test}
@@ -460,7 +459,7 @@ kreira nove, već da samo preraspodeli postojeće čvorove. Prva lista se učita
 
 #\naslovDat{Datoteka dat2.txt ne postoji.}#
 
-#\naslovIzlaz#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska prilikom otvaranja datoteke}#
 #\izlaz{dat2.txt.}#
 \end{test}
@@ -474,7 +473,7 @@ kreira nove, već da samo preraspodeli postojeće čvorove. Prva lista se učita
 % #\naslovDat{dat2.txt}#
 % #\datoteka{5 6 11 12 14 16}#
 % 
-% #\naslovIzlaz#
+% #\naslovIzlazZaGresku#
 % #\izlaz{Greska prilikom otvaranja datoteke}#
 % #\izlaz{dat1.txt.}#
 % \end{test}
@@ -511,7 +510,7 @@ kreira nove, već da samo preraspodeli postojeće čvorove. Prva lista se učita
 \begin{test}{4}
 #\poziv{./a.out dat1.txt}#
 
-#\naslovIzlaz# 
+#\naslovIzlazZaGresku# 
 #\izlaz{Program se poziva sa:}# 
 #\izlaz{./a.out dat1.txt dat2.txt!}#
 \end{test}
@@ -610,7 +609,7 @@ utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
 \begin{test}{6}
 #\naslovDat{Datoteka izraz.txt ne postoji.}# 
 
-#\naslovIzlaz#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska prilikom otvaranja }#
 #\izlaz{datoteke izraz.txt!}#
 \end{test}
@@ -618,7 +617,7 @@ utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa
 \linkresenje{608}
 \end{Exercise}
 \begin{Answer}[ref=608]
-\includecode{resenja/06_Liste/608.c}
+\includecode{resenja/06_Liste/408.c}
 \end{Answer}
 
 %=========================================================================
@@ -711,7 +710,7 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 
 #\naslovDat{Datoteka datoteka.html ne postoji.}#
 
-#\naslovIzlaz#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska prilikom otvaranja}# 
 #\izlaz{datoteke datoteka.html.}#
 \end{test}
@@ -729,9 +728,9 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 \linkresenje{609}
 \end{Exercise}
 \begin{Answer}[ref=609]
-\includecodeLib{resenja/06_Liste/609/stek.h}{stek.h}
-\includecodeLib{resenja/06_Liste/609/stek.c}{stek.c}
-\includecodeLib{resenja/06_Liste/609/main.c}{main.c}
+\includecodeLib{resenja/06_Liste/biblioteke/stek.h}{stek.h}
+\includecodeLib{resenja/06_Liste/biblioteke/stek.c}{stek.c}
+\includecodeLib{resenja/06_Liste/409.c}{main.c}
 \end{Answer}
 %=========================================================================
 \begin{Exercise}[label=610]
@@ -798,9 +797,9 @@ Posle svakog $petog$ usluženog korisnika, službeniku se nudi mogućnost da pre
 \linkresenje{610}
 \end{Exercise}
 \begin{Answer}[ref=610]
-\includecodeLib{resenja/06_Liste/610/red.h}{red.h}
-\includecodeLib{resenja/06_Liste/610/red.c}{red.c}
-\includecodeLib{resenja/06_Liste/610/main.c}{main.c}
+\includecodeLib{resenja/06_Liste/biblioteke/red.h}{red.h}
+\includecodeLib{resenja/06_Liste/biblioteke/red.c}{red.c}
+\includecodeLib{resenja/06_Liste/410.c}{main.c}
 \end{Answer}
 
 %=========================================================================
@@ -817,11 +816,11 @@ Sve funkcije za rad sa listom implementirati iterativno. Zbog efikasnog izvršav
 \linkresenje{611}
 \end{Exercise}
 \begin{Answer}[ref=611]
-\includecodeLib{resenja/06_Liste/611/dvostruko_povezana_lista.h}{dvostruko\_povezana\_lista.h}
-\includecodeLib{resenja/06_Liste/611/dvostruko_povezana_lista.c}{dvostruko\_povezana\_lista.c}
-\includecodeLib{resenja/06_Liste/611/main_a.c}{main\_a.c}
-\includecodeLib{resenja/06_Liste/611/main_b.c}{main\_b.c}
-\includecodeLib{resenja/06_Liste/611/main_c.c}{main\_c.c}
+\includecodeLib{resenja/06_Liste/biblioteke/dvostruko_povezana_lista.h}{dvostruko\_povezana\_lista.h}
+\includecodeLib{resenja/06_Liste/biblioteke/dvostruko_povezana_lista.c}{dvostruko\_povezana\_lista.c}
+\includecodeLib{resenja/06_Liste/411/main_a.c}{main\_a.c}
+\includecodeLib{resenja/06_Liste/411/main_b.c}{main\_b.c}
+\includecodeLib{resenja/06_Liste/411/main_c.c}{main\_c.c}
 \end{Answer}
 
 
@@ -861,7 +860,7 @@ Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u 
 #\naslovUlaz#
 #\ulaz{3 8}#
 
-#\naslovIzlaz# 
+#\naslovIzlazZaGresku# 
 #\izlaz{n mora biti uvek vece}#
 #\izlaz{od k, a 3 < 8!}#
 \end{test}
@@ -908,7 +907,7 @@ Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u 
 #\naslovUlaz#
 #\ulaz{5 8}#
 
-#\naslovIzlaz# 
+#\naslovIzlazZaGresku# 
 #\izlaz{n mora biti uvek vece}#
 #\izlaz{od k, a 5 < 8!}#
 \end{test}

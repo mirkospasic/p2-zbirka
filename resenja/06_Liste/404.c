@@ -95,6 +95,7 @@ Cvor *pretrazi_listu(Cvor * glava, char *broj_indeksa)
   return pretrazi_listu(glava->sledeci, broj_indeksa);
 }
 
+/* Glavni program */
 int main(int argc, char **argv)
 {
   /* Argumenti komandne linije su neophodni jer se iz komandne linije 
