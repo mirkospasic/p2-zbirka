@@ -120,6 +120,7 @@ int main()
   print_bits(x);
   printf("reset(%10u,%6u,%6u)%12s = ", x, n, p, "");
   print_bits( reset(x, n, p));
+  printf("\n");
 
   /* Ispisuju se binarne reprezentacije broja x i broja koji se 
      dobije kada se primeni funkcija set za x, n i p*/
@@ -127,6 +128,7 @@ int main()
   print_bits(x);
   printf("set(%10u,%6u,%6u)%14s = ", x, n, p, "");
   print_bits( set(x, n, p));
+  printf("\n");
 
   /* Ispisuju se binarne reprezentacije broja x i broja koji se 
      dobije kada se primeni funkcija get_bits za x, n i p*/
@@ -134,6 +136,7 @@ int main()
   print_bits(x);
   printf("get_bits(%10u,%6u,%6u)%9s = ", x, n, p, "");
   print_bits( get_bits(x, n, p));
+  printf("\n");
 
   /* Ispisuju se binarne reprezentacije brojeva x, y i broja koji se 
      dobije kada se primeni funkcija set_n_bits za x, n i p*/
@@ -143,6 +146,7 @@ int main()
   print_bits(y);
   printf("set_n_bits(%10u,%4u,%4u,%10u) = ", x, n, p, y);
   print_bits( set_n_bits(x, n, p, y));
+  printf("\n");
 
   /* Ispisuju se binarne reprezentacije broja x i broja koji se 
      dobije kada se primeni funkcija invert za x, n i p*/

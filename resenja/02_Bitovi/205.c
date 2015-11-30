@@ -113,13 +113,13 @@ int main()
   print_bits(x);
 
   /* Testira se rad napisanih funkcija */
-  printf("rotate_left(%u,%u) = ", x, k);
+  printf("rotate_left(%10u,%10u) %8s= ", x, k, "");
   print_bits(rotate_left(x, k));
 
-  printf("rotate_right(%u,%u) = ", x, k);
+  printf("rotate_right(%10u,%10u) %7s= ", x, k, "");
   print_bits(rotate_right(x, k));
 
-  printf("rotate_right_signed(%u,%u) = ", x, k);
+  printf("rotate_right_signed(%10u,%10u) = ", x, k);
   print_bits(rotate_right_signed(x, k));
 
   return 0;

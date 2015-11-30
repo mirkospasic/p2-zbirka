@@ -360,27 +360,11 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 \begin{Exercise}[label=204]
 Napisati funkcije za rad sa bitovima. 
 \begin{enumerate}
-\item Napisati funkciju \kckod{reset} koja određuje broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{0}. Na primer, za n=5, p=10 za broj čija je binarna reprezentacija:
-1010 1011 1100 1101 1110 1010 1110 0111 
-funkcija  \kckod{reset} vraća broj čija je binarna reprezentacija:
-1010 1011 1100 1101 1110 1000 0010 0111.
-\item Napisati funkciju \kckod{set} koja određuje broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{1}.  Na primer, za n=5, p=10 za broj čija je binarna reprezentacija:
-1010 1011 1100 1101 1110 1010 1110 0111
-funkcija  \kckod{set} vraća broj čija je binarna reprezentacija:
-1010 1011 1100 1101 1110 1111 1110 0111.
-\item Napisati funkciju \kckod{get\_bits} koja određuje broj koji se dobija od $n$ bitova datog broja $x$, počevši od pozicije $p$, i vraća ih kao bitove najmanje težine rezultata. Na primer , za n=5, p=10 za broj čija je binarna reprezentacija:
-1010 1011 1100 1101 1110 1010 1110 0111
-funkcija  \kckod{get\_bits} vraća broj čija je binarna reprezentacija:
-0000 0000 0000 0000 0000 0000 0000 1011.
-\item Napisati funkciju \kckod{set\_n\_bits} koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$. Na primer, za n=5, p=10 ako su binarne reprezentacije brojeva $x$ i $y$ redom:
-1010 1011 1100 1101 1110 1010 1110 0111
-1110 1010 1110 0111 1010 1011 1100 1101 
-funkcija  \kckod{set\_n\_bits} vraća broj čija je binarna reprezentacija:
-1010 1011 1100 1101 1110 1011 0110 0111.
-\item Napisati funkciju \kckod{invert} koja vraća broj koji se dobija invertovanjem $n$ bitova broja $x$ počevši od pozicije $p$. Na primer, za n=5, p=10 za broj čija je binarna reprezentacija:
-1010 1011 1100 1101 1110 1010 1110 0111 
-funkcija  \kckod{reset} vraća broj čija je binarna reprezentacija:
-1010 1011 1100 1101 1110 1101 0010 0111.
+\item Napisati funkciju \kckod{reset} koja određuje broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{0}.
+\item Napisati funkciju \kckod{set} koja određuje broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{1}.
+\item Napisati funkciju \kckod{get\_bits} koja određuje broj koji se dobija od $n$ bitova datog broja $x$, počevši od pozicije $p$, i vraća ih kao bitove najmanje težine rezultata.
+\item Napisati funkciju \kckod{set\_n\_bits} koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
+\item Napisati funkciju \kckod{invert} koja vraća broj koji se dobija invertovanjem $n$ bitova broja $x$ počevši od pozicije $p$. 
 \end{enumerate}
 Napisati program koji testira prethodno napisane funkcije za neoznačene cele brojeve $x$, $n$, $p$, $y$ koji se unose sa standardnog ulaza. Program treba nakon učitavanja odgovarajućih vrednosti ispiše najpre binarne reprezenatacije brojeva $x$ i $y$, a potom i binarne reprezentacije brojeva koji se dobijaju pozivanjem prethodno napisanih funkcija.
 \napomena{Pozicije se broje počev od pozicije bita najmanje težine, pri čemu je bit najmanje težine na poziciji nula.}
@@ -392,17 +376,21 @@ Napisati program koji testira prethodno napisane funkcije za neoznačene cele br
 #\izlaz{Unesite neoznacen ceo broj n:}\ulaz{9}#
 #\izlaz{Unesite neoznacen ceo broj p:}\ulaz{24}#
 #\izlaz{Unesite neoznacen ceo broj y:}\ulaz{127}#
-#\izlaz{x =    235                              = 00000000000000000000000011101011}#
-#\izlaz{reset(   235,     9,    24)             = 00000000000000000000000011101011}#
-#\izlaz{x =    235                              = 00000000000000000000000011101011}#
-#\izlaz{set(   235,     9,    24)               = 00000001111111110000000011101011}#
-#\izlaz{x =    235                              = 00000000000000000000000011101011}#
-#\izlaz{get\_bits(   235,     9,    24)          = 00000000000000000000000000000000}#
-#\izlaz{x =    235                              = 00000000000000000000000011101011}#
-#\izlaz{y =    127                              = 00000000000000000000000001111111}#
-#\izlaz{set\_n\_bits(   235,     9,    24,   127) = 00000000011111110000000011101011}#
-#\izlaz{x =    235                              = 00000000000000000000000011101011}#
-#\izlaz{invert(   235,     9,    24)            = 00000001111111110000000011101011}#
+#\izlaz{x =\ \ \ \ 235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 00000000000000000000000011101011}#
+#\izlaz{reset(\ \ \ 235,\ \ \ \ \ 9,\ \ \ \ 24)\ \ \ \ \ \ \ \ \ \ \ \ \ = 00000000000000000000000011101011}#
+#\izlaz{}#
+#\izlaz{x =\ \ \ \ 235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 00000000000000000000000011101011}#
+#\izlaz{set(\ \ \ 235,\ \ \ \ \ 9,\ \ \ \ 24)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 00000001111111110000000011101011}#
+#\izlaz{}#
+#\izlaz{x =\ \ \ \ 235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 00000000000000000000000011101011}#
+#\izlaz{get\_bits(\ \ \ 235,\ \ \ \ \ 9,\ \ \ \ 24)\ \ \ \ \ \ \ \ \ \ = 00000000000000000000000000000000}#
+#\izlaz{}#
+#\izlaz{x =\ \ \ \ 235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 00000000000000000000000011101011}#
+#\izlaz{y =\ \ \ \ 127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 00000000000000000000000001111111}#
+#\izlaz{set\_n\_bits(\ \ \ 235,\ \ \ \ \ 9,\ \ \ \ 24,\ \ \ 127) = 00000000011111110000000011101011}#
+#\izlaz{}#
+#\izlaz{x =\ \ \ \ 235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 00000000000000000000000011101011}#
+#\izlaz{invert(\ \ \ 235,\ \ \ \ \ 9,\ \ \ \ 24)\ \ \ \ \ \ \ \ \ \ \ \ = 00000001111111110000000011101011}#
 \end{upotreba}
 \end{maxitest}
 \begin{maxitest}
@@ -412,17 +400,21 @@ Napisati program koji testira prethodno napisane funkcije za neoznačene cele br
 #\izlaz{Unesite neoznacen ceo broj n:}\ulaz{5}#
 #\izlaz{Unesite neoznacen ceo broj p:}\ulaz{10}#
 #\izlaz{Unesite neoznacen ceo broj y:}\ulaz{35156526}#
-#\izlaz{x = 2882398951                              = 10101011110011011110101011100111}#
-#\izlaz{reset(2882398951,     5,    10)             = 10101011110011011110100000100111}#
-#\izlaz{x = 2882398951                              = 10101011110011011110101011100111}#
-#\izlaz{set(2882398951,     5,    10)               = 10101011110011011110111111100111}#
-#\izlaz{x = 2882398951                              = 10101011110011011110101011100111}#
-#\izlaz{get\_bits(2882398951,     5,    10)          = 00000000000000000000000000001011}#
-#\izlaz{x = 2882398951                              = 10101011110011011110101011100111}#
-#\izlaz{y =   35156526                              = 00000010000110000111001000101110}#
-#\izlaz{set\_n\_bits(2882398951,   5,  10,  35156526) = 10101011110011011110101110100111}#
-#\izlaz{x = 2882398951                              = 10101011110011011110101011100111}#
-#\izlaz{invert(2882398951,     5,    10)            = 10101011110011011110110100100111}#
+#\izlaz{x = 2882398951\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 10101011110011011110101011100111}#
+#\izlaz{reset(2882398951,\ \ \ \ \ 5,\ \ \ \ 10)\ \ \ \ \ \ \ \ \ \ \ \ \ = 10101011110011011110100000100111}#
+#\izlaz{}#
+#\izlaz{x = 2882398951\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 10101011110011011110101011100111}#
+#\izlaz{set(2882398951,\ \ \ \ \ 5,\ \ \ \ 10)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 10101011110011011110111111100111}#
+#\izlaz{}#
+#\izlaz{x = 2882398951\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 10101011110011011110101011100111}#
+#\izlaz{get\_bits(2882398951,\ \ \ \ \ 5,\ \ \ \ 10)\ \ \ \ \ \ \ \ \ \ = 00000000000000000000000000001011}#
+#\izlaz{}#
+#\izlaz{x = 2882398951\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 10101011110011011110101011100111}#
+#\izlaz{y =\ \ 35156526\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 00000010000110000111001000101110}#
+#\izlaz{set\_n\_bits(2882398951, \ \ 5, \ 10, \ 35156526) = 10101011110011011110101110100111}#
+#\izlaz{}#
+#\izlaz{x = 2882398951\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = 10101011110011011110101011100111}#
+#\izlaz{invert(2882398951,\ \ \ \ \ 5,\ \ \ \ 10)\ \ \ \ \ \ \ \ \ \ \ \ = 10101011110011011110110100100111}#
 \end{upotreba}
 \end{maxitest}
 
@@ -449,8 +441,8 @@ Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i bro
 #\izlaz{Unesite neoznacen ceo broj x:}\ulaz{B10011A7}#
 #\izlaz{Unesite neoznacen ceo broj k:}\ulaz{5}#
 #\izlaz{x  = 10110001000000000001000110100111 }#
-#\izlaz{rotate\_left(2969571751, 5) = 00100000000000100011010011110110}#
-#\izlaz{rotate\_right(2969571751, 5) = 00111101100010000000000010001101}#
+#\izlaz{rotate\_left(2969571751, 5) \ \ \ \ \ \ \ \ = 00100000000000100011010011110110}#
+#\izlaz{rotate\_right(2969571751, 5) \ \ \ \ \ \ \ = 00111101100010000000000010001101}#
 #\izlaz{rotate\_right\_signed(2969571751, 5) = 00111101100010000000000010001101 }#
 \end{upotreba}
 \end{maxitest}
