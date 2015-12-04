@@ -11,12 +11,9 @@ c) napraviti makefile koji ce sve odjednom da prevede, nazubi i upakuje (Mirko)
 d) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
 e) dodati licencnu poruku na pocetak svake datoteke (smisliti poruku --- svi)
 
-3. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni, razmisliti koji bi bio adekvatan naslov da li 
-Izlaz i Izlaz za gresku 
-ili mozda
-Izlaz (stdout) i Izlaz (stderr)
+3. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
 
-4. Pregledati konvencije imenovanja koje se koriste kroz zbirku i to usaglasiti (Svi)
+4. Pregledati konvencije imenovanja koje se koriste kroz zbirku i to usaglasiti (Svi) tj da li je kamilja notacija ili madjarska notacija (mislim da nije kamilja, tj da je ona, ako je ima, u manjini)
 
 5. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Svi)
 
@@ -28,16 +25,63 @@ Izlaz (stdout) i Izlaz (stderr)
 8. Dodati napomenu da je F uopstenje za fibonacijeve brojeve (gde su nestali fibonacijevi brojevi?) (Nina)
 9. Resenje 1.32 nije tacno, tj ne odgovara tekstu zadatka, nesto sam ispravljala, mozda sam zabrljala, nisam testirala (Nina)
 10. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Nina, Jelena)
-
 11. Dopuniti predgovor (svi)
+ --- (GPL) Trebalo bi u Predgovoru obrazloziti bar jednom recenicom zasto su zadaci prve glave nazvani uvodnim i sta obuhvataju
+ --- (GPL) Trebalo bi (verovatno opet u Predgovoru) komentarisati zadatke sa * i **.
 12. Napraviti dizajn korica (Andjelka)
 13. Napraviti finalni prelom (Milena)
 
 14. Dodati email adresu u predgovor --- smisliti koja adresa bi to mogla da bude
+
+Recenzija
+
+3. Bilo bi korisno pre koda resenja kratko objasniti postupak resavanja ili neke njegove specificnosti,
+bar kod nekih zadataka (npr. algoritmi sortiranja i pretrage);
+na vezbama se verovatno nesto o tome kaze; negde toga ima u komentaru zadatka ali ne svuda gde bi trebalo i ne dovoljno
+
+4. Bilo bi korisno ako bi svako od autora jos jednom pazljivo procitao ceo tekst.
+Time bi se postigli razni pozitivni efekti, na primer
+- verovatno bi se otklonile izvesne (terminoloske) neujednacenosti koje su (verovatno)
+rezultat rada veceg broja autora, na primer
+U datoteci matrica.c "Alocira se prostor za niz vrsti matrice " - vrsta
+(uporediti sa resenjem 2.18 "Pokazivac na dinamiciki alociran niz pokazivaca na vrste matrice" - razlicita terminologija)
+- uocili biste moguce nekonzistentnosti izmedju postavke zadatka i primera ("Interakcije sa programom").
+- otklonili biste izvesne slovne greske, na primer "Napisati program koja ...", "u heksadekasnom formatu",
+"realan i imaginara deo", "dodavanjem opcije opcije -l" i sl.
+- ujednacili biste formulaciju (ima u postavkama zadataka mesavine prezenta / imperativa,
+na primer "Program ucitava... Potom matricu ispisati...")
+- uocili biste neke sintaksne greske, na primer "Zapocinje se sa ispisom"
+- malo stilistike, npr. umesto "ispratiti" - "propratiti" i sl. 
+
+5. Neke formulacije bi mogle da budu preciznije. Na primer,
+u datoteci complex.h opis dejstva pretprocesorske direktive ifndef nije sasvim jasan
+
+6. Neki detalji, na primer:
+U tacki 2.2 Visedimnezioni nizovi - svi zadaci su reseni indeksnom sintaksom (samo u 2.8 ilustrovana je pokazivacka)
+- mozda bi tu moglo da se malo izbalansIra
+U zadatku 2.27 - Pokazivaci na funkcije - da li je "mreza" pravi izraz u jednoj dimenziji?
+U resenju 2.18 "A = maloc..." - "A = (double **)malloc..."
+U zadatku 3.6 vise smisla bi imala proizvoljna funkcija koja na datom intervalu ima jednu nulu
+U zadatku 3.30 bio bi koristan primer za element koji se ponavlja tako da ga
+bsearch nadje na jednim a lfind na drugom mestu
+U resenju 3.1 korisno bi bilo navesti oznake u komentarima
+-"Linearna pretraga", "Binarna pretraga," ...i,  kao sto je navedena recenica za
+linearnu pretragu "Pretraga se vrsi...", dodati takvu recenicu u sledeca dva komentara koji
+se odnose na binarnu i interpolacionu pretragu.
+Takodje, u opisu linearne pretrage, treba reci da funkcija vraca indeks prve pozicije (ili krajnje leve)...
+U istom resenju pominje se "seed" bez posebnog objasnjenja - ne znam koliko je poznato
+
+U resenju 3.6 trebalo bi neko obrazlozenje u vezi sa time da funkcija...
+na intervalu ... ima jednu nulu i znak joj je na krajevima intervala razlicit
+
+U resenju 3.11 mesaju se "d" i "r" (za desno i right).
+
+U zadatku 4.1 se pod (1) i (2) trazi da se "U progarmu..." nesto uradi,
+a pod (3) da se "U glavnom programu..." nesto ursi
+
+Zadatak 4.12 bi trebalo prvo da uvede "krug" pa onda nacin kretanja po krugu
+ 
 ###############################################################################
-
-
-
 
 
 
