@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define  MAX_DUZINA_PERMUTACIJE 50
+#define  MAX_DUZINA_PERMUTACIJE 15
 
 /* Funkcija koja ispisuje elemente niza a duzine n */
 void ispisiNiz(int a[], int n)
@@ -27,12 +27,13 @@ int koriscen(int a[], int n, int x)
   return 0;
 }
 
-/* Funkcija koja ispisuje sve permutacije od skupa {1,2,...,n} a[] je 
-   niz u koji se smesta permutacija m oznacava da se na m-tu poziciju 
-   u permutaciji smesta jedan od preostalih celih brojeva n je
-   velicina skupa koji se permutuje Funkciju se poziva sa argumentom
-   m=1 jer formiranje permutacije pocinje od 1. pozicije. Stoga, nece
-   se koristi a[0]. */
+/* Funkcija koja ispisuje sve permutacije od skupa {1,2,...,n} dobija
+   kao argument niz a[] u koji se smesta permutacija, broj m oznacava 
+   da se u okviru tog poziva funkcije na m-tu poziciju u permutaciji 
+   smesta jedan od preostalih celih brojeva, n je velicina skupa koji
+   se permutuje. Funkciju se inicijalno poziva sa argumentom m = 1, 
+   jer formiranje permutacije pocinje od pozicije broj 1. Stoga, a[0]
+   se ne koristi. */
 void permutacija(int a[], int m, int n)
 {
   int i;

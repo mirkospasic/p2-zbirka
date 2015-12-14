@@ -1,0 +1,122 @@
+﻿broj zadatka 
+copy-paste originalnog komentara
+i onda ako je komentar nesto jednostavno, tj pravolinijsko, samo da se notira recju "uradjeno" ili "ispravljeno"
+Ukoliko je nesto krupnije, onda da se napise i kako je ispravljeno (ali mi se cini da takvih nema mnogo)
+npr "Ispravljeno u" pa "copy-paste novog teksta"
+
+1.3
+Precizirati nacin ispisa (pretpostavljam d najveceg stepena). Da li se izostavjaju nula oeficijenti?
+
+Precizirano u tekstu:
+"Ispisivanje polinoma počinje od najvišeg stepena ka najnižem. Ipisisuju se samo oni koeficijenti koji su različiti od nule."
+
+
+1.8
+(a) Nije jasno da li je pozicijap krajnje desna ili krajnje leva
+(b) Kao i malopre, nije jasno da li je p krajnje leva ili krajnje desni bit od tih n bitoa
+
+Vec je postojala napomena u tekstu, sada je pomerena na pocetak. <----- PROVERI DA LI DA VRATIM GDE JE BILO?!?
+
+(c) Cela recenica je malo nejasna. Mozda ovako:
+Napisati funkciju koja odredjuje broj u kome se n krajnje desnh bitova (ili n bitova najmanje tezine) poklapa sa n itova broja x pocevsi od pozicije p.
+
+Uradjeno. Recenica sada glasi:
+Napisati funkciju \kckod{get\_bits} koja određuje broj u kome se $n$ bitova najmanje težine poklapa sa $n$ bitova broja $x$ počevši od pozicije $p$.
+
+(d) krajnje desih (li bitova najmansa tezine)
+
+Ispravljeno. Recenica sada glasi:
+Napisati funkciju \kckod{set\_n\_bits} koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova najmanje težine broja $y$ u broj $x$, počevši od pozicije $p$.
+
+1.9
+najvece (kao sto vec na kraju ove recenice pise najmanje)
+
+Ispravljeno. 
+
+1.31
+Slovna greska
+
+Ispravljeno. 
+
+1.32
+
+50 je malo preveliko oranicenje
+
+Ispravljeno. Postavljeno 15
+
+1.33
+Uskladiti opis i sliku. Jer u opisu stoji da se racuna kao zbir sadrzaja polja levo i sadrzaja polja iznad. Znaci, ili rotirati sliku za 45 ili promeiti opis.
+
+Promenjen opis. <----- PROVERI DA LI JE OK
+Paskalov trougao sadrži brojeve čije se vrednosti računaju tako što svako polje ima vrednost
+ zbira dve vrednosti koje su u susedna dva polja iznad.
+
+
+KOMENTARI ZA RESENJA ZADATAKA
+1.4: polinom.h
+i vracak kao rezultat  
+
+Ispravljeno. Komentar sada glasi:
+Funkcija racuna i vraca vrednost polinoma p u tacki x Hornerovim
+   algoritmom
+
+1.5
+odrediti, umesto ocitati
+Odgovarajucu cifru
+
+Ispravljeno.
+
+1.8
+najmanje (najniza ne zvuci lepo uz tezina)
+
+Ispravljeno.
+
+1.9
+u samom zaglavlju funkcije nije neoznacen
+
+Ispravljeno. -> ceo broj
+
+Mislim da nije bas zgodan termin prvi bit za krajnje levi bit. Obicno numeracija ide od krajnje desnog koji se numerise sa nula (sto mu je i tezina). I u jednom od prethodnih zadataka korisceno je pozicija p, gde je iz resenja impliciralo da numeracija ide od nula, iduci sdesna.
+
+Ispravljeno. prvi bit -> bit na poziciji najvece tezine.
+Takodje ime promenljive je promenjeno na most significant bit. U skadu sa tim je ime za odgovarajuce promenljive promenjeno u least significant bit.
+
+mozda je ovo zodnije resiti uslovnim operaorom:
+(first_bit? 1 @ 0),
+ovde imamo jedno mnozenje, oduzimanje i pomeranje.
+
+Ispravljeno. 
+
+Opet moze pomocu uslovnog operatora. 
+Ali, ima smisla i ovakva varijanta jer se vidi da je istisnuti bit pomeren na mesto navece tezine
+
+Ostavljena verzija kakva je i bila.
+
+1.11
+Zasto 4?
+
+Ispravljeno. Sada je 8.
+
+1.27
+Ove dve recenice nisu bas u potpunosti jasne. Pretpostavljam da je ideja da se posmatraju dva slucaja (po vrednosti najviseg bita), ali to trenutno nije bas tako zapisano.
+
+Prepravljen komentar. Sada glasi: Koriscenjem odgovarajuce maske proverava se
+     vrednost bita na poziciji najvece tezine i na osnovu toga se 
+	 razlikuju dva slucaja. Ukoliko je na toj poziciji nula, onda je 
+	 broj jedinica u zapisu x isti kao broj jedinica u zapisu broja 
+	 x<<1, jer se pomeranjem u levo sa desne stane dopisuju 0. Ako je
+	 na poziciji najvece tezine jedinica, rezultat dobijen 
+	 rekurzivnim pozivom funkcije za x<<1 treba uvecati za jedan.
+
+1.32
+
+zapeta, zapeta
+
+Ispravljeno.
+
+1.33
+
+Da li rec "izmedju"  (0 i n) (bas) podrazumeva da je vece od 0 i manje od n (kako treba da bude u ovom slucaju? MNozda bi bilo dobro precizirati, np. sa 
+k je (strogo) izmedju ...
+
+Dodato "strogo".

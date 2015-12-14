@@ -24,7 +24,7 @@ void ispisi(const Polinom * p);
 /* Funkcija koja ucitava polinom sa tastature */
 Polinom ucitaj();
 
-/* Funkcija racuna vrednost polinoma p u tacki x Hornerovim
+/* Funkcija racuna i vraca vrednost polinoma p u tacki x Hornerovim
    algoritmom */
 double izracunaj(const Polinom * p, double x);
 

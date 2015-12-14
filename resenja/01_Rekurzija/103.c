@@ -9,10 +9,12 @@ int count(int x)
 
   /* Ukoliko vrednost promenljive x nije 0, neki od bitova broja x je 
      postavljen na 1. Koriscenjem odgovarajuce maske proverava se
-     vrednost najviseg bita. Rezultat koliko ima jedinica u ostatku
-     binarnog zapisa broja x se uvecava za 1. Najvisi bit je 0. Stoga 
-     je broj jedinica u zapisu x isti kao broj jedinica u zapisu
-     broja x<<1, jer se pomeranjem u levo sa desne stane dopisuju 0.
+     vrednost bita na poziciji najvece tezine i na osnovu toga se 
+	 razlikuju dva slucaja. Ukoliko je na toj poziciji nula, onda je 
+	 broj jedinica u zapisu x isti kao broj jedinica u zapisu broja 
+	 x<<1, jer se pomeranjem u levo sa desne stane dopisuju 0. Ako je
+	 na poziciji najvece tezine jedinica, rezultat dobijen 
+	 rekurzivnim pozivom funkcije za x<<1 treba uvecati za jedan.
      Za rekurzivni poziv se salje vrednost koja se dobija kada se x
      pomeri u levo. Napomena: argument funkcije x je oznacen ceo
      broj, usled cega se ne koristi pomeranje udesno, jer funkciji

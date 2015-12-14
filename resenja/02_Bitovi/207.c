@@ -13,7 +13,7 @@ int Broj01(unsigned int n)
 
   /* Maska je inicijalizovana tako da moze da analizira bit najvece
      tezine */
-  maska = 1 << (sizeof(unsigned int) * 4 - 1);
+  maska = 1 << (sizeof(unsigned int) * 8 - 1);
 
   /* Cilj je proci kroz sve bitove broja x, zato se maska u svakoj
      iteraciji pomera u desno pa ce jedini bit koji je postavljen na

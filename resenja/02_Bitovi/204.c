@@ -59,7 +59,7 @@ unsigned get_bits(unsigned x, unsigned n, unsigned p)
 
 
 /* Funkcija vraca broj x kome su n bitova pocev od pozicije p
-   postavljeni na vrednosti n bitova najnize tezine binarne
+   postavljeni na vrednosti n bitova najmanje tezine binarne
    reprezentacije broja y */
 unsigned set_n_bits(unsigned x, unsigned n, unsigned p, unsigned y)
 {

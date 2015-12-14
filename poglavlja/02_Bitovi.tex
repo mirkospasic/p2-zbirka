@@ -82,7 +82,7 @@ Napisati biblioteku za rad sa polinomima.
   \begin{enumerate}
   \item Definisati strukturu \kckod{Polinom} koja opisuje polinom stepena najviše 20. \uputstvo{Struktura sadrži stepen i niz
     koeficijenata. Redosled navođenja koeficijenata u nizu treba da bude takav da na nultoj poziciji u nizu bude koeficijent uz slobodan član, na prvoj koeficijent uz prvi stepen, itd.}
-  \item Napisati funkciju \kckod{void ispisi(const Polinom * p)} koja ispisuje polinom \kckod{p} na standardni izlaz.
+  \item Napisati funkciju \kckod{void ispisi(const Polinom * p)} koja ispisuje polinom \kckod{p} na standardni izlaz. Ispisivanje polinoma počinje od najvišeg stepena ka najnižem. Ipisisuju se samo oni koeficijenti koji su različiti od nule.
   \item Napisati funkciju \kckod{Polinom ucitaj()} koja učitava polinom sa standardnog
     ulaza. Za polinom se najpre unosi stepen pa njegovi koeficijenti.
   \item Napisati funkciju \kckod{double izracunaj(const Polinom * p, double x)} za izračunavanje vrednosti polinoma \kckod{p} u
@@ -358,16 +358,17 @@ Napisati program koji testira prethodno napisane funkcije tako što prikazuje bi
 
 
 \begin{Exercise}[label=204]
-Napisati funkcije za rad sa bitovima. 
+Napisati funkcije za rad sa bitovima. \napomena{Pozicije se broje počev od pozicije bita najmanje težine, pri čemu je bit najmanje težine na poziciji nula.}
 \begin{enumerate}
 \item Napisati funkciju \kckod{reset} koja određuje broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{0}.
 \item Napisati funkciju \kckod{set} koja određuje broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{1}.
-\item Napisati funkciju \kckod{get\_bits} koja određuje broj koji se dobija od $n$ bitova datog broja $x$, počevši od pozicije $p$, i vraća ih kao bitove najmanje težine rezultata.
-\item Napisati funkciju \kckod{set\_n\_bits} koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
+\item %Napisati funkciju \kckod{get\_bits} koja određuje broj koji se dobija od $n$ bitova datog broja $x$, počevši od pozicije $p$, i vraća ih kao bitove najmanje težine rezultata.
+Napisati funkciju \kckod{get\_bits} koja određuje broj u kome se $n$ bitova najmanje težine poklapa sa $n$ bitova broja $x$ počevši od pozicije $p$.
+\item %Napisati funkciju \kckod{set\_n\_bits} koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
+Napisati funkciju \kckod{set\_n\_bits} koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova najmanje težine broja $y$ u broj $x$, počevši od pozicije $p$.
 \item Napisati funkciju \kckod{invert} koja vraća broj koji se dobija invertovanjem $n$ bitova broja $x$ počevši od pozicije $p$. 
 \end{enumerate}
 Napisati program koji testira prethodno napisane funkcije za neoznačene cele brojeve $x$, $n$, $p$, $y$ koji se unose sa standardnog ulaza. Program treba nakon učitavanja odgovarajućih vrednosti ispiše najpre binarne reprezenatacije brojeva $x$ i $y$, a potom i binarne reprezentacije brojeva koji se dobijaju pozivanjem prethodno napisanih funkcija.
-\napomena{Pozicije se broje počev od pozicije bita najmanje težine, pri čemu je bit najmanje težine na poziciji nula.}
 
 \begin{maxitest}
 \begin{upotreba}{1}
@@ -426,7 +427,7 @@ Napisati program koji testira prethodno napisane funkcije za neoznačene cele br
 \end{Answer}
 
 \begin{Exercise}[label=205]
-Pod rotiranjem ulevo podrazumeva se pomeranje svih bitova za jednu poziciju ulevo, s tim što se bit sa pozicije najviše težine pomera na poziciju najmanje težine. Analogno, rotiranje udesno podrazumeva pomeranje svih bitova za jednu poziciju udesno, s tim što se bit sa pozicije najmanje težine pomera na poziciju najviše težine.
+Pod rotiranjem ulevo podrazumeva se pomeranje svih bitova za jednu poziciju ulevo, s tim što se bit sa pozicije najveće težine pomera na poziciju najmanje težine. Analogno, rotiranje udesno podrazumeva pomeranje svih bitova za jednu poziciju udesno, s tim što se bit sa pozicije najmanje težine pomera na poziciju najviše težine.
 \begin{enumerate}
 \item Napisati funkciju \kckod{rotate\_left} koja određuje broj koji se dobija rotiranjem \argf{k} puta ulevo datog celog broja \argf{x}. 
 \item Napisati funkciju \kckod{rotate\_right} koja određuje broj koji se dobija rotiranjem \argf{k} puta udesno datog celog neoznačenog broja \argf{x}. 
