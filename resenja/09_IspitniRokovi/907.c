@@ -7,7 +7,9 @@ unsigned int Rotiraj(unsigned int x, unsigned int n)
   int i;
   unsigned int maska = 1;
   /* Formiranje maske sa n jedinica na kraju, npr za n=4 maska bi
-     izgledala: 000...00001111 */
+     izgledala: 000...00001111 
+	 Maska se moze formirati i naredbom: maska = (1 << n) - 1; U 
+	 nastavku je drugi nacin. */ 
   for (i = 1; i < n; i++)
     maska = (maska << 1) | 1;
   /* Kada se x poremeri za n mesta udesno x >> n, poslednjih n bitova

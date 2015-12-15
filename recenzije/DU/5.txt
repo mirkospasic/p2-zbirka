@@ -1,0 +1,29 @@
+﻿broj zadatka 
+copy-paste originalnog komentara
+i onda ako je komentar nesto jednostavno, tj pravolinijsko, samo da se notira recju "uradjeno" ili "ispravljeno"
+Ukoliko je nesto krupnije, onda da se napise i kako je ispravljeno (ali mi se cini da takvih nema mnogo)
+npr "Ispravljeno u" pa "copy-paste novog teksta"
+
+5.2
+Da li je trebalo da pise SumirajN?
+
+Ispravljeno u "SumirajN".
+
+5.9
+Nije bas jeziki najlepse (cemu je jednaka suma svakom redu?_. Bolje reci sume elemenata u svim vrstama i kolonama su medjusobno jednake, ili tako nekako.
+
+Ispravljeno u "magični kvadrat je kvadratna matrica kod koje su sume brojeva
+    u svim redovima i kolonama međusobno jednake".
+
+
+Rešenje 5.1
+(MAX+1_, ako se secam duzina je bila do 50. linije
+
+Ispravljeno.
+
+
+5.7
+Moze i
+maska = (1 << n) - 1;
+
+Dodato kao komentar. Cini mi se da je bolje da ostanu dva nacina. 

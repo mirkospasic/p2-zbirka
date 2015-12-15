@@ -15,9 +15,10 @@ char **alociranje_memorije(int n)
      program zavrsava. */
   if (linije == NULL)
     return NULL;
-  /* Alocira se prostor za svaku vrstu matrice */
+  /* Alocira se prostor za svaku vrstu matrice. Niska nije duza od 
+     MAX karaktera, a 1 se dodaje zbog terminirajuce nule. */
   for (i = 0; i < n; i++) {
-    linije[i] = malloc(MAX * sizeof(char));
+    linije[i] = malloc((MAX + 1) * sizeof(char));
     /* Ako alokacija nije prosla uspesno, oslobadjaju se svi
        prethodno alocirani resursi, i povratna vrednost je NULL */
     if (linije[i] == NULL) {
@@ -73,7 +74,7 @@ int main(int argc, char *argv[])
 
   /* U slucaju neuspesne alokacije ispisuje se -1 na stderr i program
      zavrsava. */
-  if (ulaz == NULL) {
+  if (linije == NULL) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
