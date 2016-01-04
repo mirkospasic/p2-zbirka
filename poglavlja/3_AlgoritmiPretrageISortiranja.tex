@@ -1,3 +1,514 @@
+
+\chapter{Algoritmi pretrage i sortiranja}
+
+\section{Algoritmi pretrage}
+
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=3-01]
+  Napisati iterativne funkcije pretraga nizova. Svaka funkcija treba
+  da vrati indeks pozicije na kojoj je pronađen traženi broj ili
+  broj $-1$ ukoliko broj nije pronađen.
+  \begin{enumerate}  
+  \item Napisati funkciju \kckod{linarna\_pretraga} koja vrši linearnu pretragu niza 
+    celih brojeva \argf{a}, dužine \argf{n}, tražeći u njemu broj
+    \argf{x}.  
+  \item Napisati funkciju \kckod{binarna\_pretraga} koja vrši binarnu pretragu
+    sortiranog niza \argf{a}, dužine \argf{n}, tražeći u njemu broj \argf{x}.
+  \item Napisati funkciju \kckod{interpolaciona\_pretraga} koja vrši interpolacionu pretragu
+    sortiranog niza \argf{a}, dužine \argf{n}, tražeći u njemu broj \argf{x}.
+  \end{enumerate}
+  Napisati i program koji generiše rastući niz slučajnih brojeva dimenzije
+  \argf{n} i pozivajući napisane funkcije traži broj \argf{x}. Programu se kao prvi 
+  argument komandne linije prosleđuje prirodan broj \argf{n} koji nije veći od $1000000$ i broj \argf{x} kao drugi
+  argument komandne linije. Potrebna vremena za izvršavanje ovih
+  funkcija dopisati u datoteku \kckod{vremena.txt}.
+
+  
+\begin{minitest}
+\begin{test}{1}
+#\poziv{./a.out 1000000 23542}#
+  
+#\naslovIzlaz#
+#\izlaz{Linearna pretraga:}#
+#\izlaz{Element nije u nizu}#
+#\izlaz{Binarna pretraga:}#
+#\izlaz{Element nije u nizu}#
+#\izlaz{Interpolaciona pretraga:}#
+#\izlaz{Element nije u nizu}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test2}{1}
+    
+
+  #\naslovDat{vremena.txt}#
+
+  #\datoteka{Dimenzija niza: 1000000}#
+  #\datoteka{	Linearna:            3615091 ns}#
+  #\datoteka{	Binarna:                1536 ns}#
+  #\datoteka{	Interpolaciona:          558 ns}#
+\end{test2}
+\end{minitest}
+
+\begin{minitest}
+\begin{test}{2}
+#\poziv{./a.out 100000 37842}#
+  
+#\naslovIzlaz#
+#\izlaz{Linearna pretraga:}#
+#\izlaz{Element nije u nizu}#
+#\izlaz{Binarna pretraga:}#
+#\izlaz{Element nije u nizu}#
+#\izlaz{Interpolaciona pretraga:}#
+#\izlaz{Element nije u nizu}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test2}{1}
+
+
+  #\naslovDat{vremena.txt}#
+
+  #\datoteka{Dimenzija niza: 1000000}#
+  #\datoteka{	Linearna:            3615091 ns}#
+  #\datoteka{	Binarna:                1536 ns}#
+  #\datoteka{	Interpolaciona:          558 ns}#
+  #\datoteka{}#
+  #\datoteka{Dimenzija niza: 100000}#
+  #\datoteka{	Linearna:             360803 ns}#
+  #\datoteka{	Binarna:                1187 ns}#
+  #\datoteka{	Interpolaciona:          628 ns}#
+\end{test2}
+\end{minitest}
+
+\linkresenje{3-01}
+
+\end{Exercise}
+
+\begin{Answer}[ref=3-01]
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-01.c}
+\end{Answer}
+
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=3-02]
+  Napisati rekurzivne funkcije algoritama linearne, binarne i
+  interpolacione pretrage i program koji ih testira za brojeve koji se
+  unose sa standardnog ulaza. Linearnu pretragu implementirati na dva
+  načina, svođenjem pretrage na prefiks i na sufiks
+  niza. Prvo se unosi broj koji se traži, a zatim sortirani
+  elementi niza sve do kraja ulaza. Pretpostaviti da niz brojeva koji se unosi neće biti duži od
+  $1024$ elemenata.
+
+\begin{miditest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite trazeni broj:} \ulaz{11}#
+#\izlaz{Unesite sortiran niz elemenata:}# 
+#\ulaz{2 5 6 8 10 11 23}#
+#\izlaz{Linearna pretraga}#
+#\izlaz{Pozicija elementa je 5.}#
+#\izlaz{Binarna pretraga}#
+#\izlaz{Pozicija elementa je 5.}#
+#\izlaz{Interpolaciona pretraga}#
+#\izlaz{Pozicija elementa je 5.}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesite trazeni broj:} \ulaz{14}#
+#\izlaz{Unesite sortiran niz elemenata:}#
+#\ulaz{10 32 35 43 66 89 100}#
+#\izlaz{Linearna pretraga}#
+#\izlaz{Element se ne nalazi u nizu.}#
+#\izlaz{Binarna pretraga}#
+#\izlaz{Element se ne nalazi u nizu.}#
+#\izlaz{Interpolaciona pretraga}#
+#\izlaz{Element se ne nalazi u nizu.}#
+\end{upotreba}
+\end{miditest}
+
+\linkresenje{3-02}
+
+\end{Exercise}
+
+\begin{Answer}[ref=3-02]
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-02.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=3-03]
+  Napisati program koji preko argumenta komandne linije dobija ime
+  datoteke koja sadrži sortirani spisak studenta po broju indeksa
+  rastuće. Za svakog studenta u jednom redu stoje informacije o
+  indeksu, imenu i prezimenu. Program učitava spisak studenata u niz i
+  traži od korisnika indeks ili prezime studenta čije informacije se
+  potom prikazuju na ekranu. U slučaju više studenata sa istim
+  prezimenom prikazati informacije o prvom takvom. Odabir kriterijuma
+  pretrage se vrši kroz poslednji argument komandne linije, koji može
+  biti \kckod{-indeks} ili \kckod{-prezime}. U slučaju neuspešnih
+  pretragi, štampati odgovarajuću poruku. Pretrage implementirati u
+  vidu iterativnih funkcija što manje složenosti. Pretpostaviti da u
+  datoteci neće biti više od $128$ studenata i da su imena i prezimena
+  svih kraća od $16$ slova.
+  
+\begin{miditest}
+\begin{upotreba}{1}
+#\poziv{./a.out datoteka.txt -indeks}#
+  
+#\naslovDat{datoteka.txt}#
+#\datoteka{20140003 Marina Petrovic}#
+#\datoteka{20140012 Stefan Mitrovic}#
+#\datoteka{20140032 Dejan Popovic}#
+#\datoteka{20140049 Mirko Brankovic}#
+#\datoteka{20140076 Sonja Stevanovic}#
+#\datoteka{20140104 Ivan Popovic}#
+#\datoteka{20140187 Vlada Stankovic}#
+#\datoteka{20140234 Darko Brankovic}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{test2}{1}
+  
+  
+#\naslovInt#
+#\izlaz{Unesite indeks studenta}# 
+#\izlaz{cije informacije zelite:}#
+#\ulaz{20140076}#
+#\izlaz{Indeks: 20140076,}# 
+#\izlaz{Ime i prezime: Sonja Stevanovic}#
+\end{test2}
+\end{miditest}
+
+\begin{miditest}
+\begin{upotreba}{2}
+#\poziv{./a.out datoteka.txt -prezime}#
+  
+#\naslovDat{datoteka.txt}#
+#\datoteka{20140003 Marina Petrovic}#
+#\datoteka{20140012 Stefan Mitrovic}#
+#\datoteka{20140032 Dejan Popovic}#
+#\datoteka{20140049 Mirko Brankovic}#
+#\datoteka{20140076 Sonja Stevanovic}#
+#\datoteka{20140104 Ivan Popovic}#
+#\datoteka{20140187 Vlada Stankovic}#
+#\datoteka{20140234 Darko Brankovic}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{test2}{1}
+  
+  
+#\naslovInt#
+#\izlaz{Unesite prezime studenta }#
+#\izlaz{cije informacije zelite:}#
+#\ulaz{Popovic}#
+#\izlaz{Indeks: 20140032,}# 
+#\izlaz{Ime i prezime: Dejan Popovic}#
+\end{test2}
+\end{miditest}
+
+\linkresenje{3-03}
+
+\end{Exercise}
+
+\begin{Answer}[ref=3-03]
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-03.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=3-04]
+  Modifikovati prethodni zadatak \ref{3-03} tako da tražene funkcije
+  budu rekurzivne.
+
+\linkresenje{3-04}
+
+\end{Exercise}
+
+\begin{Answer}[ref=3-04]
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-04.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=3-05]
+  U datoteci koja se zadaje kao prvi argument komandne linije, nalaze
+  se koordinate tačaka. U zavisnosti od prisustva opcija komandne
+  linije (\argf{-x} ili \argf{-y}), pronaći onu koja je najbliža
+  \argf{x}, ili \argf{y} osi, ili koordinatnom početku, ako nije
+  prisutna nijedna opcija. Pretpostaviti da je broj tačaka u datateci
+  veći od $0$ i ne veći od $1024$.
+  
+\begin{minitest}
+\begin{test}{1}
+#\poziv{./a.out dat.txt -x}#
+
+#\naslovDat{dat.txt}#
+#\datoteka{12 53}#
+#\datoteka{2.342 34.1}#
+#\datoteka{-0.3 23}#
+#\datoteka{-1 23.1}#
+#\datoteka{123.5 756.12}#
+
+#\naslovIzlaz#
+#\izlaz{-0.3 23}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+#\poziv{./a.out dat.txt}#
+  
+#\naslovDat{dat.txt}#
+#\datoteka{12 53}#
+#\datoteka{2.342 34.1}#
+#\datoteka{-0.3 23}#
+#\datoteka{-1 2.1}#
+#\datoteka{123.5 756.12}#
+
+#\naslovIzlaz#
+#\izlaz{-1 2.1}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}.
+#\poziv{./a.out dat.txt -y}#
+
+#\naslovDat{dat.txt}#
+#\datoteka{12 53}#
+#\datoteka{2.342 34.1}#
+#\datoteka{-0.3 0.23}#
+#\datoteka{-1 2.1}#
+#\datoteka{123.5 756.12}#
+  
+#\naslovIzlaz#
+#\izlaz{-0.3 0.23}#
+\end{test}
+\end{minitest}
+
+\linkresenje{3-05}
+
+\end{Exercise}
+
+\begin{Answer}[ref=3-05]
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-05.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=3-06]
+  Napisati funkciju koja određuje nulu funkcije \kckod{cos(x)} na
+  intervalu \argf{[0,2]} metodom polovljenja intervala. Algoritam se
+  završava kada se vrednost kosinusne funkcije razlikuje za najviše
+  $0.001$ od nule. \uputstvo{Korisiti algoritam analogan algoritmu
+  binarne pretrage.}
+  
+% Ovde ne moze biti vise od jednog test primera
+\begin{minitest}
+\begin{test}{1}
+#\naslovIzlaz#
+#\izlaz{1.57031}#
+\end{test}
+\end{minitest}
+
+\linkresenje{3-06}
+
+\end{Exercise}
+
+\begin{Answer}[ref=3-06]
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-06.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=3-07]
+Napisati funkciju koja u rastuće sortiranom nizu celih brojeva
+binarnom pretragom pronalazi indeks prvog elementa većeg od
+nule. Ukoliko nema elemenata većih od nule, funkcija kao rezultat
+vraća \argf{-1}. Napisati program koji testira ovu funkciju za rastući
+niz celih brojeva koji se učitavaju sa standardnog ulaza. Niz neće biti
+duži od $256$, i njegovi elementi se unose sve do kraja ulaza.
+
+\begin{minitest}
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{-151 -44 5 12 13 15}#
+
+#\naslovIzlaz#
+#\izlaz{2}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{-100 -15 -11 -8 -7 -5}#
+
+#\naslovIzlaz#
+#\izlaz{-1}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{-100 -15 0 13 55 124}#
+#\ulaz{258 315 516 7000}#
+  
+#\naslovIzlaz#
+#\izlaz{3}#
+\end{test}
+\end{minitest}
+
+\linkresenje{3-07}
+
+\end{Exercise}
+\begin{Answer}[ref=3-07]
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-07.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=3-08]
+Napisati funkciju koja u opadajuće sortiranom nizu celih brojeva
+binarnom pretragom pronalazi indeks prvog elementa manjeg od
+nule. Ukoliko nema elemenata manjih od nule, funkcija kao rezultat
+vraća \argf{-1}. Napisati program koji testira ovu funkciju za
+opadajući niz celih brojeva koji se učitavaju sa standardnog ulaza. Niz
+neće biti duži od $256$, i njegovi elementi se unose sve do kraja
+ulaza.
+
+\begin{minitest}
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{151 44 5 -12 -13 -15}#
+
+#\naslovIzlaz#
+#\izlaz{3}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{100 55 15 0 -15 -124}#
+#\ulaz{-155 -258 -315 -516}#
+
+#\naslovIzlaz#
+#\izlaz{4}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{100 15 11 8 7 5 4 3 2}#
+
+#\naslovIzlaz#
+#\izlaz{-1}#
+\end{test}
+\end{minitest}
+
+\linkresenje{3-08}
+
+\end{Exercise}
+
+\begin{Answer}[ref=3-08]
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-08.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=3-09]
+  Napisati funkciju koja određuje ceo deo logaritma za osnovu 2 datog
+  neoznačenog celog broja koristeći samo bitske i relacione
+  operatore.
+  \begin{enumerate}
+  \item Napisati funkciju linearne složenosti koja određuje
+    logaritam pomeranjem broja udesno.
+  \item Napisati funkciju logaritmske složenosti koja određuje
+    logaritam koristeći binarnu pretragu.
+  \end{enumerate}
+  Tražene funkcije testirati programom koji pozitivan broj učitava sa
+  standardnog ulaza, a logaritam ispisuje na standardnom izlazu.
+
+\begin{minitest}
+\begin{test}{1}
+#\naslovUlaz#
+#\ulaz{4}#
+  
+#\naslovIzlaz#
+#\izlaz{2 2}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{2}
+#\naslovUlaz#
+#\ulaz{17}#
+  
+#\naslovIzlaz#
+#\izlaz{4 4}#
+\end{test}
+\end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{1031}#
+  
+#\naslovIzlaz#
+#\izlaz{10 10}#
+\end{test}
+\end{minitest}
+
+\linkresenje{3-09}
+
+\end{Exercise}
+
+\begin{Answer}[ref=3-09]
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-09.c}
+\end{Answer}
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[difficulty=2, label=3-10]
+  U prvom kvadrantu dato je $1 \leq \argf{N} \leq 10000$ duži svojim
+  koordinatama (duži mogu da se seku, preklapaju, itd.). Napisati
+  program koji pronalazi najmanji ugao $0 \leq \alpha \leq 90^\circ$,
+  na dve decimale, takav da je suma dužina duži sa obe strane
+  polupoluprave iz koordinatnog početka pod uglom $\alpha$ jednak
+  (neke duži bivaju presečene, a neke ne). Program prvo učitava broj
+  \argf{N}, a zatim i same koordinate temena duži. \uputstvo{Vršiti
+  binarnu pretragu intervala $[0, 90^\circ]$.}
+  
+\begin{minitest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesi broj tacaka:}\ulaz{2}#
+#\izlaz{Unesi koordinate tacaka:}#
+#\ulaz{2 0 2 1}#
+#\ulaz{1 2 2 2}#
+#\izlaz{26.57}#
+\end{upotreba}
+\end{minitest}
+\begin{minitest}
+\begin{upotreba}{2}
+#\naslovInt#
+#\izlaz{Unesi broj tacaka:}\ulaz{2}#
+#\izlaz{Unesi koordinate tacaka:}#
+#\ulaz{1 0 1 1}#
+#\ulaz{0 1 1 1}#
+#\izlaz{45}#
+\end{upotreba}
+\end{minitest}
+\begin{minitest}
+\begin{upotreba}{3}
+#\naslovInt#
+#\izlaz{Unesi broj tacaka:}\ulaz{3}#
+#\izlaz{Unesi koordinate tacaka:}#
+#\ulaz{1 0 1 1}#
+#\ulaz{2 0 2 1}#
+#\ulaz{1 2 2 2}#
+#\izlaz{26.57}#
+\end{upotreba}
+\end{minitest}
+
+\end{Exercise}
+
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+
+
 \section{Algoritmi sortiranja}
 
 %-----------------------------------------------------------------
@@ -92,9 +603,9 @@
 \end{Exercise}
 
 \begin{Answer}[ref=3-11]
-  \includecodeLib{resenja/05_Sortiranje/sort.h}{sort.h}
-  \includecodeLib{resenja/05_Sortiranje/sort.c}{sort.c}
-  \includecodeLib{resenja/05_Sortiranje/3-11.c}{main.c}
+  \includecodeLib{resenja/3_AlgoritmiPretrageISortiranja/sort.h}{sort.h}
+  \includecodeLib{resenja/3_AlgoritmiPretrageISortiranja/sort.c}{sort.c}
+  \includecodeLib{resenja/3_AlgoritmiPretrageISortiranja/3-11.c}{main.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -135,7 +646,7 @@
 \end{Exercise}
 
 \begin{Answer}[ref=3-12]
-  \includecode{resenja/05_Sortiranje/3-12.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-12.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -179,7 +690,7 @@
 \end{Exercise}
 
 \begin{Answer}[ref=3-13]
-  \includecode{resenja/05_Sortiranje/3-13.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-13.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -223,7 +734,7 @@
 \end{Exercise}
 
 \begin{Answer}[ref=3-14]
-  \includecode{resenja/05_Sortiranje/3-14.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-14.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -268,7 +779,7 @@
 \end{Exercise}
 
 \begin{Answer}[ref=3-15]
-  \includecode{resenja/05_Sortiranje/3-15.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-15.c}
 \end{Answer}
 
 %-----------------------------------------------------------------
@@ -310,7 +821,7 @@
 \end{Exercise}
 
 \begin{Answer}[ref=3-16]
-  \includecode{resenja/05_Sortiranje/3-16.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-16.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -378,7 +889,7 @@
 \end{Exercise}
 
 \begin{Answer}[ref=3-17]
-  \includecode{resenja/05_Sortiranje/3-17.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-17.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -445,7 +956,7 @@
 \end{Exercise}
 
 \begin{Answer}[ref=3-18]
-  \includecode{resenja/05_Sortiranje/3-18.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-18.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -499,7 +1010,7 @@
 \end{Exercise}
 
 \begin{Answer}[ref=3-19]
-  \includecode{resenja/05_Sortiranje/3-19.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-19.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -576,7 +1087,7 @@ nisu zadati podaci o više od $128$ dece.
 \end{Exercise}
 
 %\begin{Answer}[ref=3-20]
-%  \includecode{resenja/05_Sortiranje/3-20.c}
+%  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-20.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -603,7 +1114,7 @@ nisu zadati podaci o više od $128$ dece.
 \end{Exercise}
 
 \begin{Answer}[ref=3-21]
-  \includecode{resenja/05_Sortiranje/3-21.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-21.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -667,7 +1178,7 @@ nisu zadati podaci o više od $128$ dece.
 \end{Exercise}
 
 \begin{Answer}[ref=3-22]
-  \includecode{resenja/05_Sortiranje/3-22.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-22.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -760,7 +1271,7 @@ nisu zadati podaci o više od $128$ dece.
 \end{Exercise}
 
 \begin{Answer}[ref=3-23]
-  \includecode{resenja/05_Sortiranje/3-23.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-23.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -851,7 +1362,7 @@ način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
 \end{Exercise}
 
 \begin{Answer}[ref=3-24]
-\includecode{resenja/05_Sortiranje/3-24.c}
+\includecode{resenja/3_AlgoritmiPretrageISortiranja/3-24.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -877,7 +1388,7 @@ način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
 \end{Exercise}
 
 %\begin{Answer}[ref=3-25]
-%  \includecode{resenja/05_Sortiranje/3-25.c}
+%  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-25.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -919,7 +1430,7 @@ okretanja.}
 \end{Exercise}
 
 %\begin{Answer}[ref=3-26]
-%  \includecode{resenja/05_Sortiranje/3-26.c}
+%  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-26.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -967,7 +1478,7 @@ okretanja.}
 \end{Exercise}
 
 \begin{Answer}[ref=3-27]
-  \includecode{resenja/05_Sortiranje/3-27.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-27.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1014,7 +1525,7 @@ okretanja.}
 \end{Exercise}
 
 %\begin{Answer}[ref=3-28]
-%  \includecode{resenja/05_Sortiranje/3-28.c}
+%  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-28.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1124,7 +1635,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{Exercise}
 
 \begin{Answer}[ref=3-30]
-  \includecode{resenja/05_Sortiranje/3-30.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-30.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1173,7 +1684,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{Exercise}
 
 \begin{Answer}[ref=3-31]
-  \includecode{resenja/05_Sortiranje/3-31.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-31.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1213,7 +1724,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{Exercise}
 
 \begin{Answer}[ref=3-32]
-  \includecode{resenja/05_Sortiranje/3-32.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-32.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1225,7 +1736,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{Exercise}
 
 \begin{Answer}[ref=3-33]
-  \includecode{resenja/05_Sortiranje/3-33.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-33.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1297,7 +1808,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{Exercise}
 
 \begin{Answer}[ref=3-34]
-  \includecode{resenja/05_Sortiranje/3-34.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-34.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1309,7 +1820,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{Exercise}
 
 \begin{Answer}[ref=3-35]
-  \includecode{resenja/05_Sortiranje/3-35.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-35.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1352,7 +1863,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{Exercise}
 
 \begin{Answer}[ref=3-36]
-  \includecode{resenja/05_Sortiranje/3-36.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-36.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1416,7 +1927,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{Exercise}
 
 \begin{Answer}[ref=3-37]
-  \includecode{resenja/05_Sortiranje/3-37.c}
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-37.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1464,7 +1975,7 @@ Definisati strukturu \kckod{Datum}. \iffalse
 \end{Exercise}
 
 %\begin{Answer}[ref=3-38]
-%  \includecode{resenja/05_Sortiranje/3-38.c}
+%  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3-38.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
