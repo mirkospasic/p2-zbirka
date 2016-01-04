@@ -1,0 +1,17 @@
+broj zadatka 
+copy-paste originalnog komentara
+i onda ako je komentar nesto jednostavno, tj pravolinijsko, samo da se notira recju "uradjeno" ili "ispravljeno"
+Ukoliko je nesto krupnije, onda da se napise i kako je ispravljeno (ali mi se cini da takvih nema mnogo)
+npr "Ispravljeno u" pa "copy-paste novog teksta"
+
+
+
+U zadatku 4.1 se pod (1) i (2) trazi da se "U progarmu..." nesto uradi,
+a pod (3) da se "U glavnom programu..." nesto ursi
+
+Ispravljeno tako sto je uklonjeno glavni program u delu (3) da ne bi zbunjivalo. Preciznije bi bilo da svuda pise u glavnoj funkciji.
+
+
+
+
+Zadatak 4.12 bi trebalo prvo da uvede "krug" pa onda nacin kretanja po

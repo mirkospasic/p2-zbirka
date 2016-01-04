@@ -177,15 +177,21 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
   /* Obilaze se cvorovi liste */
   /* U uslovu ostanka u petlji, bitan je redosled provera u
      konjunkciji */
-  for (; glava != NULL && glava->vrednost <= broj;
-       glava = glava->sledeci)
-    /* Ako je vrednost tekuceg cvora jednaka zadatom broju, pretraga
-       se obustavlja */
-    if (glava->vrednost == broj)
-      return glava;
+  while (glava != NULL && glava->vrednost < broj)
+    glava = glava->sledeci;
 
-  /* Nema trazenog broja u listi i vraca se NULL */
-  return NULL;
+  /* Iz petlje se moglo izaci na vise nacina. Prvi, tako sto je
+     glava->vrednost veca od trazenog broja i tada treba vratiti
+     NULL, jer trazen broj nije nadjen medju manjim brojevima pri
+     pocetku sortirane liste, pa se moze zakljuciti da ga nema u
+     listi. Drugi nacini, tako sto se doslo do kraja liste i glava je 
+     NULL ili tako sto je glava->vrednost == broj. U oba poslednja
+     nacina treba vratiti pokazivac glava bilo da je NULL ili
+     pokazivac na konkretan cvor. */
+  if (glava->vrednost > broj)
+    return NULL;
+  else
+    return glava;
 }
 
 void obrisi_cvor(Cvor ** adresa_glave, int broj)

@@ -1,0 +1,18 @@
+
+
+Zadatak 4.1 datoteka lista.c
+Cvor * pretrazi_sortiranu_listu (Cvor * glava , int broj)
+
+  for (; glava != NULL && glava->vrednost <= broj;
+       glava = glava->sledeci)
+    /* Ako je vrednost tekuceg cvora jednaka zadatom broju, pretraga
+       se obustavlja */
+    if (glava->vrednost == broj)
+      return glava;
+
+  /* Nema trazenog broja u listi i vraca se NULL */
+  return NULL;
+
+  < umesto <=
+
+Ispravljeno. For je zamenjena while petljom i IF je posle petlje.
