@@ -44,11 +44,10 @@ void insertion_sort(int a[], int n)
        element koji se umece nalazi. Petlja se zavrsava ili kada
        element dodje do levog kraja (j==0) ili kada se naidje na
        element a[j-1] koji je manji od a[j]. */
-    for (j = i; j > 0 && a[j] < a[j - 1]; j--) {
-      int temp = a[j];
+    int temp = a[i];
+    for (j = i; j > 0 && temp < a[j - 1]; j--)
       a[j] = a[j - 1];
-      a[j - 1] = temp;
-    }
+    a[j] = temp;
   }
 }
 
@@ -155,12 +154,12 @@ void swap(int a[], int i, int j)
   a[j] = tmp;
 }
 
-void quick_sort(int a[], int l, int r)
+void quick_sort(int a[], int l, int d)
 {
   int i, pivot_position;
 
   /* Izlaz iz rekurzije -- prazan niz */
-  if (l >= r)
+  if (l >= d)
     return;
 
 
@@ -172,7 +171,7 @@ void quick_sort(int a[], int l, int r)
      na koju treba smestiti pivot, jer ce svi elementi levo od te
      pozicije biti manji a desno biti veci ili jednaki od pivota. */
   pivot_position = l;
-  for (i = l + 1; i <= r; i++)
+  for (i = l + 1; i <= d; i++)
     if (a[i] < a[l])
       swap(a, ++pivot_position, i);
 
@@ -182,5 +181,5 @@ void quick_sort(int a[], int l, int r)
   /* Rekurzivno sortiranje elementa manjih od pivota */
   quick_sort(a, l, pivot_position - 1);
   /* Rekurzivno sortiranje elementa vecih od pivota */
-  quick_sort(a, pivot_position + 1, r);
+  quick_sort(a, pivot_position + 1, d);
 }

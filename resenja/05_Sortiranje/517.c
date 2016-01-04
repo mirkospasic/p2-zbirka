@@ -17,6 +17,7 @@ int compare_int(const void *a, const void *b)
   int b1 = *((int *) a);
   int b2 = *((int *) b);
 
+  /* return b1 - b2; */
   if (b1 > b2)
     return 1;
   else if (b1 < b2)

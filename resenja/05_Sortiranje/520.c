@@ -4,7 +4,7 @@
 #include <search.h>
 
 #define MAX_NISKI 1000
-#define MAX_DUZINA 30
+#define MAX_DUZINA 31
 
 /*******************************************************************
   Niz pokazivaca na karaktere ovog potpisa
@@ -71,7 +71,7 @@ int main()
   i = 0;
   while (fscanf(fp, "%s", x) != EOF) {
     /* Alociranje dovoljne memorije za i-tu nisku */
-    if ((niske[i] = malloc(strlen(x) * sizeof(char))) == NULL) {
+    if ((niske[i] = malloc((strlen(x) + 1) * sizeof(char))) == NULL) {
       fprintf(stderr, "Greska pri alociranju niske\n");
       exit(EXIT_FAILURE);
     }

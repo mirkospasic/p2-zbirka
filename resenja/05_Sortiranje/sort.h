@@ -5,9 +5,10 @@
    sortiranja izborom.  Ideja algoritma je sledeca: U svakoj
    iteraciji pronalazi se najmanji element i premesta se na pocetak
    niza. Dakle, u prvoj iteraciji, pronalazi se najmanji element, i
-   dovodi na nulto mesto u nizu. U i-toj iteraciji najmanjih i
-   elemenata su vec na svojim pozicijama, pa se od i+1 do n-1
-   elementa trazi najmanji, koji se dovodi na i+1 poziciju. */
+   dovodi na nulto mesto u nizu. U i-toj iteraciji najmanjih i-1
+   elemenata su vec na svojim pozicijama, pa se od elemenata sa
+   indeksima od i do n-1 trazi najmanji, koji se dovodi na i-tu
+   poziciju. */
 void selection_sort(int a[], int n);
 
 /* Insertion sort: Funkcija sortira niz celih brojeva metodom
@@ -63,10 +64,10 @@ void shell_sort(int a[], int n);
    trenutnog manjeg elementa koji se smesta u pomocni niz. Na kraju
    algoritma, sortirani elementi su u pomocnom nizu, koji se kopira u
    originalni niz. */
-void merge_sort(int a[], int l, int r);
+void merge_sort(int a[], int l, int d);
 
 /* Quick sort: Funkcija sortira deo niza brojeva a izmedju pozicija l 
-   i r. Njena ideja sortiranja je izbor jednog elementa niza, koji se 
+   i d. Njena ideja sortiranja je izbor jednog elementa niza, koji se 
    naziva pivot, i koji se dovodi na svoje mesto. Posle ovog koraka,
    svi elementi levo od njega bice manji, a svi desno bice veci od
    njega. Kako je pivot doveden na svoje mesto, da bi niz bio
@@ -74,6 +75,6 @@ void merge_sort(int a[], int l, int r);
    njega, i elemente desno (vece). Kako su dimenzije ova dva podniza
    manje od dimenzije pocetnog niza koji je trebalo sortirati, ovaj
    deo moze se uraditi rekurzivno. */
-void quick_sort(int a[], int l, int r);
+void quick_sort(int a[], int l, int d);
 
 #endif

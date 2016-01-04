@@ -6,8 +6,8 @@
 
 /* Struktura sa svim informacijama o pojedinacnom studentu */
 typedef struct {
-  char ime[20];
-  char prezime[25];
+  char ime[21];
+  char prezime[26];
   int prisustvo;
   int zadaci;
 } Student;

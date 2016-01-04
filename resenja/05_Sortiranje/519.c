@@ -4,7 +4,7 @@
 #include <search.h>
 
 #define MAX_NISKI 1000
-#define MAX_DUZINA 30
+#define MAX_DUZINA 31
 
 /******************************************************************
   Niz nizova karaktera ovog potpisa

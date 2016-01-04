@@ -48,7 +48,8 @@ int main(int argc, char *argv[])
 
   /* Sve dok nije dostignut kraj neke datoteke */
   while (!kraj1 && !kraj2) {
-    if (strcmp(ime1, ime2) < 0) {
+    int tmp = strcmp(ime1, ime2);
+    if (tmp < 0 || (tmp == 0 && strcmp(prezime1, prezime2) < 0)) {
       /* Ime i prezime iz prve datoteke je leksikografski ranije, i
          biva upisano u izlaznu datoteku */
       fprintf(fout, "%s %s\n", ime1, prezime1);

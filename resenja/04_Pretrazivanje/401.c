@@ -33,11 +33,11 @@ int binarna_pretraga(int a[], int n, int x)
     /* Srednji indeks je njihova aritmeticka sredina */
     srednji = (levi + desni) / 2;
     /* Ako je element sa sredisnjim indeksom veci od x, tada se x
-       mora nalaziti u levoj polovini niza */
+       mora nalaziti u levom delu niza */
     if (x < a[srednji])
       desni = srednji - 1;
     /* Ako je element sa sredisnjim indeksom manji od x, tada se x
-       mora nalaziti u desnoj polovini niza */
+       mora nalaziti u desnom delu niza */
     else if (x > a[srednji])
       levi = srednji + 1;
     else
@@ -76,14 +76,14 @@ int interpolaciona_pretraga(int a[], int n, int x)
     /* Racunanje srednjeg indeksa */
     srednji =
         levi +
-        ((double) (x - a[levi]) / (a[desni] - a[levi])) *
-        (desni - levi);
+        (int) ((double) (x - a[levi]) / (a[desni] - a[levi]) *
+               (desni - levi));
     /* Napomena: Indeks srednji je uvek izmedju levi i desni, ali ce
-       verovatno biti blize trazenoj vrednosti nego da je prosto uvek
+       verovatno biti blize trazenoj vrednosti nego da je prosto uvek 
        uzimana aritmiticka sredina indeksa levi i desni. Ovo se moze
-       porediti sa pretragom recnika: ako neko trazi rec na slovo 'B',
-       sigurno nece da otvori recnik na polovini, vec verovatno negde
-       blize pocetku. */
+       porediti sa pretragom recnika: ako neko trazi rec na slovo
+       'B', sigurno nece da otvori recnik na polovini, vec verovatno
+       negde blize pocetku. */
     /* Ako je element sa indeksom srednji veci od trazenog, tada se
        trazeni element mora nalaziti u levoj polovini niza */
     if (x < a[srednji])
@@ -107,7 +107,6 @@ int main(int argc, char **argv)
   int n, i, x;
   struct timespec time1, time2, time3, time4, time5, time6;
   FILE *f;
-
   /* Provera argumenata komandne linije */
   if (argc != 3) {
     fprintf(stderr,
@@ -124,16 +123,14 @@ int main(int argc, char **argv)
 
   /* Broj koji se trazi */
   x = atoi(argv[2]);
-
   /* Elementi niza se generisu slucajno, tako da je svaki sledeci
      veci od prethodnog. srandom() funkcija obezbedjuje novi seed za
-     pozivanje random() funkcije. Kako generisani niz ne bi uvek isto
+     pozivanje random() funkcije. Kako generisani niz ne bi uvek isto 
      izgledao, seed se postavlja na tekuce vreme u sekundama od Nove
      godine 1970. random()%100 daje brojeve izmedju 0 i 99 */
   srandom(time(NULL));
   for (i = 0; i < n; i++)
     a[i] = i == 0 ? random() % 100 : a[i - 1] + random() % 100;
-
   /* Lineara pretraga */
   printf("Linearna pretraga:\n");
   /* Vreme proteklo od Nove godine 1970 */
@@ -146,7 +143,6 @@ int main(int argc, char **argv)
     printf("Element nije u nizu\n");
   else
     printf("Element je u nizu na poziciji %d\n", i);
-
   /* Binarna pretraga */
   printf("Binarna pretraga:\n");
   clock_gettime(CLOCK_REALTIME, &time3);
@@ -156,7 +152,6 @@ int main(int argc, char **argv)
     printf("Element nije u nizu\n");
   else
     printf("Element je u nizu na poziciji %d\n", i);
-
   /* Interpolaciona pretraga */
   printf("Interpolaciona pretraga:\n");
   clock_gettime(CLOCK_REALTIME, &time5);
@@ -166,7 +161,6 @@ int main(int argc, char **argv)
     printf("Element nije u nizu\n");
   else
     printf("Element je u nizu na poziciji %d\n", i);
-
   /* Podaci o izvrsavanju programa bivaju upisani u log fajl */
   if ((f = fopen("vremena.txt", "a")) == NULL) {
     fprintf(stderr, "Neuspesno otvaranje log fajla.\n");
@@ -183,9 +177,7 @@ int main(int argc, char **argv)
   fprintf(f, "\tInterpolaciona: %12ld ns\n\n",
           (time6.tv_sec - time5.tv_sec) * 1000000000 +
           time6.tv_nsec - time5.tv_nsec);
-
   /* Zatvaranje datoteke */
   fclose(f);
-
   exit(EXIT_SUCCESS);
 }

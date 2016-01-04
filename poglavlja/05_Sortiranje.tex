@@ -317,9 +317,10 @@
 \begin{Exercise}[label=506]
   Napisati program koji čita sadržaj dveju datoteka od kojih svaka
   sadrži spisak imena i prezimena studenata iz jedne od dve grupe,
-  rastuće sortiran po imenima i kreira jedinstven spisak studenata
-  sortiranih takođe po imenu rastuće.  Program dobija nazive datoteka
-  iz komandne linije i jedinstveni spisak upisuje u datoteku
+  rastuće sortiran po imenima, a u slučaju istog imena po prezimenima,
+  i kreira jedinstven spisak studenata sortiranih takođe po istom
+  kriterijumu. Program dobija nazive datoteka iz komandne linije i
+  jedinstveni spisak upisuje u datoteku
   \kckod{ceo-tok.txt}. Pretpostaviti da je ime studenta nije duže od
   $10$, a prezime od $15$ karaktera.
 
@@ -335,8 +336,8 @@
 #\datoteka{Lazar Micic}#
 #\datoteka{Nenad Brankovic}#
 #\datoteka{Sofija Filipovic}#
-#\datoteka{Vladimir Savic}#
 #\datoteka{Uros Milic}#
+#\datoteka{Vladimir Savic}#
 
 #\naslovDat{drugi-deo.txt}#
 #\datoteka{Aleksandra Cvetic}#
@@ -361,15 +362,15 @@
 #\datoteka{Bojan Golubovic}#
 #\datoteka{Dragan Markovic}#
 #\datoteka{Filip Dukic}#
-#\datoteka{Ivana Stankovic}#
 #\datoteka{Ivana Markovic}#
+#\datoteka{Ivana Stankovic}#
 #\datoteka{Lazar Micic}#
 #\datoteka{Marija Stankovic}#
 #\datoteka{Nenad Brankovic}#
 #\datoteka{Ognjen Peric}#
 #\datoteka{Sofija Filipovic}#
-#\datoteka{Uros Milic}#
 #\datoteka{Vladimir Savic}#
+#\datoteka{Uros Milic}#
 \end{test2}
 \end{miditest}
   
@@ -450,11 +451,12 @@
 %-----------------------------------------------------------------
 \begin{Exercise}[label=509]
   Napisati program koji učitava imena i prezimena građana (najviše
-  njih $1000$) iz datoteke \kckod{biracki-spisak.txt} i kreira
-  biračke spiskove. Jedan birački spisak je sortiran po imenu građana,
-  a drugi po prezimenu. Program treba da ispisuje koliko građana ima
-  isti redni broj u oba biračka spiska. Pretpostaviti da je za ime,
-  odnosno prezime građana dovoljno $15$ karaktera.
+  njih $1000$) iz datoteke \kckod{biracki-spisak.txt} i kreira biračke
+  spiskove. Jedan birački spisak je sortiran po imenu građana, a drugi
+  po prezimenu. Program treba da ispisuje koliko građana ima isti
+  redni broj u oba biračka spiska. Pretpostaviti da je za ime, odnosno
+  prezime građana dovoljno $15$ karaktera, i da se nijedno ime i
+  prezime ne pojavljuje više od jednom.
 
 \begin{minitest}
 \begin{test}{1}

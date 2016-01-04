@@ -41,12 +41,7 @@ int compare_no_deviders(const void *a, const void *b)
   int n_d_a = no_of_deviders(ak);
   int n_d_b = no_of_deviders(bk);
 
-  if (n_d_a > n_d_b)
-    return 1;
-  else if (n_d_a < n_d_b)
-    return -1;
-  else
-    return 0;
+  return n_d_a - n_d_b;
 }
 
 int main()
