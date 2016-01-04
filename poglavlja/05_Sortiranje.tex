@@ -2,7 +2,7 @@
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=507]
+\begin{Exercise}[label=3-11]
   Napraviti biblioteku koja implementira algoritme sortiranja nizova
   celih brojeva. Biblioteka treba da sadrži algoritam sortiranja
   izborom (engl. \kckod{selection sort}), sortiranja spajanjem
@@ -88,17 +88,17 @@
 \end{test}
 \end{minitest}
 
-\linkresenje{507}
+\linkresenje{3-11}
 \end{Exercise}
 
-\begin{Answer}[ref=507]
+\begin{Answer}[ref=3-11]
   \includecodeLib{resenja/05_Sortiranje/sort.h}{sort.h}
   \includecodeLib{resenja/05_Sortiranje/sort.c}{sort.c}
-  \includecodeLib{resenja/05_Sortiranje/507.c}{main.c}
+  \includecodeLib{resenja/05_Sortiranje/3-11.c}{main.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=502]
+\begin{Exercise}[label=3-12]
   Dve niske su anagrami ako se sastoje od istog broja istih
   karaktera. Napisati program koji proverava da li su dve niske
   karaktera anagrami. Niske se zadaju sa standardnog ulaza i neće
@@ -131,21 +131,21 @@
 \end{upotreba}
 \end{minitest}
   
-\linkresenje{502}
+\linkresenje{3-12}
 \end{Exercise}
 
-\begin{Answer}[ref=502]
-  \includecode{resenja/05_Sortiranje/502.c}
+\begin{Answer}[ref=3-12]
+  \includecode{resenja/05_Sortiranje/3-12.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=501]
+\begin{Exercise}[label=3-13]
   U datom nizu brojeva treba pronaći dva broja koja su na najmanjem
   rastojanju. Niz se zadaje sa standardnog ulaza, sve do kraja ulaza,
   ali neće sadržati više od $256$ i manje od $2$ elemenata. Na izlaz
   ispisati razliku pronađena dva broja. \uputstvo{Prvo sortirati niz.}
   \napomena{Koristiti biblioteku za sortiranje celih brojeva iz
-    zadatka \ref{507}.}
+    zadatka \ref{3-11}.}
 
 \begin{minitest}
 \begin{test}{1}
@@ -175,21 +175,21 @@
 \end{test}
 \end{minitest}
   
-\linkresenje{501}
+\linkresenje{3-13}
 \end{Exercise}
 
-\begin{Answer}[ref=501]
-  \includecode{resenja/05_Sortiranje/501.c}
+\begin{Answer}[ref=3-13]
+  \includecode{resenja/05_Sortiranje/3-13.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=503]
+\begin{Exercise}[label=3-14]
   Napisati program koji pronalazi broj koji se najviše puta
   pojavljivao u datom nizu. Niz se zadaje sa standardnog ulaza sve do
   kraja ulaza i neće biti duži od $256$ i kraći od jednog
   elemenata. \uputstvo{Prvo sortirati niz, a zatim naći najdužu
     sekvencu jednakih elemenata.}  \napomena{Koristiti biblioteku za
-    sortiranje celih brojeva iz zadatka \ref{507}.}
+    sortiranje celih brojeva iz zadatka \ref{3-11}.}
 
 \begin{minitest}
 \begin{test}{1}
@@ -219,22 +219,22 @@
 \end{test}
 \end{minitest}
 
-\linkresenje{503}
+\linkresenje{3-14}
 \end{Exercise}
 
-\begin{Answer}[ref=503]
-  \includecode{resenja/05_Sortiranje/503.c}
+\begin{Answer}[ref=3-14]
+  \includecode{resenja/05_Sortiranje/3-14.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=504]
+\begin{Exercise}[label=3-15]
   Napisati funkciju koja proverava da li u datom nizu postoje dva
   elementa čiji zbir je jednak zadatom celom broju. Napisati i program
   koji testira ovu funkciju. U programu se prvo učitava broj, a zatim
   i niz.  Elementi niza se unose sve do kraja ulaza.  Pretpostaviti da
   u niz neće biti uneto više od $256$ brojeva.  \uputstvo{Prvo
     sortirati niz.}  \napomena{Koristiti biblioteku za sortiranje
-    celih brojeva iz zadatka \ref{507}.}
+    celih brojeva iz zadatka \ref{3-11}.}
   
 \begin{minitest}
 \begin{upotreba}{1}
@@ -264,17 +264,17 @@
 \end{upotreba}
 \end{minitest}
   
-\linkresenje{504}
+\linkresenje{3-15}
 \end{Exercise}
 
-\begin{Answer}[ref=504]
-  \includecode{resenja/05_Sortiranje/504.c}
+\begin{Answer}[ref=3-15]
+  \includecode{resenja/05_Sortiranje/3-15.c}
 \end{Answer}
 
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 
-\begin{Exercise}[label=505]
+\begin{Exercise}[label=3-16]
   Napisati funkciju potpisa \kckod{int merge(int *niz1, int dim1, int
     *niz2, int dim2, int *niz3, int dim3)} koja prima dva sortirana
   niza, i na osnovu njih pravi novi sortirani niz koji koji sadrži
@@ -306,15 +306,15 @@
 \end{upotreba}
 \end{miditest}
   
-\linkresenje{505}
+\linkresenje{3-16}
 \end{Exercise}
 
-\begin{Answer}[ref=505]
-  \includecode{resenja/05_Sortiranje/505.c}
+\begin{Answer}[ref=3-16]
+  \includecode{resenja/05_Sortiranje/3-16.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=506]
+\begin{Exercise}[label=3-17]
   Napisati program koji čita sadržaj dveju datoteka od kojih svaka
   sadrži spisak imena i prezimena studenata iz jedne od dve grupe,
   rastuće sortiran po imenima, a u slučaju istog imena po prezimenima,
@@ -374,15 +374,15 @@
 \end{test2}
 \end{miditest}
   
-\linkresenje{506}
+\linkresenje{3-17}
 \end{Exercise}
 
-\begin{Answer}[ref=506]
-  \includecode{resenja/05_Sortiranje/506.c}
+\begin{Answer}[ref=3-17]
+  \includecode{resenja/05_Sortiranje/3-17.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=508]
+\begin{Exercise}[label=3-18]
   Napisati funkcije koje sortiraju niz struktura tačaka na
   osnovu sledećih kriterijuma:
 % milena: ovo je zbog preloma ovako
@@ -441,15 +441,15 @@
 \end{test}
 \end{miditest}
   
-\linkresenje{508}
+\linkresenje{3-18}
 \end{Exercise}
 
-\begin{Answer}[ref=508]
-  \includecode{resenja/05_Sortiranje/508.c}
+\begin{Answer}[ref=3-18]
+  \includecode{resenja/05_Sortiranje/3-18.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=509]
+\begin{Exercise}[label=3-19]
   Napisati program koji učitava imena i prezimena građana (najviše
   njih $1000$) iz datoteke \kckod{biracki-spisak.txt} i kreira biračke
   spiskove. Jedan birački spisak je sortiran po imenu građana, a drugi
@@ -495,15 +495,15 @@
 \end{test}
 \end{minitest}
   
-\linkresenje{509}
+\linkresenje{3-19}
 \end{Exercise}
 
-\begin{Answer}[ref=509]
-  \includecode{resenja/05_Sortiranje/509.c}
+\begin{Answer}[ref=3-19]
+  \includecode{resenja/05_Sortiranje/3-19.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=510]
+\begin{Exercise}[label=3-20]
 \iffalse
   Definisana je struktura podataka
 \begin{ckod}
@@ -572,15 +572,15 @@ nisu zadati podaci o više od $128$ dece.
 \end{test2}
 \end{miditest}
   
-%\linkresenje{510}
+%\linkresenje{3-20}
 \end{Exercise}
 
-%\begin{Answer}[ref=510]
-%  \includecode{resenja/05_Sortiranje/510.c}
+%\begin{Answer}[ref=3-20]
+%  \includecode{resenja/05_Sortiranje/3-20.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=511]
+\begin{Exercise}[label=3-21]
   Napisati funkciju koja sortira niz niski po broju suglasnika u
   niski. Ukoliko reči imaju isti broj suglasnika tada sortirati ih po
   dužini niske rastuće, a ukoliko su i dužine jednake onda
@@ -599,15 +599,15 @@ nisu zadati podaci o više od $128$ dece.
 \end{test}
 \end{maxitest}
   
-\linkresenje{511}
+\linkresenje{3-21}
 \end{Exercise}
 
-\begin{Answer}[ref=511]
-  \includecode{resenja/05_Sortiranje/511.c}
+\begin{Answer}[ref=3-21]
+  \includecode{resenja/05_Sortiranje/3-21.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=512]
+\begin{Exercise}[label=3-22]
   Napisati program koji simulira rad kase u prodavnici. Kupci prilaze
   kasi, a prodavac unošenjem bar-koda kupljenog proizvoda dodaje
   njegovu cenu na ukupan račun. Na kraju, program ispisuje ukupnu
@@ -663,15 +663,15 @@ nisu zadati podaci o više od $128$ dece.
 \end{upotreba}
 \end{maxitest}
   
-\linkresenje{512}
+\linkresenje{3-22}
 \end{Exercise}
 
-\begin{Answer}[ref=512]
-  \includecode{resenja/05_Sortiranje/512.c}
+\begin{Answer}[ref=3-22]
+  \includecode{resenja/05_Sortiranje/3-22.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=513]
+\begin{Exercise}[label=3-23]
    Napisati program koji iz datoteke \kckod{aktivnost.txt} čita
    podatke o aktivnostima studenata na praktikumima i u datoteke
    \kckod{dat1.txt}, \kckod{dat2.txt} i \kckod{dat3.txt} upisuje redom
@@ -756,15 +756,15 @@ nisu zadati podaci o više od $128$ dece.
 \end{test2}
 \end{miditest}
   
-\linkresenje{513}
+\linkresenje{3-23}
 \end{Exercise}
 
-\begin{Answer}[ref=513]
-  \includecode{resenja/05_Sortiranje/513.c}
+\begin{Answer}[ref=3-23]
+  \includecode{resenja/05_Sortiranje/3-23.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=514]
+\begin{Exercise}[label=3-24]
 U datoteci \kckod{pesme.txt} nalaze se informacije o gledanosti pesama na
 Youtube-u. Format datoteke sa informacijama je sledeći:
 \begin{itemize}
@@ -847,15 +847,15 @@ način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
 \end{test}
 \end{minitest}
 
-\linkresenje{514}
+\linkresenje{3-24}
 \end{Exercise}
 
-\begin{Answer}[ref=514]
-\includecode{resenja/05_Sortiranje/514.c}
+\begin{Answer}[ref=3-24]
+\includecode{resenja/05_Sortiranje/3-24.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[difficulty=2, label=515]
+\begin{Exercise}[difficulty=2, label=3-25]
   Razmatrajmo dve operacije: operacija \kckod{U} je unos novog broja
   \kckod{x}, a operacija \kckod{N} određivanje \kckod{n}-tog po
   veličini od unetih brojeva. Implementirati program koji izvršava ove
@@ -873,15 +873,15 @@ način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
 \end{upotreba}
 \end{maxitest}
   
-%\linkresenje{515}
+%\linkresenje{3-25}
 \end{Exercise}
 
-%\begin{Answer}[ref=515]
-%  \includecode{resenja/05_Sortiranje/515.c}
+%\begin{Answer}[ref=3-25]
+%  \includecode{resenja/05_Sortiranje/3-25.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[difficulty=2, label=516]
+\begin{Exercise}[difficulty=2, label=3-26]
   Šef u restoranu je neuredan i palačinke koje ispeče ne slaže redom
   po veličini. Konobar pre serviranja mora da sortira palačinke po
   veličini, a jedina operacija koju sme da izvodi je da obrne deo
@@ -915,15 +915,15 @@ okretanja.}
 \end{test}
 \end{maxitest}
 
-%\linkresenje{516}
+%\linkresenje{3-26}
 \end{Exercise}
 
-%\begin{Answer}[ref=516]
-%  \includecode{resenja/05_Sortiranje/516.c}
+%\begin{Answer}[ref=3-26]
+%  \includecode{resenja/05_Sortiranje/3-26.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=526]
+\begin{Exercise}[label=3-27]
   Za zadatu celobrojnu matricu dimenzije $n \times m$ napisati
   funkciju koja vrši sortiranje vrsta matrice rastuće na osnovu sume
   elemenata u vrsti. Napisati potom program koji testira ovu funkciju. Sa
@@ -963,15 +963,15 @@ okretanja.}
 \end{test}
 \end{miditest}
 
-\linkresenje{526}
+\linkresenje{3-27}
 \end{Exercise}
 
-\begin{Answer}[ref=526]
-  \includecode{resenja/05_Sortiranje/526.c}
+\begin{Answer}[ref=3-27]
+  \includecode{resenja/05_Sortiranje/3-27.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=527]
+\begin{Exercise}[label=3-28]
   Za zadatu kvadratnu matricu dimenzije $n$ napisati funkciju koja
   sortira kolone matrice opadajuće na osnovu vrednosti prvog elementa
   u koloni.  Napisati program koji testira ovu funkciju. Sa
@@ -1010,18 +1010,18 @@ okretanja.}
 \end{upotreba}
 \end{miditest}
   
-%\linkresenje{527}
+%\linkresenje{3-28}
 \end{Exercise}
 
-%\begin{Answer}[ref=527]
-%  \includecode{resenja/05_Sortiranje/527.c}
+%\begin{Answer}[ref=3-28]
+%  \includecode{resenja/05_Sortiranje/3-28.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \section{Bibliotečke funkcije pretrage i sortiranja}
 
 %-----------------------------------------------------------------
-\begin{Exercise}[label=411]
+\begin{Exercise}[label=3-29]
   Napisati program u kome se prvo inicijalizuje statički niz struktura
   osoba sa članovima ime i prezime, a zatim se učitava jedan
   karakter i pronalazi i štampa jedna struktura iz niza osoba čije prezime počinje tim
@@ -1067,18 +1067,18 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{test}
 \end{minitest}
 
-%\linkresenje{411}
+%\linkresenje{3-29}
 
 \end{Exercise}
 
-%\begin{Answer}[ref=411]
-%  \includecode{resenja/04_Pretrazivanje/411.c}
+%\begin{Answer}[ref=3-29]
+%  \includecode{resenja/04_Pretrazivanje/3-29.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 
 
 
-\begin{Exercise}[label=517]
+\begin{Exercise}[label=3-30]
   Napisati program koji ilustruje upotrebu bibliotečkih funkcija za
   pretraživanje i sortiranje nizova i mogućnost zadavanja različitih
   kriterijuma sortiranja. Sa standardnog ulaza se unosi dimenzija niza
@@ -1120,15 +1120,15 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{upotreba}
 \end{miditest}
   
-\linkresenje{517}
+\linkresenje{3-30}
 \end{Exercise}
 
-\begin{Answer}[ref=517]
-  \includecode{resenja/05_Sortiranje/517.c}
+\begin{Answer}[ref=3-30]
+  \includecode{resenja/05_Sortiranje/3-30.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=518]
+\begin{Exercise}[label=3-31]
   Napisati program koji sa standardnog ulaza učitava dimenziju niza
   celih brojeva (ne veću od 100), a potom i same elemente
   niza. Upotrebom funkcije \kckod{qsort} sortirati niz u rastućem
@@ -1169,15 +1169,15 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{upotreba}
 \end{minitest}
   
-\linkresenje{518}
+\linkresenje{3-31}
 \end{Exercise}
 
-\begin{Answer}[ref=518]
-  \includecode{resenja/05_Sortiranje/518.c}
+\begin{Answer}[ref=3-31]
+  \includecode{resenja/05_Sortiranje/3-31.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=519]
+\begin{Exercise}[label=3-32]
    Korišćenjem bibliotečke funkcije \kckod{qsort} napisati program
    koji sortira niz niski po sledećim kriterijumima:
    \begin{enumerate}
@@ -1209,27 +1209,27 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{upotreba}
 \end{maxitest}
   
-\linkresenje{519}
+\linkresenje{3-32}
 \end{Exercise}
 
-\begin{Answer}[ref=519]
-  \includecode{resenja/05_Sortiranje/519.c}
+\begin{Answer}[ref=3-32]
+  \includecode{resenja/05_Sortiranje/3-32.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=520]
-  Uraditi prethodni zadatak \ref{519} sa dinamički alociranim niskama
+\begin{Exercise}[label=3-33]
+  Uraditi prethodni zadatak \ref{3-32} sa dinamički alociranim niskama
   i sortiranjem niza pokazivača, umesto niza niski.
   
-\linkresenje{520}
+\linkresenje{3-33}
 \end{Exercise}
 
-\begin{Answer}[ref=520]
-  \includecode{resenja/05_Sortiranje/520.c}
+\begin{Answer}[ref=3-33]
+  \includecode{resenja/05_Sortiranje/3-33.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=521]
+\begin{Exercise}[label=3-34]
   Napisati program koji korišćenjem bibliotečke funkcije \kckod{qsort}
   sortira studente prema broju poena osvojenih na kolokvijumu. Ukoliko
   više studenata ima isti broj bodova, sortirati ih po prezimenu
@@ -1293,27 +1293,27 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{test2}
 \end{miditest}
   
-\linkresenje{521}
+\linkresenje{3-34}
 \end{Exercise}
 
-\begin{Answer}[ref=521]
-  \includecode{resenja/05_Sortiranje/521.c}
+\begin{Answer}[ref=3-34]
+  \includecode{resenja/05_Sortiranje/3-34.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=522]
-  Uraditi zadatak \ref{502}, ali korišćenjem bibliotečke \kckod{qsort}
+\begin{Exercise}[label=3-35]
+  Uraditi zadatak \ref{3-12}, ali korišćenjem bibliotečke \kckod{qsort}
   funkcije.
   
-\linkresenje{522}
+\linkresenje{3-35}
 \end{Exercise}
 
-\begin{Answer}[ref=522]
-  \includecode{resenja/05_Sortiranje/522.c}
+\begin{Answer}[ref=3-35]
+  \includecode{resenja/05_Sortiranje/3-35.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=523]
+\begin{Exercise}[label=3-36]
   Napisati program koji sa standardnog ulaza učitava prvo ceo broj
   \argf{n} ($n \leq 10$), a zatim niz \argf{S} od \argf{n} niski.
   Maksimalna dužina svake niske je $31$ karakter. Sortirati niz \argf{S}
@@ -1348,15 +1348,15 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{upotreba}
 \end{minitest}
   
-\linkresenje{523}
+\linkresenje{3-36}
 \end{Exercise}
 
-\begin{Answer}[ref=523]
-  \includecode{resenja/05_Sortiranje/523.c}
+\begin{Answer}[ref=3-36]
+  \includecode{resenja/05_Sortiranje/3-36.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=524]
+\begin{Exercise}[label=3-37]
   Datoteka \kckod{studenti.txt} sadrži spisak studenata. Za svakog
   studenta poznat je nalog na Alas-u (oblika npr. \kckod{mr15125},
   \kckod{mm14001}), ime, prezime i broj poena. Ni ime, ni prezime neće
@@ -1412,15 +1412,15 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{test}
 \end{miditest}
   
-\linkresenje{524}
+\linkresenje{3-37}
 \end{Exercise}
 
-\begin{Answer}[ref=524]
-  \includecode{resenja/05_Sortiranje/524.c}
+\begin{Answer}[ref=3-37]
+  \includecode{resenja/05_Sortiranje/3-37.c}
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
-\begin{Exercise}[label=525]
+\begin{Exercise}[label=3-38]
 Definisati strukturu \kckod{Datum}. \iffalse
  Definisana je struktura:
   \begin{ckod}
@@ -1460,11 +1460,11 @@ Definisati strukturu \kckod{Datum}. \iffalse
 \end{test2}
 \end{miditest}
 
-%\linkresenje{525}
+%\linkresenje{3-38}
 \end{Exercise}
 
-%\begin{Answer}[ref=525]
-%  \includecode{resenja/05_Sortiranje/525.c}
+%\begin{Answer}[ref=3-38]
+%  \includecode{resenja/05_Sortiranje/3-38.c}
 %\end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
