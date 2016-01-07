@@ -1,44 +1,78 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-/* Funkcija koja broji bitove postavljene na 1. */
-int count(int x)
+/* Pomocna funkcija koja izracunava n! * result. Koristi repnu
+   rekurziju. Result je argument u kome se akumulira do tada
+   izracunatu vrednost faktorijela. Kada dodje do izlaza iz rekurzije 
+   iz rekurzije potrebno je da vratimo result. */
+int faktorijelRepna(int n, int result)
 {
-  /* Izlaz iz rekurzije */
-  if (x == 0)
-    return 0;
+  if (n == 0)
+    return result;
 
-  /* Ukoliko vrednost promenljive x nije 0, neki od bitova broja x je 
-     postavljen na 1. Koriscenjem odgovarajuce maske proverava se
-     vrednost bita na poziciji najvece tezine i na osnovu toga se 
-	 razlikuju dva slucaja. Ukoliko je na toj poziciji nula, onda je 
-	 broj jedinica u zapisu x isti kao broj jedinica u zapisu broja 
-	 x<<1, jer se pomeranjem u levo sa desne stane dopisuju 0. Ako je
-	 na poziciji najvece tezine jedinica, rezultat dobijen 
-	 rekurzivnim pozivom funkcije za x<<1 treba uvecati za jedan.
-     Za rekurzivni poziv se salje vrednost koja se dobija kada se x
-     pomeri u levo. Napomena: argument funkcije x je oznacen ceo
-     broj, usled cega se ne koristi pomeranje udesno, jer funkciji
-     moze biti prosledjen i negativan broj. Iz tog razloga,
-     odlucujemo se da proveramo najvisi, umesto najnizeg bita */
-  if (x & (1 << (sizeof(x) * 8 - 1)))
-    return 1 + count(x << 1);
-  else
-    return count(x << 1);
-  /******************************************************************
-    Krace zapisano
-    return ((x& (1<<(sizeof(x)*8-1))) ? 1 : 0) + count(x<<1);
-  ******************************************************************/
+  return faktorijelRepna(n - 1, n * result);
+}
+
+/* U sledecim funkcijama je prikazan postupak oslobadjanja od
+   repne rekurzije koja postoji u funkciji faktorijelRepna. */
+
+/* Funkcija se transformise tako sto se rekurzivni poziv zemeni sa
+   naredbama kojima se vrednost argumenta funkcije postavlja na
+   vrednost koja bi se prosledjivala rekurzivnom pozivu i navodjenjem
+   goto naredbe za vracanje na pocetak tela funkcije. */
+int faktorijelRepna_v1(int n, int result)
+{
+pocetak:
+  if (n == 0)
+    return result;
+
+  result = n * result;
+  n = n - 1;
+  goto pocetak;
+}
+
+/* Pisanje bezuslovnih skokova (goto naredbi) nije dobra programerska 
+   praksa i prethodna funkcija se koristi samo kao medjukorak. Sledi
+   iterativno resenje bez bezuslovnih skokova */
+int faktorijelRepna_v2(int n, int result)
+{
+  while (n != 0) {
+    result = n * result;
+    n = n - 1;
+  }
+
+  return result;
+}
+
+/* Prilikom poziva prethodnih funkcija pored prvog argumenta celog
+   broja n, mora da se salje i 1 za vrednost drugog argumenta u kome
+   ce se akumulirati rezultat. Funkcija faktorijel(n) je ovde radi
+   udobnosti korisnika, jer je sasvim prirodno da za faktorijel
+   zahteva samo 1 parametar. Funkcija faktorijel izracunava n!, tako
+   sto odgovarajucoj gore navedenoj funkciji koja zaista racuna
+   faktorijel, salje ispravne argumente i vraca rezultat koju joj ta
+   funkcija vrati. Za testiranje, zameniti u telu funkcije faktorijel
+   poziv faktorijelRepna sa pozivom faktorijelRepna_v1, a zatim sa
+   pozivom funkcije faktorijelRepna_v2. */
+int faktorijel(int n)
+{
+  return faktorijelRepna(n, 1);
 }
 
 int main()
 {
-  int x;
+  int n;
 
   /* Ucitava se ceo broj */
-  scanf("%x", &x);
+  printf("Unesite n (<= 12): ");
+  scanf("%d", &n);
+  if (n > 12) {
+    printf("Greska: nedozvoljena vrednost za n!\n");
+    exit(EXIT_FAILURE);
+  }
 
   /* Ispisuje se rezultat */
-  printf("%d\n", count(x));
+  printf("%d! = %d\n", n, faktorijel(n));
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

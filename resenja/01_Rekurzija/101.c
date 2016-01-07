@@ -1,52 +1,59 @@
 #include <stdio.h>
-#define MAX_DIM 1000
 
-/* Ako je n<=0, onda je suma niza jednaka nuli. Ako je n>0, onda je
-   suma niza jednaka sumi prvih n-1 elementa uvecenoj za poslednji
-   element niza. */
-int sumaNiza(int *a, int n)
+/********************************************************************
+  Resenje linearne slozenosti: 
+  x^0 = 1 
+  x^k = x * x^(k-1) 
+********************************************************************/
+int stepen(int x, int k)
 {
-  if (n <= 0)
-    return 0;
+  if (k == 0)
+    return 1;
 
-  return sumaNiza(a, n - 1) + a[n - 1];
+  return x * stepen(x, k - 1);
+  /* kraci zapis: return k == 0 ? 1 : x * stepen(x,k-1); */
 }
 
-/* Funkcija napisana na drugi nacin: Ako je n<=0, onda je suma niza
-   jednaka nuli. Ako je n>0, suma niza je jednaka zbiru prvog
-   elementa niza i sume preostalih n-1 elementa. */
-int sumaNiza2(int *a, int n)
+/********************************************************************
+   Resenje logaritamske slozenosti: 
+   x^0 =1;  
+   x^k = x * (x^2 )^(k/2) , za neparno k 
+   x^k = (x^2)^(k/2) , za parno k
+   Ovom resenju ce biti potrebno manje rekurzivnih poziva da bi
+   se doslo do rezultata, i stoga je efikasnije. 
+********************************************************************/
+int stepen2(int x, int k)
 {
-  if (n <= 0)
-    return 0;
+  if (k == 0)
+    return 1;
 
-  return a[0] + sumaNiza2(a + 1, n - 1);
+  /* Ako je stepen paran */
+  if ((k % 2) == 0)
+    return stepen2(x * x, k / 2);
+
+  /* Inace (ukoliko je stepen neparan) */
+  return x * stepen2(x * x, k / 2);
 }
 
 int main()
 {
-  int a[MAX_DIM];
-  int n, i = 0, ind;
+  int x, k, ind;
 
-  /* Ucitava se redni broj funkcije */
-  printf("Unesite redni broj funkcije (1 ili 2):\n");
+  /* Ucitava se redni broj funkcije koja ce se primeniti */
+  printf("Unesite redni broj funkcije (1/2):\n");
   scanf("%d", &ind);
 
-  /* Ucitava se broj elemenata niza */
-  printf("Unesite dimenziju niza:");
-  scanf("%d", &n);
+  /* Ucitavaju se vrednosti za x i k */
+  printf("Unesite broj x:\n");
+  scanf("%d%d", &x);
+  printf("Unesite broj k:\n");
+  scanf("%d%d", &k);
 
-  /* Ucitava se n elemenata niza. */
-  printf("Unesite elemente niza:");
-  for (i = 0; i < n; i++)
-    scanf("%d", &a[i]);
-
-  /* Na osnovu vrednosti promenljive ind ispisuje se rezultat poziva
-     funkcije sumaNiza, ondosno sumaNiza2 */
-  if (ind == 1)
-    printf("Suma elemenata je %d\n", sumaNiza(a, n));
+  /* Ispisuje se vrednost koju vraca odgovarajuca funkcija */
+  if (x == 1)
+    printf("%d\n", stepen(x, k));
   else
-    printf("Suma elemenata je %d\n", sumaNiza2(a, n));
+    printf("%d\n", stepen2(x, k));
 
   return 0;
 }

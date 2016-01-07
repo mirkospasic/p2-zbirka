@@ -1,68 +1,49 @@
 #include <stdio.h>
-#include <stdlib.h>
+#define MAX_DIM 256
 
-/* Rekurzivna funkcija za racunanje binomnog koeficijenta */
-int binomniKoeficijent(int n, int k)
+/* Funkcija koja izracunava skalarni proizvod dva data vektora */
+int skalarno(int a[], int b[], int n)
 {
-  /* Ukoliko je k=0 ili k=n, onda je binomni koeficijent 0. 
-     Ukoliko je k strogo izmedju 0 i n, onda se koristi formula
-     bk(n,k) = bk(n-1,k-1) + bk(n-1,k)
-     koja se moze izvesti iz definicije binomnog koeficijenata */
-  return (0 < k && k < n) ?
-      binomniKoeficijent(n - 1, k - 1) + binomniKoeficijent(n - 1,
-                                                            k) : 1;
-}
+  /* Izlazak iz rekurzije: vektori su duzine 0 */
+  if (n == 0)
+    return 0;
 
-/******************************************************************
-  Iterativno izracunavanje datog binomnog koeficijenta
-
-  int binomniKoeficijent (int n, int k) {
-    int i, j, b;
-    
-    for (b=i=1, j=n; i<=k; b =b * j-- / i++);
-      
-    return b;
-  }
-  
-  Iterativno resenje je efikasnije i preporucuje se. Rekurzivno 
-  resenje je navedeno u cilju demonstracije rekurzivnih tehnika.
-*******************************************************************/
-
-/* Svaki element n-te hipotenuze (osim ivicnih jedinica) dobija kao
-   zbir 2 elementa iz n-1 hipotenuze. Ukljucujuci i pomenute dve
-   ivicne jedinice suma elemenata n-te hipotenuze je tacno 2 puta
-   veca od sume elemenata prethodne hipotenuze. */
-int sumaElemenataHipotenuze(int n)
-{
-  return n > 0 ? 2 * sumaElemenataHipotenuze(n - 1) : 1;
+  /* Na osnovu resenja problema dimenzije n-1, resava se problem
+     dimenzije n primenom definicije skalarnog proizvoda
+     a*b = a[0]*b[0] + a[1]*b[1] +...+  a[n-2]*a[n-2] + a[n-1]*a[n-1]
+     Dakle, skalarni proizvod dva vektora duzine n se dobija kada se 
+     na skalarni proizvod dva vektora duzine n-1 koji se dobiju od 
+     polazna dva vektora otklanjanjem poslednjih elemenata, doda 
+     proizvod poslednja dva elementa polaznih vektora. */
+  else
+    return skalarno(a, b, n - 1) + a[n - 1] * b[n - 1];
 }
 
 int main()
 {
-  int n, k, i, d, r;
+  int i, a[MAX_DIM], b[MAX_DIM], n;
 
-  /* Ucitavaju se brojevi d i r */
-  scanf("%d %d", &d, &r);
+  /* Unosi se dimenzija nizova */
+  printf("Unesite dimenziju nizova:");
+  scanf("%d", &n);
 
-  /* Ispisuje se Paskalov trougao */
-  putchar('\n');
-  for (n = 0; n <= d; n++) {
-    for (i = 0; i < d - n; i++)
-      printf("  ");
-    for (k = 0; k <= n; k++)
-      printf("%4d", binomniKoeficijent(n, k));
-    putchar('\n');
+  /* Provera da li je dimenzija niza odgovarajuca */
+  if (n < 0 || n > MAX_DIM) {
+    printf("Dimenzija mora biti prirodan broj <= %d!\n", MAX_DIM);
+    return 0;
   }
 
-  /* Provera da li je r nenegativan */
-  if (r < 0) {
-    fprintf(stderr,
-            "Redni broj hipotenuze mora biti veci ili jednak od 0!\n");
-    exit(EXIT_FAILURE);
-  }
+  /* A zatim i elementi nizova */
+  printf("Unesite elemente prvog niza:");
+  for (i = 0; i < n; i++)
+    scanf("%d", &a[i]);
 
-  /* Ispisuje se suma elemenata hipotenuze */
-  printf("%d\n", sumaElemenataHipotenuze(r));
+  printf("Unesite elemente drugog niza:");
+  for (i = 0; i < n; i++)
+    scanf("%d", &b[i]);
 
-  exit(EXIT_SUCCESS);
+  /* Ispisuje se rezultat skalarnog proizvoda dva ucitana niza */
+  printf("Skalarni proizvod je %d\n", skalarno(a, b, n));
+
+  return 0;
 }

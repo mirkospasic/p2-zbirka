@@ -1,47 +1,106 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 100
-
-/* NAPOMENA: Ovaj problem je iskoriscen da ilustruje uzajamnu
-   (posrednu) rekurziju */
-
-/* Deklaracija funkcije neparan mora da bude navedena jer se ta
-   funkcija koristi u telu funkcije paran, tj. koristi se pre svoje
-   definicije. Funkcija je mogla biti deklarisana i u telu funkcije
-   paran. */
-unsigned neparan(unsigned n);
-
- /* Funkcija vraca 1 ako broj n ima paran broj cifara, inace vraca 0 */
-unsigned paran(unsigned n)
+/* a) Funkcija racuna n-ti element u nizu F - iterativna verzija */
+int F_iterativna(int n, int a, int b)
 {
-  if (n <= 9)
+  int i;
+  int F_0 = 0;
+  int F_1 = 1;
+  int tmp;
+
+  if (n == 0)
     return 0;
-  else
-    return neparan(n / 10);
+
+  for (i = 2; i <= n; i++) {
+    tmp = a * F_1 + b * F_0;
+    F_0 = F_1;
+    F_1 = tmp;
+  }
+
+  return F_1;
 }
 
- /* Funkcija vraca 1 ako broj n ima neparan broj cifara, inace vraca
-    0 */
-unsigned neparan(unsigned n)
+/* b) Funkcija racuna n-ti element u nizu F - rekurzivna verzija */
+int F_rekurzivna(int n, int a, int b)
 {
-  if (n <= 9)
-    return 1;
-  else
-    return paran(n / 10);
+  /* Izlaz iz rekurzije */
+  if (n == 0 || n == 1)
+    return n;
+
+  /* Rekurzivni pozivi */
+  return a * F_rekurzivna(n - 1, a, b) +
+      b * F_rekurzivna(n - 2, a, b);
+
 }
 
+/* NAPOMENA: U slucaju da se rekurzijom problem svodi na vise manjih
+   podproblema koji se mogu preklapati, postoji opasnost da se
+   pojedini podproblemi manjih dimenzija resavaju veci broj puta.
+   Npr. F(20) = a*F(19) + b*F(18), a F(19) = a*F(18) + b*F(17), tj.
+   problem F(18) se resava dva puta! Problemi manjih
+   dimenzija ce se resavati jos veci broj puta. Resenje za ovaj
+   problem je kombinacija rekurzije sa dinamickim programiranjem.
+   Podproblemi se resavaju samo jednom, a njihova resenja se pamte u
+   memoriji (obicno u nizovima ili matricama), odakle se koriste ako
+   tokom resavanja ponovo budu potrebni.
+
+   U narednoj funkciji vec izracunati clanovi niza se cuvaju u
+   statickom nizu celih brojeva, jer se staticki niz ne smesta
+   na stek, kao sto je to slucaj sa lokalnim promenljivama, vec na
+   segment podataka, odakle je dostupan svim pozivima
+   rekurzivne funkcije. */
+
+/* c) Funkcija racuna n-ti broj niza F - napredna rekurzivna
+   verzija */
+int F_napredna(int n, int a, int b)
+{
+  /* Niz koji cuva resenja podproblema. Kompajler inicijalizuje
+     staticke promenljive na podrazumevane vrednosti. Stoga, elemente 
+     celobrojnog niza inicijalizuje na 0 */
+  static int f[20];
+
+  /* Ako je podproblem vec ranije resen, koristi se resenje koje je
+     vec izracunato i */
+  if (f[n] != 0)
+    return f[n];
+
+  /* Izlaz iz rekurzije */
+  if (n == 0 || n == 1)
+    return f[n] = n;
+
+  /* Rekurzivni pozivi */
+  return f[n] =
+      a * F_napredna(n - 1, a, b) + b * F_napredna(n - 2, a, b);
+}
 
 int main()
 {
-  int n;
+  int n, a, b, ind;
 
-  /* Ucitava se ceo broj */
+  /* Unosi se redni broj funkcije koja ce se primeniti */
+  printf("Unesite redni broj funkcije koju zelite:\n");
+  printf("1 - iterativna\n");
+  printf("2 - rekurzivna\n");
+  printf("3 - rekurzivna napredna\n");
+  scanf("%d", &ind);
+
+  /* Ucitavaju se koeficijenti a i b */
+  printf("Unesite koeficijente:\n");
+  scanf("%d%d", &a, &b);
+
+  /* Ucitava se broj n */
+  printf("Unesite koji clan niza se racuna:\n");
   scanf("%d", &n);
 
-  /* Ispisuje se rezultat */
-  printf("Uneti broj ima %sparan broj cifara.\n",
-         (paran(n) == 1 ? "" : "ne"));
+  /* Na osnovu vrednosti promenljive ind ispisuje se rezultat poziva
+     funkcije F_iterativna, F_rekurzivna ili F_napredna */
+  if (ind == 0)
+    printf("F(%d) = %d\n", n, F_iterativna(n, a, b));
+  else if (ind == 1)
+    printf("F(%d) = %d\n", n, F_rekurzivna(n, a, b));
+  else
+    printf("F(%d) = %d\n", n, F_napredna(n, a, b));
 
   return 0;
 }

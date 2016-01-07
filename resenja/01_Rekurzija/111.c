@@ -1,26 +1,44 @@
 #include <stdio.h>
 
-/* Funkcija odredjuje zbir cifara zadatog broja x */
-int zbir_cifara(unsigned int x)
+/* Funkcija koja broji bitove postavljene na 1. */
+int count(int x)
 {
-  /* Izlazak iz rekurzije: ako je broj jednocifren */
-  if (x < 10)
-    return x;
+  /* Izlaz iz rekurzije */
+  if (x == 0)
+    return 0;
 
-  /* Zbir cifara broja jednak je zbiru svih njegovih cifara osim
-     poslednje cifre + poslednja cifra tog broja */
-  return zbir_cifara(x / 10) + x % 10;
+  /* Ukoliko vrednost promenljive x nije 0, neki od bitova broja x je 
+     postavljen na 1. Koriscenjem odgovarajuce maske proverava se
+     vrednost bita na poziciji najvece tezine i na osnovu toga se 
+	 razlikuju dva slucaja. Ukoliko je na toj poziciji nula, onda je 
+	 broj jedinica u zapisu x isti kao broj jedinica u zapisu broja 
+	 x<<1, jer se pomeranjem u levo sa desne stane dopisuju 0. Ako je
+	 na poziciji najvece tezine jedinica, rezultat dobijen 
+	 rekurzivnim pozivom funkcije za x<<1 treba uvecati za jedan.
+     Za rekurzivni poziv se salje vrednost koja se dobija kada se x
+     pomeri u levo. Napomena: argument funkcije x je oznacen ceo
+     broj, usled cega se ne koristi pomeranje udesno, jer funkciji
+     moze biti prosledjen i negativan broj. Iz tog razloga,
+     odlucujemo se da proveramo najvisi, umesto najnizeg bita */
+  if (x & (1 << (sizeof(x) * 8 - 1)))
+    return 1 + count(x << 1);
+  else
+    return count(x << 1);
+  /******************************************************************
+    Krace zapisano
+    return ((x& (1<<(sizeof(x)*8-1))) ? 1 : 0) + count(x<<1);
+  ******************************************************************/
 }
 
 int main()
 {
-  unsigned int x;
+  int x;
 
   /* Ucitava se ceo broj */
-  scanf("%u", &x);
+  scanf("%x", &x);
 
-  /* Ispisuje se zbir cifara ucitanog broja */
-  printf("%d\n", zbir_cifara(x));
+  /* Ispisuje se rezultat */
+  printf("%d\n", count(x));
 
   return 0;
 }

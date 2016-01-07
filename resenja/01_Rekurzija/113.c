@@ -1,39 +1,33 @@
 #include <stdio.h>
-#include <string.h>
 
-/* Niska moze imati najvise 31 karaktera + 1 za terminalnu nulu */
-#define MAX_DIM 32
-
-/* Funkcija ispituje da li je zadata niska duzine n palindrom */
-int palindrom(char s[], int n)
+/* Rekurzivna funkcija za odredjivanje najvece oktalne cifre u broju */
+int max_oktalna_cifra(unsigned x)
 {
-  /* Izlaz iz rekurzije - trivijalno, niska duzine 0 ili 1 je
-     palindrom */
-  if ((n == 1) || (n == 0))
-    return 1;
+  /* Izlazak iz rekurzije: ako je vrednost broja 0, onda je i
+     vrednost najvece oktalne cifre u broju 0 */
+  if (x == 0)
+    return 0;
 
-  /* Da bi niska bila palindrom potrebno je da se poklapaju prvi i
-     poslednji karakter i da je palindrom niska koja nastaje kada se
-     polaznoj nisci otklone prvi i poslednji karakter */
-  return (s[n - 1] == s[0]) && palindrom(s + 1, n - 2);
+  /* Odredjivanje poslednje oktalne cifre u broju */
+  int poslednja_cifra = x & 7;
+
+  /* Odredjivanje maksimalne oktalne cifre u broju kada se iz njega
+     izbrise poslednja oktalna cifra */
+  int max_bez_poslednje_cifre = max_oktalna_cifra(x >> 3);
+
+  return poslednja_cifra > max_bez_poslednje_cifre ? poslednja_cifra
+      : max_bez_poslednje_cifre;
 }
 
 int main()
 {
-  char s[MAX_DIM];
-  int n;
+  unsigned x;
 
-  /* Ucitavanje niske sa standardnog ulaza */
-  scanf("%s", s);
+  /* Ucitava se neoznacen ceo broj */
+  scanf("%u", &x);
 
-  /* Odredjuje se duzina niske */
-  n = strlen(s);
-
-  /* Ispisuje se poruka da li je niska palindrom ili nije */
-  if (palindrom(s, n))
-    printf("da\n");
-  else
-    printf("ne\n");
+  /* Ispisuje se vrednost najvece oktalne cifre unetog broja */
+  printf("%d\n", max_oktalna_cifra(x));
 
   return 0;
 }

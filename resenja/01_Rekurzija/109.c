@@ -1,43 +1,47 @@
 #include <stdio.h>
 #define MAX_DIM 256
 
-/* Rekurzivna funkcija koja odredjuje maksimum celobrojnog niza niz
-   dimenzije n */
-int maksimum_niza(int niz[], int n)
+/* Funkcija koja racuna broj pojavljivanja elementa x u nizu a duzine 
+   n */
+int br_pojave(int x, int a[], int n)
 {
-  /* Izlazak iz rekurzije: ako je niz dimenzije jedan, najveci je
-     ujedno i jedini element niza */
+  /* Izlazak iz rekurzije: za niz duzine jedan broj pojava broja x u
+     nizu je 1 ukoliko je jedini element a[0] bas x ili 0 inace */
   if (n == 1)
-    return niz[0];
+    return a[0] == x ? 1 : 0;
 
-  /* Resavanje problema manje dimenzije */
-  int max = maksimum_niza(niz, n - 1);
-
-  /* Na osnovu poznatog resenja problema dimenzije n-1, resava se
-     problem dimenzije n */
-  return niz[n - 1] > max ? niz[n - 1] : max;
+  /* U promenljivu bp se smesta broj pojave broja x u prvih n-1
+     elemenata niza a. Ukupan broj pojavljivanja broja x u celom nizu
+     a je jednak bp uvecanom za jedan ukoliko je se na poziciji n-1 u
+     nizu a nalazi broj x */
+  int bp = br_pojave(x, a, n - 1);
+  return a[n - 1] == x ? 1 + bp : bp;
 }
 
 int main()
 {
-  int brojevi[MAX_DIM];
-  int n;
+  int x, a[MAX_DIM];
+  int n, i = 0;
 
-  /* Sve dok se ne stigne do kraja ulaza, brojeve se ucitavaju u niz. 
-     Promenljiva i predstavlja indeks tekuceg broja. U niz se ne moze 
-     ucitati vise od MAX_DIM brojeva, pa se u slucaju da promenljiva
-     i dostigne vrednost MAX_DIM prekida unos novih brojeva. */
-  int i = 0;
-  while (scanf("%d", &brojevi[i]) != EOF) {
+  /* Ucitava se ceo broj */
+  printf("Unesite ceo broj:");
+  scanf("%d", &x);
+
+  /* Sve dok se ne stigne do kraja ulaza, ucitavaju se brojevi u niz.
+     Promenljiva i predstavlja indeks tekuceg broja. U niz se ne moze
+     ucitati vise od MAX_DIM brojeva, pa se u slucaju da promenljiva i 
+     dostigne vrednost MAX_DIM prekida unos novih brojeva. */
+  printf("Unesite elemente niza:");
+  i = 0;
+  while (scanf("%d", &a[i]) != EOF) {
     i++;
     if (i == MAX_DIM)
       break;
   }
   n = i;
 
-  /* Stampa se maksimum unetog niza brojeva */
-  printf("%d\n", maksimum_niza(brojevi, n));
-
+  /* Ispisuje se broj pojavljivanja */
+  printf("Broj pojavljivanja je %d\n", br_pojave(x, a, n));
 
   return 0;
 }
