@@ -7,7 +7,7 @@ int **alociraj_matricu(int n, int m)
   int **matrica = NULL;
   int i, j;
 
-  /* Alocira se prostor za niz vrsti matrice */
+  /* Alocira se prostor za niz vrsta matrice */
   matrica = (int **) malloc(n * sizeof(int *));
   /* Ako alokacija nije prosla uspesno, povratna vrednost funkcije ce
      biti NULL, sto mora biti provereno u main funkciji */

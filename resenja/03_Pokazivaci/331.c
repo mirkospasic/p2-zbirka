@@ -6,7 +6,7 @@ int main()
 {
   int i, j;
 
-  /* Pokazivac na dinamicki alociran niz pokazivaca na vrste matrice */
+  /* Pokazivac na niz vrsta matrice realnih brojeva */
   double **A = NULL;
 
   /* Broj vrsta i broj kolona */
@@ -18,8 +18,8 @@ int main()
   printf("Unesite broj vrsta i broj kolona matrice:\n ");
   scanf("%d%d", &n, &m);
 
-  /* Dinamicki se alocira prostor za n pokazivaca na double */
-  A = malloc(sizeof(double *) * n);
+  /* Dinamički se alocira prostor za niz vrsta matrice */
+  A = (double **)malloc(sizeof(double *) * n);
 
   /* Provera se da li je doslo do greske pri alokaciji */
   if (A == NULL) {
@@ -30,7 +30,7 @@ int main()
 
   /* Dinamicki se alocira prostor za elemente u vrstama */
   for (i = 0; i < n; i++) {
-    A[i] = malloc(sizeof(double) * m);
+    A[i] = (double **)malloc(sizeof(double) * m);
 
     /* Ukoliko je alokacija neuspesna, pre zavrsetka programa
        potrebno je osloboditi svih i-1 prethodno alociranih vrsta, i

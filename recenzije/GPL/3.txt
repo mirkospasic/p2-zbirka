@@ -1,0 +1,64 @@
+﻿biblioteka/matrica.c
+2.18
+
+GPL: "- verovatno bi se otklonile izvesne (terminoloske) neujednacenosti koje su
+(verovatno)
+rezultat rada veceg broja autora, na primer
+U datoteci matrica.c "Alocira se prostor za niz vrsti matrice " - vrsta
+(uporediti sa resenjem 2.18 "Pokazivac na dinamiciki alociran niz
+pokazivaca na vrste matrice" - razlicita terminologija)"
+
+Umesto:
+/* Pokazivac na dinamicki alociran niz pokazivaca na vrste matrice */
+double **A = NULL;
+
+/* Dinamicki se alocira prostor za n pokazivaca na double */
+A = malloc(sizeof(double *) * n);
+
+napisala sam:
+
+/* Pokazivac na niz vrsta matrice realnih brojeva */
+  
+double **A = NULL;
+
+/* Dinamički se alocira prostor za niz vrsta matrice */
+  
+A = malloc(sizeof(double *) * n);
+
+ToDo: Proći kroz ostatak teksta i ujednačiti terminologiju
+
+============================================================================================
+
+GPL: "6. Neki detalji, na primer:
+U tacki 2.2 Visedimnezioni nizovi - svi zadaci su reseni indeksnom
+sintaksom (samo u 2.8 ilustrovana je pokazivacka)
+- mozda bi tu moglo da se malo izbalansIra"
+
+Nije urađeno
+
+============================================================================================
+
+2.27
+
+GPL: "U zadatku 2.27 - Pokazivaci na funkcije - da li je "mreza" pravi izraz u
+jednoj dimenziji?"
+
+Ispravljeno:
+
+Umesto:
+
+odnosno izračunava i ispisuje vrednosti date funkcije na diskretnoj ekvidistantnoj mreži od
+$n$ tačaka intervala $[a, b]$.
+
+napisala sam:
+
+odnosno izračunava i ispisuje vrednosti date funkcije u
+$n$ ekvidistantnih tačaka na intervalu $[a, b]$.
+
+============================================================================================
+
+Rešenje 2.18
+
+GPL: U resenju 2.18 "A = maloc..." - "A = (double **)malloc..."
+
+Ispravljeno.
