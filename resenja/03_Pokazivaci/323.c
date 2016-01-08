@@ -73,11 +73,11 @@ int main(int argc, char *argv[])
   if (argc < 2) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
-    printf("Program se poziva sa %s dim_matrice.\n", argv[0]);
+    printf("Program se poziva sa %s br_vrsta_mat.\n", argv[0]);
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitava se vrednost dimenzije i proverava se njena korektnost */
+  /* Ucitava se broj vrsta matrice */
   n = atoi(argv[1]);
 
   if (n > MAX || n <= 0) {
@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
   }
 
   /* Ucitava se matrica */
-  printf("Unesite elemente matrice dimenzije %d:\n", n);
+  printf("Unesite elemente matrice dimenzije %dx%d:\n", n, n);
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
       scanf("%d", &m[i][j]);

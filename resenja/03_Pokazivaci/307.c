@@ -72,7 +72,7 @@ int main(int argc, char **argv)
 
   FILE *in;
   int br = 0;
-  char rec[MAX_KARAKTERA];
+  char rec[MAX_KARAKTERA+1];
 
   in = fopen(*(argv + 1), "r");
   if (in == NULL) {

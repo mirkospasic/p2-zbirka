@@ -1,0 +1,75 @@
+﻿
+2.2 Višedimenzioni nizovi
+
+DU: "Ovde dolazimo do jdne jezicke dileme.
+
+Do sada se pisalo "dat je niz dimenzije n ..." i tu je deimenzija bila broj elemenata u nizu. 
+Sada kada uvodimo pojam Visedimenzioni niz, onda je dimenzija broj dimenzija. 
+Nemam ideju kako da razresimo."
+
+Ispravljeno u svim zadacima na sledeći način: 
+- Umesto: 
+  "dat je niz dimenzije n" 
+  napisala sam: 
+  "dat je niz dimenzije nxn"
+- Umesto: 
+  "Sa standardnog ulaza učitati dimanziju kvadratne matrice $n$ ($0 < n \leq 100$), a zatim i elemente matrice." 
+  napisala sam:
+  "Sa standardnog ulaza učitati broj vrsta (ili kolona) kvadratne matrice $n$ ($0 < n \leq 100$), a zatim i elemente matrice."
+
+==============================================================================================================================================
+
+2.10
+DU: "Mislim da nije zgodno reci "Elementi i i j su u relacji ..." jer onda deluje kao da tu nije bita redosled (tj. da je vec simetricna". Bolje pisati "Element i je u relaciji sa elementom j ..."
+
+Ispravljeno. 
+Umesto:
+"dva elementa $i$ i $j$ su u relaciji ukoliko se u preseku $i$-te vrste i $j$-te kolone matrice nalazi broj $1$, a nisu u relaciji ukoliko se tu nalazi broj $0$. "
+napisala sam:
+"element $i$ je u relaciji sa elementom $j$ ukoliko se u preseku $i$-te vrste i $j$-te kolone matrice nalazi broj $1$, a nije u relaciji ukoliko se tu nalazi broj $0$. "
+
+==============================================================================================================================================
+
+2.10
+DU: "koja je nadskup date (jer ako kazemo sadrzi, onda kao da kazemo da je lement date)."
+
+Ispravljeno.
+
+==============================================================================================================================================
+
+2.13
+DU: "Doro bi bilo opisati sta znaci "spiralno ispisuje"."
+
+Mislim da bi opisivanje spiralnog ispisa zakomplikovalo tekst zadatka. Malo sam samo formulaciju precizirala
+tako što sam napisala da se spiralno ispisuju elementi matrice, u smeru kretanja kazaljke na satu.
+Sam pojam "spiralno ispisuje" mislim da je jasan iz test primera koji je priložen uz 
+tekst zadatka.
+
+Umesto:
+"Napisati funkciju koja na standardni izlaz spiralno ispisuje elemente matrice."
+napisala sam:
+"Napisati funkciju koja na standardni izlaz spiralno ispisuje elemente matrice, u smeru kretanja kazaljke na satu.
+
+==============================================================================================================================================
+
+2.20
+DU: "Da li mozemo govoriti o glavnoj dijagonali ako matrica nije kvadratna. Dijagonala bi trealo da "spaja" dva naspramna ugla"
+
+Verujem da možemo da govorimo o glavnoj dijagonali čak i kada matrica nije kvadratna:
+https://en.wikipedia.org/wiki/Main_diagonal
+
+==============================================================================================================================================
+
+Rešenja zadataka 2.6, 2.7
+
+DU: "+1 zbog null terminatora"
+
+Ispravljeno.
+
+==============================================================================================================================================
+
+Rešenje zadatka 2.22
+
+DU: "for (j = n-i; j < n; j++)"
+
+Ispravljeno

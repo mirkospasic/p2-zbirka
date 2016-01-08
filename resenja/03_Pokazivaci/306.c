@@ -13,7 +13,7 @@ int duzina(char *s)
 
 int main(int argc, char **argv)
 {
-  char rec[MAX_KARAKTERA];
+  char rec[MAX_KARAKTERA+1];
   int br = 0, n;
   FILE *in;
 

@@ -348,14 +348,14 @@ implementirati svoje koristeći pokazivačku sintaksu.
 \section{Višedimenzioni nizovi}
 
 \begin{Exercise}[label=314]
-Data je kvadratna matrica dimenzije $n$.
+Data je kvadratna matrica dimenzije $n \times n$.
 \begin{enumerate}
 \item Napisati funkciju koja izračunava trag matrice (sumu elemenata na glavnoj dijagonali).
 \item Napisati funkciju koja izračunava euklidsku normu matrice (koren sume kvadrata svih elemenata).
 \item Napisati funkciju koja izračunava gornju vandijagonalnu normu matrice (sumu apsolutnih vrednosti elemenata iznad glavne dijagonale).
 \end{enumerate}
 Napisati program koji testira napisane funkcije. Sa standardnog
-ulaza učitati dimanziju kvadratne matrice $n$
+ulaza učitati broj vrsta (ili kolona) kvadratne matrice $n$
 ($0 < n \leq 100$), a zatim i elemente matrice. Na standardni izlaz
 ispisati učitanu matricu, a zatim trag, euklidsku normu i vandijagonalnu normu 
 učitane matrice.
@@ -364,7 +364,7 @@ učitane matrice.
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Unesite dimenziju matrice:} \ulaz{3}#
+#\izlaz{Unesite broj vrsta matrice:} \ulaz{3}#
 #\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
 #\ulaz{1 -2 3}#
 #\ulaz{4 -5 6}#
@@ -389,14 +389,14 @@ učitane matrice.
 \end{Answer}
 
 \begin{Exercise}[label=315]
-Date su dve kvadratne matrice istih dimenzija $n$. 
+Date su dve kvadratne matrice istih dimenzija $n \times n$. 
 \begin{enumerate}
 \item Napisati funkciju koja proverava da li su matrice jednake.
 \item Napisati funkciju koja izračunava zbir matrica.
 \item Napisati funkciju koja izračunava proizvod matrica.
 \end{enumerate}
 Napisati program koji testira napisane funkcije. Sa standardnog
-ulaza učitati dimenziju kvadratnih matrica $n$
+ulaza učitati broj vrsta kvadratnih matrica $n$
 ($0 < n \leq 100$), a zatim i elemente matrica. Na standardni izlaz
 ispisati da li su matrice jednake, a zatim ispisati
 zbir i proizvod učitanih matrica.
@@ -404,7 +404,7 @@ zbir i proizvod učitanih matrica.
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Unesite dimenziju matrica:} \ulaz{3}#
+#\izlaz{Unesite broj vrsta matrica:} \ulaz{3}#
 #\izlaz{Unesite elemente prve matrice, vrstu po vrstu:}#
 #\ulaz{1 2 3}#
 #\ulaz{1 2 3}#
@@ -433,21 +433,21 @@ zbir i proizvod učitanih matrica.
 
 \begin{Exercise}[label=322]
 Relacija se može predstaviti kvadratnom matricom nula i
-jedinica na sledeći način: dva elementa $i$ i $j$
-su u relaciji ukoliko se u preseku $i$-te vrste i $j$-te
-kolone matrice nalazi broj $1$, a nisu u relaciji ukoliko se
-tu nalazi broj $0$. 
+jedinica na sledeći način: element $i$ je u relaciji sa elementom $j$
+ukoliko se u preseku $i$-te vrste i $j$-te
+kolone matrice nalazi broj $1$, a nije u relaciji ukoliko se
+tu nalazi broj $0$.
 \begin{enumerate}
 \item Napisati funkciju koja proverava da li je relacija zadata matricom refleksivna.
 \item Napisati funkciju koja proverava da li je relacija zadata matricom simetrična.
 \item Napisati funkciju koja proverava da li je relacija zadata matricom tranzitivna.
-\item Napisati funkciju koja određuje refleksivno zatvorenje relacije (najmanju refleksivnu relaciju koja sadrži datu).
-\item Napisati funkciju koja određuje simetrično zatvorenje relacije (najmanju simetričnu relaciju koja sadrži datu).
+\item Napisati funkciju koja određuje refleksivno zatvorenje relacije (najmanju refleksivnu relaciju koja je nadskup date).
+\item Napisati funkciju koja određuje simetrično zatvorenje relacije (najmanju simetričnu relaciju koja je nadskup date).
 \item Napisati funkciju koja određuje refleksivno-tranzitivno zatvorenje relacije (najmanju refleksivnu i tranzitivnu relaciju
 koja sadrži datu). \napomena{Koristiti Varšalov algoritam}.
 \end{enumerate}
 Napisati program koji učitava matricu iz datoteke čije se ime zadaje kao prvi argument komandne linije.
-U prvoj liniji datoteke nalazi se dimenzija matrice $n$ ($0 < n \leq 64$), a potom i sami elementi matrice.
+U prvoj liniji datoteke nalazi se broj vrsta kvadratne matrice $n$ ($0 < n \leq 64$), a potom i sami elementi matrice.
 Na standardni izlaz ispisati rezultat testiranja napisanih funkcija.
 
 \begin{miditest}
@@ -490,7 +490,7 @@ Na standardni izlaz ispisati rezultat testiranja napisanih funkcija.
 \end{Answer}
 
 \begin{Exercise}[label=323]
-Data je kvadratna matrica dimenzije $n$.
+Data je kvadratna matrica dimenzije $n \times n$.
 \begin{enumerate}
 \item Napisati funkciju koja određuje najveći element matrice na sporednoj dijagonali.
 \item Napisati funkciju koja određuje indeks kolone koja sadrži najmanji element matrice.
@@ -498,8 +498,8 @@ Data je kvadratna matrica dimenzije $n$.
 \item Napisati funkciju koja određuje broj negativnih elemenata matrice.
 \end{enumerate}
 Napisati program koji testira napisane funkcije. Sa standardnog
-ulaza učitati elemente celobrojne kvadratne matrice čija
-se dimenzija $n$ ($0 < n \leq 32$) zadaje kao argument
+ulaza učitati elemente celobrojne kvadratne matrice čiji se broj vrsta
+$n$ ($0 < n \leq 32$) zadaje kao argument
 komandne linije. Na standardni izlaz ispisati rezultat primene prethodno
 napisanih funkcija. 
 
@@ -508,7 +508,7 @@ napisanih funkcija.
 #\poziv{./a.out 3}#
 
 #\naslovInt#
-#\izlaz{Unesite elemente matrice dimenzije 3:}#
+#\izlaz{Unesite elemente matrice dimenzije 3x3:}#
 #\ulaz{1 2 3}#
 #\ulaz{-4 -5 -6}#
 #\ulaz{7 8 9}#
@@ -523,7 +523,7 @@ napisanih funkcija.
 #\poziv{./a.out 4}#
 
 #\naslovInt#
-#\izlaz{Unesite elemente matrice dimenzije 4:}#
+#\izlaz{Unesite elemente matrice dimenzije 4x4:}#
 #\ulaz{-1 -2 -3 -4}#
 #\ulaz{-5 -6 -7 -8}#
 #\ulaz{-9 -10 -11 -12}#
@@ -543,11 +543,11 @@ napisanih funkcija.
 
 \begin{Exercise}[label=324]
 Napisati funkciju kojom se proverava da li je zadata kvadratna
-matrica dimenzije $n$ ortonormirana. Matrica je ortonormirana
+matrica dimenzije $n \times n$ ortonormirana. Matrica je ortonormirana
 ako je skalarni proizvod svakog para različitih vrsta jednak
 nuli, a skalarni proizvod vrste sa samom sobom jednak jedinici.
 Napisati program koji testira napisanu funkciju. Sa standardnog
-ulaza učitati dimenziju celobrojne kvadratne matrice $n$
+ulaza učitati broj vrsta celobrojne kvadratne matrice $n$
 ($0 < n \leq 32$), a zatim i njene elemente. Na standardni izlaz
 ispisati rezultat primene napisane funkcije na učitanu
 matricu.
@@ -555,7 +555,7 @@ matricu.
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Unesite dimenziju matrice:} \ulaz{4}#
+#\izlaz{Unesite broj vrsta matrice:} \ulaz{4}#
 #\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
 #\ulaz{1 0 0 0}#
 #\ulaz{0 1 0 0}#
@@ -567,7 +567,7 @@ matricu.
 \begin{miditest}
 \begin{upotreba}{2}
 #\naslovInt#
-#\izlaz{Unesite dimenziju matrice:} \ulaz{3}#
+#\izlaz{Unesite broj vrsta matrice:} \ulaz{3}#
 #\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
 #\ulaz{1 2 3}#
 #\ulaz{5 6 7}#
@@ -586,11 +586,11 @@ matricu.
 Data je matrica dimenzije $n \times m$.
 \begin{enumerate}
 \item Napisati funkciju koja učitava elemente matrice sa standardnog ulaza
-\item Napisati funkciju koja na standardni izlaz spiralno ispisuje elemente matrice.
+\item Napisati funkciju koja na standardni izlaz spiralno ispisuje elemente matrice, u smeru kretanja kazaljke na satu.
 \end{enumerate}
 Napisati program koji testira napisane funkcije. Sa standardnog
-ulaza učitati dimenzije matrice $n$ ($0 < n \leq 10$) i
-$m$ ($0 < n \leq 10$), a zatim i elemente matrice. Na standardni izlaz spiralno ispisati elemente
+ulaza učitati broj vrsta $n$ ($0 < n \leq 10$) i broj kolona
+$m$ ($0 < n \leq 10$) matrice, a zatim i njene elemente. Na standardni izlaz spiralno ispisati elemente
 učitane matrice.
 
 
@@ -629,9 +629,9 @@ učitane matrice.
 
 \begin{Exercise}[label=327]
 Napisati funkciju koja izračunava $k$-ti stepen kvadratne
-matrice dimenzije $n$ ($0 < n \leq 32$). Napisati program koji
+matrice dimenzije $n \times n$ ($0 < n \leq 32$). Napisati program koji
 testira napisanu funkciju. Sa standardnog ulaza učitati
-dimenziju celobrojne matrice $n$, elemente matrice i stepen
+broj vrsta celobrojne matrice $n$, elemente matrice i stepen
 $k$ ($0 < k \leq 10$). Na standardni izlaz ispisati rezultat
 primene napisane funkcije. \napomena{Voditi računa da se
 prilikom stepenovanja matrice izvrši što manji broj
@@ -641,7 +641,7 @@ množenja.}
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Unesite dimenziju kvadratne matrice:} \ulaz{3}#
+#\izlaz{Unesite broj vrsta kvadratne matrice:} \ulaz{3}#
 #\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
 #\ulaz{1 2 3}#
 #\ulaz{4 5 6}#
@@ -762,8 +762,8 @@ Za rezultujuću nisku dinamički alocirati memoriju.
 
 \begin{Exercise}[label=331]
 Napisati program koji sa standardnog ulaza učitava matricu
-realnih brojeva. Prvo se učitavaju dimenzije matrice $n$ i
-$m$ (ne praviti nikakve pretpostavke o njihovoj veličini),
+realnih brojeva. Prvo se učitavaju broj vrsta $n$ i broj kolona
+$m$ matrice (ne praviti nikakve pretpostavke o njihovoj veličini),
 a zatim i elementi matrice. Na standardni izlaz ispisati trag
 matrice.
 
@@ -814,12 +814,12 @@ Napisati biblioteku za rad sa celobrojnim matricama.
   standardnog ulaza.
 \item Napisati funkciju \kckod{void ucitaj\_kvadratnu\_matricu(int
   **A, int n)} koja učitava već alociranu kvadratnu matricu dimenzije
-  $n$ sa standardnog ulaza.
+  $n \times n$ sa standardnog ulaza.
 \item Napisati funkciju \kckod{void ispisi\_matricu(int **A, int n,
   int m)} koja ispisuje matricu dimenzija $n \times m$ na standardnom
   izlazu.
 \item Napisati funkciju \kckod{void ispisi\_kvadratnu\_matricu(int
-  **A, int n)} koja ispisuje kvadratnu matricu dimenzije $n$ na
+  **A, int n)} koja ispisuje kvadratnu matricu dimenzije $n \times n$ na
   standardnom izlazu.
 \item Napisati funkciju \kckod{int ucitaj\_matricu\_iz\_datoteke(int
   **A, int n, int m, FILE * f)} koja učitava već alociranu matricu
@@ -827,7 +827,7 @@ Napisati biblioteku za rad sa celobrojnim matricama.
   neuspešnog učitavanja vratiti vrednost različitu od $0$.
 \item Napisati funkciju \kckod{int
   ucitaj\_kvadratnu\_matricu\_iz\_datoteke(int **A, int n, FILE * f)}
-  koja učitava već alociranu kvadratnu matricu dimenzije $n$ iz već
+  koja učitava već alociranu kvadratnu matricu dimenzije $n \times n$ iz već
   otvorene datoteke $f$.  U slučaju neuspešnog učitavanja vratiti
   vrednost različitu od $0$.
 \item Napisati funkciju \kckod{int upisi\_matricu\_u\_datoteku(int
@@ -836,7 +836,7 @@ Napisati biblioteku za rad sa celobrojnim matricama.
   upisivanja vratiti vrednost različitu od $0$.
 \item Napisati funkciju \kckod{int
   upisi\_kvadratnu\_matricu\_u\_datoteku(int **A, int n, FILE * f)}
-  koja upisuje kvadratnu matricu dimenzije $n$ u već otvorenu datoteku
+  koja upisuje kvadratnu matricu dimenzije $n \times n$ u već otvorenu datoteku
   $f$. U slučaju neuspešnog upisivanja vratiti vrednost različitu od
   $0$.
 \end{enumerate}
@@ -844,7 +844,7 @@ Napisati biblioteku za rad sa celobrojnim matricama.
 Napisati programe koji testiraju napisanu biblioteku.
 
 \begin{enumerate}
-\item[(1)] Program učitava dimenzije nekvadratne matrice sa
+\item[(1)] Program učitava dimenziju nekvadratne matrice sa
   standardnog ulaza, a zatim i samu matricu. Potom, matricu upisati u
   datoteku $matrica.txt$.
 
@@ -1004,7 +1004,7 @@ više takvih, ispisati prvu.
 %\end{Answer}
 
 \begin{Exercise}[label=337]
-Data je realna kvadratna matrica dimenzije $n$.
+Data je realna kvadratna matrica dimenzije $n \times n$.
 \begin{enumerate}
 \item Napisati funkciju koja izračunava zbir apsolutnih 
 vrednosti matrice ispod sporedne dijagonale. 

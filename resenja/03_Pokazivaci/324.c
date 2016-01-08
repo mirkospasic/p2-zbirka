@@ -69,7 +69,7 @@ int main()
   int A[MAX][MAX];
   int n;
 
-  printf("Unesite dimenziju matrice: ");
+  printf("Unesite broj vrsta matrice: ");
   scanf("%d", &n);
 
   if (n > MAX || n <= 0) {

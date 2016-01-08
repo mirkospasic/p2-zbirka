@@ -78,7 +78,7 @@ int main()
   /* Dimenzija matrica */
   int n;
 
-  printf("Unesite dimenziju matrica:\n");
+  printf("Unesite broj vrsta matrica:\n");
   scanf("%d", &n);
 
   /* Proverava se da li je doslo do prekoracenja dimenzije */
