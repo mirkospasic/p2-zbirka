@@ -6,12 +6,12 @@
 /* Pri prevodjenju program linkovati sa bibliotekom librt opcijom
    -lrt zbog funkcije clock_gettime() */
 
-/* Funkcija pretrazuje niz a[] celih brojeva duzine n, trazeci u
-   njemu element x. Pretraga se vrsi prostom iteracijom kroz niz. Ako 
-   se element pronadje funkcija vraca indeks pozicije na kojoj je
-   pronadjen. Ovaj indeks je uvek nenegativan. Ako element nije
-   pronadjen u nizu, funkcija vraca -1, kao indikator neuspesne
-   pretrage. */
+/* Linearna pretraga: Funkcija pretrazuje niz a[] celih brojeva
+   duzine n, trazeci u njemu prvo pojavljivanje elementa x. Pretraga
+   se vrsi prostom iteracijom kroz niz. Ako se element pronadje
+   funkcija vraca indeks pozicije na kojoj je pronadjen. Ovaj indeks
+   je uvek nenegativan. Ako element nije pronadjen u nizu, funkcija
+   vraca -1, kao indikator neuspesne pretrage. */
 int linearna_pretraga(int a[], int n, int x)
 {
   int i;
@@ -21,8 +21,9 @@ int linearna_pretraga(int a[], int n, int x)
   return -1;
 }
 
-/* Funkcija trazi u sortiranom nizu a[] duzine n broj x. Vraca indeks
-   pozicije nadjenog elementa ili -1, ako element nije pronadjen. */
+/* Binarna pretraga: Funkcija trazi u sortiranom nizu a[] duzine n
+   broj x. Vraca indeks pozicije nadjenog elementa ili -1, ako
+   element nije pronadjen. */
 int binarna_pretraga(int a[], int n, int x)
 {
   int levi = 0;
@@ -49,8 +50,9 @@ int binarna_pretraga(int a[], int n, int x)
   return -1;
 }
 
-/* Funkcija trazi u sortiranom nizu a[] duzine n broj x. Vraca indeks
-   pozicije nadjenog elementa ili -1, ako element nije pronadjen */
+/* Interpolaciona pretraga: Funkcija trazi u sortiranom nizu a[]
+   duzine n broj x. Vraca indeks pozicije nadjenog elementa ili -1,
+   ako element nije pronadjen */
 int interpolaciona_pretraga(int a[], int n, int x)
 {
   int levi = 0;
