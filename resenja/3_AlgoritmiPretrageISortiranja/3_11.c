@@ -80,21 +80,20 @@ int main(int argc, char *argv[])
   }
 
   /* Elementi niza se odredjuju slucajno, ali vodeci racuna o tipu
-     niza dobijenom iz komandne linije. srandom() funkcija
-     obezbedjuje novi seed za pozivanje random funkcije, i kako
-     generisani niz ne bi uvek bio isti seed je postavljen na tekuce
-     vreme u sekundama od Nove godine 1970. random()%100 daje brojeve 
-     izmedju 0 i 99 */
-  srandom(time(NULL));
+     niza dobijenom iz komandne linije. srand() funkcija obezbedjuje
+     novi seed za pozivanje rand funkcije, i kako generisani niz ne
+     bi uvek bio isti seed je postavljen na tekuce vreme u sekundama
+     od Nove godine 1970. rand()%100 daje brojeve izmedju 0 i 99 */
+  srand(time(NULL));
   if (tip_niza == 0)
     for (i = 0; i < dimenzija; i++)
-      niz[i] = random();
+      niz[i] = rand();
   else if (tip_niza == 1)
     for (i = 0; i < dimenzija; i++)
-      niz[i] = i == 0 ? random() % 100 : niz[i - 1] + random() % 100;
+      niz[i] = i == 0 ? rand() % 100 : niz[i - 1] + rand() % 100;
   else
     for (i = 0; i < dimenzija; i++)
-      niz[i] = i == 0 ? random() % 100 : niz[i - 1] - random() % 100;
+      niz[i] = i == 0 ? rand() % 100 : niz[i - 1] - rand() % 100;
 
   /* Ispisivanje elemenata niza */
   /*****************************************************************
