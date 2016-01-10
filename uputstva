@@ -62,19 +62,19 @@ U tacki 2.2 Visedimnezioni nizovi - svi zadaci su reseni indeksnom sintaksom (sa
 U zadatku 2.27 - Pokazivaci na funkcije - da li je "mreza" pravi izraz u jednoj dimenziji?
 U resenju 2.18 "A = maloc..." - "A = (double **)malloc..."
 U zadatku 3.6 vise smisla bi imala proizvoljna funkcija koja na datom intervalu ima jednu nulu
-U zadatku 3.30 bio bi koristan primer za element koji se ponavlja tako da ga
++ U zadatku 3.30 bio bi koristan primer za element koji se ponavlja tako da ga
 bsearch nadje na jednim a lfind na drugom mestu
 U resenju 3.1 korisno bi bilo navesti oznake u komentarima
 -"Linearna pretraga", "Binarna pretraga," ...i,  kao sto je navedena recenica za
 linearnu pretragu "Pretraga se vrsi...", dodati takvu recenicu u sledeca dva komentara koji
 se odnose na binarnu i interpolacionu pretragu.
-Takodje, u opisu linearne pretrage, treba reci da funkcija vraca indeks prve pozicije (ili krajnje leve)...
++ Takodje, u opisu linearne pretrage, treba reci da funkcija vraca indeks prve pozicije (ili krajnje leve)...
 U istom resenju pominje se "seed" bez posebnog objasnjenja - ne znam koliko je poznato
 
 U resenju 3.6 trebalo bi neko obrazlozenje u vezi sa time da funkcija...
 na intervalu ... ima jednu nulu i znak joj je na krajevima intervala razlicit
 
-U resenju 3.11 mesaju se "d" i "r" (za desno i right).
++ U resenju 3.11 mesaju se "d" i "r" (za desno i right).
 
 U zadatku 4.1 se pod (1) i (2) trazi da se "U progarmu..." nesto uradi,
 a pod (3) da se "U glavnom programu..." nesto ursi
