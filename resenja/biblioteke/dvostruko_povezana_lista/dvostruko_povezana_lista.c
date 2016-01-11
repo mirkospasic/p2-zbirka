@@ -165,7 +165,7 @@ int dodaj_sortirano(Cvor ** adresa_glave, Cvor ** adresa_kraja, int
   /* Ako pomocni cvor pokazuje na poslednji element liste, onda je
      novi cvor poslednji u listi. */
   if (pomocni == *adresa_kraja)
-    *adresa_kraja = novi;
+    *adresa_kraja = pomocni->sledeci;
 
   return 0;
 }
