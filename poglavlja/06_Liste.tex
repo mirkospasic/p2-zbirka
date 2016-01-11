@@ -826,10 +826,11 @@ Sve funkcije za rad sa listom implementirati iterativno. Zbog efikasnog izvršav
 
 %=========================================================================
 \begin{Exercise}[label=612]
-Grupa od $n$ plesača na kostimima ima brojeve od $1$ do $n$, redom, u smeru kazaljke na satu.
-Plesači izvode svoju plesnu tačku tako što formiraju krug iz kog najpre izlazi $k$-ti plesač.
+Grupa od $n$ plesača na kostimima ima brojeve od $1$ do $n$. 
+Plesači najpre formiraju krug tako da brojevi sa njihovih kostima rastu u smeru kazaljke na satu. Plesač sa brojem $1$ stavlja levu ruku na rame plesača sa brojem $2$, a desnu na svoj kuk i tako redom. Plesač sa brojem $n$ svoju levu ruku spušta na rame plesača sa brojem $1$, a desnu na svoj kuk i tako zatvara krug.
+Svoju plesnu tačku izvode tako što iz formiranog kruga najpre izlazi $k$-ti plesač. 
 Odbrojava se počevši od plesača označenog brojem $1$ u smeru kretanja kazaljke na satu. 
-Preostali plesači obrazuju manji krug iz kog opet izlazi $k$-ti plesač. Odbrojavanje sada počinje od
+Preostali plesači obrazuju manji krug tako što $k-1$-vi stavlja ruku na rame $k+1$-og i zatvara krug iz kog opet izlazi $k$-ti plesač. Odbrojavanje sada počinje od
 sledećeg suseda prethodno izbačenog, opet u smeru kazaljke na satu. Izlasci iz kruga se nastavljaju
 sve dok svi plesači ne budu isključeni. 
 Celi brojevi $n$, $k$ ($k < n$) se učitavaju sa standardnog ulaza. 
@@ -872,8 +873,9 @@ Napisati program koji će na standardni izlaz ispisati redne brojeve plesača u 
 
 %=========================================================================
 \begin{Exercise}[label=613]
-Grupa od $n$ plesača na kostimima ima brojeve od $1$ do $n$, redom, u smeru kazaljke na satu.
-Plesači izvode svoju plesnu tačku tako što formiraju krug iz kog najpre izlazi $k$-ti plesač.
+Grupa od $n$ plesača na kostimima ima brojeve od $1$ do $n$. 
+Plesači najpre formiraju krug tako da brojevi sa njihovih kostima rastu u smeru kazaljke na satu. Svaki plesač levu ruku stavlja na rame plesača sa sledećim većim brojem, a desnu na rame plesača sa prvim manjim brojem. Plesač sa brojem $1$ stavlja levu ruku na rame plesača sa brojem $2$, a desnu na rame plesača sa brojem $n$. Plesač sa brojem $n$ svoju desnu ruku spušta na rame plesača sa brojem $n-1$, a levu na rame plesača sa brojem $1$ i tako zatvara krug.
+Plesači izvode svoju plesnu tačku tako što iz formiranog kruga najpre izlazi $k$-ti plesač.
 Odbrojava se počevši od plesača označenog brojem $1$ u smeru kretanja kazaljke na satu. 
 Preostali plesači obrazuju manji krug iz kog opet izlazi $k$-ti plesač. Odbrojavanje sada počinje od
 sledećeg suseda prethodno izbačenog, uz promenu smera. Ukoliko se prilikom prethodnog izbacivanja odbrojavalo 

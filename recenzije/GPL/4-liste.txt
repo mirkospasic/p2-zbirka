@@ -4,14 +4,43 @@ i onda ako je komentar nesto jednostavno, tj pravolinijsko, samo da se notira re
 Ukoliko je nesto krupnije, onda da se napise i kako je ispravljeno (ali mi se cini da takvih nema mnogo)
 npr "Ispravljeno u" pa "copy-paste novog teksta"
 
-
+----------------------------------------------------------------------------------
 
 U zadatku 4.1 se pod (1) i (2) trazi da se "U progarmu..." nesto uradi,
 a pod (3) da se "U glavnom programu..." nesto ursi
-
+--------
 Ispravljeno tako sto je uklonjeno glavni program u delu (3) da ne bi zbunjivalo. Preciznije bi bilo da svuda pise u glavnoj funkciji.
 
+===========================================================================================
 
 
+Zadatak 4.12 bi trebalo prvo da uvede "krug" pa onda nacin kretanja po krugu
 
-Zadatak 4.12 bi trebalo prvo da uvede "krug" pa onda nacin kretanja po
+-----------------
+Ispravljeno, tako sto je izmenjen tekst sa početka zadatka
+
+Zadatak 4.12 Grupa od n plesača na kostimima ima brojeve od 1 do
+n. Plesači najpre formiraju krug tako da brojevi sa njihovih kostima rastu u
+smeru kazaljke na satu. Plesač sa brojem 1 stavlja levu ruku na rame plesača
+sa brojem 2, a desnu na svoj kuk i tako redom. Plesač sa brojem n svoju levu
+ruku spušta na rame plesača sa brojem 1, a desnu na svoj kuk i tako zatvara
+krug. Svoju plesnu tačku izvode tako što iz formiranog kruga najpre izlazi k-ti
+plesač. Odbrojava se počevši od plesača označenog brojem 1 u smeru kretanja
+kazaljke na satu. Preostali plesači obrazuju manji krug tako što k − 1-vi stavlja
+ruku na rame k + 1-og i zatvara krug iz kog opet izlazi k-ti plesač. Odbrojavanje
+sada počinje od sledećeg suseda prethodno izbačenog, opet u smeru kazaljke na
+
+i u 4.13
+
+Zadatak 4.13 Grupa od n plesača na kostimima ima brojeve od 1 do n.
+Plesači najpre formiraju krug tako da brojevi sa njihovih kostima rastu u smeru
+kazaljke na satu. Svaki plesač levu ruku stavlja na rame plesača sa sledećim većim
+brojem, a desnu na rame plesača sa prvim manjim brojem. Plesač sa brojem 1
+stavlja levu ruku na rame plesača sa brojem 2, a desnu na rame plesača sa brojem
+n. Plesač sa brojem n svoju desnu ruku spušta na rame plesača sa brojem n − 1,
+a levu na rame plesača sa brojem 1 i tako zatvara krug. Plesači izvode svoju
+plesnu tačku tako što iz formiranog kruga najpre izlazi k-ti plesač. Odbrojava
+se počevši od plesača označenog brojem 1 u smeru kretanja kazaljke na satu.
+Preostali plesači obrazuju manji krug iz kog opet izlazi k-ti plesač. Odbrojavanje
+sada počinje od sledećeg suseda prethodno izbačenog, uz promenu smera. Ukoliko
+
