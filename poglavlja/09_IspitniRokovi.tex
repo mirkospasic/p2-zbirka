@@ -2,7 +2,7 @@
 
 \section{Programiranje 2, praktični deo ispita, jun 2015.}
 
-\begin{Exercise}[label=901]
+\begin{Exercise}[label=5_01]
 Kao argument komandne linije zadaje se ime ulazne datoteke u kojoj se nalaze niske. U prvoj liniji datoteke nalazi se informacija o broju niski, a zatim u narednim linijama po jedna niska ne duža od \argf{50} karaktera.
   
 Napisati program u kojem se dinamički alocira memorija za zadati niz niski, a zatim se na standardnom izlazu u redosledu suprotnom od redosleda čitanja ispisuju sve niske koje počinju velikim slovom. 
@@ -61,20 +61,20 @@ U slučaju pojave bilo kakve greške na standardnom izlazu za grešku ispisati v
 \end{test}
 \end{miditest}
 
-\linkresenje{901}
+\linkresenje{5_01}
 \end{Exercise}
-\begin{Answer}[ref=901]
-\includecode{resenja/09_IspitniRokovi/901.c}
+\begin{Answer}[ref=5_01]
+\includecode{resenja/5_IspitniRokovi/5_01.c}
 \end{Answer}
 
 
-\begin{Exercise}[label=902]
+\begin{Exercise}[label=5_02]
 Data je biblioteka za rad sa binarnim pretraživačkim stablima čiji čvorovi sadrže cele brojeve. 
-Napisati funkciju   \kckod{int sumirajN (Cvor * koren, int n)}
+Napisati funkciju   \kckod{int sumiraj_n (Cvor * koren, int n)}
 koja izračunava zbir svih čvorova koji se nalaze na $n$-tom nivou stabla (koren se nalazi na nultom nivou, njegova deca na prvom nivou i tako redom). 
 Ispravnost napisane funkcije testirati na osnovu zadate  \kckod{main} funkcije i biblioteke za rad sa pretraživačkim stablima.
 
-Napisati program koji sa standardnog ulaza učitava najpre prirodan broj $n$, a potom i brojeve sve do pojave nule koje smešta u stablo i ispisuje rezultat pozivanja funkcije \kckod{sumirajN} za broj $n$ i tako kreirano stablo. U slučaju greške na standardni izlaz za grešku ispisati \argf{-1}.
+Napisati program koji sa standardnog ulaza učitava najpre prirodan broj $n$, a potom i brojeve sve do pojave nule koje smešta u stablo i ispisuje rezultat pozivanja funkcije \kckod{sumiraj_n} za broj $n$ i tako kreirano stablo. U slučaju greške na standardni izlaz za grešku ispisati \argf{-1}.
 
 
 \begin{miditest}
@@ -94,20 +94,20 @@ Napisati program koji sa standardnog ulaza učitava najpre prirodan broj $n$, a 
 \end{test}
 \end{miditest}
 
-\linkresenje{902}
+\linkresenje{5_02}
 \end{Exercise}
-\begin{Answer}[ref=902]
-%\includecode{resenja/09_IspitniRokovi/902/stabla.h}
-%\includecodeLib{resenja/09_IspitniRokovi/902/stabla.h}{stabla.h}
-%\includecodeLib{resenja/09_IspitniRokovi/902/stabla.c}{stabla.c}
+\begin{Answer}[ref=5_02]
+%\includecode{resenja/5_IspitniRokovi/5_02/stabla.h}
+%\includecodeLib{resenja/5_IspitniRokovi/5_02/stabla.h}{stabla.h}
+%\includecodeLib{resenja/5_IspitniRokovi/5_02/stabla.c}{stabla.c}
 \\
 \napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}
-\includecodeLib{resenja/09_IspitniRokovi/902/main.c}{main.c}
-%\includecode{resenja/09_IspitniRokovi/902/stabla.c}
-%\includecode{resenja/09_IspitniRokovi/902/main.c}
+\includecodeLib{resenja/5_IspitniRokovi/5_02/main.c}{main.c}
+%\includecode{resenja/5_IspitniRokovi/5_02/stabla.c}
+%\includecode{resenja/5_IspitniRokovi/5_02/main.c}
 \end{Answer}
 
-\begin{Exercise}[label=903]
+\begin{Exercise}[label=5_03]
 Sa standardnog ulaza učitava se broj vrsta i broj kolona celobrojne matrice $A$, 
 a zatim i elementi matrice $A$. Napisati program koji će ispisati indeks kolone u kojoj se nalazi najviše negativnih elemenata. 
 Ukoliko postoji više takvih kolona, ispisati indeks prve kolone. 
@@ -145,15 +145,15 @@ U slučaju greške ispisati vrednost \argf{-1} na standardni izlaz za greške.
 \end{test}
 \end{minitest}
 
-\linkresenje{903}
+\linkresenje{5_03}
 \end{Exercise}
-\begin{Answer}[ref=903]
-\includecode{resenja/09_IspitniRokovi/903.c}
+\begin{Answer}[ref=5_03]
+\includecode{resenja/5_IspitniRokovi/5_03.c}
 \end{Answer}
 
 \section{Programiranje 2, praktični deo ispita, jul 2015.}
 
-\begin{Exercise}[label=904]
+\begin{Exercise}[label=5_04]
 Napisati program koji kao prvi arugment komandne linije prima ime dokumenta u kome treba prebrojati sva pojavljivanja tražene niske (bez preklapanja) koja se navodi kao drugi argument komandne linije (iskoristiti funkciju standardne biblioteke \kckod{strstr}). U slučaju
 bilo kakve greške ispisati \argf{-1} na standardni izlaz za greške.
 Pretpostaviti da linije datoteke neće biti duže od \argf{127}
@@ -207,14 +207,14 @@ NULL ako podniska nije pronađena.
 \end{test}
 \end{miditest}
 
-\linkresenje{904}
+\linkresenje{5_04}
 \end{Exercise}
-\begin{Answer}[ref=904]
-\includecode{resenja/09_IspitniRokovi/904.c}
+\begin{Answer}[ref=5_04]
+\includecode{resenja/5_IspitniRokovi/5_04.c}
 \end{Answer}
 
 
-\begin{Exercise}[label=905]
+\begin{Exercise}[label=5_05]
 Na početku datoteke ,,trouglovi.txt'' nalazi se broj trouglova čije su koordinate temena zapisane u nastavku datoteke. Napisati
   program koji učitva trouglove, i ispisuje ih na standardni izlaz
   sortirane po površini opadajuće (koristiti Heronov obrazac: 
@@ -265,16 +265,16 @@ Na početku datoteke ,,trouglovi.txt'' nalazi se broj trouglova čije su koordin
 \end{test}
 \end{minitest}
 
-\linkresenje{905}
+\linkresenje{5_05}
 \end{Exercise}
 
-\begin{Answer}[ref=905]
-\includecode{resenja/09_IspitniRokovi/905.c}
+\begin{Answer}[ref=5_05]
+\includecode{resenja/5_IspitniRokovi/5_05.c}
 \end{Answer}
 
-\begin{Exercise}[label=906]
+\begin{Exercise}[label=5_06]
 Data je biblioteka za rad sa binarnim pretraživačkim stablima celih brojeva. Napisati funkciju\\ 
-\kckod{int prebrojN(Cvor *koren, int n)}\\
+\kckod{int prebroj_n(Cvor *koren, int n)}\\
   koja u datom stablu prebrojava čvorove na $n$-tom nivou, koji
   imaju tačno jednog potomka. Pretpostaviti da se koren nalazi na
   nivou \argf{0}. Ispravnost napisane funkcije testirati na osnovu zadate
@@ -322,23 +322,23 @@ Data je biblioteka za rad sa binarnim pretraživačkim stablima celih brojeva. N
 \end{test}
 \end{minitest}
 
-\linkresenje{906}
+\linkresenje{5_06}
 \end{Exercise}
-\begin{Answer}[ref=906]
-%%\includecode{resenja/09_IspitniRokovi/906/stabla.h}  
-%\includecodeLib{resenja/09_IspitniRokovi/906/stabla.h}{stabla.h}
-%\includecodeLib{resenja/09_IspitniRokovi/906/stabla.c}{stabla.c}
+\begin{Answer}[ref=5_06]
+%%\includecode{resenja/5_IspitniRokovi/5_06/stabla.h}  
+%\includecodeLib{resenja/5_IspitniRokovi/5_06/stabla.h}{stabla.h}
+%\includecodeLib{resenja/5_IspitniRokovi/5_06/stabla.c}{stabla.c}
 \\
-\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.}
-\includecodeLib{resenja/09_IspitniRokovi/906/main.c}{main.c}
-%%\includecode{resenja/09_IspitniRokovi/906/stabla.c}
-%%\includecode{resenja/09_IspitniRokovi/906/main.c}
+\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{701}.} % trebalo bi \ref{4_14}
+\includecodeLib{resenja/5_IspitniRokovi/5_06/main.c}{main.c}
+%%\includecode{resenja/5_IspitniRokovi/5_06/stabla.c}
+%%\includecode{resenja/5_IspitniRokovi/5_06/main.c}
 \end{Answer}
 
 
 \section{Programiranje 2, praktični deo ispita, septembar 2015.}
 
-\begin{Exercise}[label=907]
+\begin{Exercise}[label=5_07]
 Sa standardnog ulaza se učitavaju neoznačeni celi brojevi \texttt{x} i \texttt{n}. Na
    standardni izlaz ispisati neoznačen ceo broj koji se dobija od broja \texttt{x} kada se njegov binarni zapis
    rotira za \texttt{n} mesta udesno (na primer, ako je binarni zapis broja \texttt{x} jednak \texttt{00000000000000000000000000001111},
@@ -386,14 +386,14 @@ Sa standardnog ulaza se učitavaju neoznačeni celi brojevi \texttt{x} i \texttt
 \end{test}
 \end{minitest}
 
-\linkresenje{907}
+\linkresenje{5_07}
 \end{Exercise}
-\begin{Answer}[ref=907]
-\includecode{resenja/09_IspitniRokovi/907.c}
+\begin{Answer}[ref=5_07]
+\includecode{resenja/5_IspitniRokovi/5_07.c}
 \end{Answer}
 
 
-\begin{Exercise}[label=908]
+\begin{Exercise}[label=5_08]
 Napisati funkciju \kckod{int dopuni\_listu(Cvor ** adresa\_glave)}
 koja samo čvorovima koji imaju sledbenika u jednostruko povezanoj listi realnih brojeva,
   dodaje između čvora i njegovog sledbenika nov čvor čija vrednost je aritmetička sredina njihovih vrednosti. Povratna vrednost funkcije treba da bude 1 ukoliko je došlo greške pri alokaciji memorije, inače 0.
@@ -434,19 +434,19 @@ koja samo čvorovima koji imaju sledbenika u jednostruko povezanoj listi realnih
 \end{test}
 \end{minitest}
 
-\linkresenje{908}
+\linkresenje{5_08}
 \end{Exercise}
 
-\begin{Answer}[ref=908]
-%\includecode{resenja/09_IspitniRokovi/908/liste.h}
-\includecodeLib{resenja/09_IspitniRokovi/908/liste.h}{liste.h}
-\includecodeLib{resenja/09_IspitniRokovi/908/liste.c}{liste.c}
-\includecodeLib{resenja/09_IspitniRokovi/908/main.c}{main.c}
-%\includecode{resenja/09_IspitniRokovi/908/liste.c}
-%\includecode{resenja/09_IspitniRokovi/908/main.c}
+\begin{Answer}[ref=5_08]
+%\includecode{resenja/5_IspitniRokovi/908/liste.h}
+\includecodeLib{resenja/5_IspitniRokovi/5_08/liste.h}{liste.h}
+\includecodeLib{resenja/5_IspitniRokovi/5_08/liste.c}{liste.c}
+\includecodeLib{resenja/5_IspitniRokovi/5_08/main.c}{main.c}
+%\includecode{resenja/5_IspitniRokovi/908/liste.c}
+%\includecode{resenja/5_IspitniRokovi/908/main.c}
 \end{Answer}
 
-\begin{Exercise}[label=909]
+\begin{Exercise}[label=5_09]
 Sa standardnog ulaza se učitava dimenzija \kckod{n} kvadratne celobrojne
     matrice \argf{A} ($n>0$), a zatim i elementi matrice \argf{A}. Napisati program koji
     proverava da li je data kvadratna matrica magični kvadrat
@@ -519,11 +519,10 @@ Sa standardnog ulaza se učitava dimenzija \kckod{n} kvadratne celobrojne
 \end{test}
 \end{minitest}
 
-\linkresenje{909}
+\linkresenje{5_09}
 \end{Exercise}
-\begin{Answer}[ref=909]
-\\
-\includecode{resenja/09_IspitniRokovi/909.c}
+\begin{Answer}[ref=5_09]
+\includecode{resenja/5_IspitniRokovi/5_09.c}
 \end{Answer}
 
 \section{Rešenja}
