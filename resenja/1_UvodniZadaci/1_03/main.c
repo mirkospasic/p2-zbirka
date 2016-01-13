@@ -43,5 +43,5 @@ int main(int argc, char **argv)
   printf("%d. izvod polinoma r je: ", n);
   ispisi(&r);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

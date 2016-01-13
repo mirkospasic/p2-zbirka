@@ -1,7 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-
-#define MAX 100
 
 /* NAPOMENA: Ovaj problem je iskoriscen da ilustruje uzajamnu
    (posrednu) rekurziju */

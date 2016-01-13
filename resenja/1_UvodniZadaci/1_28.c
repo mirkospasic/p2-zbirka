@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /* Funkcija koja broji bitove postavljene na 1. */
-int count(int x)
+int prebroj(int x)
 {
   /* Izlaz iz rekurzije */
   if (x == 0)
@@ -21,12 +21,12 @@ int count(int x)
      moze biti prosledjen i negativan broj. Iz tog razloga,
      odlucujemo se da proveramo najvisi, umesto najnizeg bita */
   if (x & (1 << (sizeof(x) * 8 - 1)))
-    return 1 + count(x << 1);
+    return 1 + prebroj(x << 1);
   else
-    return count(x << 1);
+    return prebroj(x << 1);
   /******************************************************************
     Krace zapisano
-    return ((x& (1<<(sizeof(x)*8-1))) ? 1 : 0) + count(x<<1);
+    return ((x& (1<<(sizeof(x)*8-1))) ? 1 : 0) + prebroj(x<<1);
   ******************************************************************/
 }
 
@@ -38,7 +38,7 @@ int main()
   scanf("%x", &x);
 
   /* Ispisuje se rezultat */
-  printf("%d\n", count(x));
+  printf("%d\n", prebroj(x));
 
   return 0;
 }

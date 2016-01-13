@@ -2,7 +2,7 @@
 
 /* Funkcija vraca 1 ukoliko je u binarnoj reprezentaciji broja n broj 
    jedinica veci od broja nula. U suprotnom funkcija vraca 0 */
-int Broj01(unsigned int n)
+int broj_01(unsigned int n)
 {
 
   int broj_nula, broj_jedinica;
@@ -46,7 +46,7 @@ int main()
   scanf("%u", &n);
 
   /* Ispisuje se rezultat */
-  printf("%d\n", Broj01(n));
+  printf("%d\n", broj_01(n));
 
   return 0;
 }

@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MAX 128
+#define MAKS 128
 
 int main(int argc, char **argv)
 {
   FILE *f;
   int brojac = 0;
-  char linija[MAX], *p;
+  char linija[MAKS], *p;
 
   /* Provera da li je broj argumenata komandne linije 3 */
   if (argc != 3) {
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
   /* Ucitavanje iz otvorene datoteke - liniju po liniju */
-  while (fgets(linija, MAX, f) != NULL) {
+  while (fgets(linija, MAKS, f) != NULL) {
     p = linija;
     while (1) {
       p = strstr(p, argv[2]);

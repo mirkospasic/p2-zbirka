@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX_DIM 256
+#define MAKS_DIM 256
 
 /* Funkcija koja izracunava skalarni proizvod dva data vektora */
 int skalarno(int a[], int b[], int n)
@@ -21,15 +21,15 @@ int skalarno(int a[], int b[], int n)
 
 int main()
 {
-  int i, a[MAX_DIM], b[MAX_DIM], n;
+  int i, a[MAKS_DIM], b[MAKS_DIM], n;
 
   /* Unosi se dimenzija nizova */
   printf("Unesite dimenziju nizova:");
   scanf("%d", &n);
 
   /* Provera da li je dimenzija niza odgovarajuca */
-  if (n < 0 || n > MAX_DIM) {
-    printf("Dimenzija mora biti prirodan broj <= %d!\n", MAX_DIM);
+  if (n < 0 || n > MAKS_DIM) {
+    printf("Dimenzija mora biti prirodan broj <= %d!\n", MAKS_DIM);
     return 0;
   }
 

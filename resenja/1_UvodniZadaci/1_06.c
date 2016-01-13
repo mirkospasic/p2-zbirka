@@ -1,18 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /* Funkcija vraca broj jedinica u binarnoj reprezentaciji broja x
    kreiranjem odgovarajuce maske i njenim pomeranjem */
-int prebroj_bitove1(int x)
+int prebroj_bitove_1(int x)
 {
   int br = 0;
-  unsigned wl = sizeof(unsigned) * 8 - 1;
+  unsigned broj_pomeranja = sizeof(unsigned) * 8 - 1;
 
   /* Formiranje se maska cija binarna reprezentacija izgleda
      100000...0000000, koja sluzi za ocitavanje bita najvece tezine.
      U svakoj iteraciji maska se pomera u desno za 1 mesto, i
      ocitavamo sledeci bit. Petlja se zavrsava kada vise nema
      jedinica tj. kada maska postane nula. */
-  unsigned maska = 1 << wl;
+  unsigned maska = 1 << broj_pomeranja;
   for (; maska != 0; maska >>= 1)
     x & maska ? br++ : 1;
 
@@ -21,10 +22,10 @@ int prebroj_bitove1(int x)
 
 /* Funkcija vraca broj jedinica u binarnoj reprezentaciji broja x
    formiranjem odgovarajuce maske i pomeranjem promenljive x */
-int prebroj_bitove2(int x)
+int prebroj_bitove_2(int x)
 {
   int br = 0;
-  unsigned wl = sizeof(int) * 8 - 1;
+  unsigned broj_pomeranja = sizeof(int) * 8 - 1;
 
   /* Kako je argument funkcije oznacen ceo broj x naredba x>>=1 bi
      vrsila aritmeticko pomeranje u desno, tj. popunjavanje bita
@@ -33,7 +34,7 @@ int prebroj_bitove2(int x)
      petlji. Zbog toga se koristi pomeranje broja x ulevo i maska
      koja ocitava bit najvece tezine. */
 
-  unsigned maska = 1 << wl;
+  unsigned maska = 1 << broj_pomeranja;
   for (; x != 0; x <<= 1)
     x & maska ? br++ : 1;
 
@@ -54,11 +55,16 @@ int main()
   scanf("%d", &i);
 
   /* Ispisuje se rezultat */
-  printf("Broj jedinica u zapisu je\n");
-  if (i == 1)
-    printf("funkcija prebroj_bitove1: %d\n", prebroj_bitove1(x));
-  else
-    printf("funkcija prebroj_bitove2: %d\n", prebroj_bitove2(x));
-
-  return 0;
+  if (i == 1){
+    printf("Broj jedinica u zapisu je\n");
+    printf("funkcija prebroj_bitove_1: %d\n", prebroj_bitove_1(x));
+  }else if (i == 2){
+    printf("Broj jedinica u zapisu je\n");
+    printf("funkcija prebroj_bitove_2: %d\n", prebroj_bitove_2(x));
+  }else {
+    fprintf(stderr, "Neodgovarajuci redni broj funkcije!\n");
+    exit(EXIT_FAILURE);
+  }
+	
+  exit(EXIT_SUCCESS);
 }

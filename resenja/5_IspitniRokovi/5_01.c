@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#define MAX 50
+#define MAKS 50
 
 /* Funkcija vrsi dinamicku alokaciju memorije potrebne n linija tj.
-   n niski od kojih nijedna nije duza od MAX karaktera. */
+   n niski od kojih nijedna nije duza od MAKS karaktera. */
 char **alociranje_memorije(int n)
 {
   char **linije = NULL;
@@ -16,9 +16,9 @@ char **alociranje_memorije(int n)
   if (linije == NULL)
     return NULL;
   /* Alocira se prostor za svaku vrstu matrice. Niska nije duza od 
-     MAX karaktera, a 1 se dodaje zbog terminirajuce nule. */
+     MAKS karaktera, a 1 se dodaje zbog terminirajuce nule. */
   for (i = 0; i < n; i++) {
-    linije[i] = malloc((MAX + 1) * sizeof(char));
+    linije[i] = malloc((MAKS + 1) * sizeof(char));
     /* Ako alokacija nije prosla uspesno, oslobadjaju se svi
        prethodno alocirani resursi, i povratna vrednost je NULL */
     if (linije[i] == NULL) {

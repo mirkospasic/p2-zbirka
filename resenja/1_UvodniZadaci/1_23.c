@@ -1,31 +1,33 @@
 #include <stdio.h>
-#define MAX_DIM 1000
+#include <stdlib.h>
+
+#define MAKS_DIM 100
 
 /* Ako je n<=0, onda je suma niza jednaka nuli. Ako je n>0, onda je
    suma niza jednaka sumi prvih n-1 elementa uvecenoj za poslednji
    element niza. */
-int sumaNiza(int *a, int n)
+int suma_niza_1(int *a, int n)
 {
   if (n <= 0)
     return 0;
 
-  return sumaNiza(a, n - 1) + a[n - 1];
+  return suma_niza_1(a, n - 1) + a[n - 1];
 }
 
 /* Funkcija napisana na drugi nacin: Ako je n<=0, onda je suma niza
    jednaka nuli. Ako je n>0, suma niza je jednaka zbiru prvog
    elementa niza i sume preostalih n-1 elementa. */
-int sumaNiza2(int *a, int n)
+int suma_niza_2(int *a, int n)
 {
   if (n <= 0)
     return 0;
 
-  return a[0] + sumaNiza2(a + 1, n - 1);
+  return a[0] + suma_niza_2(a + 1, n - 1);
 }
 
 int main()
 {
-  int a[MAX_DIM];
+  int a[MAKS_DIM];
   int n, i = 0, ind;
 
   /* Ucitava se redni broj funkcije */
@@ -42,11 +44,15 @@ int main()
     scanf("%d", &a[i]);
 
   /* Na osnovu vrednosti promenljive ind ispisuje se rezultat poziva
-     funkcije sumaNiza, ondosno sumaNiza2 */
+     funkcije suma_niza_1, ondosno suma_niza_2 */
   if (ind == 1)
-    printf("Suma elemenata je %d\n", sumaNiza(a, n));
-  else
-    printf("Suma elemenata je %d\n", sumaNiza2(a, n));
-
-  return 0;
+    printf("Suma elemenata je %d\n", suma_niza_1(a, n));
+  else if (ind == 2)
+    printf("Suma elemenata je %d\n", suma_niza_2(a, n));
+  else{
+    fprintf(stderr, "Neodgovarajuci redni broj funkcije!\n");
+    exit(EXIT_FAILURE);
+  }
+	
+  exit(EXIT_SUCCESS);
 }

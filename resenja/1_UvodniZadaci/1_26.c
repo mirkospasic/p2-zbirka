@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX_DIM 256
+#define MAKS_DIM 256
 
 /* Funkcija koja racuna broj pojavljivanja elementa x u nizu a duzine 
    n */
@@ -20,7 +20,7 @@ int br_pojave(int x, int a[], int n)
 
 int main()
 {
-  int x, a[MAX_DIM];
+  int x, a[MAKS_DIM];
   int n, i = 0;
 
   /* Ucitava se ceo broj */
@@ -29,13 +29,13 @@ int main()
 
   /* Sve dok se ne stigne do kraja ulaza, ucitavaju se brojevi u niz.
      Promenljiva i predstavlja indeks tekuceg broja. U niz se ne moze
-     ucitati vise od MAX_DIM brojeva, pa se u slucaju da promenljiva i 
-     dostigne vrednost MAX_DIM prekida unos novih brojeva. */
+     ucitati vise od MAKS_DIM brojeva, pa se u slucaju da promenljiva
+	 i dostigne vrednost MAKS_DIM prekida unos novih brojeva. */
   printf("Unesite elemente niza:");
   i = 0;
   while (scanf("%d", &a[i]) != EOF) {
     i++;
-    if (i == MAX_DIM)
+    if (i == MAKS_DIM)
       break;
   }
   n = i;

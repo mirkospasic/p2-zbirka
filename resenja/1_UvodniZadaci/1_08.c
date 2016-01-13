@@ -4,19 +4,18 @@
 /* Funckija postavlja na nulu n bitova pocev od pozicije p. */
 unsigned postavi_0(unsigned x, unsigned n, unsigned p)
 {
-/***************************************************************
-     Formira se maska cija binarna reprezentacija ima n bitova 
-     postavljenih na 0 pocev od pozicije p, dok su svi ostali 
-     postavljeni na 1. Na primer, za n=5 i p=10 formira se 
-     maska oblika 
-     1111 1111 1111 1111 1111 1000 0011 1111 
-     To se postize na sledeci nacin: 
-     ~0                  1111 1111 1111 1111 1111 1111 1111 1111 
-(~0 << n)                1111 1111 1111 1111 1111 1111 1110 0000 
-~(~0 << n)               0000 0000 0000 0000 0000 0000 0001 1111 
-(~(~0 << n) << ( p-n+1)) 0000 0000 0000 0000 0000 0111 1100 0000 
-~(~(~0 << n) << (p-n+1)) 1111 1111 1111 1111 1111 1000 0011 1111 
-***************************************************************/
+/********************************************************************
+  Formira se maska cija binarna reprezentacija ima n bitova 
+  postavljenih na 0 pocev od pozicije p, dok su svi ostali 
+  postavljeni na 1. Na primer, za n=5 i p=10 formira se maska oblika 
+  1111 1111 1111 1111 1111 1000 0011 1111 
+  To se postize na sledeci nacin: 
+  ~0                         1111 1111 1111 1111 1111 1111 1111 1111 
+  (~0 << n)                  1111 1111 1111 1111 1111 1111 1110 0000 
+  ~(~0 << n)                 0000 0000 0000 0000 0000 0000 0001 1111 
+  (~(~0 << n) << ( p-n+1))   0000 0000 0000 0000 0000 0111 1100 0000 
+  ~(~(~0 << n) << (p-n+1))   1111 1111 1111 1111 1111 1000 0011 1111 
+********************************************************************/
   unsigned maska = ~(~(~0 << n) << (p - n + 1));
 
   return x & maska;
@@ -27,12 +26,12 @@ unsigned postavi_0(unsigned x, unsigned n, unsigned p)
 unsigned postavi_1(unsigned x, unsigned n, unsigned p)
 {
 
-/***************************************************************
-     Formira se maska kod koje je samo n bitova pocev od 
-     pocev od pozicije p jednako 1, a ostali su 0. 
-     Na primer, za n=5 i p=10 formira se maska oblika 
-     0000 0000 0000 0000 0000 0111 1100 0000 
-***************************************************************/
+  /******************************************************************
+    Formira se maska kod koje je samo n bitova pocev od pocev od 
+	pozicije p jednako 1, a ostali su 0. 
+    Na primer, za n=5 i p=10 formira se maska oblika 
+    0000 0000 0000 0000 0000 0111 1100 0000 
+  ******************************************************************/
   unsigned maska = ~(~0 << n) << (p - n + 1);
 
   return x | maska;
@@ -44,11 +43,11 @@ unsigned postavi_1(unsigned x, unsigned n, unsigned p)
 unsigned vrati_bitove(unsigned x, unsigned n, unsigned p)
 {
 
-/***************************************************************
-     Kreira se maska kod koje su poslednjih n bitova 1, a
-     ostali su 0. Na primer, za n=5 
-     0000 0000 0000 0000 0000 0000 0001 1111 
-***************************************************************/
+  /******************************************************************
+    Kreira se maska kod koje su poslednjih n bitova 1, a ostali su 0.
+	Na primer, za n=5 
+    0000 0000 0000 0000 0000 0000 0001 1111 
+  ******************************************************************/
   unsigned maska = ~(~0 << n);
 
   /* Najpre se vrednost promenljive x pomera u desno tako da trazeno

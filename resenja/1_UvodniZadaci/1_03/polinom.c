@@ -44,7 +44,7 @@ Polinom ucitaj()
 
   /* Ponavlja se ucitavanje stepena sve dok se ne unese stepen iz
      dozvoljenog opsega */
-  while (p.stepen > MAX_STEPEN || p.stepen < 0) {
+  while (p.stepen > MAKS_STEPEN || p.stepen < 0) {
     printf("Stepen polinoma pogresno unet, pokusajte ponovo: ");
     scanf("%d", &p.stepen);
   }
@@ -105,7 +105,7 @@ Polinom pomnozi(const Polinom * p, const Polinom * q)
 
   /* Stepen rezultata ce odgovarati zbiru stepena polaznih polinoma */
   r.stepen = p->stepen + q->stepen;
-  if (r.stepen > MAX_STEPEN) {
+  if (r.stepen > MAKS_STEPEN) {
     fprintf(stderr, "Stepen proizvoda polinoma izlazi iz opsega\n");
     exit(EXIT_FAILURE);
   }

@@ -4,7 +4,7 @@
    su za svaku heksadekadnu cifru potrebne 4 binarne cifre i jedna
    dodatna pozicija za terminirajucu nulu.
    Prethodni izraz se moze zapisati kao sizeof(unsigned int)*2+1. */
-#define MAX_DUZINA sizeof(unsigned int)*2 +1
+#define MAKS_DUZINA sizeof(unsigned int)*2 +1
 
 /* Funkcija za neoznacen broj x formira nisku s koja sadrzi njegov
    heksadekadni zapis */
@@ -32,7 +32,7 @@ void prevod(unsigned int x, char s[])
     
     Indeks i oznacava poziciju na koju se smesta vrednost.
   ******************************************************************/
-  for (i = MAX_DUZINA - 2; i >= 0; i--) {
+  for (i = MAKS_DUZINA - 2; i >= 0; i--) {
     /* Vrednost izdvojene cifre */
     vrednost = x & maska;
 
@@ -54,13 +54,13 @@ void prevod(unsigned int x, char s[])
   }
 
   /* Upisuje se terminirajuca nula */
-  s[MAX_DUZINA - 1] = '\0';
+  s[MAKS_DUZINA - 1] = '\0';
 }
 
 int main()
 {
   unsigned int x;
-  char s[MAX_DUZINA];
+  char s[MAKS_DUZINA];
 
   /* Ucitava se broj sa ulaza */
   scanf("%u", &x);

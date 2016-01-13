@@ -2,7 +2,7 @@
 #include <string.h>
 
 /* Niska moze imati najvise 31 karaktera + 1 za terminalnu nulu */
-#define MAX_DIM 32
+#define MAKS_DIM 32
 
 /* Funkcija ispituje da li je zadata niska duzine n palindrom */
 int palindrom(char s[], int n)
@@ -20,7 +20,7 @@ int palindrom(char s[], int n)
 
 int main()
 {
-  char s[MAX_DIM];
+  char s[MAKS_DIM];
   int n;
 
   /* Ucitavanje niske sa standardnog ulaza */

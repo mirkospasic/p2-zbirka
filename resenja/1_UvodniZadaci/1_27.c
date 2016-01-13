@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAX_DIM 256
+#define MAKS_DIM 256
 
 /* Funkcija koja proverava da li su tri zadata broja uzastopni
    clanovi niza */
@@ -19,7 +19,7 @@ int tri_uzastopna_clana(int x, int y, int z, int a[], int n)
 
 int main()
 {
-  int x, y, z, a[MAX_DIM];
+  int x, y, z, a[MAKS_DIM];
   int n;
 
   /* Ucitavaju se tri cela broja za koje se ispituje da li su
@@ -28,14 +28,14 @@ int main()
   scanf("%d%d%d", &x, &y, &z);
 
   /* Sve dok se ne stigne do kraja ulaza, brojeve se ucitavaju u niz. 
-     Promenljiva i predstavlja indeks tekuceg broja. U niz se ne moze 
-     ucitati vise od MAX_DIM brojeva, pa se u slucaju da promenljiva
-     i dostigne vrednost MAX_DIM prekida unos novih brojeva. */
+     Promenljiva i predstavlja indeks tekuceg broja. U niz se ne moze
+     ucitati vise od MAKS_DIM brojeva, pa se u slucaju da promenljiva
+     i dostigne vrednost MAKS_DIM prekida unos novih brojeva. */
   printf("Unesite elemente niza:");
   int i = 0;
   while (scanf("%d", &a[i]) != EOF) {
     i++;
-    if (i == MAX_DIM)
+    if (i == MAKS_DIM)
       break;
   }
   n = i;

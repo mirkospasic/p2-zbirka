@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 50
+#define MAKS 50
 
 /* Funkcija ucitava elemenate matrice sa standardnog ulaza */
-void ucitaj_matricu(int m[][MAX], int v, int k)
+void ucitaj_matricu(int m[][MAKS], int v, int k)
 {
   int i, j;
   for (i = 0; i < v; i++) {
@@ -15,7 +15,7 @@ void ucitaj_matricu(int m[][MAX], int v, int k)
 
 /* Funkcija racuna broj negativnih elemenata u k-oj koloni matrice m
    koja ima v vrsta */
-int broj_negativnih_u_koloni(int m[][MAX], int v, int k)
+int broj_negativnih_u_koloni(int m[][MAKS], int v, int k)
 {
   int broj_negativnih = 0;
   int i;
@@ -26,15 +26,15 @@ int broj_negativnih_u_koloni(int m[][MAX], int v, int k)
   return broj_negativnih;
 }
 
-int max_indeks(int m[][MAX], int v, int k)
+int MAKS_indeks(int m[][MAKS], int v, int k)
 {
   int i, j;
   int broj_negativnih;
   /* Inicijalizujemo na nulu indeks kolone sa maksimalnim brojem
-     negativnih (max_indeks_kolone), kao i maksimalni broj negativnih
-     elemenata u nekoj koloni (max_broj_negativnih) */
-  int max_indeks_kolone = 0;
-  int max_broj_negativnih = 0;
+     negativnih (maks_indeks_kolone), kao i maksimalni broj negativnih
+     elemenata u nekoj koloni (maks_broj_negativnih) */
+  int maks_indeks_kolone = 0;
+  int maks_broj_negativnih = 0;
 
   for (j = 0; j < k; j++) {
     /* Racunamo broj negativnih u j-oj koloni */
@@ -42,27 +42,27 @@ int max_indeks(int m[][MAX], int v, int k)
     /* Ukoliko broj negativnih u j-toj koloni veci od trenutnog
        maksimalnog, azuriramo trenutni maksimalni broj negativnih
        kao i indeks kolone sa maksimalnim brojem negativnih */
-    if (max_broj_negativnih < broj_negativnih) {
-      max_indeks_kolone = j;
-      max_broj_negativnih = broj_negativnih;
+    if (maks_broj_negativnih < broj_negativnih) {
+      maks_indeks_kolone = j;
+      maks_broj_negativnih = broj_negativnih;
     }
   }
-  return max_indeks_kolone;
+  return maks_indeks_kolone;
 }
 
 int main()
 {
-  int m[MAX][MAX];
+  int m[MAKS][MAKS];
   int v, k;
 
   /* Ucitavanje dimenzije matrice */
   scanf("%d", &v);
-  if (v < 0 || v > MAX) {
+  if (v < 0 || v > MAKS) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
   scanf("%d", &k);
-  if (k < 0 || k > MAX) {
+  if (k < 0 || k > MAKS) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
@@ -71,6 +71,6 @@ int main()
 
   /* Pronalazenje kolone koja sadrzi najveci broj negativnih
      elemenata i ispisivanje trazenog rezultata */
-  printf("%d\n", max_indeks(m, v, k));
+  printf("%d\n", MAKS_indeks(m, v, k));
   exit(EXIT_SUCCESS);
 }

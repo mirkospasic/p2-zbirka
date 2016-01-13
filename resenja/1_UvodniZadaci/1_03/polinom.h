@@ -5,13 +5,13 @@
 #include <stdlib.h>
 
 /* Maksimalni stepen polinoma */
-#define MAX_STEPEN 20
+#define MAKS_STEPEN 20
 
 
 /* Polinomi se predstavljaju strukturom koja cuva koeficijente
    (koef[i] je koeficijent uz clan x^i) i stepen polinoma */
 typedef struct {
-  double koef[MAX_STEPEN + 1];
+  double koef[MAKS_STEPEN + 1];
   int stepen;
 } Polinom;
 

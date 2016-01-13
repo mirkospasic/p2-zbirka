@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define  MAX_DUZINA_PERMUTACIJE 15
+#define  MAKS_DUZINA_PERMUTACIJE 15
 
 /* Funkcija koja ispisuje elemente niza a duzine n */
-void ispisiNiz(int a[], int n)
+void ispisi_niz(int a[], int n)
 {
   int i;
 
@@ -42,7 +42,7 @@ void permutacija(int a[], int m, int n)
      premasila velicinu skupa, onda se svi brojevi vec nalaze u
      permutaciji i ispisuje se permutacija. */
   if (m > n) {
-    ispisiNiz(a, n);
+    ispisi_niz(a, n);
     return;
   }
 
@@ -71,14 +71,14 @@ void permutacija(int a[], int m, int n)
 int main(void)
 {
   int n;
-  int a[MAX_DUZINA_PERMUTACIJE+1];
+  int a[MAKS_DUZINA_PERMUTACIJE+1];
 
   /* Ucitava se broja n i provera se da li je u odgovarajucem opsegu */
   scanf("%d", &n);
-  if (n < 0 || n > MAX_DUZINA_PERMUTACIJE) {
+  if (n < 0 || n > MAKS_DUZINA_PERMUTACIJE) {
     fprintf(stderr,
             "Duzina permutacije mora biti broj iz intervala [0, %d]!\n",
-            MAX_DUZINA_PERMUTACIJE);
+            MAKS_DUZINA_PERMUTACIJE);
     exit(EXIT_FAILURE);
   }
 
