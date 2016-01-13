@@ -12,6 +12,7 @@ d) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
 e) dodati licencnu poruku na pocetak svake datoteke (smisliti poruku --- svi)
 
 3. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
+3a. Poruke tipa 'Nemoguce otvaranje fajla' i slicne treba da budu ispisivane uvek na stderr, a ne na stdout
 
 4. Pregledati konvencije imenovanja koje se koriste kroz zbirku i to usaglasiti (Svi) tj da li je kamilja notacija ili madjarska notacija (mislim da nije kamilja, tj da je ona, ako je ima, u manjini)
 
