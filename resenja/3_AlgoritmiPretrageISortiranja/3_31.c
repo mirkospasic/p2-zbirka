@@ -6,7 +6,7 @@
 #define MAX 100
 
 /* Funkcija poredjenja dva cela broja */
-int compare_int(const void *a, const void *b)
+int poredi_int(const void *a, const void *b)
 {
   /* Potrebno je konvertovati void pokazivace u int pokazivace koji
      se zatim dereferenciraju. Vraca se razlika dobijenih int-ova. */
@@ -26,14 +26,14 @@ int compare_int(const void *a, const void *b)
     return 0;
 }
 
-int compare_int_desc(const void *a, const void *b)
+int poredi_int_nerastuce(const void *a, const void *b)
 {
   /* Za obrnuti poredak treba samo oduzimati a od b */
   /* return *((int *)b) - *((int *)a); */
 
   /* Ili samo promeniti znak vrednosti koju koju vraca prethodna
      funkcija */
-  return -compare_int(a, b);
+  return -poredi_int(a, b);
 }
 
 int main()
@@ -54,7 +54,7 @@ int main()
     scanf("%d", &a[i]);
 
   /* Sortiranje niza celih brojeva */
-  qsort(a, n, sizeof(int), &compare_int);
+  qsort(a, n, sizeof(int), &poredi_int);
 
   /* Prikaz sortiranog niz */
   printf("Sortirani niz u rastucem poretku:\n");
@@ -69,7 +69,7 @@ int main()
 
   /* Binarna pretraga */
   printf("Binarna pretraga: \n");
-  p = bsearch(&x, a, n, sizeof(int), &compare_int);
+  p = bsearch(&x, a, n, sizeof(int), &poredi_int);
   if (p == NULL)
     printf("Elementa nema u nizu!\n");
   else
@@ -77,7 +77,7 @@ int main()
 
   /* Linearna pretraga */
   printf("Linearna pretraga (lfind): \n");
-  p = lfind(&x, a, &n, sizeof(int), &compare_int);
+  p = lfind(&x, a, &n, sizeof(int), &poredi_int);
   if (p == NULL)
     printf("Elementa nema u nizu!\n");
   else

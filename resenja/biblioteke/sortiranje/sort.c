@@ -156,7 +156,7 @@ void swap(int a[], int i, int j)
 
 void quick_sort(int a[], int l, int d)
 {
-  int i, pivot_position;
+  int i, pivot_pozicija;
 
   /* Izlaz iz rekurzije -- prazan niz */
   if (l >= d)
@@ -164,22 +164,22 @@ void quick_sort(int a[], int l, int d)
 
 
   /* Particionisanje niza. Svi elementi na pozicijama levo od
-     pivot_position (izuzev same pozicije l) su strogo manji od
+     pivot_pozicija (izuzev same pozicije l) su strogo manji od
      pivota. Kada se pronadje neki element manji od pivota, uvecava
-     se promenljiva pivot_position i na tu poziciju se premesta
-     nadjeni element. Na kraju ce pivot_position zaista biti pozicija 
+     se promenljiva pivot_pozicija i na tu poziciju se premesta
+     nadjeni element. Na kraju ce pivot_pozicija zaista biti pozicija 
      na koju treba smestiti pivot, jer ce svi elementi levo od te
      pozicije biti manji a desno biti veci ili jednaki od pivota. */
-  pivot_position = l;
+  pivot_pozicija = l;
   for (i = l + 1; i <= d; i++)
     if (a[i] < a[l])
-      swap(a, ++pivot_position, i);
+      swap(a, ++pivot_pozicija, i);
 
   /* Postavljanje pivota na svoje mesto */
-  swap(a, l, pivot_position);
+  swap(a, l, pivot_pozicija);
 
   /* Rekurzivno sortiranje elementa manjih od pivota */
-  quick_sort(a, l, pivot_position - 1);
+  quick_sort(a, l, pivot_pozicija - 1);
   /* Rekurzivno sortiranje elementa vecih od pivota */
-  quick_sort(a, pivot_position + 1, d);
+  quick_sort(a, pivot_pozicija + 1, d);
 }

@@ -6,7 +6,7 @@
 #define MAX 100
 
 /* Funkcija racuna broj delilaca broja x */
-int no_of_deviders(int x)
+int broj_delilaca(int x)
 {
   int i;
   int br;
@@ -34,12 +34,12 @@ int no_of_deviders(int x)
 }
 
 /* Funkcija poredjenja dva cela broja po broju delilaca */
-int compare_no_deviders(const void *a, const void *b)
+int poredi_po_broju_delilaca(const void *a, const void *b)
 {
   int ak = *(int *) a;
   int bk = *(int *) b;
-  int n_d_a = no_of_deviders(ak);
-  int n_d_b = no_of_deviders(bk);
+  int n_d_a = broj_delilaca(ak);
+  int n_d_b = broj_delilaca(bk);
 
   return n_d_a - n_d_b;
 }
@@ -62,7 +62,7 @@ int main()
     scanf("%d", &a[i]);
 
   /* Sortiranje niza celih brojeva prema broju delilaca */
-  qsort(a, n, sizeof(int), &compare_no_deviders);
+  qsort(a, n, sizeof(int), &poredi_po_broju_delilaca);
 
   /* Prikaz sortiranog niza */
   printf("Sortirani niz u rastucem poretku prema broju delilaca:\n");

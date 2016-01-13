@@ -107,7 +107,7 @@ int main(int argc, char **argv)
 {
   int a[MAX];
   int n, i, x;
-  struct timespec time1, time2, time3, time4, time5, time6;
+  struct timespec vreme1, vreme2, vreme3, vreme4, vreme5, vreme6;
   FILE *f;
   /* Provera argumenata komandne linije */
   if (argc != 3) {
@@ -136,29 +136,29 @@ int main(int argc, char **argv)
   /* Lineara pretraga */
   printf("Linearna pretraga:\n");
   /* Vreme proteklo od Nove godine 1970 */
-  clock_gettime(CLOCK_REALTIME, &time1);
+  clock_gettime(CLOCK_REALTIME, &vreme1);
   i = linearna_pretraga(a, n, x);
   /* Novo vreme i razlika sa prvim predstavlja vreme utroseno za
      linearnu pretragu */
-  clock_gettime(CLOCK_REALTIME, &time2);
+  clock_gettime(CLOCK_REALTIME, &vreme2);
   if (i == -1)
     printf("Element nije u nizu\n");
   else
     printf("Element je u nizu na poziciji %d\n", i);
   /* Binarna pretraga */
   printf("Binarna pretraga:\n");
-  clock_gettime(CLOCK_REALTIME, &time3);
+  clock_gettime(CLOCK_REALTIME, &vreme3);
   i = binarna_pretraga(a, n, x);
-  clock_gettime(CLOCK_REALTIME, &time4);
+  clock_gettime(CLOCK_REALTIME, &vreme4);
   if (i == -1)
     printf("Element nije u nizu\n");
   else
     printf("Element je u nizu na poziciji %d\n", i);
   /* Interpolaciona pretraga */
   printf("Interpolaciona pretraga:\n");
-  clock_gettime(CLOCK_REALTIME, &time5);
+  clock_gettime(CLOCK_REALTIME, &vreme5);
   i = interpolaciona_pretraga(a, n, x);
-  clock_gettime(CLOCK_REALTIME, &time6);
+  clock_gettime(CLOCK_REALTIME, &vreme6);
   if (i == -1)
     printf("Element nije u nizu\n");
   else
@@ -171,14 +171,14 @@ int main(int argc, char **argv)
 
   fprintf(f, "Dimenzija niza: %d\n", n);
   fprintf(f, "\tLinearna:%10ld ns\n",
-          (time2.tv_sec - time1.tv_sec) * 1000000000 +
-          time2.tv_nsec - time1.tv_nsec);
+          (vreme2.tv_sec - vreme1.tv_sec) * 1000000000 +
+          vreme2.tv_nsec - vreme1.tv_nsec);
   fprintf(f, "\tBinarna: %19ld ns\n",
-          (time4.tv_sec - time3.tv_sec) * 1000000000 +
-          time4.tv_nsec - time3.tv_nsec);
+          (vreme4.tv_sec - vreme3.tv_sec) * 1000000000 +
+          vreme4.tv_nsec - vreme3.tv_nsec);
   fprintf(f, "\tInterpolaciona: %12ld ns\n\n",
-          (time6.tv_sec - time5.tv_sec) * 1000000000 +
-          time6.tv_nsec - time5.tv_nsec);
+          (vreme6.tv_sec - vreme5.tv_sec) * 1000000000 +
+          vreme6.tv_nsec - vreme5.tv_nsec);
   /* Zatvaranje datoteke */
   fclose(f);
   exit(EXIT_SUCCESS);
