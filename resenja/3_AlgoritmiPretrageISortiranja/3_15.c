@@ -2,54 +2,43 @@
 #include "sort.h"
 #define MAX_DIM 256
 
-/* Funkcija za binarnu pretragu niza vraca 1 ako se element x nalazi
-   u nizu, a 0 inace. Pretpostavlja se da je niz sortiran u rastucem
-   poretku */
-int binarna_pretraga(int a[], int n, int x)
+/* Funkcija za odredjivanje onog elementa sortiranog niza koji se
+   najvise puta pojavio u tom nizu */
+int najvise_puta(int a[], int n)
 {
-  int levi = 0, desni = n - 1, srednji;
-
-  while (levi <= desni) {
-    srednji = (levi + desni) / 2;
-    if (a[srednji] == x)
-      return 1;
-    else if (a[srednji] > x)
-      desni = srednji - 1;
-    else if (a[srednji] < x)
-      levi = srednji + 1;
+  int i, j, br_pojava, i_max_pojava = -1, max_br_pojava = -1;
+  /* Za i-ti element izracunava se koliko puta se pojavio u nizu */
+  for (i = 0; i < n; i = j) {
+    br_pojava = 1;
+    for (j = i + 1; j < n && a[i] == a[j]; j++)
+      br_pojava++;
+    /* Ispitivanje da li se do tog trenutka i-ti element pojavio
+       najvise puta u nizu */
+    if (br_pojava > max_br_pojava) {
+      max_br_pojava = br_pojava;
+      i_max_pojava = i;
+    }
   }
-  return 0;
+  /* Vraca se element koji se najvise puta pojavio u nizu */
+  return a[i_max_pojava];
 }
 
 int main()
 {
-  int a[MAX_DIM], n = 0, zbir, i;
+  int a[MAX_DIM], i;
 
-  /* Ucitava se trazeni zbir */
-  printf("Unesite trazeni zbir: ");
-  scanf("%d", &zbir);
-
-  /* Ucitavaju se elementi niza sve do kraja ulaza */
+  /* Ucitavanje elemenata niza sve do kraja ulaza */
   i = 0;
-  printf("Unesite elemente niza: ");
   while (scanf("%d", &a[i]) != EOF)
     i++;
-  n = i;
 
   /* Za sortiranje niza moze se koristiti bilo koja od funkcija
      sortiranja iz sort.h. Ilustracije radi, u ovom zadatku koristi
-     se quick sort. */
-  quick_sort(a, 0, n - 1);
+     se merge sort. */
+  merge_sort(a, 0, i - 1);
 
-  for (i = 0; i < n; i++)
-    /* Za i-ti element niza binarno se pretrazuje da li se u ostatku
-       niza nalazi element koji sabran sa njim ima ucitanu vrednost
-       zbira */
-    if (binarna_pretraga(a + i + 1, n - i - 1, zbir - a[i])) {
-      printf("da\n");
-      return 0;
-    }
-  printf("ne\n");
+  /* Odredjuje se broj koji se najvise puta pojavio u nizu */
+  printf("%d\n", najvise_puta(a, i));
 
   return 0;
 }

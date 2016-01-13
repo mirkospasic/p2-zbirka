@@ -1,94 +1,62 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#define MAX_DIM 256
 
-int main(int argc, char *argv[])
+int merge(int *niz1, int dim1, int *niz2, int dim2, int *niz3,
+          int dim3)
 {
-  FILE *fin1 = NULL, *fin2 = NULL;
-  FILE *fout = NULL;
-  char ime1[11], ime2[11];
-  char prezime1[16], prezime2[16];
-  int kraj1 = 0, kraj2 = 0;
+  int i = 0, j = 0, k = 0;
+  /* U slucaju da je dimenzija treceg niza manja od neophodne,
+     funkcija vraca -1 */
+  if (dim3 < dim1 + dim2)
+    return -1;
 
-  /* Ako nema dovoljno arguemenata komandne linije */
-  if (argc < 3) {
-    fprintf(stderr, "koriscenje programa: %s fajl1 fajl2\n", argv[0]);
-    exit(EXIT_FAILURE);
+  /* Vrsi se ucesljavanje nizova sve dok se ne dodje do kraja jednog
+     od njih */
+  while (i < dim1 && j < dim2) {
+    if (niz1[i] < niz2[j])
+      niz3[k++] = niz1[i++];
+    else
+      niz3[k++] = niz2[j++];
+  }
+  /* Ostatak prvog niza prepisujemo u treci */
+  while (i < dim1)
+    niz3[k++] = niz1[i++];
+
+  /* Ostatak drugog niza prepisujemo u treci */
+  while (j < dim2)
+    niz3[k++] = niz2[j++];
+  return dim1 + dim2;
+}
+
+int main()
+{
+  int niz1[MAX_DIM], niz2[MAX_DIM], niz3[2 * MAX_DIM];
+  int i = 0, j = 0, k, dim3;
+
+  /* Ucitavaju se nizovi sa ulaza sve dok se ne unese nula.
+     Pretpostavka je da na ulazu nece biti vise od MAX_DIM elemenata */
+  printf("Unesite elemente prvog niza: ");
+  while (1) {
+    scanf("%d", &niz1[i]);
+    if (niz1[i] == 0)
+      break;
+    i++;
+  }
+  printf("Unesite elemente drugog niza: ");
+  while (1) {
+    scanf("%d", &niz2[j]);
+    if (niz2[j] == 0)
+      break;
+    j++;
   }
 
-  /* Otvaranje datoteke zadate prvim argumentom komandne linije */
-  fin1 = fopen(argv[1], "r");
-  if (fin1 == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n", argv[1]);
-    exit(EXIT_FAILURE);
-  }
+  /* Poziv trazene funkcije */
+  dim3 = merge(niz1, i, niz2, j, niz3, 2 * MAX_DIM);
 
-  /* Otvaranje datoteke zadate drugim argumentom komandne linije */
-  fin2 = fopen(argv[2], "r");
-  if (fin2 == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n", argv[2]);
-    exit(EXIT_FAILURE);
-  }
+  /* Ispis niza */
+  for (k = 0; k < dim3; k++)
+    printf("%d ", niz3[k]);
+  printf("\n");
 
-  /* Otvaranje datoteke za upis rezultata */
-  fout = fopen("ceo-tok.txt", "w");
-  if (fout == NULL) {
-    fprintf(stderr,
-            "Neuspesno otvaranje datoteke ceo-tok.txt za pisanje\n");
-    exit(EXIT_FAILURE);
-  }
-
-  /* Citanje narednog studenta iz prve datoteke */
-  if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
-    kraj1 = 1;
-
-  /* Citanje narednog studenta iz druge datoteke */
-  if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)
-    kraj2 = 1;
-
-  /* Sve dok nije dostignut kraj neke datoteke */
-  while (!kraj1 && !kraj2) {
-    int tmp = strcmp(ime1, ime2);
-    if (tmp < 0 || (tmp == 0 && strcmp(prezime1, prezime2) < 0)) {
-      /* Ime i prezime iz prve datoteke je leksikografski ranije, i
-         biva upisano u izlaznu datoteku */
-      fprintf(fout, "%s %s\n", ime1, prezime1);
-      /* Citanje narednog studenta iz prve datoteke */
-      if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
-        kraj1 = 1;
-    } else {
-      /* Ime i prezime iz druge datoteke je leksikografski ranije, i
-         biva upisano u izlaznu datoteku */
-      fprintf(fout, "%s %s\n", ime2, prezime2);
-      /* Citanje narednog studenta iz druge datoteke */
-      if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)
-        kraj2 = 1;
-    }
-  }
-
-  /* Ako se iz prethodne petlje izaslo zato sto je dostignut kraj
-     druge datoteke, onda ima jos studenata u prvoj datoteci, koje
-     treba prepisati u izlaznu, redom, jer su vec sortirani po imenu. 
-   */
-  while (!kraj1) {
-    fprintf(fout, "%s %s\n", ime1, prezime1);
-    if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
-      kraj1 = 1;
-  }
-
-  /* Ako se iz prve petlje izaslo zato sto je dostignut kraj prve
-     datoteke, onda ima jos studenata u drugoj datoteci, koje treba
-     prepisati u izlaznu, redom, jer su vec sortirani po imenu. */
-  while (!kraj2) {
-    fprintf(fout, "%s %s\n", ime2, prezime2);
-    if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)
-      kraj2 = 1;
-  }
-
-  /* Zatvaranje datoteka */
-  fclose(fin1);
-  fclose(fin2);
-  fclose(fout);
-
-  exit(EXIT_SUCCESS);
+  return 0;
 }

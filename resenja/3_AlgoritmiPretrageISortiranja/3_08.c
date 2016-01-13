@@ -3,7 +3,7 @@
 
 #define MAX 256
 
-int prvi_manji_od_nule(int niz[], int n)
+int prvi_veci_od_nule(int niz[], int n)
 {
   /* Granice pretrage */
   int l = 0, d = n - 1;
@@ -12,15 +12,15 @@ int prvi_manji_od_nule(int niz[], int n)
   while (l <= d) {
     /* Racuna se sredisnja pozicija */
     s = (l + d) / 2;
-    /* Ako je broj na toj poziciji manji od nule, a eventualni njegov 
-       prethodnik veci ili jednak nuli, pretraga se zavrsava */
-    if (niz[s] < 0 && ((s > 0 && niz[s - 1] >= 0) || s == 0))
+    /* Ako je broj na toj poziciji veci od nule, a eventualni njegov
+       prethodnik manji ili jednak nuli, pretraga je zavrsena */
+    if (niz[s] > 0 && ((s > 0 && niz[s - 1] <= 0) || s == 0))
       return s;
-    /* Ako je broj veci ili jednak nuli, pretrazuje se desna polovina
-       niza */
-    if (niz[s] >= 0)
+    /* U slucaju broja manjeg ili jednakog nuli, pretrazuje se desna
+       polovina niza */
+    if (niz[s] <= 0)
       l = s + 1;
-    /* A inace leva */
+    /* A inace, leva polovina */
     else
       d = s - 1;
   }
@@ -37,7 +37,7 @@ int main()
     n++;
 
   /* Stampanje rezultata */
-  printf("%d\n", prvi_manji_od_nule(niz, n));
+  printf("%d\n", prvi_veci_od_nule(niz, n));
 
   return 0;
 }

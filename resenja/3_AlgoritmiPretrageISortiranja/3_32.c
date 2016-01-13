@@ -1,107 +1,74 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <math.h>
 #include <search.h>
 
-#define MAX_NISKI 1000
-#define MAX_DUZINA 31
+#define MAX 100
 
-/******************************************************************
-  Niz nizova karaktera ovog potpisa
-  char niske[3][4];
-  se moze graficki predstaviti ovako:
-  ----------------------------------------------------
-  | a | b | c |\0 || d | e | \0|   || f | g | h | \0||
-  ----------------------------------------------------
-  Dakle kao tri reci (abc, de, fgh), nadovezane jedna na drugu. Za
-  svaku je rezervisano po 4 karaktera ukljucujuci \0. Druga rec sa
-  nalazi na adresi koja je za 4 veca od prve reci, a za 4 manja od
-  adrese na kojoj se nalazi treca rec. Adresa i-te reci je niske[i]
-  i ona je tipa char*.
-  
-  Kako pokazivaci a i b u sledecoj funkciji sadrze adrese elemenata
-  koji trebaju biti uporedjeni, (npr. pri porecenju prve i poslednje
-  reci, pokazivac a ce pokazivati na slovo 'a', a pokazivac b na
-  slovo 'f') treba ih kastovati na char*, i pozvati funkciju strcmp
-  nad njima.
-*******************************************************************/
-int poredi_leksikografski(const void *a, const void *b)
+/* Funkcija racuna broj delilaca broja x */
+int no_of_deviders(int x)
 {
-  return strcmp((char *) a, (char *) b);
+  int i;
+  int br;
+
+  /* Negativni brojevi imaju isti broj delilaca kao i pozitivni */
+  if (x < 0)
+    x = -x;
+  if (x == 0)
+    return 0;
+  if (x == 1)
+    return 1;
+  /* Svaki broj veci od 1 ima bar 2 delioca, (1 i samog sebe) */
+  br = 2;
+  for (i = 2; i < sqrt(x); i++)
+    if (x % i == 0)
+      /* Ako i deli x onda su delioci: i, x/i */
+      br += 2;
+  /* Ako je broj x bas kvadrat, onda se iz petlje izaslo kada je
+     promenljiva i bila bas jednaka korenu od x, i tada broj x ima
+     jos jednog delioca */
+  if (i * i == x)
+    br++;
+
+  return br;
 }
 
-/* Funkcija slicna prethodnoj, osim sto elemente ne uporedjuje
-   leksikografski, vec po duzini */
-int poredi_duzine(const void *a, const void *b)
+/* Funkcija poredjenja dva cela broja po broju delilaca */
+int compare_no_deviders(const void *a, const void *b)
 {
-  return strlen((char *) a) - strlen((char *) b);
+  int ak = *(int *) a;
+  int bk = *(int *) b;
+  int n_d_a = no_of_deviders(ak);
+  int n_d_b = no_of_deviders(bk);
+
+  return n_d_a - n_d_b;
 }
 
 int main()
 {
-  int i;
   size_t n;
-  FILE *fp = NULL;
-  char niske[MAX_NISKI][MAX_DUZINA];
-  char *p = NULL;
-  char x[MAX_DUZINA];
+  int i;
+  int a[MAX];
 
-  /* Otvaranje datoteke */
-  if ((fp = fopen("niske.txt", "r")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke niske.txt.\n");
-    exit(EXIT_FAILURE);
-  }
+  /* Unos dimenzije */
+  printf("Uneti dimenziju niza: ");
+  scanf("%ld", &n);
+  if (n > MAX)
+    n = MAX;
 
-  /* Citanje sadrzaja datoteke */
-  for (i = 0; fscanf(fp, "%s", niske[i]) != EOF; i++);
-
-  /* Zatvaranje datoteke */
-  fclose(fp);
-  n = i;
-
-  /* Sortiranje niski leksikografski. Biblioteckoj funkciji qsort
-     prosledjuje se funkcija kojom se zadaje kriterijum poredjenja 2
-     niske po duzini */
-  qsort(niske, n, MAX_DUZINA * sizeof(char), &poredi_leksikografski);
-
-  printf("Leksikografski sortirane niske:\n");
+  /* Unos elementa niza */
+  printf("Uneti elemente niza:\n");
   for (i = 0; i < n; i++)
-    printf("%s ", niske[i]);
-  printf("\n");
+    scanf("%d", &a[i]);
 
-  /* Unos trazene niske */
-  printf("Uneti trazenu nisku: ");
-  scanf("%s", x);
+  /* Sortiranje niza celih brojeva prema broju delilaca */
+  qsort(a, n, sizeof(int), &compare_no_deviders);
 
-  /* Binarna pretraga */
-  /* Prosledjuje se pokazivac na funkciju poredi_leksikografski jer
-     je niz vec sortiran leksikografski. */
-  p = bsearch(&x, niske, n, MAX_DUZINA * sizeof(char),
-              &poredi_leksikografski);
-
-  if (p != NULL)
-    printf("Niska \"%s\" je pronadjena u nizu na poziciji %ld\n",
-           p, (p - (char *) niske) / MAX_DUZINA);
-  else
-    printf("Niska nije pronadjena u nizu\n");
-
-  /* Sortiranje po duzini */
-  qsort(niske, n, MAX_DUZINA * sizeof(char), &poredi_duzine);
-
-  printf("Niske sortirane po duzini:\n");
+  /* Prikaz sortiranog niza */
+  printf("Sortirani niz u rastucem poretku prema broju delilaca:\n");
   for (i = 0; i < n; i++)
-    printf("%s ", niske[i]);
-  printf("\n");
+    printf("%d ", a[i]);
+  putchar('\n');
 
-  /* Linearna pretraga */
-  p = lfind(&x, niske, &n, MAX_DUZINA * sizeof(char),
-            &poredi_leksikografski);
-
-  if (p != NULL)
-    printf("Niska \"%s\" je pronadjena u nizu na poziciji %ld\n",
-           p, (p - (char *) niske) / MAX_DUZINA);
-  else
-    printf("Niska nije pronadjena u nizu\n");
-
-  exit(EXIT_SUCCESS);
+  return 0;
 }

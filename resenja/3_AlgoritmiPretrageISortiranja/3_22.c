@@ -1,150 +1,111 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
-#define MAX_ARTIKALA 100000
+#define MAX_BR_RECI 128
+#define MAX_DUZINA_RECI 32
 
-/* Struktura koja predstavlja jedan artikal */
-typedef struct art {
-  long kod;
-  char naziv[20];
-  char proizvodjac[20];
-  float cena;
-} Artikal;
-
-/* Funkcija koja u nizu artikala binarnom pretragom nalazi onaj sa
-   trazenim bar kodom */
-int binarna_pretraga(Artikal a[], int n, long x)
+/* Funkcija koja izracunava broj suglasnika u reci */
+int broj_suglasnika(char s[])
 {
-  int levi = 0;
-  int desni = n - 1;
-
-  /* Dokle god je indeks levi levo od indeksa desni */
-  while (levi <= desni) {
-    /* Racuna se sredisnji indeks */
-    int srednji = (levi + desni) / 2;
-    /* Ako je sredisnji element veci od trazenog, tada se trazeni
-       mora nalaziti u levoj polovini niza */
-    if (x < a[srednji].kod)
-      desni = srednji - 1;
-    /* Ako je sredisnji element manji od trazenog, tada se trazeni
-       mora nalaziti u desnoj polovini niza */
-    else if (x > a[srednji].kod)
-      levi = srednji + 1;
-    else
-      /* Ako je sredisnji element jednak trazenom, tada je artikal sa 
-         bar kodom x pronadjen na poziciji srednji */
-      return srednji;
+  char c;
+  int i;
+  int suglasnici = 0;
+  /* Prolaz karakter po karakter kroz zadatu nisku */
+  for (i = 0; s[i]; i++) {
+    /* Ako je u pitanju slovo, konvertuje se u veliko da bi bio
+       pokriven slucaj i malih i velikih suglasnika. */
+    if (isalpha(s[i])) {
+      c = toupper(s[i]);
+      /* Ukoliko slovo nije samoglasnik uvecava se broj suglasnika. */
+      if (c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U')
+        suglasnici++;
+    }
   }
-  /* Ako nije pronadjen artikal za trazenim bar kodom, vraca se -1 */
-  return -1;
+  /* Vraca se izracunata vrednost */
+  return suglasnici;
 }
 
-/* Funkcija koja sortira niz artikala po bar kodovima rastuce */
-void selection_sort(Artikal a[], int n)
+/* Funkcija koja sortira reci po zadatom kriterijumu. Informacija o
+   duzini reci se mora proslediti zbog pravilnog upravljanja
+   memorijom */
+void sortiraj_reci(char reci[][MAX_DUZINA_RECI], int n)
 {
-  int i, j;
-  int min;
-  Artikal pom;
-
+  int min, i, j, broj_suglasnika_j, broj_suglasnika_min,
+      duzina_j, duzina_min;
+  char tmp[MAX_DUZINA_RECI];
   for (i = 0; i < n - 1; i++) {
     min = i;
-    for (j = i + 1; j < n; j++)
-      if (a[j].kod < a[min].kod)
+    for (j = i; j < n; j++) {
+      /* Prvo se uporedjuje broj suglasnika */
+      broj_suglasnika_j = broj_suglasnika(reci[j]);
+      broj_suglasnika_min = broj_suglasnika(reci[min]);
+      if (broj_suglasnika_j < broj_suglasnika_min)
         min = j;
+      else if (broj_suglasnika_j == broj_suglasnika_min) {
+        /* Zatim, recima koje imaju isti broj suglasnika uporedjuju
+           se duzine */
+        duzina_j = strlen(reci[j]);
+        duzina_min = strlen(reci[min]);
+
+        if (duzina_j < duzina_min)
+          min = j;
+        else
+          /* Ako reci imaju i isti broj suglasnika i iste duzine,
+             uporedjuju se leksikografski */
+        if (duzina_j == duzina_min && strcmp(reci[j], reci[min]) < 0)
+          min = j;
+      }
+    }
     if (min != i) {
-      pom = a[i];
-      a[i] = a[min];
-      a[min] = pom;
+      strcpy(tmp, reci[min]);
+      strcpy(reci[min], reci[i]);
+      strcpy(reci[i], tmp);
     }
   }
 }
 
 int main()
 {
-  Artikal asortiman[MAX_ARTIKALA];
-  long kod;
-  int i, n;
-  float racun;
+  FILE *ulaz;
+  int i = 0, n;
 
-  FILE *fp = NULL;
+  /* Niz u koji ce biti smestane reci. Prvi broj oznacava broj reci,
+     a drugi maksimalnu duzinu pojedinacne reci */
+  char reci[MAX_BR_RECI][MAX_DUZINA_RECI];
 
-  /* Otvaranje datoteke */
-  if ((fp = fopen("artikli.txt", "r")) == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje datoteke artikli.txt.\n");
-    exit(EXIT_FAILURE);
+  /* Otvaranje datoteke niske.txt za citanje */
+  ulaz = fopen("niske.txt", "r");
+  if (ulaz == NULL) {
+    fprintf(stderr,
+            "Greska prilikom otvaranja datoteke niske.txt!\n");
+    return 0;
   }
 
-  /* Ucitavanje artikala */
-  i = 0;
-  while (fscanf(fp, "%ld %s %s %f", &asortiman[i].kod,
-                asortiman[i].naziv, asortiman[i].proizvodjac,
-                &asortiman[i].cena) == 4)
+  /* Sve dok se moze procitati sledeca rec */
+  while (fscanf(ulaz, "%s", reci[i]) != EOF) {
+    /* Proverava se da li ucitan maksimalan broj reci, i ako jeste,
+       prekida se ucitavanje */
+    if (i == MAX_BR_RECI)
+      break;
+    /* Priprema brojaca za narednu iteraciju */
     i++;
+  }
+
+  /* n je duzina niza reci i predstavlja poslednju vrednost
+     koriscenog brojaca */
+  n = i;
+  /* Poziv funkcije za sortiranje reci */
+  sortiraj_reci(reci, n);
+
+  /* Ispis sortiranog niza reci */
+  for (i = 0; i < n; i++) {
+    printf("%s ", reci[i]);
+  }
+  printf("\n");
 
   /* Zatvaranje datoteke */
-  fclose(fp);
+  fclose(ulaz);
 
-  n = i;
-
-  /* Sortira se celokupan asortiman prodavnice prema kodovima jer ce
-     pri kucanju racuna prodavac unositi kod artikla. Prilikom
-     kucanja svakog racuna pretrazuje se asortiman, da bi se utvrdila 
-     cena artikla. Kucanje racuna obuhvata vise pretraga asortimana i 
-     cilj je da ta operacija bude sto efikasnija. Zato se koristi
-     algoritam binarne pretrage prilikom pretrazivanja po kodu
-     artikla. Iz tog razloga, potrebno je da asortiman bude sortiran
-     po kodovima i to ce biti uradjeno primenom selection sort
-     algoritma. Sortiranje se vrsi samo jednom na pocetku, ali se
-     zato posle artikli mogu brzo pretrazivati prilikom kucanja
-     proizvoljno puno racuna. Vreme koje se utrosi na sortiranje na
-     pocetku izvrsavanja programa, kasnije se isplati jer se za
-     brojna trazenja artikla umesto linearne moze koristiti
-     efikasnija binarna pretraga. */
-  selection_sort(asortiman, n);
-
-  /* Ispis stanja u prodavnici */
-  printf
-      ("Asortiman:\nKOD                Naziv artikla     Ime proizvodjaca       Cena\n");
-  for (i = 0; i < n; i++)
-    printf("%10ld %20s %20s %12.2f\n", asortiman[i].kod,
-           asortiman[i].naziv, asortiman[i].proizvodjac,
-           asortiman[i].cena);
-
-  kod = 0;
-  while (1) {
-    printf("---------------------------\n");
-    printf("- Za kraj za kraj rada kase, pritisnite CTRL+D!\n");
-    printf("- Za nov racun unesite kod artikla!\n\n");
-    /* Unos bar koda provog artikla sledeceg kupca */
-    if (scanf("%ld", &kod) == EOF)
-      break;
-    /* Trenutni racun novog kupca */
-    racun = 0;
-    /* Za sve artikle trenutnog kupca */
-    while (1) {
-      /* Vrsi se njihov pronalazak u nizu */
-      if ((i = binarna_pretraga(asortiman, n, kod)) == -1) {
-        printf("\tGRESKA: Ne postoji proizvod sa trazenim kodom!\n");
-      } else {
-        printf("\tTrazili ste:\t%s %s %12.2f\n",
-               asortiman[i].naziv, asortiman[i].proizvodjac,
-               asortiman[i].cena);
-        /* I dodavanje na ukupan racun */
-        racun += asortiman[i].cena;
-      }
-      /* Unos bar koda sledeceg artikla trenutnog kupca, ili 0 ako on 
-         nema vise artikla */
-      printf("Unesite kod artikla [ili 0 za prekid]: \t");
-      scanf("%ld", &kod);
-      if (kod == 0)
-        break;
-    }
-    /* Stampanje ukupnog racuna trenutnog kupca */
-    printf("\n\tUKUPNO: %.2lf dinara.\n\n", racun);
-  }
-
-  printf("Kraj rada kase!\n");
-
-  exit(EXIT_SUCCESS);
+  return 0;
 }

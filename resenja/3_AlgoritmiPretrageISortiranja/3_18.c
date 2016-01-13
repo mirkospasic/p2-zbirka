@@ -1,157 +1,94 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
 #include <stdlib.h>
-
-#define MAX_BR_TACAKA 128
-
-/* Struktura koja reprezentuje koordinate tacke */
-typedef struct Tacka {
-  int x;
-  int y;
-} Tacka;
-
-/* Funkcija racuna rastojanje zadate tacke od koordinatnog pocetka
-   (0,0) */
-float rastojanje(Tacka A)
-{
-  return sqrt(A.x * A.x + A.y * A.y);
-}
-
-/* Funkcija koja sortira niz tacaka po rastojanju od koordinatnog
-   pocetka */
-void sortiraj_po_rastojanju(Tacka t[], int n)
-{
-  int min, i, j;
-  Tacka tmp;
-
-  for (i = 0; i < n - 1; i++) {
-    min = i;
-    for (j = i + 1; j < n; j++) {
-      if (rastojanje(t[j]) < rastojanje(t[min])) {
-        min = j;
-      }
-    }
-    if (min != i) {
-      tmp = t[i];
-      t[i] = t[min];
-      t[min] = tmp;
-    }
-  }
-}
-
-/* Funkcija koja sortira niz tacaka po vrednosti x koordinate */
-void sortiraj_po_x(Tacka t[], int n)
-{
-  int min, i, j;
-  Tacka tmp;
-
-  for (i = 0; i < n - 1; i++) {
-    min = i;
-    for (j = i + 1; j < n; j++) {
-      if (abs(t[j].x) < abs(t[min].x)) {
-        min = j;
-      }
-    }
-    if (min != i) {
-      tmp = t[i];
-      t[i] = t[min];
-      t[min] = tmp;
-    }
-  }
-}
-
-/* Funkcija koja sortira niz tacaka po vrednosti y koordinate */
-void sortiraj_po_y(Tacka t[], int n)
-{
-  int min, i, j;
-  Tacka tmp;
-
-  for (i = 0; i < n - 1; i++) {
-    min = i;
-    for (j = i + 1; j < n; j++) {
-      if (abs(t[j].y) < abs(t[min].y)) {
-        min = j;
-      }
-    }
-    if (min != i) {
-      tmp = t[i];
-      t[i] = t[min];
-      t[min] = tmp;
-    }
-  }
-}
+#include <string.h>
 
 int main(int argc, char *argv[])
 {
-  FILE *ulaz;
-  FILE *izlaz;
-  Tacka tacke[MAX_BR_TACAKA];
-  int i, n;
+  FILE *fin1 = NULL, *fin2 = NULL;
+  FILE *fout = NULL;
+  char ime1[11], ime2[11];
+  char prezime1[16], prezime2[16];
+  int kraj1 = 0, kraj2 = 0;
 
-  /* Proveravanje broja argumenata komandne linije: ocekuje se ime
-     izvrsnog programa, opcija, ime ulazne datoteke i ime izlazne
-     datoteke, tj. 4 argumenta */
-  if (argc != 4) {
+  /* Ako nema dovoljno arguemenata komandne linije */
+  if (argc < 3) {
+    fprintf(stderr, "koriscenje programa: %s fajl1 fajl2\n", argv[0]);
+    exit(EXIT_FAILURE);
+  }
+
+  /* Otvaranje datoteke zadate prvim argumentom komandne linije */
+  fin1 = fopen(argv[1], "r");
+  if (fin1 == NULL) {
+    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n", argv[1]);
+    exit(EXIT_FAILURE);
+  }
+
+  /* Otvaranje datoteke zadate drugim argumentom komandne linije */
+  fin2 = fopen(argv[2], "r");
+  if (fin2 == NULL) {
+    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n", argv[2]);
+    exit(EXIT_FAILURE);
+  }
+
+  /* Otvaranje datoteke za upis rezultata */
+  fout = fopen("ceo-tok.txt", "w");
+  if (fout == NULL) {
     fprintf(stderr,
-            "Program se poziva sa: ./a.out opcija ulaz izlaz!\n");
-    return 0;
+            "Neuspesno otvaranje datoteke ceo-tok.txt za pisanje\n");
+    exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke u kojoj su zadate tacke */
-  ulaz = fopen(argv[2], "r");
-  if (ulaz == NULL) {
-    fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
-            argv[2]);
-    return 0;
+  /* Citanje narednog studenta iz prve datoteke */
+  if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
+    kraj1 = 1;
+
+  /* Citanje narednog studenta iz druge datoteke */
+  if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)
+    kraj2 = 1;
+
+  /* Sve dok nije dostignut kraj neke datoteke */
+  while (!kraj1 && !kraj2) {
+    int tmp = strcmp(ime1, ime2);
+    if (tmp < 0 || (tmp == 0 && strcmp(prezime1, prezime2) < 0)) {
+      /* Ime i prezime iz prve datoteke je leksikografski ranije, i
+         biva upisano u izlaznu datoteku */
+      fprintf(fout, "%s %s\n", ime1, prezime1);
+      /* Citanje narednog studenta iz prve datoteke */
+      if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
+        kraj1 = 1;
+    } else {
+      /* Ime i prezime iz druge datoteke je leksikografski ranije, i
+         biva upisano u izlaznu datoteku */
+      fprintf(fout, "%s %s\n", ime2, prezime2);
+      /* Citanje narednog studenta iz druge datoteke */
+      if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)
+        kraj2 = 1;
+    }
   }
 
-  /* Otvaranje datoteke u koju treba upisati rezultat */
-  izlaz = fopen(argv[3], "w");
-  if (izlaz == NULL) {
-    fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
-            argv[3]);
-    return 0;
+  /* Ako se iz prethodne petlje izaslo zato sto je dostignut kraj
+     druge datoteke, onda ima jos studenata u prvoj datoteci, koje
+     treba prepisati u izlaznu, redom, jer su vec sortirani po imenu. 
+   */
+  while (!kraj1) {
+    fprintf(fout, "%s %s\n", ime1, prezime1);
+    if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
+      kraj1 = 1;
   }
 
-  /* Sve dok se ne stigne do kraja ulazne datoteke, ucitavaju se
-     koordinate tacaka i smestaju na odgovarajuce pozicije odredjene
-     brojacem i. */
-  i = 0;
-  while (fscanf(ulaz, "%d %d", &tacke[i].x, &tacke[i].y) != EOF) {
-    i++;
+  /* Ako se iz prve petlje izaslo zato sto je dostignut kraj prve
+     datoteke, onda ima jos studenata u drugoj datoteci, koje treba
+     prepisati u izlaznu, redom, jer su vec sortirani po imenu. */
+  while (!kraj2) {
+    fprintf(fout, "%s %s\n", ime2, prezime2);
+    if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)
+      kraj2 = 1;
   }
 
-  /* Ukupan broj procitanih tacaka */
-  n = i;
+  /* Zatvaranje datoteka */
+  fclose(fin1);
+  fclose(fin2);
+  fclose(fout);
 
-  /* Analizira se prosledjena opcija. Moguce vrednosti za argv[1] su
-     "-x" ili "-y" ili "-o", pa je argv[1][0] sigurno crtica
-     (karakter -), a karakter argv[1][1] odredjuje kriterijum
-     sortiranja */
-  switch (argv[1][1]) {
-  case 'x':
-    /* Sortiranje po vrednosti x koordinate */
-    sortiraj_po_x(tacke, n);
-    break;
-  case 'y':
-    /* Sortiranje po vrednosti y koordinate */
-    sortiraj_po_y(tacke, n);
-    break;
-  case 'o':
-    /* Sortiranje po udaljenosti od koorinatnog pocetka */
-    sortiraj_po_rastojanju(tacke, n);
-    break;
-  }
-
-  /* Upisivanje dobijenog niza u izlaznu datoteku */
-  for (i = 0; i < n; i++) {
-    fprintf(izlaz, "%d %d\n", tacke[i].x, tacke[i].y);
-  }
-
-  /* Zatvaranje otvorenih datoteka */
-  fclose(ulaz);
-  fclose(izlaz);
-
-  return 0;
+  exit(EXIT_SUCCESS);
 }

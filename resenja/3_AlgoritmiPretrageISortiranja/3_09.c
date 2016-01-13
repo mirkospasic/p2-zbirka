@@ -1,54 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-unsigned int logaritam_a(unsigned int x)
-{
-  /* Izlaz iz rekurzije */
-  if (x == 1)
-    return 0;
-  /* Rekurzivni korak */
-  return 1 + logaritam_a(x >> 1);
-}
+#define MAX 256
 
-unsigned int logaritam_b(unsigned int x)
+int prvi_manji_od_nule(int niz[], int n)
 {
-  /* Binarnom pretragom se trazi jedinica u binarnom zapisu broja x
-     najvece vaznosti, tj. najlevlja. Pretragu se vrsi od pozicije 0
-     do 31 */
-  int d = 0, l = sizeof(unsigned int) * 8 - 1;
+  /* Granice pretrage */
+  int l = 0, d = n - 1;
   int s;
-  /* Sve dok je desna granica pretrage desnije od leve */
-  while (d <= l) {
+  /* Sve dok je leva manja od desne granice */
+  while (l <= d) {
     /* Racuna se sredisnja pozicija */
     s = (l + d) / 2;
-    /* Proverava se da li je na toj poziciji trazena jedinica */
-    if ((1 << s) <= x && (1 << (s + 1)) > x)
+    /* Ako je broj na toj poziciji manji od nule, a eventualni njegov 
+       prethodnik veci ili jednak nuli, pretraga se zavrsava */
+    if (niz[s] < 0 && ((s > 0 && niz[s - 1] >= 0) || s == 0))
       return s;
-    /* Pretraga desne polovine binarnog zapisa */
-    if ((1 << s) > x)
-      l = s - 1;
-    /* Pretraga leve polovine binarnog zapisa */
+    /* Ako je broj veci ili jednak nuli, pretrazuje se desna polovina
+       niza */
+    if (niz[s] >= 0)
+      l = s + 1;
+    /* A inace leva */
     else
-      d = s + 1;
+      d = s - 1;
   }
-  return s;
+  return -1;
 }
 
 int main()
 {
-  unsigned int x;
+  int niz[MAX];
+  int n = 0;
 
-  /* Unos podatka */
-  scanf("%u", &x);
+  /* Unos niza */
+  while (scanf("%d", &niz[n]) == 1)
+    n++;
 
-  /* Provera da li je uneti broj pozitivan */
-  if (x == 0) {
-    fprintf(stderr, "Logaritam od nule nije definisan\n");
-    exit(EXIT_FAILURE);
-  }
+  /* Stampanje rezultata */
+  printf("%d\n", prvi_manji_od_nule(niz, n));
 
-  /* Ispis povratnih vrednosti funkcija */
-  printf("%u %u\n", logaritam_a(x), logaritam_b(x));
-
-  exit(EXIT_SUCCESS);
+  return 0;
 }

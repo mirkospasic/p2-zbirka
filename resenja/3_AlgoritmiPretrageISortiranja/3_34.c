@@ -3,130 +3,128 @@
 #include <string.h>
 #include <search.h>
 
-#define MAX 500
+#define MAX_NISKI 1000
+#define MAX_DUZINA 31
 
-/* Struktura sa svim informacijama o pojedinacnom studentu */
-typedef struct {
-  char ime[21];
-  char prezime[21];
-  int bodovi;
-} Student;
+/*******************************************************************
+  Niz pokazivaca na karaktere ovog potpisa
+  char *niske[3];
+  posle alokacije u main-u se moze graficki predstaviti ovako:
+  -----                    -----------------
+  | X | --------------->   | a | b | c | \0|
+  -----                    =================
+  | Y | --------------->   | d | e | \0|
+  -----                    =================
+  | Z | --------------->   | f | g | h | \0|
+  -----                    -----------------
+  Sa leve strane je vertikalno prikazan niz pokazivaca, gde je i-ti
+  njegov element pokazivac koji pokazuje na alocirane karaktere i-te
+  reci. Njegov tip je char*.
 
-/* Funkcija poredjenja za sortiranje po broju bodova. Studenti sa
-   istim brojem bodova se dodatno sortiraju leksikografski po
-   prezimenu */
-int poredi1(const void *a, const void *b)
+  Kako pokazivaci a i b u sledecoj funkciji sadrze adrese elemenata
+  koji trebaju biti uporedjeni (recimo adresu od X i adresu od Z), i
+  kako su X i Z tipa char*, onda a i b su tipa char**, pa se tako
+  moraju i kastovati. Da bi se leksikografski uporedili elementi X i
+  Z, moraju se uporediti stringovi na koje oni pokazuju, pa zato se
+  u sledecoj funkciji poziva strcmp() nad onim na sta pokazuju a i b,
+  kastovani na odgovarajuci tip.
+********************************************************************/
+int poredi_leksikografski(const void *a, const void *b)
 {
-  Student *prvi = (Student *) a;
-  Student *drugi = (Student *) b;
-
-  if (prvi->bodovi > drugi->bodovi)
-    return -1;
-  else if (prvi->bodovi < drugi->bodovi)
-    return 1;
-  else
-    /* Ako su jednaki po broju bodova, treba ih uporediti po
-       prezimenu */
-    return strcmp(prvi->prezime, drugi->prezime);
+  return strcmp(*(char **) a, *(char **) b);
 }
 
-/* Funkcija za poredjenje koja se koristi u pretrazi po broju bodova.
-   Prvi parametar je ono sto se trazi u nizu (broj bodova), a drugi
-   parametar je element niza ciji se bodovi porede. */
-int poredi2(const void *a, const void *b)
+/* Funkcija slicna prethodnoj, osim sto elemente ne uporedjuje
+   leksikografski, vec po duzini */
+int poredi_duzine(const void *a, const void *b)
 {
-  int bodovi = *(int *) a;
-  Student *s = (Student *) b;
-  return s->bodovi - bodovi;
+  return strlen(*(char **) a) - strlen(*(char **) b);
 }
 
-/* Funkcija za poredjenje koja se koristi u pretrazi po prezimenu.
-   Prvi parametar je ono sto se trazi u nizu (prezime), a drugi
-   parametar je element niza cije se prezime poredi. */
-int poredi3(const void *a, const void *b)
+/* Ovo je funkcija poredjenja za bsearch. Pokazivac b pokazuje na
+   element u nizu sa kojim se poredi, pa njega treba kastovati na
+   char** i dereferencirati, (videti obrazlozenje za prvu funkciju u
+   ovom zadatku, a pokazivac a pokazuje na element koji se trazi. U
+   main funkciji je to x, koji je tipa char*, tako da pokazivac a
+   ovde samo treba kastovati i ne dereferencirati. */
+int poredi_leksikografski_b(const void *a, const void *b)
 {
-  char *prezime = (char *) a;
-  Student *s = (Student *) b;
-  return strcmp(prezime, s->prezime);
+  return strcmp((char *) a, *(char **) b);
 }
 
-int main(int argc, char *argv[])
+int main()
 {
-  Student kolokvijum[MAX];
   int i;
-  size_t br_studenata = 0;
-  Student *nadjen = NULL;
+  size_t n;
   FILE *fp = NULL;
-  int bodovi;
-  char prezime[21];
-
-  /* Ako je program pozvan sa nedovoljnim brojem argumenata daje se
-     informacija korisniku kako se program koristi i prekida se
-     izvrsavanje. */
-  if (argc < 2) {
-    fprintf(stderr,
-            "Program se poziva sa:\n%s datoteka_sa_rezultatima\n",
-            argv[0]);
-    exit(EXIT_FAILURE);
-  }
+  char *niske[MAX_NISKI];
+  char **p = NULL;
+  char x[MAX_DUZINA];
 
   /* Otvaranje datoteke */
-  if ((fp = fopen(argv[1], "r")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke %s\n", argv[1]);
+  if ((fp = fopen("niske.txt", "r")) == NULL) {
+    fprintf(stderr, "Neupesno otvaranje datoteke niske.txt.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje sadrzaja */
-  for (i = 0;
-       fscanf(fp, "%s%s%d", kolokvijum[i].ime,
-              kolokvijum[i].prezime,
-              &kolokvijum[i].bodovi) != EOF; i++);
+  /* Citanje sadrzaja datoteke */
+  i = 0;
+  while (fscanf(fp, "%s", x) != EOF) {
+    /* Alociranje dovoljne memorije za i-tu nisku */
+    if ((niske[i] = malloc((strlen(x) + 1) * sizeof(char))) == NULL) {
+      fprintf(stderr, "Greska pri alociranju niske\n");
+      exit(EXIT_FAILURE);
+    }
+    /* Kopiranje procitane niske na svoje mesto */
+    strcpy(niske[i], x);
+    i++;
+  }
 
   /* Zatvaranje datoteke */
   fclose(fp);
-  br_studenata = i;
+  n = i;
 
-  /* Sortiranje niza studenata po broju bodova, gde se unutar grupe
-     studenata sa istim brojem bodova sortiranje vrsi po prezimenu */
-  qsort(kolokvijum, br_studenata, sizeof(Student), &poredi1);
+  /* Sortiranje niski leksikografski. Biblioteckoj funkciji qsort se
+     prosledjuje funkcija kojom se zadaje kriterijum poredjenja 2
+     niske po duzini */
+  qsort(niske, n, sizeof(char *), &poredi_leksikografski);
 
-  printf("Studenti sortirani po broju poena opadajuce, ");
-  printf("pa po prezimenu rastuce:\n");
-  for (i = 0; i < br_studenata; i++)
-    printf("%s %s  %d\n", kolokvijum[i].ime,
-           kolokvijum[i].prezime, kolokvijum[i].bodovi);
+  printf("Leksikografski sortirane niske:\n");
+  for (i = 0; i < n; i++)
+    printf("%s ", niske[i]);
+  printf("\n");
 
-  /* Pretrazivanje studenata po broju bodova se vrsi binarnom
-     pretragom jer je niz sortiran po broju bodova. */
-  printf("Unesite broj bodova: ");
-  scanf("%d", &bodovi);
+  /* Unos trazene niske */
+  printf("Uneti trazenu nisku: ");
+  scanf("%s", x);
 
-  nadjen =
-      bsearch(&bodovi, kolokvijum, br_studenata, sizeof(Student),
-              &poredi2);
-
-  if (nadjen != NULL)
-    printf
-        ("Pronadjen je student sa unetim brojem bodova: %s %s %d\n",
-         nadjen->ime, nadjen->prezime, nadjen->bodovi);
+  /* Binarna pretraga */
+  p = bsearch(x, niske, n, sizeof(char *), &poredi_leksikografski_b);
+  if (p != NULL)
+    printf("Niska \"%s\" je pronadjena u nizu na poziciji %ld\n",
+           *p, p - niske);
   else
-    printf("Nema studenta sa unetim brojem bodova\n");
+    printf("Niska nije pronadjena u nizu\n");
 
-  /* Pretraga po prezimenu se mora vrsiti linearno jer je niz
-     sortiran po bodovima. */
-  printf("Unesite prezime: ");
-  scanf("%s", prezime);
-
-  nadjen =
-      lfind(prezime, kolokvijum, &br_studenata, sizeof(Student),
-            &poredi3);
-
-  if (nadjen != NULL)
-    printf
-        ("Pronadjen je student sa unetim prezimenom: %s %s %d\n",
-         nadjen->ime, nadjen->prezime, nadjen->bodovi);
+  /* Linearna pretraga */
+  p = lfind(x, niske, &n, sizeof(char *), &poredi_leksikografski_b);
+  if (p != NULL)
+    printf("Niska \"%s\" je pronadjena u nizu na poziciji %ld\n",
+           *p, p - niske);
   else
-    printf("Nema studenta sa unetim prezimenom\n");
+    printf("Niska nije pronadjena u nizu\n");
+
+  /* Sortiramo po duzini */
+  qsort(niske, n, sizeof(char *), &poredi_duzine);
+
+  printf("Niske sortirane po duzini:\n");
+  for (i = 0; i < n; i++)
+    printf("%s ", niske[i]);
+  printf("\n");
+
+  /* Oslobadjanje zauzete memorije */
+  for (i = 0; i < n; i++)
+    free(niske[i]);
 
   exit(EXIT_SUCCESS);
 }

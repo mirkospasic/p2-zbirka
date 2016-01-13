@@ -2,165 +2,149 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX 500
+#define MAX_ARTIKALA 100000
 
-/* Struktura sa svim informacijama o pojedinacnom studentu */
-typedef struct {
-  char ime[21];
-  char prezime[26];
-  int prisustvo;
-  int zadaci;
-} Student;
+/* Struktura koja predstavlja jedan artikal */
+typedef struct art {
+  long kod;
+  char naziv[20];
+  char proizvodjac[20];
+  float cena;
+} Artikal;
 
-/* Funkcija za sortiranje niza struktura po prezimenu leksikografski
-   rastuce */
-void sort_ime_leksikografski(Student niz[], int n)
+/* Funkcija koja u nizu artikala binarnom pretragom nalazi onaj sa
+   trazenim bar kodom */
+int binarna_pretraga(Artikal a[], int n, long x)
+{
+  int levi = 0;
+  int desni = n - 1;
+
+  /* Dokle god je indeks levi levo od indeksa desni */
+  while (levi <= desni) {
+    /* Racuna se sredisnji indeks */
+    int srednji = (levi + desni) / 2;
+    /* Ako je sredisnji element veci od trazenog, tada se trazeni
+       mora nalaziti u levoj polovini niza */
+    if (x < a[srednji].kod)
+      desni = srednji - 1;
+    /* Ako je sredisnji element manji od trazenog, tada se trazeni
+       mora nalaziti u desnoj polovini niza */
+    else if (x > a[srednji].kod)
+      levi = srednji + 1;
+    else
+      /* Ako je sredisnji element jednak trazenom, tada je artikal sa 
+         bar kodom x pronadjen na poziciji srednji */
+      return srednji;
+  }
+  /* Ako nije pronadjen artikal za trazenim bar kodom, vraca se -1 */
+  return -1;
+}
+
+/* Funkcija koja sortira niz artikala po bar kodovima rastuce */
+void selection_sort(Artikal a[], int n)
 {
   int i, j;
   int min;
-  Student pom;
+  Artikal pom;
 
   for (i = 0; i < n - 1; i++) {
     min = i;
     for (j = i + 1; j < n; j++)
-      if (strcmp(niz[j].ime, niz[min].ime) < 0)
+      if (a[j].kod < a[min].kod)
         min = j;
-
     if (min != i) {
-      pom = niz[min];
-      niz[min] = niz[i];
-      niz[i] = pom;
+      pom = a[i];
+      a[i] = a[min];
+      a[min] = pom;
     }
   }
 }
 
-/* Funkcija za sortiranje niza struktura po ukupnom broju uradjenih
-   zadataka opadajuce, a ukoliko neki studenti imaju isti broj
-   uradjenih zadataka sortiraju se po duzini imena rastuce. */
-void sort_zadatke_pa_imena(Student niz[], int n)
+int main()
 {
-  int i, j;
-  int max;
-  Student pom;
-  for (i = 0; i < n - 1; i++) {
-    max = i;
-    for (j = i + 1; j < n; j++)
-      if (niz[j].zadaci > niz[max].zadaci)
-        max = j;
-      else if (niz[j].zadaci == niz[max].zadaci
-               && strlen(niz[j].ime) < strlen(niz[max].ime))
-        max = j;
-    if (max != i) {
-      pom = niz[max];
-      niz[max] = niz[i];
-      niz[i] = pom;
-    }
-  }
-}
-
- /* Funkcija za sortiranje niza struktura po broju casova na kojima
-    su bili opadajuce. Ukoliko neki studenti imaju isti broj casova,
-    sortiraju se opadajuce po broju uradjenih zadataka, a ukoliko se
-    i po broju zadataka poklapaju, njihovo sortiranje ce biti po
-    prezimenu opadajuce. */
-void sort_prisustvo_pa_zadatke_pa_prezimena(Student niz[], int n)
-{
-  int i, j;
-  int max;
-  Student pom;
-  for (i = 0; i < n - 1; i++) {
-    max = i;
-    for (j = i + 1; j < n; j++)
-      if (niz[j].prisustvo > niz[max].prisustvo)
-        max = j;
-      else if (niz[j].prisustvo == niz[max].prisustvo
-               && niz[j].zadaci > niz[max].zadaci)
-        max = j;
-      else if (niz[j].prisustvo == niz[max].prisustvo
-               && niz[j].zadaci == niz[max].zadaci
-               && strcmp(niz[j].prezime, niz[max].prezime) > 0)
-        max = j;
-    if (max != i) {
-      pom = niz[max];
-      niz[max] = niz[i];
-      niz[i] = pom;
-    }
-  }
-}
-
-int main(int argc, char *argv[])
-{
-  Student praktikum[MAX];
-  int i, br_studenata = 0;
+  Artikal asortiman[MAX_ARTIKALA];
+  long kod;
+  int i, n;
+  float racun;
 
   FILE *fp = NULL;
 
-  /* Otvaranje datoteke za citanje */
-  if ((fp = fopen("aktivnost.txt", "r")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke aktivnost.txt.\n");
+  /* Otvaranje datoteke */
+  if ((fp = fopen("artikli.txt", "r")) == NULL) {
+    fprintf(stderr, "Neuspesno otvaranje datoteke artikli.txt.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje sadrzaja */
-  for (i = 0;
-       fscanf(fp, "%s%s%d%d", praktikum[i].ime,
-              praktikum[i].prezime, &praktikum[i].prisustvo,
-              &praktikum[i].zadaci) != EOF; i++);
-  /* Zatvaranje datoteke */
-  fclose(fp);
-  br_studenata = i;
+  /* Ucitavanje artikala */
+  i = 0;
+  while (fscanf(fp, "%ld %s %s %f", &asortiman[i].kod,
+                asortiman[i].naziv, asortiman[i].proizvodjac,
+                &asortiman[i].cena) == 4)
+    i++;
 
-  /* Kreiranje prvog spiska studenata po prvom kriterijumu */
-  sort_ime_leksikografski(praktikum, br_studenata);
-  /* Otvaranje datoteke za pisanje */
-  if ((fp = fopen("dat1.txt", "w")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke dat1.txt.\n");
-    exit(EXIT_FAILURE);
-  }
-  /* Upis niza u datoteku */
-  fprintf
-      (fp, "Studenti sortirani po imenu leksikografski rastuce:\n");
-  for (i = 0; i < br_studenata; i++)
-    fprintf(fp, "%s %s  %d  %d\n", praktikum[i].ime,
-            praktikum[i].prezime, praktikum[i].prisustvo,
-            praktikum[i].zadaci);
   /* Zatvaranje datoteke */
   fclose(fp);
 
-  /* Kreiranje drugog spiska studenata po drugom kriterijumu */
-  sort_zadatke_pa_imena(praktikum, br_studenata);
-  /* Otvaranje datoteke za pisanje */
-  if ((fp = fopen("dat2.txt", "w")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke dat2.txt.\n");
-    exit(EXIT_FAILURE);
-  }
-  /* Upis niza u datoteku */
-  fprintf(fp, "Studenti sortirani po broju zadataka opadajuce,\n");
-  fprintf(fp, "pa po duzini imena rastuce:\n");
-  for (i = 0; i < br_studenata; i++)
-    fprintf(fp, "%s %s  %d  %d\n", praktikum[i].ime,
-            praktikum[i].prezime, praktikum[i].prisustvo,
-            praktikum[i].zadaci);
-  /* Zatvaranje datoteke */
-  fclose(fp);
+  n = i;
 
-  /* Kreiranje treceg spiska studenata po trecem kriterijumu */
-  sort_prisustvo_pa_zadatke_pa_prezimena(praktikum, br_studenata);
-  /* Otvaranje datoteke za pisanje */
-  if ((fp = fopen("dat3.txt", "w")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke dat3.txt.\n");
-    exit(EXIT_FAILURE);
+  /* Sortira se celokupan asortiman prodavnice prema kodovima jer ce
+     pri kucanju racuna prodavac unositi kod artikla. Prilikom
+     kucanja svakog racuna pretrazuje se asortiman, da bi se utvrdila 
+     cena artikla. Kucanje racuna obuhvata vise pretraga asortimana i 
+     cilj je da ta operacija bude sto efikasnija. Zato se koristi
+     algoritam binarne pretrage prilikom pretrazivanja po kodu
+     artikla. Iz tog razloga, potrebno je da asortiman bude sortiran
+     po kodovima i to ce biti uradjeno primenom selection sort
+     algoritma. Sortiranje se vrsi samo jednom na pocetku, ali se
+     zato posle artikli mogu brzo pretrazivati prilikom kucanja
+     proizvoljno puno racuna. Vreme koje se utrosi na sortiranje na
+     pocetku izvrsavanja programa, kasnije se isplati jer se za
+     brojna trazenja artikla umesto linearne moze koristiti
+     efikasnija binarna pretraga. */
+  selection_sort(asortiman, n);
+
+  /* Ispis stanja u prodavnici */
+  printf
+      ("Asortiman:\nKOD                Naziv artikla     Ime proizvodjaca       Cena\n");
+  for (i = 0; i < n; i++)
+    printf("%10ld %20s %20s %12.2f\n", asortiman[i].kod,
+           asortiman[i].naziv, asortiman[i].proizvodjac,
+           asortiman[i].cena);
+
+  kod = 0;
+  while (1) {
+    printf("---------------------------\n");
+    printf("- Za kraj za kraj rada kase, pritisnite CTRL+D!\n");
+    printf("- Za nov racun unesite kod artikla!\n\n");
+    /* Unos bar koda provog artikla sledeceg kupca */
+    if (scanf("%ld", &kod) == EOF)
+      break;
+    /* Trenutni racun novog kupca */
+    racun = 0;
+    /* Za sve artikle trenutnog kupca */
+    while (1) {
+      /* Vrsi se njihov pronalazak u nizu */
+      if ((i = binarna_pretraga(asortiman, n, kod)) == -1) {
+        printf("\tGRESKA: Ne postoji proizvod sa trazenim kodom!\n");
+      } else {
+        printf("\tTrazili ste:\t%s %s %12.2f\n",
+               asortiman[i].naziv, asortiman[i].proizvodjac,
+               asortiman[i].cena);
+        /* I dodavanje na ukupan racun */
+        racun += asortiman[i].cena;
+      }
+      /* Unos bar koda sledeceg artikla trenutnog kupca, ili 0 ako on 
+         nema vise artikla */
+      printf("Unesite kod artikla [ili 0 za prekid]: \t");
+      scanf("%ld", &kod);
+      if (kod == 0)
+        break;
+    }
+    /* Stampanje ukupnog racuna trenutnog kupca */
+    printf("\n\tUKUPNO: %.2lf dinara.\n\n", racun);
   }
-  /* Upis niza u datoteku */
-  fprintf(fp, "Studenti sortirani po prisustvu opadajuce,\n");
-  fprintf(fp, "pa po broju zadataka,\n");
-  fprintf(fp, "pa po prezimenima leksikografski opadajuce:\n");
-  for (i = 0; i < br_studenata; i++)
-    fprintf(fp, "%s %s  %d  %d\n", praktikum[i].ime,
-            praktikum[i].prezime, praktikum[i].prisustvo,
-            praktikum[i].zadaci);
-  /* Zatvaranje datoteke */
-  fclose(fp);
+
+  printf("Kraj rada kase!\n");
 
   exit(EXIT_SUCCESS);
 }

@@ -2,49 +2,45 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define MAX 10
-#define MAX_DUZINA 32
+#define MAX 128
 
-/* Funkcija porenjenja */
-int uporedi_niske(const void *pa, const void *pb)
+/* Funkcija poredi dva karaktera */
+int uporedi_char(const void *pa, const void *pb)
 {
-  return strcmp((char *) pa, (char *) pb);
+  return *(char *) pa - *(char *) pb;
+}
+
+/* Funkcija vraca 1 ako su argumenti anagrami, a 0 inace */
+int anagrami(char s[], char t[])
+{
+  /* Ako dve niske imaju razlicitu duzinu onda one nisu anagrami */
+  if (strlen(s) != strlen(t))
+    return 0;
+
+  /* Sortiranje niski */
+  qsort(s, strlen(s) / sizeof(char), sizeof(char), &uporedi_char);
+  qsort(t, strlen(t) / sizeof(char), sizeof(char), &uporedi_char);
+
+  /* Ako su niske nakon sortiranja iste onda one jesu anagrami, u
+     suprotnom, nisu */
+  return !strcmp(s, t);
 }
 
 int main()
 {
-  int i, n;
-  char S[MAX][MAX_DUZINA];
+  char s[MAX], t[MAX];
 
-  /* Unos broja niski */
-  printf("Unesite broj niski:");
-  scanf("%d", &n);
+  /* Unos niski */
+  printf("Unesite prvu nisku: ");
+  scanf("%s", s);
+  printf("Unesite drugu nisku: ");
+  scanf("%s", t);
 
-  /* Unos niza niski */
-  printf("Unesite niske:\n");
-  for (i = 0; i < n; i++)
-    scanf("%s", S[i]);
+  /* Ispituje se da li su niske anagrami */
+  if (anagrami(s, t))
+    printf("jesu\n");
+  else
+    printf("nisu\n");
 
-  /* Sortiranje niza niski */
-  qsort(S, n, MAX_DUZINA * sizeof(char), &uporedi_niske);
-
-  /*****************************************************************
-    Ovaj deo je iskomentarisan jer se u zadatku ne trazi ispis
-    sortiranih niski. Koriscen je samo u fazi testiranja programa.
-
-    printf("Sortirane niske su:\n");
-    for(i = 0; i < n; i++)
-      printf("%s ", S[i]);
-  *****************************************************************/
-
-  /* Ako postoje dve iste niske u nizu, onda ce one nakon sortiranja
-     niza biti jedna do druge */
-  for (i = 0; i < n - 1; i++)
-    if (strcmp(S[i], S[i + 1]) == 0) {
-      printf("ima\n");
-      return 0;
-    }
-
-  printf("nema\n");
   return 0;
 }

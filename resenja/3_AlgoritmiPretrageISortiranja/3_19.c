@@ -1,137 +1,157 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 #include <stdlib.h>
 
-#define MAX 1000
-#define MAX_DUZINA 16
+#define MAX_BR_TACAKA 128
 
-/* Struktura koja reprezentuje jednog gradjanina */
-typedef struct gr {
-  char ime[MAX_DUZINA];
-  char prezime[MAX_DUZINA];
-} Gradjanin;
+/* Struktura koja reprezentuje koordinate tacke */
+typedef struct Tacka {
+  int x;
+  int y;
+} Tacka;
 
-/* Funkcija sortira niz gradjana rastuce po imenima */
-void sort_ime(Gradjanin a[], int n)
+/* Funkcija racuna rastojanje zadate tacke od koordinatnog pocetka
+   (0,0) */
+float rastojanje(Tacka A)
 {
-  int i, j;
-  int min;
-  Gradjanin pom;
+  return sqrt(A.x * A.x + A.y * A.y);
+}
+
+/* Funkcija koja sortira niz tacaka po rastojanju od koordinatnog
+   pocetka */
+void sortiraj_po_rastojanju(Tacka t[], int n)
+{
+  int min, i, j;
+  Tacka tmp;
 
   for (i = 0; i < n - 1; i++) {
-    /* Unutrasnja petlja pronalazi poziciju min, na kojoj se nalazi
-       najmanji od elemenata a[i].ime,...,a[n-1].ime. */
     min = i;
-    for (j = i + 1; j < n; j++)
-      if (strcmp(a[j].ime, a[min].ime) < 0)
+    for (j = i + 1; j < n; j++) {
+      if (rastojanje(t[j]) < rastojanje(t[min])) {
         min = j;
-    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi samo ako 
-       su (i) i min razliciti, inace je nepotrebno. */
+      }
+    }
     if (min != i) {
-      pom = a[i];
-      a[i] = a[min];
-      a[min] = pom;
+      tmp = t[i];
+      t[i] = t[min];
+      t[min] = tmp;
     }
   }
 }
 
-/* Funkcija sortira niz gradjana rastuce po prezimenima */
-void sort_prezime(Gradjanin a[], int n)
+/* Funkcija koja sortira niz tacaka po vrednosti x koordinate */
+void sortiraj_po_x(Tacka t[], int n)
 {
-  int i, j;
-  int min;
-  Gradjanin pom;
+  int min, i, j;
+  Tacka tmp;
 
   for (i = 0; i < n - 1; i++) {
-    /* Unutrasnja petlja pronalazi poziciju min, na kojoj se nalazi
-       najmanji od elemenata a[i].prezime,...,a[n-1].prezime. */
     min = i;
-    for (j = i + 1; j < n; j++)
-      if (strcmp(a[j].prezime, a[min].prezime) < 0)
+    for (j = i + 1; j < n; j++) {
+      if (abs(t[j].x) < abs(t[min].x)) {
         min = j;
-    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi samo ako 
-       su (i) i min razliciti, inace je nepotrebno. */
+      }
+    }
     if (min != i) {
-      pom = a[i];
-      a[i] = a[min];
-      a[min] = pom;
+      tmp = t[i];
+      t[i] = t[min];
+      t[min] = tmp;
     }
   }
 }
 
-/* Pretraga niza Gradjana */
-int linearna_pretraga(Gradjanin a[], int n, Gradjanin * x)
+/* Funkcija koja sortira niz tacaka po vrednosti y koordinate */
+void sortiraj_po_y(Tacka t[], int n)
 {
-  int i;
-  for (i = 0; i < n; i++)
-    if (strcmp(a[i].ime, x->ime) == 0
-        && strcmp(a[i].prezime, x->prezime) == 0)
-      return i;
-  return -1;
+  int min, i, j;
+  Tacka tmp;
+
+  for (i = 0; i < n - 1; i++) {
+    min = i;
+    for (j = i + 1; j < n; j++) {
+      if (abs(t[j].y) < abs(t[min].y)) {
+        min = j;
+      }
+    }
+    if (min != i) {
+      tmp = t[i];
+      t[i] = t[min];
+      t[min] = tmp;
+    }
+  }
 }
 
-
-int main()
+int main(int argc, char *argv[])
 {
-  Gradjanin spisak1[MAX], spisak2[MAX];
-  int isti_rbr = 0;
+  FILE *ulaz;
+  FILE *izlaz;
+  Tacka tacke[MAX_BR_TACAKA];
   int i, n;
-  FILE *fp = NULL;
 
-  /* Otvaranje datoteke */
-  if ((fp = fopen("biracki-spisak.txt", "r")) == NULL) {
+  /* Proveravanje broja argumenata komandne linije: ocekuje se ime
+     izvrsnog programa, opcija, ime ulazne datoteke i ime izlazne
+     datoteke, tj. 4 argumenta */
+  if (argc != 4) {
     fprintf(stderr,
-            "Neupesno otvaranje datoteke biracki-spisak.txt.\n");
-    exit(EXIT_FAILURE);
+            "Program se poziva sa: ./a.out opcija ulaz izlaz!\n");
+    return 0;
   }
 
-  /* Citanje sadrzaja */
-  for (i = 0;
-       fscanf(fp, "%s %s", spisak1[i].ime,
-              spisak1[i].prezime) != EOF; i++)
-    spisak2[i] = spisak1[i];
+  /* Otvaranje datoteke u kojoj su zadate tacke */
+  ulaz = fopen(argv[2], "r");
+  if (ulaz == NULL) {
+    fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
+            argv[2]);
+    return 0;
+  }
+
+  /* Otvaranje datoteke u koju treba upisati rezultat */
+  izlaz = fopen(argv[3], "w");
+  if (izlaz == NULL) {
+    fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
+            argv[3]);
+    return 0;
+  }
+
+  /* Sve dok se ne stigne do kraja ulazne datoteke, ucitavaju se
+     koordinate tacaka i smestaju na odgovarajuce pozicije odredjene
+     brojacem i. */
+  i = 0;
+  while (fscanf(ulaz, "%d %d", &tacke[i].x, &tacke[i].y) != EOF) {
+    i++;
+  }
+
+  /* Ukupan broj procitanih tacaka */
   n = i;
 
-  /* Zatvaranje datoteke */
-  fclose(fp);
+  /* Analizira se prosledjena opcija. Moguce vrednosti za argv[1] su
+     "-x" ili "-y" ili "-o", pa je argv[1][0] sigurno crtica
+     (karakter -), a karakter argv[1][1] odredjuje kriterijum
+     sortiranja */
+  switch (argv[1][1]) {
+  case 'x':
+    /* Sortiranje po vrednosti x koordinate */
+    sortiraj_po_x(tacke, n);
+    break;
+  case 'y':
+    /* Sortiranje po vrednosti y koordinate */
+    sortiraj_po_y(tacke, n);
+    break;
+  case 'o':
+    /* Sortiranje po udaljenosti od koorinatnog pocetka */
+    sortiraj_po_rastojanju(tacke, n);
+    break;
+  }
 
-  sort_ime(spisak1, n);
+  /* Upisivanje dobijenog niza u izlaznu datoteku */
+  for (i = 0; i < n; i++) {
+    fprintf(izlaz, "%d %d\n", tacke[i].x, tacke[i].y);
+  }
 
-  /*****************************************************************
-    Ovaj deo je iskomentarisan jer se u zadatku ne trazi ispis
-    sortiranih nizova. Koriscen je samo u fazi testiranja programa.
+  /* Zatvaranje otvorenih datoteka */
+  fclose(ulaz);
+  fclose(izlaz);
 
-    printf("Biracki spisak [uredjen prema imenima]:\n");
-    for(i=0; i<n; i++)
-      printf(" %d. %s %s\n",i,spisak1[i].ime, spisak1[i].prezime);         
-  ******************************************************************/
-
-  sort_prezime(spisak2, n);
-
-  /*****************************************************************
-    Ovaj deo je iskomentarisan jer se u zadatku ne trazi ispis
-    sortiranih nizova. Koriscen je samo u fazi testiranja programa.
-
-    printf("Biracki spisak [uredjen prema prezimenima]:\n");
-    for(i=0; i<n; i++)
-      printf(" %d. %s %s\n",i,spisak2[i].ime, spisak2[i].prezime);         
-  ******************************************************************/
-
-  /* Linearno pretrazivanje nizova */
-  for (i = 0; i < n; i++)
-    if (i == linearna_pretraga(spisak2, n, &spisak1[i]))
-      isti_rbr++;
-
-  /* Alternativno (efikasnije) resenje */
-  /*****************************************************************
-    for(i=0; i<n ;i++)
-      if( strcmp(spisak2[i].ime, spisak1[i].ime) == 0 &&
-          strcmp(spisak1[i].prezime, spisak2[i].prezime)==0)
-    isti_rbr++;
-  ******************************************************************/
-
-  /* Ispis rezultata */
-  printf("%d\n", isti_rbr);
-
-  exit(EXIT_SUCCESS);
+  return 0;
 }

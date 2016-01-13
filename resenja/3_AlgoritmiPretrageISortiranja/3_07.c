@@ -1,43 +1,91 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <math.h>
 
-#define MAX 256
-
-int prvi_veci_od_nule(int niz[], int n)
+int main(int argc, char **argv)
 {
-  /* Granice pretrage */
-  int l = 0, d = n - 1;
-  int s;
-  /* Sve dok je leva manja od desne granice */
-  while (l <= d) {
-    /* Racuna se sredisnja pozicija */
-    s = (l + d) / 2;
-    /* Ako je broj na toj poziciji veci od nule, a eventualni njegov
-       prethodnik manji ili jednak nuli, pretraga je zavrsena */
-    if (niz[s] > 0 && ((s > 0 && niz[s - 1] <= 0) || s == 0))
-      return s;
-    /* U slucaju broja manjeg ili jednakog nuli, pretrazuje se desna
-       polovina niza */
-    if (niz[s] <= 0)
-      l = s + 1;
-    /* A inace, leva polovina */
-    else
-      d = s - 1;
+  double l, d, s, epsilon;
+
+  char ime_fje[6];
+
+  /* Pokazivac na funkciju koja ima jedan argument tipa double i
+     povratnu vrednost istog tipa */
+  double (*fp) (double);
+
+  /* Ako korisnik nije uneo argument, prijavljuje se greska */
+  if (argc != 2) {
+    fprintf(stderr, "Greska: ");
+    fprintf(stderr, "Nedovoljan broj argumenata komandne linije.\n");
+    fprintf(stderr,
+            "Program se poziva sa %s ime_funkcije iz math.h.\n",
+            argv[0]);
+    exit(EXIT_FAILURE);
   }
-  return -1;
-}
 
-int main()
-{
-  int niz[MAX];
-  int n = 0;
+  /* Niska ime_fje sadrzi ime trazene funkcije koja je navedena u
+     komandnoj liniji */
+  strcpy(ime_fje, argv[1]);
 
-  /* Unos niza */
-  while (scanf("%d", &niz[n]) == 1)
-    n++;
+  /* Inicijalizuje se pokazivac na funkciju koja se tabelira */
+  if (strcmp(ime_fje, "sin") == 0)
+    fp = &sin;
+  else if (strcmp(ime_fje, "cos") == 0)
+    fp = &cos;
+  else if (strcmp(ime_fje, "tan") == 0)
+    fp = &tan;
+  else if (strcmp(ime_fje, "atan") == 0)
+    fp = &atan;
+  else if (strcmp(ime_fje, "acos") == 0)
+    fp = &acos;
+  else if (strcmp(ime_fje, "asin") == 0)
+    fp = &asin;
+  else if (strcmp(ime_fje, "exp") == 0)
+    fp = &exp;
+  else if (strcmp(ime_fje, "log") == 0)
+    fp = &log;
+  else if (strcmp(ime_fje, "log10") == 0)
+    fp = &log10;
+  else if (strcmp(ime_fje, "sqrt") == 0)
+    fp = &sqrt;
+  else {
+    fprintf(stderr, "Program ne podrzava trazenu funkciju!\n");
+    exit(EXIT_SUCCESS);
+  }
 
-  /* Stampanje rezultata */
-  printf("%d\n", prvi_veci_od_nule(niz, n));
+  printf("Unesite krajeve intervala: ");
+  scanf("%lf %lf", &l, &d);
+
+  if ((*fp) (l) * (*fp) (d) >= 0) {
+    fprintf(stderr,
+            "Funkcija %s na intervalu [%g, %g] ne zadovoljava uslove\n",
+            ime_fje, l, d);
+    exit(EXIT_FAILURE);
+  }
+
+  printf("Unesite preciznost: ");
+  scanf("%lf", &epsilon);
+
+  /* Sve dok se ne pronadje trazena vrednost argumenta */
+  while (1) {
+    /* Polovi se interval */
+    s = (l + d) / 2;
+    /* Ako je apsolutna vrednost trazene funkcije u ovoj tacki manja
+       od zadate tacnosti, prekida se pretraga */
+    if (fabs((*fp) (s)) < epsilon) {
+      break;
+    }
+    /* Ako je nula u levom delu intervala, nastavlja se pretraga na
+       [l, s] */
+    if ((*fp) (l) * (*fp) (s) < 0)
+      d = s;
+    else
+      /* Inace, na intervalu [s, d] */
+      l = s;
+  }
+
+  /* Stampanje vrednosti trazene tacke */
+  printf("%g\n", s);
 
   return 0;
 }

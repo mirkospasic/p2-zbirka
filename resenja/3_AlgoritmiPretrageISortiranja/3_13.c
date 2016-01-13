@@ -1,36 +1,62 @@
 #include <stdio.h>
-#include "sort.h"
-#define MAX 256
+#include <string.h>
 
-/* Funkcija koja pronalazi najmanje rastojanje izmedju dva broja u
-   sortiranom nizu celih brojeva */
-int najmanje_rastojanje(int a[], int n)
+#define MAX_DIM 128
+
+/* Funkcija za sortiranje niza karaktera */
+void selectionSort(char s[])
 {
-  int i, min;
-  min = a[1] - a[0];
-  for (i = 2; i < n; i++)
-    if (a[i] - a[i - 1] < min)
-      min = a[i] - a[i - 1];
-  return min;
+  int i, j, min;
+  char pom;
+  for (i = 0; s[i] != '\0'; i++) {
+    min = i;
+    for (j = i + 1; s[j] != '\0'; j++)
+      if (s[j] < s[min])
+        min = j;
+    if (min != i) {
+      pom = s[i];
+      s[i] = s[min];
+      s[min] = pom;
+    }
+  }
 }
 
+/* Funkcija vraca 1 ako su argumenti anagrami, a 0 inace. */
+int anagrami(char s[], char t[])
+{
+  int i;
+
+  /* Ako dve niske imaju razlicit broj karaktera onda one nisu
+     anagrami */
+  if (strlen(s) != strlen(t))
+    return 0;
+
+  /* Sortiramo niske */
+  selectionSort(s);
+  selectionSort(t);
+
+  /* Dve sortirane niske su anagrami ako i samo ako su jednake */
+  for (i = 0; s[i] != '\0'; i++)
+    if (s[i] != t[i])
+      return 0;
+  return 1;
+}
 
 int main()
 {
-  int i, a[MAX];
+  char s[MAX_DIM], t[MAX_DIM];
 
-  /* Ucitavaju se elementi niza sve do kraja ulaza */
-  i = 0;
-  while (scanf("%d", &a[i]) != EOF)
-    i++;
+  /* Ucitavanje niski sa ulaza */
+  printf("Unesite prvu nisku: ");
+  scanf("%s", s);
+  printf("Unesite drugu nisku: ");
+  scanf("%s", t);
 
-  /* Za sortiranje niza moze se koristiti bilo koja od funkcija
-     sortiranja iz sort.h. Ilustracije radi, u ovom zadatku koristi
-     se selection sort. */
-  selection_sort(a, i);
-
-  /* Ispis rezultata */
-  printf("%d\n", najmanje_rastojanje(a, i));
+  /* Poziv funkcije */
+  if (anagrami(s, t))
+    printf("jesu\n");
+  else
+    printf("nisu\n");
 
   return 0;
 }
