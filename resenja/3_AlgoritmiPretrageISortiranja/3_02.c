@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MAX 1024
 
-int lin_pretraga_rek_sufiks(int a[], int n, int x)
+int linearna_pretraga_r1(int a[], int n, int x)
 {
   int tmp;
   /* Izlaz iz rekurzije */
@@ -12,11 +13,11 @@ int lin_pretraga_rek_sufiks(int a[], int n, int x)
   if (a[0] == x)
     return 0;
   /* Pretraga ostatka niza */
-  tmp = lin_pretraga_rek_sufiks(a + 1, n - 1, x);
+  tmp = linearna_pretraga_r1(a + 1, n - 1, x);
   return tmp < 0 ? tmp : tmp + 1;
 }
 
-int lin_pretraga_rek_prefiks(int a[], int n, int x)
+int linearna_pretraga_r2(int a[], int n, int x)
 {
   /* Izlaz iz rekurzije */
   if (n <= 0)
@@ -25,10 +26,10 @@ int lin_pretraga_rek_prefiks(int a[], int n, int x)
   if (a[n - 1] == x)
     return n - 1;
   /* Pretraga ostatka niza */
-  return lin_pretraga_rek_prefiks(a, n - 1, x);
+  return linearna_pretraga_r2(a, n - 1, x);
 }
 
-int bin_pretraga_rek(int a[], int l, int d, int x)
+int binarna_pretraga_r(int a[], int l, int d, int x)
 {
   int srednji;
   if (l > d)
@@ -41,15 +42,15 @@ int bin_pretraga_rek(int a[], int l, int d, int x)
   /* Ako je trazeni broj veci od broja na sredisnjoj poziciji,
      pretrazuje se desna polovina niza */
   if (a[srednji] < x)
-    return bin_pretraga_rek(a, srednji + 1, d, x);
+    return binarna_pretraga_r(a, srednji + 1, d, x);
   /* Ako je trazeni broj manji od broja na sredisnjoj poziciji,
      pretrazuje se leva polovina niza */
   else
-    return bin_pretraga_rek(a, l, srednji - 1, x);
+    return binarna_pretraga_r(a, l, srednji - 1, x);
 }
 
 
-int interp_pretraga_rek(int a[], int l, int d, int x)
+int interpolaciona_pretraga_r(int a[], int l, int d, int x)
 {
   int p;
   if (x < a[l] || x > a[d])
@@ -61,9 +62,9 @@ int interp_pretraga_rek(int a[], int l, int d, int x)
   if (a[p] == x)
     return p;
   if (a[p] < x)
-    return interp_pretraga_rek(a, p + 1, d, x);
+    return interpolaciona_pretraga_r(a, p + 1, d, x);
   else
-    return interp_pretraga_rek(a, l, p - 1, x);
+    return interpolaciona_pretraga_r(a, l, p - 1, x);
 }
 
 int main()
@@ -80,13 +81,18 @@ int main()
      korisnik pritisne CTRL+D za naznaku kraja */
   i = 0;
   printf("Unesite sortiran niz elemenata: ");
-  while (scanf("%d", &a[i]) == 1) {
+  while (i < MAX && scanf("%d", &a[i]) == 1) {
+    if (i > 0 && a[i] < a[i - 1]) {
+      fprintf(stderr,
+              "Elemente moraju biti uneseni u neopadajucem poretku\n");
+      exit(EXIT_FAILURE);
+    }
     i++;
   }
 
   /* Linearna pretraga */
   printf("Linearna pretraga\n");
-  indeks = lin_pretraga_rek_sufiks(a, i, x);
+  indeks = linearna_pretraga_r1(a, i, x);
   if (indeks == -1)
     printf("Element se ne nalazi u nizu.\n");
   else
@@ -94,7 +100,7 @@ int main()
 
   /* Binarna pretraga */
   printf("Binarna pretraga\n");
-  indeks = bin_pretraga_rek(a, 0, i - 1, x);
+  indeks = binarna_pretraga_r(a, 0, i - 1, x);
   if (indeks == -1)
     printf("Element se ne nalazi u nizu.\n");
   else
@@ -102,7 +108,7 @@ int main()
 
   /* Interpolaciona pretraga */
   printf("Interpolaciona pretraga\n");
-  indeks = interp_pretraga_rek(a, 0, i - 1, x);
+  indeks = interpolaciona_pretraga_r(a, 0, i - 1, x);
   if (indeks == -1)
     printf("Element se ne nalazi u nizu.\n");
   else
