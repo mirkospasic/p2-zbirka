@@ -126,10 +126,13 @@ int main(int argc, char **argv)
   /* Broj koji se trazi */
   x = atoi(argv[2]);
   /* Elementi niza se generisu slucajno, tako da je svaki sledeci
-     veci od prethodnog. srandom() funkcija obezbedjuje novi seed za
-     pozivanje random() funkcije. Kako generisani niz ne bi uvek isto 
-     izgledao, seed se postavlja na tekuce vreme u sekundama od Nove
-     godine 1970. random()%100 daje brojeve izmedju 0 i 99 */
+     veci od prethodnog. Funkcija srandom() inicijalizuje pocetnu
+     vrednost sa kojom se krece u izracunavanje sekvence
+     pseudo-slucajnih brojeva. Kako generisani niz ne bi uvek bio
+     isti, ova vrednost se postavlja na tekuce vreme u sekundama od
+     Nove godine 1970, tako da je za svako sledece pokretanje
+     programa (u vremenskim intervalima vecim od jedne sekunde) ove
+     vrednost drugacija. random()%100 vraca brojeve izmedju 0 i 99 */
   srandom(time(NULL));
   for (i = 0; i < n; i++)
     a[i] = i == 0 ? random() % 100 : a[i - 1] + random() % 100;
