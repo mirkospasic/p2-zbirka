@@ -84,7 +84,7 @@ int main()
   while (i < MAX && scanf("%d", &a[i]) == 1) {
     if (i > 0 && a[i] < a[i - 1]) {
       fprintf(stderr,
-              "Elemente moraju biti uneseni u neopadajucem poretku\n");
+              "Elementi moraju biti uneseni u neopadajucem poretku\n");
       exit(EXIT_FAILURE);
     }
     i++;

@@ -47,6 +47,10 @@ int main(int argc, char *argv[])
 
   /* Alokacija memorije */
   a = alociraj_matricu(n, m);
+  if (a == NULL) {
+    fprintf(stderr, "Neuspesna alokacija matrice\n");
+    exit(EXIT_FAILURE);
+  }
 
   /* Ucitavanje elementa matrice */
   printf("Unesite elemente matrice po vrstama:\n");
