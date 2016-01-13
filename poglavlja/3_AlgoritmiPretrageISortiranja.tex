@@ -300,8 +300,11 @@
   intervalu \argf{[0,2]} metodom polovljenja intervala. Algoritam se
   završava kada se vrednost kosinusne funkcije razlikuje za najviše
   $0.001$ od nule. \uputstvo{Korisiti algoritam analogan algoritmu
-  binarne pretrage.}
-  
+    binarne pretrage, metod polovljenja intervala.}  \napomena{Ovaj
+    metod se može primeniti na funkciju \kckod{cos(x)} na intervalu
+    \kckod{[0,2]} zato što je ona na ovom intervalu neprekidna, i
+    vrednosti funkcije na krajevima intervala su različitog znaka.}
+
 % Ovde ne moze biti vise od jednog test primera
 \begin{minitest}
 \begin{test}{1}
@@ -317,6 +320,68 @@
 \begin{Answer}[ref=3_06]
   \includecode{resenja/3_AlgoritmiPretrageISortiranja/3_06.c}
 \end{Answer}
+
+%-----------------------------------------------------------------
+%-----------------------------------------------------------------
+\begin{Exercise}[label=3_06a]
+  Napisati funkciju koja metodom polovljenja intervala određuje nulu
+  izabrane funkcije na proizvoljnom intervalu sa tačnošću
+  \kckod{epsilon}. Ime funkcije se zadaje kao prvi agrument komandne
+  linije, a interval i tačnost se unose sa standardnog
+  ulaza. Pretpostaviti da je izabrana funkcija na tom intervalu
+  neprekidna. \uputstvo{U okviru algoritma pretrage koristiti
+    pokazivač na odgovarajuću funkciju (na primer, kao u zadatku
+    \ref{345}).}
+
+\begin{miditest}
+\begin{upotreba}{1}
+#\poziv{./a.out cos}#
+  
+#\naslovInt#
+#\izlaz{Unesite krajeve intervala:} \ulaz{0 2}#
+#\izlaz{Unesite preciznost:} \ulaz{0.001}#
+#\izlaz{1.57031}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{2}
+#\poziv{./a.out sin}#
+  
+#\naslovInt#
+#\izlaz{Unesite krajeve intervala:} \ulaz{1 5}#
+#\izlaz{Unesite preciznost:} \ulaz{0.00001}#
+#\izlaz{3.1416}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{3}
+#\poziv{./a.out tan}#
+      
+#\naslovInt#
+#\izlaz{Unesite krajeve intervala:} \ulaz{-1.1 1}#
+#\izlaz{Unesite preciznost:} \ulaz{0.00001}#
+#\izlaz{3.8147e-06}#
+\end{upotreba}
+\end{miditest}
+\begin{miditest}
+\begin{upotreba}{4}
+#\poziv{./a.out sin}#  
+
+#\naslovInt#
+#\izlaz{Unesite krajeve intervala:} \ulaz{1 3}#
+#\izlaz{Funkcija sin na intervalu [1, 3]}#
+#\izlaz{ne zadovoljava uslove}#
+\end{upotreba}
+\end{miditest}
+  
+\linkresenje{3_06a}
+
+\end{Exercise}
+
+\begin{Answer}[ref=3_06a]
+  \includecode{resenja/3_AlgoritmiPretrageISortiranja/3_06a.c}
+\end{Answer}
+
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=3_07]

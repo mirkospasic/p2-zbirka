@@ -16,8 +16,8 @@ int main()
   while (1) {
     /* Polovi se interval */
     s = (l + d) / 2;
-    /* Ako je vrednost kosinusa u ovoj tacki manja od zadate
-       tacnosti, prekida se pretraga */
+    /* Ako je apsolutna vrednost kosinusa u ovoj tacki manja od
+       zadate tacnosti, prekida se pretraga */
     if (fabs(cos(s)) < EPS) {
       break;
     }
@@ -30,7 +30,7 @@ int main()
       l = s;
   }
 
-  /* Stampanje vrednost trazene tacke */
+  /* Stampanje vrednosti trazene tacke */
   printf("%g\n", s);
 
   return 0;
