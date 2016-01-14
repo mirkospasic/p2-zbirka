@@ -31,8 +31,8 @@ int MAKS_indeks(int m[][MAKS], int v, int k)
   int i, j;
   int broj_negativnih;
   /* Inicijalizujemo na nulu indeks kolone sa maksimalnim brojem
-     negativnih (maks_indeks_kolone), kao i maksimalni broj negativnih
-     elemenata u nekoj koloni (maks_broj_negativnih) */
+     negativnih (maks_indeks_kolone), kao i maksimalni broj 
+     negativnih elemenata u nekoj koloni (maks_broj_negativnih) */
   int maks_indeks_kolone = 0;
   int maks_broj_negativnih = 0;
 

@@ -14,9 +14,9 @@ void ispisi(const Polinom * p)
   for (i = p->stepen; i >= 0; i--) {
 
     if (p->koef[i]) {
-	  /* Polinom nije nula polinom, cim je neki od koeficijenata 
+      /* Polinom nije nula polinom, cim je neki od koeficijenata 
          razlicit od nule */ 
-	  nulaPolinom = 0; 
+      nulaPolinom = 0; 
       if (p->koef[i] >= 0 && i != p->stepen)
         putchar('+');
       if (i > 1)

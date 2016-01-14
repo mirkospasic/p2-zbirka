@@ -30,7 +30,7 @@ int main()
   /* Sve dok se ne stigne do kraja ulaza, ucitavaju se brojevi u niz.
      Promenljiva i predstavlja indeks tekuceg broja. U niz se ne moze
      ucitati vise od MAKS_DIM brojeva, pa se u slucaju da promenljiva
-	 i dostigne vrednost MAKS_DIM prekida unos novih brojeva. */
+     i dostigne vrednost MAKS_DIM prekida unos novih brojeva. */
   printf("Unesite elemente niza:");
   i = 0;
   while (scanf("%d", &a[i]) != EOF) {

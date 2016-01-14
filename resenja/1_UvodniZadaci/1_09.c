@@ -8,16 +8,16 @@ unsigned rotiraj_ulevo(int x, unsigned n)
 
   /* Maska koja ima samo bit na poziciji najvece tezine postavljen na
      1 je neophodna da bi pre pomeranja u levo za 1 bit na poziciji 
-	 najvece tezine bio sacuvan */
+     najvece tezine bio sacuvan */
   unsigned bit_najvece_tezine_maska = 1 << (sizeof(unsigned) * 8 - 1);
   int i;
 
   /* n puta se vrsi rotaciju za jedan bit u levo. U svakoj iteraciji
      se odredi bit na poziciji najvece tezine, a potom se pomera 
-	 binarna reprezentacija trenutne vrednosti promenljive x u levo 
-	 za 1. Nakon toga, bit na poziciji najmanje tezine se postavlja 
-	 na vrednost koju je imao bit na poziciji najvece tezine koji je 
-	 istisnut pomeranjem */
+     binarna reprezentacija trenutne vrednosti promenljive x u levo 
+     za 1. Nakon toga, bit na poziciji najmanje tezine se postavlja 
+     na vrednost koju je imao bit na poziciji najvece tezine koji je 
+     istisnut pomeranjem */
   for (i = 0; i < n; i++) {
     bit_najvece_tezine = x & bit_najvece_tezine_maska;
     x = x << 1 | (bit_najvece_tezine ? 1 : 0);
@@ -35,12 +35,12 @@ unsigned rotiraj_udesno(unsigned x, unsigned n)
 
   /* n puta se ponavlja rotacija u desno za jedan bit. U svakoj
      iteraciji se odredjuje bit na poziciji najmanje tezine broja x,
-	 zatim tako odredjeni bit se pomera u levo tako da bit na 
-	 poziciji najmanje tezine dodje do pozicije najvece tezine. 
-	 Zatim, nakon pomeranja binarne reprezentacije trenutne vrednosti
-	 promenljive x za 1 u desno, bit na poziciji najvece tezine se 
-	 postaljva na vrednost vec zapamcenog bita koji je bio na 
-	 poziciji najmanje tezine. */
+     zatim tako odredjeni bit se pomera u levo tako da bit na 
+     poziciji najmanje tezine dodje do pozicije najvece tezine. 
+     Zatim, nakon pomeranja binarne reprezentacije trenutne vrednosti
+     promenljive x za 1 u desno, bit na poziciji najvece tezine se 
+     postaljva na vrednost vec zapamcenog bita koji je bio na 
+     poziciji najmanje tezine. */
   for (i = 0; i < n; i++) {
     bit_najmanje_tezine = x & 1;
     x = x >> 1 | bit_najmanje_tezine << (sizeof(unsigned) * 8 - 1);
@@ -59,19 +59,19 @@ int rotiraj_udesno_oznaceni(int x, unsigned n)
 
   /* U svakoj iteraciji se odredjuje bit na poziciji najmanje tezine
      i smesta u promenljivu bit_najmanje_tezine. Kako je x oznacen 
-	 ceo broj, tada se prilikom pomeranja u desno vrsi aritmeticko 
-	 pomeranje i cuva se znak broja. Dakle, razlikuju se dva slucaja
-	 u zavisnosti od znaka broja x. Nije dovoljno da se ova provera 
-	 izvrsi pre petlje, s obzirom da rotiranjem u desno na poziciju 
-	 nejvece tezine moze doci i 0 i 1, nezavisno od pocetnog znaka 
-	 broja smestenog u promenljivu x. */
+     ceo broj, tada se prilikom pomeranja u desno vrsi aritmeticko 
+     pomeranje i cuva se znak broja. Dakle, razlikuju se dva slucaja
+     u zavisnosti od znaka broja x. Nije dovoljno da se ova provera 
+     izvrsi pre petlje, s obzirom da rotiranjem u desno na poziciju 
+     nejvece tezine moze doci i 0 i 1, nezavisno od pocetnog znaka 
+     broja smestenog u promenljivu x. */
   for (i = 0; i < n; i++) {
     bit_najmanje_tezine = x & 1;
 
     if (x < 0)
   /******************************************************************
     Siftovanjem u desno broja koji je negativan dobija se 1 kao bit 
-	na poziciji najvece tezine. Na primer ako je x      
+    na poziciji najvece tezine. Na primer ako je x      
     1010 1011 1100 1101 1110 0001 0010 001b 
       (sa b je oznacen ili 1 ili 0 na poziciji najmanje tezine) 
     Onda je sadrzaj promenljive bit_najmanje_tezine:
@@ -81,7 +81,7 @@ int rotiraj_udesno_oznaceni(int x, unsigned n)
     Kako bi umesto 1 na poziciji najvece tezine u trenutnoj binarnoj 
     reprezentaciji x bilo postavljeno b nije dovoljno da se pomeri na 
     poziciju najvece tezine jer bi se time dobile 0, a u ovom slucaju
-	su potrebne jedinice zbog bitovskog & zato se prvo vrsi 
+    su potrebne jedinice zbog bitovskog & zato se prvo vrsi 
     komplementiranje, a zatim pomeranje 
     ~bit_najmanje_tezine << (sizeof(int)*8 -1) 
     B000 0000 0000 0000 0000 0000 0000 0000 

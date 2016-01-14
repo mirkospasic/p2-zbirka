@@ -28,7 +28,7 @@ unsigned postavi_1(unsigned x, unsigned n, unsigned p)
 
   /******************************************************************
     Formira se maska kod koje je samo n bitova pocev od pocev od 
-	pozicije p jednako 1, a ostali su 0. 
+    pozicije p jednako 1, a ostali su 0. 
     Na primer, za n=5 i p=10 formira se maska oblika 
     0000 0000 0000 0000 0000 0111 1100 0000 
   ******************************************************************/
@@ -45,7 +45,7 @@ unsigned vrati_bitove(unsigned x, unsigned n, unsigned p)
 
   /******************************************************************
     Kreira se maska kod koje su poslednjih n bitova 1, a ostali su 0.
-	Na primer, za n=5 
+    Na primer, za n=5 
     0000 0000 0000 0000 0000 0000 0001 1111 
   ******************************************************************/
   unsigned maska = ~(~0 << n);
@@ -79,8 +79,8 @@ unsigned postavi_1_n_bitova(unsigned x, unsigned n, unsigned p, unsigned y)
   /* U promenlijvu y_pomeri_srednje se smesta vrednost dobijena od
      binarne reprezentacije vrednosti promenljive y cijih je n bitova 
      najnize tezine pomera tako da stoje pocev od pozicije p. Ostali
-     bitovi su nule. Sa (y & poslednjih_n_1) postave na 0 svi bitovi 
-	 osim najnizih n */
+     bitovi su nule. Sa (y & poslednjih_n_1) postave na 0 svi bitovi
+     osim najnizih n */
   unsigned y_pomeri_srednje = (y & poslednjih_n_1) << (p - n + 1);
 
   return x_postavi_0 ^ y_pomeri_srednje;

@@ -60,7 +60,8 @@ int main(int argc, char *argv[])
 
   /* Otvaranje datoteke cije ime je navedeno kao argument komandne
      linije neposredno nakon imena programa koji se poziva. U slucaju
-     neuspesnog otvaranja ispisuje se -1 na stderr i program zavrsava. */
+     neuspesnog otvaranja ispisuje se -1 na stderr i program zavrsava
+     izvrsavanje. */
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "-1\n");
