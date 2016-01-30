@@ -2,6 +2,54 @@
 
 Preostali poslovi
 
+
+1. Srediti numeraciju kod listinga (Milena)
+
+2. Srediti repozitorijum (Andjelka, Jelena):
+   a) treba da sadrzi poddirektorijume za biblioteke (Jelena, Andjelka)
+   b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci (Jelena, Andjelka)
+   c) napraviti makefile koji ce sve odjednom da prevede, nazubi i upakuje (Mirko)
+   d) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
+   e) dodati licencnu poruku na pocetak svake datoteke (smisliti poruku --- svi, Milena prvu verziju)
+
+3. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
+(Svi)
+
+4. Usaglasiti notaciju kroz zbirku --- izaciti kamilju notaciju (Svi)
+
+5. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Svi)
+
+6. Voditi racuna da se ne mesa rad sa Windows-a i Linux-a jer to posle pravi probleme indent-u
+   zbog znaka za novi red
+
+7. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Nina, Jelena)
+
+8. Proveriti predgovor (svi)
+
+9. Napraviti dizajn korica (Andjelka)
+
+10. Napraviti finalni prelom (Milena)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 1. Srediti numeraciju kod listinga (Milena)
 
 2. Srediti repozitorijum:
