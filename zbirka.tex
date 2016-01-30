@@ -34,13 +34,16 @@
 \pagenumbering{roman}
 
 \input{poglavlja/P1_naslovna.tex}
-\input{poglavlja/P2_predgovor.tex}
+
+\tableofcontents
 
 \input{podesavanja/stil_strane.tex}
-\tableofcontents
+\input{poglavlja/P2_predgovor.tex}
 
 \pagenumbering{arabic}
 \setcounter{page}{1}
+
+\def\chaptername{}
 
 \input{poglavlja/1_UvodniZadaci.tex}
 \input{poglavlja/2_Pokazivaci.tex}
