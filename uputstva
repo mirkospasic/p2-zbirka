@@ -2,35 +2,32 @@
 
 Preostali poslovi
 
-
-1. Srediti numeraciju kod listinga (Milena)
-
-2. Srediti repozitorijum (Andjelka, Jelena):
+1. Srediti repozitorijum (Andjelka, Jelena):
    a) treba da sadrzi poddirektorijume za biblioteke (Jelena, Andjelka)
    b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci (Jelena, Andjelka)
    c) napraviti makefile koji ce sve odjednom da prevede, nazubi i upakuje (Mirko)
    d) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
-   e) dodati licencnu poruku na pocetak svake datoteke (smisliti poruku --- Andjelka, Mirko, Ana, Nina, Jelena)
+   e) dodati licencnu poruku na pocetak svake datoteke (izabrati poruku od ponudjenih --- Andjelka, Mirko, Ana, Nina, Jelena)
 
-3. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
-(Andjelka, Mirko, Ana, Nina, Jelena, Milena)
+2. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
+(Andjelka, Mirko, Ana, Nina, Jelena, Milena-provera)
 
-4. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Andjelka, Mirko, Ana, Nina, Jelena, Milena)
+3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Andjelka, Mirko, Ana, Nina, Jelena, Milena-provera)
 
-5. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Andjelka, Mirko, Ana, Nina, Jelena, Milena)
+4. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Andjelka, Mirko, Ana, Nina, Jelena, Milena-provera)
 
-6. Voditi racuna da se ne mesa rad sa Windows-a i Linux-a jer to posle pravi probleme indent-u
+5. Voditi racuna da se ne mesa rad sa Windows-a i Linux-a jer to posle pravi probleme indent-u
    zbog znaka za novi red
 
-7. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Nina, Jelena)
+6. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Nina, Jelena)
 
-8. Proveriti predgovor (Andjelka, Mirko, Ana, Nina, Jelena)
+7. Proveriti predgovor (Andjelka, Mirko, Ana, Nina, Jelena)
 
-9. Napraviti dizajn korica (Andjelka)
+8. Napraviti dizajn korica (Andjelka)
 
-10. Napraviti finalni prelom (Milena)
+9. Napraviti finalni prelom (Milena)
 
-11. Srediti zvezdice (Andjelka, Mirko, Ana, Nina, Jelena, Milena)
+10. Srediti zvezdice (Andjelka, Mirko, Ana, Nina, Jelena, Milena-provera)
 
 /********************************************************************************
 * Ovo delo zaštićeno je licencom Creative Commons CC BY-NC-ND 4.0
