@@ -10,27 +10,66 @@ Preostali poslovi
    b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci (Jelena, Andjelka)
    c) napraviti makefile koji ce sve odjednom da prevede, nazubi i upakuje (Mirko)
    d) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
-   e) dodati licencnu poruku na pocetak svake datoteke (smisliti poruku --- svi, Milena prvu verziju)
+   e) dodati licencnu poruku na pocetak svake datoteke (smisliti poruku --- Andjelka, Mirko, Ana, Nina, Jelena)
 
 3. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
-(Svi)
+(Andjelka, Mirko, Ana, Nina, Jelena, Milena)
 
-4. Usaglasiti notaciju kroz zbirku --- izaciti kamilju notaciju (Svi)
+4. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Andjelka, Mirko, Ana, Nina, Jelena, Milena)
 
-5. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Svi)
+5. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Andjelka, Mirko, Ana, Nina, Jelena, Milena)
 
 6. Voditi racuna da se ne mesa rad sa Windows-a i Linux-a jer to posle pravi probleme indent-u
    zbog znaka za novi red
 
 7. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Nina, Jelena)
 
-8. Proveriti predgovor (svi)
+8. Proveriti predgovor (Andjelka, Mirko, Ana, Nina, Jelena)
 
 9. Napraviti dizajn korica (Andjelka)
 
 10. Napraviti finalni prelom (Milena)
 
-11. Srediti zvezdice (svi)
+11. Srediti zvezdice (Andjelka, Mirko, Ana, Nina, Jelena, Milena)
+
+/********************************************************************************
+* Ovo delo zaštićeno je licencom Creative Commons CC BY-NC-ND 4.0
+* (Attribution-NonCommercial-NoDerivatives 4.0 International License).
+* Detalji licence mogu se videti na veb-adresi
+* http://creativecommons.org/licenses/by-nc-nd/4.0/.
+* Dozvoljeno je umnožavanje, distribucija i javno saopštavanje dela, pod uslovom
+* da se navedu imena autora. Upotreba dela u komercijalne svrhe nije dozvoljena.
+* Prerada, preoblikovanje i upotreba dela u sklopu nekog drugog nije dozvoljena.
+* Autori: Milena Vujosevic Janicic, Jelena Graovac, Ana Spasic,
+*             Mirko Spasic, Andjelka Zecevic, Nina Radojicic
+********************************************************************************/
+
+Meni to deluje poveliko, ali mozda ne smeta?
+
+Druga varijanta bi bila skracena
+
+/********************************************************************************
+* Ovo delo zaštićeno je licencom Creative Commons CC BY-NC-ND 4.0
+* (Attribution-NonCommercial-NoDerivatives 4.0 International License).
+* Detalji licence mogu se videti na veb-adresi
+* http://creativecommons.org/licenses/by-nc-nd/4.0/.
+* Autori: Milena Vujosevic Janicic, Jelena Graovac, Ana Spasic,
+*             Mirko Spasic, Andjelka Zecevic, Nina Radojicic
+********************************************************************************/
+
+Treca varijanta bi bila jos skracenija
+
+/********************************************************************************
+* Ovo delo zaštićeno je licencom Creative Commons CC BY-NC-ND 4.0
+* (Attribution-NonCommercial-NoDerivatives 4.0 International License).
+* Za detalje pogledati LICENSE.TXT
+* Autori: Milena Vujosevic Janicic, Jelena Graovac, Ana Spasic,
+*             Mirko Spasic, Andjelka Zecevic, Nina Radojicic
+********************************************************************************/
+
+U ovom slucaju bi u LICENSE.TXT bio ceo tekst iz one prve varijante
+
+Molim za komentare i misljenja na ovu temu.
 
 
 
