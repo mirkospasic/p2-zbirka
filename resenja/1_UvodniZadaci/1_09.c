@@ -111,20 +111,20 @@ int main()
   scanf("%x", &n);
 
   /* Ispisuje se binarna reprezentacija broja x */
-  printf("x = ");
+  printf("x\t\t\t\t= ");
   stampaj_bitove(x);
 
   /* Testira se rad napisanih funkcija */
-  printf("rotiraj_ulevo(%10x,%10u) %10s= ", x, n, "");
+  printf("rotiraj_ulevo(%x,%u)\t\t= ", x, n);
   stampaj_bitove(rotiraj_ulevo(x, n));
 
-  printf("rotiraj_udesno(%10x,%10u) %9s= ", x, n, "");
+  printf("rotiraj_udesno(%x,%u)\t\t= ", x, n);
   stampaj_bitove(rotiraj_udesno(x, n));
 
-  printf("rotiraj_udesno_oznaceni(%10x,%10u) = ", x, n);
+  printf("rotiraj_udesno_oznaceni(%x,%u)\t= ", x, n);
   stampaj_bitove(rotiraj_udesno_oznaceni(x, n));
   
-  printf("rotiraj_udesno_oznaceni(%10x,%10u) = ", -x, n);
+  printf("rotiraj_udesno_oznaceni(-%x,%u)\t= ", x, n);
   stampaj_bitove(rotiraj_udesno_oznaceni(-x, n));
 
   return 0;
