@@ -12,6 +12,56 @@
 
 %Detalji se mogu naci na
 %https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+
+\ifcrnobelo
+%https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\lstset{ 
+backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+ basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+ breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+ breaklines=true,                 % sets automatic line breaking
+% captionpos=t,                    % sets the caption-position to bottom
+ commentstyle=\color{black},    % comment style
+ escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+ extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+ frame=single,	                   % adds a frame around the code
+ keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+ keywordstyle=\color{black},       % keyword style
+ language=C,                 % the language of the code
+ numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+ numbersep=5pt,                   % how far the line-numbers are from the code
+ numberstyle=\tiny\color{black}, % the style that is used for the line-numbers
+ rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+ showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+ showstringspaces=false,          % underline spaces within strings only
+ showtabs=false,                  % show tabs within strings adding particular underscores
+ stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+ stringstyle=\color{black},     % string literal style
+ tabsize=2,	                   % sets default tabsize to 2 spaces
+}
+
+%\renewcommand{\lstlistingname}{Datoteka}
+
+\lstdefinestyle{customc}{
+ belowcaptionskip=1\baselineskip,
+ breaklines=true,
+ xleftmargin=\parindent,
+ language=C,
+ basicstyle=\scriptsize,        % the size of the fonts that are used for the code
+ showstringspaces=false,
+ commentstyle=\color{black}\ttfamily,
+ morecomment=[l][\color{black}]{\#},
+ basicstyle=\footnotesize\ttfamily,
+ keywordstyle=\bfseries\color{black}\ttfamily\textbf,
+ identifierstyle=\bfseries\color{black}\ttfamily,
+ stringstyle=\bfseries\color{black}\ttfamily,
+% title={Program: \texttt{\lstname}},
+}
+\fi
+
+
+\ifuboji
+
 \definecolor{mygreen}{rgb}{0,0.6,0} 
 \definecolor{mygray}{rgb}{0.5,0.5,0.5} 
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
@@ -42,8 +92,6 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
  tabsize=2,	                   % sets default tabsize to 2 spaces
 }
 
-
-
 %\renewcommand{\lstlistingname}{Datoteka}
 
 \lstdefinestyle{customc}{
@@ -61,17 +109,19 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
  stringstyle=\bfseries\color{magenta}\ttfamily,
 % title={Program: \texttt{\lstname}},
 }
+\fi
 
 \newcommand{\includecodeLib}[2]{\lstinputlisting[title=#2,language=C,style=customc]{#1}}
 \newcommand{\includecode}[1]{\lstinputlisting[language=C,style=customc]{#1}}
 
-\def\d{{\fontencoding{T1}\selectfont\dj}}
-\def\D{{\fontencoding{T1}\selectfont\DJ}}
+%\def\d{{\fontencoding{T1}\selectfont\dj}}
+%\def\D{{\fontencoding{T1}\selectfont\DJ}}
 
 \lstset{literate=
  {č}{{\v{c}}}1 {ć}{{\'{c}}}1 {š}{{\v{s}}}1 {ž}{{\v{z}}}1 {đ}{{\d}}1 
  {Č}{{\v{C}}}1 {Ć}{{\'{C}}}1 {Š}{{\v{S}}}1 {Ž}{{\v{Z}}}1 {Đ}{{\D}}1  
 }
+
 
 \newcommand{\uputstvo}[1]{\textsc{Uputstvo:} \emph{#1}}
 \newcommand{\napomena}[1]{\textsc{Napomena:} \emph{#1}}
@@ -82,8 +132,95 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 {\endverbatim}
 
 
+
+\ifcrnobelo
+\newcommand{\datoteka}[1]{\textcolor{black}{\texttt{\hspace{2mm}#1}}}
+\newcommand{\poziv}[1]{\textcolor{black}{\textsc{Pokretanje:\hspace{2mm}}}#1}
+\newcommand{\ulaz}[1]{\textcolor{black}{\texttt{\textit{\hspace{2mm}#1}}}}
+\newcommand{\izlaz}[1]{\textcolor{black}{\texttt{\hspace{2mm}#1}}}
+\newcommand{\naslovInt}{\textcolor{black}{\textsc{Interakcija sa programom:}}}
+\newcommand{\naslovDat}[1]{\textcolor{black}{\textsc{#1}}}
+\newcommand{\naslovUlaz}{\textcolor{black}{\textsc{Ulaz:}}}
+\newcommand{\naslovIzlaz}{\textcolor{black}{\textsc{Izlaz:}}}
+\newcommand{\naslovIzlazZaGresku}{\textcolor{black}{\textsc{Izlaz za gre\v{s}ku:}}}
+
+\lstnewenvironment{upotreba}[1]
+{
+ \renewcommand\lstlistingname{Test}\lstset{
+% belowcaptionskip=1\baselineskip,
+% breaklines=true,
+ frame=L,
+ backgroundcolor=\color{white},
+% xleftmargin=\parindent,
+ language=C,
+ showstringspaces=false,
+ basicstyle=\scriptsize\ttfamily,
+ keywordstyle=\bfseries\color{black},
+ commentstyle=\itshape\color{black},
+ identifierstyle=\color{black},
+ stringstyle=\color{black},
+ numbers=none,
+ captionpos=t,
+ title={Primer #1},
+ escapechar={\#}
+}
+}
+{}
+
+
+\lstnewenvironment{test}[1]
+{
+ \renewcommand\lstlistingname{Test}\lstset{
+% belowcaptionskip=1\baselineskip,
+% breaklines=true,
+ frame=L,
+ backgroundcolor=\color{white},
+% xleftmargin=\parindent,
+ language=C,
+ showstringspaces=false,
+ basicstyle=\scriptsize\ttfamily,
+ keywordstyle=\bfseries\color{black},
+ commentstyle=\itshape\color{black},
+ identifierstyle=\color{black},
+ stringstyle=\color{black},
+ numbers=none,
+ captionpos=t,
+ title={Test #1},
+ escapechar={\#}
+}
+}
+{}
+
+\lstnewenvironment{test2}[1]
+{
+ \renewcommand\lstlistingname{Test}\lstset{
+% belowcaptionskip=1\baselineskip,
+% breaklines=true,
+ frame=no,
+ backgroundcolor=\color{white},
+% xleftmargin=\parindent,
+ language=C,
+ showstringspaces=false,
+ basicstyle=\scriptsize\ttfamily,
+ keywordstyle=\bfseries\color{black},
+ commentstyle=\itshape\color{black},
+ identifierstyle=\color{black},
+ stringstyle=\color{black},
+ numbers=none,
+ captionpos=t,
+% title={Test #1},
+ escapechar={\#}
+}
+}
+{}
+\fi
+
+
+
+
 %http://latexcolor.com/
 
+\ifuboji
 \definecolor{dmg}{rgb}{0.05, 0.5, 0.06}
 \definecolor{djg}{rgb}{0.0, 0.29, 0.29}
 \definecolor{denim}{rgb}{0.08, 0.38, 0.74}
@@ -98,29 +235,6 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 \newcommand{\naslovUlaz}{\textcolor{egyptianblue}{\textsc{Ulaz:}}}
 \newcommand{\naslovIzlaz}{\textcolor{egyptianblue}{\textsc{Izlaz:}}}
 \newcommand{\naslovIzlazZaGresku}{\textcolor{egyptianblue}{\textsc{Izlaz za gre\v{s}ku:}}}
-
-
-\iffalse
-\usepackage{mdframed}
-
-\newmdenv[
-  topline=false,
-  bottomline=false,
-  rightline=false,
-  leftline=true,
-  skipabove=\topsep,
-  skipbelow=\topsep,
-  leftmargin=-10pt,
-  rightmargin=-10pt,
-  innertopmargin=0pt,
-  innerbottommargin=0pt
-]{siderules}
-
-\definecolor{antiquewhite}{rgb}{0.98, 0.92, 0.84}
-
-\newenvironment{upotreba}[1]{\begin{siderules} \flushleft{\textit{Primer #1}\\}  \begin{scriptsize}}  {\end{scriptsize} \end{siderules}}
-\fi
-
 
 \lstnewenvironment{upotreba}[1]
 {
@@ -191,6 +305,7 @@ backgroundcolor=\color{white},   % choose the background color; you must add \us
 }
 }
 {}
+\fi
 
 \usepackage{caption}
 \DeclareCaptionFormat{listing} {
