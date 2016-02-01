@@ -3,8 +3,8 @@
 Preostali poslovi
 
 1. Srediti repozitorijum (Andjelka, Jelena):
-   a) treba da sadrzi poddirektorijume za biblioteke (Jelena, Andjelka)
-   b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci (Jelena, Andjelka)
+   a) treba da sadrzi poddirektorijume za biblioteke (Andjelka)
+   b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci (Andjelka)
    c) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
    d) dodati licencnu poruku na pocetak svake datoteke (izabrati poruku od ponudjenih --- Andjelka, Mirko, Ana, Nina, Jelena)
    e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 (Nina, Jelena)
@@ -19,9 +19,9 @@ Preostali poslovi
 5. Voditi racuna da se ne mesa rad sa Windows-a i Linux-a jer to posle pravi probleme indent-u
    zbog znaka za novi red
 
-6. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Nina, Jelena)
+6. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Nina)
 
-7. Proveriti predgovor (Andjelka, Ana, Nina, Jelena)
+7. Proveriti predgovor (Andjelka, Ana, Nina)
 
 8. Napraviti dizajn korica (Andjelka)
 
