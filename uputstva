@@ -5,9 +5,9 @@ Preostali poslovi
 1. Srediti repozitorijum (Andjelka, Jelena):
    a) treba da sadrzi poddirektorijume za biblioteke (Jelena, Andjelka)
    b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci (Jelena, Andjelka)
-   c) napraviti makefile koji ce sve odjednom da prevede, nazubi i upakuje (Mirko)
-   d) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
-   e) dodati licencnu poruku na pocetak svake datoteke (izabrati poruku od ponudjenih --- Andjelka, Mirko, Ana, Nina, Jelena)
+   c) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
+   d) dodati licencnu poruku na pocetak svake datoteke (izabrati poruku od ponudjenih --- Andjelka, Mirko, Ana, Nina, Jelena)
+   e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 (Nina, Jelena)
 
 2. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
 (Andjelka, Ana, Nina, Jelena, Milena-provera)
