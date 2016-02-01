@@ -56,11 +56,11 @@ int main()
 
   /* Ispisuje se rezultat */
   if (i == 1){
-    printf("Broj jedinica u zapisu je\n");
-    printf("funkcija prebroj_bitove_1: %d\n", prebroj_bitove_1(x));
+    printf("Poziva se funkcija prebroj_bitove_1\n");
+    printf("Broj jedinica u zapisu je %d\n", prebroj_bitove_1(x));
   }else if (i == 2){
-    printf("Broj jedinica u zapisu je\n");
-    printf("funkcija prebroj_bitove_2: %d\n", prebroj_bitove_2(x));
+    printf("Poziva se funkcija prebroj_bitove_2\n");
+    printf("Broj jedinica u zapisu je %d\n", prebroj_bitove_2(x));
   }else {
     fprintf(stderr, "Neodgovarajuci redni broj funkcije!\n");
     exit(EXIT_FAILURE);

@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv)
 {
-  Polinom p, q, r;
+  Polinom p, q, z, r;
   double x;
   int n;
 
@@ -21,9 +21,9 @@ int main(int argc, char **argv)
   q = ucitaj();
 
   /* Polinomi se sabiraju i ispisuje se izracunati zbir */
-  r = saberi(&p, &q);
-  printf("Zbir polinoma je: ");
-  ispisi(&r);
+  z = saberi(&p, &q);
+  printf("Zbir polinoma je polinom z:\n");
+  ispisi(&z);
 
   /* Polinomi se mnoze i ispisuje se izracunati prozivod */
   r = pomnozi(&p, &q);
@@ -31,9 +31,9 @@ int main(int argc, char **argv)
   ispisi(&r);
 
   /* Ispisuje se vrednost polinoma u unetoj tacki */
-  printf("Unesite tacku u kojoj racunate vrednost polinoma r\n");
+  printf("Unesite tacku u kojoj racunate vrednost polinoma z:\n");
   scanf("%lf", &x);
-  printf("Vrednost polinoma u tacki je %.2f\n", izracunaj(&r, x));
+  printf("Vrednost polinoma z u tacki %.2f je %.2f\n", x, izracunaj(&z, x));
 
 
   /* Racuna se n-ti izvoda polinoma i ispisuje se dobijeni polinoma */

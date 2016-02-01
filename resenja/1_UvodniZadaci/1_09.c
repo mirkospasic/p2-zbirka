@@ -102,27 +102,27 @@ int rotiraj_udesno_oznaceni(int x, unsigned n)
 
 int main()
 {
-  unsigned x, k;
+  unsigned x, n;
 
   /* Ucitavaju se vrednosti sa standardnog ulaza */
   printf("Unesite neoznacen ceo broj x:");
   scanf("%x", &x);
-  printf("Unesite neoznacen ceo broj k:");
-  scanf("%x", &k);
+  printf("Unesite neoznacen ceo broj n:");
+  scanf("%x", &n);
 
   /* Ispisuje se binarna reprezentacija broja x */
-  printf("x = ", "");
+  printf("x = ");
   stampaj_bitove(x);
 
   /* Testira se rad napisanih funkcija */
-  printf("rotiraj_ulevo(%10u,%10u) %10s= ", x, k, "");
-  stampaj_bitove(rotiraj_ulevo(x, k));
+  printf("rotiraj_ulevo(%10x,%10u) %10s= ", x, n, "");
+  stampaj_bitove(rotiraj_ulevo(x, n));
 
-  printf("rotiraj_udesno(%10u,%10u) %9s= ", x, k, "");
-  stampaj_bitove(rotiraj_udesno(x, k));
+  printf("rotiraj_udesno(%10x,%10u) %9s= ", x, n, "");
+  stampaj_bitove(rotiraj_udesno(x, n));
 
-  printf("rotiraj_udesno_oznaceni(%10u,%10u) = ", x, k);
-  stampaj_bitove(rotiraj_udesno_oznaceni(x, k));
+  printf("rotiraj_udesno_oznaceni(%10x,%10u) = ", x, n);
+  stampaj_bitove(rotiraj_udesno_oznaceni(x, n));
 
   return 0;
 }

@@ -12,21 +12,27 @@ zadatka ali ne svuda gde bi trebalo i ne dovoljno
 4. Bilo bi korisno ako bi svako od autora jos jednom pazljivo procitao ceo
 tekst.
 Time bi se postigli razni pozitivni efekti, na primer
+
 - verovatno bi se otklonile izvesne (terminoloske) neujednacenosti koje su
 (verovatno)
 rezultat rada veceg broja autora, na primer
 U datoteci matrica.c "Alocira se prostor za niz vrsti matrice " - vrsta
 (uporediti sa resenjem 2.18 "Pokazivac na dinamiciki alociran niz
 pokazivaca na vrste matrice" - razlicita terminologija)
+
 - uocili biste moguce nekonzistentnosti izmedju postavke zadatka i primera
 ("Interakcije sa programom").
+
 - otklonili biste izvesne slovne greske, na primer "Napisati program koja
 ...", "u heksadekasnom formatu",
 "realan i imaginara deo", "dodavanjem opcije opcije -l" i sl.
+
 - ujednacili biste formulaciju (ima u postavkama zadataka mesavine prezenta
 / imperativa,
 na primer "Program ucitava... Potom matricu ispisati...")
+
 - uocili biste neke sintaksne greske, na primer "Zapocinje se sa ispisom"
+
 - malo stilistike, npr. umesto "ispratiti" - "propratiti" i sl.
 
 5. Neke formulacije bi mogle da budu preciznije. Na primer,
@@ -37,9 +43,12 @@ sasvim jasan
 U tacki 2.2 Visedimnezioni nizovi - svi zadaci su reseni indeksnom
 sintaksom (samo u 2.8 ilustrovana je pokazivacka)
 - mozda bi tu moglo da se malo izbalansIra
+
 U zadatku 2.27 - Pokazivaci na funkcije - da li je "mreza" pravi izraz u
 jednoj dimenziji?
+
 U resenju 2.18 "A = maloc..." - "A = (double **)malloc..."
+
 U zadatku 3.6 vise smisla bi imala proizvoljna funkcija koja na datom
 intervalu ima jednu nulu
 U zadatku 3.30 bio bi koristan primer za element koji se ponavlja tako da

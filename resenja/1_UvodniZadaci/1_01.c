@@ -15,7 +15,7 @@ typedef struct {
 void ucitaj_kompleksan_broj(KompleksanBroj * z)
 {
   /* Ucitavanje vrednosti sa standardnog ulaza */
-  printf("Unesite realan i imaginaran deo kompleksnog broja: ");
+  printf("Unesite realni i imaginarni deo kompleksnog broja: ");
   scanf("%f", &z->real);
   scanf("%f", &z->imag);
 }
@@ -189,23 +189,21 @@ int main()
     z = mnozi(z1, z2);
   }
 
-  /* Ispisuje se rezultat */
-  printf("\n");
+  /* Ispisuje se rezultat */  
   ispisi_kompleksan_broj(z1);
   printf(" %c ", c);
   ispisi_kompleksan_broj(z2);
   printf("  =  ");
-  ispisi_kompleksan_broj(z);
-  printf("\n");
+  ispisi_kompleksan_broj(z);  
 
   /* Ispisuje se realan, imaginaran deo i moduo prvog kompleksnog
      broja */
-  printf("\nrealan_deo: %.f\nimaginaran_deo: %f\nmoduo: %f\n",
+  printf("\nRealni_deo: %.f\nImaginarni_deo: %f\nModuo: %f\n",
          realan_deo(z), imaginaran_deo(z), moduo(z));
 
   /* Izracunava se i ispisuje konjugovano kompleksan broj drugog
      kompleksnog broja */
-  printf("Njegov konjugovano kompleksan broj: ");
+  printf("Konjugovano kompleksan broj: ");
   ispisi_kompleksan_broj(konjugovan(z));
   printf("\n");
 
