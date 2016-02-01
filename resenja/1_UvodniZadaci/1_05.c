@@ -17,7 +17,7 @@ int main()
  
  printf("Unesite broj tipa short: ");
  /* Ucitava se broj sa ulaza */
- scanf("%x", &broj_short);
+ scanf("%hx", &broj_short);
 
  /* I ispisuje se njegova binarna reprezentacija */
  printf("Binarna reprezentacija: ");
@@ -25,7 +25,7 @@ int main()
  
  printf("Unesite broj tipa char: ");
  /* Ucitava se broj sa ulaza */
- scanf("%x", &broj_char);
+ scanf("%hhx", &broj_char);
 
  /* I ispisuje se njegova binarna reprezentacija */
  printf("Binarna reprezentacija: ");
