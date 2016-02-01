@@ -49,7 +49,7 @@ all: 3_01.out 3_02.out 3_03.out 3_04.out 3_05.out 3_06.out 3_07.out 3_08.out 3_0
 3_25.out: 3_25.c
 	$(CC) $(CFLAGS) -o $@ $<
 3_28.out: 3_28.c
-	$(CC) $(CFLAGS) -o $@ $< ../03_Pokazivaci/biblioteka/matrica.c -I ../03_Pokazivaci/biblioteka
+	$(CC) $(CFLAGS) -o $@ $< ../biblioteke/matrica/matrica.c -I ../biblioteke/matrica
 3_31.out: 3_31.c
 	$(CC) $(CFLAGS) -o $@ $<
 3_32.out: 3_32.c
