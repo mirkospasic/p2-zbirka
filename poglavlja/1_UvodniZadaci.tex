@@ -403,19 +403,33 @@ Pod rotiranjem bitova ulevo podrazumeva se pomeranje svih bitova za jednu pozici
 \item Napisati funkciju \kckod{unsigned rotiraj\_udesno(unsigned x, unsigned n)} koja vraća broj koji se dobija rotiranjem \argf{n} puta udesno datog celog neoznačenog broja \argf{x}. 
 \item Napisati funkciju \kckod{int rotiraj\_udesno\_oznaceni(int x, unsigned n)} koja vraća broj koji se dobija rotiranjem \argf{n} puta udesno datog celog broja \argf{x}. 
 \end{enumerate}
-Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i broj \argf{n} koji se unose u heksadekasnom formatu sa standardnog ulaza.
+Napisati program koji sa standardnog ulaza učitava neoznačene cele brojeve \argf{x} i \argf{n} koji se unose u heksadekasnom formatu, tatim ispisuje binarnu reprezentaciju vrednosti dobijene pozivanjem tri prethodno napisane funkcije sa argumentima  \argf{x} i \argf{n}, a na kraju ispisuje binarnu reprezentaciju vrednosti dobijene pozivanjem funkcije \kckod{rotiraj\_udesno\_oznaceni} za argumente \argf{-x} i \argf{n}.
+%Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i broj \argf{n} koji se unose u heksadekasnom formatu sa standardnog ulaza.
 
 \begin{maxitest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Unesite neoznacen ceo broj x:}\ulaz{b10011a7}#
+#\izlaz{Unesite neoznacen ceo broj x:}\ulaz{ba11a7}#
 #\izlaz{Unesite neoznacen ceo broj n:}\ulaz{5}#
-#\izlaz{x  = 10110001000000000001000110100111 }#
-#\izlaz{rotiraj\_ulevo(b10011a7, 5) \ \ \ \ \ \ \ \ \ \ = 00100000000000100011010011110110}#
-#\izlaz{rotiraj\_udesno(b10011a7, 5) \ \ \ \ \ \ \ \ \ = 00111101100010000000000010001101}#
-#\izlaz{rotiraj\_udesno\_oznaceni(b10011a7, 5) = 00111101100010000000000010001101 }#
+#\izlaz{x  = 00000000101110100001000110100111 }#
+#\izlaz{rotiraj\_ulevo(ba11a7, 5) \ \ \ \ \ \ \ \ \ \ \ = 00010111010000100011010011100000}#
+#\izlaz{rotiraj\_udesno(ba11a7, 5) \ \ \ \ \ \ \ \ \ \ = 00111000000001011101000010001101}#
+#\izlaz{rotiraj\_udesno\_oznaceni(ba11a7, 5) \ = 00111000000001011101000010001101}#
+#\izlaz{rotiraj\_udesno\_oznaceni(-ba11a7, 5) =  11000111111110100010111101110010}#
 \end{upotreba}
 \end{maxitest}
+
+%\begin{maxitest}
+%\begin{upotreba}{1}
+%#\naslovInt#
+%#\izlaz{Unesite neoznacen ceo broj x:}\ulaz{b10011a7}#
+%#\izlaz{Unesite neoznacen ceo broj n:}\ulaz{5}#
+%#\izlaz{x  = 10110001000000000001000110100111 }#
+%#\izlaz{rotiraj\_ulevo(b10011a7, 5) \ \ \ \ \ \ \ \ \ \ = 00100000000000100011010011110110}#
+%#\izlaz{rotiraj\_udesno(b10011a7, 5) \ \ \ \ \ \ \ \ \ = 00111101100010000000000010001101}#
+%#\izlaz{rotiraj\_udesno\_oznaceni(b10011a7, 5) = 00111101100010000000000010001101 }#
+%\end{upotreba}
+%\end{maxitest}
 
 \linkresenje{1_09}
 \end{Exercise}
@@ -1445,7 +1459,7 @@ najpre iscrtava Paskalov trougao, a zatim štampa sumu elemenata hipotenuze.
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{Exercise}[label=1_35]%\marker+{2}
+\begin{Exercise}[difficulty=1, label=1_35]%\marker+{2}
 Napisati rekurzivnu funkciju koja prikazuje sve varijacije sa
    ponavljanjem dužine $n$ skupa $\{a, b\}$, i program koji je
    testira, za $n$ koje se unosi sa standardnog ulaza.
@@ -1481,7 +1495,7 @@ Napisati rekurzivnu funkciju koja prikazuje sve varijacije sa
 %\includecode{resenja/1_UvodniZadaci/1_35.c}
 %\end{Answer}
 
-\begin{Exercise}[label=1_36]%\marker+{2}
+\begin{Exercise}[difficulty=1, label=1_36]%\marker+{2}
 {\em Hanojske kule}: Data su tri
   vertikalna štapa. Na jednom od njih se nalazi $n$ diskova poluprečnika
   $1$, $2$, $3$,... do $n$, tako da se najveći nalazi na dnu, a
@@ -1496,7 +1510,7 @@ Napisati rekurzivnu funkciju koja prikazuje sve varijacije sa
 %\includecode{resenja/1_UvodniZadaci/1_36.c}
 %\end{Answer}
 
-\begin{Exercise}[label=1_37]%\marker+{2}
+\begin{Exercise}[difficulty=1, label=1_37]%\marker+{2}
 {\em Modifikacija Hanojskih kula}: Data su četiri
   vertikalna štapa. Na jednom se nalazi $n$ diskova poluprečnika
   $1$, $2$, $3$,... do $n$, tako da se najveći nalazi na dnu, a
