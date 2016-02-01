@@ -3,13 +3,34 @@
 
 int main()
 {
-  int broj;
+ int broj_int;
+ short broj_short;
+ char broj_char;
+ 
+ printf("Unesite broj tipa int: ");
+ /* Ucitava se broj sa ulaza */
+ scanf("%x", &broj_int);
 
-  /* Ucitava se broj sa ulaza */
-  scanf("%x", &broj);
+ /* I ispisuje se njegova binarna reprezentacija */
+ printf("Binarna reprezentacija: ");
+ stampaj_bitove(broj_int);
+ 
+ printf("Unesite broj tipa short: ");
+ /* Ucitava se broj sa ulaza */
+ scanf("%x", &broj_short);
 
-  /* I ispisuje se njegova binarna reprezentacija */
-  stampaj_bitove(broj);
+ /* I ispisuje se njegova binarna reprezentacija */
+ printf("Binarna reprezentacija: ");
+ stampaj_bitove_short(broj_short);
+ 
+ printf("Unesite broj tipa char: ");
+ /* Ucitava se broj sa ulaza */
+ scanf("%x", &broj_char);
 
-  return 0;
-}
+ /* I ispisuje se njegova binarna reprezentacija */
+ printf("Binarna reprezentacija: ");
+ stampaj_bitove_char(broj_char);
+ 
+ return 0;
+ }
+ 

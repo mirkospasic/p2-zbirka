@@ -1,8 +1,8 @@
 /* Ukljucuje se zaglavlje za rad sa kompleksnim brojevima, jer je
    neophodno da bude poznata definicija tipa KompleksanBroj. Takodje, 
    time su ukljucena zaglavlja standardne biblioteke koja su navedena 
-   u complex.h */
-#include "complex.h"
+   u kompleksan_broj.h */
+#include "kompleksan_broj.h"
 
 
 void ucitaj_kompleksan_broj(KompleksanBroj * z)

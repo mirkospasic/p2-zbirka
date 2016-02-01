@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
   double a, b;
   int n;
 
-  char ime_fje[6];
+  char ime_funkcije[6];
 
   /* Pokazivac na funkciju koja ima jedan argument tipa double i
      povratnu vrednost istog tipa */
@@ -47,37 +47,37 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Niska ime_fje sadrzi ime trazene funkcije koja je navedena u
+  /* Niska ime_funkcije sadrzi ime trazene funkcije koja je navedena u
      komandnoj liniji */
-  strcpy(ime_fje, argv[1]);
+  strcpy(ime_funkcije, argv[1]);
 
   /* Inicijalizuje se pokazivac na funkciju koja treba da se tabelira 
    */
-  if (strcmp(ime_fje, "sin") == 0)
+  if (strcmp(ime_funkcije, "sin") == 0)
     fp = &sin;
-  else if (strcmp(ime_fje, "cos") == 0)
+  else if (strcmp(ime_funkcije, "cos") == 0)
     fp = &cos;
-  else if (strcmp(ime_fje, "tan") == 0)
+  else if (strcmp(ime_funkcije, "tan") == 0)
     fp = &tan;
-  else if (strcmp(ime_fje, "atan") == 0)
+  else if (strcmp(ime_funkcije, "atan") == 0)
     fp = &atan;
-  else if (strcmp(ime_fje, "acos") == 0)
+  else if (strcmp(ime_funkcije, "acos") == 0)
     fp = &acos;
-  else if (strcmp(ime_fje, "asin") == 0)
+  else if (strcmp(ime_funkcije, "asin") == 0)
     fp = &asin;
-  else if (strcmp(ime_fje, "exp") == 0)
+  else if (strcmp(ime_funkcije, "exp") == 0)
     fp = &exp;
-  else if (strcmp(ime_fje, "log") == 0)
+  else if (strcmp(ime_funkcije, "log") == 0)
     fp = &log;
-  else if (strcmp(ime_fje, "log10") == 0)
+  else if (strcmp(ime_funkcije, "log10") == 0)
     fp = &log10;
-  else if (strcmp(ime_fje, "sqrt") == 0)
+  else if (strcmp(ime_funkcije, "sqrt") == 0)
     fp = &sqrt;
-  else if (strcmp(ime_fje, "floor") == 0)
+  else if (strcmp(ime_funkcije, "floor") == 0)
     fp = &floor;
-  else if (strcmp(ime_fje, "ceil") == 0)
+  else if (strcmp(ime_funkcije, "ceil") == 0)
     fp = &ceil;
-  else if (strcmp(ime_fje, "sqr") == 0)
+  else if (strcmp(ime_funkcije, "sqr") == 0)
     fp = &sqr;
   else {
     printf("Program jos uvek ne podrzava trazenu funkciju!\n");
@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
   }
 
   /* Ispisuje se ime funkcije */
-  printf("     x %10s(x)\n", ime_fje);
+  printf("     x %10s(x)\n", ime_funkcije);
 
   /* Prosledjuje se funkciji tabela() funkcija zadata kao argument
      komandne linije */

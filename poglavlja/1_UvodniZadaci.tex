@@ -158,49 +158,23 @@ razlomaka \argf{r1} i recipročne vrednosti razlomka \argf{r2}.
 \section{Algoritmi za rad sa bitovima}
 
 \begin{Exercise}[label=1_05] %ex 201 dvestajedan
-Napisati biblioteku \kckod{stampanje\_bitova} za rad sa bitovima. Ova biblioteka treba da sadrži samo jednu funkciju \kckod{void stampaj\_bitove(unsigned x)} koja stampa bitove u binarnom zapisu neoznačenog celog broja \argf{x}. Napisati program koji testira ovu funkciju za brojeve koji se sa standardnog ulaza zadaju u heksadekasnom formatu.
+Napisati biblioteku \kckod{stampanje\_bitova} za rad sa bitovima. Biblioteka treba da sadrži funkcije \kckod{stampanje\_bitova}, 
+\kckod{stampanje\_bitova\_short} i \kckod{stampanje\_bitova\_char} za štampanje bitova u binarnom zapisu celog broja 
+tipa \kckod{int}, \kckod{short} i \kckod{char}, koji se zadaje kao argument funkcije. 
+Napisati program koji testira napisanu biblioteku. Sa standardnog ulaza učitati u heksadekadnom formatu cele brojeve tipa
+\kckod{int}, \kckod{short} i \kckod{char} i na standardni izlaz ispisati njihovu binarnu reprezentaciju.
 
-\begin{miditest}
-\begin{test}{1}
-#\naslovUlaz#
-#\ulaz{0x7F}#
-#\naslovIzlaz#
-#\izlaz{00000000000000000000000001111111}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{2}
-#\naslovUlaz#
-#\ulaz{0x80}#
-#\naslovIzlaz#
-#\izlaz{00000000000000000000000010000000}#
-\end{test}
-\end{miditest}
-
-\begin{miditest}
-\begin{test}{3}
-#\naslovUlaz#
-#\ulaz{0x00FF00FF}#
-#\naslovIzlaz#
-#\izlaz{00000000111111110000000011111111}#
-\end{test}
-\end{miditest}
-% \begin{miditest}
-% \begin{test}{4}
-% #\naslovUlaz#
-% #\ulaz{0xFFFFFFFF}#
-% #\naslovIzlaz#
-% #\izlaz{11111111111111111111111111111111}#
-% \end{test}
-% \end{miditest}
-\begin{miditest}
-\begin{test}{4}
-#\naslovUlaz#
-#\ulaz{0xABCDE123}#
-#\naslovIzlaz#
-#\izlaz{10101011110011011110000100100011}#
-\end{test}
-\end{miditest}
+\begin{maxitest}
+\begin{upotreba}{1}
+#\naslovInt#
+#\izlaz{Unesite broj tipa int: }\ulaz{0x4f4f4f4f}#
+#\izlaz{Binarna reprezentacija: 01001111010011110100111101001111}#
+#\izlaz{Unesite broj tipa short: }\ulaz{0x4f4f}#
+#\izlaz{Binarna reprezentacija: 0100111101001111}#
+#\izlaz{Unesite broj tipa char: }\ulaz{0x4f}#
+#\izlaz{Binarna reprezentacija: 01001111}#
+\end{upotreba}
+\end{maxitest}
 
 \linkresenje{1_05}
 \end{Exercise}
@@ -211,15 +185,20 @@ Napisati biblioteku \kckod{stampanje\_bitova} za rad sa bitovima. Ova biblioteka
 \end{Answer}
 
 \begin{Exercise}[label=1_06]
-Napisati funkcije \kckod{int prebroj\_bitove\_1(int x)} i \kckod{int prebroj\_bitove\_2(int x)} koje vraćaju broj jedinica u binarnom zapisu celog broja $x$. Prebrojavanje bitova ostvariti na dva načina:
+Napisati funkcije \kckod{prebroj\_bitove\_1} i \kckod{prebroj\_bitove\_2} koje vraćaju broj jedinica u 
+binarnom zapisu označenog celog broja $x$ koji se zadaje kao argument funkcije. Prebrojavanje bitova ostvariti na dva načina:
 \begin{enumerate}
 \item formiranjem odgovarajuće maske i njenim pomeranjem (funkcija
 \kckod{prebroj\_bitove\_1})
 \item formiranjem odgovarajuće maske i pomeranjem promenljive $x$ (funkcija
-\kckod{prebroj\_bitove\_1}).
+\kckod{prebroj\_bitove\_2}).
 \end{enumerate} 
  
-Napisati program koji izračunava broj jedinica u binarnom zapisu broja koji se unosi u heksadekasnom formatu sa standardnog ulaza. Broj jedinica izračunati korišćenjem funkcije \kckod{prebroj\_bitove\_1} ili funkcije \kckod{prebroj\_bitove\_1} u zavisnosti od opcije ('1' ili '2') koju korisnik unese na standardnom ulazu. Ukoliko korisnik ne unese ispravnu vrednost za redni broj funkcije, prekinuti izvršavanje programa i ispisati odgovarajuću poruku na standardni izlaz za greške.
+Napisati program koji testira napisane funkcije. Sa standardnog ulaza učitati ceo broj u heksadekasnom formatu 
+i na standardni izlaz ispisati broj jedinica u binarnom zapisu učitanog broja pozivom jedne od dve napisane funkcije.
+Izbor funkcije izvršiti na osnovu opcije ('1' ili '2') koju korisnik programa unese na ulazu. Ukoliko
+korisnik ne unese ispravnu vrednost za redni broj funkcije, prekinuti izvršavanje
+programa i ispisati odgovarajuću poruku na standardni izlaz za greške.
 
 \begin{miditest}
 \begin{upotreba}{1}

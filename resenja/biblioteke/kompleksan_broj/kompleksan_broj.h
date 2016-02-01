@@ -1,4 +1,4 @@
-/* Zaglavlje complex.h sadrzi definiciju tipa KompleksanBroj i
+/* Zaglavlje kompleksan_broj.h sadrzi definiciju tipa KompleksanBroj i
    deklaracije funkcija za rad sa kompleksnim brojevima. Zaglavlje
    nikada ne treba da sadrzi definicije funckija. Da bi neki program
    mogao da koristi ove brojeve i funkcije iz ove biblioteke,
@@ -8,11 +8,11 @@
    onemogucava se da se sadrzaj zaglavlja vise puta ukljuci. Niska
    posle kljucne reci ifndef je proizvoljna, ali treba da se ponovi u 
    narednoj pretrocesorskoj define direktivi. */
-#ifndef  _COMPLEX_H
-#define _COMPLEX_H
+#ifndef  _KOMPLEKSAN_BROJ_H
+#define _KOMPLEKSAN_BROJ_H
 
 /* Zaglavlja standardne biblioteke koje sadrze deklaracije funkcija
-   koje se koriste u definicijama funkcija navedenim u complex.c */
+   koje se koriste u definicijama funkcija navedenim u kompleksan_broj.c */
 #include <stdio.h>
 #include <math.h>
 
@@ -23,7 +23,7 @@ typedef struct {
 } KompleksanBroj;
 
 /* Deklaracije funkcija za rad sa kompleksnim brojevima. Sve one su
-   definisane u complex.c */
+   definisane u kompleksan_broj.c */
 
 /* Funkcija ucitava sa standardnog ulaza realan i imaginara deo
    kompleksnog broja i smesta ih u strukturu cija je adresa argument
