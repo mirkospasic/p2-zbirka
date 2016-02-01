@@ -123,6 +123,9 @@ int main()
 
   printf("rotiraj_udesno_oznaceni(%10x,%10u) = ", x, n);
   stampaj_bitove(rotiraj_udesno_oznaceni(x, n));
+  
+  printf("rotiraj_udesno_oznaceni(%10x,%10u) = ", -x, n);
+  stampaj_bitove(rotiraj_udesno_oznaceni(-x, n));
 
   return 0;
 }
