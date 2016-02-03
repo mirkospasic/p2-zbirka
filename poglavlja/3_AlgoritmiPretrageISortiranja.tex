@@ -326,7 +326,7 @@
 \begin{Exercise}[label=3_07]
   Napisati funkciju koja metodom polovljenja intervala određuje nulu
   izabrane funkcije na proizvoljnom intervalu sa tačnošću
-  \kckod{epsilon}. Ime funkcije se zadaje kao prvi agrument komandne
+  \argf{epsilon}. Ime funkcije se zadaje kao prvi agrument komandne
   linije, a interval i tačnost se unose sa standardnog
   ulaza. Pretpostaviti da je izabrana funkcija na tom intervalu
   neprekidna. \uputstvo{U okviru algoritma pretrage koristiti
@@ -1434,13 +1434,14 @@ način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
 %-----------------------------------------------------------------
 \begin{Exercise}[difficulty=1, label=3_26]
   Razmatrajmo dve operacije: operacija \kckod{U} je unos novog broja
-  \kckod{x}, a operacija \kckod{N} određivanje \kckod{n}-tog po
-  veličini od unetih brojeva. Implementirati program koji izvršava ove
+  \kckod{x}, a operacija \kckod{N} određivanje $n$-tog po veličini od
+  unetih brojeva. Implementirati program koji izvršava ove
   operacije. Može postojati najviše $100000$ operacija unosa, a uneti
   elementi se mogu ponavljati, pri čemu se i ponavljanja računaju
   prilikom brojanja. \napomena{Brojeve čuvati u sortiranom nizu i
-  svaki naredni element umetati na svoje mesto.} Optimizovati program,
-  ukoliko se zna da neće biti više od $500$ različitih unetih brojeva.
+    svaki naredni element umetati na svoje mesto.} Optimizovati
+  program, ukoliko se zna da neće biti više od $500$ različitih unetih
+  brojeva.
   
 \begin{maxitest}
 \begin{upotreba}{1}
@@ -1477,10 +1478,10 @@ način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
     1    1    4    4
     2    2__  5    5
 \end{ckod}
-Napisati program koji u najviše \kckod{2n-3} okretanja sortira učitani
+Napisati program koji u najviše $2n-3$ okretanja sortira učitani
 niz. \uputstvo{Imitirati \kckod{selection sort} i u svakom koraku
-dovesti jednu palačinku na svoje mesto korišćenjem najviše dva
-okretanja.}
+  dovesti jednu palačinku na svoje mesto korišćenjem najviše dva
+  okretanja.}
 
 \begin{maxitest}
 \begin{test}{1}
