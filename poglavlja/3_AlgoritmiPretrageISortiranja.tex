@@ -19,8 +19,8 @@
     sortiranog niza \argf{a}, dužine \argf{n}, tražeći u njemu broj \argf{x}.
   \end{enumerate}
   Napisati i program koji generiše rastući niz slučajnih brojeva dimenzije
-  \argf{n} i pozivajući napisane funkcije traži broj \argf{x}. Programu se kao prvi 
-  argument komandne linije prosleđuje prirodan broj \argf{n} koji nije veći od $1000000$ i broj \argf{x} kao drugi
+  $n$ i pozivajući napisane funkcije traži broj $x$. Programu se kao prvi 
+  argument komandne linije prosleđuje prirodan broj \kckod{n} koji nije veći od $1000000$ i broj \kckod{x} kao drugi
   argument komandne linije. Potrebna vremena za izvršavanje ovih
   funkcija dopisati u datoteku \kckod{vremena.txt}.
 
@@ -235,8 +235,8 @@
 \begin{Exercise}[label=3_05]
   U datoteci koja se zadaje kao prvi argument komandne linije, nalaze
   se koordinate tačaka. U zavisnosti od prisustva opcija komandne
-  linije (\argf{-x} ili \argf{-y}), pronaći onu koja je najbliža
-  \argf{x}, ili \argf{y} osi, ili koordinatnom početku, ako nije
+  linije (\kckod{-x} ili \kckod{-y}), pronaći onu koja je najbliža
+  $x$, ili $y$ osi, ili koordinatnom početku, ako nije
   prisutna nijedna opcija. Pretpostaviti da je broj tačaka u datateci
   veći od $0$ i ne veći od $1024$.
   
@@ -297,12 +297,12 @@
 %-----------------------------------------------------------------
 \begin{Exercise}[label=3_06]
   Napisati funkciju koja određuje nulu funkcije \kckod{cos(x)} na
-  intervalu \argf{[0,2]} metodom polovljenja intervala. Algoritam se
+  intervalu $[0,2]$ metodom polovljenja intervala. Algoritam se
   završava kada se vrednost kosinusne funkcije razlikuje za najviše
   $0.001$ od nule. \uputstvo{Korisiti algoritam analogan algoritmu
     binarne pretrage, metod polovljenja intervala.}  \napomena{Ovaj
     metod se može primeniti na funkciju \kckod{cos(x)} na intervalu
-    \kckod{[0,2]} zato što je ona na ovom intervalu neprekidna, i
+    $[0,2]$ zato što je ona na ovom intervalu neprekidna, i
     vrednosti funkcije na krajevima intervala su različitog znaka.}
 
 % Ovde ne moze biti vise od jednog test primera
@@ -326,7 +326,7 @@
 \begin{Exercise}[label=3_07]
   Napisati funkciju koja metodom polovljenja intervala određuje nulu
   izabrane funkcije na proizvoljnom intervalu sa tačnošću
-  \argf{epsilon}. Ime funkcije se zadaje kao prvi agrument komandne
+  $epsilon$. Ime funkcije se zadaje kao prvi agrument komandne
   linije, a interval i tačnost se unose sa standardnog
   ulaza. Pretpostaviti da je izabrana funkcija na tom intervalu
   neprekidna. \uputstvo{U okviru algoritma pretrage koristiti
@@ -353,6 +353,7 @@
 #\izlaz{3.1416}#
 \end{upotreba}
 \end{miditest}
+
 \begin{miditest}
 \begin{upotreba}{3}
 #\poziv{./a.out tan}#
@@ -388,7 +389,7 @@
 Napisati funkciju koja u rastuće sortiranom nizu celih brojeva
 binarnom pretragom pronalazi indeks prvog elementa većeg od
 nule. Ukoliko nema elemenata većih od nule, funkcija kao rezultat
-vraća \argf{-1}. Napisati program koji testira ovu funkciju za rastući
+vraća $-1$. Napisati program koji testira ovu funkciju za rastući
 niz celih brojeva koji se učitavaju sa standardnog ulaza. Niz neće biti
 duži od $256$, i njegovi elementi se unose sve do kraja ulaza.
 
@@ -433,7 +434,7 @@ duži od $256$, i njegovi elementi se unose sve do kraja ulaza.
 Napisati funkciju koja u opadajuće sortiranom nizu celih brojeva
 binarnom pretragom pronalazi indeks prvog elementa manjeg od
 nule. Ukoliko nema elemenata manjih od nule, funkcija kao rezultat
-vraća \argf{-1}. Napisati program koji testira ovu funkciju za
+vraća $-1$. Napisati program koji testira ovu funkciju za
 opadajući niz celih brojeva koji se učitavaju sa standardnog ulaza. Niz
 neće biti duži od $256$, i njegovi elementi se unose sve do kraja
 ulaza.
@@ -527,13 +528,13 @@ ulaza.
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[difficulty=1, label=3_11]
-  U prvom kvadrantu dato je $1 \leq \argf{N} \leq 10000$ duži svojim
+  U prvom kvadrantu dato je $1 \leq N \leq 10000$ duži svojim
   koordinatama (duži mogu da se seku, preklapaju, itd.). Napisati
   program koji pronalazi najmanji ugao $0 \leq \alpha \leq 90^\circ$,
   na dve decimale, takav da je suma dužina duži sa obe strane
   polupoluprave iz koordinatnog početka pod uglom $\alpha$ jednak
   (neke duži bivaju presečene, a neke ne). Program prvo učitava broj
-  \argf{N}, a zatim i same koordinate temena duži. \uputstvo{Vršiti
+  $N$, a zatim i same koordinate temena duži. \uputstvo{Vršiti
   binarnu pretragu intervala $[0, 90^\circ]$.}
   
 \begin{minitest}
@@ -600,7 +601,7 @@ ulaza.
   neopadajuće ako je prisutna opcija \kckod{-r}, nerastuće ako je
   prisutna opcija \kckod{-o} ili potpuno slučajno ako nema nijedne
   opcije. Vreme meriti programom \kckod{time}. Analizirati porast
-  vremena sa porastom dimenzije \argf{n}.
+  vremena sa porastom dimenzije $n$.
 
 \begin{minitest}
 \begin{test}{1}
@@ -972,8 +973,8 @@ ulaza.
 %  \end{enumerate}
   Napisati program koji učitava niz tačaka iz datoteke čije se ime
   zadaje kao drugi argument komandne linije, i u zavisnosti od
-  prisutnih opcija (prvi argument) u komandnoj liniji (\argf{-o},
-  \argf{-x} ili \argf{-y}) sortira tačke po jednom od prethodna tri
+  prisutnih opcija (prvi argument) u komandnoj liniji (\kckod{-o},
+  \kckod{-x} ili \kckod{-y}) sortira tačke po jednom od prethodna tri
   kriterijuma i rezultat upisuje u datoteku čije se ime zadaje kao
   treći argument komandne linije. U ulaznoj datoteci nije zadato više
   od 128 tačaka.
@@ -1893,8 +1894,8 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 %-----------------------------------------------------------------
 \begin{Exercise}[label=3_37]
   Napisati program koji sa standardnog ulaza učitava prvo ceo broj
-  \argf{n} ($n \leq 10$), a zatim niz \argf{S} od \argf{n} niski.
-  Maksimalna dužina svake niske je $31$ karakter. Sortirati niz \argf{S}
+  $n$ ($n \leq 10$), a zatim niz $S$ od $n$ niski.
+  Maksimalna dužina svake niske je $31$ karakter. Sortirati niz $S$
   bibliotečkom funkcijom \kckod{qsort} i proveriti da li u njemu ima
   identičnih niski.
   
@@ -1939,12 +1940,12 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
   studenta poznat je nalog na Alas-u (oblika npr. \kckod{mr15125},
   \kckod{mm14001}), ime, prezime i broj poena. Ni ime, ni prezime neće
   biti duže od 20 karaktera. Napisati program koji korišćenjem funkcije \kckod{qsort} sortira
-  studente po broju poena opadajuće, ukoliko je prisutna opcija \argf{-p}, ili po nalogu, 
-  ukoliko je prisutna opcija \argf{-n}. Studenti se po nalogu
+  studente po broju poena opadajuće, ukoliko je prisutna opcija \kckod{-p}, ili po nalogu, 
+  ukoliko je prisutna opcija \kckod{-n}. Studenti se po nalogu
   sortiraju tako što se sortiraju na osnovu godine, zatim na osnovu
   smera, i na kraju na osnovu broja indeksa. Sortirane studente
   upisati u datoteku \kckod{izlaz.txt}. Ukoliko je u komandnoj liniji
-  uz opciju \argf{-n} naveden i nalog nekog studenta, funkcijom
+  uz opciju \kckod{-n} naveden i nalog nekog studenta, funkcijom
   \kckod{bsearch} potražiti i prijaviti broj poena studenta sa tim
   nalogom.
   
