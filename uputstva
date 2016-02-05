@@ -2,6 +2,19 @@
 
 Preostali poslovi
 
+0. (Andjelka, Mirko, Ana, Nina, Jelena, Milena)
+konkretni brojevi (npr. -1, 128, ...) - izmedju $$
+neka matematicka ogranicenja (npr. 1 < n < 10000) - izmedju $$
+intervali ([0,2]) - izmedju $$
+uopsteni brojevi koji nemaju veze sa funkcijama (uneti n, uneti x, iako mozda postoji funkcija koja prima kao argument n i x) - izmedju $$
+
+potpisi funkcija - \kckod{}
+imena funkcija - \kckod{}
+imena datoteka - \kckod{}
+argumenti komandne linije (npr. -index, -q, ...) - \kckod{}
+
+argumenti funkcije (samo doslovno navedeni) - \argf{}
+
 1. Srediti repozitorijum (Andjelka, Jelena):
    a) treba da sadrzi poddirektorijume za biblioteke (Andjelka)
    b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci (Andjelka)
