@@ -6,8 +6,9 @@ Preostali poslovi
    a) treba da sadrzi poddirektorijume za biblioteke (Andjelka)
    b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci (Andjelka)
    c) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
-   d) dodati licencnu poruku na pocetak svake datoteke (izabrati poruku od ponudjenih --- Andjelka, Mirko, Ana, Nina, Jelena)
-   e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 (Nina, Jelena)
+   d) dodati licencnu poruku na pocetak svake datoteke ---- Mirko --- dodati u makefile licencu, Milena dodati license.txt
+   e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 (Nina, Jelena, Andjelka)
+   f) Proveriti znakove pitanja (Andjelka, Mirko, Ana, Nina, Jelena, Milena)  
 
 2. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
 (Andjelka, Nina, Jelena, Milena-provera)
@@ -19,7 +20,7 @@ Preostali poslovi
 5. Voditi racuna da se ne mesa rad sa Windows-a i Linux-a jer to posle pravi probleme indent-u
    zbog znaka za novi red
 
-6. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Nina)
+6. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Milena)
 
 7. Proveriti predgovor (Andjelka)
 
