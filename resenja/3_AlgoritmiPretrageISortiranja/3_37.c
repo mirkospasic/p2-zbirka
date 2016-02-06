@@ -44,7 +44,7 @@ int main()
       printf("ima\n");
       return 0;
     }
-
   printf("nema\n");
+
   return 0;
 }

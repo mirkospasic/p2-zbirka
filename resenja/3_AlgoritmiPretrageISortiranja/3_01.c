@@ -188,5 +188,6 @@ int main(int argc, char **argv)
           vreme6.tv_nsec - vreme5.tv_nsec);
   /* Zatvaranje datoteke */
   fclose(f);
+
   exit(EXIT_SUCCESS);
 }

@@ -2,7 +2,7 @@
 
 Preostali poslovi
 
--1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Mirko, Ana, Nina, Jelena, Milena)
+-1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Ana, Nina, Jelena, Milena)
 
 0. (Andjelka, Ana, Nina, Jelena, Milena)
 konkretni brojevi (npr. -1, 128, ...) - izmedju $$
