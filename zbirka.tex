@@ -16,7 +16,7 @@
 %\stampanaverzijafalse
 
 \ifstampanaverzija
-\documentclass[pdftex,b5paper,oneside]{book}
+\documentclass[pdftex,b5paper,twoside]{book}
 \setlength{\textheight}{190mm}
 \setlength{\topmargin}{0mm}
 \fi
@@ -33,6 +33,7 @@
 
 \newif\ifpdf
 \pdftrue       %postaviti na false za izbacivanje linkova na resenja
+\usepackage{fancyhdr}
 
 \begin{document}
 \pagenumbering{roman}
@@ -41,11 +42,7 @@
 
 \tableofcontents
 
-\input{podesavanja/stil_strane.tex}
 \input{poglavlja/P2_predgovor.tex}
-
-\pagenumbering{arabic}
-\setcounter{page}{1}
 
 \def\chaptername{}
 

@@ -1,12 +1,24 @@
+\iffalse
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE]{\bfseries\slshape\leftmark}
+\fancyhead[LO]{\bfseries\slshape\rightmark}
+\fancyfoot[RO,LE]{\thepage}
+\fi
 
 \pagestyle{fancyplain}
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{#1}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-\rhead[]{\fancyplain{}{\bfseries\slshape\rightmark}}
-\lhead[\fancyplain{}{\bfseries\slshape\leftmark}]{}
+%\lhead[\fancyplain{}{\bfseries\slshape\thepage}]{\fancyplain{}{\bfseries\slshape\rightmark}}
+%\rhead[\fancyplain{}{\bfseries\slshape\leftmark}]{\fancyplain{}{\bfseries\slshape\thepage }}
+\lhead[\fancyplain{}{\bfseries\slshape\leftmark}]{\fancyplain{}{}}
+\rhead[\fancyplain{}{}]{{\fancyplain{}{\bfseries\slshape\rightmark}}}
+%\rhead[]{\fancyplain{}{\bfseries\slshape\rightmark}}
+%\lhead[]{\fancyplain{}{\bfseries\slshape\leftmark}}
 \cfoot{}
 
-\fancyfoot[RO]{\thepage} 
+%\fancyhead[LE,RO]{\fancyplain{}{\bfseries\slshape\rightmark}
+%\fancyhead[RE,LO]{\fancyplain{}{\bfseries\slshape\leftmark}}
 \fancyfoot[LE]{\thepage} 
-
+\fancyfoot[RO]{\thepage} 
  
