@@ -2,6 +2,8 @@
 
 Preostali poslovi
 
+-1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Mirko, Ana, Nina, Jelena, Milena)
+
 0. (Andjelka, Mirko, Ana, Nina, Jelena, Milena)
 konkretni brojevi (npr. -1, 128, ...) - izmedju $$
 neka matematicka ogranicenja (npr. 1 < n < 10000) - izmedju $$
@@ -14,6 +16,7 @@ imena datoteka - \kckod{}
 argumenti komandne linije (npr. -index, -q, ...) - \kckod{}
 
 argumenti funkcije (samo doslovno navedeni) - \argf{}
+
 
 1. Srediti repozitorijum (Andjelka, Jelena):
    a) treba da sadrzi poddirektorijume za biblioteke (Andjelka)
@@ -39,9 +42,12 @@ argumenti funkcije (samo doslovno navedeni) - \argf{}
 
 8. Napraviti dizajn korica (Andjelka)
 
-9. Napraviti finalni prelom (Milena)
+9. Napraviti finalni prelom knjiga i finalni prelom elektronski (Milena)
 
 10. Srediti zvezdice (Andjelka, Nina, Jelena, Milena-provera)
+
+11. Diskusija --- crno-belo ili u boji ili nijanse sivog
+
 
 /********************************************************************************
 * Ovo delo zaštićeno je licencom Creative Commons CC BY-NC-ND 4.0

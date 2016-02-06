@@ -30,7 +30,6 @@ int f_rekurzivna(int n, int a, int b)
   /* Rekurzivni pozivi */
   return a * f_rekurzivna(n - 1, a, b) +
       b * f_rekurzivna(n - 2, a, b);
-
 }
 
 /* NAPOMENA: U slucaju da se rekurzijom problem svodi na vise manjih
