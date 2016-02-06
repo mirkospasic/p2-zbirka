@@ -5,19 +5,16 @@
 
 #define MAX 100
 
-/* Funkcija poredjenja dva cela broja */
+/* Funkcija poredjenja dva cela broja (neopadajuci poredak) */
 int poredi_int(const void *a, const void *b)
 {
   /* Potrebno je konvertovati void pokazivace u int pokazivace koji
      se zatim dereferenciraju. Vraca se razlika dobijenih int-ova. */
-
-  /* Zbog moguceg prekoracenja opsega celih brojeva, sledece
-     oduzimanje treba izbegavati return *((int *)a) - *((int *)b); */
-
   int b1 = *((int *) a);
   int b2 = *((int *) b);
 
-  /* return b1 - b2; */
+  /* Zbog moguceg prekoracenja opsega celih brojeva, oduzimanje b1-b2 
+     treba izbegavati */
   if (b1 > b2)
     return 1;
   else if (b1 < b2)
@@ -26,13 +23,11 @@ int poredi_int(const void *a, const void *b)
     return 0;
 }
 
+/* Funkcija poredjenja dva cela broja (nerastuci poredak) */
 int poredi_int_nerastuce(const void *a, const void *b)
 {
-  /* Za obrnuti poredak treba samo oduzimati a od b */
-  /* return *((int *)b) - *((int *)a); */
-
-  /* Ili samo promeniti znak vrednosti koju koju vraca prethodna
-     funkcija */
+  /* Za obrnuti poredak treba samo promeniti znak vrednosti koju koju
+     vraca prethodna funkcija */
   return -poredi_int(a, b);
 }
 

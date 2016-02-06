@@ -14,7 +14,6 @@ int najmanje_rastojanje(int a[], int n)
   return min;
 }
 
-
 int main()
 {
   int i, a[MAX];

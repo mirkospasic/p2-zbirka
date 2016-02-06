@@ -1,6 +1,8 @@
 #include <stdio.h>
 #define MAX_DIM 256
 
+/* Funkcija objedinjuje nizove niz1 i niz2 dimenzija dim1 i dim2, a
+   rezultat cuva u nizu dim3 za koji je rezervisano dim3 elemenata */
 int merge(int *niz1, int dim1, int *niz2, int dim2, int *niz3,
           int dim3)
 {

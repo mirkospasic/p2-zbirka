@@ -46,6 +46,8 @@ int uporedi_nalog(const void *a, const void *b)
     return indeks1 - indeks2;
 }
 
+/* Funkcija poredjenja po nalogu za upotrebu u biblioteckoj funkciji
+   bsearch */
 int uporedi_bsearch(const void *a, const void *b)
 {
   /* Nalog studenta koji se trazi */
