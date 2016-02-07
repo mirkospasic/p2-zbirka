@@ -32,5 +32,5 @@ int main()
  stampaj_bitove_char(broj_char);
  
  return 0;
- }
+}
  

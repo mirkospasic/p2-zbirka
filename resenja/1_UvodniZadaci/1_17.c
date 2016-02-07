@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /********************************************************************
   Resenje linearne slozenosti: 
@@ -58,5 +59,6 @@ int main()
     fprintf(stderr, "Neodgovarajuci redni broj funkcije!\n");
     exit(EXIT_FAILURE);
   }
-  return 0;
+  
+  exit(EXIT_SUCCESS);
 }

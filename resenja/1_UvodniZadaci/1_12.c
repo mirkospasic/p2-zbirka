@@ -4,7 +4,6 @@
    binarnom zapisu celog neoznačenog broja x */
 int broj_parova(unsigned int x)
 {
-
   int broj_parova;
   unsigned int maska;
 
@@ -18,7 +17,6 @@ int broj_parova(unsigned int x)
   maska = 3;
 
   while (x != 0) {
-
     /* Provera da li se na najmanjim pozicijama broj x nalazi 11 par */
     if ((x & maska) == maska) {
       broj_parova++;
@@ -32,7 +30,6 @@ int broj_parova(unsigned int x)
 
   /* Vraca se dobijena vrednost */
   return broj_parova;
-
 }
 
 int main()

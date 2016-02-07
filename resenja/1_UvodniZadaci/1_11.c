@@ -4,7 +4,6 @@
    jedinica veci od broja nula. U suprotnom funkcija vraca 0 */
 int broj_01(unsigned int n)
 {
-
   int broj_nula, broj_jedinica;
   unsigned int maska;
 
@@ -35,7 +34,6 @@ int broj_01(unsigned int n)
   /* Ako je broj jedinica veci od broja nula funkcija vraca 1, u
      suprotnom vraca 0 */
   return (broj_jedinica > broj_nula) ? 1 : 0;
-
 }
 
 int main()

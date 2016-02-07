@@ -28,7 +28,6 @@ unsigned neparan(unsigned n)
     return paran(n / 10);
 }
 
-
 int main()
 {
   int n;

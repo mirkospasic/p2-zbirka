@@ -10,7 +10,6 @@
    heksadekadni zapis */
 void prevod(unsigned int x, char s[])
 {
-
   int i;
   unsigned int maska;
   int vrednost;

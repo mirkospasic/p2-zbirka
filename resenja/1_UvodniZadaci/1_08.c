@@ -21,7 +21,6 @@ unsigned postavi_0(unsigned x, unsigned n, unsigned p)
   return x & maska;
 }
 
-
 /* Funckija postavlja na jedinicu n bitova pocev od pozicije p. */
 unsigned postavi_1(unsigned x, unsigned n, unsigned p)
 {
@@ -56,7 +55,6 @@ unsigned vrati_bitove(unsigned x, unsigned n, unsigned p)
   return maska & (x >> (p - n + 1));
 }
 
-
 /* Funkcija vraca broj x kome su n bitova pocev od pozicije p
    postavljeni na vrednosti n bitova najmanje tezine binarne
    reprezentacije broja y */
@@ -85,7 +83,6 @@ unsigned postavi_1_n_bitova(unsigned x, unsigned n, unsigned p, unsigned y)
 
   return x_postavi_0 ^ y_pomeri_srednje;
 }
-
 
 /* Funkcija invertuje bitove u zapisu broja x pocevsi od pozicije p
    njih n */

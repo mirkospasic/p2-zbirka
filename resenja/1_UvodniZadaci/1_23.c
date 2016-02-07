@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #define MAKS_DIM 100
 
 /* Ako je n<=0, onda je suma niza jednaka nuli. Ako je n>0, onda je
