@@ -336,7 +336,7 @@ Napisati program koji testira prethodno napisane funkcije. Sa standardnog ulaza 
 
 
 \begin{Exercise}[label=1_08]
-Napisati funkcije za rad sa bitovima. \napomena{Bit najmanje težine je krajnji desni bit i njegova pozicija se označava nultom dok se pozicije ostalih bitova uvećavaju za jedan, sa desna na levo.}
+Napisati funkcije za rad sa bitovima. 
 \begin{enumerate}
 \item Napisati funkciju \kckod{unsigned postavi\_0(unsigned x, unsigned n, unsigned p)} koja vraća broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{0}.
 \item Napisati funkciju \kckod{unsigned postavi\_1(unsigned x, unsigned n, unsigned p)} koja vraća broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{1}.
@@ -348,6 +348,8 @@ Napisati funkciju \kckod{unsigned postavi\_1\_n\_bitova(unsigned x, unsigned n, 
 \end{enumerate}
 
 Napisati program koji testira prethodno napisane funkcije za neoznačene cele brojeve $x$, $n$, $p$, $y$ koji se unose sa standardnog ulaza. Na standardni izlaz ispisati binarne reprezenatacije brojeva $x$ i $y$, a zatim i binarne reprezentacije brojeva koji se dobijaju pozivanjem prethodno napisanih funkcija.
+
+\napomena{Bit najmanje težine je krajnji desni bit i njegova pozicija se označava nultom dok se pozicije ostalih bitova uvećavaju za jedan, sa desna na levo.}
 
 \begin{maxitest}
 \begin{upotreba}{1}
