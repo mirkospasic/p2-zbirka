@@ -1,5 +1,8 @@
 #include <stdio.h>
+
+/* Napomena: Resenje koristi biblioteku za sortiranje celih brojeva */
 #include "sort.h"
+
 #define MAX_DIM 256
 
 /* Funkcija za binarnu pretragu niza vraca 1 ako se element x nalazi

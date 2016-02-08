@@ -1,5 +1,8 @@
 #include <stdio.h>
+
+/* Napomena: Resenje koristi biblioteku za sortiranje celih brojeva */
 #include "sort.h"
+
 #define MAX 256
 
 /* Funkcija koja pronalazi najmanje rastojanje izmedju dva broja u

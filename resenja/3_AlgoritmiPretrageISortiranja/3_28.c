@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+/* Napomena: Resenje koristi biblioteku za rad sa celobrojnim
+   matricama */
 #include "matrica.h"
 
 /* Funkcija koja odredjuje zbir v-te vrste matrice a koja ima m
