@@ -2,7 +2,7 @@
 
 Preostali poslovi
 
--3. (Mirko, Andjelka, Ana, Nina, Jelena, Milena)
+-3. (Mirko, Andjelka, Ana, Jelena, Milena)
 
 1) Napomena uvek treba da ide na kraj zadatka (sto nije svuda slucaj, npr zadatak 1.8, 3.26)
 Izuzetak bi bila napomena koja se odnosi na deo zadatka, onda treba da ide na kraj odgovarajuce stavke, kao sto je to za zadatak 2.10
@@ -13,9 +13,9 @@ Napomena: Rešenje koristi biblioteku za rad sa time i time iz zadatka XY.
 3) U napomeni, ukoliko je vezana za biblioteku, koristiti naredni oblik
 Napomena: Koristiti biblioteku za to i to iz zadatka XY. (izmeniti ispitne zadatke)
 
--2. Izbrisati sve prazne redove viska! (Mirko, Andjelka, Ana, Nina, Jelena, Milena)
+-2. Izbrisati sve prazne redove viska! (Mirko, Andjelka, Ana, Jelena, Milena)
 
--1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Ana, Nina, Jelena, Milena)
+-1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Ana, Jelena, Milena)
 
 0. (Andjelka, Ana, Nina, Jelena, Milena)
 konkretni brojevi (npr. -1, 128, ...) - izmedju $$
