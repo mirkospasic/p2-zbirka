@@ -1,6 +1,4 @@
 #include <stdio.h>
-
-/* Napomena: Resenje koristi biblioteku za sortiranje celih brojeva */
 #include "sort.h"
 
 #define MAX 256
