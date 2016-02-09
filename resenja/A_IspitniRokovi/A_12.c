@@ -47,13 +47,25 @@ float **dealociraj_matricu(float **matrica, int n)
   return NULL;
 }
 
+/* Funkcija prebrojava koliko se puta pojavljuje broj x u i-toj
+   vrsti matrice A, gde je m broj elemenata u vrsti */
+int prebroj_u_itoj_vrsti(float **A, int i, int m, int x){
+	int j;
+	int broj = 0;
+	for(j = 0; j<m; j++){
+	  if(A[i][j] == x)
+	    broj++;
+	}
+	return broj;
+}
+
 /* Funkcija vraca indeks vrste matrice A u kojoj se realan broj x 
    pojavljuje najmanje puta */
-int f(float x, float **A, int n, int m){
+int indeks_vrste(float x, float **A, int n, int m){
   /* Indeks vrste sa minimalnim brojem pojavljivanja broja x */
   int min;
   /* Broj pojavljivanja broja x u vrsti sa indeksom min */
-  int min_broj=0;
+  int min_broj;
   /* Promenljiva u kojoj ce se racunati broj pojavljivanja broja x u 
   tekucnoj vrsti */
   int broj_u_vrsti;
@@ -63,23 +75,16 @@ int f(float x, float **A, int n, int m){
   /* Promenljiva min se inicijalizuje na nulu, a min_broj na broj 
   pojavljivanja broja x u nultoj vrsti */
   min=0;
-  for(j=0;j<m;j++){
-    if(A[0][j]==x)
-    min_broj++;
-  }
+  min_broj = prebroj_u_itoj_vrsti(A, 0, m, x);
 
   /* Za svaku vrstu (osim nulte) se racuna broj pojavljivanja broja 
      x u njoj, pa ukoliko je taj broj manji od trenutno najmanjeg 
      azuriraju se promenljive min i min_broj */
   for(i=1;i<n;i++){
-    broj_u_vrsti=0;
-    for(j=0;j<m;j++){
-      if(A[i][j]==x)
-      broj_u_vrsti++;
-    }
+	broj_u_vrsti = prebroj_u_itoj_vrsti(A, i, m, x);
     if(broj_u_vrsti<min_broj){
-     min_broj=broj_u_vrsti;
-     min=i;
+      min_broj=broj_u_vrsti;
+      min=i;
     }
   }
   
@@ -141,7 +146,7 @@ int main () {
   fclose(in); 
 
   /* Ispisivanje rezultata poziva funkcije  */
-  printf("%d\n", f(broj, A, n, m)); 
+  printf("%d\n", indeks_vrste(broj, A, n, m)); 
 
   /* Dealokacija matrice */
   A = dealociraj_matricu(A, n);
