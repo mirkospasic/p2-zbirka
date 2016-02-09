@@ -15,9 +15,9 @@ Napomena: Koristiti biblioteku za to i to iz zadatka XY.
 
 -2. Izbrisati sve prazne redove viska! (Mirko, Andjelka, Ana, Jelena, Milena)
 
--1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Ana, Jelena, Milena)
+-1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Jelena, Milena)
 
-0. (Andjelka, Ana, Nina, Jelena, Milena)
+0. (Andjelka, Nina, Jelena, Milena)
 konkretni brojevi (npr. -1, 128, ...) - izmedju $$
 neka matematicka ogranicenja (npr. 1 < n < 10000) - izmedju $$
 intervali ([0,2]) - izmedju $$
