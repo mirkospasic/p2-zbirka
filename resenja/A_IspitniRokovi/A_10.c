@@ -22,7 +22,7 @@ unsigned int zamena(unsigned int x){
   /* Maska cetvrti bajt odgovara broju cija je binarna reprezentacija 
      1111111100000....00000 (8 bitova najvece tezine su jedinice, 
 	 a ostalo su nule) */
-  maska_cetvrti_bajt = maska_prvi_bajt<<(sizeof(unsigned)*BITOVA_U_BAJTU-BITOVA_U_BAJTU);
+  maska_cetvrti_bajt = maska_prvi_bajt<<(sizeof(unsigned)*(BITOVA_U_BAJTU-1));
   
   /* Primenom operatora ~ na maska_prvi_bajt dobija se broj cija je 
      binarna reprezentacija 11111....1111100000000 (8 bitova najmanje
@@ -33,14 +33,14 @@ unsigned int zamena(unsigned int x){
 	 tezine su nule, a ostalo su jedinice) */
   maska_cetvrti_bajt_komplement =~ maska_cetvrti_bajt;
 
-  /* U promenljivu prvi_bajt smestamo broj koji se dobija kada se 
+  /* U promenljivu prvi_bajt smesta se broj koji se dobija kada se 
      bitovi prvog bajta broja x pomere ulevo, tako da budu na 
      poziciji cetvrtog bajta */
-  prvi_bajt = (maska_prvi_bajt&x)<<(sizeof(unsigned)*BITOVA_U_BAJTU-BITOVA_U_BAJTU);
-  /* U promenljivu cetvrti_bajt smestamo broj koji se dobija kada se 
+  prvi_bajt = (maska_prvi_bajt&x)<<(sizeof(unsigned)*(BITOVA_U_BAJTU-1));
+  /* U promenljivu cetvrti_bajt smesta se broj koji se dobija kada se 
      bitovi cetvrtog bajta broja x pomere udesno, tako da budu na 
      poziciji prvog bajta */
-  cetvrti_bajt = (maska_cetvrti_bajt&x)>>(sizeof(unsigned)*BITOVA_U_BAJTU-BITOVA_U_BAJTU);
+  cetvrti_bajt = (maska_cetvrti_bajt&x)>>(sizeof(unsigned)*(BITOVA_U_BAJTU-1));
    
   /* Na nule se postavlja 8 bitova najmanje tezine, a ostali bitovi 
      ostaju nepromenjeni */ 
