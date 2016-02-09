@@ -531,7 +531,7 @@ Sa standardnog ulaza se učitava dimenzija $n$ kvadratne celobrojne
 
 \section{Praktični deo ispita, januar 2016.}
 \begin{Exercise}[label=A_10]
-Napisati funkciju \kckod{unsigned int zamena(unsigned int x)} koja u datom broju \argf{x} menja mesta prvom i četvrtom bajtu. Prvi bajt je sačinjen od $8$ bitova najmanje težine. Napisati program koji testira funkciju \kckod{zamena} za ceo broj $x$ unet sa standardnog ulaza. U slučaju da je uneti broj $x$ negativan na standardni izlaz za greške program ispisuje $-1$, a inače ispisaje na standardni izlaz broj dobijen primenom funkcije \kckod{zamena}. 
+Napisati funkciju \kckod{unsigned int zamena(unsigned int x)} koja u datom broju \argf{x} menja mesta prvom i četvrtom bajtu. Prvi bajt je sačinjen od $8$ bitova najmanje težine. Napisati program koji testira funkciju \kckod{zamena} za ceo broj unet sa standardnog ulaza. U slučaju da je uneti broj negativan, na standardni izlaz za greške program ispisuje $-1$, a inače ispisuje na standardni izlaz broj dobijen primenom funkcije \kckod{zamena}. 
 
 \begin{minitest}
 \begin{test}{1}
@@ -583,9 +583,8 @@ Napisati funkciju \kckod{unsigned int zamena(unsigned int x)} koja u datom broju
 
 
 \begin{Exercise}[label=A_11]
-Data je biblioteka za rad sa binarnim pretraživackim stablima celih brojeva. Napisati funkciju \kckod{int najduzi\_put (Cvor * koren)} koja za dato stablo izračunava dužinu najdužeg puta od korena do nekog lista. Ako je stablo prazno, povratna vrednost funkcije je $-1$. Ako stablo ima samo koren dužina najdužeg puta je $0$. Ispravnost napisane funkcije testirati na osnovu zadate \kckod{main} funkcije i biblioteke za rad sa stablima.
-
-\napomena{Koristiti biblioteku za rad sabinarnim pretraživackim stablima celih brojeva iz zadatka  \ref{701}.} % trebalo bi \ref{4_14} 
+Data je biblioteka za rad sa binarnim pretraživackim stablima celih brojeva. Napisati funkciju \kckod{int najduzi\_put (Cvor * koren)} koja za dato stablo izračunava dužinu najdužeg puta od korena do nekog lista. Ako je stablo prazno, povratna vrednost funkcije je $-1$. Ako stablo ima samo koren, dužina najdužeg puta je $0$. Ispravnost napisane funkcije testirati na osnovu zadate \kckod{main} funkcije i biblioteke za rad sa stablima.
+\napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima celih brojeva iz zadatka  \ref{701}.} % trebalo bi \ref{4_14} 
 
 \begin{miditest}
 \begin{test}{1}
@@ -645,9 +644,9 @@ Sa standardnog ulaza zadaje se ime datoteke u kojoj se nalazi matrica realnih br
 i jedan realan broj. Napisati program koji iz datoteke učitava matricu realnih brojeva, a zatim pronalazi i na standardni
 izlaz ispisuje indeks vrste matrice u kojoj se uneti realan broj pojavljuje najmanje puta. Ako postoji više takvih vrsta,
 ispisati indeks prve vrste. U datoteci su prvo navedena dva cela broja koja predstavljaju dimenzije matrice, redom broj
-vrsta i broj kolona, a zatim i elementi matrice vrstu po vrstu. U slucaju greške ispisati $-1$ na standardni izlaz za greške.
+vrsta i broj kolona, a zatim i elementi matrice vrstu po vrstu. U slučaju greške ispisati $-1$ na standardni izlaz za greške.
 Pretpostaviti da ime datoteke neće biti duže od $30$ karaktera.
- \napomena{U zadatku treba koristiti dinamičku alokaciju matrice.}
+ \napomena{U zadatku treba koristiti dinamičku alokaciju memorije.}
 
 \begin{minitest}
 \begin{test}{1}
