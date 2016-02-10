@@ -36,7 +36,6 @@ argumenti funkcije (samo doslovno navedeni) - \argf{}
    a) treba da sadrzi poddirektorijume za biblioteke (Andjelka)
    b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci (Andjelka)
    c) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
-   d) dodati licencnu poruku na pocetak svake datoteke ---- Mirko --- dodati u makefile licencu, Milena dodati license.txt
    e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 (Nina, Jelena, Andjelka)
    f) Proveriti znakove pitanja (Andjelka, Mirko, Ana, Nina, Jelena, Milena)  
 
