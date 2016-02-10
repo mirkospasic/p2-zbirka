@@ -24,9 +24,8 @@ void oslobodi_listu(Cvor ** adresa_glave)
   if (*adresa_glave == NULL)
     return;
 
-  /* Ako lista nije prazna, treba osloboditi memoriju. Pre
-     oslobadjanja memorije za glavu liste, treba osloboditi rep liste 
-   */
+  /* Ako lista nije prazna, treba osloboditi memoriju. Treba
+     osloboditi rep liste, pre oslobadjanja memorije za glavu liste */
   oslobodi_listu(&(*adresa_glave)->sledeci);
   /* Nakon oslobodjenog repa, oslobadja se glava liste i azurira se
      glava u pozivajucoj funkciji tako da odgovara praznoj listi */
@@ -156,7 +155,6 @@ void obrisi_cvor(Cvor ** adresa_glave, int broj)
     *adresa_glave = (*adresa_glave)->sledeci;
     free(pomocni);
   }
-
 }
 
 void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, int broj)

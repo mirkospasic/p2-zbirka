@@ -43,13 +43,12 @@ void oslobodi_listu(Cvor ** adresa_glave)
     free(*adresa_glave);
     *adresa_glave = pomocni;
   }
-  /* Nakon izlaska iz petlje pokazivac glava u main funkciji koji se
-     nalazi na adresi adresa_glave bice postavljen na NULL vrednost. */
+  /* Pokazivac glava u main funkciji, na adresi adresa_glave, bice
+     postavljen na NULL vrednost po izlasku iz petlje. */
 }
 
-/* Funkcija dodaje novi cvor na pocetak liste. Povratna vrednost je 1 
-   ako je doslo do greske pri alokaciji memorije za nov cvor, odnosno 
-   0 */
+/* Funkcija dodaje novi cvor na pocetak liste. Vraca 1 ako je doslo
+   do greske pri alokaciji memorije za nov cvor, inace vraca 0. */
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, unsigned br,
                            char *etiketa)
 {
@@ -67,14 +66,14 @@ int dodaj_na_pocetak_liste(Cvor ** adresa_glave, unsigned br,
 }
 
 /* Funkcija vraca cvor koji kao vrednost sadrzi trazenu etiketu ili
-   NULL ako takav cvor ne postoji u listi */
+   NULL ako takav cvor ne postoji u listi. */
 Cvor *pretrazi_listu(Cvor * glava, char etiketa[])
 {
   Cvor *tekuci;
 
   /* Obilazi se cvor po cvor liste */
   for (tekuci = glava; tekuci != NULL; tekuci = tekuci->sledeci)
-    /* Ako tekuci cvor sadrzi trazenu etiketu, vracamo njegovu
+    /* Ako tekuci cvor sadrzi trazenu etiketu, vraca se njegova
        vrednost */
     if (strcmp(tekuci->etiketa, etiketa) == 0)
       return tekuci;

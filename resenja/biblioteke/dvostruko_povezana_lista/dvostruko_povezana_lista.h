@@ -50,8 +50,8 @@ Cvor *pretrazi_listu(Cvor * glava, int broj);
 
 /* Funkcija trazi u listi cvor cija je vrednost jednaka datom broju.
    U pretrazi oslanja se na cinjenicu da je lista koja se pretrazuje
-   neopadajuce sortirana. Vraca pokazivac na cvor liste u kome je
-   sadrzan trazeni broj ili NULL u slucaju da takav cvor ne postoji. */
+   neopadajuce sortirana. Vraca pokazivac na cvor liste koji sadrzi
+   trazeni broj ili NULL u slucaju da takav cvor ne postoji. */
 Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj);
 
 /* Funkcija brise cvor na koji pokazuje pokazivac tekuci u listi ciji 
@@ -76,7 +76,8 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, Cvor **
    liste, razdvojene zapetama i uokvirene zagradama. */
 void ispisi_listu(Cvor * glava);
 
-/* Funkcija prikazuje cvorove liste pocevsi od kraja ka glavi liste. */
+/* Funkcija prikazuje vrednosti cvorova liste pocevsi od kraja ka
+   glavi liste, razdvojene zapetama i uokvirene zagradama. */
 void ispisi_listu_unazad(Cvor * kraj);
 
 #endif

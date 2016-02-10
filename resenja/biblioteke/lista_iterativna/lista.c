@@ -59,7 +59,6 @@ Cvor *pronadji_poslednji(Cvor * glava)
      glava se pomera na sledeci cvor. Nakon izlaska iz petlje, glava
      ce pokazivati na cvor liste koji nema sledbenika, tj. na
      poslednji cvor liste pa se vraca vrednost pokazivaca glava.
-
      Pokazivac glava je argument funkcije i njegove promene nece se
      odraziti na vrednost pokazivaca glava u pozivajucoj funkciji. */
   while (glava->sledeci != NULL)
@@ -99,7 +98,6 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj)
   /* Pokazivac glava se pomera na sledeci cvor sve dok ne bude
      pokazivao na cvor ciji sledeci ili ne postoji ili ima vrednost
      vecu ili jednaku vrednosti novog cvora.
-
      Zbog izracunavanja izraza u C-u prvi deo konjunkcije mora biti
      provera da li se doslo do poslednjeg cvora liste pre nego sto se 
      proveri vrednost u sledecem cvoru, jer u slucaju poslednjeg,
@@ -133,7 +131,6 @@ int dodaj_sortirano(Cvor ** adresa_glave, int broj)
   /* Ako je lista prazna */
   if (*adresa_glave == NULL) {
     /* Glava nove liste je novi cvor */
-
     /* Kreira se novi cvor i proverava se uspesnost kreiranja */
     Cvor *novi = napravi_cvor(broj);
     if (novi == NULL)
@@ -145,10 +142,8 @@ int dodaj_sortirano(Cvor ** adresa_glave, int broj)
     return 0;
   }
 
-  /* Inace... */
-
-  /* Ako je broj manji ili jednak vrednosti u glavi liste, onda ga
-     treba dodati na pocetak liste */
+  /* Inace, ako je broj manji ili jednak vrednosti u glavi liste,
+     onda ga treba dodati na pocetak liste. */
   if ((*adresa_glave)->vrednost >= broj) {
     return dodaj_na_pocetak_liste(adresa_glave, broj);
   }
@@ -176,7 +171,7 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
 {
   /* Obilaze se cvorovi liste */
   /* U uslovu ostanka u petlji, bitan je redosled provera u
-     konjunkciji */
+     konjunkciji. */
   while (glava != NULL && glava->vrednost < broj)
     glava = glava->sledeci;
 

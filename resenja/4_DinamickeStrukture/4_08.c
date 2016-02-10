@@ -2,8 +2,7 @@
 #include <stdlib.h>
 
 /* Struktura kojom je predstavljen cvor liste sadrzi karakter koji
-   predstavlja zagradu koja se koristi i pokazivac na sledeci cvor
-   liste */
+   predstavlja vidjenu zagradu i pokazivac na sledeci cvor liste */
 typedef struct cvor {
   char zagrada;
   struct cvor *sledeci;
@@ -80,8 +79,7 @@ int main()
           free(stek);
           stek = pomocni;
         } else {
-          /* Inace, zakljucujemo da zagrade u izrazu nisu ispravno
-             uparene */
+          /* Dakle zagrade u izrazu nisu ispravno uparene */
           break;
         }
       }
