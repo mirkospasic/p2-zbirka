@@ -24,7 +24,7 @@ int zbir_kolone(int **M, int n, int k)
    argument magican. Ukoliko jeste magican funkcija vraca 1, inace 0. 
    Argument funkcije zbir ce sadrzati zbir elemenata neke vrste ili
    kolone ukoliko je kvadrat magican. */
-int magicni_kvadrat(int **M, int n, int *zbirmagicnog)
+int magicni_kvadrat(int **M, int n, int *zbir_magicnog)
 {
   int i, j;
   int zbir = 0, zbir_pom;
@@ -46,8 +46,8 @@ int magicni_kvadrat(int **M, int n, int *zbirmagicnog)
       return 0;
   }
   /* Inace su zbirovi svih vrsta i kolona jednaki, postavlja se
-     vresnost u zbirmagicnog i funkcija vraca 1 */
-  *zbirmagicnog = zbir;
+     vresnost u zbir_magicnog i funkcija vraca 1 */
+  *zbir_magicnog = zbir;
   return 1;
 }
 
@@ -55,7 +55,7 @@ int main()
 {
   int n, i, j;
   int **matrica = NULL;
-  int zbir = 0, zbirmagicnog = 0;
+  int zbir = 0, zbir_magicnog = 0;
   scanf("%d", &n);
 
   /* Provera da li je n strogo pozitivan */
@@ -75,8 +75,8 @@ int main()
   ucitaj_matricu(matrica, n);
 
   /* Ispisivanje rezultata na osnovu fukcije magicni_kvadrat */
-  if (magicni_kvadrat(matrica, n, &zbirmagicnog)) {
-    printf("%d\n", zbirmagicnog);
+  if (magicni_kvadrat(matrica, n, &zbir_magicnog)) {
+    printf("%d\n", zbir_magicnog);
   } else
     printf("-\n");
 
