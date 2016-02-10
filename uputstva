@@ -13,7 +13,7 @@ Napomena: Rešenje koristi biblioteku za rad sa time i time iz zadatka XY.
 3) U napomeni, ukoliko je vezana za biblioteku, koristiti naredni oblik
 Napomena: Koristiti biblioteku za to i to iz zadatka XY.
 
--2. Izbrisati sve prazne redove viska! (Mirko, Andjelka, Jelena, 
+-2. Izbrisati sve prazne redove viska! (Andjelka, Jelena, 
 Milena)
 
 -1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Jelena, Milena)
