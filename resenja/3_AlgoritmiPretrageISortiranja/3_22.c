@@ -53,9 +53,10 @@ void sortiraj_reci(char reci[][MAX_DUZINA_RECI], int n)
         else {
           /* Ako reci imaju i isti broj suglasnika i iste duzine,
              uporedjuju se leksikografski */
-          if (duzina_j == duzina_min && strcmp(reci[j], reci[min]) < 0)
+          if (duzina_j == duzina_min
+              && strcmp(reci[j], reci[min]) < 0)
             min = j;
-	}
+        }
       }
     }
     if (min != i) {

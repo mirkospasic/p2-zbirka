@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 
   while (1) {
 
-    /* Proverava da li je dostignut kraj datoteke */
+    /* Proverava se da li je dostignut kraj datoteke */
     c = fgetc(ulaz);
     if (c == EOF) {
       /* Nema vise sadrzaja za citanje */
@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
           (Pesma *) realloc(pesme,
                             alocirano_za_pesme * sizeof(Pesma));
 
-      /* Proverava da li je nova memorija uspesno realocirana */
+      /* Proverava se da li je nova memorija uspesno realocirana */
       if (pesme == NULL) {
         /* Ako nije ispisuje se obavestenje */
         fprintf(stderr, "Problem sa alokacijom memorije!\n");
