@@ -81,10 +81,10 @@ int main(int argc, char **argv)
   FILE *in = NULL, *out = NULL;
 
   /* Ako je broj argumenata komandne linije razlicit i od 2 i od 3,
-     korisnik nije ispravno pozvao program i prijavljuje se greska. */
+     korisnik nije ispravno pokrenuo program. */
   if (argc != 2 && argc != 3) {
     fprintf(stderr,
-            "Greska! Program se poziva sa: ./a.out -opcija [nalog]\n");
+            "Program se poziva sa: ./a.out -opcija [nalog]\n");
     exit(EXIT_FAILURE);
   }
 
@@ -133,7 +133,7 @@ int main(int argc, char **argv)
   if (argc == 3 && (strcmp(argv[1], "-n") == 0)) {
     strcpy(nalog_trazeni, argv[2]);
 
-    /* ... pronalazi se student sa tim nalogom... */
+    /* ... pronalazi se student sa tim nalogom. */
     nadjen =
         (Student *) bsearch(nalog_trazeni, niz_studenata,
                             br_studenata, sizeof(Student),

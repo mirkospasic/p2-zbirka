@@ -52,7 +52,7 @@ int main(int argc, char **argv)
 
   if ((*fp) (l) * (*fp) (d) >= 0) {
     fprintf(stderr,
-            "Funkcija %s na intervalu [%g, %g] ne zadovoljava uslove\n",
+            "%s na intervalu [%g, %g] ne zadovoljava uslove\n",
             ime_funkcije, l, d);
     exit(EXIT_FAILURE);
   }

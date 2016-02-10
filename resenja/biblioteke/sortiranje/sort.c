@@ -11,7 +11,7 @@ void selection_sort(int a[], int n)
   /* U svakoj iteraciji ove petlje pronalazi se najmanji element
      medju elementima a[i], a[i+1],...,a[n-1], i postavlja se na
      poziciju i, dok se element na pozciji i premesta na poziciju
-     min, na kojoj se nalazio najmanji od gore navedenih elemenata. */
+     min, na kojoj se nalazio najmanji od navedenih elemenata. */
   for (i = 0; i < n - 1; i++) {
     /* Unutrasnja petlja pronalazi poziciju min, na kojoj se nalazi
        najmanji od elemenata a[i],...,a[n-1]. */
@@ -37,7 +37,6 @@ void insertion_sort(int a[], int n)
   /* Na pocetku iteracije pretpostavlja se da je niz a[0],...,a[i-1]
      sortiran */
   for (i = 1; i < n; i++) {
-
     /* U ovoj petlji se redom potiskuje element a[i] ulevo koliko je
        potrebno, dok ne zauzme pravo mesto, tako da niz a[0],...a[i]
        bude sortiran. Indeks j je trenutna pozicija na kojoj se
@@ -57,7 +56,6 @@ void bubble_sort(int a[], int n)
   int ind;
 
   for (i = n, ind = 1; i > 1 && ind; i--)
-
     /* Poput "mehurica" potiskuje se najveci element medju elementima 
        od a[0] do a[i-1] na poziciju i-1 uporedjujuci susedne
        elemente niza i potiskujuci veci u desno */
@@ -66,7 +64,6 @@ void bubble_sort(int a[], int n)
         int temp = a[j];
         a[j] = a[j + 1];
         a[j + 1] = temp;
-
         /* Promenljiva ind registruje da je bilo premestanja. Samo u
            tom slucaju ima smisla ici na sledecu iteraciju, jer ako
            nije bilo premestanja, znaci da su svi elementi vec u
@@ -161,7 +158,6 @@ void quick_sort(int a[], int l, int d)
   /* Izlaz iz rekurzije -- prazan niz */
   if (l >= d)
     return;
-
 
   /* Particionisanje niza. Svi elementi na pozicijama levo od
      pivot_pozicija (izuzev same pozicije l) su strogo manji od

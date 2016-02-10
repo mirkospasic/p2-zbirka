@@ -8,7 +8,7 @@ int main()
 {
   double l, d, s;
 
-  /* Kako je u pitanju interval [0, 2] leva granica je 0, a desna 2 */
+  /* Kod intervala [0, 2] leva granica je 0, a desna 2 */
   l = 0;
   d = 2;
 

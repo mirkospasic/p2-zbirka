@@ -11,8 +11,7 @@ typedef struct Tacka {
   int y;
 } Tacka;
 
-/* Funkcija racuna rastojanje zadate tacke od koordinatnog pocetka
-   (0,0) */
+/* Funkcija racuna rastojanje zadate tacke od koordinatnog pocetka */
 float rastojanje(Tacka A)
 {
   return sqrt(A.x * A.x + A.y * A.y);

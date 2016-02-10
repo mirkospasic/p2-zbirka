@@ -17,7 +17,7 @@ int broj_suglasnika(char s[])
        pokriven slucaj i malih i velikih suglasnika. */
     if (isalpha(s[i])) {
       c = toupper(s[i]);
-      /* Ukoliko slovo nije samoglasnik uvecava se broj suglasnika. */
+      /* Ukoliko slovo nije samoglasnik uvecava se brojac. */
       if (c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U')
         suglasnici++;
     }
@@ -50,11 +50,12 @@ void sortiraj_reci(char reci[][MAX_DUZINA_RECI], int n)
 
         if (duzina_j < duzina_min)
           min = j;
-        else
+        else {
           /* Ako reci imaju i isti broj suglasnika i iste duzine,
              uporedjuju se leksikografski */
-        if (duzina_j == duzina_min && strcmp(reci[j], reci[min]) < 0)
-          min = j;
+          if (duzina_j == duzina_min && strcmp(reci[j], reci[min]) < 0)
+            min = j;
+	}
       }
     }
     if (min != i) {

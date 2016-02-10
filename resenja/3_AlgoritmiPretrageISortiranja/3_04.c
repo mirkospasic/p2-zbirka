@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Citanje se vrsi sve dok postoji red sa informacijama o studentu */
+  /* Cita se sve dok postoji red sa informacijama o studentu */
   i = 0;
   while (1) {
     if (i == MAX_STUDENATA)

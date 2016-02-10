@@ -80,9 +80,9 @@ int main(int argc, char *argv[])
       ungetc(c, ulaz);
     }
 
-    /* Provera da li postoji dovoljno memorije za citanje nove pesme */
+    /* Provera da li postoji dovoljno vec alocirane memorije za
+       citanje nove pesme */
     if (alocirano_za_pesme == i) {
-
       /* Ako ne, ako je potrosena sva alocirana memorija, alocira se
          novih KORAK mesta */
       alocirano_za_pesme += KORAK;
@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
     /* Sve do prve beline u liniji (beline koja se nalazi nakon imena 
        izvodjaca) citaju se karakteri iz datoteke */
     while ((c = fgetc(ulaz)) != ' ') {
-      /* Proverav da li postoji dovoljno memorije za smestanje
+      /* Provera da li postoji dovoljno memorije za smestanje
          procitanog karaktera */
       if (j == alocirano) {
 
@@ -140,7 +140,8 @@ int main(int argc, char *argv[])
         }
 
       }
-      /* Ako postoji dovoljno memorije, smestamo procitani karakter */
+      /* Ako postoji dovoljno alocirane memorije, smesta se vec
+         procitani karakter */
       pesme[i].izvodjac[j] = c;
       j++;
       /* I nastavlja se sa citanjem */

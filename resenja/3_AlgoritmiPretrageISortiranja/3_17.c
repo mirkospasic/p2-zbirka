@@ -36,7 +36,7 @@ int main()
   int i = 0, j = 0, k, dim3;
 
   /* Ucitavaju se nizovi sa ulaza sve dok se ne unese nula.
-     Pretpostavka je da na ulazu nece biti vise od MAX_DIM elemenata */
+     Pretpostavka je da na ulazu nema vise od MAX_DIM elemenata */
   printf("Unesite elemente prvog niza: ");
   while (1) {
     scanf("%d", &niz1[i]);

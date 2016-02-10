@@ -116,7 +116,7 @@ int main(int argc, char **argv)
   /* Provera argumenata komandne linije */
   if (argc != 3) {
     fprintf(stderr,
-            "koriscenje programa: %s dim_niza trazeni_br\n", argv[0]);
+            "koriscenje programa: %s dim_niza broj\n", argv[0]);
     exit(EXIT_FAILURE);
   }
 

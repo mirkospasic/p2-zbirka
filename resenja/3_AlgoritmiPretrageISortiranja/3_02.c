@@ -49,7 +49,6 @@ int binarna_pretraga_r(int a[], int l, int d, int x)
     return binarna_pretraga_r(a, l, srednji - 1, x);
 }
 
-
 int interpolaciona_pretraga_r(int a[], int l, int d, int x)
 {
   int p;
