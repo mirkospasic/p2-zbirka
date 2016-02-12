@@ -19,13 +19,13 @@ Napisati biblioteku za rad sa jednostruko povezanom listom čiji čvorovi sadrž
 
  \item Napisati funkciju \kckod{Cvor *pronadji\_mesto\_umetanja(Cvor * glava, int broj)} koja vraća pokazivač na čvor u neopadajuće uređenoj listi iza kojeg bi trebalo dodati nov čvor sa vrednošću \argf{broj}.
 
- \item Napisati funkciju \kckod{int dodaj\_iza(Cvor * tekuci, int broj)} koja iza čvora \argf{tekuci}. dodaje novi čvor sa vrednošću \argf{broj}.
+ \item Napisati funkciju \kckod{int dodaj\_iza(Cvor * tekuci, int broj)} koja iza čvora \argf{tekuci} dodaje novi čvor sa vrednošću \argf{broj}.
 
  \item Napisati funkciju \kckod{int dodaj\_sortirano(Cvor ** adresa\_glave, int broj)} koja dodaje novi elemenat u neopadajuće uređenu listu tako da se očuva postojeće uređenje.
 
  \item Napisati funkciju \kckod{void ispisi\_listu(Cvor * glava)} koja ispisuje čvorove liste uokvirene zagradama [, ] i međusobno razdvojene zapetama.
 
- \item Napisati funkciju \kckod{Cvor *pretrazi\_listu(Cvor * glava, int broj)} koja proverava da li se u listi nalazi čvor čija je vrednost jednaka argumentu \argf{broj}. Vraća pokazivač na pronađeni čvor ili \kckod{NULL} ukoliko ga ne pronađe.
+ \item Napisati funkciju \kckod{Cvor *pretrazi\_listu(Cvor * glava, int broj)} koja proverava da li se u listi nalazi čvor čija je vrednost jednaka argumentu \argf{broj}. Funkcija vraća pokazivač na pronađeni čvor ili \kckod{NULL} ukoliko ga ne pronađe.
 
  \item Napisati funkciju \kckod{Cvor *pretrazi\_sortiranu\_listu(Cvor * glava, int broj)} koja proverava da li se u listi nalazi čvor sa vrednošću \argf{broj}, pri čemu se pretpostavlja da se pretražuje neopadajuće uređena lista.
 
@@ -531,6 +531,7 @@ listi $L1$ i $L2$: prvi čvor iz $L1$, prvi čvor iz $L2$, drugi čvor $L1$,
 drugi čvor $L2$, itd. Ne formirati nove čvorove, već samo postojeće rasporediti u jednu listu. Prva lista se učitava iz datoteke čije se ime zadaje kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao 
 drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz. 
 %\komentar{Milena: Sta ako je neka lista duza? To precizirati. I ovde me muci sto nedostaje neki smisao zadatku, nesto sto ne bi moglo da se uradi da nismo koristili liste. }
+
 \napomena{Iskoristiti testove 2 - 6 za zadatak \ref{4_06}.}
 
 \begin{miditest}
@@ -735,7 +736,7 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 \begin{Exercise}[label=4_10]
 Napisati program koji pomaže službeniku u radu na šalteru.
 Službenik najpre evidentira sve korisničke $JMBG$ brojeve (niske koje sadrže po $13$ karaktera) i zahteve (niska koja sadrži najviše $999$ karaktera). 
-Prijem zahteva korisnika se prekida unošenjem karaktera za kraj ulaza, (\kckod{EOF}).
+Prijem zahteva korisnika se prekida unošenjem karaktera za kraj ulaza (\kckod{EOF}).
 Službenik redom pregleda zahteve i odlučuje da li zahtev obrađuje odmah ili kasnije. Program mu postavlja pitanje 
 \kckod{Da li korisnika  vracate na kraj reda?} i ukoliko on da odgovor $Da$, 
 korisnik se stavlja na kraj reda, čime se obrada njegovog zahteva odlaže. Ukoliko odgovor nije $Da$, službenik obrađuje zahtev i podatke o korisniku dopisuje na kraj datoteke \kckod{izvestaj.txt}. Ova datoteka, za svaki obrađen zahtev, sadrži $JMBG$ i zahtev usluženog korisnika.

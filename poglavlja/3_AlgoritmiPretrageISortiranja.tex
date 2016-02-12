@@ -6,7 +6,7 @@
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=3_01]
-  Napisati iterativne funkcije pretraga nizova. Svaka funkcija treba
+  Napisati iterativne funkcije za pretragu nizova. Svaka funkcija treba
   da vrati indeks pozicije na kojoj je pronađen traženi broj ili
   vrednost $-1$ ukoliko broj nije pronađen.
   \begin{enumerate}  
@@ -22,8 +22,7 @@
   $n$ i pozivajući napisane funkcije traži broj $x$. Programu se kao prvi 
   argument komandne linije prosleđuje prirodan broj \kckod{n} koji nije veći od $1000000$ i broj \kckod{x} kao drugi
   argument komandne linije. Potrebna vremena za izvršavanje ovih
-  funkcija dopisati u datoteku \kckod{vremena.txt}.
-
+  funkcija dopisati u datoteku \kckod{vremena.txt}. 
   
 \begin{minitest}
 \begin{test}{1}
@@ -486,9 +485,9 @@ ulaza.
     logaritam pomeranjem broja udesno.
   \item Napisati funkciju logaritmske složenosti koja određuje
     logaritam koristeći binarnu pretragu.
-  \end{enumerate}
-  Tražene funkcije testirati programom koji pozitivan broj učitava sa
-  standardnog ulaza, a logaritam ispisuje na standardnom izlazu.
+  \end{enumerate}  
+  Napisati program koji testira napisane funkcije. Sa standardnog ulaza učitati 
+  pozitivan ceo broj a na standardni izlaz ispisati njegov logaritam.
 
 \begin{minitest}
 \begin{test}{1}
@@ -901,13 +900,13 @@ ulaza.
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=3_18]
-  Napisati program koji čita sadržaj dveju datoteka od kojih svaka
+  Napisati program koji čita sadržaj dve datoteke od kojih svaka
   sadrži spisak imena i prezimena studenata iz jedne od dve grupe,
   rastuće sortiran po imenima, a u slučaju istog imena po prezimenima,
   i kreira jedinstven spisak studenata sortiranih takođe po istom
   kriterijumu. Program dobija nazive datoteka iz komandne linije i
   jedinstveni spisak upisuje u datoteku
-  \kckod{ceo-tok.txt}. Pretpostaviti da je ime studenta nije duže od
+  \kckod{ceo-tok.txt}. Pretpostaviti da ime studenta nije duže od
   $10$, a prezime od $15$ karaktera.
 
 
@@ -1169,7 +1168,7 @@ nisu zadati podaci o više od $128$ dece.
 %-----------------------------------------------------------------
 \begin{Exercise}[label=3_22]
   Napisati funkciju koja sortira niz niski po broju suglasnika u
-  niski. Ukoliko reči imaju isti broj suglasnika tada sortirati ih po
+  niski. Ukoliko reči imaju isti broj suglasnika, sortirati ih po
   dužini niske rastuće, a ukoliko su i dužine jednake onda
   leksikografski rastuće. Napisati program koji testira ovu funkciju za niske
   koje se zadaju u datoteci \kckod{niske.txt}.  Pretpostaviti da u
@@ -1266,7 +1265,7 @@ nisu zadati podaci o više od $128$ dece.
    rastuće. Na drugom su sortirani po ukupnom broju urađenih zadataka
    opadajuće, a ukoliko neki studenti imaju isti broj rešenih zadataka
    sortiraju se po dužini imena rastuće. Na trećem spisku kriterijum
-   sortiranja je broj časova na kojima su bili opadajuće. Ukoliko neki
+   sortiranja je broj časova na kojima su bili, opadajuće. Ukoliko neki
    studenti imaju isti broj časova, sortirati ih opadajuće po broju
    urađenih zadataka, a ukoliko se i on poklapa sortirati po prezimenu
    opadajuće. U datoteci se nalazi ime, prezime studenta, broj časova
@@ -1949,7 +1948,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \begin{Exercise}[label=3_38]
   Datoteka \kckod{studenti.txt} sadrži spisak studenata. Za svakog
   studenta poznat je nalog na Alas-u (oblika npr. \kckod{mr15125},
-  \kckod{mm14001}), ime, prezime i broj poena. Ni ime, ni prezime neće
+  \kckod{mm14001}), ime, prezime i broj poena. Ni ime, ni prezime, neće
   biti duže od 20 karaktera. Napisati program koji korišćenjem funkcije \kckod{qsort} sortira
   studente po broju poena opadajuće, ukoliko je prisutna opcija \kckod{-p}, ili po nalogu, 
   ukoliko je prisutna opcija \kckod{-n}. Studenti se po nalogu
@@ -2061,5 +2060,4 @@ Definisati strukturu \kckod{Datum}. \iffalse
 
 \section{Rešenja}
 \shipoutAnswer
-
 
