@@ -40,7 +40,7 @@ argumenti funkcije (samo doslovno navedeni) - \argf{}
    f) Proveriti znakove pitanja (Andjelka, Mirko, Ana, Nina, Jelena, Milena)  
 
 2. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
-(Andjelka, Nina, Jelena, Milena-provera)
+(Andjelka, Jelena, Milena-provera)
 
 3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Andjelka, Jelena, Milena-provera)
 
