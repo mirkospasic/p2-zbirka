@@ -30,6 +30,7 @@ njegove elemente korišćenjem pokazivačke sintakse i prikazati sadržaj niza.
 \begin{upotreba}{2}
 #\naslovInt#
 #\izlaz{Unesite dimenziju niza: } \ulaz{0}#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: neodgovarajuca dimenzija niza.}#
 \end{upotreba}
 \end{miditest}
@@ -120,6 +121,7 @@ ispisati rezultat primene napisane funkcije nad učitanim nizom.
 \begin{upotreba}{3}
 #\naslovInt#
 #\izlaz{Unesite dimenziju niza:} \ulaz{0}#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: neodgovarajuca dimenzija niza.}#
 \end{upotreba}
 \end{miditest}
@@ -127,6 +129,7 @@ ispisati rezultat primene napisane funkcije nad učitanim nizom.
 \begin{upotreba}{4}
 #\naslovInt#
 #\izlaz{Unesite dimenziju niza:} \ulaz{101}#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: neodgovarajuca dimenzija niza.}#
 \end{upotreba}
 \end{miditest}
@@ -252,6 +255,7 @@ već implementirati svoje koristeći pokazivačku sintaksu.
 #\datoteka{reci koje imaju 1 karakter}#
 
 #\naslovInt#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: Nedovoljan broj argumenata}#
 #\izlaz{komandne linije.}#
 #\izlaz{Program se poziva sa }#
@@ -266,6 +270,7 @@ već implementirati svoje koristeći pokazivačku sintaksu.
 #\naslovDat{Datoteka ulaz.txt ne postoji}#
 
 #\naslovInt#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: Neuspesno otvaranje datoteke ulaz.txt.}#
 \end{upotreba}
 \end{miditest}
@@ -320,6 +325,7 @@ implementirati svoje koristeći pokazivačku sintaksu.
 #\naslovDat{Datoteka ulaz.txt ne postoji}#
 
 #\naslovInt#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: Neuspesno otvaranje}#
 #\izlaz{datoteke ulaz.txt.}#
 \end{upotreba}
@@ -332,6 +338,7 @@ implementirati svoje koristeći pokazivačku sintaksu.
 #\datoteka{Ovo je sadrzaj ulaza.}#
 
 #\naslovInt#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: Nedovoljan broj argumenata }#
 #\izlaz{komandne linije.}#
 #\izlaz{Program se poziva sa }#
@@ -378,6 +385,7 @@ učitane matrice.
 \begin{upotreba}{2}
 #\naslovInt#
 #\izlaz{Unesite dimenziju matrice:} \ulaz{0}#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: neodgovarajuca dimenzija matrice. }#
 \end{upotreba}
 \end{miditest}
@@ -637,7 +645,6 @@ primene napisane funkcije. \napomena{Voditi računa da se
 prilikom stepenovanja matrice izvrši što manji broj
 množenja.}
 
-
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
@@ -664,7 +671,6 @@ Napisati program koji sa standardnog ulaza učitava dimenziju
 niza celih brojeva, a zatim i njegove elemente. Ne praviti
 nikakve pretpostavke o dimenziji niza. Na standardni izlaz 
 ispisati ove brojeve u obrnutom poretku. 
-
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -736,7 +742,6 @@ niske nisu duže od $50$ karaktera i da ne sadrže praznine). Na
 standardni izlaz ispisati nisku koja se dobija njihovim nadovezivanjem. 
 Za rezultujuću nisku dinamički alocirati memoriju.
 
-
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
@@ -767,7 +772,6 @@ $m$ matrice (ne praviti nikakve pretpostavke o njihovoj veličini),
 a zatim i elementi matrice. Na standardni izlaz ispisati trag
 matrice.
 
-
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
@@ -796,7 +800,6 @@ matrice.
 \begin{Answer}[ref=2_18]
 \includecode{resenja/2_Pokazivaci/2_18.c}
 \end{Answer}
-
 
 \begin{Exercise}[label=2_19]
 Napisati biblioteku za rad sa celobrojnim matricama. 
@@ -832,12 +835,12 @@ Napisati biblioteku za rad sa celobrojnim matricama.
   vrednost različitu od $0$.
 \item Napisati funkciju \kckod{int upisi\_matricu\_u\_datoteku(int
   **A, int n, int m, FILE * f)} koja upisuje matricu dimenzija $n
-  \times m$ u već otvorenu datoteku $f$. U slučaju neuspešnog
+  \times m$ u već otvorenu datoteku \argf{f}. U slučaju neuspešnog
   upisivanja vratiti vrednost različitu od $0$.
 \item Napisati funkciju \kckod{int
   upisi\_kvadratnu\_matricu\_u\_datoteku(int **A, int n, FILE * f)}
   koja upisuje kvadratnu matricu dimenzije $n \times n$ u već otvorenu datoteku
-  $f$. U slučaju neuspešnog upisivanja vratiti vrednost različitu od
+  \argf{f}. U slučaju neuspešnog upisivanja vratiti vrednost različitu od
   $0$.
 \end{enumerate}
 
@@ -869,6 +872,7 @@ Napisati programe koji testiraju napisanu biblioteku.
 #\naslovInt#
 #\izlaz{Unesi broj vrsta matrice:}##\ulaz{5}#
 #\izlaz{Unesi broj kolona matrice:}##\ulaz{0}#
+#\naslovIzlazZaGresku#
 #\izlaz{Neodgovarajce dimenzije matrice}#
 \end{upotreba}
 \end{miditest}
@@ -1016,7 +1020,6 @@ Napisati program koji testira ove funkcije za matricu koja se
 učitava iz datoteke čije se ime zadaje kao argument komandne linije. 
 U datoteci se nalazi prvo dimenzija matrice, a zatim redom elementi matrice.
 
-
 \begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out matrica.txt}#
@@ -1030,8 +1033,6 @@ U datoteci se nalazi prvo dimenzija matrice, a zatim redom elementi matrice.
 \end{miditest}
 \begin{miditest}
 \begin{test2}{1}
-
-
 
 #\naslovInt#
 #\izlaz{Zbir apsolutnih vrednosti ispod }#
@@ -1059,7 +1060,6 @@ narednih $m$ redova se nalaze vrste prve matrice, a u
 narednih $m$ redova vrste druge matrice. Rezultujuću
 matricu ispisati na standardni izlaz.
 
-
 \begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out matrice.txt}#
@@ -1076,8 +1076,6 @@ matricu ispisati na standardni izlaz.
 \end{miditest}
 \begin{miditest}
 \begin{test2}{1}
-
-
 
 #\naslovInt#
 #\izlaz{1.1 -2.2 3.3}#
@@ -1143,7 +1141,6 @@ pronađe ime reprezentacije čijih sličica ima najmanje.
 Dobijene podatke ispisati na standardni izlaz. \napomena{Za
 realokaciju memorije koristiti \kckod{realloc()} funkciju.}
 
-
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovDat{slicice.txt}#
@@ -1159,8 +1156,6 @@ realokaciju memorije koristiti \kckod{realloc()} funkciju.}
 \begin{miditest}
 \begin{test2}{1}
 
-
-
 #\naslovInt#
 #\izlaz{Petru ukupno nedostaje 7 slicica.}#
 #\izlaz{Reprezentacija za koju je sakupio}#
@@ -1172,7 +1167,7 @@ realokaciju memorije koristiti \kckod{realloc()} funkciju.}
 %\includecode{resenja/2_Pokazivaci/2_25.c}
 %\end{Answer}
 
-\begin{Exercise}[difficulty=2, label=2_26]
+\begin{Exercise}[difficulty=1, label=2_26]
 U datoteci \kckod{temena.txt} se nalaze tačke koje predstavljaju
 temena nekog $n$-tougla. Napisati program koji na osnovu
 sadržaja datoteke na standardni izlaz ispisuje o kom
@@ -1190,8 +1185,6 @@ površine. Pretpostavka je da će mnogougao biti konveksan.
 \end{miditest}
 \begin{miditest}
 \begin{test2}{1}
-
-
 
 #\naslovInt#
 #\izlaz{U datoteci su zadata temena cetvorougla.}#
@@ -1212,8 +1205,6 @@ površine. Pretpostavka je da će mnogougao biti konveksan.
 \end{miditest}
 \begin{miditest}
 \begin{test2}{1}
-
-
 
 #\naslovInt#
 #\izlaz{U datoteci su zadata temena petougla.}#
@@ -1236,7 +1227,6 @@ $a$ i $b$ ($a<b$) kao i ceo broj $n$
 ($n \geq 2$) se učitavaju sa standardnog ulaza. Ime funkcije
 se zadaje kao argument komandne linije (\kckod{sin}, \kckod{cos}, \kckod{tan}, \kckod{atan},
 \kckod{acos}, \kckod{asin}, \kckod{exp}, \kckod{log}, \kckod{log10}, \kckod{sqrt}, \kckod{floor}, \kckod{ceil}, \kckod{sqr}).
-
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -1291,7 +1281,6 @@ računa sledećom aproksimacijom (vrednosti $n$ i $a$ uneti sa
 standardnog ulaza kao i ime funkcije):
 $$ lim_{x \rightarrow a} f(x) = lim_{n \rightarrow \infty} f(a + \frac{1}{n})$$
 
-
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
@@ -1323,7 +1312,6 @@ Vrednost $h$ se izračunava po formuli $h = (b-a)/n$, dok se vrednosti $n$, $a$ 
 ulaza kao i ime funkcije iz zaglavlja
 \kckod{math.h}. Na standardni izlaz ispisati vrednost integrala.
 
-
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
@@ -1354,7 +1342,6 @@ $$I = \frac{h}{3}\left(f(a) + 4 \sum_{i=1}^{n/2}f(a+(2i-1)h) + 2
 Granice intervala i $n$ su argumenti funkcije. Napisati program, koji kao
 argumente komandne linije prihvata ime funkcije iz zaglavlja
 \kckod{math.h}, krajeve intervala i $n$, a na standardni izlaz ispisuje vrednost odgovarajućeg integrala.
-
 
 \begin{miditest}
 \begin{upotreba}{1}

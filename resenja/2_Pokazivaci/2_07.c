@@ -63,10 +63,10 @@ int main(int argc, char **argv)
   /* Ukoliko korisnik nije uneo trazene argumente, prijavljuje se
      greska */
   if (argc < 4) {
-    printf("Greska: ");
-    printf("Nedovoljan broj argumenata komandne linije.\n");
-    printf("Program se poziva sa %s ime_dat suf/pref -s/-p.\n",
-           argv[0]);
+    fprintf(stderr, "Greska: ");
+    fprintf(stderr, "Nedovoljan broj argumenata komandne linije.\n");
+    fprintf(stderr, "Program se poziva sa %s ime_dat suf/pref -s/-p.\n",
+            argv[0]);
     exit(EXIT_FAILURE);
   }
 

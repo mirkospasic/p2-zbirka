@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #define MAX 100
 
 /* Funkcija povecava za jedan sve elemente u prvoj polovini niza a

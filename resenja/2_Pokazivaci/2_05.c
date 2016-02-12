@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+
 #define MAX 100
 
 /* Funkcija ispituje da li je niska palindrom, odnosno da li se isto
@@ -25,5 +26,6 @@ int main(int argc, char **argv)
   printf
       ("Broj argumenata komandne linije koji su palindromi je %d.\n",
        n);
+
   return 0;
 }

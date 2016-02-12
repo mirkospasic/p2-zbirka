@@ -2,7 +2,7 @@
 
 Preostali poslovi
 
--3. (Andjelka, Jelena, Milena)
+-3. (Andjelka, Milena)
 
 1) Napomena uvek treba da ide na kraj zadatka (sto nije svuda slucaj, npr zadatak 1.8, 3.26)
 Izuzetak bi bila napomena koja se odnosi na deo zadatka, onda treba da ide na kraj odgovarajuce stavke, kao sto je to za zadatak 2.10
@@ -13,12 +13,11 @@ Napomena: Rešenje koristi biblioteku za rad sa time i time iz zadatka XY.
 3) U napomeni, ukoliko je vezana za biblioteku, koristiti naredni oblik
 Napomena: Koristiti biblioteku za to i to iz zadatka XY.
 
--2. Izbrisati sve prazne redove viska! (Andjelka, Jelena, 
-Milena)
+-2. Izbrisati sve prazne redove viska! (Andjelka, Milena)
 
--1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Jelena, Milena)
+-1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Milena)
 
-0. (Andjelka, Jelena, Milena)
+0. (Andjelka, Nina, Milena)
 konkretni brojevi (npr. -1, 128, ...) - izmedju $$
 neka matematicka ogranicenja (npr. 1 < n < 10000) - izmedju $$
 intervali ([0,2]) - izmedju $$
@@ -32,19 +31,19 @@ argumenti komandne linije (npr. -index, -q, ...) - \kckod{}
 argumenti funkcije (samo doslovno navedeni) - \argf{}
 
 
-1. Srediti repozitorijum (Andjelka, Jelena):
+1. Srediti repozitorijum (Andjelka):
    a) treba da sadrzi poddirektorijume za biblioteke (Andjelka)
    b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci (Andjelka)
    c) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
-   e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 (Nina, Jelena, Andjelka)
-   f) Proveriti znakove pitanja (Andjelka, Mirko, Ana, Nina, Jelena, Milena)  
+   e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 (Nina, Andjelka)
+   f) Proveriti znakove pitanja (Andjelka, Mirko, Ana, Nina, Milena)  
 
 2. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
-(Andjelka, Jelena, Milena-provera)
+(Andjelka, Nina, Milena-provera)
 
-3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Andjelka, Jelena, Milena-provera)
+3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Andjelka, Nina, Milena-provera)
 
-4. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Andjelka, Jelena, Milena-provera)
+4. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Andjelka, Milena-provera)
 
 5. Voditi racuna da se ne mesa rad sa Windows-a i Linux-a jer to posle pravi probleme indent-u
    zbog znaka za novi red
@@ -57,7 +56,7 @@ argumenti funkcije (samo doslovno navedeni) - \argf{}
 
 9. Napraviti finalni prelom knjiga i finalni prelom elektronski (Milena)
 
-10. Srediti zvezdice (Andjelka, Jelena, Milena-provera)
+10. Srediti zvezdice (Andjelka, Milena-provera)
 
 11. Diskusija --- crno-belo ili u boji ili nijanse sivog
 
@@ -148,7 +147,7 @@ e) dodati licencnu poruku na pocetak svake datoteke (smisliti poruku --- svi)
 
 8. Dodati napomenu da je F uopstenje za fibonacijeve brojeve (gde su nestali fibonacijevi brojevi?) (Nina)
 9. Resenje 1.32 nije tacno, tj ne odgovara tekstu zadatka, nesto sam ispravljala, mozda sam zabrljala, nisam testirala (Nina)
-10. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Nina, Jelena)
+10. Detaljno treba precesljati prvo poglavlje i to po svim pitanjima (Nina)
 11. Dopuniti predgovor (svi)
  --- (GPL) Trebalo bi u Predgovoru obrazloziti bar jednom recenicom zasto su zadaci prve glave nazvani uvodnim i sta obuhvataju
  --- (GPL) Trebalo bi (verovatno opet u Predgovoru) komentarisati zadatke sa * i **.
