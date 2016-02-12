@@ -338,13 +338,13 @@ Napisati program koji testira prethodno napisane funkcije. Sa standardnog ulaza 
 \begin{Exercise}[label=1_08]
 Napisati funkcije za rad sa bitovima. 
 \begin{enumerate}
-\item Napisati funkciju \kckod{unsigned postavi\_0(unsigned x, unsigned n, unsigned p)} koja vraća broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{0}.
-\item Napisati funkciju \kckod{unsigned postavi\_1(unsigned x, unsigned n, unsigned p)} koja vraća broj koji se dobija kada se $n$ bitova datog broja $x$, počevši od pozicije $p$, postave na \argf{1}.
+\item Napisati funkciju \kckod{unsigned postavi\_0(unsigned x, unsigned n, unsigned p)} koja vraća broj koji se dobija kada se \argf{n} bitova datog broja \argf{x}, počevši od pozicije \argf{p}, postave na $0$.
+\item Napisati funkciju \kckod{unsigned postavi\_1(unsigned x, unsigned n, unsigned p)} koja vraća broj koji se dobija kada se \argf{n} bitova datog broja \argf{x}, počevši od pozicije \argf{p}, postave na $1$.
 \item %Napisati funkciju \kckod{vrati\_bitove} koja određuje broj koji se dobija od $n$ bitova datog broja $x$, počevši od pozicije $p$, i vraća ih kao bitove najmanje težine rezultata.
-Napisati funkciju \kckod{unsigned vrati\_bitove(unsigned x, unsigned n, unsigned p)} koja vraća broj u kome se $n$ bitova najmanje težine poklapa sa $n$ bitova broja $x$ počevši od pozicije $p$, dok su mu ostali bitovi postavljeni na $0$.
+Napisati funkciju \kckod{unsigned vrati\_bitove(unsigned x, unsigned n, unsigned p)} koja vraća broj u kome se \argf{n} bitova najmanje težine poklapa sa $n$ bitova broja \argf{x} počevši od pozicije \argf{p}, dok su mu ostali bitovi postavljeni na $0$.
 \item %Napisati funkciju \kckod{postavi\_1\_n\_bits} koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
-Napisati funkciju \kckod{unsigned postavi\_1\_n\_bitova(unsigned x, unsigned n, unsigned p, unsigned y)} koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova najmanje težine broja $y$ u broj $x$, počevši od pozicije $p$.
-\item Napisati funkciju \kckod{unsigned invertuj(unsigned x, unsigned n, unsigned p)} koja vraća broj koji se dobija invertovanjem $n$ bitova broja $x$ počevši od pozicije $p$. 
+Napisati funkciju \kckod{unsigned postavi\_1\_n\_bitova(unsigned x, unsigned n, unsigned p, unsigned y)} koja vraća broj koji se dobija upisivanjem poslednjih \argf{n} bitova najmanje težine broja \argf{y} u broj \argf{x}, počevši od pozicije \argf{p}.
+\item Napisati funkciju \kckod{unsigned invertuj(unsigned x, unsigned n, unsigned p)} koja vraća broj koji se dobija invertovanjem \argf{n} bitova broja \argf{x} počevši od pozicije \argf{p}. 
 \end{enumerate}
 
 Napisati program koji testira prethodno napisane funkcije za neoznačene cele brojeve $x$, $n$, $p$, $y$ koji se unose sa standardnog ulaza. Na standardni izlaz ispisati binarne reprezenatacije brojeva $x$ i $y$, a zatim i binarne reprezentacije brojeva koji se dobijaju pozivanjem prethodno napisanih funkcija. \napomena{Bit najmanje težine je krajnji desni bit i njegova pozicija se označava nultom dok se pozicije ostalih bitova uvećavaju za jedan, sa desna na levo.}
@@ -648,7 +648,6 @@ Napisati program koji sa standardnog ulaza učitava pozitivan ceo broj, a na sta
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{Exercise}[difficulty=1, label=1_15]%\marker+{2}
-  
 Napisati funkciju koja za data dva neoznačena broja $x$
 i $y$ invertuje one bitove u broju $x$ koji se poklapaju sa odgovarajućim bitovima
 u broju $y$. Ostali bitovi treba da ostanu nepromenjeni. Napisati program
@@ -1092,7 +1091,6 @@ elementa $x$ u nizu $a$ dužine $n$. Napisati program koji testira ovu funkciju 
 #\izlaz{Broj pojavljivanja je 2}#
 \end{upotreba}
 \end{miditest}
-
 
 \begin{miditest}
 \begin{upotreba}{3}

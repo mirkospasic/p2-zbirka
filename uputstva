@@ -18,7 +18,7 @@ Milena)
 
 -1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Jelena, Milena)
 
-0. (Andjelka, Nina, Jelena, Milena)
+0. (Andjelka, Jelena, Milena)
 konkretni brojevi (npr. -1, 128, ...) - izmedju $$
 neka matematicka ogranicenja (npr. 1 < n < 10000) - izmedju $$
 intervali ([0,2]) - izmedju $$
@@ -42,7 +42,7 @@ argumenti funkcije (samo doslovno navedeni) - \argf{}
 2. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
 (Andjelka, Nina, Jelena, Milena-provera)
 
-3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Andjelka, Nina, Jelena, Milena-provera)
+3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Andjelka, Jelena, Milena-provera)
 
 4. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Andjelka, Jelena, Milena-provera)
 
