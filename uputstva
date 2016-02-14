@@ -8,10 +8,10 @@ Ako negde strci test primer onda:
 a) proveriti da li tekst test primera moze malo da se preformatira tako da test primer ne strci (npr da se ulaz prebaci u novi red tj doda \n nakon printf ili da se printf prelomi drugacije sa \n) npr 1.27, 2.4, 2.7, 2.8, 2.11, 2.13...
 b) ako pod a nije moguce, onda uzeti veci test i podesiti drugaciji prelom za testove
 
-(Andjelja, Mirko, Ana, Nina, Jelena, Milena)
+(Andjelka, Mirko, Ana, Nina, Jelena, Milena)
 
 
--3. (Andjelka - samo tacka 2 je ostala, Milena)
+-3. (Milena)
 
 1) Napomena uvek treba da ide na kraj zadatka (sto nije svuda slucaj, npr zadatak 1.8, 3.26)
 Izuzetak bi bila napomena koja se odnosi na deo zadatka, onda treba da ide na kraj odgovarajuce stavke, kao sto je to za zadatak 2.10
@@ -26,11 +26,12 @@ Napomena: Koristiti biblioteku za to i to iz zadatka XY.
 
 -1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Milena)
 
-0. (Andjelka, Nina, Milena)
+0. (Nina, Milena)
 konkretni brojevi (npr. -1, 128, ...) - izmedju $$
 neka matematicka ogranicenja (npr. 1 < n < 10000) - izmedju $$
 intervali ([0,2]) - izmedju $$
-uopsteni brojevi koji nemaju veze sa funkcijama (uneti n, uneti x, iako mozda postoji funkcija koja prima kao argument n i x) - izmedju $$
+uopsteni brojevi koji nemaju veze sa funkcijama (uneti n, uneti x, iako mozda postoji funkcija koja prima kao argument n i x) 
+- izmedju $$
 
 potpisi funkcija - \kckod{}
 imena funkcija - \kckod{}
@@ -48,7 +49,7 @@ argumenti funkcije (samo doslovno navedeni) - \argf{}
    f) Proveriti znakove pitanja (Andjelka, Mirko, Ana, Nina, Milena)  
 
 2. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
-(Andjelka, Nina, Milena-provera)
+(Nina, Milena-provera)
 
 3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Nina, Milena-provera)
 

@@ -9,9 +9,9 @@ Napisati biblioteku za rad sa binarnim pretraživačkim stablima.
 
 \item Napisati funkciju \kckod{Cvor *napravi\_cvor(int broj)} koja alocira memoriju za novi čvor stabla i vrši njegovu inicijalizaciju zadatim celim brojem \argf{broj}.
 
-\item Napisati funkciju \kckod{int dodaj\_u\_stablo(Cvor ** adresa\_korena, int broj)} koja u stablo na koje pokazuje argument \argf{adresa\_korena} dodaje ceo broj \argf{broj}. Povratna vrednost funkcije je 0 ako je dodavanje uspešno, odnosno 1 ukoliko je došlo do greške.  
+\item Napisati funkciju \kckod{int dodaj\_u\_stablo(Cvor ** adresa\_korena, int broj)} koja u stablo na koje pokazuje argument \argf{adresa\_korena} dodaje ceo broj \argf{broj}. Povratna vrednost funkcije je $0$ ako je dodavanje uspešno, odnosno $1$ ukoliko je došlo do greške.  
 
-\item Napisati funkciju \kckod{Cvor *pretrazi\_stablo(Cvor * koren, int broj)} koja proverava da li se ceo broj \argf{broj} nalazi u stablu sa korenom \argf{koren}. Funkcija vraća pokazivač na čvor stabla koji sadrži traženu vrednost ili NULL ukoliko takav čvor ne postoji.
+\item Napisati funkciju \kckod{Cvor *pretrazi\_stablo(Cvor * koren, int broj)} koja proverava da li se ceo broj \argf{broj} nalazi u stablu sa korenom \argf{koren}. Funkcija vraća pokazivač na čvor stabla koji sadrži traženu vrednost ili $NULL$ ukoliko takav čvor ne postoji.
 
 \item Napisati funkciju \kckod{Cvor *pronadji\_najmanji(Cvor * koren)} koja pronalazi čvor koji sadrži najmanju vrednost u stablu sa korenom \argf{koren}. 
 
@@ -70,7 +70,7 @@ Korišćenjem kreirane biblioteke, napisati program koji sa standardnog ulaza u�
 
 %2.zadatak
 \begin{Exercise}[label=4_15]
-Napisati program koji izračunava i na standardni izlaz ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživačkog stabla uređenog leksikografski po rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati poruku \kckod{Nedostaje ime ulazne datoteke!}. Može se pretpostaviti da dužina reči neće biti veća od 50 karaktera.
+Napisati program koji izračunava i na standardni izlaz ispisuje broj pojavljivanja svake reči datoteke čije se ime zadaje kao argument komandne linije. Program realizovati korišćenjem binarnog pretraživačkog stabla uređenog leksikografski po rečima ne uzimajući u obzir razliku između malih i velikih slova. Ukoliko prilikom pokretanja programa korisnik ne navede ime ulazne datoteke ispisati na standardni izlaz za grešku poruku $Nedostaje\ ime\ ulazne\ datoteke!$. Može se pretpostaviti da dužina reči neće biti veća od $50$ karaktera.
 
 \begin{miditest}
 \begin{test}{1}
@@ -114,7 +114,7 @@ Napisati program koji izračunava i na standardni izlaz ispisuje broj pojavljiva
 
 #\naslovDat{Datoteka ulaz.txt ne postoji}#
 
-#\naslovInt#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: Neuspesno otvaranje datoteke ulaz.txt.}#
 \end{test}
 \end{miditest}
@@ -122,7 +122,7 @@ Napisati program koji izračunava i na standardni izlaz ispisuje broj pojavljiva
 \begin{test}{4}
 #\poziv{./a.out}#
   
-#\naslovIzlaz#
+#\naslovIzlazZaGresku#
 #\izlaz{Nedostaje ime ulazne datoteke!}#
 \end{test}
 \end{miditest}
@@ -137,7 +137,7 @@ Napisati program koji izračunava i na standardni izlaz ispisuje broj pojavljiva
 
 %4.zadatak
 \begin{Exercise}[label=4_16]
-U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona, npr.~\kckod{Pera Peric 064/123-4567}. Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči \kckod{KRAJ}, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od $30$ karaktera, kao i da imenik ne sadrži podatke o osobama sa istim imenom i prezimenom.
+U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona, npr. $Pera\ Peric\ 064/123-4567$. Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči $KRAJ$, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od $30$ karaktera, kao i da imenik ne sadrži podatke o osobama sa istim imenom i prezimenom.
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -163,6 +163,7 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
   
 #\naslovInt#
 #\izlaz{Unesite ime datoteke:}\ulaz{imenik1.txt}#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: Neuspesno otvaranje datoteke}#
 #\izlaz{imenik1.txt.}#
 \end{upotreba}
@@ -176,7 +177,7 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 
 %5.zadatak
 \begin{Exercise}[label=4_17]
-  U datoteci \kckod{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jedne osnovne škole tako što je u svakom redu navedeno ime i prezime učenika (niska od najviše $50$ karaktera), broj poena na osnovu uspeha (realan broj), broj poena na prijemnom ispitu iz matematike (realan broj) i broj poena na prijemnom ispitu iz maternjeg jezika (realan broj). Za učenika koji u zbiru osvoji manje od $10$ poena na oba prijemna ispita smatra se da nije položio prijemni. Napisati program koji na osnovu podataka iz ove datoteke formira i prikazuje rang listu učenika. Rang lista sadrži redni broj učenika, njegovo ime i prezime, broj poena na osnovu uspeha, broj poena na prijemnom ispitu iz matematike, broj poena na prijemnom ispitu iz maternjeg jezika i ukupan broj poena i sortirana je opadajuće po ukupnom broju poena. Na rang listi se prvo navode oni učenici koji su položili prijemni ispit, a potom i učenici koji ga nisu položili. Između ovih dveju grupa učenika postoji i horizontalna linija koja ih vizuelno razdvaja.
+U datoteci \kckod{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jedne osnovne škole tako što je u svakom redu navedeno ime i prezime učenika (niska od najviše $50$ karaktera), broj poena na osnovu uspeha (realan broj), broj poena na prijemnom ispitu iz matematike (realan broj) i broj poena na prijemnom ispitu iz maternjeg jezika (realan broj). Za učenika koji u zbiru osvoji manje od $10$ poena na oba prijemna ispita smatra se da nije položio prijemni. Napisati program koji na osnovu podataka iz ove datoteke formira i prikazuje rang listu učenika. Rang lista sadrži redni broj učenika, njegovo ime i prezime, broj poena na osnovu uspeha, broj poena na prijemnom ispitu iz matematike, broj poena na prijemnom ispitu iz maternjeg jezika i ukupan broj poena i sortirana je opadajuće po ukupnom broju poena. Na rang listi se prvo navode oni učenici koji su položili prijemni ispit, a potom i učenici koji ga nisu položili. Između ovih dveju grupa učenika postoji i horizontalna linija koja ih vizuelno razdvaja.
 
 \begin{miditest}
 \begin{test}{1}
@@ -200,7 +201,7 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 \begin{test}{2}
 #\naslovDat{Datoteka prijemni.txt ne postoji}#  
 
-#\naslovIzlaz#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: Neuspesno otvaranje datoteke}#
 #\izlaz{prijemni.txt.}#
 \end{test}
@@ -214,7 +215,7 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 
 %6.zadatak
 \begin{Exercise}[label=4_18, difficulty=1]
-Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije. Svaka linija datoteke je formata \kckod{Ime Prezime DD.MM.} i sadži ime osobe, prezime osobe i dan i mesec rođenja. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj unosa. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima - prvo po mesecu, a zatim po danu u okviru istog meseca. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu \kckod{DD.MM.}.Takođe, može se pretpostaviti da će ime i prezime osobe biti kraće od 50 karaktera.
+Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije. Svaka linija datoteke je formata $Ime\ Prezime\ DD.MM.$ i sadži ime osobe, prezime osobe i dan i mesec rođenja. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj unosa. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima - prvo po mesecu, a zatim po danu u okviru istog meseca. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu $DD.MM.$. Takođe, može se pretpostaviti da će ime i prezime osobe biti kraće od $50$ karaktera.
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -245,7 +246,7 @@ Napisati program koji implementira podsetnik za rođendane. Informacije o rođen
 
 #\naslovDat{Datoteka rodjendani.txt ne postoji}#
 
-#\naslovInt#
+#\naslovIzlazZaGresku#
 #\izlaz{Greska: Neuspesno otvaranje datoteke}# 
 #\izlaz{rodjendani.txt.}#
 \end{upotreba}
@@ -286,6 +287,8 @@ Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj.~ako ob
 \end{Exercise}
 
 \begin{Answer}[ref=4_19]
+\\
+\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
 \includecode{resenja/07_drveta/4_19.c}
 \end{Answer}
 
@@ -318,12 +321,14 @@ Napisati program za rad sa skupovima u kojem se skupovi predstavljaju pomoću bi
 \end{Exercise}
 
 \begin{Answer}[ref=4_20]
+\\
+\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
 \includecode{resenja/07_drveta/4_20.c}
 \end{Answer}
 
 %9.zadatak
 \begin{Exercise}[label=4_21]
-Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih brojeva \argf{a} dimenzije \argf{n} korišćenjem binarnog pretraživačkog stabla. Napisati i program koji sa standardnog ulaza učitava ceo broj \argf{n} manji od 50 i niz \argf{a} celih brojeva dužine \argf{n}, poziva funkciju \kckod{sortiraj} i rezultat ispisuje na standardni izlaz. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}\\
+Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih brojeva \argf{a} dimenzije \argf{n} korišćenjem binarnog pretraživačkog stabla. Napisati i program koji sa standardnog ulaza učitava ceo broj $n$ manji od $50$ i niz $a$ celih brojeva dužine $n$, poziva funkciju \kckod{sortiraj} i rezultat ispisuje na standardni izlaz. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}\\
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -344,6 +349,8 @@ Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih b
 \end{Exercise}
 
 \begin{Answer}[ref=4_21]
+\\
+\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
 \includecode{resenja/07_drveta/4_21.c}
 \end{Answer}
 
@@ -414,6 +421,8 @@ sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ proč
 \end{Exercise}
 
 \begin{Answer}[ref=4_22]
+\\
+\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
 \includecode{resenja/07_drveta/4_22.c}
 \end{Answer}
 
@@ -462,12 +471,14 @@ Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivo
 \end{Exercise}
 
 \begin{Answer}[ref=4_23]
+\\
+\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
 \includecode{resenja/07_drveta/4_23.c}
 \end{Answer}
 
 %13.zadatak
 \begin{Exercise}[label=4_24, difficulty=1]
-Dva binarna stabla su {\em slična kao u ogledalu} ako su ili oba prazna ili ako oba nisu prazna i levo podstablo svakog stabla je {\em slično kao u ogledalu} desnom podstablu onog drugog (bitna je struktura stabala, ali ne i njihov sadržaj). Napisati funkciju koja proverava da li su dva binarna pretraživačka stabla {\em slična kao u ogledalu}, a potom i program koji testira rad funkcije nad stablima čiji se elementi unose sa standardnog ulaza sve do unosa broja 0 i to redom za prvo stablo, pa zatim i za drugo stablo. 
+Dva binarna stabla su {\em slična kao u ogledalu} ako su ili oba prazna ili ako oba nisu prazna i levo podstablo svakog stabla je {\em slično kao u ogledalu} desnom podstablu onog drugog (bitna je struktura stabala, ali ne i njihov sadržaj). Napisati funkciju koja proverava da li su dva binarna pretraživačka stabla {\em slična kao u ogledalu}, a potom i program koji testira rad funkcije nad stablima čiji se elementi unose sa standardnog ulaza sve do unosa broja $0$ i to redom za prvo stablo, pa zatim i za drugo stablo. 
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -487,14 +498,13 @@ Dva binarna stabla su {\em slična kao u ogledalu} ako su ili oba prazna ili ako
 \end{miditest}
 %\linkresenje{713}
 \end{Exercise}
-
 %\begin{Answer}[ref=713]
 %\includecode{resenja/07_drveta/713.c}
 %\end{Answer}
 
 %14.zadatak
 \begin{Exercise}[label=4_25]
-AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina levog i desnog podstabla svakog elementa nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor * koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod{avl} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}\\
+\emph{AVL}-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina levog i desnog podstabla svakog elementa nije veća od jedan. Napisati funkciju \kckod{int avl(Cvor * koren)} koja izračunava broj čvorova stabla sa korenom \argf{koren} koji ispunjavaju uslov za AVL stablo. Napisati zatim i glavni program koji ispisuje rezultat \kckod{avl} funkcije za stablo čiji se elementi unose sa standardnog ulaza sve do kraja ulaza. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}\\
 
 \begin{miditest}
 \begin{test}{1}
@@ -518,13 +528,15 @@ AVL-stablo je binarno pretraživačko stablo kod kojeg apsolutna razlika visina 
 \end{Exercise}
 
 \begin{Answer}[ref=4_25]
+\\
+\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
 \includecode{resenja/07_drveta/4_25.c}
 \end{Answer}
 
 
 %15.zadatak
 \begin{Exercise}[label=4_26]
-Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int heap(Cvor * koren)} koja proverava da li je dato binarno stablo celih brojeva hip. Napisati zatim i glavni program koji kreira stablo zadato slikom \ref{fig:zadatak426}, poziva funkciju \kckod{heap} i ispisuje rezultat na standardni izlaz. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}\\
+Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int hip(Cvor * koren)} koja proverava da li je dato binarno stablo celih brojeva hip. Napisati zatim i glavni program koji kreira stablo zadato slikom \ref{fig:zadatak426}, poziva funkciju \kckod{hip} i ispisuje rezultat na standardni izlaz. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}\\
 
 \begin{miditest}
 \begin{test}{1}
@@ -536,6 +548,8 @@ Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) 
 \end{Exercise}
 
 \begin{Answer}[ref=4_26]
+\\
+\napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
 \includecode{resenja/07_drveta/4_26.c}
 \end{Answer}
 

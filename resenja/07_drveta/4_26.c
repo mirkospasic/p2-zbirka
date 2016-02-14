@@ -11,7 +11,7 @@
    vrednosti, uoceni fragment stabla zadovoljava uslov za hip. Zato
    ce funkcija vracati maksimalne vrednosti iz uocenog podstabala ili 
    vrednost -1 ukoliko se zakljuci da stablo nije hip. */
-int heap(Cvor * koren)
+int hip(Cvor * koren)
 {
   int max_levo, max_desno;
 
@@ -28,10 +28,10 @@ int heap(Cvor * koren)
   /* Inace... */
 
   /* Proverava se svojstvo za levo podstablo */
-  max_levo = heap(koren->levo);
+  max_levo = hip(koren->levo);
 
   /* Proverava se svojstvo za desno podstablo */
-  max_desno = heap(koren->desno);
+  max_desno = hip(koren->desno);
 
   /* Ako levo ili desno podstablo uocenog cvora nije hip, onda nije
      ni celo stablo */
@@ -67,7 +67,7 @@ int main(int argc, char **argv)
   koren->desno->desno = napravi_cvor(1);
 
   /* Poziva se funkcija kojom se proverava da li je stablo hip */
-  hip_indikator = heap(koren);
+  hip_indikator = hip(koren);
 
   /* Ispisuje se rezultat */
   if (hip_indikator == -1) {

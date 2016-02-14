@@ -78,10 +78,14 @@ int dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
   if (strcmp(rec, (*adresa_korena)->rec) > 0)
     return dodaj_u_stablo(&(*adresa_korena)->desno, rec);
 
-  else
+  else{
     /* Ako je rec jednaka reci u korenu, uvecava se njen broj
        pojavljivanja */
     (*adresa_korena)->brojac++;
+    
+    /* I vraca se indikator uspesnog dodavanja */
+    return 0;
+  }
 }
 
 /* Funkcija koja oslobadja memoriju zauzetu stablom */
