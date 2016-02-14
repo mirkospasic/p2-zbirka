@@ -4,8 +4,16 @@
 \def\bibname{Literatura}
 \def\appendixname{Dodatak}
 
+\usepackage{lipsum}
+\newcommand*\justify{%
+  \fontdimen2\font=0.4em% interword space
+  \fontdimen3\font=0.2em% interword stretch
+  \fontdimen4\font=0.1em% interword shrink
+  \fontdimen7\font=0.1em% extra space
+  \hyphenchar\font=`\-% allowing hyphenation
+}
 
-\newcommand\kckod[1]{\texttt{#1}}        % kratak c kod
+\newcommand\kckod[1]{\texttt{\justify #1}}        % kratak c kod
 \newcommand\argf[1]{\texttt{#1}}         % argument funkcije
 \newcommand\komentar[1]{\textcolor{red}{#1}}         % komentar
 

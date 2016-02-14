@@ -2,6 +2,15 @@
 
 Preostali poslovi
 
+
+-4. Proveriti prelom: da li negde neka rec strci. npr, za rec "pevanje", ako strci, dodati \hyphenation{pe-va-nje} u dokument podesavanja/hyphenation.tex
+Ako negde strci test primer onda:
+a) proveriti da li tekst test primera moze malo da se preformatira tako da test primer ne strci (npr da se ulaz prebaci u novi red tj doda \n nakon printf ili da se printf prelomi drugacije sa \n) npr 1.27, 2.4, 2.7, 2.8, 2.11, 2.13...
+b) ako pod a nije moguce, onda uzeti veci test i podesiti drugaciji prelom za testove
+
+(Andjelja, Mirko, Ana, Nina, Jelena, Milena)
+
+
 -3. (Andjelka, Milena)
 
 1) Napomena uvek treba da ide na kraj zadatka (sto nije svuda slucaj, npr zadatak 1.8, 3.26)
