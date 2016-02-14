@@ -11,7 +11,7 @@ b) ako pod a nije moguce, onda uzeti veci test i podesiti drugaciji prelom za te
 (Andjelja, Mirko, Ana, Nina, Jelena, Milena)
 
 
--3. (Andjelka, Milena)
+-3. (Andjelka - samo tacka 2 je ostala, Milena)
 
 1) Napomena uvek treba da ide na kraj zadatka (sto nije svuda slucaj, npr zadatak 1.8, 3.26)
 Izuzetak bi bila napomena koja se odnosi na deo zadatka, onda treba da ide na kraj odgovarajuce stavke, kao sto je to za zadatak 2.10
@@ -24,7 +24,7 @@ Napomena: Koristiti biblioteku za to i to iz zadatka XY.
 
 -2. Izbrisati sve prazne redove viska! (Andjelka, Milena)
 
--1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Andjelka, Milena)
+-1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Milena)
 
 0. (Andjelka, Nina, Milena)
 konkretni brojevi (npr. -1, 128, ...) - izmedju $$
@@ -41,18 +41,18 @@ argumenti funkcije (samo doslovno navedeni) - \argf{}
 
 
 1. Srediti repozitorijum (Andjelka):
-   a) treba da sadrzi poddirektorijume za biblioteke (Andjelka)
+   a) treba da sadrzi poddirektorijume za biblioteke
    b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci
    c) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
-   e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 (Nina, Andjelka)
+   e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 (Nina)
    f) Proveriti znakove pitanja (Andjelka, Mirko, Ana, Nina, Milena)  
 
 2. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
 (Andjelka, Nina, Milena-provera)
 
-3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Andjelka, Nina, Milena-provera)
+3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Nina, Milena-provera)
 
-4. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Andjelka, Milena-provera)
+4. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Milena-provera)
 
 5. Voditi racuna da se ne mesa rad sa Windows-a i Linux-a jer to posle pravi probleme indent-u
    zbog znaka za novi red
