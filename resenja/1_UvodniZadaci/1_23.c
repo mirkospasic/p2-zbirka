@@ -34,11 +34,11 @@ int main()
   scanf("%d", &ind);
 
   /* Ucitava se broj elemenata niza */
-  printf("Unesite dimenziju niza:");
+  printf("Unesite dimenziju niza:\n");
   scanf("%d", &n);
 
   /* Ucitava se n elemenata niza. */
-  printf("Unesite elemente niza:");
+  printf("Unesite elemente niza:\n");
   for (i = 0; i < n; i++)
     scanf("%d", &a[i]);
 

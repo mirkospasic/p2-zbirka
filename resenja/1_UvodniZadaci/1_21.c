@@ -77,7 +77,7 @@ int main()
   int n, a, b, ind;
 
   /* Unosi se redni broj funkcije koja ce se primeniti */
-  printf("Unesite redni broj funkcije koju zelite:\n");
+  printf("Unesite redni broj funkcije:\n");
   printf("1 - iterativna\n");
   printf("2 - rekurzivna\n");
   printf("3 - rekurzivna napredna\n");

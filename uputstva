@@ -46,12 +46,12 @@ argumenti funkcije (samo doslovno navedeni) - \argf{}
    b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci
    c) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
    e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 (Nina)
-   f) Proveriti znakove pitanja (Andjelka, Mirko, Ana, Nina, Milena)  
+   f) Proveriti znakove pitanja (Andjelka, Mirko, Ana, Milena)  
 
 2. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
 (Nina, Milena-provera)
 
-3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Nina, Milena-provera)
+3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Milena-provera)
 
 4. Proveriti da li je pred svaku funkciju dat komentar na temu sta ta funkcija izracunava (Milena-provera)
 

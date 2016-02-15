@@ -167,7 +167,8 @@ rešenja treba koristiti prilikom ispisa.
 #\izlaz{2 2.}#
 #\izlaz{3 treci}#
 #\izlaz{4 -4}#
-#\izlaz{Pocetna slova argumenata komandne linije:}#
+#\izlaz{Pocetna slova argumenata komandne}#
+#\izlaz{linije:}#
 #\izlaz{. p 2 t -}#
 \end{upotreba}
 \end{miditest}
@@ -182,7 +183,8 @@ rešenja treba koristiti prilikom ispisa.
 #\izlaz{sintakse (I ili P)?} \ulaz{P}#
 #\izlaz{Argumenti komandne linije su:}#
 #\izlaz{0 ./a.out}#
-#\izlaz{Pocetna slova argumenata komandne linije:}#
+#\izlaz{Pocetna slova argumenata komandne}#
+#\izlaz{linije:}#
 #\izlaz{.}#
 \end{upotreba}
 \end{miditest}
@@ -214,7 +216,7 @@ palindromi.
 #\poziv{./a.out}#
 
 #\naslovInt#
-#\izlaz{Broj argumenata komandne linije koji}#
+#\izlaz{Broj argumenata komandne linije}#
 #\izlaz{koji su palindromi je 0.}#
 \end{upotreba}
 \end{miditest}
@@ -239,8 +241,8 @@ već implementirati svoje koristeći pokazivačku sintaksu.
 #\poziv{./a.out ulaz.txt 1}#
 
 #\naslovDat{ulaz.txt}#
-#\datoteka{Ovo je sadrzaj datoteke i u njoj ima }#
-#\datoteka{reci koje imaju 1 karakter}#
+#\datoteka{Ovo je sadrzaj datoteke i u njoj }#
+#\datoteka{ima reci koje imaju 1 karakter}#
 
 #\naslovInt#
 #\izlaz{Broj reci ciji je broj karaktera 1 je 3.}#
@@ -251,13 +253,13 @@ već implementirati svoje koristeći pokazivačku sintaksu.
 #\poziv{./a.out ulaz.txt}#
 
 #\naslovDat{ulaz.txt}#
-#\datoteka{Ovo je sadrzaj datoteke i u njoj ima }#
-#\datoteka{reci koje imaju 1 karakter}#
+#\datoteka{Ovo je sadrzaj datoteke i u njoj }#
+#\datoteka{ima reci koje imaju 1 karakter}#
 
 #\naslovInt#
 #\naslovIzlazZaGresku#
-#\izlaz{Greska: Nedovoljan broj argumenata}#
-#\izlaz{komandne linije.}#
+#\izlaz{Greska: Nedovoljan broj }#
+#\izlaz{argumenata komandne linije.}#
 #\izlaz{Program se poziva sa }#
 #\izlaz{./a.out ime\_dat br\_karaktera.}#
 \end{upotreba}
@@ -298,8 +300,8 @@ implementirati svoje koristeći pokazivačku sintaksu.
 #\poziv{./a.out ulaz.txt ke -s}#
 
 #\naslovDat{ulaz.txt}#
-#\datoteka{Ovo je sadrzaj datoteke i u njoj ima reci}#
-#\datoteka{koje se zavrsavaju na ke}#
+#\datoteka{Ovo je sadrzaj datoteke i u njoj ima }#
+#\datoteka{reci koje se zavrsavaju na ke}#
 
 #\naslovInt#
 #\izlaz{Broj reci koje se zavrsavaju na ke je 2.}#
@@ -310,8 +312,8 @@ implementirati svoje koristeći pokazivačku sintaksu.
 #\poziv{./a.out ulaz.txt sa -p}#
 
 #\naslovDat{ulaz.txt}#
-#\datoteka{Ovo je sadrzaj datoteke i u njoj ima reci }#
-#\datoteka{koje pocinju sa sa}#
+#\datoteka{Ovo je sadrzaj datoteke i u njoj ima }#
+#\datoteka{reci koje pocinju sa sa}#
 
 #\naslovInt#
 #\izlaz{Broj reci koje pocinju na sa je 3.}#
@@ -386,7 +388,8 @@ učitane matrice.
 #\naslovInt#
 #\izlaz{Unesite dimenziju matrice:} \ulaz{0}#
 #\naslovIzlazZaGresku#
-#\izlaz{Greska: neodgovarajuca dimenzija matrice. }#
+#\izlaz{Greska: neodgovarajuca dimenzija }#
+#\izlaz{matrice. }#
 \end{upotreba}
 \end{miditest}
 
@@ -511,7 +514,7 @@ $n$ ($0 < n \leq 32$) zadaje kao argument
 komandne linije. Na standardni izlaz ispisati rezultat primene prethodno
 napisanih funkcija. 
 
-\begin{miditest}
+\begin{maxitest}
 \begin{upotreba}{1}
 #\poziv{./a.out 3}#
 
@@ -525,8 +528,9 @@ napisanih funkcija.
 #\izlaz{Indeks vrste sa najvecim elementom je 2.}#
 #\izlaz{Broj negativnih elemenata matrice je 3.}#
 \end{upotreba}
-\end{miditest}
-\begin{miditest}
+\end{maxitest}
+
+\begin{maxitest}
 \begin{upotreba}{2}
 #\poziv{./a.out 4}#
 
@@ -541,7 +545,7 @@ napisanih funkcija.
 #\izlaz{Indeks vrste sa najvecim elementom je 0.}#
 #\izlaz{Broj negativnih elemenata matrice je 16.}#
 \end{upotreba}
-\end{miditest}
+\end{maxitest}
 
 \linkresenje{2_11}
 \end{Exercise}
@@ -564,7 +568,8 @@ matricu.
 \begin{upotreba}{1}
 #\naslovInt#
 #\izlaz{Unesite broj vrsta matrice:} \ulaz{4}#
-#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\izlaz{Unesite elemente matrice, }#
+#\izlaz{vrstu po vrstu:}#
 #\ulaz{1 0 0 0}#
 #\ulaz{0 1 0 0}#
 #\ulaz{0 0 1 0}#
@@ -576,7 +581,8 @@ matricu.
 \begin{upotreba}{2}
 #\naslovInt#
 #\izlaz{Unesite broj vrsta matrice:} \ulaz{3}#
-#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\izlaz{Unesite elemente matrice, }#
+#\izlaz{vrstu po vrstu:}#
 #\ulaz{1 2 3}#
 #\ulaz{5 6 7}#
 #\ulaz{1 4 2}#
@@ -605,9 +611,11 @@ učitane matrice.
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Unesite broj vrsta i broj kolona matrice:}#
+#\izlaz{Unesite broj vrsta i broj kolona}#
+#\izlaz{matrice:}#
 #\ulaz{3 3}#
-#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\izlaz{Unesite elemente matrice, }#
+#\izlaz{vrstu po vrstu:}#
 #\ulaz{1 2 3}#
 #\ulaz{4 5 6}#
 #\ulaz{7 8 9}#
@@ -618,9 +626,11 @@ učitane matrice.
 \begin{miditest}
 \begin{upotreba}{2}
 #\naslovInt#
-#\izlaz{Unesite broj vrsta i broj kolona matrice:}# 
+#\izlaz{Unesite broj vrsta i broj kolona}#
+#\izlaz{matrice:}#
 #\ulaz{3 4}#
-#\izlaz{Unesite elemente matrice, vrstu po vrstu:}#
+#\izlaz{Unesite elemente matrice, }#
+#\izlaz{vrstu po vrstu:}#
 #\ulaz{1 2 3 4}#
 #\ulaz{5 6 7 8}#
 #\ulaz{9 10 11 12}#
@@ -709,21 +719,25 @@ Od korisnika sa ulaza tražiti da izabere način realokacije memorije.
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Unesite zeljeni nacin realokacije (M ili R):}#
+#\izlaz{Unesite zeljeni nacin realokacije:}#
+#\izlaz{(M ili R):}#
 #\ulaz{M}#
 #\izlaz{Unesite brojeve, nulu za kraj:}#
 #\ulaz{1 -2 3 -4 0}#
-#\izlaz{Niz u obrnutom poretku je: -4 3 -2 1}#
+#\izlaz{Niz u obrnutom poretku je:}#
+#\izlaz{-4 3 -2 1}#
 \end{upotreba}
 \end{miditest}
 \begin{miditest}
 \begin{upotreba}{2}
 #\naslovInt#
-#\izlaz{Unesite zeljeni nacin realokacije (M ili R):}#
+#\izlaz{Unesite zeljeni nacin realokacije:}#
+#\izlaz{(M ili R):}#
 #\ulaz{R}#
 #\izlaz{Unesite brojeve, nulu za kraj:}#
 #\ulaz{6 -1 5 -2 4 -3 0}#
-#\izlaz{Niz u obrnutom poretku je: -3 4 -2 5 -1 6}#
+#\izlaz{Niz u obrnutom poretku je:}#
+#\izlaz{3 4 -2 5 -1 6}#
 \end{upotreba}
 \end{miditest}
 
@@ -1187,7 +1201,8 @@ površine. Pretpostavka je da će mnogougao biti konveksan.
 \begin{test2}{1}
 
 #\naslovInt#
-#\izlaz{U datoteci su zadata temena cetvorougla.}#
+#\izlaz{U datoteci su zadata temena }#
+#\izlaz{cetvorougla.}#
 #\izlaz{Obim je 8.}#
 #\izlaz{Povrsina je 4.}#
 \end{test2}
@@ -1207,7 +1222,8 @@ površine. Pretpostavka je da će mnogougao biti konveksan.
 \begin{test2}{1}
 
 #\naslovInt#
-#\izlaz{U datoteci su zadata temena petougla.}#
+#\izlaz{U datoteci su zadata temena }#
+#\izlaz{petougla.}#
 #\izlaz{Obim je 18.80.}#
 #\izlaz{Povrsina je 22.59.}#
 \end{test2}
