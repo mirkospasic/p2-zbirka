@@ -25,7 +25,7 @@ Napisati biblioteku za rad sa jednostruko povezanom listom čiji čvorovi sadrž
 
  \item Napisati funkciju \kckod{void ispisi\_listu(Cvor * glava)} koja ispisuje čvorove liste uokvirene zagradama [, ] i međusobno razdvojene zapetama.
 
- \item Napisati funkciju \kckod{Cvor *pretrazi\_listu(Cvor * glava, int broj)} koja proverava da li se u listi nalazi čvor čija je vrednost jednaka argumentu \argf{broj}. Funkcija vraća pokazivač na pronađeni čvor ili \kckod{NULL} ukoliko ga ne pronađe.
+ \item Napisati funkciju \kckod{Cvor *pretrazi\_listu(Cvor * glava, int broj)} koja proverava da li se u listi nalazi čvor čija je vrednost jednaka argumentu \argf{broj}. Funkcija vraća pokazivač na pronađeni čvor ili $NULL$ ukoliko ga ne pronađe.
 
  \item Napisati funkciju \kckod{Cvor *pretrazi\_sortiranu\_listu(Cvor * glava, int broj)} koja proverava da li se u listi nalazi čvor sa vrednošću \argf{broj}, pri čemu se pretpostavlja da se pretražuje neopadajuće uređena lista.
 
@@ -529,9 +529,8 @@ Date su dve jednostruko povezane liste $L1$ i $L2$. Napisati funkciju koja od
 ovih listi formira novu listu $L$ koja sadrži naizmenično raspoređene čvorove 
 listi $L1$ i $L2$: prvi čvor iz $L1$, prvi čvor iz $L2$, drugi čvor $L1$,
 drugi čvor $L2$, itd. Ne formirati nove čvorove, već samo postojeće rasporediti u jednu listu. Prva lista se učitava iz datoteke čije se ime zadaje kao prvi argument komandne linije, a druga iz datoteke čije se ime zadaje kao 
-drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz. 
+drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.\\
 %\komentar{Milena: Sta ako je neka lista duza? To precizirati. I ovde me muci sto nedostaje neki smisao zadatku, nesto sto ne bi moglo da se uradi da nismo koristili liste. }
-
 \napomena{Iskoristiti testove 2 - 6 za zadatak \ref{4_06}.}
 
 \begin{miditest}

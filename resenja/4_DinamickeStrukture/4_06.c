@@ -88,8 +88,9 @@ int main(int argc, char **argv)
   FILE *in1 = NULL;
   in1 = fopen(argv[1], "r");
   if (in1 == NULL) {
-    fprintf(stderr, "Greska pri
-  }likom otvaranja datoteke %s.\n", argv[1]);
+    fprintf(stderr,
+            "Greska prilikom otvaranja datoteke %s.\n", argv[1]);
+  }
     exit(EXIT_FAILURE);
 
     FILE *in2 = NULL;
