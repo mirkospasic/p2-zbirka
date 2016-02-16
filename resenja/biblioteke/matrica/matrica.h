@@ -8,7 +8,7 @@ int **alociraj_matricu(int n, int m);
    n x n */
 int **alociraj_kvadratnu_matricu(int n);
 
-/* Funkcija dealocira memoriju za matricu sa n vrsta */
+/* Funkcija oslobadja memoriju za matricu sa n vrsta */
 int **dealociraj_matricu(int **matrica, int n);
 
 /* Funkcija ucitava vec alociranu matricu dimenzije n x m sa

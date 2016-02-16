@@ -2,12 +2,15 @@
 
 Preostali poslovi
 
+proterati "unesi" ---> prbaciti u unesite
 fajl --- proterati ovu rec
 zatvaranje datoteke --- da li se to komentarise? negde jeste, negde nije komentarisano, da li ostaviti tako sareno?
-alocirati --- rezervisati - za ovo je kasno, ali za naredno izdanje bih u komentarima to svuda izmenila
-dealocirati --- osloboditi --- mislim da sam rec dealocirati proterala
-greska program se poziva ---- ovo je poprilicno neujednaceno kroz zbirku
-ucitava se i ucitavanje --- ovo je poprilicno  neujednaceno kroz zbirku
+ucitava se i ucitavanje, ispisuje se i ispisivanje --- ovo je poprilicno  neujednaceno kroz zbirku
+greska program se poziva... ---- ovo je poprilicno neujednaceno kroz zbirku
+
+Komentar za kasnije
+alocirati --- rezervisati - za ovo je kasno, ali za naredno izdanje bih u komentarima to svuda izmenila, u kodu mozda ne
+dealocirati --- osloboditi --- mislim da sam rec dealocirati proterala iz komentara, ne i iz koda, i to bi trebalo izbaciti u narednoj verziji zbirke
 
 -5. (bilo ko!) U predgovoru treba prokomentarisati smisao primera i testova koje navodimo ispod formulacija zadataka.
 
