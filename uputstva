@@ -2,6 +2,8 @@
 
 Preostali poslovi
 
+ukoliko je ispis greske, nakon toga ne moze biti return 0 vec exit failure 
+
 
 + proterati "unesi" ---> prbaciti u unesite
 + fajl --- proterati ovu rec
