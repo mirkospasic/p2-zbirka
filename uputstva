@@ -45,7 +45,7 @@ argumenti komandne linije (npr. -index, -q, ...) - \kckod{}
 argumenti funkcije (samo doslovno navedeni) - \argf{}
 
 
-1. Srediti repozitorijum (Andjelka):
+1. Srediti repozitorijum:
    a) treba da sadrzi poddirektorijume za biblioteke
    b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci
    c) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
@@ -521,3 +521,4 @@ test primere. Dakle, PRE svakog naslova, stavite jedan prazan red. Primer:
 #\izlaz{./a.out ime\_dat br\_karaktera.}#
 \end{upotreba}
 \end{miditest}
+
