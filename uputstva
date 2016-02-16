@@ -2,6 +2,14 @@
 
 Preostali poslovi
 
+fajl --- proterati ovu rec
+zatvaranje datoteke --- da li se to komentarise? negde jeste, negde nije komentarisano, da li ostaviti tako sareno?
+alocirati --- rezervisati - za ovo je kasno, ali za naredno izdanje bih u komentarima to svuda izmenila
+dealocirati --- osloboditi --- mislim da sam rec dealocirati proterala
+greska program se poziva ---- ovo je poprilicno neujednaceno kroz zbirku
+ucitava se i ucitavanje --- ovo je poprilicno  neujednaceno kroz zbirku
+
+-5. (bilo ko!) U predgovoru treba prokomentarisati smisao primera i testova koje navodimo ispod formulacija zadataka.
 
 -4. Proveriti prelom: da li negde neka rec strci. npr, za rec "pevanje", ako strci, dodati \hyphenation{pe-va-nje} u dokument podesavanja/hyphenation.tex
 Ako negde strci test primer onda:

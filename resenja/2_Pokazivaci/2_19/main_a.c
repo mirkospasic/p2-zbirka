@@ -31,24 +31,24 @@ int main()
   printf("Unesi elemente matrice po vrstama:\n");
   ucitaj_matricu(matrica, n, m);
 
-  /* Otvaranje fajla za upis matrice */
+  /* Otvaranje datoteke za upis matrice */
   if ((f = fopen("matrica.txt", "w")) == NULL) {
     fprintf(stderr, "fopen() error\n");
     matrica = dealociraj_matricu(matrica, n);
     exit(EXIT_FAILURE);
   }
 
-  /* Upis matrice u fajl */
+  /* Upis matrice u datoteku */
   if (upisi_matricu_u_datoteku(matrica, n, m, f) != 0) {
     fprintf(stderr, "Neuspesno upisivanje matrice u datoteku\n");
     matrica = dealociraj_matricu(matrica, n);
     exit(EXIT_FAILURE);
   }
 
-  /* Zatvaranje fajla */
+  /* Zatvaranje datoteke */
   fclose(f);
 
-  /* Dealokacija matrice */
+  /* Oslobadjanje memorije koju je zauzimala matrica */
   matrica = dealociraj_matricu(matrica, n);
 
   exit(EXIT_SUCCESS);

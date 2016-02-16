@@ -52,14 +52,13 @@ int main()
         free(a);
 
         /* Promenljivoj a dodeljuje se adresa pocetka novog, veceg
-           bloka koji je prilikom alokacije zapamcen u promenljivoj b 
-         */
+           bloka cija je adresa prilikom alokacije zapamcena u 
+           promenljivoj b */
         a = b;
       } else if (realokacija == 'R') {
 
         /* Zbog funkcije realloc je neophodno da i u prvoj iteraciji
            "a" bude inicijalizovano na NULL */
-
         a = (int *) realloc(a, alocirano * sizeof(int));
         if (a == NULL) {
           fprintf(stderr, "realloc(): ");

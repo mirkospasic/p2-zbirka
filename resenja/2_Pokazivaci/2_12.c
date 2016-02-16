@@ -3,7 +3,8 @@
 
 #define MAX 32
 
-/* Funkcija ucitava elemente kvadratne matrice sa standardnog ulaza */
+/* Funkcija ucitava elemente kvadratne matrice dimenzije n x n 
+   sa standardnog ulaza */
 void ucitaj_matricu(int m[][MAX], int n)
 {
   int i, j;
@@ -13,7 +14,8 @@ void ucitaj_matricu(int m[][MAX], int n)
       scanf("%d", &m[i][j]);
 }
 
-/* Funkcija ispisuje elemente kvadratne matrice na standardni izlaz */
+/* Funkcija ispisuje elemente kvadratne matrice dimenzije nxn 
+   na standardni izlaz */
 void ispisi_matricu(int m[][MAX], int n)
 {
   int i, j;

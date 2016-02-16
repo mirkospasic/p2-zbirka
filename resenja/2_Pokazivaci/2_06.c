@@ -17,11 +17,12 @@ int main(int argc, char **argv)
   int br = 0, n;
   FILE *in;
 
-  /* Ako korisnik nije uneo trazene argumente, prijavljuje se greska */
+  /* Ukoliko korisnik nije uneo trazene argumente, prijavljuje se 
+     greska */
   if (argc < 3) {
     fprintf(stderr, "Greska: ");
     fprintf(stderr, "Nedovoljan broj argumenata komandne linije.\n");
-    fprintf(stderr, "Program se poziva sa %s ime_dat br_karaktera.\n",
+    fprintf(stderr, "Program se poziva sa %s ime_dat br_karaktera\n",
             argv[0]);
     exit(EXIT_FAILURE);
   }

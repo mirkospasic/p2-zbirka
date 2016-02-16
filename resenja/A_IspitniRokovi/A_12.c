@@ -148,7 +148,7 @@ int main () {
   /* Ispisivanje rezultata poziva funkcije  */
   printf("%d\n", indeks_vrste(broj, A, n, m)); 
 
-  /* Dealokacija matrice */
+  /* Oslobadjanje memorije koju je zauzimala matrica */
   A = dealociraj_matricu(A, n);
   
   exit(EXIT_SUCCESS);

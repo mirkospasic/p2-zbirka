@@ -13,17 +13,17 @@ void povecaj_smanji(int *a, int n)
 
   while (prvi < poslednji) {
 
-    /* Povecava se vrednost elementa na koji pokazuje pokazivac prvi */
+    /* Uvecava se element na koji pokazuje pokazivac "prvi" */
     (*prvi)++;
 
-    /* Pokazivac prvi se pomera na sledeci element */
+    /* Pokazivac "prvi" se pomera na sledeci element */
     prvi++;
 
     /* Smanjuje se vrednost elementa na koji pokazuje pokazivac
-       poslednji */
+       "poslednji" */
     (*poslednji)--;
 
-    /* Pokazivac poslednji se pomera na prethodni element */
+    /* Pokazivac "poslednji" se pomera na prethodni element */
     poslednji--;
   }
 

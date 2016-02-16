@@ -14,7 +14,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje fajla za citanje */
+  /* Otvaranje datoteke za citanje */
   if ((f = fopen(argv[1], "r")) == NULL) {
     fprintf(stderr, "fopen() error\n");
     exit(EXIT_FAILURE);
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
   /* Ucitavanje dimenzije matrice */
   if (fscanf(f, "%d", &n) != 1) {
-    fprintf(stderr, "Neispravan pocetak fajla\n");
+    fprintf(stderr, "Neispravan pocetak datoteke\n");
     exit(EXIT_FAILURE);
   }
 
@@ -46,13 +46,13 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Zatvaranje fajla */
+  /* Zatvaranje datoteke */
   fclose(f);
 
   /* Ispis matrice na standardnom izlazu */
   ispisi_kvadratnu_matricu(matrica, n);
 
-  /* Dealokacija matrice */
+  /* Oslobadjanje memorije koju je zauzimala matrica */
   matrica = dealociraj_matricu(matrica, n);
 
   exit(EXIT_SUCCESS);

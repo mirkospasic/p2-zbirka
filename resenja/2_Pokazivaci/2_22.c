@@ -56,7 +56,7 @@ void ispisi_matricu(float **m, int n)
   }
 }
 
-/* Funkcija alocira memoriju za kvadratnu matricu dimenzije n */
+/* Funkcija alocira memoriju za kvadratnu matricu dimenzije n x n */
 float **alociraj_memoriju(int n)
 {
   int i, j;
@@ -83,7 +83,7 @@ float **alociraj_memoriju(int n)
 }
 
 /* Funckija oslobadja memoriju zauzetu kvadratnom matricom dimenzije
-   n */
+   n x n */
 void oslobodi_memoriju(float **m, int n)
 {
   int i;
@@ -99,7 +99,8 @@ int main(int argc, char *argv[])
   float **a;
   int n;
 
-  /* Ako korisnik nije uneo trazene argumente, prijavljuje se greska */
+  /* Ukoliko korisnik nije uneo trazene argumente, prijavljuje se 
+     greska */
   if (argc < 2) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");

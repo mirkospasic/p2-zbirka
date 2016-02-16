@@ -37,7 +37,8 @@ int main(int argc, char *argv[])
      povratnu vrednost istog tipa */
   double (*fp) (double);
 
-  /* Ako korisnik nije uneo trazene argumente, prijavljuje se greska */
+  /* Ukoliko korisnik nije uneo trazene argumente, prijavljuje se 
+     greska */
   if (argc < 2) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
@@ -46,12 +47,11 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Niska ime_funkcije sadrzi ime trazene funkcije koja je navedena u
-     komandnoj liniji */
+  /* Niska ime_funkcije sadrzi ime trazene funkcije koja je navedena
+     u komandnoj liniji */
   strcpy(ime_funkcije, argv[1]);
 
-  /* Inicijalizuje se pokazivac na funkciju koja treba da se tabelira 
-   */
+  /* Inicijalizuje se pokazivac na funkciju koja se tabelira */
   if (strcmp(ime_funkcije, "sin") == 0)
     fp = &sin;
   else if (strcmp(ime_funkcije, "cos") == 0)
