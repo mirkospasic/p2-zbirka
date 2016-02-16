@@ -24,17 +24,6 @@ b) ako pod a nije moguce, onda uzeti veci test i podesiti drugaciji prelom za te
 (Andjelka, Mirko, Ana, Nina, Jelena, Milena)
 
 
--3. (Milena)
-
-1) Napomena uvek treba da ide na kraj zadatka (sto nije svuda slucaj, npr zadatak 1.8, 3.26)
-Izuzetak bi bila napomena koja se odnosi na deo zadatka, onda treba da ide na kraj odgovarajuce stavke, kao sto je to za zadatak 2.10
-
-2) U resenju (ne u c fajlu vec u tekstu resenja) ukoliko se koristi biblioteka, uvek treba da stoji recenica oblika
-Napomena: Rešenje koristi biblioteku za rad sa time i time iz zadatka XY.
-
-3) U napomeni, ukoliko je vezana za biblioteku, koristiti naredni oblik
-Napomena: Koristiti biblioteku za to i to iz zadatka XY.
-
 -2. Izbrisati sve prazne redove viska! (Andjelka, Milena)
 
 -1. U okviru main-a pre return 0 ili exit(EXIT_SUCCESS) treba da bude prazan red (Milena)

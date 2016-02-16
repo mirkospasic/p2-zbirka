@@ -23,9 +23,7 @@ int main(int argc, char **argv)
     if (palindrom(*(argv + i)))
       n++;
 
-  printf
-      ("Broj argumenata komandne linije koji su palindromi je %d.\n",
-       n);
+  printf("Broj argumenata koji su palindromi je %d.\n", n);
 
   return 0;
 }
