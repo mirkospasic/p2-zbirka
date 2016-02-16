@@ -9,9 +9,9 @@ int main()
   FILE *f;
 
   /* Ucitavanje dimenzije matrice */
-  printf("Unesi broj vrsta matrice: ");
+  printf("Unesite broj vrsta matrice: ");
   scanf("%d", &n);
-  printf("Unesi broj kolona matrice: ");
+  printf("Unesite broj kolona matrice: ");
   scanf("%d", &m);
 
   /* Provera dimenzija matrice */
@@ -28,7 +28,7 @@ int main()
   }
 
   /* Ucitavanje matrice sa standardnog ulaza */
-  printf("Unesi elemente matrice po vrstama:\n");
+  printf("Unesite elemente matrice po vrstama:\n");
   ucitaj_matricu(matrica, n, m);
 
   /* Otvaranje datoteke za upis matrice */
