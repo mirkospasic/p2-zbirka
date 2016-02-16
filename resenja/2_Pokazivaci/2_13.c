@@ -6,57 +6,57 @@
 
 /* Funkcija proverava da li su ispisani svi elementi iz matrice,
    odnosno da li se narusio prirodan poredak medju granicama */
-int krajIspisa(int top, int bottom, int left, int right)
+int kraj_ispisa(int vrh, int dno, int levo, int desno)
 {
-  return !(top <= bottom && left <= right);
+  return !(vrh <= dno && levo <= desno);
 }
 
 /* Funkcija spiralno ispisuje elemente matrice */
 void ispisi_matricu_spiralno(int a[][MAX_K], int n, int m)
 {
-  int i, j, top, bottom, left, right;
+  int i, j, vrh, dno, levo, desno;
 
-  top = left = 0;
-  bottom = n - 1;
-  right = m - 1;
+  vrh = levo = 0;
+  dno = n - 1;
+  desno = m - 1;
 
-  while (!krajIspisa(top, bottom, left, right)) {
+  while (!kraj_ispisa(vrh, dno, levo, desno)) {
 
-    for (j = left; j <= right; j++)
-      printf("%d ", a[top][j]);
+    for (j = levo; j <= desno; j++)
+      printf("%d ", a[vrh][j]);
 
     /* Spusta se prvi red */
-    top++;
+    vrh++;
 
-    if (krajIspisa(top, bottom, left, right))
+    if (kraj_ispisa(vrh, dno, levo, desno))
       break;
 
-    for (i = top; i <= bottom; i++)
-      printf("%d ", a[i][right]);
+    for (i = vrh; i <= dno; i++)
+      printf("%d ", a[i][desno]);
 
     /* Pomera se desna kolona za naredni krug ispisa blize levom
        kraju */
-    right--;
+    desno--;
 
-    if (krajIspisa(top, bottom, left, right))
+    if (kraj_ispisa(vrh, dno, levo, desno))
       break;
 
     /* Ispisuje se donja vrsta */
-    for (j = right; j >= left; j--)
-      printf("%d ", a[bottom][j]);
+    for (j = desno; j >= levo; j--)
+      printf("%d ", a[dno][j]);
 
     /* Podize se donja vrsta za naredni krug ispisa */
-    bottom--;
+    dno--;
 
-    if (krajIspisa(top, bottom, left, right))
+    if (kraj_ispisa(vrh, dno, levo, desno))
       break;
 
     /* Ispisuje se prva kolona */
-    for (i = bottom; i >= top; i--)
-      printf("%d ", a[i][left]);
+    for (i = dno; i >= vrh; i--)
+      printf("%d ", a[i][levo]);
 
     /* Priprema se leva kolona za naredni krug ispisa */
-    left++;
+    levo++;
   }
   putchar('\n');
 }
@@ -76,7 +76,7 @@ int main()
   int a[MAX_V][MAX_K];
   int m, n;
 
-  printf("Unesite broj vrsta i broj kolona matrice:\n");
+  printf("Unesite broj vrsta i broj kolona:\n");
   scanf("%d %d", &n, &m);
 
   if (n > MAX_V || n <= 0 || m > MAX_K || m <= 0) {
@@ -85,7 +85,7 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  printf("Unesite elemente matrice, vrstu po vrstu:\n");
+  printf("Unesite elemente matrice po vrstama:\n");
   ucitaj_matricu(a, n, m);
 
   printf("Spiralno ispisana matrica: ");

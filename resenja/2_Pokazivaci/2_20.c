@@ -20,7 +20,7 @@ int main()
   int m, n;
   int **matrica = NULL;
 
-  printf("Unesite broj vrsta i broj kolona matrice:\n ");
+  printf("Unesite broj vrsta i broj kolona:\n ");
   scanf("%d %d", &n, &m);
 
   /* Alocira se matrica */
@@ -31,7 +31,7 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  printf("Unesite elemente matrice, vrstu po vrstu:\n");
+  printf("Unesite elemente matrice po vrstama:\n");
   ucitaj_matricu(matrica, n, m);
 
   printf("Elementi ispod glavne dijagonale matrice:\n");

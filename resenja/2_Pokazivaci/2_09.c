@@ -3,8 +3,8 @@
 
 #define MAX 100
 
-/* Funkcija ucitava elemente kvadratne matrice dimenzije n x n 
-   sa standardnog ulaza */
+/* Funkcija ucitava elemente kvadratne matrice dimenzije n sa 
+   standardnog ulaza */
 void ucitaj_matricu(int m[][MAX], int n)
 {
   int i, j;
@@ -14,8 +14,8 @@ void ucitaj_matricu(int m[][MAX], int n)
       scanf("%d", &m[i][j]);
 }
 
-/* Funkcija ispisuje elemente kvadratne matrice dimenzije n x n 
-   na standardni izlaz */
+/* Funkcija ispisuje elemente kvadratne matrice dimenzije n na 
+   standardni izlaz */
 void ispisi_matricu(int m[][MAX], int n)
 {
   int i, j;
@@ -75,22 +75,22 @@ int main()
   /* Matrice zbira i proizvoda */
   int zbir[MAX][MAX], proizvod[MAX][MAX];
 
-  /* Dimenzija matrica */
+  /* Dimenzija kvadratnih matrica */
   int n;
 
   printf("Unesite broj vrsta matrica:\n");
   scanf("%d", &n);
 
-  /* Proverava se da li je doslo do prekoracenja dimenzije */
+  /* Proverava se da li je doslo do prekoracenja */
   if (n > MAX || n <= 0) {
     fprintf(stderr, "Greska: neodgovarajuca dimenzija ");
     fprintf(stderr, "matrica.\n");
     exit(EXIT_FAILURE);
   }
 
-  printf("Unesite elemente prve matrice, vrstu po vrstu:\n");
+  printf("Unesite elemente prve matrice po vrstama:\n");
   ucitaj_matricu(a, n);
-  printf("Unesite elemente druge matrice, vrstu po vrstu:\n");
+  printf("Unesite elemente druge matrice po vrstama:\n");
   ucitaj_matricu(b, n);
 
   /* Izracunava se zbir i proizvod matrica */

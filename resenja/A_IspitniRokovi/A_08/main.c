@@ -59,7 +59,7 @@ int main()
        memorije za nov cvor. Memoriju alociranu za cvorove liste
        treba osloboditi. */
     if (dodaj_na_kraj_liste(&glava, broj) == 1) {
-      fprintf(stderr, "Neuspela alokacija za cvor %d\n", broj);
+      fprintf(stderr, "Neuspela alokacija za cvor %lf\n", broj);
       oslobodi_listu(&glava);
       exit(EXIT_FAILURE);
     }
@@ -69,7 +69,7 @@ int main()
      onda je bilo greske pri alokaciji memorije za nov cvor. Memoriju
      alociranu za cvorove liste treba osloboditi. */
   if (dopuni_listu(&glava) == 1) {
-    fprintf(stderr, "Neuspela alokacija za cvor %d\n", broj);
+    fprintf(stderr, "Neuspela alokacija za cvor %lf\n", broj);
     oslobodi_listu(&glava);
     exit(EXIT_FAILURE);
   }

@@ -70,7 +70,7 @@ int indeks_vrste(float x, float **A, int n, int m){
   tekucnoj vrsti */
   int broj_u_vrsti;
   /* Pomocne promenljive */
-  int i,j;
+  int i;
   
   /* Promenljiva min se inicijalizuje na nulu, a min_broj na broj 
   pojavljivanja broja x u nultoj vrsti */

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define MAKS_DIM 256
 
 /* Funkcija koja izracunava skalarni proizvod dva data vektora */
@@ -30,7 +31,7 @@ int main()
   /* Provera da li je dimenzija niza odgovarajuca */
   if (n < 0 || n > MAKS_DIM) {
     printf("Dimenzija mora biti prirodan broj <= %d!\n", MAKS_DIM);
-    return 0;
+    exit(EXIT_FAILURE);
   }
 
   /* A zatim i elementi nizova */
@@ -45,5 +46,5 @@ int main()
   /* Ispisuje se rezultat skalarnog proizvoda dva ucitana niza */
   printf("Skalarni proizvod je %d\n", skalarno(a, b, n));
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

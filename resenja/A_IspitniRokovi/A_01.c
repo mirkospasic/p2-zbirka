@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 {
   FILE *ulaz;
   char **linije;
-  int i, j, n;
+  int i, n;
 
   /* Proverava argumenata komandne linije. */
   if (argc != 2) {

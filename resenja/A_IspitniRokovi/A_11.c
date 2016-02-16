@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "stablo.h"
+#include "stabla.h"
 
 /* Funkcija racuna duzinu najduzeg puta od korena do nekog lista */
 int najduzi_put(Cvor *koren) {

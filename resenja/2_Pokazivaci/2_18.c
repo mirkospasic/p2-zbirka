@@ -15,7 +15,7 @@ int main()
   /* Trag matice */
   double trag = 0;
 
-  printf("Unesite broj vrsta i broj kolona matrice:\n ");
+  printf("Unesite broj vrsta i broj kolona:\n ");
   scanf("%d%d", &n, &m);
 
   /* Dinamički se alocira prostor za niz vrsta matrice */
@@ -43,7 +43,7 @@ int main()
     }
   }
 
-  printf("Unesite elemente matrice, vrstu po vrstu:\n");
+  printf("Unesite elemente matrice po vrstama:\n");
   for (i = 0; i < n; i++)
     for (j = 0; j < m; j++)
       scanf("%lf", &A[i][j]);

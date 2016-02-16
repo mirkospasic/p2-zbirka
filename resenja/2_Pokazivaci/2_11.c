@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
   }
 
   /* Ucitava se matrica */
-  printf("Unesite elemente matrice dimenzije %dx%d:\n", n, n);
+  printf("Unesite elemente matrice dimenzija %dx%d:\n", n, n);
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
       scanf("%d", &m[i][j]);

@@ -46,9 +46,9 @@ int main()
 
   /* Ucitavaju se vrednosti za x i k */
   printf("Unesite broj x:\n");
-  scanf("%d%d", &x);
+  scanf("%d", &x);
   printf("Unesite broj k:\n");
-  scanf("%d%d", &k);
+  scanf("%d", &k);
 
   /* Ispisuje se vrednost koju vraca odgovarajuca funkcija */
   if (x == 1)

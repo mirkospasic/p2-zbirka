@@ -33,7 +33,7 @@ int main()
       break;
     /* Ako nije, dodaje se procitani broj u stablo. */
     if (dodaj_u_stablo(&koren, n) == 1) {
-      fprintf(stderr, "-1\n", n);
+      fprintf(stderr, "-1\n");
       oslobodi_stablo(&koren);
       exit(EXIT_FAILURE);
     }

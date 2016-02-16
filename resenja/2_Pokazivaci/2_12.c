@@ -3,7 +3,7 @@
 
 #define MAX 32
 
-/* Funkcija ucitava elemente kvadratne matrice dimenzije n x n 
+/* Funkcija ucitava elemente kvadratne matrice dimenzije n 
    sa standardnog ulaza */
 void ucitaj_matricu(int m[][MAX], int n)
 {
@@ -14,7 +14,7 @@ void ucitaj_matricu(int m[][MAX], int n)
       scanf("%d", &m[i][j]);
 }
 
-/* Funkcija ispisuje elemente kvadratne matrice dimenzije nxn 
+/* Funkcija ispisuje elemente kvadratne matrice dimenzije n 
    na standardni izlaz */
 void ispisi_matricu(int m[][MAX], int n)
 {
@@ -80,7 +80,7 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  printf("Unesite elemente matrice, vrstu po vrstu:\n");
+  printf("Unesite elemente matrice po vrstama:\n");
   ucitaj_matricu(A, n);
 
   printf("Matrica %s ortonormirana.\n",

@@ -30,7 +30,7 @@ int broj_negativnih_u_koloni(int m[][MAKS], int v, int k)
    negativnih elemenata */
 int maks_indeks(int m[][MAKS], int v, int k)
 {
-  int i, j;
+  int j;
   int broj_negativnih;
   /* Inicijalizacija na nulu indeksa kolone sa maksimalnim brojem
      negativnih (maks_indeks_kolone), kao i maksimalnog broja 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#inlcude "matrica.h"
+#include "matrica.h"
 
 /* Funkcija racuna zbir elemenata v-te vrste */
 int zbir_vrste(int **M, int n, int v)
@@ -53,9 +53,9 @@ int magicni_kvadrat(int **M, int n, int *zbir_magicnog)
 
 int main()
 {
-  int n, i, j;
+  int n;
   int **matrica = NULL;
-  int zbir = 0, zbir_magicnog = 0;
+  int zbir_magicnog;
   scanf("%d", &n);
 
   /* Provera da li je n strogo pozitivan */
@@ -64,15 +64,15 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Dinamicka alokacija matrice dimenzije nxn */
-  matrica = alociraj_matricu(n);
+  /* Dinamicka alokacija kvadratne matrice dimenzije n */
+  matrica = alociraj_matricu(n, n);
   if (matrica == NULL) {
     printf("-1\n");
     exit(EXIT_FAILURE);
   }
 
   /* Ucitavanje elemenata matrice sa standardnog ulaza */
-  ucitaj_matricu(matrica, n);
+  ucitaj_matricu(matrica, n, n);
 
   /* Ispisivanje rezultata na osnovu fukcije magicni_kvadrat */
   if (magicni_kvadrat(matrica, n, &zbir_magicnog)) {

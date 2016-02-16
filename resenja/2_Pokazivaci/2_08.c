@@ -48,13 +48,13 @@ int main()
   printf("Unesite broj vrsta matrice: ");
   scanf("%d", &n);
 
-  /* Provera prekoracenja dimenzije matrice */
+  /* Provera prekoracenja dimenzija matrice */
   if (n > MAX || n <= 0) {
     fprintf(stderr, "Greska: neodgovarajuca dimenzija matrice.\n");
     exit(EXIT_FAILURE);
   }
 
-  printf("Unesite elemente matrice, vrstu po vrstu:\n ");
+  printf("Unesite elemente matrice po vrstama:\n ");
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
       scanf("%d", &A[i][j]);
