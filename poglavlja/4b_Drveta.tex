@@ -63,9 +63,9 @@ Korišćenjem kreirane biblioteke, napisati program koji sa standardnog ulaza u�
 \end{Exercise}
 
 \begin{Answer}[ref=4_14]
-\includecodeLib{resenja/07_drveta/stabla.h}{stabla.h}
-\includecodeLib{resenja/07_drveta/stabla.c}{stabla.c}
-\includecodeLib{resenja/07_drveta/4_14.c}{main.c}
+\includecodeLib{resenja/biblioteke/stabla/stabla.h}{stabla.h}
+\includecodeLib{resenja/biblioteke/stabla/stabla.c}{stabla.c}
+\includecodeLib{resenja/4_DinamickeStrukture/4_14.c}{main.c}
 \end{Answer}
 
 %2.zadatak
@@ -123,14 +123,14 @@ Napisati program koji izračunava i na standardni izlaz ispisuje broj pojavljiva
 #\poziv{./a.out}#
   
 #\naslovIzlazZaGresku#
-#\izlaz{Nedostaje ime ulazne datoteke!}#
+#\izlaz{Greska: Nedostaje ime ulazne datoteke!}#
 \end{test}
 \end{miditest}
 \linkresenje{4_15}
 \end{Exercise}
 
 \begin{Answer}[ref=4_15]
-\includecode{resenja/07_drveta/4_15.c}
+\includecode{resenja/4_DinamickeStrukture/4_15.c}
 \end{Answer}
 
 %3.zadatak
@@ -172,7 +172,7 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
 \end{Exercise}
 
 \begin{Answer}[ref=4_16]
-\includecode{resenja/07_drveta/4_16.c}
+\includecode{resenja/4_DinamickeStrukture/4_16.c}
 \end{Answer}
 
 %5.zadatak
@@ -210,7 +210,7 @@ U datoteci \kckod{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jed
 \end{Exercise}
 
 \begin{Answer}[ref=4_17]
-\includecode{resenja/07_drveta/4_17.c}
+\includecode{resenja/4_DinamickeStrukture/4_17.c}
 \end{Answer}
 
 %6.zadatak
@@ -255,7 +255,7 @@ Napisati program koji implementira podsetnik za rođendane. Informacije o rođen
 \end{Exercise}
 
 \begin{Answer}[ref=4_18]
-\includecode{resenja/07_drveta/4_18.c}
+\includecode{resenja/4_DinamickeStrukture/4_18.c}
 \end{Answer}
 
 %7.zadatak
@@ -289,7 +289,7 @@ Dva binarna stabla su identična ako su ista po strukturi i sadržaju tj.~ako ob
 \begin{Answer}[ref=4_19]
 \\
 \napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
-\includecode{resenja/07_drveta/4_19.c}
+\includecode{resenja/4_DinamickeStrukture/4_19.c}
 \end{Answer}
 
 
@@ -323,7 +323,7 @@ Napisati program za rad sa skupovima u kojem se skupovi predstavljaju pomoću bi
 \begin{Answer}[ref=4_20]
 \\
 \napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
-\includecode{resenja/07_drveta/4_20.c}
+\includecode{resenja/4_DinamickeStrukture/4_20.c}
 \end{Answer}
 
 %9.zadatak
@@ -342,7 +342,7 @@ Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih b
 \begin{upotreba}{2}
 #\naslovInt#
 #\izlaz{n:}\ulaz{55}#
-#\izlaz{Greska: pogresna dimenzija niza!}#
+#\izlaz{Greska: Pogresna dimenzija niza!}#
 \end{upotreba}
 \end{miditest}
 \linkresenje{4_21}
@@ -351,7 +351,7 @@ Napisati funkciju \kckod{void sortiraj(int a[], int n)} koja sortira niz celih b
 \begin{Answer}[ref=4_21]
 \\
 \napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
-\includecode{resenja/07_drveta/4_21.c}
+\includecode{resenja/4_DinamickeStrukture/4_21.c}
 \end{Answer}
 
 %10.zadatak
@@ -423,7 +423,7 @@ sa standardnog ulaza, sve do kraja ulaza, a vrednosti parametara $i$ i $x$ proč
 \begin{Answer}[ref=4_22]
 \\
 \napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
-\includecode{resenja/07_drveta/4_22.c}
+\includecode{resenja/4_DinamickeStrukture/4_22.c}
 \end{Answer}
 
 
@@ -473,7 +473,7 @@ Napisati program koji ispisuje sadržaj binarnog pretraživačkog stabla po nivo
 \begin{Answer}[ref=4_23]
 \\
 \napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
-\includecode{resenja/07_drveta/4_23.c}
+\includecode{resenja/4_DinamickeStrukture/4_23.c}
 \end{Answer}
 
 %13.zadatak
@@ -499,7 +499,7 @@ Dva binarna stabla su {\em slična kao u ogledalu} ako su ili oba prazna ili ako
 %\linkresenje{713}
 \end{Exercise}
 %\begin{Answer}[ref=713]
-%\includecode{resenja/07_drveta/713.c}
+%\includecode{resenja/4_DinamickeStrukture/713.c}
 %\end{Answer}
 
 %14.zadatak
@@ -530,13 +530,13 @@ Dva binarna stabla su {\em slična kao u ogledalu} ako su ili oba prazna ili ako
 \begin{Answer}[ref=4_25]
 \\
 \napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
-\includecode{resenja/07_drveta/4_25.c}
+\includecode{resenja/4_DinamickeStrukture/4_25.c}
 \end{Answer}
 
 
 %15.zadatak
 \begin{Exercise}[label=4_26]
-Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int hip(Cvor * koren)} koja proverava da li je dato binarno stablo celih brojeva hip. Napisati zatim i glavni program koji kreira stablo zadato slikom \ref{fig:zadatak426}, poziva funkciju \kckod{hip} i ispisuje rezultat na standardni izlaz. \napomena{Koristiti biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}\\
+Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) ako za svaki čvor u stablu važi da je njegova vrednost veća od vrednosti svih ostalih čvorova u njegovim podstablima. Napisati funkciju \kckod{int hip(Cvor * koren)} koja proverava da li je dato binarno stablo celih brojeva hip. Napisati zatim i glavni program koji kreira stablo zadato slikom \ref{fig:zadatak426}, poziva funkciju \kckod{hip} i ispisuje rezultat na standardni izlaz. \napomena{Za alokaciju i oslobađanje memorije koristiti funkcije napravi_cvor i oslobodi_stablo iz zadatka \ref{4_14}.}\\
 
 \begin{miditest}
 \begin{test}{1}
@@ -550,7 +550,7 @@ Binarno stablo celih pozitivnih brojeva se naziva \emph{hip} (engl.~{\em heap}) 
 \begin{Answer}[ref=4_26]
 \\
 \napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.}
-\includecode{resenja/07_drveta/4_26.c}
+\includecode{resenja/4_DinamickeStrukture/4_26.c}
 \end{Answer}
 
 \begin{figure}[!htb]
@@ -594,7 +594,7 @@ Napisati program koji testira gore navedene funkcije nad stablom zadatim slikom 
 \end{Exercise}
 
 %\begin{Answer}[ref=4_27]
-%\includecode{resenja/07_drveta/4_27.c}
+%\includecode{resenja/4_DinamickeStrukture/4_27.c}
 %\end{Answer}
 
 \section{Rešenja}
