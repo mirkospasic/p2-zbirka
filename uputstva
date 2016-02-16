@@ -49,11 +49,11 @@ argumenti funkcije (samo doslovno navedeni) - \argf{}
    a) treba da sadrzi poddirektorijume za biblioteke
    b) imena resenja treba da se gadjaju sa rednim brojevima zadataka u zbirci
    c) dodati readme fajl u koreni foleder repozitorijuma (Mirko)
-   e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 (Nina)
+   e) dodati Makefile za pojedinacna poglavlja po ugledu na poglavlje 3 
    f) Proveriti znakove pitanja (Andjelka, Mirko, Ana, Milena)  
 
 2. Srediti stderr i stdout izlaz u tekstu zadataka --- dodata komanda \naslovIzlazZaGresku, svako u svojim test primerima to treba da proveri i zameni
-(Nina, Milena-provera)
+(Milena-provera)
 
 3. Usaglasiti notaciju kroz zbirku --- izbaciti kamilju notaciju (Milena-provera)
 
