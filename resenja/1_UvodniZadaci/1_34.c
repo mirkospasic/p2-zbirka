@@ -44,7 +44,7 @@ int main()
   /* Ucitavaju se brojevi d i r */
   scanf("%d %d", &d, &r);
 
-  /* Ispisuje se Paskalov trougao */
+  /* Ispisivanje Paskalovog trougla */
   putchar('\n');
   for (n = 0; n <= d; n++) {
     for (i = 0; i < d - n; i++)
@@ -61,7 +61,7 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Ispisuje se suma elemenata hipotenuze */
+  /* Ispisivanje sume elemenata hipotenuze */
   printf("%d\n", suma_elemenata_hipotenuze(r));
 
   exit(EXIT_SUCCESS);

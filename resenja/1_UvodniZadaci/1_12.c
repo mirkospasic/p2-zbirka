@@ -36,10 +36,10 @@ int main()
 {
   unsigned int x;
 
-  /* Ucitava se broj sa ulaza */
+  /* Ucitavanje broja */
   scanf("%u", &x);
 
-  /* Ispisuje se rezultat */
+  /* Ispisivanje rezultata */
   printf("%d\n", broj_parova(x));
 
   return 0;

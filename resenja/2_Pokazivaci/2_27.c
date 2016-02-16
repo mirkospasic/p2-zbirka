@@ -93,11 +93,11 @@ int main(int argc, char *argv[])
   /* Mreza mora da ukljucuje bar krajeve intervala, tako da se mora
      uneti broj veci od 2 */
   if (n < 2) {
-    fprintf(stderr, "Broj tacaka mreze mora biti bar 2!\n");
+    fprintf(stderr, "Greska: Broj tacaka mreze mora biti bar 2!\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ispisuje se ime funkcije */
+  /* Ispisivanje imena funkcije */
   printf("     x %10s(x)\n", ime_funkcije);
 
   /* Prosledjuje se funkciji tabela() funkcija zadata kao argument

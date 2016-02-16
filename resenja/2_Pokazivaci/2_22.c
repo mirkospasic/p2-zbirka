@@ -64,7 +64,7 @@ float **alociraj_memoriju(int n)
 
   m = (float **) malloc(n * sizeof(float *));
   if (m == NULL) {
-    fprintf(stderr, "malloc(): Neuspela alokacija\n");
+    fprintf(stderr, "Greska: Neupesna alokacija memorije.\n");
     exit(EXIT_FAILURE);
   }
 
@@ -72,7 +72,7 @@ float **alociraj_memoriju(int n)
     m[i] = (float *) malloc(n * sizeof(float));
 
     if (m[i] == NULL) {
-      printf("malloc(): neuspela alokacija memorije!\n");
+      fprintf(stderr, "Greska: Neupesna alokacija memorije.\n");
       for (j = 0; j < i; j++)
         free(m[i]);
       free(m);
@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvara se datoteka za citanje */
+  /* Otvaranje datoteke za citanje */
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "Greska: ");
@@ -130,7 +130,7 @@ int main(int argc, char *argv[])
   /* Poziva se funkcija za transformaciju matrice */
   izmeni(a, n);
 
-  /* Ispisuje se rezultat */
+  /* Ispisivanje rezultata */
   printf("Zbir apsolutnih vrednosti ispod sporedne dijagonale ");
   printf("je %.2f.\n", zbir);
 

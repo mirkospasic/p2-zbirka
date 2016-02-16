@@ -23,8 +23,7 @@ int main()
 
   /* Provera se da li je doslo do greske pri alokaciji */
   if (A == NULL) {
-    fprintf(stderr, "malloc(): ");
-    fprintf(stderr, "greska pri alokaciji memorije.\n");
+    fprintf(stderr, "Greska: Neupesna alokacija memorije.\n");
     exit(EXIT_FAILURE);
   }
 

@@ -40,10 +40,10 @@ int main()
 {
   unsigned int n;
 
-  /* Ucitava se broj sa ulaza */
+  /* Ucitavanje broja */
   scanf("%u", &n);
 
-  /* Ispisuje se rezultat */
+  /* Ispisivanje rezultata */
   printf("%d\n", broj_01(n));
 
   return 0;

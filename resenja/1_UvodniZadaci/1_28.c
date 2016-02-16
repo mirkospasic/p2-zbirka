@@ -37,7 +37,7 @@ int main()
   /* Ucitava se ceo broj */
   scanf("%x", &x);
 
-  /* Ispisuje se rezultat */
+  /* Ispisivanje rezultata */
   printf("%d\n", prebroj(x));
 
   return 0;

@@ -104,17 +104,17 @@ int main()
 {
   unsigned x, n;
 
-  /* Ucitavaju se vrednosti sa standardnog ulaza */
+  /* Ucitavanje vrednosti sa standardnog ulaza */
   printf("Unesite neoznacen ceo broj x:");
   scanf("%x", &x);
   printf("Unesite neoznacen ceo broj n:");
   scanf("%x", &n);
 
-  /* Ispisuje se binarna reprezentacija broja x */
+  /* Ispisivanje binarne reprezentacije broja x */
   printf("x\t\t\t\t= ");
   stampaj_bitove(x);
 
-  /* Testira se rad napisanih funkcija */
+  /* Testiranje rada napisanih funkcija */
   printf("rotiraj_ulevo(%x,%u)\t\t= ", x, n);
   stampaj_bitove(rotiraj_ulevo(x, n));
 

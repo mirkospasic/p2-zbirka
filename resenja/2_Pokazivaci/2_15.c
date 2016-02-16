@@ -11,8 +11,7 @@ int main()
 
   /* Alocira se prostor za n celih brojeva */
   if ((p = (int *) malloc(sizeof(int) * n)) == NULL) {
-    fprintf(stderr, "malloc(): ");
-    fprintf(stderr, "greska pri alokaciji memorije.\n");
+    fprintf(stderr, "Greska: Neupela alokacija memorije.\n");
     exit(EXIT_FAILURE);
   }
 

@@ -137,7 +137,7 @@ int main(int argc, char *argv[])
   int pomocna[MAX][MAX];
   int n, i, j;
 
-  /* Ako korisnik nije uneo trazene argumente, prijavljuje se greska */
+  /* Provera da li je korisnik nije uneo trazene argumente */
   if (argc < 2) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
@@ -145,7 +145,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvara se datoteka za citanje */
+  /* Otvaranje datoteke za citanje */
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "Greska: ");
@@ -190,7 +190,7 @@ int main(int argc, char *argv[])
   ref_tran_zatvorenje(m, n, pomocna);
   pisi_matricu(pomocna, n);
 
-  /* Zatvara se datoteka */
+  /* Zatvaranje datoteke */
   fclose(ulaz);
 
   exit(EXIT_SUCCESS);

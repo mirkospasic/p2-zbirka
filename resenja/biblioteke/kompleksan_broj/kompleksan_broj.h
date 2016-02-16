@@ -1,5 +1,5 @@
-/* Zaglavlje kompleksan_broj.h sadrzi definiciju tipa KompleksanBroj i
-   deklaracije funkcija za rad sa kompleksnim brojevima. Zaglavlje
+/* Zaglavlje kompleksan_broj.h sadrzi definiciju tipa KompleksanBroj 
+   i deklaracije funkcija za rad sa kompleksnim brojevima. Zaglavlje
    nikada ne treba da sadrzi definicije funckija. Da bi neki program
    mogao da koristi ove brojeve i funkcije iz ove biblioteke,
    neophodno je da ukljuci ovo zaglavlje. */

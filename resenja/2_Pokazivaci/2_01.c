@@ -34,8 +34,8 @@ void obrni_niz_v2(int *a, int n)
 
     /* Vrednost promenljive "t" se postavlja na adresu na koju
        pokazuje pokazivac "poslednji". Ovaj pokazivac se zatim
-       umanjuje za jedan, sto za posledicu ima da pokazivac
-       "poslednji" sada pokazuje na element koji mu prethodi u nizu */
+       umanjuje za jedan, cime pokazivac "poslednji" pokazuje 
+       na element koji mu prethodi u nizu */
     *poslednji-- = t;
   }
 
@@ -68,7 +68,7 @@ int main()
   /* Proverava se da li je doslo do prekoracenja ogranicenja
      dimenzije */
   if (n <= 0 || n > MAX) {
-    fprintf(stderr, "Greska: neodgovarajuca dimenzija niza.\n");
+    fprintf(stderr, "Greska: Neodgovarajuca dimenzija niza.\n");
     exit(EXIT_FAILURE);
   }
 

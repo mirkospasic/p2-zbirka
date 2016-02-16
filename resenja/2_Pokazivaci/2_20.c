@@ -27,7 +27,7 @@ int main()
   matrica = alociraj_matricu(n, m);
   /* Provera alokacije */
   if (matrica == NULL) {
-    fprintf(stderr, "Neuspesna alokacija matrice\n");
+    fprintf(stderr, "Greska: Neuspesna alokacija matrice.\n");
     exit(EXIT_FAILURE);
   }
 

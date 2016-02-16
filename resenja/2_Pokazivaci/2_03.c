@@ -48,7 +48,7 @@ int main()
   /* Proverava se da li je doslo do prekoracenja ogranicenja
      dimenzije */
   if (n <= 0 || n > MAX) {
-    fprintf(stderr, "Greska: neodgovarajuca dimenzija niza.\n");
+    fprintf(stderr, "Greska: Neodgovarajuca dimenzija niza.\n");
     exit(EXIT_FAILURE);
   }
 

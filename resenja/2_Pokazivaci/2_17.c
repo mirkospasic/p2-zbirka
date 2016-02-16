@@ -14,8 +14,7 @@ char *nadovezi(char *s, char *t)
 
   /* Proverava se da li je memorija uspesno alocirana */
   if (p == NULL) {
-    fprintf(stderr, "malloc(): ");
-    fprintf(stderr, "greska pri alokaciji memorije.\n");
+    fprintf(stderr, "Greska: Neuspesna alokacija memorije.\n");
     exit(EXIT_FAILURE);
   }
 

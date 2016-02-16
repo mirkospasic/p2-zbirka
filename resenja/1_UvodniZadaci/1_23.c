@@ -49,7 +49,7 @@ int main()
   else if (ind == 2)
     printf("Suma elemenata je %d\n", suma_niza_2(a, n));
   else{
-    fprintf(stderr, "Neodgovarajuci redni broj funkcije!\n");
+    fprintf(stderr, "Greska: Neodgovarajuci redni broj funkcije.\n");
     exit(EXIT_FAILURE);
   }
 	

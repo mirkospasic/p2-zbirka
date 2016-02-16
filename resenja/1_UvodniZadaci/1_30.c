@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* Rekurzivna funkcija za odredjivanje najvece oktalne cifre u broju */
+/* Rekurzivna funkcija za odredjivanje najvece oktalne cifre */
 int maks_oktalna_cifra(unsigned x)
 {
   /* Izlazak iz rekurzije: ako je vrednost broja 0, onda je i

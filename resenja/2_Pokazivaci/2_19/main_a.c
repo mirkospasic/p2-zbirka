@@ -16,14 +16,14 @@ int main()
 
   /* Provera dimenzija matrice */
   if (n <= 0 || m <= 0) {
-    fprintf(stderr, "Neodgovarajce dimenzije matrice\n");
+    fprintf(stderr, "Greska: Neodgovarajce dimenzije matrice.\n");
     exit(EXIT_FAILURE);
   }
 
   /* Alokacija matrice i provera alokacije */
   matrica = alociraj_matricu(n, m);
   if (matrica == NULL) {
-    fprintf(stderr, "Neuspesna alokacija matrice\n");
+    fprintf(stderr, "Greska: Neuspesna alokacija matrice.\n");
     exit(EXIT_FAILURE);
   }
 
@@ -33,14 +33,14 @@ int main()
 
   /* Otvaranje datoteke za upis matrice */
   if ((f = fopen("matrica.txt", "w")) == NULL) {
-    fprintf(stderr, "fopen() error\n");
+    fprintf(stderr, "Greska: Neuspesno otvaranje datoteke.\n");
     matrica = dealociraj_matricu(matrica, n);
     exit(EXIT_FAILURE);
   }
 
   /* Upis matrice u datoteku */
   if (upisi_matricu_u_datoteku(matrica, n, m, f) != 0) {
-    fprintf(stderr, "Neuspesno upisivanje matrice u datoteku\n");
+    fprintf(stderr, "Greska: Neuspesno upisivanje matrice u datoteku.\n");
     matrica = dealociraj_matricu(matrica, n);
     exit(EXIT_FAILURE);
   }

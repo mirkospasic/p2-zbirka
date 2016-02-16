@@ -40,11 +40,11 @@ int main()
 {
   int x, k, ind;
 
-  /* Ucitava se redni broj funkcije koja ce se primeniti */
+  /* Ucitavanje rednog broja funkcije koja ce se primeniti */
   printf("Unesite redni broj funkcije (1/2):\n");
   scanf("%d", &ind);
 
-  /* Ucitavaju se vrednosti za x i k */
+  /* Ucitavanje vrednosti za x i k */
   printf("Unesite broj x:\n");
   scanf("%d", &x);
   printf("Unesite broj k:\n");
@@ -56,7 +56,7 @@ int main()
   else if (x == 2)
     printf("%d\n", stepen_2(x, k));
   else {
-    fprintf(stderr, "Neodgovarajuci redni broj funkcije!\n");
+    fprintf(stderr, "Greska: Neodgovarajuci redni broj funkcije.\n");
     exit(EXIT_FAILURE);
   }
   

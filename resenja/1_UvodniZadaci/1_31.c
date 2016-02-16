@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-/* Rekurzivna funkcija za odredjivanje najvece heksadekadne cifre u
-   broju */
+/* Rekurzivna funkcija za odredjivanje najvece heksadekadne cifre */
 int maks_heksadekadna_cifra(unsigned x)
 {
   /* Izlazak iz rekurzije: ako je vrednost broja 0, onda je i
@@ -27,7 +26,7 @@ int main()
   /* Ucitava se neoznacen ceo broj */
   scanf("%u", &x);
 
-  /* Ispisuje se vrednost najvece heksadekadne cifre unetog broja */
+  /* Ispisivanje vrednosti najvece heksadekadne cifre unetog broja */
   printf("%d\n", maks_heksadekadna_cifra(x));
 
   return 0;

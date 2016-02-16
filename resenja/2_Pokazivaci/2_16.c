@@ -38,8 +38,7 @@ int main()
         b = (int *) malloc(alocirano * sizeof(int));
 
         if (b == NULL) {
-          fprintf(stderr, "malloc(): ");
-          fprintf(stderr, "greska pri alokaciji memorije.\n");
+          fprintf(stderr, "Greska: Neuspesna alokacija memorije.\n");
           free(a);
           exit(EXIT_FAILURE);
         }
@@ -61,8 +60,7 @@ int main()
            "a" bude inicijalizovano na NULL */
         a = (int *) realloc(a, alocirano * sizeof(int));
         if (a == NULL) {
-          fprintf(stderr, "realloc(): ");
-          fprintf(stderr, "greska pri alokaciji memorije.\n");
+          fprintf(stderr, "Greska: Neupesna realokacija memorije.\n");
           exit(EXIT_FAILURE);
         }
       }

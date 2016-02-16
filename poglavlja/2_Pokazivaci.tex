@@ -31,7 +31,7 @@ njegove elemente korišćenjem pokazivačke sintakse i prikazati sadržaj niza.
 #\naslovInt#
 #\izlaz{Unesite dimenziju niza: } \ulaz{0}#
 #\naslovIzlazZaGresku#
-#\izlaz{Greska: neodgovarajuca dimenzija niza.}#
+#\izlaz{Greska: Neodgovarajuca dimenzija niza.}#
 \end{upotreba}
 \end{miditest}
 
@@ -122,7 +122,7 @@ ispisati rezultat primene napisane funkcije nad učitanim nizom.
 #\naslovInt#
 #\izlaz{Unesite dimenziju niza:} \ulaz{0}#
 #\naslovIzlazZaGresku#
-#\izlaz{Greska: neodgovarajuca dimenzija niza.}#
+#\izlaz{Greska: Neodgovarajuca dimenzija niza.}#
 \end{upotreba}
 \end{miditest}
 \begin{miditest}
@@ -130,7 +130,7 @@ ispisati rezultat primene napisane funkcije nad učitanim nizom.
 #\naslovInt#
 #\izlaz{Unesite dimenziju niza:} \ulaz{101}#
 #\naslovIzlazZaGresku#
-#\izlaz{Greska: neodgovarajuca dimenzija niza.}#
+#\izlaz{Greska: Neodgovarajuca dimenzija niza.}#
 \end{upotreba}
 \end{miditest}
 
@@ -388,7 +388,7 @@ učitane matrice.
 #\naslovInt#
 #\izlaz{Unesite dimenziju matrice:} \ulaz{0}#
 #\naslovIzlazZaGresku#
-#\izlaz{Greska: neodgovarajuca dimenzija }#
+#\izlaz{Greska: Neodgovarajuca dimenzija }#
 #\izlaz{matrice. }#
 \end{upotreba}
 \end{miditest}
@@ -691,7 +691,7 @@ ispisati ove brojeve u obrnutom poretku.
 \begin{upotreba}{2}
 #\naslovInt#
 #\izlaz{Unesite dimenziju niza:} \ulaz{-1}#
-#\izlaz{malloc(): neuspela alokacija memorije.}#
+#\izlaz{Greska: Neuspesna alokacija memorije.}#
 \end{upotreba}
 \end{miditest}
 
@@ -715,7 +715,7 @@ Od korisnika sa ulaza tražiti da izabere način realokacije memorije.
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
-#\izlaz{Unesite zeljeni nacin realokacije:}#
+#\izlaz{Unesite zeljeni nacin realokacije}#
 #\izlaz{(M ili R):}#
 #\ulaz{M}#
 #\izlaz{Unesite brojeve, nulu za kraj:}#
@@ -727,7 +727,7 @@ Od korisnika sa ulaza tražiti da izabere način realokacije memorije.
 \begin{miditest}
 \begin{upotreba}{2}
 #\naslovInt#
-#\izlaz{Unesite zeljeni nacin realokacije:}#
+#\izlaz{Unesite zeljeni nacin realokacije}#
 #\izlaz{(M ili R):}#
 #\ulaz{R}#
 #\izlaz{Unesite brojeve, nulu za kraj:}#
@@ -883,7 +883,8 @@ Napisati programe koji testiraju napisanu biblioteku.
 #\izlaz{Unesite broj vrsta matrice:}##\ulaz{5}#
 #\izlaz{Unesite broj kolona matrice:}##\ulaz{0}#
 #\naslovIzlazZaGresku#
-#\izlaz{Neodgovarajce dimenzije matrice}#
+#\izlaz{Greska: Neodgovarajce dimenzije }#
+#\izlaz{matrice.}#
 \end{upotreba}
 \end{miditest}
 
@@ -920,8 +921,8 @@ Napisati programe koji testiraju napisanu biblioteku.
 #\datoteka{9 10 11 12}#
 #\datoteka{13 14 15 16}#
 
-#\naslovIzlaz#
-#\izlaz{Neispravan pocetak datoteke}#
+#\naslovIzlazZaGresku#
+#\izlaz{Greska: Neispravan pocetak datoteke.}#
 \end{test}
 \end{minitest}
 \begin{minitest}
@@ -996,7 +997,8 @@ više takvih, ispisati prvu.
 #\izlaz{Unesite elemente matrice po vrstama:}#
 #\ulaz{1 2 3}#
 #\ulaz{4 5 6}#
-#\izlaz{Kolona pod rednim brojem 3 ima najveci zbir.}#
+#\izlaz{Kolona pod rednim brojem 3 ima }#
+#\izlaz{najveci zbir.}#
 \end{upotreba}
 \end{miditest}
 \begin{miditest}
@@ -1007,7 +1009,8 @@ više takvih, ispisati prvu.
 #\izlaz{Unesite elemente matrice po vrstama:}#
 #\ulaz{1 2 3 4}#
 #\ulaz{8 7 6 5}#
-#\izlaz{Kolona pod rednim brojem 1 ima najveci zbir.}#
+#\izlaz{Kolona pod rednim brojem 1 ima }#
+#\izlaz{najveci zbir.}#
 \end{upotreba}
 \end{miditest}
 

@@ -50,7 +50,7 @@ int main()
 
   /* Provera prekoracenja dimenzija matrice */
   if (n > MAX || n <= 0) {
-    fprintf(stderr, "Greska: neodgovarajuca dimenzija matrice.\n");
+    fprintf(stderr, "Greska: Neodgovarajuca dimenzija matrice.\n");
     exit(EXIT_FAILURE);
   }
 
@@ -82,7 +82,7 @@ int main()
    }
    ****************************************************************/
 
-  /* Ispisuje se rezultat na standardni izlaz */
+  /* Ispisivanje rezultata na standardni izlaz */
   int tr = trag(A, n);
   printf("Trag matrice je %d.\n", tr);
 

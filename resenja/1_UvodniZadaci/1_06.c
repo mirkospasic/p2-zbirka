@@ -54,7 +54,7 @@ int main()
   printf("Unesite redni broj funkcije:\n");
   scanf("%d", &i);
 
-  /* Ispisuje se rezultat */
+  /* Ispisivanje rezultata */
   if (i == 1){
     printf("Poziva se funkcija prebroj_bitove_1\n");
     printf("Broj jedinica u zapisu je %d\n", prebroj_bitove_1(x));
@@ -62,7 +62,7 @@ int main()
     printf("Poziva se funkcija prebroj_bitove_2\n");
     printf("Broj jedinica u zapisu je %d\n", prebroj_bitove_2(x));
   }else {
-    fprintf(stderr, "Neodgovarajuci redni broj funkcije!\n");
+    fprintf(stderr, "Greska: Neodgovarajuci redni broj funkcije.\n");
     exit(EXIT_FAILURE);
   }
 	

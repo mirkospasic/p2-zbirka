@@ -1,8 +1,8 @@
 /********************************************************************
 Ovaj program koristi korektno definisanu biblioteku kompleksnih 
-brojeva. U zaglavlju kompleksan_broj.h nalazi se definicija komplesnog broja 
-i popis deklaracija podrzanih funkcija, a u kompleksan_broj.c se nalaze 
-njihove definicije.
+brojeva. U zaglavlju kompleksan_broj.h nalazi se definicija 
+komplesnog broja i popis deklaracija podrzanih funkcija, a u 
+kompleksan_broj.c se nalaze njihove definicije.
 
 Kompilacija programa se najjednostavnije postize naredbom
 gcc -Wall -lm -o kompleksan_broj kompleksan_broj.c main.c 
@@ -14,9 +14,10 @@ gcc -lm -o kompleksan_broj kompleksan_broj.o main.o
 
 Napomena: Prethodne komande se koriste kada se sva tri navedena 
 dokumenta nalaze u istom direktorijumu. Ukoliko se biblioteka (npr. 
-kompleksan_broj.c kompleksan_broj.h) nalazi u direktorijumu sa imenom header_dir 
-prevodjenje se vrsi dodavanjem opcije opcije -I header_dir
-gcc -I header_dir -Wall -lm -o kompleksan_broj kompleksan_broj.c main.c 
+kompleksan_broj.c kompleksan_broj.h) nalazi u direktorijumu sa imenom 
+header_dir prevodjenje se vrsi dodavanjem opcije opcije -I header_dir
+gcc -I header_dir -Wall -lm -o kompleksan_broj kompleksan_broj.c 
+     main.c 
 ********************************************************************/
 
 
@@ -33,7 +34,7 @@ int main()
   /* Ucitavamo kompleksan broj */
   ucitaj_kompleksan_broj(&z);
 
-  /* Ispisujemo njegov polarni oblik */
+  /* Ispisivanje polarnog oblika kompleksnog broja */
   printf("Polarni oblik kompleksnog broja je %.2f *  e^i * %.2f\n",
          moduo(z), argument(z));
 

@@ -12,7 +12,8 @@ void ispisi_niz(int a[], int n)
   printf("\n");
 }
 
-/* Funkcija koja proverava da li se broj x nalazi u nizu a duzine n */
+/* Funkcija koja vraca 1 ako se broj x nalazi u nizu a duzine n, a 
+   inace 0 */
 int koriscen(int a[], int n, int x)
 {
   int i;
