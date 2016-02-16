@@ -1,0 +1,32 @@
+Zadatak 4.22. 
+U resenju u funkciji u kojoj se pronaliz maksimum na i-tom nivou stabla u delu 
+if (a == NULL && b == NULL)
+    return NULL;
+if (a == NULL)
+    return b;
+if (b == NULL)
+    return a;
+return a->broj > b->broj ? a : b;
+
+stoji napomena koja se odnosi na red: 
+return a->broj > b->broj ? a : b;
+koja glasi: 
+Ako se dobro secam, sve se odnosi na pretrzivacko stablo. Onda, ako je b razlicit od NULL, on je sigurno veci.
+
+Korigovano. 
+U ovom slucaju se sada uvek vraca vrednost koja se nalazi u cvoru b, tj. stoji deo koda:
+/* Ako su obe vrednosti razlicite od NULL, veca od vrednosti se nalazi u b cvoru jer je stablo pretrazivacko */
+return b;
+================================================================================================================
+
+Zadatak 4.26. 
+Ako se gradi binarno pretrazivacko stablo, onda ono nece biti binarno pretrazivako, 
+osim u slucaju da je degnerisano u listu. Mislim da onda nije bas zgodno tako gradiri stablo za testiranje
+
+Ispravljeno.
+Promenjena napomena tako da se sada eksplicitno pojasnjava da se ne koristi cela biblioteka za rad sa binarnim
+pretrazivackim stablima (posebno ne funkcija napravi_stablo koja je mogla dovesti do degeneracije), 
+vec samo funkcije za alokaciju i oslobadjanje memorije. 
+
+================================================================================================================
+
