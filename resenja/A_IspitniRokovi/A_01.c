@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
   /* Oslobadjanje memorije koja je dinamicki alocirana. */
   linije = oslobadjanje_memorije(linije, n);
 
-  /* Zatvaranje datoteku. */
+  /* Zatvaranje datoteke. */
   fclose(ulaz);
   
   exit(EXIT_SUCCESS);
