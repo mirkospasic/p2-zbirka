@@ -125,7 +125,7 @@ int main()
     while (1) {
       /* Vrsi se njihov pronalazak u nizu */
       if ((i = binarna_pretraga(asortiman, n, kod)) == -1) {
-        printf("\tGRESKA: Ne postoji proizvod sa trazenim kodom!\n");
+        printf("\tGreska: Ne postoji proizvod sa trazenim kodom!\n");
       } else {
         printf("\tTrazili ste:\t%s %s %12.2f\n",
                asortiman[i].naziv, asortiman[i].proizvodjac,

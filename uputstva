@@ -2,9 +2,11 @@
 
 Preostali poslovi
 
-proterati "unesi" ---> prbaciti u unesite
-fajl --- proterati ovu rec
+
++ proterati "unesi" ---> prbaciti u unesite
++ fajl --- proterati ovu rec
 zatvaranje datoteke --- da li se to komentarise? negde jeste, negde nije komentarisano, da li ostaviti tako sareno?
+zatvaranje i zatvara se datoteka
 ucitava se i ucitavanje, ispisuje se i ispisivanje --- ovo je poprilicno  neujednaceno kroz zbirku
 greska program se poziva... ---- ovo je poprilicno neujednaceno kroz zbirku
 
