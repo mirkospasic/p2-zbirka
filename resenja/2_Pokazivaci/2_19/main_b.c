@@ -49,7 +49,7 @@ int main(int argc, char **argv)
   /* Zatvara se datoteka */
   fclose(f);
 
-  /* Ispis matrice na standardnom izlazu */
+  /* Ispis matrice na standardni izlaz */
   ispisi_kvadratnu_matricu(matrica, n);
 
   /* Oslobadja se memorija koju je zauzimala matrica */

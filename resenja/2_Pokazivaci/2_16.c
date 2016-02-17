@@ -43,7 +43,7 @@ int main()
           exit(EXIT_FAILURE);
         }
 
-        /* Svih n elemenata koji pocinju na adresi a prepisujemo na
+        /* Svih n elemenata koji pocinju na adresi a prepisuju se na
            novu aderesu b */
         for (i = 0; i < n; i++)
           b[i] = a[i];

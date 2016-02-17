@@ -137,7 +137,7 @@ int main(int argc, char *argv[])
   int pomocna[MAX][MAX];
   int n, i, j;
 
-  /* Provera da li je korisnik nije uneo trazene argumente */
+  /* Provera da li korisnik nije uneo trazene argumente */
   if (argc < 2) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");
