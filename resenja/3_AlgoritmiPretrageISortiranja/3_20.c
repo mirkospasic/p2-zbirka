@@ -81,7 +81,7 @@ int main()
   /* Otvaranje datoteke */
   if ((fp = fopen("biracki-spisak.txt", "r")) == NULL) {
     fprintf(stderr,
-            "Neupesno otvaranje datoteke biracki-spisak.txt.\n");
+            "Greska: Neupesno otvaranje datoteke za citanje.\n");
     exit(EXIT_FAILURE);
   }
 

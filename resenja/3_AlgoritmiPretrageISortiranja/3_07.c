@@ -15,10 +15,7 @@ int main(int argc, char **argv)
 
   /* Ako korisnik nije uneo argument, prijavljuje se greska */
   if (argc != 2) {
-    fprintf(stderr, "Greska: ");
-    fprintf(stderr, "Nedovoljan broj argumenata komandne linije.\n");
-    fprintf(stderr,
-            "Program se poziva sa %s ime_funkcije iz math.h.\n",
+    fprintf(stderr, "Greska: Program se poziva sa %s ime_funkcije\n",
             argv[0]);
     exit(EXIT_FAILURE);
   }
@@ -43,7 +40,8 @@ int main(int argc, char **argv)
   else if (strcmp(ime_funkcije, "log10") == 0)
     fp = &log10;
   else {
-    fprintf(stderr, "Program ne podrzava trazenu funkciju!\n");
+    fprintf(stderr,
+            "Greska: Program ne podrzava trazenu funkciju!\n");
     exit(EXIT_SUCCESS);
   }
 
@@ -51,9 +49,8 @@ int main(int argc, char **argv)
   scanf("%lf %lf", &l, &d);
 
   if ((*fp) (l) * (*fp) (d) >= 0) {
-    fprintf(stderr,
-            "%s na intervalu [%g, %g] ne zadovoljava uslove\n",
-            ime_funkcije, l, d);
+    fprintf(stderr, "Greska: %s na intervalu ", ime_funkcije);
+    fprintf(stderr, "[%g, %g] ne zadovoljava uslove\n", l, d);
     exit(EXIT_FAILURE);
   }
 

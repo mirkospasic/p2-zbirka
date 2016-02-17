@@ -12,7 +12,8 @@ int main(int argc, char *argv[])
 
   /* Ako nema dovoljno arguemenata komandne linije */
   if (argc < 3) {
-    fprintf(stderr, "koriscenje programa: %s datoteka1 datoteka2\n",
+    fprintf(stderr,
+            "Greska: Program se poziva sa %s datoteka1 datoteka2\n",
             argv[0]);
     exit(EXIT_FAILURE);
   }
@@ -20,14 +21,16 @@ int main(int argc, char *argv[])
   /* Otvaranje datoteke zadate prvim argumentom komandne linije */
   fin1 = fopen(argv[1], "r");
   if (fin1 == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n", argv[1]);
+    fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s\n",
+            argv[1]);
     exit(EXIT_FAILURE);
   }
 
   /* Otvaranje datoteke zadate drugim argumentom komandne linije */
   fin2 = fopen(argv[2], "r");
   if (fin2 == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje datoteke %s\n", argv[2]);
+    fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s\n",
+            argv[2]);
     exit(EXIT_FAILURE);
   }
 
@@ -35,7 +38,7 @@ int main(int argc, char *argv[])
   fout = fopen("ceo-tok.txt", "w");
   if (fout == NULL) {
     fprintf(stderr,
-            "Neuspesno otvaranje datoteke ceo-tok.txt za pisanje\n");
+            "Greska: Neuspesno otvaranje datoteke ceo-tok.txt\n");
     exit(EXIT_FAILURE);
   }
 

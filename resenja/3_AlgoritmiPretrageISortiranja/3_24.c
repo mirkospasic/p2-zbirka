@@ -97,7 +97,8 @@ int main(int argc, char *argv[])
 
   /* Otvaranje datoteke za citanje */
   if ((fp = fopen("aktivnost.txt", "r")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke aktivnost.txt.\n");
+    fprintf(stderr,
+            "Greska: Neupesno otvaranje datoteke aktivnost.txt.\n");
     exit(EXIT_FAILURE);
   }
 
@@ -114,7 +115,8 @@ int main(int argc, char *argv[])
   sort_ime_leksikografski(praktikum, br_studenata);
   /* Otvaranje datoteke za pisanje */
   if ((fp = fopen("dat1.txt", "w")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke dat1.txt.\n");
+    fprintf(stderr,
+            "Greska: Neupesno otvaranje datoteke dat1.txt.\n");
     exit(EXIT_FAILURE);
   }
   /* Upis niza u datoteku */
@@ -131,7 +133,8 @@ int main(int argc, char *argv[])
   sort_zadatke_pa_imena(praktikum, br_studenata);
   /* Otvaranje datoteke za pisanje */
   if ((fp = fopen("dat2.txt", "w")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke dat2.txt.\n");
+    fprintf(stderr,
+            "Greska: Neupesno otvaranje datoteke dat2.txt.\n");
     exit(EXIT_FAILURE);
   }
   /* Upis niza u datoteku */
@@ -148,7 +151,8 @@ int main(int argc, char *argv[])
   sort_prisustvo_pa_zadatke_pa_prezimena(praktikum, br_studenata);
   /* Otvaranje datoteke za pisanje */
   if ((fp = fopen("dat3.txt", "w")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke dat3.txt.\n");
+    fprintf(stderr,
+            "Greska: Neupesno otvaranje datoteke dat3.txt.\n");
     exit(EXIT_FAILURE);
   }
   /* Upis niza u datoteku */

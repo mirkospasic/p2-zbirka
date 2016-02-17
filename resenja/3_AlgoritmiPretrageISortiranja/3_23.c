@@ -71,7 +71,8 @@ int main()
 
   /* Otvaranje datoteke */
   if ((fp = fopen("artikli.txt", "r")) == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje datoteke artikli.txt.\n");
+    fprintf(stderr,
+            "Greska: Neuspesno otvaranje datoteke artikli.txt.\n");
     exit(EXIT_FAILURE);
   }
 

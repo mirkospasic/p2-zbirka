@@ -116,14 +116,15 @@ int main(int argc, char **argv)
   /* Provera argumenata komandne linije */
   if (argc != 3) {
     fprintf(stderr,
-            "koriscenje programa: %s dim_niza broj\n", argv[0]);
+            "Greska: Program se poziva sa %s dim_niza broj\n",
+            argv[0]);
     exit(EXIT_FAILURE);
   }
 
   /* Dimenzija niza */
   n = atoi(argv[1]);
   if (n > MAX || n <= 0) {
-    fprintf(stderr, "Dimenzija niza neodgovarajuca\n");
+    fprintf(stderr, "Greska: Dimenzija niza neodgovarajuca\n");
     exit(EXIT_FAILURE);
   }
 
@@ -172,7 +173,7 @@ int main(int argc, char **argv)
     printf("Element je u nizu na poziciji %d\n", i);
   /* Podaci o izvrsavanju programa bivaju upisani u log */
   if ((f = fopen("vremena.txt", "a")) == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje log datoteke.\n");
+    fprintf(stderr, "Greska: Neuspesno otvaranje log datoteke.\n");
     exit(EXIT_FAILURE);
   }
 

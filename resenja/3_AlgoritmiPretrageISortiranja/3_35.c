@@ -64,15 +64,15 @@ int main(int argc, char *argv[])
      informacija korisniku kako se program koristi i prekida se
      izvrsavanje. */
   if (argc < 2) {
-    fprintf(stderr,
-            "Program se poziva sa:\n%s datoteka_sa_rezultatima\n",
+    fprintf(stderr, "Greska: Program se poziva sa %s datoteka\n",
             argv[0]);
     exit(EXIT_FAILURE);
   }
 
   /* Otvaranje datoteke */
   if ((fp = fopen(argv[1], "r")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke %s\n", argv[1]);
+    fprintf(stderr, "Greska: Neupesno otvaranje datoteke %s\n",
+            argv[1]);
     exit(EXIT_FAILURE);
   }
 

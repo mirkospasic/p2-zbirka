@@ -75,14 +75,15 @@ int main(int argc, char *argv[])
      ime datoteke sa tackama */
   if (argc < 2) {
     fprintf(stderr,
-            "koriscenje programa: %s ime_datoteke\n", argv[0]);
+            "Greska: Programa se poziva sa %s ime_datoteke\n",
+            argv[0]);
     exit(EXIT_FAILURE);
   }
 
   /* Otvaranje datoteke za citanje */
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
-    fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
+    fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s!\n",
             argv[1]);
     exit(EXIT_FAILURE);
   }
@@ -112,7 +113,7 @@ int main(int argc, char *argv[])
   else {
     /* Ako nije zadata opcija -x ili -y, ispisuje se obavestenje za
        korisnika i prekida se izvrsavanje programa */
-    fprintf(stderr, "Pogresna opcija\n");
+    fprintf(stderr, "Greska: Pogresna opcija\n");
     exit(EXIT_FAILURE);
   }
 
