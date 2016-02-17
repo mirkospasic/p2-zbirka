@@ -15,14 +15,19 @@ unsigned int zamena(unsigned int x)
 
   /* Maska prvi bajt odgovara broju cija je binarna reprezentacija
      00000....0000011111111 (8 bitova najmanje tezine su jedinice,
-     a ostalo su nule) */
+     a ostalo su nule) moze se dobiti i tako sto se maska_prvi_bajt 
+     postavi na heksadekadnu vrednost FF. Drugi nacin za 
+     inicijalizaciju maske maska_prvi_bajt je dodavanjem jedinica 
+     sa desne strane: */
   maska_prvi_bajt = 1;
   for (i = 1; i < BITOVA_U_BAJTU; i++)
     maska_prvi_bajt = maska_prvi_bajt << 1 | 1;
 
   /* Maska cetvrti bajt odgovara broju cija je binarna
      reprezentacija 1111111100000....00000 (8 bitova najvece tezine 
-     su jedinice, a ostalo su nule) */
+     su jedinice, a ostalo su nule) i moze se dobiti pomeranjem 
+     bitova prethodno kreirane maske maska_prvi_bajt tako da jedinice 
+     budu na poziciji bajta najvece tezine. */
   maska_cetvrti_bajt =
       maska_prvi_bajt << ((sizeof(unsigned) - 1) * BITOVA_U_BAJTU);
 
