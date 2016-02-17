@@ -258,8 +258,7 @@ programa i ispisati odgovarajuću poruku na standardni izlaz za greške.
 #\izlaz{Unesite broj:}\ulaz{0x00FF00FF}#
 #\izlaz{Unesite redni broj funkcije:}\ulaz{3}#
 #\naslovIzlazZaGresku#
-#\izlaz{Greska: Neodgovarajuci redni broj }#
-#\izlaz{funkcije.}#
+#\izlaz{Greska: Neodgovarajuci redni broj funkcije.}#
 \end{upotreba}
 \end{miditest}
 
@@ -275,6 +274,7 @@ Napisati funkcije \kckod{unsigned najveci(unsigned x)} i \kckod{unsigned najmanj
 
 Napisati program koji testira prethodno napisane funkcije. Sa standardnog ulaza učitati neoznačen ceo broj u heksadekadnom formatu, a zatim ispisati binarnu reprezentaciju najvećeg i najmanjeg broja koji se može zapisati istim binarnim ciframa kao učitani broj.
 
+\skrati{2}
 \begin{miditest}
 \begin{test}{1}
 #\naslovUlaz#
@@ -344,16 +344,21 @@ Napisati program koji testira prethodno napisane funkcije. Sa standardnog ulaza 
 
 \begin{Exercise}[label=1_08]
 Napisati funkcije za rad sa bitovima. 
+\skrati{1}
 \begin{enumerate}
 \item Napisati funkciju \kckod{unsigned postavi\_0(unsigned x, unsigned n, unsigned p)} koja vraća broj koji se dobija kada se \argf{n} bitova datog broja \argf{x}, počevši od pozicije \argf{p}, postave na $0$.
+\skrati{1}
 \item Napisati funkciju \kckod{unsigned postavi\_1(unsigned x, unsigned n, unsigned p)} koja vraća broj koji se dobija kada se \argf{n} bitova datog broja \argf{x}, počevši od pozicije \argf{p}, postave na $1$.
+\skrati{1}
 \item %Napisati funkciju \kckod{vrati\_bitove} koja određuje broj koji se dobija od $n$ bitova datog broja $x$, počevši od pozicije $p$, i vraća ih kao bitove najmanje težine rezultata.
 Napisati funkciju \kckod{unsigned vrati\_bitove(unsigned x, unsigned n, unsigned p)} koja vraća broj u kome se \argf{n} bitova najmanje težine poklapa sa $n$ bitova broja \argf{x} počevši od pozicije \argf{p}, dok su mu ostali bitovi postavljeni na $0$.
+\skrati{1}
 \item %Napisati funkciju \kckod{postavi\_1\_n\_bits} koja vraća broj koji se dobija upisivanjem poslednjih $n$ bitova broja $y$ u broj $x$, počevši od pozicije $p$.
 Napisati funkciju \kckod{unsigned postavi\_1\_n\_bitova(unsigned x, unsigned n, unsigned p, unsigned y)} koja vraća broj koji se dobija upisivanjem poslednjih \argf{n} bitova najmanje težine broja \argf{y} u broj \argf{x}, počevši od pozicije \argf{p}.
+\skrati{1}
 \item Napisati funkciju \kckod{unsigned invertuj(unsigned x, unsigned n, unsigned p)} koja vraća broj koji se dobija invertovanjem \argf{n} bitova broja \argf{x} počevši od pozicije \argf{p}. 
 \end{enumerate}
-
+\skrati{2}
 Napisati program koji testira prethodno napisane funkcije za neoznačene cele brojeve $x$, $n$, $p$, $y$ koji se unose sa standardnog ulaza. Na standardni izlaz ispisati binarne reprezenatacije brojeva $x$ i $y$, a zatim i binarne reprezentacije brojeva koji se dobijaju pozivanjem prethodno napisanih funkcija. \napomena{Bit najmanje težine je krajnji desni bit i njegova pozicija se označava nultom dok se pozicije ostalih bitova uvećavaju za jedan, sa desna na levo.}
 
 \begin{maxitest}
@@ -1049,7 +1054,7 @@ Napisati rekurzivnu funkciju koja određuje maksimum niza celih brojeva. Napisat
 \begin{Exercise}[label=1_25]
 Napisati rekurzivnu funkciju koja izračunava skalarni proizvod dva vektora celih brojeva. Napisati program koji testira ovu funkciju za nizove (vektore) koji
 se unose sa standardnog ulaza. Prvo treba uneti dimenziju nizova, a zatim i
-njihove elemente. Na standardni izlaz ispisati skalarni proizvod unetih
+njihove elemente. Na standardni izlaz ispisati  skalarni proizvod unetih
 nizova. Pretpostaviti da nizovi neće imati više od $256$ elemenata.
 
 \begin{miditest}
@@ -1458,7 +1463,7 @@ najpre iscrtava Paskalov trougao, a zatim štampa sumu elemenata hipotenuze.
         #\izlaz{1}#  #\izlaz{2}#  #\izlaz{1}#
       #\izlaz{1}#  #\izlaz{3}#  #\izlaz{3}#  #\izlaz{1}#
     #\izlaz{1}#  #\izlaz{4}#  #\izlaz{6}#  #\izlaz{4}#  #\izlaz{1}#
-  #\izlaz{1}#  #\izlaz{5}#  #\izlaz{10}# #\izlaz{10}# #\izlaz{5}#  #\izlaz{1}#
+  #\izlaz{1}#  #\izlaz{5}#  #\izlaz{10}# #\izlaz{10}# #\izlaz{5}# #\izlaz{1}#
 #\izlaz{}#
 #\izlaz{8}#
 \end{test}
@@ -1473,8 +1478,8 @@ najpre iscrtava Paskalov trougao, a zatim štampa sumu elemenata hipotenuze.
         #\izlaz{1}#  #\izlaz{2}#  #\izlaz{1}#
       #\izlaz{1}#  #\izlaz{3}#  #\izlaz{3}#  #\izlaz{1}#
     #\izlaz{1}#  #\izlaz{4}#  #\izlaz{6}#  #\izlaz{4}#  #\izlaz{1}#
-  #\izlaz{1}#  #\izlaz{5}#  #\izlaz{10}# #\izlaz{10}# #\izlaz{5}#  #\izlaz{1}#
-#\izlaz{1}#  #\izlaz{6}#  #\izlaz{15}# #\izlaz{20}# #\izlaz{15}# #\izlaz{6}#  #\izlaz{1}#
+  #\izlaz{1}#  #\izlaz{5}#  #\izlaz{10}# #\izlaz{10}# #\izlaz{5}# #\izlaz{1}#
+#\izlaz{1}#  #\izlaz{6}#  #\izlaz{15}# #\izlaz{20}# #\izlaz{15}# #\izlaz{6}# #\izlaz{1}#
 #\izlaz{}#
 #\izlaz{32}#
 \end{test}
