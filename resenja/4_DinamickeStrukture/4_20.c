@@ -160,7 +160,8 @@ int main()
   }
 
   /* Kreira se unija skupova: prvo se napravi kopija prvog skupa
-     kako bi se isti mogao iskoristiti i za preostale operacije */
+     kako bi se polazni skup mogao iskoristiti i za preostale
+     operacije */
   if (kopiraj_stablo(skup1, &pomocni_skup) == 1) {
     oslobodi_stablo(&skup1);
     oslobodi_stablo(&pomocni_skup);
@@ -180,7 +181,8 @@ int main()
   oslobodi_stablo(&pomocni_skup);
 
   /* Kreira se presek skupova: prvo se napravi kopija prvog skupa
-     kako bi se isti mogao iskoristiti i za preostale operacije */
+     kako bi se polazni skup mogao iskoristiti i za preostale
+     operacije */
   if (kopiraj_stablo(skup1, &pomocni_skup) == 1) {
     oslobodi_stablo(&skup1);
     oslobodi_stablo(&pomocni_skup);
@@ -200,7 +202,8 @@ int main()
   oslobodi_stablo(&pomocni_skup);
 
   /* Kreira se razlika skupova: prvo se napravi kopija prvog skupa
-     kako bi se isti mogao iskoristiti i za preostale operacije */
+     kako bi se polazni skup mogao iskoristiti i za preostale
+     operacije */
   if (kopiraj_stablo(skup1, &pomocni_skup) == 1) {
     oslobodi_stablo(&skup1);
     oslobodi_stablo(&pomocni_skup);

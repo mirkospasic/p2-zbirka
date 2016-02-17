@@ -235,7 +235,7 @@ int main(int argc, char **argv)
     }
   }
 
-  /* ispisuju se rezultati rada funkcija */
+  /* Ispisuju se rezultati rada funkcija */
   printf("Broj cvorova: %d\n", broj_cvorova(koren));
   printf("Broj listova: %d\n", broj_listova(koren));
   printf("Pozitivni listovi: ");

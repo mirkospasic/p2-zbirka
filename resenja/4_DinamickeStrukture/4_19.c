@@ -22,7 +22,7 @@ int identitet(Cvor * koren1, Cvor * koren2)
   if (koren1->broj != koren2->broj)
     return 0;
 
-  /* Inace, proverava se da li vazi i jednakost levih i desnih
+  /* Inace, proverava se da li vazi jednakost i levih i desnih
      podstabala */
   return (identitet(koren1->levo, koren2->levo)
           && identitet(koren1->desno, koren2->desno));
@@ -62,7 +62,7 @@ int main()
   }
 
   /* Poziva se funkcija koja ispituje identitet stabala i ispisuje
-     se njen rezultat. */
+     se njen rezultat */
   if (identitet(koren1, koren2))
     printf("Stabla jesu identicna.\n");
   else

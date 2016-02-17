@@ -8,7 +8,7 @@
 
 /* Funkcija koja obilazi stablo sa leva na desno i smesta vrednosti
    cvorova u niz. Povratna vrednost funkcije je broj vrednosti koje
-   su smestene u niz. */
+   su smestene u niz */
 int kreiraj_niz(Cvor * koren, int a[])
 {
   int r, s;

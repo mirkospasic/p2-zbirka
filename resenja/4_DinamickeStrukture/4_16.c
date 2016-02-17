@@ -202,7 +202,7 @@ Cvor *pretrazi_imenik(Cvor * koren, char *ime_i_prezime)
     return pretrazi_imenik(koren->levo, ime_i_prezime);
 
   else
-    /* u suprotnom, pretraga se nastavlja desno */
+    /* U suprotnom, pretraga se nastavlja desno */
     return pretrazi_imenik(koren->desno, ime_i_prezime);
 }
 

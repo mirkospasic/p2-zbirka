@@ -40,11 +40,11 @@ void ispisi_stablo_infiksno(Cvor * koren);
    Levo podstablo - Desno podstablo ) */
 void ispisi_stablo_prefiksno(Cvor * koren);
 
-/* j) Funkcija koja ispisuje stablo postfiksnoj notaciji ( Levo
+/* j) Funkcija koja ispisuje stablo u postfiksnoj notaciji ( Levo
    podstablo - Desno postablo - Koren) */
 void ispisi_stablo_postfiksno(Cvor * koren);
 
-/* k) Funkcija koja oslobadja memoriju zauzetu stablom.  */
+/* k) Funkcija koja oslobadja memoriju zauzetu stablom */
 void oslobodi_stablo(Cvor ** adresa_korena);
 
 #endif

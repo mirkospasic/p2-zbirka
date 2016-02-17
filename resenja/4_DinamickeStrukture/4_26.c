@@ -4,6 +4,41 @@
 /* Ukljucuje se biblioteka za rad sa stablima */
 #include "stabla.h"
 
+/* Funkcija koja kreira stablo prema zadatoj slici. Povratna
+   vrednost funkcije je 0 ako je stablo uspesno kreirano, odnosno 1
+   ukoliko je doslo do greske */
+int kreiraj_hip(Cvor ** adresa_korena)
+{
+
+  /* Stablo se proglasava praznim */
+  *adresa_korena = NULL;
+
+  /* Dodaje se cvor po cvor uz proveru uspesnosti dodavanja */
+  if (((*adresa_korena) = napravi_cvor(100)) == NULL)
+    return 1;
+  if (((*adresa_korena)->levo = napravi_cvor(19)) == NULL)
+    return 1;
+  if (((*adresa_korena)->levo->levo = napravi_cvor(17)) == NULL)
+    return 1;
+  if (((*adresa_korena)->levo->levo->levo = napravi_cvor(2)) == NULL)
+    return 1;
+  if (((*adresa_korena)->levo->levo->desno =
+       napravi_cvor(7)) == NULL)
+    return 1;
+  if (((*adresa_korena)->levo->desno = napravi_cvor(3)) == NULL)
+    return 1;
+  if (((*adresa_korena)->desno = napravi_cvor(36)) == NULL)
+    return 1;
+  if (((*adresa_korena)->desno->levo = napravi_cvor(25)) == NULL)
+    return 1;
+  if (((*adresa_korena)->desno->desno = napravi_cvor(1)) == NULL)
+    return 1;
+
+  /* Vraca se indikator uspesnog kreiranja */
+  return 0;
+
+}
+
 /* Funkcija proverava da li je zadato binarno stablo celih
    pozitivnih brojeva hip. Ideja koja ce biti implementirana u
    osnovi ima pronalazenje maksimalne vrednosti levog i maksimalne
@@ -46,7 +81,7 @@ int hip(Cvor * koren)
     return koren->broj;
   }
 
-  /* U suprotnom zakljucuje se da stablo nije hip */
+  /* U suprotnom se zakljucuje da stablo nije hip */
   return -1;
 }
 
@@ -55,17 +90,14 @@ int main(int argc, char **argv)
   Cvor *koren;
   int hip_indikator;
 
+
   /* Kreira se stablo prema zadatoj slici */
-  koren = NULL;
-  koren = napravi_cvor(100);
-  koren->levo = napravi_cvor(19);
-  koren->levo->levo = napravi_cvor(17);
-  koren->levo->levo->levo = napravi_cvor(2);
-  koren->levo->levo->desno = napravi_cvor(7);
-  koren->levo->desno = napravi_cvor(3);
-  koren->desno = napravi_cvor(36);
-  koren->desno->levo = napravi_cvor(25);
-  koren->desno->desno = napravi_cvor(1);
+  if (kreiraj_hip(&koren) == 1) {
+    fprintf(stderr, "Greska: Neuspesno kreiranje hipa.\n");
+    oslobodi_stablo(&koren);
+    exit(EXIT_FAILURE);
+  }
+
 
   /* Poziva se funkcija kojom se proverava da li je stablo hip */
   hip_indikator = hip(koren);
@@ -80,5 +112,5 @@ int main(int argc, char **argv)
   /* Oslobadja se memorija zauzeta stablom */
   oslobodi_stablo(&koren);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

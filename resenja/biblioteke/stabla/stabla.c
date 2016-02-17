@@ -30,12 +30,10 @@ int dodaj_u_stablo(Cvor ** adresa_korena, int broj)
     /* Proverava se uspesnost kreiranja */
     if (novi_cvor == NULL) {
 
-      /* I ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
-       */
+      /* Ukoliko je doslo do greske, vraca se odgovarajuca vrednost */
       return 1;
     }
     /* Inace ... */
-
     /* Novi cvor se proglasava korenom stabla */
     *adresa_korena = novi_cvor;
 
@@ -68,7 +66,7 @@ Cvor *pretrazi_stablo(Cvor * koren, int broj)
   /* Ako je trazena vrednost sadrzana u korenu */
   if (koren->broj == broj) {
 
-    /* Prekidamo pretragu */
+    /* Prekida se pretraga */
     return koren;
   }
 

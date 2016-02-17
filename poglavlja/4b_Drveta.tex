@@ -137,7 +137,7 @@ Napisati program koji izračunava i na standardni izlaz ispisuje broj pojavljiva
 
 %4.zadatak
 \begin{Exercise}[label=4_16]
-U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona, npr. $Pera\ Peric\ 064/123-4567$. Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči $KRAJ$, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od $30$ karaktera, kao i da imenik ne sadrži podatke o osobama sa istim imenom i prezimenom.
+U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona međusobno razdvojeni blanko znakom, na primer $Pera\ Peric\ 064/123-4567$. Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči $KRAJ$, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od $30$ karaktera, kao i da imenik ne sadrži podatke o osobama sa istim imenom i prezimenom.
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -215,7 +215,7 @@ U datoteci \kckod{prijemni.txt} nalaze se podaci o prijemnom ispitu učenika jed
 
 %6.zadatak
 \begin{Exercise}[label=4_18, difficulty=1]
-Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije. Svaka linija datoteke je formata $Ime\ Prezime\ DD.MM.$ i sadži ime osobe, prezime osobe i dan i mesec rođenja. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj unosa. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima - prvo po mesecu, a zatim po danu u okviru istog meseca. Može se pretpostaviti da će svi korišćeni datumi biti validni i u formatu $DD.MM.$. Takođe, može se pretpostaviti da će ime i prezime osobe biti kraće od $50$ karaktera.
+Napisati program koji implementira podsetnik za rođendane. Informacije o rođendanima se nalaze u datoteci čije se ime zadaje kao argument komandne linije. Svaka linija datoteke je formata $Ime\ Prezime\ DD.MM.$ i sadži ime osobe, prezime osobe i dan i mesec rođenja. Korisnik unosi datum u naznačenom formatu, a program pronalazi i ispisuje ime i prezime osobe čiji je rođendan zadatog datuma ili ime i prezime osobe koja prva sledeća slavi rođendan. Ovaj postupak treba ponavljati dokle god korisnik ne unese komandu za kraj unosa. Informacije o rođendanima uneti u mapu koja je implementirana preko binarnog pretraživačkog stabla i uređena po datumima - prvo po mesecu, a zatim po danu u okviru istog meseca. Može se pretpostaviti da će svi korišćeni datumi biti validni i  $DD.MM.$ formata. Takođe, može se pretpostaviti da će ime i prezime osobe biti kraće od $50$ karaktera.
 
 \begin{miditest}
 \begin{upotreba}{1}

@@ -227,7 +227,7 @@ int main(int argc, char **argv)
     }
   }
 
-  /* Posto je citanjem reci zavrseno, zatvara se datoteka */
+  /* Posto je citanje reci zavrseno, zatvara se datoteka */
   fclose(f);
 
   /* Prikazuju se sve reci iz teksta i brojevi njihovih
