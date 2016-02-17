@@ -10,14 +10,14 @@ int main()
   Cvor *trazeni = NULL;
   int broj;
 
-  /* Testiranje dodavanja novog broja na pocetak liste */
-  printf("Unesite brojeve: (za kraj CTRL+D)\n");
+  /* Testiranje funkcije za dodavanja novog broja na pocetak liste */
+  printf("Unesite brojeve (CTRL+D za kraj unosa): ");
   while (scanf("%d", &broj) > 0) {
     /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
        memorije za nov cvor. Memoriju alociranu za cvorove liste
        treba osloboditi pre napustanja programa. */
     if (dodaj_na_pocetak_liste(&glava, broj) == 1) {
-      fprintf(stderr, "Neuspela alokacija za cvor %d\n", broj);
+      fprintf(stderr, "Greska: Neuspesna alokacija memorije za cvor.\n");
       oslobodi_listu(&glava);
       exit(EXIT_FAILURE);
     }
@@ -35,7 +35,7 @@ int main()
   else
     printf("Trazeni broj %d je u listi!\n", trazeni->vrednost);
 
-  /* Oslobadja se memorija zauzeta listom */
+  /* Oslobadjanje memorija zauzete listom */
   oslobodi_listu(&glava);
 
   exit(EXIT_SUCCESS);

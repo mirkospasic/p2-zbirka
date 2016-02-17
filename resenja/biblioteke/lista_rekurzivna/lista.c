@@ -4,7 +4,7 @@
 
 Cvor *napravi_cvor(int broj)
 {
-  /* Alocira se memorija za novi cvor liste i proverava se uspesnost
+  /* Alokacija memorije za novi cvor uz proveru uspesnosti
      alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
@@ -14,7 +14,7 @@ Cvor *napravi_cvor(int broj)
   novi->vrednost = broj;
   novi->sledeci = NULL;
 
-  /* Vraca se adresa novog cvora */
+  /* Vracanje adrese novog cvora */
   return novi;
 }
 
@@ -35,7 +35,7 @@ void oslobodi_listu(Cvor ** adresa_glave)
 
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj)
 {
-  /* Kreira se novi cvor i proverava se uspesnost kreiranja */
+  /* Kreiranje novog cvora uz proveru uspesnost kreiranja */
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
     return 1;
@@ -44,7 +44,7 @@ int dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj)
   novi->sledeci = *adresa_glave;
   *adresa_glave = novi;
 
-  /* Vraca se indikator uspesnog dodavanja */
+  /* Vracanje indikatora uspesnog dodavanja */
   return 0;
 }
 
@@ -59,11 +59,11 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
     if (novi == NULL)
       return 1;
 
-    /* Azurira se vrednost na koju pokazuje adresa_glave i ujedno se
+    /* Azuriranjem vrednosti na koju pokazuje adresa_glave, ujedno se
        azurira i pokazivacka promenljiva u pozivajucoj funkciji */
     *adresa_glave = novi;
 
-    /* Vraca se indikator uspesnog dodavanja */
+    /* Vracanje indikatora uspesnog dodavanja */
     return 0;
   }
 
@@ -91,10 +91,10 @@ int dodaj_sortirano(Cvor ** adresa_glave, int broj)
     if (novi == NULL)
       return 1;
 
-    /* Azurira se glava liste */
+    /* Azuriranje glave liste */
     *adresa_glave = novi;
 
-    /* Vraca se indikator uspesnog dodavanja */
+    /* Vracanje indikatora uspesnog dodavanja */
     return 0;
   }
 
@@ -165,15 +165,15 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, int broj)
   if (*adresa_glave == NULL || (*adresa_glave)->vrednost > broj)
     return;
 
-  /* Brisu se cvorovi iz repa koji imaju vrednost broj */
+  /* Brisanje cvorova iz repa koji imaju vrednost broj */
   obrisi_cvor(&(*adresa_glave)->sledeci, broj);
 
   /* Preostaje provera da li glavu liste treba obrisati */
   if ((*adresa_glave)->vrednost == broj) {
     /* Pomocni pokazuje na cvor koji treba da se obrise */
     Cvor *pomocni = *adresa_glave;
-    /* Azurira se pokazivac na glavu da pokazuje na sledeci u listi i 
-       brise se cvor koji je bio glava liste */
+    /* Azuriranje pokazivaca na glavu da pokazuje na sledeci u listi
+       i brisanje cvora koji je bio glava liste */
     *adresa_glave = (*adresa_glave)->sledeci;
     free(pomocni);
   }
@@ -185,7 +185,7 @@ void ispisi_vrednosti(Cvor * glava)
   if (glava == NULL)
     return;
 
-  /* Ispisuje se vrednost u glavi liste */
+  /* Ispis vrednosti u glavi liste */
   printf("%d", glava->vrednost);
 
   /* Ako rep nije prazan, ispisuje se znak ',' i razmak. Rekurzivno

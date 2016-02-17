@@ -11,15 +11,16 @@ int main()
   Cvor *trazeni = NULL;
   int broj;
 
-  /* Testira se funkcija za dodavanje vrednosti u listu tako da ona
+  /* Testiranje funkcije za dodavanje vrednosti u listu tako da ona
      bude uredjena neopadajuce */
-  printf("Unosite brojeve (za kraj unesite CTRL+D)\n");
+  printf("Unesite brojeve (CTRL+D za kraj unosa): ");
   while (scanf("%d", &broj) > 0) {
     /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
        memorije za novi cvor. Memoriju alociranu za cvorove liste
        treba osloboditi pre napustanja programa */
     if (dodaj_sortirano(&glava, &kraj, broj) == 1) {
-      fprintf(stderr, "Neuspela alokacija za cvor %d\n", broj);
+      fprintf(stderr,
+              "Greska: Neuspesna alokacija memorije za cvor.\n");
       oslobodi_listu(&glava, &kraj);
       exit(EXIT_FAILURE);
     }
@@ -27,7 +28,7 @@ int main()
     ispisi_listu(glava);
   }
 
-  /* Testira se funkcija za pretragu liste */
+  /* Testiranje funkcije za pretragu liste */
   printf("\nUnesite broj koji se trazi u listi: ");
   scanf("%d", &broj);
 
@@ -38,22 +39,22 @@ int main()
   else
     printf("Trazeni broj %d je u listi!\n", trazeni->vrednost);
 
-  /* Testira se funkcija za brisanje elemenata iz liste */
+  /* Testiranje funkcije za brisanje elemenata iz liste */
   printf("\nUnesite broj koji se brise iz liste: ");
   scanf("%d", &broj);
 
-  /* Brisu se cvorovi iz liste cije polje vrednost je jednako broju
+  /* Brisanje cvorova iz liste cije polje vrednost je jednako broju
      procitanom sa ulaza */
   obrisi_cvor_sortirane_liste(&glava, &kraj, broj);
 
-  printf("Lista nakon brisanja:  ");
+  printf("Lista nakon brisanja: ");
   ispisi_listu(glava);
 
-  /* Ispisuje se lista unazad */
+  /* Ispisivanje liste unazad */
   printf("\nLista ispisana u nazad: ");
   ispisi_listu_unazad(kraj);
 
-  /* Oslobadja se memorija zauzeta za cvorove liste */
+  /* Oslobadjanje memorije zauzete za cvorove liste */
   oslobodi_listu(&glava, &kraj);
 
   exit(EXIT_SUCCESS);

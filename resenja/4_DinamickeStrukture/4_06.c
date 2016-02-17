@@ -27,9 +27,9 @@ Cvor *objedini(Cvor ** adresa_glave_1, Cvor ** adresa_glave_2)
   if (lista2 == NULL)
     return lista1;
 
-  /* Odredjuje se prvi cvor rezultujuce liste - to je ili prvi cvor
-     liste lista1 ili prvi cvor liste lista2 u zavisnosti od toga
-     koji sadrzi manju vrednost */
+  /* Odredjivanje prvog cvora rezultujuce liste - to je ili prvi cvor
+     liste lista1 ili prvi cvor liste lista2 u zavisnosti od toga koji 
+     sadrzi manju vrednost */
   if (lista1->vrednost < lista2->vrednost) {
     rezultujuca = lista1;
     lista1 = lista1->sledeci;
@@ -80,7 +80,7 @@ int main(int argc, char **argv)
   /* Argumenti komandne linije su neophodni */
   if (argc != 3) {
     fprintf(stderr,
-            "Program se poziva sa: ./a.out dat1.txt dat2.txt\n");
+            "Greska: Program se poziva sa:\n ./a.out dat1.txt dat2.txt\n");
     exit(EXIT_FAILURE);
   }
 
@@ -89,45 +89,44 @@ int main(int argc, char **argv)
   in1 = fopen(argv[1], "r");
   if (in1 == NULL) {
     fprintf(stderr,
-            "Greska prilikom otvaranja datoteke %s.\n", argv[1]);
-  }
+            "Greska: Neuspesno otvaranje datoteke %s.\n", argv[1]);
     exit(EXIT_FAILURE);
-
-    FILE *in2 = NULL;
-    in2 = fopen(argv[2], "r");
-    if (in2 == NULL) {
-      fprintf(stderr,
-              "Greska prilikom otvaranja datoteke %s.\n", argv[2]);
-      exit(EXIT_FAILURE);
-    }
-
-    /* Liste su na pocetku prazne */
-    int broj;
-    Cvor *lista1 = NULL;
-    Cvor *lista2 = NULL;
-
-    /* Ucitavanje listi */
-    while (fscanf(in1, "%d", &broj) != EOF)
-      dodaj_na_kraj_liste(&lista1, broj);
-
-    while (fscanf(in2, "%d", &broj) != EOF)
-      dodaj_na_kraj_liste(&lista2, broj);
-
-    /* Datoteke vise nisu potrebne i treba ih zatvoriti. */
-    fclose(in1);
-    fclose(in2);
-
-    /* Pokazivac rezultat ce pokazivati na glavu liste dobijene
-       objedinjavanjem listi */
-    Cvor *rezultat = objedini(&lista1, &lista2);
-
-    /* Ispis rezultujuce liste. */
-    ispisi_listu(rezultat);
-
-    /* Lista rezultat dobijena je prevezivanjem cvorova polaznih
-       listi. Njenim oslobadjanjem bice oslobodjena sva zauzeta
-       memorija. */
-    oslobodi_listu(&rezultat);
-
-    exit(EXIT_SUCCESS);
   }
+
+  FILE *in2 = NULL;
+  in2 = fopen(argv[2], "r");
+  if (in2 == NULL) {
+    fprintf(stderr,
+            "Greska: Neuspesno otvaranje datoteke %s.\n", argv[2]);
+    exit(EXIT_FAILURE);
+  }
+
+  /* Liste su na pocetku prazne */
+  int broj;
+  Cvor *lista1 = NULL;
+  Cvor *lista2 = NULL;
+
+  /* Ucitavanje listi */
+  while (fscanf(in1, "%d", &broj) != EOF)
+    dodaj_na_kraj_liste(&lista1, broj);
+
+  while (fscanf(in2, "%d", &broj) != EOF)
+    dodaj_na_kraj_liste(&lista2, broj);
+
+  /* Datoteke vise nisu potrebne i treba ih zatvoriti. */
+  fclose(in1);
+  fclose(in2);
+
+  /* Pokazivac rezultat ce pokazivati na glavu liste dobijene
+     objedinjavanjem listi */
+  Cvor *rezultat = objedini(&lista1, &lista2);
+
+  /* Ispis rezultujuce liste. */
+  ispisi_listu(rezultat);
+
+  /* Lista rezultat dobijena je prevezivanjem cvorova polaznih listi. 
+     Njenim oslobadjanjem bice oslobodjena sva zauzeta memorija. */
+  oslobodi_listu(&rezultat);
+
+  exit(EXIT_SUCCESS);
+}

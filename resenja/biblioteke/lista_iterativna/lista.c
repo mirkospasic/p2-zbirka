@@ -4,7 +4,7 @@
 
 Cvor *napravi_cvor(int broj)
 {
-  /* Alocira se memorija za novi cvor liste i proverava se uspesnost
+  /* Alokacija memorije za novi cvor uz proveru uspesnosti
      alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
@@ -14,7 +14,7 @@ Cvor *napravi_cvor(int broj)
   novi->vrednost = broj;
   novi->sledeci = NULL;
 
-  /* Vraca se adresa novog cvora */
+  /* Vracanje adrese novog cvora */
   return novi;
 }
 
@@ -36,7 +36,7 @@ void oslobodi_listu(Cvor ** adresa_glave)
 
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj)
 {
-  /* Kreira se novi cvor i proverava se uspesnost kreiranja */
+  /* Kreiranje novog cvora uz proveru uspesnost kreiranja */
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
     return 1;
@@ -45,7 +45,7 @@ int dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj)
   novi->sledeci = *adresa_glave;
   *adresa_glave = novi;
 
-  /* Vraca se indikator uspesnog dodavanja */
+  /* Vracanje indikatora uspesnog dodavanja */
   return 0;
 }
 
@@ -69,7 +69,7 @@ Cvor *pronadji_poslednji(Cvor * glava)
 
 int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
 {
-  /* Kreira se novi cvor i proverava se uspesnost kreiranja */
+  /* Kreiranje novog cvora uz proveru uspesnost kreiranja */
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
     return 1;
@@ -85,7 +85,7 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
     poslednji->sledeci = novi;
   }
 
-  /* Vraca se indikator uspesnog dodavanja */
+  /* Vracanje indikatora uspesnog dodavanja */
   return 0;
 }
 
@@ -97,11 +97,11 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj)
 
   /* Pokazivac glava se pomera na sledeci cvor sve dok ne bude
      pokazivao na cvor ciji sledeci ili ne postoji ili ima vrednost
-     vecu ili jednaku vrednosti novog cvora.
-     Zbog izracunavanja izraza u C-u prvi deo konjunkcije mora biti
-     provera da li se doslo do poslednjeg cvora liste pre nego sto se 
-     proveri vrednost u sledecem cvoru, jer u slucaju poslednjeg,
-     sledeci ne postoji, pa ni njegova vrednost. */
+     vecu ili jednaku vrednosti novog cvora. Zbog izracunavanja
+     izraza u C-u prvi deo konjunkcije mora biti provera da li se
+     doslo do poslednjeg cvora liste pre nego sto se proveri
+     vrednost u sledecem cvoru, jer u slucaju poslednjeg, sledeci ne
+     postoji, pa ni njegova vrednost. */
   while (glava->sledeci != NULL && glava->sledeci->vrednost < broj)
     glava = glava->sledeci;
 
@@ -113,16 +113,16 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj)
 
 int dodaj_iza(Cvor * tekuci, int broj)
 {
-  /* Kreira se novi cvor i proverava se uspesnost kreiranja */
+  /* Kreiranje novog cvora uz proveru uspesnost kreiranja */
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
     return 1;
 
-  /* Novi cvor se dodaje iza tekuceg cvora. */
+  /* Dodavanje novog cvora iza tekuceg cvora. */
   novi->sledeci = tekuci->sledeci;
   tekuci->sledeci = novi;
 
-  /* Vraca se indikator uspesnog dodavanja */
+  /* Vracanje indikatora uspesnog dodavanja */
   return 0;
 }
 
@@ -131,14 +131,14 @@ int dodaj_sortirano(Cvor ** adresa_glave, int broj)
   /* Ako je lista prazna */
   if (*adresa_glave == NULL) {
     /* Glava nove liste je novi cvor */
-    /* Kreira se novi cvor i proverava se uspesnost kreiranja */
+    /* Kreiranje novog cvora uz proveru uspesnost kreiranja */
     Cvor *novi = napravi_cvor(broj);
     if (novi == NULL)
       return 1;
 
     *adresa_glave = novi;
 
-    /* Vraca se indikator uspesnog dodavanja */
+    /* Vracanje indikatora uspesnog dodavanja */
     return 0;
   }
 
@@ -156,7 +156,7 @@ int dodaj_sortirano(Cvor ** adresa_glave, int broj)
 
 Cvor *pretrazi_listu(Cvor * glava, int broj)
 {
-  /* Obilaze se cvorovi liste */
+  /* Obilazenje cvorova liste */
   for (; glava != NULL; glava = glava->sledeci)
     /* Ako je vrednost tekuceg cvora jednaka zadatom broju, pretraga
        se obustavlja */
@@ -169,7 +169,7 @@ Cvor *pretrazi_listu(Cvor * glava, int broj)
 
 Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
 {
-  /* Obilaze se cvorovi liste */
+  /* Obilazenje cvorovi liste */
   /* U uslovu ostanka u petlji, bitan je redosled provera u
      konjunkciji. */
   while (glava != NULL && glava->vrednost < broj)

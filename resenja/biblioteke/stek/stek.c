@@ -2,21 +2,20 @@
 
 Cvor *napravi_cvor(char *etiketa)
 {
-  /* Alocira se memorija za novi cvor liste i proverava se uspesnost
-     alokacije */
+  /* Alokacija memorije za novi cvor uz proveru uspesnost alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
 
   /* Inicijalizacija polja u novom cvoru */
   if (strlen(etiketa) >= MAX) {
-    fprintf(stderr, "Etiketa je preduga, bice skracena.\n");
+    fprintf(stderr, "Greska: Etiketa je preduga, bice skracena.\n");
     etiketa[MAX - 1] = '\0';
   }
   strcpy(novi->etiketa, etiketa);
   novi->sledeci = NULL;
 
-  /* Vraca se adresa novog cvora */
+  /* Vracanje adrese novog cvora */
   return novi;
 }
 
@@ -40,7 +39,7 @@ void oslobodi_stek(Cvor ** adresa_vrha)
 
 int potisni_na_stek(Cvor ** adresa_vrha, char *etiketa)
 {
-  /* Kreira se novi cvor i proverava se uspesnost kreiranja */
+  /* Kreiranje novog cvora uz proveru uspesnosti kreiranja */
   Cvor *novi = napravi_cvor(etiketa);
   if (novi == NULL)
     return 1;
@@ -65,12 +64,12 @@ int skini_sa_steka(Cvor ** adresa_vrha, char *etiketa)
   if (etiketa != NULL)
     strcpy(etiketa, (*adresa_vrha)->etiketa);
 
-  /* Element sa vrha steka se uklanja */
+  /* Uklanjanje elementa sa vrha steka */
   pomocni = *adresa_vrha;
   *adresa_vrha = (*adresa_vrha)->sledeci;
   free(pomocni);
 
-  /* Vraca se indikator uspesno izvrsene radnje */
+  /* Vracanje indikator uspesno izvrsene radnje */
   return 1;
 }
 
@@ -87,7 +86,7 @@ char *vrh_steka(Cvor * vrh)
 
 void prikazi_stek(Cvor * vrh)
 {
-  /* Ispisuje se spisak etiketa na steku od vrha ka dnu. */
+  /* Ispis spisak etiketa na steku od vrha ka dnu. */
   for (; vrh != NULL; vrh = vrh->sledeci)
     printf("<%s>\n", vrh->etiketa);
 }

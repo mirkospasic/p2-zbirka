@@ -230,7 +230,8 @@ int main(int argc, char **argv)
      pretrage uz proveru uspesnosti dodavanja */
   while (procitaj_kontakt(f, ime_i_prezime, telefon) != EOF)
     if (dodaj_u_stablo(&koren, ime_i_prezime, telefon) == 1) {
-      fprintf(stderr, "Greska: Neuspelo dodavanje podataka za osobu %s.\n",
+      fprintf(stderr,
+              "Greska: Neuspelo dodavanje podataka za osobu %s.\n",
               ime_i_prezime);
       oslobodi_stablo(&koren);
       exit(EXIT_FAILURE);

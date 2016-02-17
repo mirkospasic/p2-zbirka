@@ -14,7 +14,7 @@ void oslobodi_stek(Cvor ** stek)
   Cvor *tekuci;
   Cvor *pomocni;
 
-  /* Oslobadja se cvor po cvor steka */
+  /* Oslobadjanje memorije */
   tekuci = *stek;
   while (tekuci != NULL) {
     pomocni = tekuci->sledeci;
@@ -39,23 +39,22 @@ int main()
   ulaz = fopen("izraz.txt", "r");
   if (ulaz == NULL) {
     fprintf(stderr,
-            "Greska prilikom otvaranja datoteke izraz.txt!\n");
+            "Greska: Neuspesno otvaranje datoteke izraz.txt!\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Cita se karakter po karakter iz datoteke dok se ne dodje do
-     kraja */
+  /* Citanje datoteke, karakter po karakter, dok se ne procita cela */
   while ((c = fgetc(ulaz)) != EOF) {
     /* Ako je ucitana otvorena zagrada, stavlja se na stek */
     if (c == '(' || c == '{' || c == '[') {
-      /* Alocira se memorija za novi cvor liste i proverava se
-         uspesnost alokacije */
+      /* Alokacija memorije za novi cvor uz proveru uspesnosti
+         alokacije */
       pomocni = (Cvor *) malloc(sizeof(Cvor));
       if (pomocni == NULL) {
-        fprintf(stderr, "Greska prilikom alokacije memorije!\n");
-        /* Oslobadja se memorija zauzeta stekom */
+        fprintf(stderr, "Greska: Neuspesna alokacija memorije!\n");
+        /* Oslobadjanje memorije zauzete stekom */
         oslobodi_stek(&stek);
-        /* I prekida se sa izvrsavanjem programa */
+        /* Prekid izvrsavanja programa */
         exit(EXIT_FAILURE);
       }
 
@@ -96,7 +95,7 @@ int main()
   else {
     /* U suprotnom se zakljucuje da zagrade nisu ispravno uparene */
     printf("Zagrade nisu ispravno uparene.\n");
-    /* Oslobadja se memorija koja je ostala zauzeta stekom */
+    /* Oslobadjanje memorije koja je ostala zauzeta stekom */
     oslobodi_stek(&stek);
   }
 

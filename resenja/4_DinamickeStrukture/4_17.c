@@ -168,7 +168,8 @@ int main(int argc, char **argv)
                 &matematika, &jezik) != EOF) {
     if (dodaj_u_stablo(&koren, ime, prezime, uspeh, matematika, jezik)
         == 1) {
-      fprintf(stderr, "Greska: Neuspelo dodavanje podataka za %s %s.\n", ime,
+      fprintf(stderr,
+              "Greska: Neuspelo dodavanje podataka za %s %s.\n", ime,
               prezime);
       oslobodi_stablo(&koren);
       exit(EXIT_FAILURE);

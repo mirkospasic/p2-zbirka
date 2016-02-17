@@ -191,7 +191,8 @@ int main(int argc, char **argv)
   while (fscanf
          (in, "%s %s %d.%d.", ime, prezime, &dan, &mesec) != EOF)
     if (dodaj_u_stablo(&koren, ime, prezime, dan, mesec) == 1) {
-      fprintf(stderr, "Greska: Neuspelo dodavanje podataka za %s %s.\n", ime,
+      fprintf(stderr,
+              "Greska: Neuspelo dodavanje podataka za %s %s.\n", ime,
               prezime);
       oslobodi_stablo(&koren);
       exit(EXIT_FAILURE);

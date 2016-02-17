@@ -18,8 +18,7 @@ typedef struct _Cvor {
    novi cvor ili NULL ukoliko je doslo do greske */
 Cvor *napravi_cvor(char *broj_indeksa, char *ime, char *prezime)
 {
-  /* Alocira se memorija za novi cvor liste i proverava se uspesnost
-     alokacije */
+  /* Alokacija memorije za novi cvor uz proveru uspesnosti alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -30,7 +29,7 @@ Cvor *napravi_cvor(char *broj_indeksa, char *ime, char *prezime)
   strcpy(novi->prezime, prezime);
   novi->sledeci = NULL;
 
-  /* Vraca se adresa novog cvora */
+  /* Vracanje adrese novog cvora */
   return novi;
 }
 
@@ -44,10 +43,10 @@ void oslobodi_listu(Cvor ** adresa_glave)
   /* Rekurzivnim pozivom se oslobadja rep liste */
   oslobodi_listu(&(*adresa_glave)->sledeci);
 
-  /* Potom se oslobadja i glava liste */
+  /* Oslobadjanje i glave liste */
   free(*adresa_glave);
 
-  /* Proglasava se lista praznom */
+  /* Proglasanje liste praznom */
   *adresa_glave = NULL;
 }
 
@@ -56,16 +55,16 @@ void oslobodi_listu(Cvor ** adresa_glave)
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, char *broj_indeksa,
                            char *ime, char *prezime)
 {
-  /* Kreira se novi cvor i proverava se uspesnost alokacije */
+  /* Kreiranje novog cvora uz proveru uspesnost alokacije */
   Cvor *novi = napravi_cvor(broj_indeksa, ime, prezime);
   if (novi == NULL)
     return 1;
 
-  /* Dodaje se novi cvor na pocetak liste */
+  /* Dodavanje novog cvora na pocetak liste */
   novi->sledeci = *adresa_glave;
   *adresa_glave = novi;
 
-  /* Vraca se indikator uspesnog dodavanja */
+  /* Vracanje indikatora uspesnog dodavanja */
   return 0;
 }
 
@@ -86,7 +85,8 @@ Cvor *pretrazi_listu(Cvor * glava, char *broj_indeksa)
   if (glava == NULL)
     return NULL;
 
-  /* Poredi se trazeni broj indeksa sa brojem indeksa u glavi liste */
+  /* Poredjenje trazenog broja indeksa sa brojem indeksa u glavi
+     liste */
   if (!strcmp(glava->broj_indeksa, broj_indeksa))
     return glava;
 
@@ -102,7 +102,7 @@ int main(int argc, char **argv)
      dobija ime datoteke sa informacijama o studentima */
   if (argc != 2) {
     fprintf(stderr,
-            "Greska! Program se poziva sa: ./a.out ime_datoteke\n");
+            "Greska: Program se poziva sa: ./a.out ime_datoteke\n");
     exit(EXIT_FAILURE);
   }
 
@@ -111,12 +111,12 @@ int main(int argc, char **argv)
   in = fopen(argv[1], "r");
   if (in == NULL) {
     fprintf(stderr,
-            "Greska prilikom otvaranja datoteke %s.\n", argv[1]);
+            "Greska: Neuspesno otvaranje datoteke %s.\n", argv[1]);
     exit(EXIT_FAILURE);
   }
 
-  /* Pomocne promenljive za citanje vrednosti koje treba smestiti u
-     listu */
+  /* Deklaracije pomocnih promenljiva za citanje vrednosti koje treba 
+     smestiti u listu */
   char ime[MAX_IME_PREZIME], prezime[MAX_IME_PREZIME];
   char broj_indeksa[MAX_INDEKS];
   Cvor *glava = NULL;
@@ -125,15 +125,16 @@ int main(int argc, char **argv)
   /* Ucitavanje vrednosti u listu */
   while (fscanf(in, "%s %s %s", broj_indeksa, ime, prezime) != EOF)
     if (dodaj_na_pocetak_liste(&glava, broj_indeksa, ime, prezime)) {
-      fprintf(stderr, "Neuspela alokacija za nov cvor\n");
+      fprintf(stderr,
+              "Greska: Neuspesna alokacija memorije za nov cvor\n");
       oslobodi_listu(&glava);
       exit(EXIT_FAILURE);
     }
 
-  /* Datoteka vise nije potrebna i zatvara se. */
+  /* Zatvaranje datoteke, jer vise nije potrebna */
   fclose(in);
 
-  /* Ucitava se indeks po indeks studenta koji se trazi u listi. */
+  /* Ucitavanje indeks po indeks studenata koji se traze u listi. */
   while (scanf("%s", broj_indeksa) != EOF) {
     trazeni = pretrazi_listu(glava, broj_indeksa);
     if (trazeni == NULL)
@@ -142,7 +143,7 @@ int main(int argc, char **argv)
       printf("da: %s %s\n", trazeni->ime, trazeni->prezime);
   }
 
-  /* Oslobadja se memorija zauzeta za cvorove liste. */
+  /* Oslobadjanje memorije zauzete za cvorove liste. */
   oslobodi_listu(&glava);
 
   exit(EXIT_SUCCESS);

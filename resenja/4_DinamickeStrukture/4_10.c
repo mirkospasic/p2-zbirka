@@ -20,7 +20,7 @@ int main(int argc, char **argv)
   printf("Sluzbenik evidentira korisnicke zahteve:\n");
   while (1) {
 
-    /* Ucitava se JMBG */
+    /* Ucitavanje JMBG broja */
     printf("\nNovi zahtev [CTRL+D za kraj]\n\tJMBG: ");
     if (scanf("%s", nov_zahtev.jmbg) == EOF)
       break;
@@ -30,16 +30,17 @@ int main(int argc, char **argv)
        ispravan red sa opisom zahteva */
     getchar();
 
-    /* Ucitava se opis problema */
+    /* Ucitavanje opisa problema */
     printf("\tOpis problema: ");
     fgets(nov_zahtev.opis, MAX - 1, stdin);
     /* Ako je poslednji karakter nov red, eliminise se */
     if (nov_zahtev.opis[strlen(nov_zahtev.opis) - 1] == '\n')
       nov_zahtev.opis[strlen(nov_zahtev.opis) - 1] = '\0';
 
-    /* Dodaje se zahtev u red i proverava se uspesnost dodavanja */
+    /* Dodavanje zahteva u red uz proveru uspesnosti dodavanja */
     if (dodaj_u_red(&pocetak, &kraj, &nov_zahtev) == 1) {
-      fprintf(stderr, "Neuspela alokacija za nov cvor\n");
+      fprintf(stderr,
+              "Greska: Neuspesna alokacija memorije za nov cvor\n");
       oslobodi_red(&pocetak, &kraj);
       exit(EXIT_FAILURE);
     }
@@ -48,7 +49,8 @@ int main(int argc, char **argv)
   /* Otvaranje datoteke za dopisivanje izvestaja */
   FILE *izlaz = fopen("izvestaj.txt", "a");
   if (izlaz == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje datoteke izvestaj.txt\n");
+    fprintf(stderr,
+            "Greska: Neuspesno otvaranje datoteke izvestaj.txt\n");
     exit(EXIT_FAILURE);
   }
 
@@ -87,7 +89,8 @@ int main(int argc, char **argv)
   }
 
   /******************************************************************
-    Usluzivanje korisnika moze da se izvrsi i na sledeci nacin:
+    Usluzivanje korisnika moze da se izvrsi i na sledeci nacin: */
+  /******************************************************************
     
     while (skini_sa_reda(&pocetak, &kraj, &nov_zahtev)) {
       printf("\nSledeci je korisnik sa JMBG brojem: %s\n",

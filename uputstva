@@ -23,7 +23,7 @@ Ako negde strci test primer onda:
 a) proveriti da li tekst test primera moze malo da se preformatira tako da test primer ne strci (npr da se ulaz prebaci u novi red tj doda \n nakon printf ili da se printf prelomi drugacije sa \n) npr 1.27, 2.4, 2.7, 2.8, 2.11, 2.13...
 b) ako pod a nije moguce, onda uzeti veci test i podesiti drugaciji prelom za testove
 
-(Andjelka, Mirko, Ana, Nina, Jelena, Milena)
+(Andjelka, Mirko, Nina, Jelena, Milena)
 
 
 -2. Izbrisati sve prazne redove viska! (Andjelka, Milena)

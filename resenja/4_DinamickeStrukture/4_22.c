@@ -168,8 +168,8 @@ Cvor *najveci_element_na_itom_nivou(Cvor * koren, int i)
     return b;
   if (b == NULL)
     return a;
-  /* Ako su obe vrednosti razlicite od NULL, veca od vrednosti se nalazi u b
-cvoru jer je stablo pretrazivacko */
+  /* Ako su obe vrednosti razlicite od NULL, veca od vrednosti se
+     nalazi u b cvoru jer je stablo pretrazivacko */
   return b;
 }
 

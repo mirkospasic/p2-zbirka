@@ -16,8 +16,7 @@ typedef struct _Cvor {
    ili NULL ako alokacija nije uspesno izvrsena */
 Cvor *napravi_cvor(unsigned br, char *etiketa)
 {
-  /* Alocira se memorija za novi cvor liste i proverava se uspesnost
-     alokacije */
+  /* Alokacija memorije za novi cvor uz proveru uspesnosti alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -27,7 +26,7 @@ Cvor *napravi_cvor(unsigned br, char *etiketa)
   strcpy(novi->etiketa, etiketa);
   novi->sledeci = NULL;
 
-  /* Vraca se adresa novog cvora */
+  /* Vracanje adrese novog cvora */
   return novi;
 }
 
@@ -52,16 +51,16 @@ void oslobodi_listu(Cvor ** adresa_glave)
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, unsigned br,
                            char *etiketa)
 {
-  /* Kreira se novi cvor i proverava se uspesnost alokacije */
+  /* Kreiranje novog cvora uz proveru uspesnost alokacije */
   Cvor *novi = napravi_cvor(br, etiketa);
   if (novi == NULL)
     return 1;
 
-  /* Dodaje se novi cvor na pocetak liste */
+  /* Dodavanje novog cvora na pocetak liste */
   novi->sledeci = *adresa_glave;
   *adresa_glave = novi;
 
-  /* Vraca se indikator uspesnog dodavanja */
+  /* Vracanje indikator uspesnog dodavanja */
   return 0;
 }
 
@@ -71,7 +70,7 @@ Cvor *pretrazi_listu(Cvor * glava, char etiketa[])
 {
   Cvor *tekuci;
 
-  /* Obilazi se cvor po cvor liste */
+  /* Obilazenje liste cvor po cvor */
   for (tekuci = glava; tekuci != NULL; tekuci = tekuci->sledeci)
     /* Ako tekuci cvor sadrzi trazenu etiketu, vraca se njegova
        vrednost */
@@ -94,11 +93,10 @@ void ispisi_listu(Cvor * glava)
 /* Glavni program */
 int main(int argc, char **argv)
 {
-  /* Provera se da li je program pozvan sa ispravnim brojem
-     argumenata. */
+  /* Provera da li je program pozvan sa ispravnim brojem argumenata. */
   if (argc != 2) {
     fprintf(stderr,
-            "Greska! Program se poziva sa: ./a.out datoteka.html!\n");
+            "Greska: Program se poziva sa: ./a.out datoteka.html!\n");
     exit(EXIT_FAILURE);
   }
 
@@ -107,7 +105,7 @@ int main(int argc, char **argv)
   in = fopen(argv[1], "r");
   if (in == NULL) {
     fprintf(stderr,
-            "Greska prilikom otvaranja datoteke %s!\n", argv[1]);
+            "Greska: Neuspesno otvaranje datoteke %s!\n", argv[1]);
     exit(EXIT_FAILURE);
   }
 
@@ -117,19 +115,17 @@ int main(int argc, char **argv)
   Cvor *glava = NULL;
   Cvor *trazeni = NULL;
 
-  /* Cita se karakter po karakter datoteke sve dok se ne procita cela 
-     datoteka */
+  /* Citanje datoteke, karakter po karakter, dok se ne procita cela */
   while ((c = fgetc(in)) != EOF) {
-
-    /* Proverava se da li se pocinje sa citanjem nove etikete */
+    /* Provera da li se pocinje sa citanjem nove etikete */
     if (c == '<') {
-      /* Proverava se da li se cita zatvarajuca etiketa */
+      /* Proverava da li se cita zatvarajuca etiketa */
       if ((c = fgetc(in)) == '/') {
         i = 0;
         while ((c = fgetc(in)) != '>')
           procitana[i++] = c;
       }
-      /* Cita se otvarajuca etiketa */
+      /* Citanje otvarajuca etiketa */
       else {
         i = 0;
         procitana[i++] = c;
@@ -141,11 +137,12 @@ int main(int argc, char **argv)
       /* Trazi se procitana etiketa medju postojecim cvorovima liste.
          Ukoliko ne postoji, dodaje se novi cvor za ucitanu etiketu sa 
          brojem pojavljivanja 1. Inace se uvecava broj pojavljivanja
-         etikete */
+         etikete. */
       trazeni = pretrazi_listu(glava, procitana);
       if (trazeni == NULL) {
         if (dodaj_na_pocetak_liste(&glava, 1, procitana) == 1) {
-          fprintf(stderr, "Neuspela alokacija za nov cvor\n");
+          fprintf(stderr,
+                  "Greska: Neuspesna alokacija memorije za nov cvor\n");
           oslobodi_listu(&glava);
           exit(EXIT_FAILURE);
         }
@@ -157,10 +154,10 @@ int main(int argc, char **argv)
   /* Zatvaranje datoteke */
   fclose(in);
 
-  /* Ispisuje se sadrzaj cvorova liste */
+  /* Ispisivanje sadrzaja cvorova liste */
   ispisi_listu(glava);
 
-  /* Oslobadja se memorija zauzeta listom */
+  /* Oslobadjanje memorije zauzete listom */
   oslobodi_listu(&glava);
 
   exit(EXIT_SUCCESS);
