@@ -9,7 +9,6 @@
    ukoliko je doslo do greske */
 int kreiraj_hip(Cvor ** adresa_korena)
 {
-
   /* Stablo se proglasava praznim */
   *adresa_korena = NULL;
 
@@ -36,7 +35,6 @@ int kreiraj_hip(Cvor ** adresa_korena)
 
   /* Vraca se indikator uspesnog kreiranja */
   return 0;
-
 }
 
 /* Funkcija proverava da li je zadato binarno stablo celih
@@ -61,8 +59,8 @@ int hip(Cvor * koren)
     /* Vraca se njegova vrednost */
     return koren->broj;
   }
-  /* Inace... */
 
+  /* Inace... */
   /* Proverava se svojstvo za levo podstablo */
   max_levo = hip(koren->levo);
 
@@ -90,14 +88,12 @@ int main(int argc, char **argv)
   Cvor *koren;
   int hip_indikator;
 
-
   /* Kreira se stablo prema zadatoj slici */
   if (kreiraj_hip(&koren) == 1) {
     fprintf(stderr, "Greska: Neuspesno kreiranje hipa.\n");
     oslobodi_stablo(&koren);
     exit(EXIT_FAILURE);
   }
-
 
   /* Poziva se funkcija kojom se proverava da li je stablo hip */
   hip_indikator = hip(koren);
