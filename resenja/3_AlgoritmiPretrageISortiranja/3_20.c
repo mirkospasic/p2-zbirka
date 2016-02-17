@@ -25,8 +25,8 @@ void sort_ime(Gradjanin a[], int n)
     for (j = i + 1; j < n; j++)
       if (strcmp(a[j].ime, a[min].ime) < 0)
         min = j;
-    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi samo ako 
-       su (i) i min razliciti, inace je nepotrebno. */
+    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi samo
+       ako su (i) i min razliciti, inace je nepotrebno. */
     if (min != i) {
       pom = a[i];
       a[i] = a[min];
@@ -49,8 +49,8 @@ void sort_prezime(Gradjanin a[], int n)
     for (j = i + 1; j < n; j++)
       if (strcmp(a[j].prezime, a[min].prezime) < 0)
         min = j;
-    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi samo ako 
-       su (i) i min razliciti, inace je nepotrebno. */
+    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi samo
+       ako su (i) i min razliciti, inace je nepotrebno. */
     if (min != i) {
       pom = a[i];
       a[i] = a[min];

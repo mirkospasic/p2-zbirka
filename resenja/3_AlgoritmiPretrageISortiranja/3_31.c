@@ -13,8 +13,8 @@ int poredi_int(const void *a, const void *b)
   int b1 = *((int *) a);
   int b2 = *((int *) b);
 
-  /* Zbog moguceg prekoracenja opsega celih brojeva, oduzimanje b1-b2 
-     treba izbegavati */
+  /* Zbog moguceg prekoracenja opsega celih brojeva, oduzimanje
+     b1-b2 treba izbegavati */
   if (b1 > b2)
     return 1;
   else if (b1 < b2)
@@ -26,8 +26,8 @@ int poredi_int(const void *a, const void *b)
 /* Funkcija poredjenja dva cela broja (nerastuci poredak) */
 int poredi_int_nerastuce(const void *a, const void *b)
 {
-  /* Za obrnuti poredak treba samo promeniti znak vrednosti koju koju
-     vraca prethodna funkcija */
+  /* Za obrnuti poredak treba samo promeniti znak vrednosti koju
+     koju vraca prethodna funkcija */
   return -poredi_int(a, b);
 }
 

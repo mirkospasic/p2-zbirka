@@ -12,7 +12,8 @@ int main(int argc, char *argv[])
 
   /* Ako nema dovoljno arguemenata komandne linije */
   if (argc < 3) {
-    fprintf(stderr, "koriscenje programa: %s fajl1 fajl2\n", argv[0]);
+    fprintf(stderr, "koriscenje programa: %s fajl1 fajl2\n",
+            argv[0]);
     exit(EXIT_FAILURE);
   }
 
@@ -68,8 +69,8 @@ int main(int argc, char *argv[])
 
   /* Ako se iz prethodne petlje izaslo zato sto je dostignut kraj
      druge datoteke, onda ima jos studenata u prvoj datoteci, koje
-     treba prepisati u izlaznu, redom, jer su vec sortirani po imenu. 
-   */
+     treba prepisati u izlaznu, redom, jer su vec sortirani po
+     imenu. */
   while (!kraj1) {
     fprintf(fout, "%s %s\n", ime1, prezime1);
     if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)

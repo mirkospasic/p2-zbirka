@@ -9,8 +9,8 @@
 /* Naredne tri funkcije koje vrse pretragu, ukoliko se trazeni
    element pronadje u nizu, vracaju indeks pozicije na kojoj je
    element pronadjen. Ovaj indeks je uvek nenegativan. Ako element
-   nije pronadjen u nizu, funkcije vracaju negativnu vrednost -1, kao
-   indikator neuspesne pretrage. */
+   nije pronadjen u nizu, funkcije vracaju negativnu vrednost -1,
+   kao indikator neuspesne pretrage. */
 
 /* Linearna pretraga: Funkcija pretrazuje niz a[] celih brojeva
    duzine n, trazeci u njemu prvo pojavljivanje elementa x. Pretraga
@@ -45,8 +45,8 @@ int binarna_pretraga(int a[], int n, int x)
     else if (x > a[srednji])
       levi = srednji + 1;
     else
-      /* Ako je element sa sredisnjim indeksom jednak x, tada je broj
-         x pronadjen na poziciji srednji */
+      /* Ako je element sa sredisnjim indeksom jednak x, tada je
+         broj x pronadjen na poziciji srednji */
       return srednji;
   }
   /* Ako element x nije pronadjen, vraca se -1 */
@@ -72,11 +72,11 @@ int interpolaciona_pretraga(int a[], int n, int x)
     if (x < a[levi] || x > a[desni])
       return -1;
     /* U suprotnom, x je izmedju a[levi] i a[desni], pa ako su
-       a[levi] i a[desni] jednaki, tada je jasno da je trazeni broj x 
-       jednak ovim vrednostima, pa se vraca indeks levi (ili indeks
-       desni). Ova provera je neophodna, jer bi se u suprotnom
-       prilikom izracunavanja indeksa srednji pojavilo deljenje
-       nulom. */
+       a[levi] i a[desni] jednaki, tada je jasno da je trazeni broj
+       x jednak ovim vrednostima, pa se vraca indeks levi (ili
+       indeks desni). Ova provera je neophodna, jer bi se u
+       suprotnom prilikom izracunavanja indeksa srednji pojavilo
+       deljenje nulom. */
     else if (a[levi] == a[desni])
       return levi;
     /* Racunanje srednjeg indeksa */

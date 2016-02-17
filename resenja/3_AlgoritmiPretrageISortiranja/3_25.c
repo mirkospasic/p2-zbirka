@@ -21,8 +21,8 @@ int uporedi_gledanost(const void *pp1, const void *pp2)
   return p2->broj_gledanja - p1->broj_gledanja;
 }
 
-/* Funkcija za uporedjivanje pesama po naslovu (potrebna za rad qsort 
-   funkcije) */
+/* Funkcija za uporedjivanje pesama po naslovu (potrebna za rad
+   qsort funkcije) */
 int uporedi_naslove(const void *pp1, const void *pp2)
 {
   Pesma *p1 = (Pesma *) pp1;
@@ -52,8 +52,8 @@ int main(int argc, char *argv[])
   int n;                        /* Ukupan broj pesama */
   int j, k;
   char c;
-  int alocirano;                /* Broj mesta alociranih za propratne 
-                                   informacije o pesmama */
+  int alocirano;                /* Broj mesta alociranih za
+                                   propratne informacije o pesmama */
   int broj_gledanja;
 
   /* Priprema datoteke za citanje */
@@ -112,8 +112,8 @@ int main(int argc, char *argv[])
     pesme[i].izvodjac = NULL;   /* Memorija za smestanje procitanih
                                    karaktera */
 
-    /* Sve do prve beline u liniji (beline koja se nalazi nakon imena 
-       izvodjaca) citaju se karakteri iz datoteke */
+    /* Sve do prve beline u liniji (beline koja se nalazi nakon
+       imena izvodjaca) citaju se karakteri iz datoteke */
     while ((c = fgetc(ulaz)) != ' ') {
       /* Provera da li postoji dovoljno memorije za smestanje
          procitanog karaktera */
@@ -191,7 +191,8 @@ int main(int argc, char *argv[])
           return 0;
         }
       }
-      /* Ako postoji dovoljno memorije, smesta se procitani karakter */
+      /* Ako postoji dovoljno memorije, smesta se procitani karakter 
+       */
       pesme[i].naslov[j] = c;
       j++;
       /* I nastavlja dalje sa citanjem */
@@ -205,8 +206,8 @@ int main(int argc, char *argv[])
     /* Cita se broj gledanja */
     broj_gledanja = 0;
 
-    /* Sve do znaka za novi red (kraja linije) citaju se karakteri iz 
-       datoteke */
+    /* Sve do znaka za novi red (kraja linije) citaju se karakteri
+       iz datoteke */
     while ((c = fgetc(ulaz)) != '\n') {
       broj_gledanja = broj_gledanja * 10 + (c - '0');
     }

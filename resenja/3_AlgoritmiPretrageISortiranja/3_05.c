@@ -16,8 +16,8 @@ float rastojanje(Tacka A)
   return sqrt(A.x * A.x + A.y * A.y);
 }
 
-/* Funkcija koja pronalazi tacku najblizu koordinatnom pocetku u nizu 
-   zadatih tacaka t dimenzije n */
+/* Funkcija koja pronalazi tacku najblizu koordinatnom pocetku u
+   nizu zadatih tacaka t dimenzije n */
 Tacka najbliza_koordinatnom(Tacka t[], int n)
 {
   Tacka najbliza;
@@ -31,8 +31,8 @@ Tacka najbliza_koordinatnom(Tacka t[], int n)
   return najbliza;
 }
 
-/* Funkcija koja pronalazi tacku najblizu x osi u nizu zadatih tacaka 
-   t dimenzije n */
+/* Funkcija koja pronalazi tacku najblizu x osi u nizu zadatih
+   tacaka t dimenzije n */
 Tacka najbliza_x_osi(Tacka t[], int n)
 {
 
@@ -47,8 +47,8 @@ Tacka najbliza_x_osi(Tacka t[], int n)
   return najbliza;
 }
 
-/* Funkcija koja pronalazi tacku najblizu y osi u nizu zadatih tacaka 
-   t dimenzije n */
+/* Funkcija koja pronalazi tacku najblizu y osi u nizu zadatih
+   tacaka t dimenzije n */
 Tacka najbliza_y_osi(Tacka t[], int n)
 {
   Tacka najbliza;
@@ -95,13 +95,13 @@ int main(int argc, char *argv[])
   }
   n = i;
 
-  /* Proverava se koji su dodatni argumenti komandne linije. Ako nema 
-     dodatnih argumenata */
+  /* Proverava se koji su dodatni argumenti komandne linije. Ako
+     nema dodatnih argumenata */
   if (argc == 2)
     /* Trazi se najbliza tacka u odnosu na koordinatni pocetak */
     najbliza = najbliza_koordinatnom(tacke, n);
-  /* Inace proverava se koji je dodatni argument prosledjen. Ako je u
-     pitanju opcija -x */
+  /* Inace proverava se koji je dodatni argument prosledjen. Ako je
+     u pitanju opcija -x */
   else if (strcmp(argv[2], "-x") == 0)
     /* Racuna se rastojanje u odnosu na x osu */
     najbliza = najbliza_x_osi(tacke, n);

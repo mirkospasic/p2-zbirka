@@ -20,8 +20,8 @@ int uporedi_poeni(const void *a, const void *b)
   return s.poeni - t.poeni;
 }
 
-/* Funkcija poredi studente prvo prema godini, zatim prema smeru i na 
-   kraju prema indeksu */
+/* Funkcija poredi studente prvo prema godini, zatim prema smeru i
+   na kraju prema indeksu */
 int uporedi_nalog(const void *a, const void *b)
 {
   Student s = *(Student *) a;
@@ -60,10 +60,11 @@ int uporedi_bsearch(const void *a, const void *b)
   char smer1 = nalog[1];
   char smer2 = s.nalog[1];
   int indeks1 =
-      (nalog[4] - '0') * 100 + (nalog[5] - '0') * 10 + nalog[6] - '0';
+      (nalog[4] - '0') * 100 + (nalog[5] - '0') * 10 + (nalog[6] -
+                                                        '0');
   int indeks2 =
       (s.nalog[4] - '0') * 100 + (s.nalog[5] - '0') * 10 +
-      s.nalog[6] - '0';
+      (s.nalog[6] - '0');
   if (godina1 != godina2)
     return godina1 - godina2;
   else if (smer1 != smer2)

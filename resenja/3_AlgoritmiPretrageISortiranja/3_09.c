@@ -12,11 +12,11 @@ int prvi_manji_od_nule(int niz[], int n)
   while (l <= d) {
     /* Racuna se sredisnja pozicija */
     s = (l + d) / 2;
-    /* Ako je broj na toj poziciji manji od nule, a eventualni njegov 
-       prethodnik veci ili jednak nuli, pretraga se zavrsava */
+    /* Ako je broj na toj poziciji manji od 0, a eventualni njegov
+       prethodnik veci ili jednak 0, pretraga se zavrsava */
     if (niz[s] < 0 && ((s > 0 && niz[s - 1] >= 0) || s == 0))
       return s;
-    /* Ako je broj veci ili jednak nuli, pretrazuje se desna polovina
+    /* Ako je broj veci ili jednak 0, pretrazuje se desna polovina
        niza */
     if (niz[s] >= 0)
       l = s + 1;

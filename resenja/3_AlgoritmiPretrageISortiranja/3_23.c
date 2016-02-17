@@ -32,8 +32,8 @@ int binarna_pretraga(Artikal a[], int n, long x)
     else if (x > a[srednji].kod)
       levi = srednji + 1;
     else
-      /* Ako je sredisnji element jednak trazenom, tada je artikal sa 
-         bar kodom x pronadjen na poziciji srednji */
+      /* Ako je sredisnji element jednak trazenom, tada je artikal
+         sa bar kodom x pronadjen na poziciji srednji */
       return srednji;
   }
   /* Ako nije pronadjen artikal za trazenim bar kodom, vraca se -1 */
@@ -133,8 +133,8 @@ int main()
         /* I dodavanje na ukupan racun */
         racun += asortiman[i].cena;
       }
-      /* Unos bar koda sledeceg artikla trenutnog kupca, ili 0 ako on 
-         nema vise artikla */
+      /* Unos bar koda sledeceg artikla trenutnog kupca, ili 0 ako
+         on nema vise artikla */
       printf("Unesite kod artikla [ili 0 za prekid]: \t");
       scanf("%ld", &kod);
       if (kod == 0)

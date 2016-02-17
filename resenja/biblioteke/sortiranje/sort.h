@@ -40,18 +40,18 @@ void bubble_sort(int a[], int n);
 
 /* Selsort: Ovaj algoritam je jednostavno prosirenje sortiranja
    umetanjem koje dopusta direktnu razmenu udaljenih elemenata.
-   Prosirenje se sastoji u tome da se kroz algoritam umetanja prolazi 
-   vise puta; u prvom prolazu, umesto koraka 1 uzima se neki korak h
-   koji je manji od n (sto omogucuje razmenu udaljenih elemenata) i
-   tako se dobija h-sortiran niz, tj. niz u kome su elementi na
-   rastojanju h sortirani, mada susedni elementi to ne moraju biti. U 
-   drugom prolazu kroz isti algoritam sprovodi se isti postupak ali
-   za manji korak h. Sa prolazima se nastavlja sve do koraka h = 1, u 
-   kome se dobija potpuno sortirani niz. Izbor pocetne vrednosti za
-   h, i nacina njegovog smanjivanja menja u nekim slucajevima brzinu
-   algoritma, ali bilo koja vrednost ce rezultovati ispravnim
-   sortiranjem, pod uslovom da je u poslednjoj iteraciji h imalo
-   vrednost 1. */
+   Prosirenje se sastoji u tome da se kroz algoritam umetanja
+   prolazi vise puta; u prvom prolazu, umesto koraka 1 uzima se neki 
+   korak h koji je manji od n (sto omogucuje razmenu udaljenih
+   elemenata) i tako se dobija h-sortiran niz, tj. niz u kome su
+   elementi na rastojanju h sortirani, mada susedni elementi to ne
+   moraju biti. U drugom prolazu kroz isti algoritam sprovodi se
+   isti postupak ali za manji korak h. Sa prolazima se nastavlja sve 
+   do koraka h = 1, u kome se dobija potpuno sortirani niz. Izbor
+   pocetne vrednosti za h, i nacina njegovog smanjivanja menja u
+   nekim slucajevima brzinu algoritma, ali bilo koja vrednost ce
+   rezultovati ispravnim sortiranjem, pod uslovom da je u poslednjoj 
+   iteraciji h imalo vrednost 1. */
 void shell_sort(int a[], int n);
 
 /* Merge sort: Funkcija sortira niz celih brojeva a[] ucesljavanjem.
@@ -66,15 +66,15 @@ void shell_sort(int a[], int n);
    originalni niz. */
 void merge_sort(int a[], int l, int d);
 
-/* Quick sort: Funkcija sortira deo niza brojeva a izmedju pozicija l 
-   i d. Njena ideja sortiranja je izbor jednog elementa niza, koji se 
-   naziva pivot, i koji se dovodi na svoje mesto. Posle ovog koraka,
-   svi elementi levo od njega bice manji, a svi desno bice veci od
-   njega. Kako je pivot doveden na svoje mesto, da bi niz bio
-   kompletno sortiran, potrebno je sortirati elemente levo (manje) od 
-   njega, i elemente desno (vece). Kako su dimenzije ova dva podniza
-   manje od dimenzije pocetnog niza koji je trebalo sortirati, ovaj
-   deo moze se uraditi rekurzivno. */
+/* Quick sort: Funkcija sortira deo niza brojeva a izmedju pozicija
+   l i d. Njena ideja sortiranja je izbor jednog elementa niza, koji 
+   se naziva pivot, i koji se dovodi na svoje mesto. Posle ovog
+   koraka, svi elementi levo od njega bice manji, a svi desno bice
+   veci od njega. Kako je pivot doveden na svoje mesto, da bi niz
+   bio kompletno sortiran, potrebno je sortirati elemente levo
+   (manje) od njega, i elemente desno (vece). Kako su dimenzije ova
+   dva podniza manje od dimenzije pocetnog niza koji je trebalo
+   sortirati, ovaj deo moze se uraditi rekurzivno. */
 void quick_sort(int a[], int l, int d);
 
 #endif

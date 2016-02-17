@@ -30,9 +30,9 @@ int poredi1(const void *a, const void *b)
     return strcmp(prvi->prezime, drugi->prezime);
 }
 
-/* Funkcija za poredjenje koja se koristi u pretrazi po broju bodova.
-   Prvi parametar je ono sto se trazi u nizu (broj bodova), a drugi
-   parametar je element niza ciji se bodovi porede. */
+/* Funkcija za poredjenje koja se koristi u pretrazi po broju
+   bodova. Prvi parametar je ono sto se trazi u nizu (broj bodova),
+   a drugi parametar je element niza ciji se bodovi porede. */
 int poredi2(const void *a, const void *b)
 {
   int bodovi = *(int *) a;

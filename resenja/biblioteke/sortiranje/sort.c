@@ -20,8 +20,8 @@ void selection_sort(int a[], int n)
       if (a[j] < a[min])
         min = j;
 
-    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi samo ako 
-       su (i) i min razliciti, inace je nepotrebno. */
+    /* Zamena elemenata na pozicijama (i) i min. Ovo se radi samo
+       ako su (i) i min razliciti, inace je nepotrebno. */
     if (min != i) {
       pom = a[i];
       a[i] = a[min];
@@ -56,9 +56,9 @@ void bubble_sort(int a[], int n)
   int ind;
 
   for (i = n, ind = 1; i > 1 && ind; i--)
-    /* Poput "mehurica" potiskuje se najveci element medju elementima 
-       od a[0] do a[i-1] na poziciju i-1 uporedjujuci susedne
-       elemente niza i potiskujuci veci u desno */
+    /* Poput "mehurica" potiskuje se najveci element medju
+       elementima od a[0] do a[i-1] na poziciju i-1 uporedjujuci
+       susedne elemente niza i potiskujuci veci u desno */
     for (j = 0, ind = 0; j < i - 1; j++)
       if (a[j] > a[j + 1]) {
         int temp = a[j];
@@ -126,14 +126,14 @@ void merge_sort(int a[], int l, int d)
       b[k++] = a[j++];
   }
 
-  /* U slucaju da se prethodna petlja zavrsila izlaskom promenljive j 
-     iz dopustenog opsega u pomocni niz se prepisuje ostatak leve
+  /* U slucaju da se prethodna petlja zavrsila izlaskom promenljive
+     j iz dopustenog opsega u pomocni niz se prepisuje ostatak leve
      polovine niza */
   while (i <= s)
     b[k++] = a[i++];
 
-  /* U slucaju da se prethodna petlja zavrsila izlaskom promenljive i 
-     iz dopustenog opsega u pomocni niz se prepisuje ostatak desne
+  /* U slucaju da se prethodna petlja zavrsila izlaskom promenljive
+     i iz dopustenog opsega u pomocni niz se prepisuje ostatak desne 
      polovine niza */
   while (j <= d)
     b[k++] = a[j++];
@@ -163,9 +163,10 @@ void quick_sort(int a[], int l, int d)
      pivot_pozicija (izuzev same pozicije l) su strogo manji od
      pivota. Kada se pronadje neki element manji od pivota, uvecava
      se promenljiva pivot_pozicija i na tu poziciju se premesta
-     nadjeni element. Na kraju ce pivot_pozicija zaista biti pozicija 
-     na koju treba smestiti pivot, jer ce svi elementi levo od te
-     pozicije biti manji a desno biti veci ili jednaki od pivota. */
+     nadjeni element. Na kraju ce pivot_pozicija zaista biti
+     pozicija na koju treba smestiti pivot, jer ce svi elementi levo 
+     od te pozicije biti manji a desno biti veci ili jednaki od
+     pivota. */
   pivot_pozicija = l;
   for (i = l + 1; i <= d; i++)
     if (a[i] < a[l])

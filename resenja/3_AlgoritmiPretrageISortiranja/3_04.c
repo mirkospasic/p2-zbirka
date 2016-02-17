@@ -41,8 +41,8 @@ int linearna_pretraga_rekurzivna_v2(Student a[], int n, char x[])
   /* Ako je niz prazan, vraca se -1 */
   if (n == 0)
     return -1;
-  /* Kako se trazi prvi student sa trazenim prezimenom, pocinje se sa 
-     prvim studentom u nizu. */
+  /* Kako se trazi prvi student sa trazenim prezimenom, pocinje se
+     sa prvim studentom u nizu. */
   if (strcmp(a[0].prezime, x) == 0)
     return 0;
   int i = linearna_pretraga_rekurzivna_v2(a + 1, n - 1, x);
@@ -73,8 +73,8 @@ int main(int argc, char *argv[])
   char trazeno_prezime[MAX_DUZINA];
   int bin_pretraga;
 
-  /* Provera da li je korisnik prilikom poziva programa prosledio ime 
-     datoteke sa informacijama o studentima i opciju pretrage */
+  /* Provera da li je korisnik prilikom poziva programa prosledio
+     ime datoteke sa informacijama o studentima i opciju pretrage */
   if (argc != 3) {
     fprintf(stderr,
             "Greska: Program se poziva sa %s ime_datoteke opcija\n",

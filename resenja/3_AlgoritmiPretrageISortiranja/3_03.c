@@ -8,8 +8,8 @@
 /* O svakom studentu postoje 3 informacije i one su objedinjene u
    strukturi kojom se predstavlja svaki student. */
 typedef struct {
-  /* Indeks mora biti tipa long jer su podaci u datoteci preveliki za 
-     int, npr. 20140123 */
+  /* Indeks mora biti tipa long jer su podaci u datoteci preveliki
+     za int, npr. 20140123 */
   long indeks;
   char ime[MAX_DUZINA];
   char prezime[MAX_DUZINA];
@@ -72,8 +72,8 @@ int main(int argc, char *argv[])
   char trazeno_prezime[MAX_DUZINA];
   int bin_pretraga;
 
-  /* Provera da li je korisnik prilikom poziva programa prosledio ime 
-     datoteke sa informacijama o studentima i opciju pretrage */
+  /* Provera da li je korisnik prilikom poziva programa prosledio
+     ime datoteke sa informacijama o studentima i opciju pretrage */
   if (argc != 3) {
     fprintf(stderr,
             "Greska: Program se poziva sa %s ime_datoteke opcija\n",
