@@ -240,7 +240,7 @@
   prisutna nijedna opcija. Pretpostaviti da je broj tačaka u datateci
   veći od $0$ i ne veći od $1024$.
   
-\begin{minitest}
+\begin{miditest}
 \begin{test}{1}
 #\poziv{./a.out dat.txt -x}#
 
@@ -254,8 +254,8 @@
 #\naslovIzlaz#
 #\izlaz{-0.3 23}#
 \end{test}
-\end{minitest}
-\begin{minitest}
+\end{miditest}
+\begin{miditest}
 \begin{test}{2}
 #\poziv{./a.out dat.txt}#
   
@@ -269,22 +269,22 @@
 #\naslovIzlaz#
 #\izlaz{-1 2.1}#
 \end{test}
-\end{minitest}
-\begin{minitest}
-\begin{test}{3}.
-#\poziv{./a.out dat.txt -y}#
-
-#\naslovDat{dat.txt}#
-#\datoteka{12 53}#
-#\datoteka{2.342 34.1}#
-#\datoteka{-0.3 0.23}#
-#\datoteka{-1 2.1}#
-#\datoteka{123.5 756.12}#
-  
-#\naslovIzlaz#
-#\izlaz{-0.3 0.23}#
-\end{test}
-\end{minitest}
+\end{miditest}
+%\begin{miditest}
+%\begin{test}{3}.
+%#\poziv{./a.out dat.txt -y}#
+%
+%#\naslovDat{dat.txt}#
+%#\datoteka{12 53}#
+%#\datoteka{2.342 34.1}#
+%#\datoteka{-0.3 0.23}#
+%#\datoteka{-1 2.1}#
+%#\datoteka{123.5 756.12}#
+%  
+%#\naslovIzlaz#
+%#\izlaz{-0.3 0.23}#
+%\end{test}
+%\end{miditest}
 
 \linkresenje{3_05}
 
@@ -1268,19 +1268,20 @@ nisu zadati podaci o više od $128$ dece.
 %-----------------------------------------------------------------
 \begin{Exercise}[label=3_24]
    Napisati program koji iz datoteke \kckod{aktivnost.txt} čita
-   podatke o aktivnostima studenata na praktikumima i u datoteke
-   \kckod{dat1.txt}, \kckod{dat2.txt} i \kckod{dat3.txt} upisuje redom
-   tri spiska. Na prvom su studenti sortirani leksikografski po imenu
-   rastuće. Na drugom su sortirani po ukupnom broju urađenih zadataka
-   opadajuće, a ukoliko neki studenti imaju isti broj rešenih zadataka
-   sortiraju se po dužini imena rastuće. Na trećem spisku kriterijum
-   sortiranja je broj časova na kojima su bili, opadajuće. Ukoliko neki
-   studenti imaju isti broj časova, sortirati ih opadajuće po broju
-   urađenih zadataka, a ukoliko se i on poklapa sortirati po prezimenu
-   opadajuće. U datoteci se nalazi ime, prezime studenta, broj časova
-   na kojima je prisustvovao, kao i ukupan broj urađenih
-   zadataka. Pretpostaviti da studenata neće biti više od $500$ i da
-   je za ime studenta dovoljno $20$, a za prezime $25$ karaktera.
+   podatke o aktivnostima studenata na praktikumima i upisuje tri
+   spiska redom u datoteke \kckod{dat1.txt}, \kckod{dat2.txt} i
+   \kckod{dat3.txt}. Na prvom su studenti sortirani leksikografski po
+   imenu rastuće. Na drugom su sortirani po ukupnom broju urađenih
+   zadataka opadajuće, a ukoliko neki studenti imaju isti broj rešenih
+   zadataka sortiraju se po dužini imena rastuće. Na trećem spisku
+   kriterijum sortiranja je broj časova na kojima su bili,
+   opadajuće. Ukoliko neki studenti imaju isti broj časova, sortirati
+   ih opadajuće po broju urađenih zadataka, a ukoliko se i on poklapa
+   sortirati po prezimenu opadajuće. U datoteci se nalazi ime, prezime
+   studenta, broj časova na kojima je prisustvovao, kao i ukupan broj
+   urađenih zadataka. Pretpostaviti da studenata neće biti više od
+   $500$ i da je za ime studenta dovoljno $20$, a za prezime $25$
+   karaktera.
   
 \begin{miditest}
 \begin{test}{1}
