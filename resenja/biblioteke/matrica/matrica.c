@@ -9,8 +9,8 @@ int **alociraj_matricu(int n, int m)
 
   /* Alocira se prostor za niz vrsta matrice */
   matrica = (int **) malloc(n * sizeof(int *));
-  /* Ako alokacija nije prosla uspesno, povratna vrednost funkcije ce
-     biti NULL, sto mora biti provereno u main funkciji */
+  /* Ako alokacija nije prosla uspesno, povratna vrednost funkcije
+     ce biti NULL, sto mora biti provereno u main funkciji */
   if (matrica == NULL)
     return NULL;
 
@@ -119,7 +119,8 @@ int upisi_matricu_u_datoteku(int **matrica, int n, int m, FILE * f)
   return 0;
 }
 
-int upisi_kvadratnu_matricu_u_datoteku(int **matrica, int n, FILE * f)
+int upisi_kvadratnu_matricu_u_datoteku(int **matrica, int n,
+                                       FILE * f)
 {
   /* Ispis matrice n x n u datoteku */
   return upisi_matricu_u_datoteku(matrica, n, n, f);

@@ -4,8 +4,8 @@
 /* Funkcija dinamicki alocira memoriju za matricu dimenzije n x m */
 int **alociraj_matricu(int n, int m);
 
-/* Funkcija dinamicki alocira memoriju za kvadratnu matricu dimenzije 
-   n x n */
+/* Funkcija dinamicki alocira memoriju za kvadratnu matricu
+   dimenzije n x n */
 int **alociraj_kvadratnu_matricu(int n);
 
 /* Funkcija oslobadja memoriju za matricu sa n vrsta */
@@ -26,11 +26,12 @@ void ispisi_matricu(int **matrica, int n, int m);
    izlazu */
 void ispisi_kvadratnu_matricu(int **matrica, int n);
 
-/* Funkcija ucitava vec alociranu matricu dimenzije n x m iz datoteke
-   f */
-int ucitaj_matricu_iz_datoteke(int **matrica, int n, int m, FILE * f);
+/* Funkcija ucitava vec alociranu matricu dimenzije n x m iz
+   datoteke f */
+int ucitaj_matricu_iz_datoteke(int **matrica, int n, int m,
+                               FILE * f);
 
-/* Funkcija ucitava vec alociranu kvadratnu matricu dimenzije n x n 
+/* Funkcija ucitava vec alociranu kvadratnu matricu dimenzije n x n
    iz datoteke f */
 int ucitaj_kvadratnu_matricu_iz_datoteke(int **matrica, int n,
                                          FILE * f);

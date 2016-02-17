@@ -4,8 +4,9 @@
 #define MAX 100
 
 /* Funkcija povecava za jedan sve elemente u prvoj polovini niza a
-   smanjuje za jedan sve elemente u drugoj polovini niza. Ukoliko niz 
-   ima neparan broj elemenata, srednji element ostaje nepromenjen */
+   smanjuje za jedan sve elemente u drugoj polovini niza. Ukoliko
+   niz ima neparan broj elemenata, srednji element ostaje
+   nepromenjen */
 void povecaj_smanji(int *a, int n)
 {
   int *prvi = a;

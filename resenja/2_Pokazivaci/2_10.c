@@ -44,8 +44,8 @@ int simetricnost(int m[][MAX], int n)
 {
   int i, j;
 
-  /* Obilaze se elementi ispod glavne dijagonale matrice i uporedjuju 
-     se sa njima simetricnim elementima */
+  /* Obilaze se elementi ispod glavne dijagonale matrice i
+     uporedjuju se sa njima simetricnim elementima */
   for (i = 0; i < n; i++)
     for (j = 0; j < i; j++)
       if (m[i][j] != m[j][i])

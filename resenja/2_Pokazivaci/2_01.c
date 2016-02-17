@@ -34,8 +34,8 @@ void obrni_niz_v2(int *a, int n)
 
     /* Vrednost promenljive "t" se postavlja na adresu na koju
        pokazuje pokazivac "poslednji". Ovaj pokazivac se zatim
-       umanjuje za jedan, cime pokazivac "poslednji" pokazuje 
-       na element koji mu prethodi u nizu */
+       umanjuje za jedan, cime pokazivac "poslednji" pokazuje na
+       element koji mu prethodi u nizu */
     *poslednji-- = t;
   }
 

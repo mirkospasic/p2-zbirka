@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
      povratnu vrednost istog tipa */
   double (*fp) (double);
 
-  /* Ukoliko korisnik nije uneo trazene argumente, prijavljuje se 
+  /* Ukoliko korisnik nije uneo trazene argumente, prijavljuje se
      greska */
   if (argc < 2) {
     printf("Greska: ");

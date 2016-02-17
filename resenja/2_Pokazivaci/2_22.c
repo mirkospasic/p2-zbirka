@@ -25,7 +25,7 @@ float zbir_ispod_sporedne_dijagonale(float **m, int n)
   float zbir = 0;
 
   for (i = 0; i < n; i++)
-    for (j = n-i; j < n; j++)
+    for (j = n - i; j < n; j++)
       if (i + j > n - 1)
         zbir += fabs(m[i][j]);
 
@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
   float **a;
   int n;
 
-  /* Ukoliko korisnik nije uneo trazene argumente, prijavljuje se 
+  /* Ukoliko korisnik nije uneo trazene argumente, prijavljuje se
      greska */
   if (argc < 2) {
     printf("Greska: ");

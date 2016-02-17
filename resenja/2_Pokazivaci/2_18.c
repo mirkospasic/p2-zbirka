@@ -19,7 +19,7 @@ int main()
   scanf("%d%d", &n, &m);
 
   /* Dinamički se alocira prostor za niz vrsta matrice */
-  A = (double **)malloc(sizeof(double *) * n);
+  A = (double **) malloc(sizeof(double *) * n);
 
   /* Provera se da li je doslo do greske pri alokaciji */
   if (A == NULL) {
@@ -29,7 +29,7 @@ int main()
 
   /* Dinamicki se alocira prostor za elemente u vrstama */
   for (i = 0; i < n; i++) {
-    A[i] = (double **)malloc(sizeof(double) * m);
+    A[i] = (double **) malloc(sizeof(double) * m);
 
     /* Ukoliko je alokacija neuspesna, pre zavrsetka programa
        potrebno je osloboditi svih i-1 prethodno alociranih vrsta, i

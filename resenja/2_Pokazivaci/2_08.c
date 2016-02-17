@@ -86,7 +86,8 @@ int main()
   int tr = trag(A, n);
   printf("Trag matrice je %d.\n", tr);
 
-  printf("Euklidska norma matrice je %.2f.\n", euklidska_norma(A, n));
+  printf("Euklidska norma matrice je %.2f.\n",
+         euklidska_norma(A, n));
   printf("Vandijagonalna norma matrice je = %d.\n",
          gornja_vandijagonalna_norma(A, n));
 

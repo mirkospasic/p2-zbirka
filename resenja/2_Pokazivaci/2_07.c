@@ -29,8 +29,8 @@ int duzina_niske(char *s)
   return i;
 }
 
-/* Funkcija ispituje da li je niska zadata drugim argumentom funkcije 
-   sufiks niske zadate prvi argumentom funkcije */
+/* Funkcija ispituje da li je niska zadata drugim argumentom
+   funkcije sufiks niske zadate prvi argumentom funkcije */
 int sufiks_niske(char *niska, char *sufiks)
 {
   int duzina_sufiksa = duzina_niske(sufiks);
@@ -42,8 +42,8 @@ int sufiks_niske(char *niska, char *sufiks)
   return 0;
 }
 
-/* Funkcija ispituje da li je niska zadata drugim argumentom funkcije 
-   prefiks niske zadate prvi argumentom funkcije */
+/* Funkcija ispituje da li je niska zadata drugim argumentom
+   funkcije prefiks niske zadate prvi argumentom funkcije */
 int prefiks_niske(char *niska, char *prefiks)
 {
   int i;
@@ -72,7 +72,7 @@ int main(int argc, char **argv)
 
   FILE *in;
   int br = 0;
-  char rec[MAX_KARAKTERA+1];
+  char rec[MAX_KARAKTERA + 1];
 
   in = fopen(*(argv + 1), "r");
   if (in == NULL) {
@@ -87,8 +87,8 @@ int main(int argc, char **argv)
   if (!(poredjenje_niski(*(argv + 3), "-s"))) {
     while (fscanf(in, "%s", rec) != EOF)
       br += sufiks_niske(rec, *(argv + 2));
-    printf("Broj reci koje se zavrsavaju na %s je %d.\n", *(argv + 2),
-           br);
+    printf("Broj reci koje se zavrsavaju na %s je %d.\n",
+           *(argv + 2), br);
   } else if (!(poredjenje_niski(*(argv + 3), "-p"))) {
     while (fscanf(in, "%s", rec) != EOF)
       br += prefiks_niske(rec, *(argv + 2));

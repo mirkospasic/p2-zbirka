@@ -3,8 +3,8 @@
 
 #define MAX 32
 
-/* Funkcija ucitava elemente kvadratne matrice dimenzije n 
-   sa standardnog ulaza */
+/* Funkcija ucitava elemente kvadratne matrice dimenzije n sa
+   standardnog ulaza */
 void ucitaj_matricu(int m[][MAX], int n)
 {
   int i, j;
@@ -14,8 +14,8 @@ void ucitaj_matricu(int m[][MAX], int n)
       scanf("%d", &m[i][j]);
 }
 
-/* Funkcija ispisuje elemente kvadratne matrice dimenzije n 
-   na standardni izlaz */
+/* Funkcija ispisuje elemente kvadratne matrice dimenzije n na
+   standardni izlaz */
 void ispisi_matricu(int m[][MAX], int n)
 {
   int i, j;
@@ -27,11 +27,11 @@ void ispisi_matricu(int m[][MAX], int n)
   }
 }
 
-/* Funkcija proverava da li je zadata matrica ortonormirana, odnosno, 
-   da li je normirana i ortogonalna. Matrica je normirana ako je
-   proizvod svake vrste matrice sa samom sobom jednak jedinici.
-   Matrica je ortogonalna, ako je proizvod dve bilo koje razlicite
-   vrste matrice jednak nuli */
+/* Funkcija proverava da li je zadata matrica ortonormirana,
+   odnosno, da li je normirana i ortogonalna. Matrica je normirana
+   ako je proizvod svake vrste matrice sa samom sobom jednak
+   jedinici. Matrica je ortogonalna, ako je proizvod dve bilo koje
+   razlicite vrste matrice jednak nuli */
 int ortonormirana(int m[][MAX], int n)
 {
   int i, j, k;

@@ -51,7 +51,7 @@ int main()
         free(a);
 
         /* Promenljivoj a dodeljuje se adresa pocetka novog, veceg
-           bloka cija je adresa prilikom alokacije zapamcena u 
+           bloka cija je adresa prilikom alokacije zapamcena u
            promenljivoj b */
         a = b;
       } else if (realokacija == 'R') {
@@ -60,7 +60,8 @@ int main()
            "a" bude inicijalizovano na NULL */
         a = (int *) realloc(a, alocirano * sizeof(int));
         if (a == NULL) {
-          fprintf(stderr, "Greska: Neupesna realokacija memorije.\n");
+          fprintf(stderr,
+                  "Greska: Neupesna realokacija memorije.\n");
           exit(EXIT_FAILURE);
         }
       }
