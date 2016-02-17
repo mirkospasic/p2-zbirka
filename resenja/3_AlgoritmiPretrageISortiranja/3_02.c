@@ -82,8 +82,8 @@ int main()
   printf("Unesite sortiran niz elemenata: ");
   while (i < MAX && scanf("%d", &a[i]) == 1) {
     if (i > 0 && a[i] < a[i - 1]) {
-      fprintf(stderr,
-              "Elementi moraju biti uneseni u neopadajucem poretku\n");
+      fprintf(stderr, "Greska: Elementi moraju biti uneseni ");
+      fprintf(stderr, "u neopadajucem poretku\n");
       exit(EXIT_FAILURE);
     }
     i++;

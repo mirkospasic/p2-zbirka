@@ -48,7 +48,8 @@ int main()
 
   /* Otvaranje datoteke */
   if ((fp = fopen("niske.txt", "r")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke niske.txt.\n");
+    fprintf(stderr,
+            "Greska: Neupesno otvaranje datoteke niske.txt.\n");
     exit(EXIT_FAILURE);
   }
 

@@ -31,8 +31,8 @@ int main(int argc, char *argv[])
 
   /* Provera argumenata komandne linije */
   if (argc < 2) {
-    fprintf(stderr,
-            "Program zahteva bar 2 argumenta komandne linije!\n");
+    fprintf(stderr, "Greska: Program zahteva bar 2 ");
+    fprintf(stderr, "argumenta komandne linije!\n");
     exit(EXIT_FAILURE);
   }
 
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
         tip_niza = 2;
         break;
       default:
-        fprintf(stderr, "Pogresna opcija -%c\n", argv[i][1]);
+        fprintf(stderr, "Greska: Pogresna opcija -%c\n", argv[i][1]);
         exit(EXIT_SUCCESS);
         break;
       }
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
     else {
       dimenzija = atoi(argv[i]);
       if (dimenzija <= 0 || dimenzija > MAX) {
-        fprintf(stderr, "Dimenzija niza neodgovarajuca!\n");
+        fprintf(stderr, "Greska: Dimenzija niza neodgovarajuca!\n");
         exit(EXIT_FAILURE);
       }
     }

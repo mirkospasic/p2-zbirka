@@ -81,7 +81,7 @@ int main()
   ulaz = fopen("niske.txt", "r");
   if (ulaz == NULL) {
     fprintf(stderr,
-            "Greska prilikom otvaranja datoteke niske.txt!\n");
+            "Greska: Neuspesno otvaranje datoteke niske.txt!\n");
     exit(EXIT_FAILURE);
   }
 

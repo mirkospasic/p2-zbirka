@@ -43,7 +43,7 @@ int main()
 
   /* Provera da li je uneti broj pozitivan */
   if (x == 0) {
-    fprintf(stderr, "Logaritam od nule nije definisan\n");
+    fprintf(stderr, "Greska: Logaritam od nule nije definisan\n");
     exit(EXIT_FAILURE);
   }
 

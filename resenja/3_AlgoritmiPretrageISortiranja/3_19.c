@@ -93,14 +93,15 @@ int main(int argc, char *argv[])
      datoteke, tj. 4 argumenta */
   if (argc != 4) {
     fprintf(stderr,
-            "Program se poziva sa: ./a.out opcija ulaz izlaz!\n");
+            "Greska: Program se poziva sa %s opcija ulaz izlaz\n",
+            argv[0]);
     exit(EXIT_FAILURE);
   }
 
   /* Otvaranje datoteke u kojoj su zadate tacke */
   ulaz = fopen(argv[2], "r");
   if (ulaz == NULL) {
-    fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
+    fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s!\n",
             argv[2]);
     exit(EXIT_FAILURE);
   }
@@ -108,7 +109,7 @@ int main(int argc, char *argv[])
   /* Otvaranje datoteke u koju treba upisati rezultat */
   izlaz = fopen(argv[3], "w");
   if (izlaz == NULL) {
-    fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
+    fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s!\n",
             argv[3]);
     exit(EXIT_FAILURE);
   }

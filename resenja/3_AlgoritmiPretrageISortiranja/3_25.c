@@ -71,7 +71,8 @@ int main(int argc, char *argv[])
   /* Priprema datoteke za citanje */
   ulaz = fopen("pesme.txt", "r");
   if (ulaz == NULL) {
-    fprintf(stderr, "Greska pri otvaranju ulazne datoteke!\n");
+    fprintf(stderr,
+            "Greska: Neuspesno otvaranje ulazne datoteke!\n");
     exit(EXIT_FAILURE);
   }
 
@@ -104,7 +105,7 @@ int main(int argc, char *argv[])
       /* Proverava se da li je nova memorija uspesno realocirana */
       if (pesme == NULL) {
         /* Ako nije ispisuje se obavestenje */
-        fprintf(stderr, "Problem sa alokacijom memorije!\n");
+        fprintf(stderr, "Greska: Problem sa alokacijom memorije!\n");
         /* I oslobadja sva memorija zauzeta do ovog koraka */
         oslobodi(pesme, i);
         exit(EXIT_FAILURE);
@@ -233,7 +234,7 @@ int main(int argc, char *argv[])
         /* Sortirnje po izvodjacu */
         qsort(pesme, n, sizeof(Pesma), &uporedi_izvodjace);
       } else {
-        fprintf(stderr, "Nedozvoljeni argumenti!\n");
+        fprintf(stderr, "Greska: Nedozvoljeni argumenti!\n");
         free(pesme);
         exit(EXIT_FAILURE);
       }

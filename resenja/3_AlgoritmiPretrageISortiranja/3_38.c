@@ -85,7 +85,8 @@ int main(int argc, char **argv)
      korisnik nije ispravno pokrenuo program. */
   if (argc != 2 && argc != 3) {
     fprintf(stderr,
-            "Program se poziva sa: ./a.out -opcija [nalog]\n");
+            "Greska: Program se poziva sa %s -opcija [nalog]\n",
+            argv[0]);
     exit(EXIT_FAILURE);
   }
 
@@ -93,7 +94,7 @@ int main(int argc, char **argv)
   in = fopen("studenti.txt", "r");
   if (in == NULL) {
     fprintf(stderr,
-            "Greska prilikom otvarnja datoteke studenti.txt!\n");
+            "Greska: Neuspesno otvaranje datoteke studenti.txt!\n");
     exit(EXIT_FAILURE);
   }
 
@@ -101,7 +102,7 @@ int main(int argc, char **argv)
   out = fopen("izlaz.txt", "w");
   if (out == NULL) {
     fprintf(stderr,
-            "Greska prilikom otvaranja datoteke izlaz.txt!\n");
+            "Greska: Neuspesno otvaranje datoteke izlaz.txt!\n");
     exit(EXIT_FAILURE);
   }
 

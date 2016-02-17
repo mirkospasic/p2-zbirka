@@ -63,7 +63,8 @@ int main()
 
   /* Otvaranje datoteke */
   if ((fp = fopen("niske.txt", "r")) == NULL) {
-    fprintf(stderr, "Neupesno otvaranje datoteke niske.txt.\n");
+    fprintf(stderr,
+            "Greska: Neupesno otvaranje datoteke niske.txt.\n");
     exit(EXIT_FAILURE);
   }
 
@@ -72,7 +73,7 @@ int main()
   while (fscanf(fp, "%s", x) != EOF) {
     /* Alociranje dovoljne memorije za i-tu nisku */
     if ((niske[i] = malloc((strlen(x) + 1) * sizeof(char))) == NULL) {
-      fprintf(stderr, "Greska pri alociranju niske\n");
+      fprintf(stderr, "Greska: Neuspesna alokacija niske\n");
       exit(EXIT_FAILURE);
     }
     /* Kopiranje procitane niske na svoje mesto */

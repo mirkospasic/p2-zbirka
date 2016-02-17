@@ -88,7 +88,8 @@ int main(int argc, char *argv[])
   else if (strcmp(argv[2], "-prezime") == 0)
     bin_pretraga = 0;
   else {
-    fprintf(stderr, "Opcija mora biti -indeks ili -prezime\n");
+    fprintf(stderr,
+            "Greska: Opcija mora biti -indeks ili -prezime\n");
     exit(EXIT_FAILURE);
   }
 
@@ -96,7 +97,8 @@ int main(int argc, char *argv[])
   fin = fopen(argv[1], "r");
   if (fin == NULL) {
     fprintf(stderr,
-            "Neuspesno otvaranje datoteke %s za citanje\n", argv[1]);
+            "Greska: Neuspesno otvaranje datoteke %s za citanje\n",
+            argv[1]);
     exit(EXIT_FAILURE);
   }
 
