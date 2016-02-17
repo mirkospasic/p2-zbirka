@@ -249,5 +249,5 @@ int main(int argc, char *argv[])
   /* Oslobadjanje memorije */
   oslobodi(pesme, n);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

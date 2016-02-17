@@ -81,5 +81,5 @@ int main(int argc, char **argv)
   /* Stampanje vrednosti trazene tacke */
   printf("%g\n", s);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }
