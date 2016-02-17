@@ -23,8 +23,9 @@
   argument komandne linije prosleđuje prirodan broj \kckod{n} koji nije veći od $1000000$ i broj \kckod{x} kao drugi
   argument komandne linije. Potrebna vremena za izvršavanje ovih
   funkcija dopisati u datoteku \kckod{vremena.txt}. 
+\ifpdf \else \newpage \fi
   
-\begin{minitest}
+\begin{miditest}
 \begin{test}{1}
 #\poziv{./a.out 1000000 23542}#
   
@@ -36,7 +37,7 @@
 #\izlaz{Interpolaciona pretraga:}#
 #\izlaz{Element nije u nizu}#
 \end{test}
-\end{minitest}
+\end{miditest}
 \begin{minitest}
 \begin{test2}{1}
     
@@ -50,7 +51,7 @@
 \end{test2}
 \end{minitest}
 
-\begin{minitest}
+\begin{miditest}
 \begin{test}{2}
 #\poziv{./a.out 100000 37842}#
   
@@ -62,7 +63,7 @@
 #\izlaz{Interpolaciona pretraga:}#
 #\izlaz{Element nije u nizu}#
 \end{test}
-\end{minitest}
+\end{miditest}
 \begin{minitest}
 \begin{test2}{1}
 
@@ -291,9 +292,11 @@
 
 \begin{Answer}[ref=3_05]
   \includecode{resenja/3_AlgoritmiPretrageISortiranja/3_05.c}
+  \ifpdf \else \newpage \fi
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
+\skrati{3}
 \begin{Exercise}[label=3_06]
   Napisati funkciju koja određuje nulu funkcije \kckod{cos(x)} na
   intervalu $[0,2]$ metodom polovljenja intervala. Algoritam se
@@ -304,6 +307,7 @@
     $[0,2]$ zato što je ona na ovom intervalu neprekidna, i
     vrednosti funkcije na krajevima intervala su različitog znaka.}
 
+\skrati{3}
 % Ovde ne moze biti vise od jednog test primera
 \begin{minitest}
 \begin{test}{1}
@@ -316,6 +320,7 @@
 
 \end{Exercise}
 
+\skrati{3}
 \begin{Answer}[ref=3_06]
   \includecode{resenja/3_AlgoritmiPretrageISortiranja/3_06.c}
 \end{Answer}
@@ -332,6 +337,7 @@
     pokazivač na odgovarajuću funkciju (na primer, kao u zadatku
     \ref{2_27}).}
 
+\skrati{3}
 \begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out cos}#
@@ -1031,6 +1037,7 @@ ulaza.
 
 \begin{Answer}[ref=3_19]
   \includecode{resenja/3_AlgoritmiPretrageISortiranja/3_19.c}
+    \ifpdf \else \newpage \fi
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1190,6 +1197,7 @@ nisu zadati podaci o više od $128$ dece.
 
 \begin{Answer}[ref=3_22]
   \includecode{resenja/3_AlgoritmiPretrageISortiranja/3_22.c}
+    \ifpdf \else \newpage \fi
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1254,6 +1262,7 @@ nisu zadati podaci o više od $128$ dece.
 
 \begin{Answer}[ref=3_23]
   \includecode{resenja/3_AlgoritmiPretrageISortiranja/3_23.c}
+  \ifpdf \else \newpage \fi
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1763,6 +1772,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 
 \begin{Answer}[ref=3_32]
   \includecode{resenja/3_AlgoritmiPretrageISortiranja/3_32.c}
+  \ifpdf \else \newpage \fi
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
@@ -1806,6 +1816,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
+\skrati{3}
 \begin{Exercise}[label=3_34]
   Uraditi zadatak \ref{3_33} sa dinamički alociranim niskama
   i sortiranjem niza pokazivača, umesto niza niski.
@@ -1818,6 +1829,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
 \end{Answer}
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
+\skrati{3}
 \begin{Exercise}[label=3_35]
   Napisati program koji korišćenjem bibliotečke funkcije \kckod{qsort}
   sortira studente prema broju poena osvojenih na kolokvijumu. Ukoliko
@@ -1833,6 +1845,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
   kolokvijumu. Pretpostaviti da neće biti više od $500$ studenata i
   da je za ime i prezime svakog studenta dovoljno po $20$ karaktera.
   
+\skrati{3}
 \begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out kolokvijum.txt}#
