@@ -161,6 +161,7 @@ Funkcija traži prvo pojavljivanje podniske needle u nisci
 haystack, i vraća pokazivač na početak podniske, ili
 $NULL$ ako podniska nije pronađena.
 
+\skrati{2}
 \begin{miditest}
 \begin{test}{1}
 #\poziv{./a.out ulaz.txt test}#
@@ -211,11 +212,31 @@ $NULL$ ako podniska nije pronađena.
 \end{Answer}
 
 
+\skrati{2}
 \begin{Exercise}[label=A_05]
 Na početku datoteke \kckod{trouglovi.txt} nalazi se broj trouglova čije su koordinate temena zapisane u nastavku datoteke. Napisati
   program koji učitva trouglove, i ispisuje ih na standardni izlaz
   sortirane po površini opadajuće (koristiti Heronov obrazac: 
   $P = \sqrt{s*(s-a)*(s-b)*(s-c)}$, gde je $s$ poluobim trougla). U slučaju bilo kakve greške ispisati $-1$ na standardni izlaz za greške. Ne praviti nikave pretpostavke o broju trouglova u datoteci, i proveriti da li je datoteka ispravno zadata.
+
+\skrati{2}
+\begin{miditest}
+\begin{test}{3}
+#\naslovDat{Datoteka trouglovi.txt ne postoji}#
+
+#\naslovIzlazZaGresku#
+#\izlaz{-1}#
+\end{test}
+\end{miditest}
+\begin{minitest}
+\begin{test}{4}
+#\naslovDat{trouglovi.txt}#
+#\datoteka{0}#
+
+#\naslovIzlaz#
+#\izlaz{}#
+\end{test}
+\end{minitest}
 
 \begin{miditest}
 \begin{test}{1}
@@ -244,29 +265,13 @@ Na početku datoteke \kckod{trouglovi.txt} nalazi se broj trouglova čije su koo
 \end{test}
 \end{minitest}
 
-\begin{miditest}
-\begin{test}{3}
-#\naslovDat{Datoteka trouglovi.txt ne postoji}#
-
-#\naslovIzlazZaGresku#
-#\izlaz{-1}#
-\end{test}
-\end{miditest}
-\begin{minitest}
-\begin{test}{4}
-#\naslovDat{trouglovi.txt}#
-#\datoteka{0}#
-
-#\naslovIzlaz#
-#\izlaz{}#
-\end{test}
-\end{minitest}
 
 \linkresenje{A_05}
 \end{Exercise}
 
 \begin{Answer}[ref=A_05]
 \includecode{resenja/A_IspitniRokovi/A_05.c}
+\ifpdf \else \newpage \fi
 \end{Answer}
 
 \begin{Exercise}[label=A_06]
@@ -330,10 +335,9 @@ Data je biblioteka za rad sa binarnim pretraživačkim stablima celih brojeva. N
 \includecodeLib{resenja/A_IspitniRokovi/A_06.c}{main.c}
 %%\includecode{resenja/A_IspitniRokovi/A_06/stabla.c}
 %%\includecode{resenja/A_IspitniRokovi/A_06/main.c}
-\ifpdf \else \newpage \fi
 \end{Answer}
 
-\ifpdf \else \newpage \fi
+%\ifpdf \else \newpage \fi
 \section{Praktični deo ispita, septembar 2015.}
 
 \begin{Exercise}[label=A_07]
@@ -572,7 +576,6 @@ Napisati funkciju \kckod{unsigned int zamena(unsigned int x)} koja u datom broju
 \end{Exercise}
 \begin{Answer}[ref=A_10]
 \includecode{resenja/A_IspitniRokovi/A_10.c}
-\ifpdf \else \newpage \fi
 \end{Answer}
 
 
@@ -631,7 +634,6 @@ Data je biblioteka za rad sa binarnim pretraživackim stablima celih brojeva. Na
 \\
 \napomena{Rešenje koristi biblioteku za rad sa binarnim pretraživačkim stablima iz zadatka \ref{4_14}.} 
 \includecode{resenja/A_IspitniRokovi/A_11.c}
-\ifpdf \else \newpage \fi
 \end{Answer}
 
 \begin{Exercise}[label=A_12]
@@ -661,9 +663,9 @@ Pretpostaviti da ime datoteke neće biti duže od $30$ karaktera. \napomena{U za
 \begin{minitest}
 \begin{test}{2}
 #\naslovUlaz#
-#\ulaz{datoteka.txt 2}#
+#\ulaz{in.txt 2}#
 
-#\naslovDat{datoteka.txt}#
+#\naslovDat{in.txt}#
 #\datoteka{3 3}#
 #\datoteka{2 0 2}#
 #\datoteka{-1 2 -1}#
@@ -673,7 +675,19 @@ Pretpostaviti da ime datoteke neće biti duže od $30$ karaktera. \napomena{U za
 #\izlaz{1}#
 \end{test}
 \end{minitest}
+\begin{minitest}
+\begin{test}{3}
+#\naslovUlaz#
+#\ulaz{brojevi.txt 12}#
 
+#\naslovDat{Datoteka brojevi.txt je prazna}#
+
+#\naslovIzlazZaGresku#
+#\izlaz{-1}#
+\end{test}
+\end{minitest}
+
+\iffalse
 \begin{minitest}
 \begin{test}{3}
 #\naslovUlaz#
@@ -689,17 +703,7 @@ Pretpostaviti da ime datoteke neće biti duže od $30$ karaktera. \napomena{U za
 #\izlaz{0}#
 \end{test}
 \end{minitest}
-\begin{minitest}
-\begin{test}{4}
-#\naslovUlaz#
-#\ulaz{brojevi.txt 12}#
-
-#\naslovDat{Datoteka brojevi.txt je prazna}#
-
-#\naslovIzlazZaGresku#
-#\izlaz{-1}#
-\end{test}
-\end{minitest}
+\fi
 
 \linkresenje{A_12}
 \end{Exercise}
