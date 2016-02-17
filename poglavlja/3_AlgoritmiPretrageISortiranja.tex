@@ -301,11 +301,11 @@
   Napisati funkciju koja određuje nulu funkcije \kckod{cos(x)} na
   intervalu $[0,2]$ metodom polovljenja intervala. Algoritam se
   završava kada se vrednost kosinusne funkcije razlikuje za najviše
-  $0.001$ od nule. \uputstvo{Korisiti algoritam analogan algoritmu
-    binarne pretrage, metod polovljenja intervala.}  \napomena{Ovaj
+  $0.001$ od nule. \uputstvo{Korisiti metod polovljenja intervala
+    (algoritam analogan algoritmu binarne pretrage).}  \napomena{Ovaj
     metod se može primeniti na funkciju \kckod{cos(x)} na intervalu
-    $[0,2]$ zato što je ona na ovom intervalu neprekidna, i
-    vrednosti funkcije na krajevima intervala su različitog znaka.}
+    $[0,2]$ zato što je ona na ovom intervalu neprekidna, i vrednosti
+    funkcije na krajevima intervala su različitog znaka.}
 
 \skrati{3}
 % Ovde ne moze biti vise od jednog test primera
@@ -1362,13 +1362,8 @@ nisu zadati podaci o više od $128$ dece.
 %-----------------------------------------------------------------
 \begin{Exercise}[label=3_25]
 U datoteci \kckod{pesme.txt} nalaze se informacije o gledanosti pesama na
-Youtube-u. Format datoteke sa informacijama je sledeći:
-\begin{itemize}
-\item U prvoj liniji datoteke se nalazi ukupan broj pesama prisutnih u
-  datoteci.
-\item Svaki naredni red datoteke sadrži informacije o gledanosti
+Youtube-u. Svaki red datoteke sadrži informacije o gledanosti
   pesama u formatu \kckod{izvođač - naslov, broj gledanja}.
-\end{itemize}
 Napisati program koji učitava informacije o pesmama i vrši sortiranje
 pesama u zavisnosti od argumenata komandne linije na sledeći način:
 \begin{itemize}

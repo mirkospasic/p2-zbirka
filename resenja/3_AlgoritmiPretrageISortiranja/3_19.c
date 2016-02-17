@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
   if (argc != 4) {
     fprintf(stderr,
             "Program se poziva sa: ./a.out opcija ulaz izlaz!\n");
-    return 0;
+    exit(EXIT_FAILURE);
   }
 
   /* Otvaranje datoteke u kojoj su zadate tacke */
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
   if (ulaz == NULL) {
     fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
             argv[2]);
-    return 0;
+    exit(EXIT_FAILURE);
   }
 
   /* Otvaranje datoteke u koju treba upisati rezultat */
@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
   if (izlaz == NULL) {
     fprintf(stderr, "Greska prilikom otvaranja datoteke %s!\n",
             argv[3]);
-    return 0;
+    exit(EXIT_FAILURE);
   }
 
   /* Sve dok se ne stigne do kraja ulazne datoteke, ucitavaju se

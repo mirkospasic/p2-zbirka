@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -81,7 +82,7 @@ int main()
   if (ulaz == NULL) {
     fprintf(stderr,
             "Greska prilikom otvaranja datoteke niske.txt!\n");
-    return 0;
+    exit(EXIT_FAILURE);
   }
 
   /* Sve dok se moze procitati sledeca rec */
