@@ -11,7 +11,7 @@ int broj_parova(unsigned int x)
      inicijalizuje na 0 */
   broj_parova = 0;
 
-  /* Postavlja se maska tako da moze da procitamo da li su dva
+  /* Postavlja se maska tako da moze da procita da li su dva
      najmanja bita u zapisu broja x 11 */
   /* Binarna reprezentacija broja 3 je 000....00011 */
   maska = 3;
@@ -37,10 +37,10 @@ int main()
 {
   unsigned int x;
 
-  /* Ucitavanje broja */
+  /* Ucitava se broj */
   scanf("%u", &x);
 
-  /* Ispisivanje rezultata */
+  /* Ispisuje se rezultat */
   printf("%d\n", broj_parova(x));
 
   return 0;

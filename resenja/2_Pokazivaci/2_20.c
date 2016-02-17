@@ -23,7 +23,7 @@ int main()
   printf("Unesite broj vrsta i broj kolona:\n ");
   scanf("%d %d", &n, &m);
 
-  /* Alocira se matrica */
+  /* Rezervise se memorija za matricu */
   matrica = alociraj_matricu(n, m);
   /* Provera alokacije */
   if (matrica == NULL) {
@@ -37,7 +37,7 @@ int main()
   printf("Elementi ispod glavne dijagonale matrice:\n");
   ispisi_elemente_ispod_dijagonale(matrica, n, m);
 
-  /* Oslobadjanje memorije */
+  /* Oslobadja se memorija */
   matrica = dealociraj_matricu(matrica, n);
 
   exit(EXIT_SUCCESS);

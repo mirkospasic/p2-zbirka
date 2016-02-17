@@ -14,7 +14,7 @@ typedef struct {
    funkcije */
 void ucitaj_kompleksan_broj(KompleksanBroj * z)
 {
-  /* Ucitavanje vrednosti sa standardnog ulaza */
+  /* Ucitava se vrednost sa standardnog ulaza */
   printf("Unesite realni i imaginarni deo kompleksnog broja: ");
   scanf("%f", &z->real);
   scanf("%f", &z->imag);
@@ -154,26 +154,27 @@ int main()
   /* Deklaracija 3 promenljive tipa KompleksanBroj */
   KompleksanBroj z1, z2, z;
 
-  /* Ucitavanje prvog kompleksnog broja, a potom i njegovo
-     ispisivanje na standardni izlaz */
+  /* Ucitava se prvi kompleksni broj, koji se potom ispisuje na 
+     standardni izlaz */
   ucitaj_kompleksan_broj(&z1);
   ispisi_kompleksan_broj(z1);
   printf("\n");
 
-  /* Ucitavanje drugog kompleksnog broja, a potom njegovo
-     ispisivanje na standardni izlaz */
+  /* Ucitava se drugi kompleksni broj, koji se potom ispisuje na 
+     standardni izlaz */
   ucitaj_kompleksan_broj(&z2);
   ispisi_kompleksan_broj(z2);
   printf("\n");
 
-  /* Ucitavanje i provera znaka na osnovu koga korisnik bira
-     aritmeticku operaciju koja ce se izvrsiti nad kompleksnim
-     brojevima */
+  /* Ucitavase znak na osnovu koga korisnik bira aritmeticku 
+     operaciju koja ce se izvrsiti nad kompleksnim brojevima, a 
+     zatim se vrsi provera da li je unet neki od dozvoljenih 
+     aritmetickih znakova. */
   getchar();
   printf("Unesite znak (+,-,*): ");
   scanf("%c", &c);
   if (c != '+' && c != '-' && c != '*') {
-    printf("Greska: nedozvoljena vrednost operatora!\n");
+    fprintf(stderr, "Greska: Nedozvoljena vrednost operatora.\n");
     exit(EXIT_FAILURE);
   }
 

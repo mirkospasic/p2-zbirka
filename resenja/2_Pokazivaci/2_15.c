@@ -9,9 +9,9 @@ int main()
   printf("Unesite dimenziju niza: ");
   scanf("%d", &n);
 
-  /* Alocira se prostor za n celih brojeva */
+  /* Rezervise se prostor za n celih brojeva */
   if ((p = (int *) malloc(sizeof(int) * n)) == NULL) {
-    fprintf(stderr, "Greska: Neupela alokacija memorije.\n");
+    fprintf(stderr, "Greska: Neupesna alokacija memorije.\n");
     exit(EXIT_FAILURE);
   }
 

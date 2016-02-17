@@ -6,7 +6,7 @@ unsigned int rotiraj(unsigned int x, unsigned int n)
 {
   int i;
   unsigned int maska = 1;
-  /* Formiranje maske sa n jedinica na kraju, npr za n=4 maska bi
+  /* Formira se maska sa n jedinica na kraju, npr za n=4 maska bi
      izgledala: 000...00001111 */
   /* Maska se moze formirati i naredbom: maska = (1 << n) - 1; U
      nastavku je drugi nacin. */
@@ -26,10 +26,10 @@ int main()
 {
   unsigned int x, n;
 
-  /* Ucitavanje brojeva sa standardnog ulaza */
+  /* Ucitaju se brojevi sa standardnog ulaza */
   scanf("%u%u", &x, &n);
 
-  /* Ispisivanje rezultata */
+  /* Ispisuje se rezultat */
   printf("%u\n", rotiraj(x, n));
   return 0;
 }

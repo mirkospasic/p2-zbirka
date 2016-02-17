@@ -10,7 +10,7 @@ int maksimum_niza(int niz[], int n)
   if (n == 1)
     return niz[0];
 
-  /* Resavanje problema manje dimenzije */
+  /* Resava se problem manje dimenzije */
   int max = maksimum_niza(niz, n - 1);
 
   /* Na osnovu poznatog resenja problema dimenzije n-1, resava se
@@ -23,7 +23,7 @@ int main()
   int brojevi[MAKS_DIM];
   int n;
 
-  /* Sve dok se ne stigne do kraja ulaza, brojeve se ucitavaju u
+  /* Sve dok se ne stigne do kraja ulaza, brojevi se ucitavaju u
      niz. Promenljiva i predstavlja indeks tekuceg broja. U niz se
      ne moze ucitati vise od MAKS_DIM brojeva, pa se u slucaju da
      promenljiva i dostigne vrednost MAKS_DIM prekida unos novih

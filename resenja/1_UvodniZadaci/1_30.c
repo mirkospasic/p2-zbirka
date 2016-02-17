@@ -8,10 +8,10 @@ int maks_oktalna_cifra(unsigned x)
   if (x == 0)
     return 0;
 
-  /* Odredjivanje poslednje oktalne cifre u broju */
+  /* Odredjuje se poslednja oktalna cifra u broju */
   int poslednja_cifra = x & 7;
 
-  /* Odredjivanje maksimalne oktalne cifre u broju kada se iz njega
+  /* Odredjuje se maksimalna oktalna cifra u broju kada se iz njega
      izbrise poslednja oktalna cifra */
   int maks_bez_poslednje_cifre = maks_oktalna_cifra(x >> 3);
 

@@ -8,10 +8,10 @@ int maks_heksadekadna_cifra(unsigned x)
   if (x == 0)
     return 0;
 
-  /* Odredjivanje poslednje heksadekadne cifre u broju */
+  /* Odredjuje se poslednja heksadekadna cifra u broju */
   int poslednja_cifra = x & 15;
 
-  /* Odredjivanje maksimalne heksadekadne cifre broja kada se iz
+  /* Odredjuje se maksimalna heksadekadna cifra broja kada se iz
      njega izbrise poslednja heksadekadna cifra */
   int maks_bez_poslednje_cifre = maks_heksadekadna_cifra(x >> 4);
 

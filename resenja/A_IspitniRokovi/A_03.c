@@ -57,28 +57,28 @@ int main()
   int m[MAKS][MAKS];
   int v, k;
 
-  /* Ucitavanje broja vrsta matrice */
+  /* Ucitava se broj vrsta matrice */
   scanf("%d", &v);
 
-  /* Provera validnosti broja vrsta */
+  /* Proverava se validnost broja vrsta */
   if (v < 0 || v > MAKS) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje broja kolona matrice */
+  /* Ucitava se broj kolona matrice */
   scanf("%d", &k);
 
-  /* Provera validnosti broja kolona */
+  /* Proverava se validnost broja kolona */
   if (k < 0 || k > MAKS) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
-  /* Ucitavanje elemenata matrice */
+  /* Ucitaju se elementi matrice */
   ucitaj_matricu(m, v, k);
 
-  /* Pronalazenje kolone koja sadrzi najveci broj negativnih
-     elemenata i ispisivanje trazenog rezultata */
+  /* Pronalazi se kolona koja sadrzi najveci broj negativnih
+     elemenata i ispisuje se rezultat */
   printf("%d\n", maks_indeks(m, v, k));
 
   exit(EXIT_SUCCESS);

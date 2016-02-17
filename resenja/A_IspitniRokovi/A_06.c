@@ -47,7 +47,7 @@ int main()
   int n;
   scanf("%d", &n);
 
-  /* Ucitavanje elemenata u stablo. U slucaju neuspesne alokacije
+  /* Ucitavaju se elementi u stablo. U slucaju neuspesne alokacije
      oslobodja se alocirana memorija i izlazi se iz programa. */
   if (ucitaj_stablo(&koren) == 1) {
     fprintf(stderr, "-1\n");
@@ -55,10 +55,10 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Ispisivanje rezultata */
+  /* Ispisuje se rezultat */
   printf("%d\n", prebroj_n(koren, n));
 
-  /* Oslobadjanje dinamicki alociranog stabla */
+  /* Oslobadja se dinamicki alocirana memorija za stablo */
   oslobodi_stablo(&koren);
 
   exit(EXIT_SUCCESS);

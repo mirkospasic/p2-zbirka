@@ -11,7 +11,7 @@ int prebroj_bitove_1(int x)
   /* Formiranje se maska cija binarna reprezentacija izgleda
      100000...0000000, koja sluzi za ocitavanje bita najvece tezine.
      U svakoj iteraciji maska se pomera u desno za 1 mesto, i
-     ocitavamo sledeci bit. Petlja se zavrsava kada vise nema
+     ocitava se sledeci bit. Petlja se zavrsava kada vise nema
      jedinica tj. kada maska postane nula. */
   unsigned maska = 1 << broj_pomeranja;
   for (; maska != 0; maska >>= 1)
@@ -54,7 +54,8 @@ int main()
   printf("Unesite redni broj funkcije:\n");
   scanf("%d", &i);
 
-  /* Ispisivanje rezultata */
+  /* Ispisuje se odgovarajuci rezultat na osnovu unesenog rednog
+     broja funkcije */
   if (i == 1) {
     printf("Poziva se funkcija prebroj_bitove_1\n");
     printf("Broj jedinica u zapisu je %d\n", prebroj_bitove_1(x));

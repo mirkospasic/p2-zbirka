@@ -14,13 +14,13 @@ int main(int argc, char **argv)
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
-  /* Otvaranje datoteke ciji je naziv zadat kao argument komandne
+  /* Otvara se datoteka ciji je naziv zadat kao argument komandne
      linije */
   if ((f = fopen(argv[1], "r")) == NULL) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
-  /* Ucitavanje iz otvorene datoteke - liniju po liniju */
+  /* Cita se sadrzaj otvorene datoteke, liniju po liniju. */
   while (fgets(linija, MAKS, f) != NULL) {
     p = linija;
     while (1) {
@@ -37,10 +37,10 @@ int main(int argc, char **argv)
     }
   }
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(f);
 
-  /* Ispisivanje vrednosti brojaca */
+  /* Ispisuje se vrednost brojaca */
   printf("%d\n", brojac);
 
   exit(EXIT_SUCCESS);

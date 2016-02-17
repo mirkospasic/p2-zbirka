@@ -82,7 +82,7 @@ int main()
    }
    ****************************************************************/
 
-  /* Ispisivanje rezultata na standardni izlaz */
+  /* Ispisuje se rezultat na standardni izlaz */
   int tr = trag(A, n);
   printf("Trag matrice je %d.\n", tr);
 

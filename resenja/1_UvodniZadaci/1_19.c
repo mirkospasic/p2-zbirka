@@ -67,7 +67,7 @@ int main()
   printf("Unesite n (<= 12): ");
   scanf("%d", &n);
   if (n > 12) {
-    fprintf(stderr, "Greska: nedozvoljena vrednost za n!\n");
+    fprintf(stderr, "Greska: Nedozvoljena vrednost za n.\n");
     exit(EXIT_FAILURE);
   }
 

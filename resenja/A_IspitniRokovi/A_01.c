@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke cije ime je navedeno kao argument komandne
+  /* Otvara se datoteka cije ime je navedeno kao argument komandne
      linije neposredno nakon imena programa koji se poziva. U
      slucaju neuspesnog otvaranja ispisuje se -1 na stderr i program 
      zavrsava izvrsavanje. */
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
-  /* Ucitavanje broja linija. */
+  /* Ucitava se broj linija. */
   fscanf(ulaz, "%d", &n);
 
   /* Alociranje memorije na osnovu ucitanog broja linija. */
@@ -81,22 +81,22 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje svih n linija iz datoteke. */
+  /* Iz datoteke se ucita svih n linija. */
   for (i = 0; i < n; i++) {
     fscanf(ulaz, "%s", linije[i]);
   }
 
-  /* Ispisivanje u odgovarajucem poretku ucitane linije koje
+  /* Ispisu se u odgovarajucem poretku ucitane linije koje
      zadovoljavaju kriterijum. */
   for (i = n - 1; i >= 0; i--) {
     if (isupper(linije[i][0])) {
       printf("%s\n", linije[i]);
     }
   }
-  /* Oslobadjanje memorije koja je dinamicki alocirana. */
+  /* Oslobadja se memorija koja je dinamicki alocirana. */
   linije = oslobadjanje_memorije(linije, n);
 
-  /* Zatvaranje datoteke. */
+  /* Zatvara se datoteka. */
   fclose(ulaz);
 
   exit(EXIT_SUCCESS);

@@ -71,16 +71,16 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje elemenata matrice sa standardnog ulaza */
+  /* Ucitavaju se elementi matrice sa standardnog ulaza */
   ucitaj_matricu(matrica, n, n);
 
-  /* Ispisivanje rezultata na osnovu fukcije magicni_kvadrat */
+  /* Ispisuje se rezultat na osnovu fukcije magicni_kvadrat */
   if (magicni_kvadrat(matrica, n, &zbir_magicnog)) {
     printf("%d\n", zbir_magicnog);
   } else
     printf("-\n");
 
-  /* Oslobadjanje dinamicki alocirane memorije */
+  /* Oslobadja se dinamicki alocirana memorija */
   matrica = dealociraj_matricu(matrica, n);
 
   exit(EXIT_SUCCESS);

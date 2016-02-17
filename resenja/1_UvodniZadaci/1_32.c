@@ -23,13 +23,13 @@ int main()
   char s[MAKS_DIM];
   int n;
 
-  /* Ucitavanje niske sa standardnog ulaza */
+  /* Ucitava se niska sa standardnog ulaza */
   scanf("%s", s);
 
   /* Odredjuje se duzina niske */
   n = strlen(s);
 
-  /* Ispisivanje da li je niska palindrom ili nije */
+  /* Ispisuje se da li je niska palindrom ili nije */
   if (palindrom(s, n))
     printf("da\n");
   else

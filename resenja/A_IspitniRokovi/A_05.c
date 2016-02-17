@@ -16,13 +16,13 @@ double duzina(double x1, double y1, double x2, double y2)
 /* Funkcija racuna povrsinu trougla koristeci Heronov obrazac */
 double povrsina(trougao t)
 {
-  /* Racunanje duzina stranica trougla */
+  /* Racunaju se duzine stranica trougla */
   double a = duzina(t.xb, t.yb, t.xc, t.yc);
   double b = duzina(t.xa, t.ya, t.xc, t.yc);
   double c = duzina(t.xa, t.ya, t.xb, t.yb);
-  /* Poluobim */
+  /* Racuna se poluobim trougla */
   double s = (a + b + c) / 2;
-  /* Primena Heronovog obrasca */
+  /* Primenom Heronovog obrasca racuna se povrsina trougla */
   return sqrt(s * (s - a) * (s - b) * (s - c));
 }
 
@@ -51,25 +51,26 @@ int main()
   int n, i;
   trougao *niz;
 
-  /* Otvaranje datoteke ciji je naziv trouglovi.txt */
+  /* Otvara se datoteka ciji je naziv trouglovi.txt */
   if ((f = fopen("trouglovi.txt", "r")) == NULL) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje podtaka o broju trouglova iz datoteke */
+  /* Ucitava se podatak o broju trouglova iz datoteke */
   if (fscanf(f, "%d", &n) != 1) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Dinamicka alokacija memotije za niz trouglova duzine n */
+  /* Dinamicka alokacija memorije: za niz trouglova duzine n 
+     rezervise se memorijski prostor */
   if ((niz = malloc(n * sizeof(trougao))) == NULL) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje podataka u niz iz otvorene datoteke */
+  /* Ucitavaju se podaci u niz iz otvorene datoteke */
   for (i = 0; i < n; i++) {
     if (fscanf(f, "%lf%lf%lf%lf%lf%lf", &niz[i].xa, &niz[i].ya,
                &niz[i].xb, &niz[i].yb, &niz[i].xc,
@@ -79,19 +80,19 @@ int main()
     }
   }
 
-  /* Pozivanje funkcije qsort da sortira niz na osnovu funkcije
+  /* Poziva se funkcija qsort da sortira niz na osnovu funkcije
      poredi */
   qsort(niz, n, sizeof(trougao), &poredi);
 
-  /* Ispisivanje sortiranog niza na standardni izlaz */
+  /* Ispisuje se sortirani niz na standardni izlaz */
   for (i = 0; i < n; i++)
     printf("%g %g %g %g %g %g\n", niz[i].xa, niz[i].ya, niz[i].xb,
            niz[i].yb, niz[i].xc, niz[i].yc);
 
-  /* Oslobadjanje dinamicki alocirane memorije */
+  /* Oslobadja se dinamicki alocirana memorija */
   free(niz);
 
-  /* Zatvranje datoteke */
+  /* Zatvara se datoteka */
   fclose(f);
 
   exit(EXIT_SUCCESS);

@@ -8,7 +8,7 @@ int main()
   int n, m;
   FILE *f;
 
-  /* Ucitavanje broja vrsta i broja kolona matrice */
+  /* Ucitava se broj vrsta i broj kolona matrice */
   printf("Unesite broj vrsta matrice: ");
   scanf("%d", &n);
   printf("Unesite broj kolona matrice: ");
@@ -20,18 +20,19 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Alokacija matrice i provera alokacije */
+  /* Rezervise se memorijski prostor za matricu i proverava se da li 
+     je memorijski prostor uspesno rezervisan  */
   matrica = alociraj_matricu(n, m);
   if (matrica == NULL) {
     fprintf(stderr, "Greska: Neuspesna alokacija matrice.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje matrice sa standardnog ulaza */
+  /* Ucitava se matrica sa standardnog ulaza */
   printf("Unesite elemente matrice po vrstama:\n");
   ucitaj_matricu(matrica, n, m);
 
-  /* Otvaranje datoteke za upis matrice */
+  /* Otvara se datoteka za upis matrice */
   if ((f = fopen("matrica.txt", "w")) == NULL) {
     fprintf(stderr, "Greska: Neuspesno otvaranje datoteke.\n");
     matrica = dealociraj_matricu(matrica, n);
@@ -45,10 +46,10 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(f);
 
-  /* Oslobadjanje memorije koju je zauzimala matrica */
+  /* Oslobadja se memorija koju je zauzimala matrica */
   matrica = dealociraj_matricu(matrica, n);
 
   exit(EXIT_SUCCESS);

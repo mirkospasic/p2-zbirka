@@ -106,7 +106,7 @@ int main()
   scanf("%s", datoteka);
   scanf("%f", &broj);
 
-  /* Otvaranje datoteke za citanje */
+  /* Otvara se datoteka za citanje */
   in = fopen(datoteka, "r");
 
   /* Provera da li je datoteka uspesno otvorena */
@@ -138,19 +138,19 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje elemenata matrice iz datoteke */
+  /* Ucitavaju se elementi matrice iz datoteke */
   for (i = 0; i < n; i++) {
     for (j = 0; j < m; j++)
       fscanf(in, "%f", &A[i][j]);
   }
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(in);
 
-  /* Ispisivanje rezultata poziva funkcije */
+  /* Ispisuje se rezultat poziva funkcije */
   printf("%d\n", indeks_vrste(broj, A, n, m));
 
-  /* Oslobadjanje memorije koju je zauzimala matrica */
+  /* Oslobadja se memorija koju je zauzimala matrica */
   A = dealociraj_matricu(A, n);
 
   exit(EXIT_SUCCESS);

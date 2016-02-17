@@ -27,7 +27,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke sa imenom koje se zadaje kao prvi argument
+  /* Otvara se datoteka sa imenom koje se zadaje kao prvi argument
      komandne linije. */
   in = fopen(*(argv + 1), "r");
   if (in == NULL) {
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 
   printf("Broj reci ciji je broj karaktera %d je %d.\n", n, br);
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(in);
 
   exit(EXIT_SUCCESS);

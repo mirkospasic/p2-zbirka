@@ -40,9 +40,9 @@ int main(int argc, char *argv[])
   /* Ukoliko korisnik nije uneo trazene argumente, prijavljuje se
      greska */
   if (argc < 2) {
-    printf("Greska: ");
-    printf("Nedovoljan broj argumenata komandne linije.\n");
-    printf("Program se poziva sa %s ime_funkcije iz math.h.\n",
+    fprintf(stderr,"Greska: ");
+    fprintf(stderr,"Nedovoljan broj argumenata komandne linije.\n");
+    fprintf(stderr,"Program se poziva sa %s ime_funkcije iz math.h.\n",
            argv[0]);
     exit(EXIT_FAILURE);
   }
@@ -79,8 +79,9 @@ int main(int argc, char *argv[])
   else if (strcmp(ime_funkcije, "sqr") == 0)
     fp = &sqr;
   else {
-    printf("Program jos uvek ne podrzava trazenu funkciju!\n");
-    exit(EXIT_SUCCESS);
+    fprintf(stderr, "Greska");
+	fprintf(stderr, "Program jos uvek ne podrzava trazenu funkciju!\n");
+    exit(EXIT_FAILURE);
   }
 
   printf("Unesite krajeve intervala:\n");
@@ -97,7 +98,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Ispisivanje imena funkcije */
+  /* Ispisuje se ime funkcije */
   printf("     x %10s(x)\n", ime_funkcije);
 
   /* Prosledjuje se funkciji tabela() funkcija zadata kao argument

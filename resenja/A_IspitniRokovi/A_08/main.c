@@ -52,32 +52,32 @@ int main()
   Cvor *glava = NULL;
   double broj;
 
-  /* Ucitavanje se vrsi do kraja ulaza. Elementi se dodaju na kraj
-     liste! */
+  /* Dok se ne stigne do kraja ulaza, ucitavaju se elementi i dodaju 
+     se na kraj liste */
   while (scanf("%lf", &broj) > 0) {
     /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
        memorije za nov cvor. Memoriju alociranu za cvorove liste
        treba osloboditi. */
     if (dodaj_na_kraj_liste(&glava, broj) == 1) {
-      fprintf(stderr, "Neuspela alokacija za cvor %lf\n", broj);
+      fprintf(stderr, "Greska: Neuspela alokacija za cvor %lf.\n", broj);
       oslobodi_listu(&glava);
       exit(EXIT_FAILURE);
     }
   }
 
-  /* Pozivanje funkcije da dopuni listu. Ako je funkcija vratila 1,
+  /* Poziva se funkcija da dopuni listu. Ako je funkcija vratila 1,
      onda je bilo greske pri alokaciji memorije za nov cvor. Memoriju
      alociranu za cvorove liste treba osloboditi. */
   if (dopuni_listu(&glava) == 1) {
-    fprintf(stderr, "Neuspela alokacija za cvor %lf\n", broj);
+    fprintf(stderr, "Greska: Neuspela alokacija za cvor %lf.\n", broj);
     oslobodi_listu(&glava);
     exit(EXIT_FAILURE);
   }
 
-  /* Ispisivanje liste */
+  /* Ispisuju se elementi liste */
   ispisi_listu(glava);
 
-  /* Oslobadjanje liste */
+  /* Oslobadja se memorija rezervisana za listu */
   oslobodi_listu(&glava);
 
   exit(EXIT_SUCCESS);

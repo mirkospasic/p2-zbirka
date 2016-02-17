@@ -18,16 +18,16 @@ int main()
   printf("Unesite broj vrsta i broj kolona:\n ");
   scanf("%d%d", &n, &m);
 
-  /* Dinamički se alocira prostor za niz vrsta matrice */
+  /* Dinamicki se rezervise prostor za niz vrsta matrice */
   A = (double **) malloc(sizeof(double *) * n);
 
-  /* Provera se da li je doslo do greske pri alokaciji */
+  /* Provera se da li je uspelo rezervisanje memorije */
   if (A == NULL) {
     fprintf(stderr, "Greska: Neupesna alokacija memorije.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Dinamicki se alocira prostor za elemente u vrstama */
+  /* Dinamicki se rezervise prostor za elemente u vrstama */
   for (i = 0; i < n; i++) {
     A[i] = (double **) malloc(sizeof(double) * m);
 

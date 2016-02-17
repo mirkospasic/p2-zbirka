@@ -30,7 +30,7 @@ int main()
 
   /* Provera da li je dimenzija niza odgovarajuca */
   if (n < 0 || n > MAKS_DIM) {
-    printf("Dimenzija mora biti prirodan broj <= %d!\n", MAKS_DIM);
+    fprintf(stderr, "Greska: Dimenzija mora biti prirodan broj <= %d!\n", MAKS_DIM);
     exit(EXIT_FAILURE);
   }
 
@@ -43,7 +43,7 @@ int main()
   for (i = 0; i < n; i++)
     scanf("%d", &b[i]);
 
-  /* Ispisivanje rezultata skalarnog proizvoda dva ucitana niza */
+  /* Ispisuje se rezultat skalarnog proizvoda dva ucitana niza */
   printf("Skalarni proizvod je %d\n", skalarno(a, b, n));
 
   exit(EXIT_SUCCESS);

@@ -19,7 +19,7 @@ int main()
   /* Ucitava se ceo broj */
   scanf("%u", &x);
 
-  /* Ispisivanje zbira cifara ucitanog broja */
+  /* Ispisuje se zbir cifara ucitanog broja */
   printf("%d\n", zbir_cifara(x));
 
   return 0;

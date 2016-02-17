@@ -145,7 +145,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke za citanje */
+  /* Otvara se datoteka za citanje */
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "Greska: ");
@@ -190,7 +190,7 @@ int main(int argc, char *argv[])
   ref_tran_zatvorenje(m, n, pomocna);
   pisi_matricu(pomocna, n);
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(ulaz);
 
   exit(EXIT_SUCCESS);

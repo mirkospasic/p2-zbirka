@@ -44,7 +44,7 @@ int main()
   /* Ucitavaju se brojevi d i r */
   scanf("%d %d", &d, &r);
 
-  /* Ispisivanje Paskalovog trougla */
+  /* Ispisuje se Paskalov trougao */
   putchar('\n');
   for (n = 0; n <= d; n++) {
     for (i = 0; i < d - n; i++)
@@ -54,14 +54,14 @@ int main()
     putchar('\n');
   }
 
-  /* Provera da li je r nenegativan */
+  /* Proverava se da li je r nenegativan */
   if (r < 0) {
     fprintf(stderr,
             "Redni broj hipotenuze mora biti veci ili jednak od 0!\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ispisivanje sume elemenata hipotenuze */
+  /* Ispisuje se suma elemenata hipotenuze */
   printf("%d\n", suma_elemenata_hipotenuze(r));
 
   exit(EXIT_SUCCESS);

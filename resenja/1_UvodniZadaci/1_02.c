@@ -31,10 +31,10 @@ int main()
 {
   KompleksanBroj z;
 
-  /* Ucitavamo kompleksan broj */
+  /* Ucitava se kompleksan broj */
   ucitaj_kompleksan_broj(&z);
 
-  /* Ispisivanje polarnog oblika kompleksnog broja */
+  /* Ispisuje se polarni oblik kompleksnog broja */
   printf("Polarni oblik kompleksnog broja je %.2f *  e^i * %.2f\n",
          moduo(z), argument(z));
 

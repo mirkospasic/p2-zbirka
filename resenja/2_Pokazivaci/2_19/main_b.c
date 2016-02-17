@@ -14,45 +14,45 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke za citanje */
+  /* Otvara se datoteka za citanje */
   if ((f = fopen(argv[1], "r")) == NULL) {
     fprintf(stderr, "Greska: Neuspesno otvaranje datoteke.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje dimenzije matrice */
+  /* Ucitava se dimenzija matrice */
   if (fscanf(f, "%d", &n) != 1) {
     fprintf(stderr, "Greska: Neispravan pocetak datoteke.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Provera dimenzije matrice */
+  /* Provera se dimenzija matrice */
   if (n <= 0) {
     fprintf(stderr, "Greska: Neodgovarajca dimenzija matrice.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Alokacija matrice i provera alokacije */
+  /* Rezervise se memorijski prostor za matricu i vrsi se provera */
   matrica = alociraj_kvadratnu_matricu(n);
   if (matrica == NULL) {
     fprintf(stderr, "Greska: Neuspesna alokacija matrice.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje matrice iz datoteke */
+  /* Ucitava se matrica iz datoteke */
   if (ucitaj_kvadratnu_matricu_iz_datoteke(matrica, n, f) != 0) {
     fprintf(stderr, "Greska: Neuspesno ucitavanje matrice iz datoteke.\n");
     matrica = dealociraj_matricu(matrica, n);
     exit(EXIT_FAILURE);
   }
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(f);
 
   /* Ispis matrice na standardnom izlazu */
   ispisi_kvadratnu_matricu(matrica, n);
 
-  /* Oslobadjanje memorije koju je zauzimala matrica */
+  /* Oslobadja se memorija koju je zauzimala matrica */
   matrica = dealociraj_matricu(matrica, n);
 
   exit(EXIT_SUCCESS);

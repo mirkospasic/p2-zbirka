@@ -59,7 +59,7 @@ int f_napredna(int n, int a, int b)
   static int f[20];
 
   /* Ako je podproblem vec ranije resen, koristi se resenje koje je
-     vec izracunato i */
+     vec izracunato */
   if (f[n] != 0)
     return f[n];
 
@@ -83,7 +83,7 @@ int main()
   printf("3 - rekurzivna napredna\n");
   scanf("%d", &ind);
 
-  /* Ucitavaju se koeficijenti a i b */
+  /* Ucitaju se koeficijenti a i b */
   printf("Unesite koeficijente:\n");
   scanf("%d%d", &a, &b);
 

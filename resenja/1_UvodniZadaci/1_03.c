@@ -7,15 +7,15 @@ int main(int argc, char **argv)
   double x;
   int n;
 
-  /* Unos polinoma p */
+  /* Unosi se polinom p */
   printf
       ("Unesite polinom p (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):\n");
   p = ucitaj();
 
-  /* Ispis polinoma p */
+  /* Ispisuje se polinom p */
   ispisi(&p);
 
-  /* Unos polinoma q */
+  /* Unosi se polinom q */
   printf
       ("Unesite drugi polinom q (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):\n");
   q = ucitaj();

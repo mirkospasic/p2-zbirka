@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke za citanje */
+  /* Otvara se datoteka za citanje */
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "Greska: ");
@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
   /* Cita se dimenzija matrice */
   fscanf(ulaz, "%d", &n);
 
-  /* Alocira se memorija */
+  /* Rezervise se memorija */
   a = alociraj_memoriju(n);
 
   /* Ucitavaju se elementi matrice */
@@ -130,7 +130,7 @@ int main(int argc, char *argv[])
   /* Poziva se funkcija za transformaciju matrice */
   izmeni(a, n);
 
-  /* Ispisivanje rezultata */
+  /* Ispisuju se rezultati */
   printf("Zbir apsolutnih vrednosti ispod sporedne dijagonale ");
   printf("je %.2f.\n", zbir);
 

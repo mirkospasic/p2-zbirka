@@ -40,14 +40,14 @@ unsigned int zamena(unsigned int x)
      tezine su nule, a ostalo su jedinice) */
   maska_cetvrti_bajt_komplement = ~maska_cetvrti_bajt;
 
-  /* U promenljivu prvi_bajt smestamo broj koji se dobija kada se
+  /* U promenljivu prvi_bajt se smesta broj koji se dobija kada se
      bitovi prvog bajta broja x pomere ulevo, tako da budu na
      poziciji cetvrtog bajta */
   prvi_bajt =
       (maska_prvi_bajt & x) << ((sizeof(unsigned) - 1) *
                                 BITOVA_U_BAJTU);
-  /* U promenljivu cetvrti_bajt smestamo broj koji se dobija kada se 
-     bitovi cetvrtog bajta broja x pomere udesno, tako da budu na
+  /* U promenljivu cetvrti_bajt se smesta broj koji se dobija kada 
+     se bitovi cetvrtog bajta broja x pomere udesno, tako da budu na
      poziciji prvog bajta */
   cetvrti_bajt =
       (maska_cetvrti_bajt & x) >> ((sizeof(unsigned) - 1) *
@@ -85,7 +85,7 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Ispisivanje rezultata primene funkcije zamena na uneti broj x */
+  /* Ispisuje se rezultat primene funkcije zamena na uneti broj x */
   printf("%u\n", zamena(x));
 
   exit(EXIT_SUCCESS);
