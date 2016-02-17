@@ -524,7 +524,7 @@ napisanih funkcija.
 #\poziv{./a.out 3}#
 
 #\naslovInt#
-#\izlaz{Unesite elemente matrice dimenzija 3x3:}#
+#\izlaz{Unesite elemente matrice dimenzije 3x3:}#
 #\ulaz{1 2 3}#
 #\ulaz{-4 -5 -6}#
 #\ulaz{7 8 9}#
@@ -540,7 +540,7 @@ napisanih funkcija.
 #\poziv{./a.out 4}#
 
 #\naslovInt#
-#\izlaz{Unesite elemente matrice dimenzija 4x4:}#
+#\izlaz{Unesite elemente matrice dimenzije 4x4:}#
 #\ulaz{-1 -2 -3 -4}#
 #\ulaz{-5 -6 -7 -8}#
 #\ulaz{-9 -10 -11 -12}#
@@ -600,7 +600,7 @@ matricu.
 \end{Answer}
 
 \begin{Exercise}[label=2_13]
-Data je matrica dimenzija $n \times m$.
+Data je matrica dimenzije $n \times m$.
 \begin{enumerate}
 \item Napisati funkciju koja učitava elemente matrice sa standardnog ulaza
 \item Napisati funkciju koja na standardni izlaz spiralno ispisuje elemente matrice, u smeru kretanja kazaljke na satu.
@@ -820,7 +820,7 @@ matrice.
 Napisati biblioteku za rad sa celobrojnim matricama. 
 \begin{enumerate}
 \item Napisati funkciju \kckod{int **alociraj\_matricu(int n, int m)}
-  koja dinamički alocira memoriju potrebnu za matricu dimenzija $n
+  koja dinamički alocira memoriju potrebnu za matricu dimenzije $n
   \times m$.
 \item Napisati funkciju \kckod{int **alociraj\_kvadratnu\_matricu(int
   n)} koja alocira memoriju za kvadratnu matricu dimenzije $n$.
@@ -828,20 +828,20 @@ Napisati biblioteku za rad sa celobrojnim matricama.
   n)} koja dealocira memoriju matrice sa $n$ vrsta. Povratna vrednost
   ove funkcije treba da bude ``prazna'' matrica.
 \item Napisati funkciju \kckod{void ucitaj\_matricu(int **A, int n,
-  int m)} koja učitava već alociranu matricu dimenzija $n \times m$ sa
+  int m)} koja učitava već alociranu matricu dimenzije $n \times m$ sa
   standardnog ulaza.
 \item Napisati funkciju \kckod{void ucitaj\_kvadratnu\_matricu(int
   **A, int n)} koja učitava već alociranu kvadratnu matricu dimenzije
   $n \times n$ sa standardnog ulaza.
 \item Napisati funkciju \kckod{void ispisi\_matricu(int **A, int n,
-  int m)} koja ispisuje matricu dimenzija $n \times m$ na standardnom
+  int m)} koja ispisuje matricu dimenzije $n \times m$ na standardnom
   izlazu.
 \item Napisati funkciju \kckod{void ispisi\_kvadratnu\_matricu(int
   **A, int n)} koja ispisuje kvadratnu matricu dimenzije $n \times n$ na
   standardnom izlazu.
 \item Napisati funkciju \kckod{int ucitaj\_matricu\_iz\_datoteke(int
   **A, int n, int m, FILE * f)} koja učitava već alociranu matricu
-  dimenzija $n \times m$ iz već otvorene datoteke $f$. U slučaju
+  dimenzije $n \times m$ iz već otvorene datoteke $f$. U slučaju
   neuspešnog učitavanja vratiti vrednost različitu od $0$.
 \item Napisati funkciju \kckod{int
   ucitaj\_kvadratnu\_matricu\_iz\_datoteke(int **A, int n, FILE * f)}
@@ -849,7 +849,7 @@ Napisati biblioteku za rad sa celobrojnim matricama.
   otvorene datoteke $f$.  U slučaju neuspešnog učitavanja vratiti
   vrednost različitu od $0$.
 \item Napisati funkciju \kckod{int upisi\_matricu\_u\_datoteku(int
-  **A, int n, int m, FILE * f)} koja upisuje matricu dimenzija $n
+  **A, int n, int m, FILE * f)} koja upisuje matricu dimenzije $n
   \times m$ u već otvorenu datoteku \argf{f}. U slučaju neuspešnog
   upisivanja vratiti vrednost različitu od $0$.
 \item Napisati funkciju \kckod{int
@@ -888,8 +888,8 @@ Napisati programe koji testiraju napisanu biblioteku.
 #\izlaz{Unesite broj vrsta matrice:}##\ulaz{5}#
 #\izlaz{Unesite broj kolona matrice:}##\ulaz{0}#
 #\naslovIzlazZaGresku#
-#\izlaz{Greska: Neodgovarajce dimenzije }#
-#\izlaz{matrice.}#
+#\izlaz{Greska: Broj vrsta i broj kolona ne mogu }#
+#\izlaz{biti negativni brojevi.}#
 \end{upotreba}
 \end{miditest}
 
@@ -951,7 +951,7 @@ Napisati programe koji testiraju napisanu biblioteku.
 \end{Answer}
 
 \begin{Exercise}[label=2_20]
-Data je celobrojna matrica dimenzija $n \times m$.
+Data je celobrojna matrica dimenzije $n \times m$.
 Napisati funkciju koja ispisuje elemente ispod glavne dijagonale matrice 
 (uključujući i glavnu dijagonalu).
 Napisati program koji testira napisanu funkciju. Sa standardnog
@@ -983,7 +983,7 @@ dijagonale matrice.
 \end{Answer}
 
 \begin{Exercise}[label=2_21]
-Za zadatu matricu dimenzija $n \times m$ napisati funkciju koja
+Za zadatu matricu dimenzije $n \times m$ napisati funkciju koja
 izračunava redni broj kolone matrice čiji je zbir
 maksimalan. Napisati program koji testira ovu funkciju. Sa
 standardnog ulaza učitati dimenzije matrice $n$ i
@@ -1070,11 +1070,11 @@ U datoteci se nalazi prvo dimenzija matrice, a zatim redom elementi matrice.
 
 \skrati{2}
 \begin{Exercise}[label=2_23]
-Napisati program koji na osnovu dve realne matrice dimenzija $m \times n$
-formira matricu dimenzija $2 \cdot m \times n$ tako što
+Napisati program koji na osnovu dve realne matrice dimenzije $m \times n$
+formira matricu dimenzije $2 \cdot m \times n$ tako što
 naizmenično kombinuje jednu vrstu prve matrice i jednu vrstu
 druge matrice. Matrice su zapisane u datoteci \kckod{matrice.txt}. U
-prvom redu se nalaze dimenzije matrica $m$ i $n$, u
+prvom redu datoteke se nalaze broj vrsta $m$ i broj kolona $n$ matrica, u
 narednih $m$ redova se nalaze vrste prve matrice, a u
 narednih $m$ redova vrste druge matrice. Rezultujuću
 matricu ispisati na standardni izlaz.

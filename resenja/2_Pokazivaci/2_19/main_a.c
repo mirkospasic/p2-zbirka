@@ -8,7 +8,7 @@ int main()
   int n, m;
   FILE *f;
 
-  /* Ucitavanje dimenzije matrice */
+  /* Ucitavanje broja vrsta i broja kolona matrice */
   printf("Unesite broj vrsta matrice: ");
   scanf("%d", &n);
   printf("Unesite broj kolona matrice: ");
@@ -16,7 +16,7 @@ int main()
 
   /* Provera dimenzija matrice */
   if (n <= 0 || m <= 0) {
-    fprintf(stderr, "Greska: Neodgovarajce dimenzije matrice.\n");
+    fprintf(stderr, "Greska: Broj vrsta i broj kolona ne mogu biti negativni brojevi.\n");
     exit(EXIT_FAILURE);
   }
 

@@ -48,7 +48,7 @@ int main()
   printf("Unesite broj vrsta matrice: ");
   scanf("%d", &n);
 
-  /* Provera prekoracenja dimenzija matrice */
+  /* Provera prekoracenja dimenzije matrice */
   if (n > MAX || n <= 0) {
     fprintf(stderr, "Greska: Neodgovarajuca dimenzija matrice.\n");
     exit(EXIT_FAILURE);

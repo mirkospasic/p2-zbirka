@@ -32,8 +32,8 @@ float zbir_ispod_sporedne_dijagonale(float **m, int n)
   return zbir;
 }
 
-/* Funkcija ucitava elemente kvadratne matrice dimenzije n iz zadate
-   datoteke */
+/* Funkcija ucitava elemente kvadratne matrice dimenzije n x n iz 
+   zadate datoteke */
 void ucitaj_matricu(FILE * ulaz, float **m, int n)
 {
   int i, j;
@@ -43,7 +43,7 @@ void ucitaj_matricu(FILE * ulaz, float **m, int n)
       fscanf(ulaz, "%f", &m[i][j]);
 }
 
-/* Funkcija ispisuje elemente kvadratne matrice dimenzije n na
+/* Funkcija ispisuje elemente kvadratne matrice dimenzije n x n na
    standardni izlaz */
 void ispisi_matricu(float **m, int n)
 {
