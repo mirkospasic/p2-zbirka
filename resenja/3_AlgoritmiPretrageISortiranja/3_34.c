@@ -114,7 +114,7 @@ int main()
   else
     printf("Niska nije pronadjena u nizu\n");
 
-  /* Sortiramo po duzini */
+  /* Sortiranje po duzini */
   qsort(niske, n, sizeof(char *), &poredi_duzine);
 
   printf("Niske sortirane po duzini:\n");

@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
       /* Nema vise sadrzaja za citanje */
       break;
     } else {
-      /* Inace, vracamo procitani karakter nazad */
+      /* Inace, vraca se procitani karakter nazad */
       ungetc(c, ulaz);
     }
 

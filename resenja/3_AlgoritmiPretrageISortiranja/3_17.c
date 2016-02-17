@@ -20,11 +20,11 @@ int merge(int *niz1, int dim1, int *niz2, int dim2, int *niz3,
     else
       niz3[k++] = niz2[j++];
   }
-  /* Ostatak prvog niza prepisujemo u treci */
+  /* Ostatak prvog niza prepisuje se u treci */
   while (i < dim1)
     niz3[k++] = niz1[i++];
 
-  /* Ostatak drugog niza prepisujemo u treci */
+  /* Ostatak drugog niza prepisuje se u treci */
   while (j < dim2)
     niz3[k++] = niz2[j++];
   return dim1 + dim2;

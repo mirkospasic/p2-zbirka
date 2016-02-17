@@ -31,7 +31,7 @@ int anagrami(char s[], char t[])
   if (strlen(s) != strlen(t))
     return 0;
 
-  /* Sortiramo niske */
+  /* Sortiranje niski */
   selectionSort(s);
   selectionSort(t);
 
