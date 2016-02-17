@@ -170,9 +170,9 @@ int main(int argc, char **argv)
     printf("Element nije u nizu\n");
   else
     printf("Element je u nizu na poziciji %d\n", i);
-  /* Podaci o izvrsavanju programa bivaju upisani u log fajl */
+  /* Podaci o izvrsavanju programa bivaju upisani u log */
   if ((f = fopen("vremena.txt", "a")) == NULL) {
-    fprintf(stderr, "Neuspesno otvaranje log fajla.\n");
+    fprintf(stderr, "Neuspesno otvaranje log datoteke.\n");
     exit(EXIT_FAILURE);
   }
 

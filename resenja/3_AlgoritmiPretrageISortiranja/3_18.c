@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
   /* Ako nema dovoljno arguemenata komandne linije */
   if (argc < 3) {
-    fprintf(stderr, "koriscenje programa: %s fajl1 fajl2\n",
+    fprintf(stderr, "koriscenje programa: %s datoteka1 datoteka2\n",
             argv[0]);
     exit(EXIT_FAILURE);
   }
