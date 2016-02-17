@@ -36,10 +36,10 @@ int main(int argc, char **argv)
       p = p + strlen(argv[2]);
     }
   }
-  
+
   /* Zatvaranje datoteke */
   fclose(f);
-  
+
   /* Ispisivanje vrednosti brojaca */
   printf("%d\n", brojac);
 

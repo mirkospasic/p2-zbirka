@@ -72,7 +72,8 @@ int main()
   /* Ucitavanje podataka u niz iz otvorene datoteke */
   for (i = 0; i < n; i++) {
     if (fscanf(f, "%lf%lf%lf%lf%lf%lf", &niz[i].xa, &niz[i].ya,
-               &niz[i].xb, &niz[i].yb, &niz[i].xc, &niz[i].yc) != 6) {
+               &niz[i].xb, &niz[i].yb, &niz[i].xc,
+               &niz[i].yc) != 6) {
       fprintf(stderr, "-1\n");
       exit(EXIT_FAILURE);
     }
@@ -92,6 +93,6 @@ int main()
 
   /* Zatvranje datoteke */
   fclose(f);
-  
+
   exit(EXIT_SUCCESS);
 }

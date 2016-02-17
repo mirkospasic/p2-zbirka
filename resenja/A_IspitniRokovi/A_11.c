@@ -3,26 +3,29 @@
 #include "stabla.h"
 
 /* Funkcija racuna duzinu najduzeg puta od korena do nekog lista */
-int najduzi_put(Cvor *koren) {
+int najduzi_put(Cvor * koren)
+{
   /* Pomocne promenljive */
-  int najduzi_u_levom,najduzi_u_desnom;
-  
+  int najduzi_u_levom, najduzi_u_desnom;
+
   /* Ako je stablo prazno, povratna vrednost je -1 */
-  if(koren==NULL)
+  if (koren == NULL)
     return -1;
-  
+
   /* Rekurzivno se izracuna duzina najduzeg puta u levom podstablu */
-  najduzi_u_levom=najduzi_put(koren->levo);
-  
+  najduzi_u_levom = najduzi_put(koren->levo);
+
   /* Rekurzivno se izracuna duzina najduzeg puta u levom podstablu */
-  najduzi_u_desnom=najduzi_put(koren->desno);
-  
+  najduzi_u_desnom = najduzi_put(koren->desno);
+
   /* Veca od prethodno izracunatih vrednosti za podstabla se uvecava 
      za 1 i vraca kao konacan rezultat */
-  return 1 + (najduzi_u_levom > najduzi_u_desnom ? najduzi_u_levom : najduzi_u_desnom);
+  return 1 + (najduzi_u_levom >
+              najduzi_u_desnom ? najduzi_u_levom : najduzi_u_desnom);
 }
 
-int main() {
+int main()
+{
   Cvor *stablo = NULL;
   int x;
 
@@ -35,7 +38,7 @@ int main() {
 
   /* Ispisuje se rezultat rada trazene funkcije */
   printf("%d\n", najduzi_put(stablo));
-  
+
   /* Oslobadja se memorija */
   oslobodi_stablo(&stablo);
 

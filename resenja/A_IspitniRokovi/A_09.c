@@ -21,9 +21,9 @@ int zbir_kolone(int **M, int n, int k)
 }
 
 /* Funkcija proverava da li je kvadrat koji joj se prosledjuje kao
-   argument magican. Ukoliko jeste magican funkcija vraca 1, inace 0. 
-   Argument funkcije zbir ce sadrzati zbir elemenata neke vrste ili
-   kolone ukoliko je kvadrat magican. */
+   argument magican. Ukoliko jeste magican funkcija vraca 1, inace
+   0. Argument funkcije zbir ce sadrzati zbir elemenata neke vrste
+   ili kolone ukoliko je kvadrat magican. */
 int magicni_kvadrat(int **M, int n, int *zbir_magicnog)
 {
   int i, j;

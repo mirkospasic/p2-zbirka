@@ -3,8 +3,8 @@
 #include "stabla.h"
 
 /* Funkcija ucitava brojeve sa standardnog ulaza i smesta ih u
-   stablo. Funkcija vraca 1 u slucaju neuspesnog dodavanja elementa u
-   stablo, a inace 0. */
+   stablo. Funkcija vraca 1 u slucaju neuspesnog dodavanja elementa
+   u stablo, a inace 0. */
 int ucitaj_stablo(Cvor ** koren)
 {
   *koren = NULL;
@@ -25,8 +25,8 @@ int prebroj_n(Cvor * koren, int n)
      negativan broj, na tom nivou nema cvorova (rezultat je nula). */
   if (koren == NULL || n < 0)
     return 0;
-  /* Ukoliko je n = 0, na tom nivou je samo koren. Ukoliko ima jednog
-     potomka funkcija vraca 1, inace 0 */
+  /* Ukoliko je n = 0, na tom nivou je samo koren. Ukoliko ima
+     jednog potomka funkcija vraca 1, inace 0 */
   if (n == 0) {
     if (koren->levo == NULL && koren->desno != NULL)
       return 1;
@@ -35,9 +35,10 @@ int prebroj_n(Cvor * koren, int n)
     return 0;
   }
   /* Broj cvorova na n-tom nivou je jednak zbiru broja cvorova na
-     (n-1)-om nivou levog podstabla i broja cvorova na (n-1)-om nivou
-     levog podstabla */
-  return prebroj_n(koren->levo, n - 1) + prebroj_n(koren->desno, n - 1);
+     (n-1)-om nivou levog podstabla i broja cvorova na (n-1)-om
+     nivou levog podstabla */
+  return prebroj_n(koren->levo, n - 1) + prebroj_n(koren->desno,
+                                                   n - 1);
 }
 
 int main()

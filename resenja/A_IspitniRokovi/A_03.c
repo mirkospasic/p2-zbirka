@@ -26,14 +26,14 @@ int broj_negativnih_u_koloni(int m[][MAKS], int v, int k)
   return broj_negativnih;
 }
 
-/* Funkcija vraca indeks kolone matrice m u kojoj se nalazi najvise 
+/* Funkcija vraca indeks kolone matrice m u kojoj se nalazi najvise
    negativnih elemenata */
 int maks_indeks(int m[][MAKS], int v, int k)
 {
   int j;
   int broj_negativnih;
   /* Inicijalizacija na nulu indeksa kolone sa maksimalnim brojem
-     negativnih (maks_indeks_kolone), kao i maksimalnog broja 
+     negativnih (maks_indeks_kolone), kao i maksimalnog broja
      negativnih elemenata u nekoj koloni (maks_broj_negativnih) */
   int maks_indeks_kolone = 0;
   int maks_broj_negativnih = 0;
@@ -59,16 +59,16 @@ int main()
 
   /* Ucitavanje broja vrsta matrice */
   scanf("%d", &v);
-  
+
   /* Provera validnosti broja vrsta */
   if (v < 0 || v > MAKS) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
   }
-    
+
   /* Ucitavanje broja kolona matrice */
   scanf("%d", &k);
-  
+
   /* Provera validnosti broja kolona */
   if (k < 0 || k > MAKS) {
     fprintf(stderr, "-1\n");
@@ -80,6 +80,6 @@ int main()
   /* Pronalazenje kolone koja sadrzi najveci broj negativnih
      elemenata i ispisivanje trazenog rezultata */
   printf("%d\n", maks_indeks(m, v, k));
-  
+
   exit(EXIT_SUCCESS);
 }

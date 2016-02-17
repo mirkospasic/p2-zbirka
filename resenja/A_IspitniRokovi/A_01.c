@@ -15,7 +15,7 @@ char **alociranje_memorije(int n)
      program zavrsava. */
   if (linije == NULL)
     return NULL;
-  /* Alocira se prostor za svaku vrstu matrice. Niska nije duza od 
+  /* Alocira se prostor za svaku vrstu matrice. Niska nije duza od
      MAKS karaktera, a 1 se dodaje zbog terminirajuce nule. */
   for (i = 0; i < n; i++) {
     linije[i] = malloc((MAKS + 1) * sizeof(char));
@@ -60,9 +60,9 @@ int main(int argc, char *argv[])
   }
 
   /* Otvaranje datoteke cije ime je navedeno kao argument komandne
-     linije neposredno nakon imena programa koji se poziva. U slucaju
-     neuspesnog otvaranja ispisuje se -1 na stderr i program zavrsava
-     izvrsavanje. */
+     linije neposredno nakon imena programa koji se poziva. U
+     slucaju neuspesnog otvaranja ispisuje se -1 na stderr i program 
+     zavrsava izvrsavanje. */
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "-1\n");
@@ -74,8 +74,8 @@ int main(int argc, char *argv[])
   /* Alociranje memorije na osnovu ucitanog broja linija. */
   linije = alociranje_memorije(n);
 
-  /* U slucaju neuspesne alokacije ispisuje se -1 na stderr i program
-     zavrsava. */
+  /* U slucaju neuspesne alokacije ispisuje se -1 na stderr i
+     program zavrsava. */
   if (linije == NULL) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);
@@ -98,6 +98,6 @@ int main(int argc, char *argv[])
 
   /* Zatvaranje datoteke. */
   fclose(ulaz);
-  
+
   exit(EXIT_SUCCESS);
 }
