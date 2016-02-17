@@ -12,7 +12,6 @@ Cvor *napravi_cvor(double broj)
   novi->vrednost = broj;
   novi->sledeci = NULL;
   return novi;
-
 }
 
 /* Funkcija oslobadja dinamicku memoriju zauzetu za elemente liste
@@ -24,9 +23,7 @@ void oslobodi_listu(Cvor ** adresa_glave)
     pomocni = (*adresa_glave)->sledeci;
     free(*adresa_glave);
     *adresa_glave = pomocni;
-  
-}
-
+  }
 }
 
 /* Funkcija pronalazi i vraca pokazivac na poslednji element liste,
@@ -53,7 +50,6 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, double broj)
   if (*adresa_glave == NULL) {
     *adresa_glave = novi;
     return 0;
-  
   }
   Cvor *poslednji = pronadji_poslednji(*adresa_glave);
   poslednji->sledeci = novi;

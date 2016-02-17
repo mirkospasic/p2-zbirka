@@ -97,8 +97,7 @@ int main () {
   char datoteka[MAX];
   float broj;
   float **A=NULL;
-  int i,j;
-  int m,n;
+  int i, j, m, n;
   
   /* Sa standardnog ulaza se ucitava ime datoteke i realan broj*/
   scanf("%s",datoteka);

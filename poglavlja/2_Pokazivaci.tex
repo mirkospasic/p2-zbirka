@@ -149,9 +149,11 @@ Zadatak rešiti:
 \item korišćenjem indeksne sintakse,
 \item korišćenjem pokazivačke sintakse.
 \end{enumerate} 
+\skrati{1}
 Od korisnika sa ulaza tražiti da izabere koje od ova dva
 rešenja treba koristiti prilikom ispisa.
 
+\skrati{2}
 \begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out prvi 2. treci -4}#
@@ -195,6 +197,7 @@ rešenja treba koristiti prilikom ispisa.
 \includecode{resenja/2_Pokazivaci/2_04.c}
 \end{Answer}
 
+\skrati{2}
 \begin{Exercise}[label=2_05]
 Korišćenjem pokazivačke sintakse, napisati funkciju koja
 za datu nisku ispituje da li je palindrom. Napisati program koji
@@ -250,23 +253,6 @@ već implementirati svoje koristeći pokazivačku sintaksu.
 \end{miditest}
 \begin{miditest}
 \begin{upotreba}{2}
-#\poziv{./a.out ulaz.txt}#
-
-#\naslovDat{ulaz.txt}#
-#\datoteka{Ovo je sadrzaj datoteke i u njoj }#
-#\datoteka{ima reci koje imaju 1 karakter}#
-
-#\naslovInt#
-#\naslovIzlazZaGresku#
-#\izlaz{Greska: Nedovoljan broj }#
-#\izlaz{argumenata komandne linije.}#
-#\izlaz{Program se poziva sa }#
-#\izlaz{./a.out ime\_dat br\_karaktera}#
-\end{upotreba}
-\end{miditest}
-
-\begin{miditest}
-\begin{upotreba}{3}
 #\poziv{./a.out ulaz.txt 2}#
 
 #\naslovDat{Datoteka ulaz.txt ne postoji}#
@@ -282,6 +268,24 @@ već implementirati svoje koristeći pokazivačku sintaksu.
 \begin{Answer}[ref=2_06]
 \includecode{resenja/2_Pokazivaci/2_06.c}
 \end{Answer}
+
+\begin{miditest}
+\begin{upotreba}{3}
+#\poziv{./a.out ulaz.txt}#
+
+#\naslovDat{ulaz.txt}#
+#\datoteka{Ovo je sadrzaj datoteke i u njoj }#
+#\datoteka{ima reci koje imaju 1 karakter}#
+
+#\naslovInt#
+#\naslovIzlazZaGresku#
+#\izlaz{Greska: Nedovoljan broj }#
+#\izlaz{argumenata komandne linije.}#
+#\izlaz{Program se poziva sa }#
+#\izlaz{./a.out ime\_dat br\_karaktera}#
+\end{upotreba}
+\end{miditest}
+
 
 \begin{Exercise}[label=2_07]
 Napisati program koji kao prvi argument komandne linije prihvata
@@ -354,6 +358,7 @@ implementirati svoje koristeći pokazivačku sintaksu.
 \includecode{resenja/2_Pokazivaci/2_07.c}
 \end{Answer}
 
+\ifpdf \else \newpage \fi
 \section{Višedimenzioni nizovi}
 
 \begin{Exercise}[label=2_08]
@@ -1063,6 +1068,7 @@ U datoteci se nalazi prvo dimenzija matrice, a zatim redom elementi matrice.
 \includecode{resenja/2_Pokazivaci/2_22.c}
 \end{Answer}
 
+\skrati{2}
 \begin{Exercise}[label=2_23]
 Napisati program koji na osnovu dve realne matrice dimenzija $m \times n$
 formira matricu dimenzija $2 \cdot m \times n$ tako što
@@ -1073,6 +1079,7 @@ narednih $m$ redova se nalaze vrste prve matrice, a u
 narednih $m$ redova vrste druge matrice. Rezultujuću
 matricu ispisati na standardni izlaz.
 
+\skrati{2}
 \begin{miditest}
 \begin{upotreba}{1}
 #\poziv{./a.out matrice.txt}#
@@ -1103,7 +1110,7 @@ matricu ispisati na standardni izlaz.
 %\begin{Answer}[ref=2_23]
 %\includecode{resenja/2_Pokazivaci/2_23.c}
 %\end{Answer}
-
+\skrati{2}
 \begin{Exercise}[label=2_24]
 Na ulazu se zadaje niz celih brojeva čiji se unos završava nulom.
 Napisati funkciju koja od zadatog niza formira matricu tako da
@@ -1114,6 +1121,7 @@ Rezultujuću matricu ispisati na standardni izlaz.
 \napomena{Koristiti biblioteku za rad sa celobrojnim matricama iz
     zadatka \ref{2_19}.}
 
+\skrati{2}
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovInt#
