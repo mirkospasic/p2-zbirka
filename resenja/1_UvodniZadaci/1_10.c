@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "stampanje_bitova.h"
 
-/* Funkcija vraca vrednost cija je binarna reprezentacija slika u 
+/* Funkcija vraca vrednost cija je binarna reprezentacija slika u
    ogledalu binarne reprezentacije broja x. */
 unsigned ogledalo(unsigned x)
 {
@@ -16,9 +16,9 @@ unsigned ogledalo(unsigned x)
   for (i = 0; i < sizeof(x) * 8; i++) {
     najnizi_bit = x & 1;
     x >>= 1;
-    /* Potiskivanjem trenutnog rezultata ka levom kraju svi prethodno 
-       postavljeni bitovi dobijaju vecu poziciju. Novi bit se
-       postavlja na najnizu poziciju */
+    /* Potiskivanjem trenutnog rezultata ka levom kraju svi
+       prethodno postavljeni bitovi dobijaju vecu poziciju. Novi bit 
+       se postavlja na najnizu poziciju */
     rezultat <<= 1;
     rezultat |= najnizi_bit;
   }

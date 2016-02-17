@@ -33,4 +33,4 @@ clean:
 	rm -rf *~ *.out
 
 beauty:
-	indent -fc1 -fca -kr --no-tabs --line-length70 -i2 *.c ../biblioteke/stabla/*.[ch]
+	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c ../biblioteke/stabla/*.[ch]

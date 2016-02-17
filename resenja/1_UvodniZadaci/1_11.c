@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-/* Funkcija vraca 1 ukoliko je u binarnoj reprezentaciji broja n broj 
-   jedinica veci od broja nula. U suprotnom funkcija vraca 0 */
+/* Funkcija vraca 1 ukoliko je u binarnoj reprezentaciji broja n
+   broj jedinica veci od broja nula. U suprotnom funkcija vraca 0 */
 int broj_01(unsigned int n)
 {
   int broj_nula, broj_jedinica;
@@ -19,8 +19,8 @@ int broj_01(unsigned int n)
      1 biti na svim pozicijama u binarnoj reprezentaciji maske */
   while (maska != 0) {
 
-    /* Provera da li se na poziciji koju odredjuje maska nalazi 0 ili 
-       1 i uveca se odgovarajuci brojac */
+    /* Provera da li se na poziciji koju odredjuje maska nalazi 0
+       ili 1 i uveca se odgovarajuci brojac */
     if (n & maska) {
       broj_jedinica++;
     } else {

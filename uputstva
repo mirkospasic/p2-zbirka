@@ -369,7 +369,7 @@ Uputstva za unos resenja
 Uzmes zadatak sa vezbi, sredis da je kod u skladu sa zadatkom, sredis mu komentare, testiras resenje da je dobro. Komentari moraju da postoje, u kojoj meri, to je vec stvar ukusa, izbaci sta mislis da treba, ubaci sta mislis da nedostaje.
 
 Formatiranje resenja se radi alatom indent:
-indent -fc1 -fca -kr --no-tabs --line-length70 -i2 *.c *.h
+indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c *.h
 -fc1 -fca - Formatiraj i komentare
 -kr - Formatiranje kao u knjizi Kernighan&Ritchie
 --no-tabs - Umesto TAB-ova koristimo space-ove (zbog PDF-a)

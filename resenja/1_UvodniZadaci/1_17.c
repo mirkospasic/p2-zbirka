@@ -59,6 +59,6 @@ int main()
     fprintf(stderr, "Greska: Neodgovarajuci redni broj funkcije.\n");
     exit(EXIT_FAILURE);
   }
-  
+
   exit(EXIT_SUCCESS);
 }

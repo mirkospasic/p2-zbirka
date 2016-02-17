@@ -48,10 +48,10 @@ int main()
     printf("Suma elemenata je %d\n", suma_niza_1(a, n));
   else if (ind == 2)
     printf("Suma elemenata je %d\n", suma_niza_2(a, n));
-  else{
+  else {
     fprintf(stderr, "Greska: Neodgovarajuci redni broj funkcije.\n");
     exit(EXIT_FAILURE);
   }
-	
+
   exit(EXIT_SUCCESS);
 }

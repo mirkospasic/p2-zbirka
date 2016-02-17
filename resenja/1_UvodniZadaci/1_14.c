@@ -2,8 +2,8 @@
 
 /* Niska koja se formira je duzine (sizeof(unsigned int)*8)/4 +1 jer
    su za svaku heksadekadnu cifru potrebne 4 binarne cifre i jedna
-   dodatna pozicija za terminirajucu nulu.
-   Prethodni izraz se moze zapisati kao sizeof(unsigned int)*2+1. */
+   dodatna pozicija za terminirajucu nulu. Prethodni izraz se moze
+   zapisati kao sizeof(unsigned int)*2+1. */
 #define MAKS_DUZINA sizeof(unsigned int)*2 +1
 
 /* Funkcija za neoznacen broj x formira nisku s koja sadrzi njegov
@@ -36,8 +36,8 @@ void prevod(unsigned int x, char s[])
     vrednost = x & maska;
 
     /* Ako je vrednost iz opsega od 0 do 9 odgovarajuci karakter se
-       dobija dodavanjem ASCII koda '0'. Ako je vrednost iz opsega od 
-       10 do 15 odgovarajuci karakter se dobija tako sto se prvo
+       dobija dodavanjem ASCII koda '0'. Ako je vrednost iz opsega
+       od 10 do 15 odgovarajuci karakter se dobija tako sto se prvo
        oduzme 10 (time se dobiju vrednosti od 0 do 5) pa se na tako
        dobijenu vrednost doda ASCII kod 'A' (time se dobija
        odgovarajuce slovo 'A', 'B', ... 'F') */

@@ -12,7 +12,7 @@ void ispisi_niz(int a[], int n)
   printf("\n");
 }
 
-/* Funkcija koja vraca 1 ako se broj x nalazi u nizu a duzine n, a 
+/* Funkcija koja vraca 1 ako se broj x nalazi u nizu a duzine n, a
    inace 0 */
 int koriscen(int a[], int n, int x)
 {
@@ -28,13 +28,13 @@ int koriscen(int a[], int n, int x)
   return 0;
 }
 
-/* Funkcija koja ispisuje sve permutacije od skupa {1,2,...,n} dobija
-   kao argument niz a[] u koji se smesta permutacija, broj m oznacava 
-   da se u okviru tog poziva funkcije na m-tu poziciju u permutaciji 
-   smesta jedan od preostalih celih brojeva, n je velicina skupa koji
-   se permutuje. Funkciju se inicijalno poziva sa argumentom m = 1, 
-   jer formiranje permutacije pocinje od pozicije broj 1. Stoga, a[0]
-   se ne koristi. */
+/* Funkcija koja ispisuje sve permutacije od skupa {1,2,...,n}
+   dobija kao argument niz a[] u koji se smesta permutacija, broj m
+   oznacava da se u okviru tog poziva funkcije na m-tu poziciju u
+   permutaciji smesta jedan od preostalih celih brojeva, n je
+   velicina skupa koji se permutuje. Funkciju se inicijalno poziva
+   sa argumentom m = 1, jer formiranje permutacije pocinje od
+   pozicije broj 1. Stoga, a[0] se ne koristi. */
 void permutacija(int a[], int m, int n)
 {
   int i;
@@ -59,9 +59,9 @@ void permutacija(int a[], int m, int n)
   for (i = 1; i <= n; i++) {
     /* Ako se broj i nije do sada pojavio u permutaciji od 1 do m-1
        pozicije, onda se on postavlja na poziciju m i poziva se
-       ponovo funkcija da dopuni ostatak permutacije posle upisivanja
-       i na poziciju m. Inace, nastavlja se dalje, trazeci broj koji
-       se nije pojavio do sada u permutaciji. */
+       ponovo funkcija da dopuni ostatak permutacije posle
+       upisivanja i na poziciju m. Inace, nastavlja se dalje,
+       trazeci broj koji se nije pojavio do sada u permutaciji. */
     if (!koriscen(a, m - 1, i)) {
       a[m] = i;
       permutacija(a, m + 1, n);
@@ -72,9 +72,9 @@ void permutacija(int a[], int m, int n)
 int main(void)
 {
   int n;
-  int a[MAKS_DUZINA_PERMUTACIJE+1];
+  int a[MAKS_DUZINA_PERMUTACIJE + 1];
 
-  /* Ucitava se broja n i provera se da li je u odgovarajucem opsegu */
+  /* Ucitava se broj n iz odgovarajuceg opsega */
   scanf("%d", &n);
   if (n < 0 || n > MAKS_DUZINA_PERMUTACIJE) {
     fprintf(stderr,

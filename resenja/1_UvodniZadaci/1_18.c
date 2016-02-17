@@ -9,7 +9,8 @@
    paran. */
 unsigned neparan(unsigned n);
 
- /* Funkcija vraca 1 ako broj n ima paran broj cifara, inace vraca 0 */
+ /* Funkcija vraca 1 ako broj n ima paran broj cifara, inace vraca 0 
+  */
 unsigned paran(unsigned n)
 {
   if (n <= 9)

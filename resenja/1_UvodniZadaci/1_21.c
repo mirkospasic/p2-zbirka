@@ -36,26 +36,26 @@ int f_rekurzivna(int n, int a, int b)
    podproblema koji se mogu preklapati, postoji opasnost da se
    pojedini podproblemi manjih dimenzija resavaju veci broj puta.
    Npr. F(20) = a*F(19) + b*F(18), a F(19) = a*F(18) + b*F(17), tj.
-   problem F(18) se resava dva puta! Problemi manjih
-   dimenzija ce se resavati jos veci broj puta. Resenje za ovaj
-   problem je kombinacija rekurzije sa dinamickim programiranjem.
-   Podproblemi se resavaju samo jednom, a njihova resenja se pamte u
-   memoriji (obicno u nizovima ili matricama), odakle se koriste ako
-   tokom resavanja ponovo budu potrebni.
+   problem F(18) se resava dva puta! Problemi manjih dimenzija ce se
+   resavati jos veci broj puta. Resenje za ovaj problem je
+   kombinacija rekurzije sa dinamickim programiranjem. Podproblemi se 
+   resavaju samo jednom, a njihova resenja se pamte u memoriji
+   (obicno u nizovima ili matricama), odakle se koriste ako tokom
+   resavanja ponovo budu potrebni.
 
    U narednoj funkciji vec izracunati clanovi niza se cuvaju u
-   statickom nizu celih brojeva, jer se staticki niz ne smesta
-   na stek, kao sto je to slucaj sa lokalnim promenljivama, vec na
-   segment podataka, odakle je dostupan svim pozivima
-   rekurzivne funkcije. */
+   statickom nizu celih brojeva, jer se staticki niz ne smesta na
+   stek, kao sto je to slucaj sa lokalnim promenljivama, vec na
+   segment podataka, odakle je dostupan svim pozivima rekurzivne
+   funkcije. */
 
-/* c) Funkcija racuna n-ti broj niza F - napredna rekurzivna
+/* c) Funkcija racuna n-ti broj niza F - efikasnija rekurzivna
    verzija */
 int f_napredna(int n, int a, int b)
 {
   /* Niz koji cuva resenja podproblema. Kompajler inicijalizuje
-     staticke promenljive na podrazumevane vrednosti. Stoga, elemente 
-     celobrojnog niza inicijalizuje na 0 */
+     staticke promenljive na podrazumevane vrednosti. Stoga,
+     elemente celobrojnog niza inicijalizuje na 0 */
   static int f[20];
 
   /* Ako je podproblem vec ranije resen, koristi se resenje koje je

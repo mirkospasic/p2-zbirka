@@ -36,7 +36,7 @@ unsigned postavi_1(unsigned x, unsigned n, unsigned p)
   return x | maska;
 }
 
-/* Funkcija vraca celobrojno polje bitova, desno poravnato, koje 
+/* Funkcija vraca celobrojno polje bitova, desno poravnato, koje
    predstavlja n bitova pocev od pozicije p u binarnoj
    reprezentaciji broja x. */
 unsigned vrati_bitove(unsigned x, unsigned n, unsigned p)
@@ -58,15 +58,16 @@ unsigned vrati_bitove(unsigned x, unsigned n, unsigned p)
 /* Funkcija vraca broj x kome su n bitova pocev od pozicije p
    postavljeni na vrednosti n bitova najmanje tezine binarne
    reprezentacije broja y */
-unsigned postavi_1_n_bitova(unsigned x, unsigned n, unsigned p, unsigned y)
+unsigned postavi_1_n_bitova(unsigned x, unsigned n, unsigned p,
+                            unsigned y)
 {
-  /* Kreira se maska kod kod koje su poslednjih n bitova 1, a
-     ostali su 0. */
+  /* Kreira se maska kod kod koje su poslednjih n bitova 1, a ostali
+     su 0. */
   unsigned poslednjih_n_1 = ~(~0 << n);
 
   /* Kao i kod funkcije postavi_0, i ovde se kreira maska koja ima n
-     bitova postavljenih na 0 pocevsi od pozicije p, dok su
-     ostali bitovi 1. */
+     bitova postavljenih na 0 pocevsi od pozicije p, dok su ostali
+     bitovi 1. */
   unsigned srednjih_n_0 = ~(~(~0 << n) << (p - n + 1));
 
   /* U promenljivu x_postavi_0 se smesta vrednost dobijena kada se u
@@ -75,10 +76,10 @@ unsigned postavi_1_n_bitova(unsigned x, unsigned n, unsigned p, unsigned y)
   unsigned x_postavi_0 = x & srednjih_n_0;
 
   /* U promenlijvu y_pomeri_srednje se smesta vrednost dobijena od
-     binarne reprezentacije vrednosti promenljive y cijih je n bitova 
-     najnize tezine pomera tako da stoje pocev od pozicije p. Ostali
-     bitovi su nule. Sa (y & poslednjih_n_1) postave na 0 svi bitovi
-     osim najnizih n */
+     binarne reprezentacije vrednosti promenljive y cijih je n
+     bitova najnize tezine pomera tako da stoje pocev od pozicije p. 
+     Ostali bitovi su nule. Sa (y & poslednjih_n_1) postave na 0 svi 
+     bitovi osim najnizih n */
   unsigned y_pomeri_srednje = (y & poslednjih_n_1) << (p - n + 1);
 
   return x_postavi_0 ^ y_pomeri_srednje;
@@ -109,47 +110,47 @@ int main()
   scanf("%u", &p);
   printf("Unesite neoznacen ceo broj y:\n");
   scanf("%u", &y);
-  
-  /* Ispisuju se binarne reprezentacije broja x i broja koji se 
-     dobije kada se primeni funkcija postavi_0 za x, n i p*/
+
+  /* Ispisuju se binarne reprezentacije broja x i broja koji se
+     dobije kada se primeni funkcija postavi_0 za x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("postavi_0(%10u,%6u,%6u)%16s = ", x, n, p, "");
-  stampaj_bitove( postavi_0(x, n, p));
+  stampaj_bitove(postavi_0(x, n, p));
   printf("\n");
 
-  /* Ispisuju se binarne reprezentacije broja x i broja koji se 
-     dobije kada se primeni funkcija postavi_1 za x, n i p*/
+  /* Ispisuju se binarne reprezentacije broja x i broja koji se
+     dobije kada se primeni funkcija postavi_1 za x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("postavi_1(%10u,%6u,%6u)%16s = ", x, n, p, "");
-  stampaj_bitove( postavi_1(x, n, p));
+  stampaj_bitove(postavi_1(x, n, p));
   printf("\n");
 
-  /* Ispisuju se binarne reprezentacije broja x i broja koji se 
-     dobije kada se primeni funkcija vrati_bitove za x, n i p*/
+  /* Ispisuju se binarne reprezentacije broja x i broja koji se
+     dobije kada se primeni funkcija vrati_bitove za x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("vrati_bitove(%10u,%6u,%6u)%13s = ", x, n, p, "");
-  stampaj_bitove( vrati_bitove(x, n, p));
+  stampaj_bitove(vrati_bitove(x, n, p));
   printf("\n");
 
-  /* Ispisuju se binarne reprezentacije brojeva x, y i broja koji se 
-     dobije kada se primeni funkcija postavi_1_n_bitova za x, n i p*/
+  /* Ispisuju se binarne reprezentacije brojeva x, y i broja koji se
+     dobije kada se primeni funkcija postavi_1_n_bitova za x, n, p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("y = %10u %36s = ", y, "");
   stampaj_bitove(y);
   printf("postavi_1_n_bitova(%10u,%4u,%4u,%10u) = ", x, n, p, y);
-  stampaj_bitove( postavi_1_n_bitova(x, n, p, y));
+  stampaj_bitove(postavi_1_n_bitova(x, n, p, y));
   printf("\n");
 
-  /* Ispisuju se binarne reprezentacije broja x i broja koji se 
-     dobije kada se primeni funkcija invertuj za x, n i p*/
+  /* Ispisuju se binarne reprezentacije broja x i broja koji se
+     dobije kada se primeni funkcija invertuj za x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("invertuj(%10u,%6u,%6u)%17s = ", x, n, p, "");
-  stampaj_bitove( invertuj(x, n, p));
+  stampaj_bitove(invertuj(x, n, p));
 
   return 0;
 }

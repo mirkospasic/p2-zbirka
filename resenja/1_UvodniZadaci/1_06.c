@@ -55,16 +55,16 @@ int main()
   scanf("%d", &i);
 
   /* Ispisivanje rezultata */
-  if (i == 1){
+  if (i == 1) {
     printf("Poziva se funkcija prebroj_bitove_1\n");
     printf("Broj jedinica u zapisu je %d\n", prebroj_bitove_1(x));
-  }else if (i == 2){
+  } else if (i == 2) {
     printf("Poziva se funkcija prebroj_bitove_2\n");
     printf("Broj jedinica u zapisu je %d\n", prebroj_bitove_2(x));
-  }else {
+  } else {
     fprintf(stderr, "Greska: Neodgovarajuci redni broj funkcije.\n");
     exit(EXIT_FAILURE);
   }
-	
+
   exit(EXIT_SUCCESS);
 }

@@ -17,7 +17,8 @@ int broj_parova(unsigned int x)
   maska = 3;
 
   while (x != 0) {
-    /* Provera da li se na najmanjim pozicijama broj x nalazi 11 par */
+    /* Provera da li se na najmanjim pozicijama broj x nalazi 11 par 
+     */
     if ((x & maska) == maska) {
       broj_parova++;
     }

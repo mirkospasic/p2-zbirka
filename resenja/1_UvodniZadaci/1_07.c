@@ -13,9 +13,9 @@ unsigned najveci(unsigned x)
   /* Rezultat se inicijalizuje vrednoscu 0 */
   unsigned rezultat = 0;
 
-  /* Promenljiva x se pomera u levo sve dok postoje jedinice u njenoj 
-     binarnoj reprezentaciji (tj. sve dok je promenljiva x razlicita
-     od nule). */
+  /* Promenljiva x se pomera u levo sve dok postoje jedinice u
+     njenoj binarnoj reprezentaciji (tj. sve dok je promenljiva x
+     razlicita od nule). */
   for (; x != 0; x <<= 1) {
     /* Za svaku jedinicu koja se koriscenjem maske detektuje na
        poziciji najvece tezine u binarnoj reprezentaciji promenjive
@@ -30,8 +30,9 @@ unsigned najveci(unsigned x)
   return rezultat;
 }
 
-/* Funkcija vraca najmanji neoznaceni broj sastavljen od istih bitova 
-   koji se nalaze u binarnoj reprezentaciji vrednosti promenjive x */
+/* Funkcija vraca najmanji neoznaceni broj sastavljen od istih
+   bitova koji se nalaze u binarnoj reprezentaciji vrednosti
+   promenjive x */
 unsigned najmanji(unsigned x)
 {
   /* Rezultat se inicijalizuje vrednoscu 0 */

@@ -33,7 +33,8 @@ int main(int argc, char **argv)
   /* Ispisuje se vrednost polinoma u unetoj tacki */
   printf("Unesite tacku u kojoj racunate vrednost polinoma z:\n");
   scanf("%lf", &x);
-  printf("Vrednost polinoma z u tacki %.2f je %.2f\n", x, izracunaj(&z, x));
+  printf("Vrednost polinoma z u tacki %.2f je %.2f\n", x,
+         izracunaj(&z, x));
 
 
   /* Racuna se n-ti izvoda polinoma i ispisuje se dobijeni polinoma */

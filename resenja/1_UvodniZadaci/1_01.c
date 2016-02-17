@@ -30,11 +30,11 @@ void ispisi_kompleksan_broj(KompleksanBroj z)
 
   /* Razlikuju se dva slucaja: 1) realni deo kompleksnog broja
      razlicit od nule: tada se realni deo ispisuje na standardni
-     izlaz, nakon cega se ispisuje znak + ili - u zavisnosti da li je 
-     imaginarni deo pozitivan ili negativan, a potom i apsolutna
+     izlaz, nakon cega se ispisuje znak + ili - u zavisnosti da li
+     je imaginarni deo pozitivan ili negativan, a potom i apsolutna
      vrednost imaginarnog dela kompleksnog broja 2) realni deo
-     kompleksnog broja je nula: tada se samo ispisuje imaginaran deo, 
-     s tim sto se ukoliko su oba dela nula ispisuje samo 0, bez
+     kompleksnog broja je nula: tada se samo ispisuje imaginaran
+     deo, s tim sto se ukoliko su oba dela nula ispisuje samo 0, bez 
      decimalnih mesta */
 
   if (z.real != 0) {
@@ -78,8 +78,8 @@ float moduo(KompleksanBroj z)
    odgovara kompleksnom broju argumentu */
 KompleksanBroj konjugovan(KompleksanBroj z)
 {
-  /* Konjugovano kompleksan broj z se dobija tako sto se promeni znak 
-     imaginarnom delu kompleksnog broja */
+  /* Konjugovano kompleksan broj z se dobija tako sto se promeni
+     znak imaginarnom delu kompleksnog broja */
 
   KompleksanBroj z1 = z;
 
@@ -141,8 +141,8 @@ KompleksanBroj mnozi(KompleksanBroj z1, KompleksanBroj z2)
 /* Funkcija vraca argument zadatog kompleksnog broja */
 float argument(KompleksanBroj z)
 {
-  /* Argument kompleksnog broja z se racuna pozivanjem funkcije atan2 
-     iz biblioteke math.h */
+  /* Argument kompleksnog broja z se racuna pozivanjem funkcije
+     atan2 iz biblioteke math.h */
 
   return atan2(z.imag, z.real);
 }
@@ -160,8 +160,8 @@ int main()
   ispisi_kompleksan_broj(z1);
   printf("\n");
 
-  /* Ucitavanje drugog kompleksnog broja, a potom njegovo ispisivanje 
-     na standardni izlaz */
+  /* Ucitavanje drugog kompleksnog broja, a potom njegovo
+     ispisivanje na standardni izlaz */
   ucitaj_kompleksan_broj(&z2);
   ispisi_kompleksan_broj(z2);
   printf("\n");
@@ -189,12 +189,12 @@ int main()
     z = mnozi(z1, z2);
   }
 
-  /* Ispisuje se rezultat */  
+  /* Ispisuje se rezultat */
   ispisi_kompleksan_broj(z1);
   printf(" %c ", c);
   ispisi_kompleksan_broj(z2);
   printf("  =  ");
-  ispisi_kompleksan_broj(z);  
+  ispisi_kompleksan_broj(z);
 
   /* Ispisuje se realan, imaginaran deo i moduo prvog kompleksnog
      broja */
