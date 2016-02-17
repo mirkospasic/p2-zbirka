@@ -34,7 +34,6 @@ int kopiraj_stablo(Cvor * koren, Cvor ** duplikat)
     return 0;
   /* Inace, prijavljuje se da je doslo do greske */
   return 1;
-
 }
 
 /* Funkcija izracunava uniju dva skupa predstavljena stablima -
