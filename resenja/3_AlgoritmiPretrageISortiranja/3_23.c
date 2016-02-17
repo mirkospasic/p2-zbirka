@@ -115,7 +115,7 @@ int main()
   while (1) {
     printf("---------------------------\n");
     printf("- Za kraj za kraj rada kase, pritisnite CTRL+D!\n");
-    printf("- Za nov racun unesite kod artikla!\n\n");
+    printf("- Za nov racun unesite kod artikla:\n\n");
     /* Unos bar koda provog artikla sledeceg kupca */
     if (scanf("%ld", &kod) == EOF)
       break;
