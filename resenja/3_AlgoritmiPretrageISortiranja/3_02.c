@@ -113,5 +113,5 @@ int main()
   else
     printf("Pozicija elementa je %d.\n", indeks);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

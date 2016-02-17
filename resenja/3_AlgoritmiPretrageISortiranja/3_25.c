@@ -41,6 +41,18 @@ int uporedi_izvodjace(const void *pp1, const void *pp2)
   return strcmp(p1->izvodjac, p2->izvodjac);
 }
 
+/* Funkcija koja oslobadja memoriju zauzetu dinamickim nizom pesme
+   dimenzije n */
+void oslobodi(Pesma * pesme, int n)
+{
+  int i;
+  for (i = 0; i < n; i++) {
+    free(pesme[i].izvodjac);
+    free(pesme[i].naslov);
+  }
+  free(pesme);
+}
+
 int main(int argc, char *argv[])
 {
   FILE *ulaz;
@@ -50,17 +62,17 @@ int main(int argc, char *argv[])
   int i;                        /* Redni broj pesme cije se
                                    informacije citaju */
   int n;                        /* Ukupan broj pesama */
-  int j, k;
+  int j;
   char c;
   int alocirano;                /* Broj mesta alociranih za
                                    propratne informacije o pesmama */
   int broj_gledanja;
 
   /* Priprema datoteke za citanje */
-  ulaz = fopen("pesme_bez_pretpostavki.txt", "r");
+  ulaz = fopen("pesme.txt", "r");
   if (ulaz == NULL) {
     fprintf(stderr, "Greska pri otvaranju ulazne datoteke!\n");
-    return 0;
+    exit(EXIT_FAILURE);
   }
 
   /* Citanje informacija o pesmama */
@@ -69,7 +81,6 @@ int main(int argc, char *argv[])
   i = 0;
 
   while (1) {
-
     /* Proverava se da li je dostignut kraj datoteke */
     c = fgetc(ulaz);
     if (c == EOF) {
@@ -95,12 +106,8 @@ int main(int argc, char *argv[])
         /* Ako nije ispisuje se obavestenje */
         fprintf(stderr, "Problem sa alokacijom memorije!\n");
         /* I oslobadja sva memorija zauzeta do ovog koraka */
-        for (k = 0; k < i; k++) {
-          free(pesme[k].izvodjac);
-          free(pesme[k].naslov);
-        }
-        free(pesme);
-        return 0;
+        oslobodi(pesme, i);
+        exit(EXIT_FAILURE);
       }
     }
 
@@ -130,13 +137,9 @@ int main(int argc, char *argv[])
         if (pesme[i].izvodjac == NULL) {
           /* Ako nije oslobadja se sva memorija zauzeta do ovog
              koraka */
-          for (k = 0; k < i; k++) {
-            free(pesme[k].izvodjac);
-            free(pesme[k].naslov);
-          }
-          free(pesme);
+          oslobodi(pesme, i);
           /* I prekida sa izvrsavanjem programa */
-          return 0;
+          exit(EXIT_FAILURE);
         }
 
       }
@@ -180,15 +183,10 @@ int main(int argc, char *argv[])
         if (pesme[i].naslov == NULL) {
           /* Ako nije, oslobadja se sva memorija zauzeta do ovog
              koraka */
-          for (k = 0; k < i; k++) {
-            free(pesme[k].izvodjac);
-            free(pesme[k].naslov);
-          }
           free(pesme[i].izvodjac);
-          free(pesme);
-
+          oslobodi(pesme, i);
           /* I prekida izvrsavanje programa */
-          return 0;
+          exit(EXIT_FAILURE);
         }
       }
       /* Ako postoji dovoljno memorije, smesta se procitani karakter 
@@ -237,7 +235,7 @@ int main(int argc, char *argv[])
       } else {
         fprintf(stderr, "Nedozvoljeni argumenti!\n");
         free(pesme);
-        return 0;
+        exit(EXIT_FAILURE);
       }
     }
   }
@@ -249,11 +247,7 @@ int main(int argc, char *argv[])
   }
 
   /* Oslobadjanje memorije */
-  for (i = 0; i < n; i++) {
-    free(pesme[i].izvodjac);
-    free(pesme[i].naslov);
-  }
-  free(pesme);
+  oslobodi(pesme, n);
 
-  return 0;
+  exit(EXIT_SUCCESS);
 }

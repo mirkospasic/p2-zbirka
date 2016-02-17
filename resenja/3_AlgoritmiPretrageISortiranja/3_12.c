@@ -63,8 +63,8 @@ int main(int argc, char *argv[])
         tip_niza = 2;
         break;
       default:
-        printf("Pogresna opcija -%c\n", argv[i][1]);
-        return 1;
+        fprintf(stderr, "Pogresna opcija -%c\n", argv[i][1]);
+        exit(EXIT_SUCCESS);
         break;
       }
     }
