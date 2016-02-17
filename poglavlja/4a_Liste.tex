@@ -223,6 +223,7 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 \end{Answer}
 
 %=========================================================================
+\skrati{3}
 \begin{Exercise}[label=4_02]
 Napisati biblioteku za rad sa jednostruko povezanim listama koja sadrži sve funkcije iz zadatka \ref{4_01}, ali tako da funkcije budu implementirane rekurzivno. 
 \napomena{Koristiti \kckod{main} programe i test primere iz zadatka \ref{4_01}.}
@@ -246,8 +247,21 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
    struct _Element *sledeci;
  } Element;
 \end{ckod}
+
 \begin{miditest}
 \begin{test}{1}
+#\poziv{./a.out datoteka.html}#
+
+#\naslovDat{Datoteka datoteka.html ne postoji.}#
+
+#\naslovIzlazZaGresku#
+#\izlaz{Greska prilikom otvaranja}#
+#\izlaz{datoteke datoteka.html.}#
+\end{test}
+\end{miditest}
+
+\begin{miditest}
+\begin{test}{2}
 #\poziv{./a.out datoteka.html}#
 
 #\naslovDat{datoteka.html}#
@@ -261,6 +275,11 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
 #\datoteka{  \ \ <a link='http://www.math.rs'> Link 2</a>}# 
 #\datoteka{  </body>}# 
 #\datoteka{</html>}# 
+\end{test}
+\end{miditest}
+\begin{minitest}
+\begin{test2}{1}
+
 
 #\naslovIzlaz#
 #\izlaz{a - 4}#
@@ -270,19 +289,9 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
 #\izlaz{title - 2}#
 #\izlaz{head - 2}#
 #\izlaz{html - 2}#
-\end{test}
-\end{miditest}
-\begin{miditest}
-\begin{test}{2}
-#\poziv{./a.out datoteka.html}#
+\end{test2}
+\end{minitest}
 
-#\naslovDat{Datoteka datoteka.html ne postoji.}#
-
-#\naslovIzlazZaGresku#
-#\izlaz{Greska prilikom otvaranja}#
-#\izlaz{datoteke datoteka.html.}#
-\end{test}
-\end{miditest}
 % \begin{miditest}
 % \begin{test}{3}
 % #\poziv{./a.out}#
