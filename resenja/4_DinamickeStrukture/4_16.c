@@ -7,8 +7,8 @@
 #define MAX_CIFARA 13
 #define MAX_IME_I_PREZIME 100
 
-/* Struktura kojom se opisuje cvor stabla: sadrzi ime i prezime, broj 
-   telefona i redom pokazivace na levo i desno podstablo */
+/* Struktura kojom se opisuje cvor stabla: sadrzi ime i prezime,
+   broj telefona i redom pokazivace na levo i desno podstablo */
 typedef struct cvor {
   char ime_i_prezime[MAX_IME_I_PREZIME];
   char telefon[MAX_CIFARA];
@@ -48,8 +48,8 @@ dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
     Cvor *novi_cvor = napravi_cvor(ime_i_prezime, telefon);
     /* Proverava se uspesnost kreiranja novog cvora */
     if (novi_cvor == NULL) {
-      /* I ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
-       */
+      /* I ukoliko je doslo do greske, vraca se odgovarajuca
+         vrednost */
       return 1;
     }
     /* Inace... */
@@ -65,7 +65,8 @@ dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
      treba da bude pretrazivacko po ovom polju */
 
   /* Ako je zadato ime i prezime leksikografski manje od imena i
-     prezimena sadrzanog u korenu, podaci se dodaju u levo podstablo */
+     prezimena koje se nalazi u korenu, podaci se dodaju u levo
+     podstablo */
   if (strcmp(ime_i_prezime, (*adresa_korena)->ime_i_prezime)
       < 0)
     return dodaj_u_stablo(&(*adresa_korena)->levo, ime_i_prezime,
@@ -146,9 +147,9 @@ int procitaj_kontakt(FILE * f, char *ime_i_prezime, char *telefon)
 
   /* Naznaka kraja citanja imena i prezimena ce biti pojava prve
      cifre tako da se citanje vrsi sve dok se ne naidje na cifru.
-     Pritom treba voditi racuna da li ima dovoljno mesta za smestanje 
-     procitanog karaktera i da se slucajno ne dodje do kraja datoteke 
-   */
+     Pritom treba voditi racuna da li ima dovoljno mesta za
+     smestanje procitanog karaktera i da se slucajno ne dodje do
+     kraja datoteke */
   while (i < MAX_IME_I_PREZIME - 1 && (c = fgetc(f)) != EOF) {
     if (!isdigit(c))
       ime_i_prezime[i++] = c;
@@ -182,8 +183,8 @@ int procitaj_kontakt(FILE * f, char *ime_i_prezime, char *telefon)
   return !feof(f) ? 0 : EOF;
 }
 
-/* Funkcija koja trazi u imeniku osobu sa zadatim imenom i prezimenom 
- */
+/* Funkcija koja trazi u imeniku osobu sa zadatim imenom i
+   prezimenom */
 Cvor *pretrazi_imenik(Cvor * koren, char *ime_i_prezime)
 {
   /* Ako je imenik prazan, zavrsava se sa pretragom */

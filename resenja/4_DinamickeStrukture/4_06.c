@@ -27,9 +27,9 @@ Cvor *objedini(Cvor ** adresa_glave_1, Cvor ** adresa_glave_2)
   if (lista2 == NULL)
     return lista1;
 
-  /* Odredjivanje prvog cvora rezultujuce liste - to je ili prvi cvor
-     liste lista1 ili prvi cvor liste lista2 u zavisnosti od toga koji 
-     sadrzi manju vrednost */
+  /* Odredjivanje prvog cvora rezultujuce liste - to je ili prvi
+     cvor liste lista1 ili prvi cvor liste lista2 u zavisnosti od
+     toga koji sadrzi manju vrednost */
   if (lista1->vrednost < lista2->vrednost) {
     rezultujuca = lista1;
     lista1 = lista1->sledeci;
@@ -42,9 +42,9 @@ Cvor *objedini(Cvor ** adresa_glave_1, Cvor ** adresa_glave_2)
      koji sadrzi adresu trenutnog cvora rezultujuce liste */
   tekuci = rezultujuca;
 
-  /* U svakoj iteraciji petlje rezultujucoj listi se dodaje novi cvor 
-     tako da bude uredjena neopadajuce. Pokazivac na listu iz koje se 
-     uzima cvor se azurira tako da pokazuje na sledeci cvor */
+  /* U svakoj iteraciji petlje rezultujucoj listi se dodaje novi
+     cvor tako da bude uredjena neopadajuce. Pokazivac na listu iz
+     koje se uzima cvor se azurira tako da pokazuje na sledeci cvor */
   while (lista1 != NULL && lista2 != NULL) {
     if (lista1->vrednost < lista2->vrednost) {
       tekuci->sledeci = lista1;
@@ -124,8 +124,9 @@ int main(int argc, char **argv)
   /* Ispis rezultujuce liste. */
   ispisi_listu(rezultat);
 
-  /* Lista rezultat dobijena je prevezivanjem cvorova polaznih listi. 
-     Njenim oslobadjanjem bice oslobodjena sva zauzeta memorija. */
+  /* Lista rezultat dobijena je prevezivanjem cvorova polaznih
+     listi. Njenim oslobadjanjem bice oslobodjena sva zauzeta
+     memorija. */
   oslobodi_listu(&rezultat);
 
   exit(EXIT_SUCCESS);

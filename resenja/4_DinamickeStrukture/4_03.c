@@ -16,7 +16,7 @@ typedef struct _Cvor {
    ili NULL ako alokacija nije uspesno izvrsena */
 Cvor *napravi_cvor(unsigned br, char *etiketa)
 {
-  /* Alokacija memorije za novi cvor uz proveru uspesnosti alokacije */
+  /* Alokacija memorije za cvor uz proveru uspesnosti alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -93,7 +93,8 @@ void ispisi_listu(Cvor * glava)
 /* Glavni program */
 int main(int argc, char **argv)
 {
-  /* Provera da li je program pozvan sa ispravnim brojem argumenata. */
+  /* Provera da li je program pozvan sa ispravnim brojem argumenata
+     komandne linije. */
   if (argc != 2) {
     fprintf(stderr,
             "Greska: Program se poziva sa: ./a.out datoteka.html!\n");
@@ -134,10 +135,10 @@ int main(int argc, char **argv)
       }
       procitana[i] = '\0';
 
-      /* Trazi se procitana etiketa medju postojecim cvorovima liste.
-         Ukoliko ne postoji, dodaje se novi cvor za ucitanu etiketu sa 
-         brojem pojavljivanja 1. Inace se uvecava broj pojavljivanja
-         etikete. */
+      /* Trazi se procitana etiketa medju postojecim cvorovima
+         liste. Ukoliko ne postoji, dodaje se novi cvor za ucitanu
+         etiketu sa brojem pojavljivanja 1. Inace se uvecava broj
+         pojavljivanja etikete. */
       trazeni = pretrazi_listu(glava, procitana);
       if (trazeni == NULL) {
         if (dodaj_na_pocetak_liste(&glava, 1, procitana) == 1) {

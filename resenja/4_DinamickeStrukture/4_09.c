@@ -44,10 +44,10 @@ int main(int argc, char **argv)
           exit(EXIT_FAILURE);
         }
     }
-    /* Ako je zatvorena etiketa, tada je uslov dobre uparenosti da je 
-       u pitanju zatvaranje etikete koja je poslednja otvorena, a jos 
-       uvek nije zatvorena. Ona se mora nalaziti na vrhu steka. Ako
-       je taj uslov ispunjen, skida se sa steka, jer je upravo
+    /* Ako je zatvorena etiketa, tada je uslov dobre uparenosti da
+       je u pitanju zatvaranje etikete koja je poslednja otvorena, a 
+       jos uvek nije zatvorena. Ona se mora nalaziti na vrhu steka.
+       Ako je taj uslov ispunjen, skida se sa steka, jer je upravo
        zatvorena. U suprotnom, pronadjena je nepravilnost i etikete
        nisu pravilno uparene. */
     else if (tip == ZATVORENA) {
@@ -58,7 +58,8 @@ int main(int argc, char **argv)
         printf("Etikete nisu pravilno uparene\n");
         printf("(nadjena je etiketa </%s>", etiketa);
         if (vrh_steka(vrh) != NULL)
-          printf(", a poslednja otvorena je <%s>)\n", vrh_steka(vrh));
+          printf(", a poslednja otvorena je <%s>)\n",
+                 vrh_steka(vrh));
         else
           printf(" koja nije otvorena)\n");
         uparene = 0;
@@ -69,9 +70,9 @@ int main(int argc, char **argv)
   /* Zavrseno je citanje i datoteka se zatvara */
   fclose(f);
 
-  /* Ako do sada nije pronadjeno pogresno uparivanje, stek bi trebalo 
-     da bude prazan. Ukoliko nije, tada postoje etikete koje su
-     ostale otvorene */
+  /* Ako do sada nije pronadjeno pogresno uparivanje, stek bi
+     trebalo da bude prazan. Ukoliko nije, tada postoje etikete koje 
+     su ostale otvorene */
   if (uparene) {
     if (vrh_steka(vrh) == NULL)
       printf("Etikete su pravilno uparene!\n");

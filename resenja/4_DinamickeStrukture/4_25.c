@@ -61,7 +61,8 @@ int main(int argc, char **argv)
   koren = NULL;
   while (scanf("%d", &broj) != EOF) {
     if (dodaj_u_stablo(&koren, broj) == 1) {
-      fprintf(stderr, "Greska: Neuspelo dodavanje broja %d.\n", broj);
+      fprintf(stderr, "Greska: Neuspelo dodavanje broja %d.\n",
+              broj);
       oslobodi_stablo(&koren);
       exit(EXIT_FAILURE);
     }

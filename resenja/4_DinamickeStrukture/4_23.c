@@ -36,8 +36,8 @@ void ispisi_nivo(Cvor * koren, int i)
     printf("%d ", koren->broj);
     return;
   }
-  /* Inace, vrsi se spustanje za jedan nivo nize i u levom i u desnom 
-     podstablu */
+  /* Inace, vrsi se spustanje za jedan nivo nize i u levom i u
+     desnom podstablu */
   ispisi_nivo(koren->levo, i - 1);
   ispisi_nivo(koren->desno, i - 1);
 }
@@ -69,7 +69,8 @@ int main(int argc, char **argv)
   koren = NULL;
   while (scanf("%d", &broj) != EOF) {
     if (dodaj_u_stablo(&koren, broj) == 1) {
-      fprintf(stderr, "Greska: Neuspelo dodavanje broja %d.\n", broj);
+      fprintf(stderr, "Greska: Neuspelo dodavanje broja %d.\n",
+              broj);
       oslobodi_stablo(&koren);
       exit(EXIT_FAILURE);
     }

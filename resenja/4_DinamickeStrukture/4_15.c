@@ -24,8 +24,8 @@ Cvor *napravi_cvor(char *rec)
     return NULL;
 
   /* Alocira se memorija za zadatu rec: potrebno je rezervisati
-     memoriju za svaki karakter reci ukljucujuci i terminirajucu nulu 
-   */
+     memoriju za svaki karakter reci ukljucujuci i terminirajucu
+     nulu */
   novi_cvor->rec = (char *) malloc((strlen(rec) + 1) * sizeof(char));
   if (novi_cvor->rec == NULL) {
     free(novi_cvor);
@@ -43,8 +43,8 @@ Cvor *napravi_cvor(char *rec)
 }
 
 /* Funkcija koja dodaje novu rec u stablo - ukoliko je dodavanje
-   uspesno povratna vrednost je 0, u suprotnom povratna vrednost je 1 
- */
+   uspesno povratna vrednost je 0, u suprotnom povratna vrednost je
+   1 */
 int dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
 {
   /* Ako je stablo prazno */
@@ -53,8 +53,8 @@ int dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
     Cvor *novi_cvor = napravi_cvor(rec);
     /* Proverava se uspesnost kreiranja novog cvora */
     if (novi_cvor == NULL) {
-      /* I ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
-       */
+      /* I ukoliko je doslo do greske, vraca se odgovarajuca
+         vrednost */
       return 1;
     }
     /* Inace... */
@@ -65,7 +65,8 @@ int dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
     return 0;
   }
 
-  /* Ako stablo nije prazno, trazi odgovarajuca pozicija za novu rec */
+  /* Ako stablo nije prazno, trazi se odgovarajuca pozicija za novu
+     rec */
 
   /* Ako je rec leksikografski manja od reci u korenu ubacuje se u
      levo podstablo */
@@ -146,8 +147,8 @@ void prikazi_stablo(Cvor * koren)
   if (koren == NULL)
     return;
 
-  /* Zbog leksikografskog poretka, prvo se ispisuju sve reci iz levog 
-     podstabla */
+  /* Zbog leksikografskog poretka, prvo se ispisuju sve reci iz
+     levog podstabla */
   prikazi_stablo(koren->levo);
 
   /* Zatim rec iz korena */

@@ -38,10 +38,10 @@ int kreiraj_niz(Cvor * koren, int a[])
    desno. Povratna vrednost funkcije je 0 ukoliko je niz uspesno
    kreiran i sortiran, a 1 ukoliko je doslo do greske.
 
-   Ovaj nacin sortiranja je primer sortiranja koje nije "u mestu" kao 
-   sto je to slucaj sa ostalim opisanim algoritmima sortiranja jer se 
-   sortiranje vrsi u pomocnoj dinamickoj strukturi, a ne razmenom
-   elemenata niza. */
+   Ovaj nacin sortiranja je primer sortiranja koje nije "u mestu"
+   kao sto je to slucaj sa ostalim opisanim algoritmima sortiranja
+   jer se sortiranje vrsi u pomocnoj dinamickoj strukturi, a ne
+   razmenom elemenata niza. */
 int sortiraj(int a[], int n)
 {
   int i;
@@ -55,11 +55,11 @@ int sortiraj(int a[], int n)
       return 1;
     }
   }
-  /* Infiksnim obilaskom stabla elementi iz stabla se prepisuju u niz 
-     a */
+  /* Infiksnim obilaskom stabla elementi iz stabla se prepisuju u
+     niz a */
   kreiraj_niz(koren, a);
 
-  /* Stablo vise nije potrebno pa se oslobadja memorija koju zauzima */
+  /* Stablo vise nije potrebno pa se oslobadja zauzeta memorija */
   oslobodi_stablo(&koren);
 
   /* Vraca se indikator uspesnog sortiranja */

@@ -39,7 +39,8 @@ int main()
   scanf("%d", &broj);
   while (broj != 0) {
     if (dodaj_u_stablo(&koren1, broj) == 1) {
-      fprintf(stderr, "Greska: Neuspelo dodavanje broja %d.\n", broj);
+      fprintf(stderr, "Greska: Neuspelo dodavanje broja %d.\n",
+              broj);
       oslobodi_stablo(&koren1);
       exit(EXIT_FAILURE);
     }
@@ -52,15 +53,16 @@ int main()
   scanf("%d", &broj);
   while (broj != 0) {
     if (dodaj_u_stablo(&koren2, broj) == 1) {
-      fprintf(stderr, "Greska: Neuspelo dodavanje broja %d.\n", broj);
+      fprintf(stderr, "Greska: Neuspelo dodavanje broja %d.\n",
+              broj);
       oslobodi_stablo(&koren2);
       exit(EXIT_FAILURE);
     }
     scanf("%d", &broj);
   }
 
-  /* Poziva se funkcija koja ispituje identitet stabala i ispisuje se 
-     njen rezultat. */
+  /* Poziva se funkcija koja ispituje identitet stabala i ispisuje
+     se njen rezultat. */
   if (identitet(koren1, koren2))
     printf("Stabla jesu identicna.\n");
   else

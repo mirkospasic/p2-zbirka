@@ -30,8 +30,8 @@ int broj_listova(Cvor * koren)
        uvecati broj listova za 1 */
     return 1;
 
-  /* U suprotnom se prebrojavaju listovi koje se nalaze u podstablima 
-   */
+  /* U suprotnom se prebrojavaju listovi koje se nalaze u
+     podstablima */
   return broj_listova(koren->levo) + broj_listova(koren->desno);
 }
 
@@ -113,8 +113,8 @@ int broj_cvorova_na_itom_nivou(Cvor * koren, int i)
   if (koren == NULL)
     return 0;
 
-  /* Ako se stiglo do trazenog nivoa, vraca se 1 - to ce kasnije zbog 
-     rekurzivnih poziva uvecati broj cvorova za 1 */
+  /* Ako se stiglo do trazenog nivoa, vraca se 1 - to ce kasnije
+     zbog rekurzivnih poziva uvecati broj cvorova za 1 */
   if (i == 0)
     return 1;
 
@@ -184,8 +184,8 @@ int zbir_cvorova_na_itom_nivou(Cvor * koren, int i)
   if (i == 0)
     return koren->broj;
 
-  /* Inace, spustanje se nastavlja za jedan nivo nize i traze se sume 
-     iz levog i desnog podstabla */
+  /* Inace, spustanje se nastavlja za jedan nivo nize i traze se
+     sume iz levog i desnog podstabla */
   return zbir_cvorova_na_itom_nivou(koren->levo, i - 1)
       + zbir_cvorova_na_itom_nivou(koren->desno, i - 1);
 }
@@ -222,13 +222,14 @@ int main(int argc, char **argv)
   int i = atoi(argv[1]);
   int x = atoi(argv[2]);
 
-  /* Kreira se stablo uz proveru uspesnosti dodavanja novih vrednosti 
-   */
+  /* Kreira se stablo uz proveru uspesnosti dodavanja novih
+     vrednosti */
   Cvor *koren = NULL;
   int broj;
   while (scanf("%d", &broj) != EOF) {
     if (dodaj_u_stablo(&koren, broj) == 1) {
-      fprintf(stderr, "Greska: Neuspelo dodavanje broja %d.\n", broj);
+      fprintf(stderr, "Greska: Neuspelo dodavanje broja %d.\n",
+              broj);
       oslobodi_stablo(&koren);
       exit(EXIT_FAILURE);
     }

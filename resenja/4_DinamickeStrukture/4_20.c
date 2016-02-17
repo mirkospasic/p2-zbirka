@@ -4,9 +4,9 @@
 /* Ukljucuje se biblioteka za rad sa stablima */
 #include "stabla.h"
 
-/* Funkcija kreira novo stablo identicno stablu koje je dato korenom. 
-   Povratna vrednost funkcije je 0 ukoliko je kopiranje uspesno,
-   odnosno 1 ukoliko je doslo do greske */
+/* Funkcija kreira novo stablo identicno stablu koje je dato
+   korenom. Povratna vrednost funkcije je 0 ukoliko je kopiranje
+   uspesno, odnosno 1 ukoliko je doslo do greske */
 int kopiraj_stablo(Cvor * koren, Cvor ** duplikat)
 {
   /* Izlaz iz rekurzije */
@@ -79,15 +79,15 @@ int kreiraj_presek(Cvor ** adresa_korena1, Cvor * koren2)
     return 0;
 
   /* Inace... */
-  /* Kreira se presek levog i desnog podstabla sa drugim stablom, tj. 
-     iz levog i desnog podstabla prvog stabla brisu se svi oni
+  /* Kreira se presek levog i desnog podstabla sa drugim stablom,
+     tj. iz levog i desnog podstabla prvog stabla brisu se svi oni
      elementi koji ne postoje u drugom stablu */
   int presek_levo = kreiraj_presek(&(*adresa_korena1)->levo, koren2);
   int presek_desno =
       kreiraj_presek(&(*adresa_korena1)->desno, koren2);
   if (presek_levo == 0 && presek_desno == 0) {
-    /* Ako se koren prvog stabla ne nalazi u drugom stablu tada se on
-       uklanja iz prvog stabla */
+    /* Ako se koren prvog stabla ne nalazi u drugom stablu tada se
+       on uklanja iz prvog stabla */
     if (pretrazi_stablo(koren2, (*adresa_korena1)->broj) == NULL)
       obrisi_element(adresa_korena1, (*adresa_korena1)->broj);
 
@@ -159,8 +159,8 @@ int main()
     }
   }
 
-  /* Kreira se unija skupova: prvo se napravi kopija prvog skupa kako 
-     bi se isti mogao iskoristiti i za preostale operacije */
+  /* Kreira se unija skupova: prvo se napravi kopija prvog skupa
+     kako bi se isti mogao iskoristiti i za preostale operacije */
   if (kopiraj_stablo(skup1, &pomocni_skup) == 1) {
     oslobodi_stablo(&skup1);
     oslobodi_stablo(&pomocni_skup);

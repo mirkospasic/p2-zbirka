@@ -50,8 +50,8 @@ int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
     Cvor *novi_cvor = napravi_cvor(ime, prezime, dan, mesec);
     /* Proverava se uspesnost kreiranja novog cvora */
     if (novi_cvor == NULL) {
-      /* I ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
-       */
+      /* I ukoliko je doslo do greske, vraca se odgovarajuca
+         vrednost */
       return 1;
     }
     /* Inace... */
@@ -69,7 +69,8 @@ int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
   else if (mesec == (*koren)->mesec && dan < (*koren)->dan)
     return dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan, mesec);
   else
-    return dodaj_u_stablo(&(*koren)->desno, ime, prezime, dan, mesec);
+    return dodaj_u_stablo(&(*koren)->desno, ime, prezime, dan,
+                          mesec);
 }
 
 /* Funkcija vrsi pretragu stabla i vraca cvor sa trazenim datumom */

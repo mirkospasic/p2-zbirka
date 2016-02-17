@@ -53,8 +53,8 @@ int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
         napravi_cvor(ime, prezime, uspeh, matematika, jezik);
     /* Proverava se uspesnost kreiranja novog cvora */
     if (novi_cvor == NULL) {
-      /* I ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
-       */
+      /* I ukoliko je doslo do greske, vraca se odgovarajuca
+         vrednost */
       return 1;
     }
     /* Inace... */
@@ -166,7 +166,8 @@ int main(int argc, char **argv)
   koren = NULL;
   while (fscanf(in, "%s %s %lf %lf %lf", ime, prezime, &uspeh,
                 &matematika, &jezik) != EOF) {
-    if (dodaj_u_stablo(&koren, ime, prezime, uspeh, matematika, jezik)
+    if (dodaj_u_stablo
+        (&koren, ime, prezime, uspeh, matematika, jezik)
         == 1) {
       fprintf(stderr,
               "Greska: Neuspelo dodavanje podataka za %s %s.\n", ime,

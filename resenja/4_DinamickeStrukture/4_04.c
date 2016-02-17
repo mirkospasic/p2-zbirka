@@ -18,7 +18,7 @@ typedef struct _Cvor {
    novi cvor ili NULL ukoliko je doslo do greske */
 Cvor *napravi_cvor(char *broj_indeksa, char *ime, char *prezime)
 {
-  /* Alokacija memorije za novi cvor uz proveru uspesnosti alokacije */
+  /* Alokacija memorije za cvor uz proveru uspesnosti alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -77,8 +77,8 @@ void ispisi_listu(Cvor * glava)
            glava->prezime);
 }
 
-/* Funkcija vraca cvor koji kao vrednost sadrzi trazeni broj indeksa. 
-   U suprotnom funkcija vraca NULL */
+/* Funkcija vraca cvor koji kao vrednost sadrzi trazeni broj
+   indeksa. U suprotnom funkcija vraca NULL */
 Cvor *pretrazi_listu(Cvor * glava, char *broj_indeksa)
 {
   /* Ako je lista prazna, ne postoji trazeni cvor */
@@ -90,16 +90,16 @@ Cvor *pretrazi_listu(Cvor * glava, char *broj_indeksa)
   if (!strcmp(glava->broj_indeksa, broj_indeksa))
     return glava;
 
-  /* Ukoliko u glavi liste nije trazeni indeks, pretraga se nastavlja 
-     u repu liste */
+  /* Ukoliko u glavi liste nije trazeni indeks, pretraga se
+     nastavlja u repu liste */
   return pretrazi_listu(glava->sledeci, broj_indeksa);
 }
 
 /* Glavni program */
 int main(int argc, char **argv)
 {
-  /* Argumenti komandne linije su neophodni jer se iz komandne linije 
-     dobija ime datoteke sa informacijama o studentima */
+  /* Argumenti komandne linije su neophodni jer se iz komandne
+     linije dobija ime datoteke sa informacijama o studentima */
   if (argc != 2) {
     fprintf(stderr,
             "Greska: Program se poziva sa: ./a.out ime_datoteke\n");
@@ -115,8 +115,8 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Deklaracije pomocnih promenljiva za citanje vrednosti koje treba 
-     smestiti u listu */
+  /* Deklaracije pomocnih promenljiva za citanje vrednosti koje
+     treba smestiti u listu */
   char ime[MAX_IME_PREZIME], prezime[MAX_IME_PREZIME];
   char broj_indeksa[MAX_INDEKS];
   Cvor *glava = NULL;
