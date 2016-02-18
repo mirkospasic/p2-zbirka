@@ -54,8 +54,7 @@ int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
          vrednost */
       return 1;
     }
-    /* Inace... */
-    /* Novi cvor se proglasava korenom stabla */
+    /* Inace... Novi cvor se proglasava korenom stabla */
     *koren = novi_cvor;
 
     /* I vraca se indikator uspesnog dodavanja */

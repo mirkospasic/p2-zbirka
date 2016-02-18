@@ -126,8 +126,6 @@ int broj_cvorova_na_itom_nivou(Cvor * koren, int i)
 /* h) Funkcija koja ispisuje sve elemente na i-tom nivou */
 void ispis_nivo(Cvor * koren, int i)
 {
-  /* Ideja je slicna ideji iz prethodne funkcije */
-
   /* Nema vise cvorova, nema spustanja kroz stablo */
   if (koren == NULL)
     return;

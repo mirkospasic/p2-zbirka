@@ -3,6 +3,7 @@
 
 #define MAX 1024
 
+/* Rekurzivna linearna pretraga od pocetka niza */
 int linearna_pretraga_r1(int a[], int n, int x)
 {
   int tmp;
@@ -17,6 +18,7 @@ int linearna_pretraga_r1(int a[], int n, int x)
   return tmp < 0 ? tmp : tmp + 1;
 }
 
+/* Rekurzivna linearna pretraga od kraja niza */
 int linearna_pretraga_r2(int a[], int n, int x)
 {
   /* Izlaz iz rekurzije */
@@ -29,6 +31,7 @@ int linearna_pretraga_r2(int a[], int n, int x)
   return linearna_pretraga_r2(a, n - 1, x);
 }
 
+/* Rekurzivna binarna pretraga */
 int binarna_pretraga_r(int a[], int l, int d, int x)
 {
   int srednji;
@@ -49,6 +52,7 @@ int binarna_pretraga_r(int a[], int l, int d, int x)
     return binarna_pretraga_r(a, l, srednji - 1, x);
 }
 
+/* Rekurzivna interpolaciona pretaga */
 int interpolaciona_pretraga_r(int a[], int l, int d, int x)
 {
   int p;
@@ -89,7 +93,7 @@ int main()
     i++;
   }
 
-  /* Linearna pretraga */
+  /* Rezultati linearne pretrage */
   printf("Linearna pretraga\n");
   indeks = linearna_pretraga_r1(a, i, x);
   if (indeks == -1)
@@ -97,7 +101,7 @@ int main()
   else
     printf("Pozicija elementa je %d.\n", indeks);
 
-  /* Binarna pretraga */
+  /* Rezultati binarna pretrage */
   printf("Binarna pretraga\n");
   indeks = binarna_pretraga_r(a, 0, i - 1, x);
   if (indeks == -1)
@@ -105,7 +109,7 @@ int main()
   else
     printf("Pozicija elementa je %d.\n", indeks);
 
-  /* Interpolaciona pretraga */
+  /* Rezultati interpolacione pretrage */
   printf("Interpolaciona pretraga\n");
   indeks = interpolaciona_pretraga_r(a, 0, i - 1, x);
   if (indeks == -1)

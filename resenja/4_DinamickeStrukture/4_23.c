@@ -26,7 +26,6 @@ int dubina_stabla(Cvor * koren)
 /* Funkcija koja ispisuje sve elemente na i-tom nivou */
 void ispisi_nivo(Cvor * koren, int i)
 {
-  /* Ideja je slicna ideji iz prethodne funkcije */
   /* Nema vise cvorova, nema spustanja niz stablo */
   if (koren == NULL)
     return;

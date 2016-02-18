@@ -37,8 +37,8 @@ int prebroj_n(Cvor * koren, int n)
   /* Broj cvorova na n-tom nivou je jednak zbiru broja cvorova na
      (n-1)-om nivou levog podstabla i broja cvorova na (n-1)-om
      nivou levog podstabla */
-  return prebroj_n(koren->levo, n - 1) + prebroj_n(koren->desno,
-                                                   n - 1);
+  return prebroj_n(koren->levo, n - 1) 
+       + prebroj_n(koren->desno, n - 1);
 }
 
 int main()

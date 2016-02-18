@@ -29,6 +29,7 @@ float **alociraj_matricu(int n, int m)
       return NULL;
     }
   }
+
   return matrica;
 }
 

@@ -15,8 +15,8 @@ int sumiraj_n(Cvor * koren, int n)
      kao i suma na (n-1)-om nivou u desnom podstablu i vraca se zbir
      te dve izracunate vrednosti jer predstavlja zbir svih cvorova na
      n-tom nivou u pocetnom stablu */
-  return sumiraj_n(koren->levo, n - 1) + sumiraj_n(koren->desno,
-                                                   n - 1);
+  return sumiraj_n(koren->levo, n - 1) 
+       + sumiraj_n(koren->desno, n - 1);
 }
 
 int main()
