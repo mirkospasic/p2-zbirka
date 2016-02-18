@@ -54,7 +54,7 @@ int linearna_pretraga(Student a[], int n, char x[])
 {
   int i;
   for (i = 0; i < n; i++)
-    /* Poredjenje prezimena i-tog studenta i poslatog x */
+    /* Poredi se prezimene i-tog studenta i poslatog x */
     if (strcmp(a[i].prezime, x) == 0)
       return i;
   return -1;
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke */
+  /* Otvara se datoteka */
   fin = fopen(argv[1], "r");
   if (fin == NULL) {
     fprintf(stderr,

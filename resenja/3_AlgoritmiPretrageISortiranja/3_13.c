@@ -31,7 +31,7 @@ int anagrami(char s[], char t[])
   if (strlen(s) != strlen(t))
     return 0;
 
-  /* Sortiranje niski */
+  /* Sortiraju se karakteri */
   selectionSort(s);
   selectionSort(t);
 
@@ -46,7 +46,7 @@ int main()
 {
   char s[MAX_DIM], t[MAX_DIM];
 
-  /* Ucitavanje niski sa ulaza */
+  /* Ucitavaju se niske sa ulaza */
   printf("Unesite prvu nisku: ");
   scanf("%s", s);
   printf("Unesite drugu nisku: ");

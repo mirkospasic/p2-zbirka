@@ -16,16 +16,16 @@ int main()
   int i, n;
   char S[MAX][MAX_DUZINA];
 
-  /* Unos broja niski */
+  /* Unosi se broj niski */
   printf("Unesite broj niski:");
   scanf("%d", &n);
 
-  /* Unos niza niski */
+  /* Unosi se niz niski */
   printf("Unesite niske:\n");
   for (i = 0; i < n; i++)
     scanf("%s", S[i]);
 
-  /* Sortiranje niza niski */
+  /* Sortira se niz niski */
   qsort(S, n, MAX_DUZINA * sizeof(char), &uporedi_niske);
 
   /*****************************************************************

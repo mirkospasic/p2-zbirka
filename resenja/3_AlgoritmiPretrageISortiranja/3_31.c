@@ -48,16 +48,16 @@ int main()
   for (i = 0; i < n; i++)
     scanf("%d", &a[i]);
 
-  /* Sortiranje niza celih brojeva */
+  /* Sortira se niz celih brojeva */
   qsort(a, n, sizeof(int), &poredi_int);
 
-  /* Prikaz sortiranog niz */
+  /* Prikazuje se sortirani niz */
   printf("Sortirani niz u rastucem poretku:\n");
   for (i = 0; i < n; i++)
     printf("%d ", a[i]);
   putchar('\n');
 
-  /* Pretrazivanje niza */
+  /* Pretrazuje se niz */
   /* Vrednost koja ce biti trazena u nizu */
   printf("Uneti element koji se trazi u nizu: ");
   scanf("%d", &x);

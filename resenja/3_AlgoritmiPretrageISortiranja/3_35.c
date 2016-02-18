@@ -69,24 +69,24 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke */
+  /* Otvara se datoteka */
   if ((fp = fopen(argv[1], "r")) == NULL) {
     fprintf(stderr, "Greska: Neupesno otvaranje datoteke %s\n",
             argv[1]);
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje sadrzaja */
+  /* Ucitava se sadrzaj */
   for (i = 0;
        fscanf(fp, "%s%s%d", kolokvijum[i].ime,
               kolokvijum[i].prezime,
               &kolokvijum[i].bodovi) != EOF; i++);
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(fp);
   br_studenata = i;
 
-  /* Sortiranje niza studenata po broju bodova, gde se unutar grupe
+  /* Sortira se niz studenata po broju bodova, gde se unutar grupe
      studenata sa istim brojem bodova sortiranje vrsi po prezimenu */
   qsort(kolokvijum, br_studenata, sizeof(Student), &poredi1);
 
@@ -96,8 +96,8 @@ int main(int argc, char *argv[])
     printf("%s %s  %d\n", kolokvijum[i].ime,
            kolokvijum[i].prezime, kolokvijum[i].bodovi);
 
-  /* Pretrazivanje studenata po broju bodova se vrsi binarnom
-     pretragom jer je niz sortiran po broju bodova. */
+  /* Pretrazuju se studenati po broju bodova binarnom pretragom jer
+     je niz sortiran po broju bodova. */
   printf("Unesite broj bodova: ");
   scanf("%d", &bodovi);
 

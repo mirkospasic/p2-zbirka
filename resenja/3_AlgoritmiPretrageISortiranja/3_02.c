@@ -80,11 +80,11 @@ int main()
   int x;
   int i, indeks;
 
-  /* Ucitavanje trazenog broja */
+  /* Ucitava se trazeni broj */
   printf("Unesite trazeni broj: ");
   scanf("%d", &x);
 
-  /* Ucitavanje elemenata niza sve do kraja ulaza - ocekuje se da
+  /* Ucitavaju se elemenati niza sve do kraja ulaza - ocekuje se da
      korisnik pritisne CTRL+D za naznaku kraja */
   i = 0;
   printf("Unesite sortiran niz elemenata: ");

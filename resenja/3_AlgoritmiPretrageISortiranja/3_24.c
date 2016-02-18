@@ -95,67 +95,67 @@ int main(int argc, char *argv[])
 
   FILE *fp = NULL;
 
-  /* Otvaranje datoteke za citanje */
+  /* Otvara se datoteka za citanje */
   if ((fp = fopen("aktivnost.txt", "r")) == NULL) {
     fprintf(stderr,
             "Greska: Neupesno otvaranje datoteke aktivnost.txt.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje sadrzaja */
+  /* Ucitava se sadrzaj */
   for (i = 0;
        fscanf(fp, "%s%s%d%d", praktikum[i].ime,
               praktikum[i].prezime, &praktikum[i].prisustvo,
               &praktikum[i].zadaci) != EOF; i++);
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(fp);
   br_studenata = i;
 
-  /* Kreiranje prvog spiska studenata po prvom kriterijumu */
+  /* Kreira se prvi spisak studenata po prvom kriterijumu */
   sort_ime_leksikografski(praktikum, br_studenata);
-  /* Otvaranje datoteke za pisanje */
+  /* Otvara se datoteka za pisanje */
   if ((fp = fopen("dat1.txt", "w")) == NULL) {
     fprintf(stderr,
             "Greska: Neupesno otvaranje datoteke dat1.txt.\n");
     exit(EXIT_FAILURE);
   }
-  /* Upis niza u datoteku */
+  /* Upisuje se niz u datoteku */
   fprintf
       (fp, "Studenti sortirani po imenu leksikografski rastuce:\n");
   for (i = 0; i < br_studenata; i++)
     fprintf(fp, "%s %s  %d  %d\n", praktikum[i].ime,
             praktikum[i].prezime, praktikum[i].prisustvo,
             praktikum[i].zadaci);
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(fp);
 
-  /* Kreiranje drugog spiska studenata po drugom kriterijumu */
+  /* Kreira se drugi spisak studenata po drugom kriterijumu */
   sort_zadatke_pa_imena(praktikum, br_studenata);
-  /* Otvaranje datoteke za pisanje */
+  /* Otvara se datoteka za pisanje */
   if ((fp = fopen("dat2.txt", "w")) == NULL) {
     fprintf(stderr,
             "Greska: Neupesno otvaranje datoteke dat2.txt.\n");
     exit(EXIT_FAILURE);
   }
-  /* Upis niza u datoteku */
+  /* Upisuje se niz u datoteku */
   fprintf(fp, "Studenti sortirani po broju zadataka opadajuce,\n");
   fprintf(fp, "pa po duzini imena rastuce:\n");
   for (i = 0; i < br_studenata; i++)
     fprintf(fp, "%s %s  %d  %d\n", praktikum[i].ime,
             praktikum[i].prezime, praktikum[i].prisustvo,
             praktikum[i].zadaci);
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(fp);
 
-  /* Kreiranje treceg spiska studenata po trecem kriterijumu */
+  /* Kreira se treci spisak studenata po trecem kriterijumu */
   sort_prisustvo_pa_zadatke_pa_prezimena(praktikum, br_studenata);
-  /* Otvaranje datoteke za pisanje */
+  /* Otvara se datoteka za pisanje */
   if ((fp = fopen("dat3.txt", "w")) == NULL) {
     fprintf(stderr,
             "Greska: Neupesno otvaranje datoteke dat3.txt.\n");
     exit(EXIT_FAILURE);
   }
-  /* Upis niza u datoteku */
+  /* Upisuje se niz u datoteku */
   fprintf(fp, "Studenti sortirani po prisustvu opadajuce,\n");
   fprintf(fp, "pa po broju zadataka,\n");
   fprintf(fp, "pa po prezimenima leksikografski opadajuce:\n");
@@ -163,7 +163,7 @@ int main(int argc, char *argv[])
     fprintf(fp, "%s %s  %d  %d\n", praktikum[i].ime,
             praktikum[i].prezime, praktikum[i].prisustvo,
             praktikum[i].zadaci);
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(fp);
 
   exit(EXIT_SUCCESS);

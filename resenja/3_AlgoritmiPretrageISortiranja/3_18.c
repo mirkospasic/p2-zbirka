@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke zadate prvim argumentom komandne linije */
+  /* Otvara se datoteka zadata prvim argumentom komandne linije */
   fin1 = fopen(argv[1], "r");
   if (fin1 == NULL) {
     fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s\n",
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke zadate drugim argumentom komandne linije */
+  /* Otvara se datoteka zadata drugim argumentom komandne linije */
   fin2 = fopen(argv[2], "r");
   if (fin2 == NULL) {
     fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s\n",
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke za upis rezultata */
+  /* Otvara se datoteka za upis rezultata */
   fout = fopen("ceo-tok.txt", "w");
   if (fout == NULL) {
     fprintf(stderr,
@@ -42,11 +42,11 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Citanje narednog studenta iz prve datoteke */
+  /* Cita se prvi student iz prve datoteke */
   if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
     kraj1 = 1;
 
-  /* Citanje narednog studenta iz druge datoteke */
+  /* Cita se prvi student iz druge datoteke */
   if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)
     kraj2 = 1;
 
@@ -57,14 +57,14 @@ int main(int argc, char *argv[])
       /* Ime i prezime iz prve datoteke je leksikografski ranije, i
          biva upisano u izlaznu datoteku */
       fprintf(fout, "%s %s\n", ime1, prezime1);
-      /* Citanje narednog studenta iz prve datoteke */
+      /* Cita se naredni student iz prve datoteke */
       if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
         kraj1 = 1;
     } else {
       /* Ime i prezime iz druge datoteke je leksikografski ranije, i
          biva upisano u izlaznu datoteku */
       fprintf(fout, "%s %s\n", ime2, prezime2);
-      /* Citanje narednog studenta iz druge datoteke */
+      /* Cita se naredni student iz druge datoteke */
       if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)
         kraj2 = 1;
     }
@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
       kraj2 = 1;
   }
 
-  /* Zatvaranje datoteka */
+  /* Zatvaraju se datoteke */
   fclose(fin1);
   fclose(fin2);
   fclose(fout);

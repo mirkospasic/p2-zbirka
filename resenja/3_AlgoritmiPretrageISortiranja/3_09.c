@@ -36,7 +36,7 @@ int main()
   while (scanf("%d", &niz[n]) == 1)
     n++;
 
-  /* Stampanje rezultata */
+  /* Stampa se rezultat */
   printf("%d\n", prvi_manji_od_nule(niz, n));
 
   return 0;

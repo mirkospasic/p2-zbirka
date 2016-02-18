@@ -20,7 +20,7 @@ int binarna_pretraga_rekurzivna(Student a[], int levi, int desni,
      trazenog elementa pa se vraca -1 */
   if (levi > desni)
     return -1;
-  /* Racunanje pozicije srednjeg elementa */
+  /* Racuna se pozicija srednjeg elementa */
   int srednji = (levi + desni) / 2;
   /* Da li je srednji bas onaj trazeni */
   if (a[srednji].indeks == x) {
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke */
+  /* Otvara se datoteka */
   fin = fopen(argv[1], "r");
   if (fin == NULL) {
     fprintf(stderr,

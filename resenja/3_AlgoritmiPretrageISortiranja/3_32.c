@@ -61,10 +61,10 @@ int main()
   for (i = 0; i < n; i++)
     scanf("%d", &a[i]);
 
-  /* Sortiranje niza celih brojeva prema broju delilaca */
+  /* Sortira se niz celih brojeva prema broju delilaca */
   qsort(a, n, sizeof(int), &poredi_po_broju_delilaca);
 
-  /* Prikaz sortiranog niza */
+  /* Prikazuje se sortirani niz */
   printf("Sortirani niz u rastucem poretku prema broju delilaca:\n");
   for (i = 0; i < n; i++)
     printf("%d ", a[i]);

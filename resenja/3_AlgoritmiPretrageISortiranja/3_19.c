@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
   Tacka tacke[MAX_BR_TACAKA];
   int i, n;
 
-  /* Proveravanje broja argumenata komandne linije: ocekuje se ime
+  /* Proverava se broj argumenata komandne linije: ocekuje se ime
      izvrsnog programa, opcija, ime ulazne datoteke i ime izlazne
      datoteke, tj. 4 argumenta */
   if (argc != 4) {
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke u kojoj su zadate tacke */
+  /* Otvara se datoteka u kojoj su zadate tacke */
   ulaz = fopen(argv[2], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s!\n",
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke u koju treba upisati rezultat */
+  /* Otvara se datoteka u koju treba upisati rezultat */
   izlaz = fopen(argv[3], "w");
   if (izlaz == NULL) {
     fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s!\n",
@@ -131,25 +131,25 @@ int main(int argc, char *argv[])
      sortiranja */
   switch (argv[1][1]) {
   case 'x':
-    /* Sortiranje po vrednosti x koordinate */
+    /* Sortira se po vrednosti x koordinate */
     sortiraj_po_x(tacke, n);
     break;
   case 'y':
-    /* Sortiranje po vrednosti y koordinate */
+    /* Sortira se po vrednosti y koordinate */
     sortiraj_po_y(tacke, n);
     break;
   case 'o':
-    /* Sortiranje po udaljenosti od koorinatnog pocetka */
+    /* Sortira se po udaljenosti od koorinatnog pocetka */
     sortiraj_po_rastojanju(tacke, n);
     break;
   }
 
-  /* Upisivanje dobijenog niza u izlaznu datoteku */
+  /* Upisuje se dobijeni niz u izlaznu datoteku */
   for (i = 0; i < n; i++) {
     fprintf(izlaz, "%d %d\n", tacke[i].x, tacke[i].y);
   }
 
-  /* Zatvaranje otvorenih datoteka */
+  /* Zatvaraju se otvorene datoteke */
   fclose(ulaz);
   fclose(izlaz);
 

@@ -52,18 +52,18 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje elementa matrice */
+  /* Ucitavaju se elementi matrice */
   printf("Unesite elemente matrice po vrstama:\n");
   ucitaj_matricu(a, n, m);
 
-  /* Poziv funkcije koja sortira vrste matrice prema zbiru */
+  /* Poziva se funkcija koja sortira vrste matrice prema zbiru */
   sortiraj_vrste(a, n, m);
 
-  /* Ispis rezultujuce matrice */
+  /* Ispisuje se rezultujuca matrica */
   printf("Sortirana matrica je:\n");
   ispisi_matricu(a, n, m);
 
-  /* Oslobadjanje memorije */
+  /* Oslobadja se memorija */
   a = dealociraj_matricu(a, n);
 
   exit(EXIT_SUCCESS);

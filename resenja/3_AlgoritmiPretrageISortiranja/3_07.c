@@ -75,7 +75,7 @@ int main(int argc, char **argv)
       l = s;
   }
 
-  /* Stampanje vrednosti trazene tacke */
+  /* Stampa se vrednost trazene tacke */
   printf("%g\n", s);
 
   exit(EXIT_SUCCESS);

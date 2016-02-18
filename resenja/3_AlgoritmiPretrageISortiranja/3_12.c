@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Ocitavanje opcija i argumenata prilikom poziva programa */
+  /* Ocitavaju se opcije i argumenati komandne linije */
   for (i = 1; i < argc; i++) {
     /* Ako je u pitanju opcija... */
     if (argv[i][0] == '-') {
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
     for (i = 0; i < dimenzija; i++)
       niz[i] = i == 0 ? rand() % 100 : niz[i - 1] - rand() % 100;
 
-  /* Ispisivanje elemenata niza */
+  /* Ispisuju se elemenati niza */
   /*****************************************************************
     Ovaj deo je iskomentarisan jer sledeci ispis ne treba da se nadje
     na standardnom izlazu. Njegova svrha je samo bila provera da li
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
       printf("%d\n", niz[i]);
   ******************************************************************/
 
-  /* Sortiranje niza na odgovarajuci nacin */
+  /* Sortira se niz na odgovarajuci nacin */
   if (tip_sortiranja == 0)
     selection_sort(niz, dimenzija);
   else if (tip_sortiranja == 1)
@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
   else
     quick_sort(niz, 0, dimenzija - 1);
 
-  /* Ispis elemenata niza */
+  /* Ispisuju se elemenati niza */
   /*****************************************************************
     Ovaj deo je iskomentarisan jer vreme potrebno za njegovo
     izvrsavanje ne bi trebalo da bude ukljuceno u vreme izmereno

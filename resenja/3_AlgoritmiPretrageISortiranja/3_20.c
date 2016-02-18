@@ -78,21 +78,21 @@ int main()
   int i, n;
   FILE *fp = NULL;
 
-  /* Otvaranje datoteke */
+  /* Otvara se datoteka */
   if ((fp = fopen("biracki-spisak.txt", "r")) == NULL) {
     fprintf(stderr,
             "Greska: Neupesno otvaranje datoteke za citanje.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Citanje sadrzaja */
+  /* Cita se sadrzaj */
   for (i = 0;
        fscanf(fp, "%s %s", spisak1[i].ime,
               spisak1[i].prezime) != EOF; i++)
     spisak2[i] = spisak1[i];
   n = i;
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(fp);
 
   sort_ime(spisak1, n);
@@ -117,7 +117,7 @@ int main()
       printf(" %d. %s %s\n",i,spisak2[i].ime, spisak2[i].prezime);         
   ******************************************************************/
 
-  /* Linearno pretrazivanje nizova */
+  /* Linearno se pretrazuju nizovi */
   for (i = 0; i < n; i++)
     if (i == linearna_pretraga(spisak2, n, &spisak1[i]))
       isti_rbr++;
@@ -130,7 +130,7 @@ int main()
     isti_rbr++;
   ******************************************************************/
 
-  /* Ispis rezultata */
+  /* Ispisuje se rezultat */
   printf("%d\n", isti_rbr);
 
   exit(EXIT_SUCCESS);

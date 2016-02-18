@@ -77,7 +77,7 @@ int main()
      a drugi maksimalnu duzinu pojedinacne reci */
   char reci[MAX_BR_RECI][MAX_DUZINA_RECI];
 
-  /* Otvaranje datoteke niske.txt za citanje */
+  /* Otvara se datoteka niske.txt za citanje */
   ulaz = fopen("niske.txt", "r");
   if (ulaz == NULL) {
     fprintf(stderr,
@@ -98,7 +98,7 @@ int main()
   /* n je duzina niza reci i predstavlja poslednju vrednost
      koriscenog brojaca */
   n = i;
-  /* Poziv funkcije za sortiranje reci */
+  /* Poziva se funkcija za sortiranje reci */
   sortiraj_reci(reci, n);
 
   /* Ispis sortiranog niza reci */
@@ -107,7 +107,7 @@ int main()
   }
   printf("\n");
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(ulaz);
 
   exit(EXIT_SUCCESS);

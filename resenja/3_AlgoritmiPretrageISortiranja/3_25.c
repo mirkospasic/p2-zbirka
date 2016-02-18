@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
                                    propratne informacije o pesmama */
   int broj_gledanja;
 
-  /* Priprema datoteke za citanje */
+  /* Priprema se datoteka za citanje */
   ulaz = fopen("pesme.txt", "r");
   if (ulaz == NULL) {
     fprintf(stderr,
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Citanje informacija o pesmama */
+  /* Citaju se informacije o pesmama */
   pesme = NULL;
   alocirano_za_pesme = 0;
   i = 0;
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
       ungetc(c, ulaz);
     }
 
-    /* Provera da li postoji dovoljno vec alocirane memorije za
+    /* Proverava se da li postoji dovoljno vec alocirane memorije za
        citanje nove pesme */
     if (alocirano_za_pesme == i) {
       /* Ako ne, ako je potrosena sva alocirana memorija, alocira se
@@ -216,7 +216,7 @@ int main(int argc, char *argv[])
 
   /* Informacija o broju procitanih pesama */
   n = i;
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(ulaz);
 
   /* Analiza argumenta komandne linije */
@@ -225,11 +225,11 @@ int main(int argc, char *argv[])
     qsort(pesme, n, sizeof(Pesma), &uporedi_gledanost);
   } else {
     if (argc == 2 && strcmp(argv[1], "-n") == 0) {
-      /* Sortiranje po naslovu */
+      /* Sortira se po naslovu */
       qsort(pesme, n, sizeof(Pesma), &uporedi_naslove);
     } else {
       if (argc == 2 && strcmp(argv[1], "-i") == 0) {
-        /* Sortirnje po izvodjacu */
+        /* Sortira se po izvodjacu */
         qsort(pesme, n, sizeof(Pesma), &uporedi_izvodjace);
       } else {
         fprintf(stderr, "Greska: Nedozvoljeni argumenti!\n");
@@ -245,7 +245,7 @@ int main(int argc, char *argv[])
            pesme[i].broj_gledanja);
   }
 
-  /* Oslobadjanje memorije */
+  /* Oslobadja se memorija */
   oslobodi(pesme, n);
 
   exit(EXIT_SUCCESS);

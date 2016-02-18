@@ -90,7 +90,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke za citanje */
+  /* Otvara se datoteka za citanje */
   in = fopen("studenti.txt", "r");
   if (in == NULL) {
     fprintf(stderr,
@@ -98,7 +98,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke za pisanje */
+  /* Otvara se datoteka za pisanje */
   out = fopen("izlaz.txt", "w");
   if (out == NULL) {
     fprintf(stderr,
@@ -106,7 +106,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje studenta iz ulazne datoteke sve do njenog kraja */
+  /* Ucitavaju se studenti iz ulazne datoteke sve do njenog kraja */
   while (fscanf
          (in, "%s %s %s %d", niz_studenata[i].nalog,
           niz_studenata[i].ime, niz_studenata[i].prezime,
@@ -148,7 +148,7 @@ int main(int argc, char **argv)
              nadjen->prezime, nadjen->poeni);
   }
 
-  /* Zatvaranje datoteka */
+  /* Zatvaraju se datoteke */
   fclose(in);
   fclose(out);
 

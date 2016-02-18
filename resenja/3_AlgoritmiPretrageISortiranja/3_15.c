@@ -13,7 +13,7 @@ int najvise_puta(int a[], int n)
     br_pojava = 1;
     for (j = i + 1; j < n && a[i] == a[j]; j++)
       br_pojava++;
-    /* Ispitivanje da li se do tog trenutka i-ti element pojavio
+    /* Ispituje se da li se do tog trenutka i-ti element pojavio
        najvise puta u nizu */
     if (br_pojava > max_br_pojava) {
       max_br_pojava = br_pojava;
@@ -28,7 +28,7 @@ int main()
 {
   int a[MAX_DIM], i;
 
-  /* Ucitavanje elemenata niza sve do kraja ulaza */
+  /* Ucitavaju se elemenati niza sve do kraja ulaza */
   i = 0;
   while (scanf("%d", &a[i]) != EOF)
     i++;

@@ -61,32 +61,32 @@ int main()
   char **p = NULL;
   char x[MAX_DUZINA];
 
-  /* Otvaranje datoteke */
+  /* Otvara se datoteka */
   if ((fp = fopen("niske.txt", "r")) == NULL) {
     fprintf(stderr,
             "Greska: Neupesno otvaranje datoteke niske.txt.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Citanje sadrzaja datoteke */
+  /* Cita se sadrzaj datoteke */
   i = 0;
   while (fscanf(fp, "%s", x) != EOF) {
-    /* Alociranje dovoljne memorije za i-tu nisku */
+    /* Alocira se dovoljno memorije za i-tu nisku */
     if ((niske[i] = malloc((strlen(x) + 1) * sizeof(char))) == NULL) {
       fprintf(stderr, "Greska: Neuspesna alokacija niske\n");
       exit(EXIT_FAILURE);
     }
-    /* Kopiranje procitane niske na svoje mesto */
+    /* Kopira se procitana niska na svoje mesto */
     strcpy(niske[i], x);
     i++;
   }
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(fp);
   n = i;
 
-  /* Sortiranje niski leksikografski. Biblioteckoj funkciji qsort se
-     prosledjuje funkcija kojom se zadaje kriterijum poredjenja 2
+  /* Sortiraju se niske leksikografski. Biblioteckoj funkciji qsort
+     se prosledjuje funkcija kojom se zadaje kriterijum poredjenja 2
      niske po duzini */
   qsort(niske, n, sizeof(char *), &poredi_leksikografski);
 
@@ -95,7 +95,7 @@ int main()
     printf("%s ", niske[i]);
   printf("\n");
 
-  /* Unos trazene niske */
+  /* Unosi se trazena niska */
   printf("Uneti trazenu nisku: ");
   scanf("%s", x);
 
@@ -115,15 +115,14 @@ int main()
   else
     printf("Niska nije pronadjena u nizu\n");
 
-  /* Sortiranje po duzini */
+  /* Sortira se po duzini */
   qsort(niske, n, sizeof(char *), &poredi_duzine);
-
   printf("Niske sortirane po duzini:\n");
   for (i = 0; i < n; i++)
     printf("%s ", niske[i]);
   printf("\n");
 
-  /* Oslobadjanje zauzete memorije */
+  /* Oslobadja se zauzeta memorija */
   for (i = 0; i < n; i++)
     free(niske[i]);
 

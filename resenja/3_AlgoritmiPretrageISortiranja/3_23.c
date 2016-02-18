@@ -130,7 +130,7 @@ int main()
         printf("\tTrazili ste:\t%s %s %12.2f\n",
                asortiman[i].naziv, asortiman[i].proizvodjac,
                asortiman[i].cena);
-        /* I dodavanje na ukupan racun */
+        /* I dodaje se cena na ukupan racun */
         racun += asortiman[i].cena;
       }
       /* Unos bar koda sledeceg artikla trenutnog kupca, ili 0 ako

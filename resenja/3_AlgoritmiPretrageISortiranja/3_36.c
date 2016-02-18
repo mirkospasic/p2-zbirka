@@ -17,7 +17,7 @@ int anagrami(char s[], char t[])
   if (strlen(s) != strlen(t))
     return 0;
 
-  /* Sortiranje niski */
+  /* Sortiraju se karakteri u niskama */
   qsort(s, strlen(s) / sizeof(char), sizeof(char), &uporedi_char);
   qsort(t, strlen(t) / sizeof(char), sizeof(char), &uporedi_char);
 
@@ -30,7 +30,7 @@ int main()
 {
   char s[MAX], t[MAX];
 
-  /* Unos niski */
+  /* Unose se niske */
   printf("Unesite prvu nisku: ");
   scanf("%s", s);
   printf("Unesite drugu nisku: ");

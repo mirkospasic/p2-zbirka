@@ -32,7 +32,7 @@ int main()
      se selection sort. */
   selection_sort(a, i);
 
-  /* Ispis rezultata */
+  /* Ispisuje se rezultat */
   printf("%d\n", najmanje_rastojanje(a, i));
 
   return 0;

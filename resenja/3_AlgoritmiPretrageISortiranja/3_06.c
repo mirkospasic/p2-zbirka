@@ -30,7 +30,7 @@ int main()
       l = s;
   }
 
-  /* Stampanje vrednosti trazene tacke */
+  /* Stampa se vrednost trazene tacke */
   printf("%g\n", s);
 
   return 0;

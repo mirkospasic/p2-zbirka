@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke za citanje */
+  /* Otvara se datoteka za citanje */
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s!\n",
@@ -116,10 +116,10 @@ int main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  /* Stampanje koordinata trazene tacke */
+  /* Stampaju se koordinate trazene tacke */
   printf("%g %g\n", najbliza.x, najbliza.y);
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(ulaz);
 
   exit(EXIT_SUCCESS);

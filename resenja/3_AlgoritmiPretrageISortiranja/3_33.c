@@ -46,21 +46,21 @@ int main()
   char *p = NULL;
   char x[MAX_DUZINA];
 
-  /* Otvaranje datoteke */
+  /* Otvara se datoteka */
   if ((fp = fopen("niske.txt", "r")) == NULL) {
     fprintf(stderr,
             "Greska: Neupesno otvaranje datoteke niske.txt.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Citanje sadrzaja datoteke */
+  /* Cita se sadrzaj datoteke */
   for (i = 0; fscanf(fp, "%s", niske[i]) != EOF; i++);
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(fp);
   n = i;
 
-  /* Sortiranje niski leksikografski. Biblioteckoj funkciji qsort
+  /* Sortiraju se niske leksikografski. Biblioteckoj funkciji qsort
      prosledjuje se funkcija kojom se zadaje kriterijum poredjenja 2
      niske po duzini */
   qsort(niske, n, MAX_DUZINA * sizeof(char), &poredi_leksikografski);
@@ -70,7 +70,7 @@ int main()
     printf("%s ", niske[i]);
   printf("\n");
 
-  /* Unos trazene niske */
+  /* Unosi se trazena niska */
   printf("Uneti trazenu nisku: ");
   scanf("%s", x);
 
@@ -86,7 +86,7 @@ int main()
   else
     printf("Niska nije pronadjena u nizu\n");
 
-  /* Sortiranje po duzini */
+  /* Sortira se po duzini */
   qsort(niske, n, MAX_DUZINA * sizeof(char), &poredi_duzine);
 
   printf("Niske sortirane po duzini:\n");
@@ -97,7 +97,6 @@ int main()
   /* Linearna pretraga */
   p = lfind(&x, niske, &n, MAX_DUZINA * sizeof(char),
             &poredi_leksikografski);
-
   if (p != NULL)
     printf("Niska \"%s\" je pronadjena u nizu na poziciji %ld\n",
            p, (p - (char *) niske) / MAX_DUZINA);

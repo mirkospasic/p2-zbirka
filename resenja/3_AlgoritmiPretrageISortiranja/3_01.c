@@ -79,7 +79,7 @@ int interpolaciona_pretraga(int a[], int n, int x)
        deljenje nulom. */
     else if (a[levi] == a[desni])
       return levi;
-    /* Racunanje srednjeg indeksa */
+    /* Racuna se sredisnji indeks */
     srednji =
         levi +
         (int) ((double) (x - a[levi]) / (a[desni] - a[levi]) *
@@ -187,7 +187,7 @@ int main(int argc, char **argv)
   fprintf(f, "\tInterpolaciona: %12ld ns\n\n",
           (vreme6.tv_sec - vreme5.tv_sec) * 1000000000 +
           vreme6.tv_nsec - vreme5.tv_nsec);
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(f);
 
   exit(EXIT_SUCCESS);
