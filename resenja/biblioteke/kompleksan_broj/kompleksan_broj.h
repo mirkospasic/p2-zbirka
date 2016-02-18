@@ -6,13 +6,14 @@
 
 /* Ovim pretprocesorskim direktivama se zakljucava zaglavlje i
    onemogucava se da se sadrzaj zaglavlja vise puta ukljuci. Niska
-   posle kljucne reci ifndef je proizvoljna, ali treba da se ponovi u 
-   narednoj pretrocesorskoj define direktivi. */
+   posle kljucne reci ifndef je proizvoljna, ali treba da se ponovi
+   u narednoj pretrocesorskoj define direktivi. */
 #ifndef  _KOMPLEKSAN_BROJ_H
 #define _KOMPLEKSAN_BROJ_H
 
 /* Zaglavlja standardne biblioteke koje sadrze deklaracije funkcija
-   koje se koriste u definicijama funkcija navedenim u kompleksan_broj.c */
+   koje se koriste u definicijama funkcija navedenim u
+   kompleksan_broj.c */
 #include <stdio.h>
 #include <math.h>
 

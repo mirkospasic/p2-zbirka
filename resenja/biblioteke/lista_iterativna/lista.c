@@ -4,8 +4,7 @@
 
 Cvor *napravi_cvor(int broj)
 {
-  /* Alokacija memorije za novi cvor uz proveru uspesnosti
-     alokacije */
+  /* Alokacija memorije za novi cvor uz proveru uspesnosti */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -79,8 +78,8 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
     /* Glava nove liste je upravo novi cvor */
     *adresa_glave = novi;
   } else {
-    /* Ako lista nije prazna, pronalazi se poslednji cvor i novi cvor
-       se dodaje na kraj liste kao sledbenik poslednjeg */
+    /* Ako lista nije prazna, pronalazi se poslednji cvor i novi
+       cvor se dodaje na kraj liste kao sledbenik poslednjeg */
     Cvor *poslednji = pronadji_poslednji(*adresa_glave);
     poslednji->sledeci = novi;
   }
@@ -106,8 +105,8 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj)
     glava = glava->sledeci;
 
   /* Iz petlje se moglo izaci pomeranjem pokazivaca glava do
-     poslednjeg cvora ili, ranije, nailaskom na cvor ciji sledeci ima 
-     vrednost vecu od broj. */
+     poslednjeg cvora ili, ranije, nailaskom na cvor ciji sledeci
+     ima vrednost vecu od broj. */
   return glava;
 }
 
@@ -179,10 +178,10 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
      glava->vrednost veca od trazenog broja i tada treba vratiti
      NULL, jer trazen broj nije nadjen medju manjim brojevima pri
      pocetku sortirane liste, pa se moze zakljuciti da ga nema u
-     listi. Drugi nacini, tako sto se doslo do kraja liste i glava je 
-     NULL ili tako sto je glava->vrednost == broj. U oba poslednja
-     nacina treba vratiti pokazivac glava bilo da je NULL ili
-     pokazivac na konkretan cvor. */
+     listi. Drugi nacini, tako sto se doslo do kraja liste i glava
+     je NULL ili tako sto je glava->vrednost == broj. U oba
+     poslednja nacina treba vratiti pokazivac glava bilo da je NULL
+     ili pokazivac na konkretan cvor. */
   if (glava->vrednost > broj)
     return NULL;
   else
@@ -251,20 +250,21 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, int broj)
   }
 
   /* Ako je nakon ovog brisanja lista ostala prazna, funkcija se
-     prekida. Isto se radi i ukoliko glava liste sadrzi vrednost koja 
-     je veca od broja, jer kako je lista sortirana rastuce nema
+     prekida. Isto se radi i ukoliko glava liste sadrzi vrednost
+     koja je veca od broja, jer kako je lista sortirana rastuce nema 
      potrebe broj traziti u repu liste. */
   if (*adresa_glave == NULL || (*adresa_glave)->vrednost > broj)
     return;
 
-  /* Od ovog trenutka se u svakoj iteraciji pokazivac tekuci pokazuje 
-     na cvor cija vrednost je manja od trazenog broja, kao i svim
-     cvorovima levo od njega. Cvor se brise ako je jednak, ili, ako
-     je razlicit, prelazi se na sledeci cvor. Ovaj postupak se
-     ponavlja dok se ne dodje do poslednjeg cvora ili prvog cvora
+  /* Od ovog trenutka se u svakoj iteraciji pokazivac tekuci
+     pokazuje na cvor cija vrednost je manja od trazenog broja, kao
+     i svim cvorovima levo od njega. Cvor se brise ako je jednak,
+     ili, ako je razlicit, prelazi se na sledeci cvor. Ovaj postupak
+     se ponavlja dok se ne dodje do poslednjeg cvora ili prvog cvora
      cija vrednost je veca od trazenog broja. */
   tekuci = *adresa_glave;
-  while (tekuci->sledeci != NULL && tekuci->sledeci->vrednost <= broj)
+  while (tekuci->sledeci != NULL
+         && tekuci->sledeci->vrednost <= broj)
     if (tekuci->sledeci->vrednost == broj) {
       pomocni = tekuci->sledeci;
       tekuci->sledeci = tekuci->sledeci->sledeci;

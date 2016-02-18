@@ -5,7 +5,7 @@
 #define MAX 1000
 
 /* Funkcija dinamicki kreira niz karaktera u koji smesta rezultat
-   nadovezivanja niski. Adresa kreiranog niza se vraca kao povratna 
+   nadovezivanja niski. Adresa kreiranog niza se vraca kao povratna
    vrednost. */
 char *nadovezi(char *s, char *t)
 {

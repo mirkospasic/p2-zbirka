@@ -22,22 +22,22 @@ typedef struct cvor {
   struct cvor *sledeci;
 } Cvor;
 
-/* Funkcija kreira novi cvor, upisuje u njega etiketu i vraca njegovu 
-   adresu ili NULL ako alokacija nije bila uspesna */
+/* Funkcija kreira novi cvor, upisuje u njega etiketu i vraca
+   njegovu adresu ili NULL ako alokacija nije bila uspesna */
 Cvor *napravi_cvor(char *etiketa);
 
 /* Funkcija oslobadja memoriju zauzetu stekom */
 void oslobodi_stek(Cvor ** adresa_vrha);
 
-/* Funkcija postavlja na vrh steka novu etiketu. U slucaju greske pri 
-   alokaciji memorije za novi cvor funkcija vraca 1, inace vraca 0 */
+/* Funkcija postavlja na vrh steka novu etiketu. U slucaju greske
+   pri alokaciji za novi cvor funkcija vraca 1, inace vraca 0 */
 int potisni_na_stek(Cvor ** adresa_vrha, char *etiketa);
 
 /* Funkcija skida sa vrha steka etiketu. Ako je drugi argument
    pokazivac razlicit od NULL, tada u niz karaktera na koji on
-   pokazuje upisuje ime etikete koja je upravo skinuta sa steka dok u 
-   suprotnom ne radi nista. Funkcija vraca 0 ako je stek prazan (pa
-   samim tim nije bilo moguce skinuti vrednost sa steka) ili 1 u
+   pokazuje upisuje ime etikete koja je upravo skinuta sa steka dok
+   u suprotnom ne radi nista. Funkcija vraca 0 ako je stek prazan
+   (pa samim tim nije bilo moguce skinuti vrednost sa steka) ili 1 u
    suprotnom */
 int skini_sa_steka(Cvor ** adresa_vrha, char *etiketa);
 

@@ -32,7 +32,7 @@ float zbir_ispod_sporedne_dijagonale(float **m, int n)
   return zbir;
 }
 
-/* Funkcija ucitava elemente kvadratne matrice dimenzije n x n iz 
+/* Funkcija ucitava elemente kvadratne matrice dimenzije n x n iz
    zadate datoteke */
 void ucitaj_matricu(FILE * ulaz, float **m, int n)
 {

@@ -4,7 +4,7 @@
 
 Cvor *napravi_cvor(int broj)
 {
-  /* Alokacija memorije za novi cvor uz proveru uspesnosti alokacije */
+  /* Alokacija memorije za novi cvor uz proveru uspesnosti */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -30,8 +30,8 @@ void oslobodi_listu(Cvor ** adresa_glave, Cvor ** adresa_kraja)
     /* Sledeci cvor je nova glava liste */
     *adresa_glave = pomocni;
   }
-  /* Nakon izlaska iz petlje lista je prazna. Pokazivac na kraj liste 
-     treba postaviti na NULL */
+  /* Nakon izlaska iz petlje lista je prazna. Pokazivac na kraj
+     liste treba postaviti na NULL */
   *adresa_kraja = NULL;
 }
 
@@ -77,8 +77,8 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, Cvor ** adresa_kraja,
     *adresa_kraja = novi;
   } else {
     /* Ako lista nije prazna, novi cvor se dodaje na kraj liste kao
-       sledbenik poslednjeg cvora i azurira se samo pokazivac na kraj 
-       liste */
+       sledbenik poslednjeg cvora i azurira se samo pokazivac na
+       kraj liste */
     (*adresa_kraja)->sledeci = novi;
     novi->prethodni = (*adresa_kraja);
     *adresa_kraja = novi;
@@ -99,15 +99,15 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj)
      vrednost vecu ili jednaku od vrednosti novog cvora.
 
      Zbog izracunavanja izraza u C-u prvi deo konjunkcije mora biti
-     provera da li se doslo do poslednjeg cvora liste pre nego sto se 
-     proveri vrednost u sledecem cvoru jer u slucaju poslednjeg,
+     provera da li se doslo do poslednjeg cvora liste pre nego sto
+     se proveri vrednost u sledecem cvoru jer u slucaju poslednjeg,
      sledeci ne postoji pa ni njegova vrednost. */
   while (glava->sledeci != NULL && glava->sledeci->vrednost < broj)
     glava = glava->sledeci;
 
   /* Iz petlje se moglo izaci pomeranjem pokazivaca glava do
-     poslednjeg cvora ili, ranije, nailaskom na cvor ciji sledeci ima 
-     vrednost vecu od broj */
+     poslednjeg cvora ili, ranije, nailaskom na cvor ciji sledeci
+     ima vrednost vecu od broj */
   return glava;
 }
 
@@ -135,7 +135,7 @@ int dodaj_iza(Cvor * tekuci, int broj)
 int dodaj_sortirano(Cvor ** adresa_glave, Cvor ** adresa_kraja, int
                     broj)
 {
-  /* Ako je lista prazna, novi cvor je i prvi i poslednji cvor liste */
+  /* Ako je lista prazna, novi cvor je i prvi i poslednji cvor */
   if (*adresa_glave == NULL) {
     /* Kreiranje novog cvora uz proveru uspesnost kreiranja */
     Cvor *novi = napravi_cvor(broj);
@@ -232,7 +232,8 @@ void obrisi_tekuci(Cvor ** adresa_glave, Cvor ** adresa_kraja, Cvor *
   free(tekuci);
 }
 
-void obrisi_cvor(Cvor ** adresa_glave, Cvor ** adresa_kraja, int broj)
+void obrisi_cvor(Cvor ** adresa_glave, Cvor ** adresa_kraja,
+                 int broj)
 {
   Cvor *tekuci = *adresa_glave;
 

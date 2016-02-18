@@ -41,8 +41,8 @@ int dodaj_u_stablo(Cvor ** adresa_korena, int broj)
     return 0;
   }
 
-  /* Ako stablo nije prazno, trazi se odgovarajuca pozicija za zadati 
-     broj */
+  /* Ako stablo nije prazno, trazi se odgovarajuca pozicija za
+     zadati broj */
 
   /* Ako je zadata vrednost manja od vrednosti korena */
   if (broj < (*adresa_korena)->broj)
@@ -157,8 +157,8 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
     return;
   }
 
-  /* Ako koren ima samo levog sina, tada se brisanje vrsi tako sto se 
-     brise koren, a novi koren postaje levi sin */
+  /* Ako koren ima samo levog sina, tada se brisanje vrsi tako sto
+     se brise koren, a novi koren postaje levi sin */
   if ((*adresa_korena)->levo != NULL
       && (*adresa_korena)->desno == NULL) {
     pomocni_cvor = (*adresa_korena)->levo;

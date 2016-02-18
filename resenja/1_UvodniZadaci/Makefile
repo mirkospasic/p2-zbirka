@@ -5,7 +5,7 @@ all: 1_01.out 1_02.out 1_03.out 1_05.out 1_06.out 1_07.out 1_08.out 1_09.out 1_1
 1_01.out: 1_01.c
 	$(CC) -Wall -o $@ $< -lm
 1_02.out: 1_02.c
-	$(CC) $(CFLAGS) -o $@ $< -lm ../biblioteke/kompleksan_broj/kompleksan_broj.c -I ../biblioteke/kompleksan_broj
+	$(CC) $(CFLAGS) -o $@ $< ../biblioteke/kompleksan_broj/kompleksan_broj.c -I ../biblioteke/kompleksan_broj -lm
 1_03.out: 1_03.c
 	$(CC) $(CFLAGS) -o $@ $< ../biblioteke/polinom/polinom.c -I ../biblioteke/polinom
 1_05.out: 1_05.c
@@ -65,4 +65,4 @@ clean:
 	rm -rf *~ *.out
 
 beauty:
-	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c *.h
+	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c ../biblioteke/stampanje_bitova/*.[ch] ../biblioteke/polinom/*.[ch] ../biblioteke/kompleksan_broj/*.[ch]

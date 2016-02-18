@@ -10,9 +10,9 @@ int prebroj_bitove_1(int x)
 
   /* Formiranje se maska cija binarna reprezentacija izgleda
      100000...0000000, koja sluzi za ocitavanje bita najvece tezine.
-     U svakoj iteraciji maska se pomera u desno za 1 mesto, i
-     ocitava se sledeci bit. Petlja se zavrsava kada vise nema
-     jedinica tj. kada maska postane nula. */
+     U svakoj iteraciji maska se pomera u desno za 1 mesto, i ocitava 
+     se sledeci bit. Petlja se zavrsava kada vise nema jedinica tj.
+     kada maska postane nula. */
   unsigned maska = 1 << broj_pomeranja;
   for (; maska != 0; maska >>= 1)
     x & maska ? br++ : 1;

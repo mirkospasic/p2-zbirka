@@ -14,9 +14,9 @@ void ispisi(const Polinom * p)
   for (i = p->stepen; i >= 0; i--) {
 
     if (p->koef[i]) {
-      /* Polinom nije nula polinom, cim je neki od koeficijenata 
-         razlicit od nule */ 
-      nulaPolinom = 0; 
+      /* Polinom nije nula polinom, cim je neki od koeficijenata
+         razlicit od nule */
+      nulaPolinom = 0;
       if (p->koef[i] >= 0 && i != p->stepen)
         putchar('+');
       if (i > 1)
@@ -29,7 +29,7 @@ void ispisi(const Polinom * p)
   }
   /* U slucaju nula polinoma indikator ce imati vrednost 1 i tada se
      ispisuje nula. */
-  if(nulaPolinom)
+  if (nulaPolinom)
     printf("0");
   putchar('\n');
 }
@@ -109,12 +109,13 @@ Polinom pomnozi(const Polinom * p, const Polinom * q)
     exit(EXIT_FAILURE);
   }
 
-  /* Svi koeficijenti rezultujuceg polinoma se inicijalizuju na nulu */
+  /* Svi koeficijenti rezultujuceg polinoma se inicijalizuju na 0 */
   for (i = 0; i <= r.stepen; i++)
     r.koef[i] = 0;
 
-  /* U svakoj iteraciji odgovarajuci koeficijent rezultata se uvecava
-     za proizvod odgovarajucih koeficijenata iz polaznih polinoma */
+  /* U svakoj iteraciji odgovarajuci koeficijent rezultata se
+     uvecava za proizvod odgovarajucih koeficijenata iz polaznih
+     polinoma */
   for (i = 0; i <= p->stepen; i++)
     for (j = 0; j <= q->stepen; j++)
       r.koef[i + j] += p->koef[i] * q->koef[j];
@@ -160,8 +161,8 @@ Polinom n_izvod(const Polinom * p, int n)
   if (n == 0)
     return *p;
 
-  /* Za n>=1, n-ti izvod se racuna tako sto se n puta pozove funkcija
-     za racunanje prvog izvoda polinoma */
+  /* Za n>=1, n-ti izvod se racuna tako sto se n puta pozove
+     funkcija za racunanje prvog izvoda polinoma */
   r = izvod(p);
   for (i = 1; i < n; i++)
     r = izvod(&r);

@@ -40,10 +40,11 @@ int main(int argc, char *argv[])
   /* Ukoliko korisnik nije uneo trazene argumente, prijavljuje se
      greska */
   if (argc < 2) {
-    fprintf(stderr,"Greska: ");
-    fprintf(stderr,"Nedovoljan broj argumenata komandne linije.\n");
-    fprintf(stderr,"Program se poziva sa %s ime_funkcije iz math.h.\n",
-           argv[0]);
+    fprintf(stderr, "Greska: ");
+    fprintf(stderr, "Nedovoljan broj argumenata komandne linije.\n");
+    fprintf(stderr,
+            "Program se poziva sa %s ime_funkcije iz math.h.\n",
+            argv[0]);
     exit(EXIT_FAILURE);
   }
 
@@ -80,7 +81,8 @@ int main(int argc, char *argv[])
     fp = &sqr;
   else {
     fprintf(stderr, "Greska");
-	fprintf(stderr, "Program jos uvek ne podrzava trazenu funkciju!\n");
+    fprintf(stderr,
+            "Program jos uvek ne podrzava trazenu funkciju!\n");
     exit(EXIT_FAILURE);
   }
 

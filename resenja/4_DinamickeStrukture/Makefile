@@ -65,4 +65,4 @@ clean:
 	rm -rf *~ *.out
 
 beauty:
-	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c *.h
+	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c ../biblioteke/lista_iterativna/*.[ch] ../biblioteke/lista_rekurzivna/*.[ch] ../biblioteke/stek/*.[ch] ../biblioteke/red/*.[ch] ../biblioteke/dvostruko_povezana_lista/*.[ch] ../biblioteke/stabla/*.[ch] 

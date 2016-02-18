@@ -29,7 +29,7 @@ int main()
 
   /* Dinamicki se rezervise prostor za elemente u vrstama */
   for (i = 0; i < n; i++) {
-    A[i] = (double **) malloc(sizeof(double) * m);
+    A[i] = (double *) malloc(sizeof(double) * m);
 
     /* Ukoliko je alokacija neuspesna, pre zavrsetka programa
        potrebno je osloboditi svih i-1 prethodno alociranih vrsta, i

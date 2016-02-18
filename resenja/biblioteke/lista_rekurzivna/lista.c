@@ -4,8 +4,7 @@
 
 Cvor *napravi_cvor(int broj)
 {
-  /* Alokacija memorije za novi cvor uz proveru uspesnosti
-     alokacije */
+  /* Alokacija memorije za novi cvor uz proveru uspesnosti */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -59,8 +58,8 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
     if (novi == NULL)
       return 1;
 
-    /* Azuriranjem vrednosti na koju pokazuje adresa_glave, ujedno se
-       azurira i pokazivacka promenljiva u pozivajucoj funkciji */
+    /* Azuriranjem vrednosti na koju pokazuje adresa_glave, ujedno
+       se azurira i pokazivacka promenljiva u pozivajucoj funkciji */
     *adresa_glave = novi;
 
     /* Vracanje indikatora uspesnog dodavanja */
@@ -70,12 +69,12 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
   /* Ako lista nije prazna, broj se dodaje u rep liste. */
   /* Prilikom dodavanja u listu na kraj u velikoj vecini slucajeva
      novi broj se dodaje u rep liste u rekurzivnom pozivu.
-     Informaciju o uspesnosti alokacije u rekurzivnom pozivu funkcija 
-     prosledjuje visem rekurzivnom pozivu koji tu informaciju vraca u 
-     rekurzivni poziv iznad, sve dok se ne vrati u main. Tek je iz
-     main funkcije moguce pristupiti pravom pocetku liste i
-     osloboditi je celu, ako ima potrebe. Ako je funkcija vratila 0,
-     onda nije bilo greske. */
+     Informaciju o uspesnosti alokacije u rekurzivnom pozivu
+     funkcija prosledjuje visem rekurzivnom pozivu koji tu
+     informaciju vraca u rekurzivni poziv iznad, sve dok se ne vrati 
+     u main. Tek je iz main funkcije moguce pristupiti pravom
+     pocetku liste i osloboditi je celu, ako ima potrebe. Ako je
+     funkcija vratila 0, onda nije bilo greske. */
   return dodaj_na_kraj_liste(&(*adresa_glave)->sledeci, broj);
 }
 
@@ -124,8 +123,8 @@ Cvor *pretrazi_listu(Cvor * glava, int broj)
 
 Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
 {
-  /* Trazenog broja nema ako je lista prazna ili ako je broj manji od 
-     vrednosti u glavi liste, jer je lista neopadajuce sortirana */
+  /* Trazenog broja nema ako je lista prazna ili ako je broj manji
+     od vrednosti u glavi liste, jer je lista neopadajuce sortirana */
   if (glava == NULL || glava->vrednost > broj)
     return NULL;
 
@@ -150,8 +149,8 @@ void obrisi_cvor(Cvor ** adresa_glave, int broj)
   if ((*adresa_glave)->vrednost == broj) {
     /* Pomocni pokazuje na cvor koji treba da se obrise */
     Cvor *pomocni = *adresa_glave;
-    /* Azurira se pokazivac na glavu da pokazuje na sledeci u listi i 
-       brise se cvor koji je bio glava liste. */
+    /* Azurira se pokazivac na glavu da pokazuje na sledeci u listi
+       i brise se cvor koji je bio glava liste. */
     *adresa_glave = (*adresa_glave)->sledeci;
     free(pomocni);
   }
@@ -159,9 +158,9 @@ void obrisi_cvor(Cvor ** adresa_glave, int broj)
 
 void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, int broj)
 {
-  /* Ako je lista prazna ili glava liste sadrzi vrednost koja je veca 
-     od broja, kako je lista sortirana rastuce nema potrebe broj
-     traziti u repu liste i zato se funkcija prekida */
+  /* Ako je lista prazna ili glava liste sadrzi vrednost koja je
+     veca od broja, kako je lista sortirana rastuce nema potrebe
+     broj traziti u repu liste i zato se funkcija prekida */
   if (*adresa_glave == NULL || (*adresa_glave)->vrednost > broj)
     return;
 

@@ -40,13 +40,14 @@ int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
 /* Funkcija skida sa pocetka reda zahtev. Ako je poslednji argument
    pokazivac razlicit od NULL, tada se u strukturu na koju on
    pokazuje upisuje zahtev koji je upravo skinut sa reda dok u
-   suprotnom ne upisuje nista. Vraca 0, ako je red bio prazan ili 1 u 
-   suprotnom. */
+   suprotnom ne upisuje nista. Vraca 0, ako je red bio prazan ili 1
+   u suprotnom. */
 int skini_sa_reda(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
                   Zahtev * zahtev);
 
-/* Funkcija vraca pokazivac na strukturu koja sadrzi zahtev korisnika 
-   na pocetku reda. Ukoliko je red prazan funkcija vraca NULL. */
+/* Funkcija vraca pokazivac na strukturu koja sadrzi zahtev
+   korisnika na pocetku reda. Ukoliko je red prazan funkcija vraca
+   NULL. */
 Zahtev *pocetak_reda(Cvor * pocetak);
 
 /* Funkcija prikazuje sadrzaj reda. */

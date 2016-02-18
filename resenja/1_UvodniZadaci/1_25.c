@@ -30,7 +30,9 @@ int main()
 
   /* Provera da li je dimenzija niza odgovarajuca */
   if (n < 0 || n > MAKS_DIM) {
-    fprintf(stderr, "Greska: Dimenzija mora biti prirodan broj <= %d!\n", MAKS_DIM);
+    fprintf(stderr,
+            "Greska: Dimenzija mora biti prirodan broj <= %d!\n",
+            MAKS_DIM);
     exit(EXIT_FAILURE);
   }
 

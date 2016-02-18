@@ -63,7 +63,7 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Dinamicka alokacija memorije: za niz trouglova duzine n 
+  /* Dinamicka alokacija memorije: za niz trouglova duzine n
      rezervise se memorijski prostor */
   if ((niz = malloc(n * sizeof(trougao))) == NULL) {
     fprintf(stderr, "-1\n");

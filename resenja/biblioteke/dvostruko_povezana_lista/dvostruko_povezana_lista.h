@@ -15,8 +15,8 @@ typedef struct cvor {
 Cvor *napravi_cvor(int broj);
 
 /* Funkcija oslobadja dinamicku memoriju zauzetu za cvorove liste
-   ciji se pocetni cvor nalazi na adresi adresa_glave, a poslednji na 
-   adresi adresa_kraja. */
+   ciji se pocetni cvor nalazi na adresi adresa_glave, a poslednji
+   na adresi adresa_kraja. */
 void oslobodi_listu(Cvor ** adresa_glave, Cvor ** adresa_kraja);
 
 /* Funkcija dodaje novi cvor na pocetak liste. Vraca 1 ukoliko je
@@ -24,8 +24,8 @@ void oslobodi_listu(Cvor ** adresa_glave, Cvor ** adresa_kraja);
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, Cvor **
                            adresa_kraja, int broj);
 
-/* Funkcija dodaje broj na kraj liste. Vraca 1 ukoliko je bilo greske 
-   pri alokaciji memorije, inace vraca 0. */
+/* Funkcija dodaje broj na kraj liste. Vraca 1 ukoliko je bilo
+   greske pri alokaciji memorije, inace vraca 0. */
 int dodaj_na_kraj_liste(Cvor ** adresa_glave, Cvor ** adresa_kraja,
                         int broj);
 
@@ -54,14 +54,14 @@ Cvor *pretrazi_listu(Cvor * glava, int broj);
    trazeni broj ili NULL u slucaju da takav cvor ne postoji. */
 Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj);
 
-/* Funkcija brise cvor na koji pokazuje pokazivac tekuci u listi ciji 
-   pokazivac glava se nalazi na adresi adresa_glave. */
+/* Funkcija brise cvor na koji pokazuje pokazivac tekuci u listi
+   ciji pokazivac glava se nalazi na adresi adresa_glave. */
 void obrisi_tekuci(Cvor ** adresa_glave, Cvor ** adresa_kraja, Cvor *
                    tekuci);
 
-/* Funkcija brise iz liste sve cvorove koji sadrze dati broj. Azurira 
-   pokazivac na glavu liste, koji moze biti promenjen u slucaju da se 
-   obrise stara glava. */
+/* Funkcija brise iz liste sve cvorove koji sadrze dati broj.
+   Azurira pokazivac na glavu liste, koji moze biti promenjen u
+   slucaju da se obrise stara glava. */
 void obrisi_cvor(Cvor ** adresa_glave, Cvor ** adresa_kraja, int
                  broj);
 
@@ -72,8 +72,8 @@ void obrisi_cvor(Cvor ** adresa_glave, Cvor ** adresa_kraja, int
 void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, Cvor **
                                  adresa_kraja, int broj);
 
-/* Funkcija prikazuje vrednosti cvorova liste pocev od glave ka kraju 
-   liste, razdvojene zapetama i uokvirene zagradama. */
+/* Funkcija prikazuje vrednosti cvorova liste pocev od glave ka
+   kraju liste, razdvojene zapetama i uokvirene zagradama. */
 void ispisi_listu(Cvor * glava);
 
 /* Funkcija prikazuje vrednosti cvorova liste pocevsi od kraja ka

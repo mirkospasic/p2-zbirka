@@ -12,8 +12,8 @@ void dodaj_iza(Cvor * tekuci, Cvor * novi)
 
 
 /* Funkcija koja dopunjuje listu na nacin opisan u tekstu zadatka.
-   Vraca 1 ukoliko je bilo greske pri alokaciji memorije, inace vraca
-   0. */
+   Vraca 1 ukoliko je bilo greske pri alokaciji memorije, inace
+   vraca 0. */
 int dopuni_listu(Cvor ** adresa_glave)
 {
   Cvor *tekuci;
@@ -26,9 +26,9 @@ int dopuni_listu(Cvor ** adresa_glave)
      cvor */
   tekuci = *adresa_glave;
   /* Sve dok ima cvorova u listi racuna se aritmeticka sredina
-     vrednosti u susednim cvorovims i kreira cvor sa tom vrednoscu. U 
-     slucaju neupele alokacije novog cvora, funkcija vraca 1. Inace, 
-     novi cvor se umece izmedju dva cvora za koje racunata
+     vrednosti u susednim cvorovims i kreira cvor sa tom vrednoscu.
+     U slucaju neupele alokacije novog cvora, funkcija vraca 1.
+     Inace, novi cvor se umece izmedju dva cvora za koje racunata
      aritmeticka sredina */
   while (tekuci->sledeci != NULL) {
     aritmeticka_sredina =
@@ -59,17 +59,19 @@ int main()
        memorije za nov cvor. Memoriju alociranu za cvorove liste
        treba osloboditi. */
     if (dodaj_na_kraj_liste(&glava, broj) == 1) {
-      fprintf(stderr, "Greska: Neuspela alokacija za cvor %lf.\n", broj);
+      fprintf(stderr, "Greska: Neuspela alokacija za cvor %lf.\n",
+              broj);
       oslobodi_listu(&glava);
       exit(EXIT_FAILURE);
     }
   }
 
   /* Poziva se funkcija da dopuni listu. Ako je funkcija vratila 1,
-     onda je bilo greske pri alokaciji memorije za nov cvor. Memoriju
-     alociranu za cvorove liste treba osloboditi. */
+     onda je bilo greske pri alokaciji memorije za nov cvor.
+     Memoriju alociranu za cvorove liste treba osloboditi. */
   if (dopuni_listu(&glava) == 1) {
-    fprintf(stderr, "Greska: Neuspela alokacija za cvor %lf.\n", broj);
+    fprintf(stderr, "Greska: Neuspela alokacija za cvor %lf.\n",
+            broj);
     oslobodi_listu(&glava);
     exit(EXIT_FAILURE);
   }

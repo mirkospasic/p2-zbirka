@@ -103,9 +103,9 @@ int uzmi_etiketu(FILE * f, char *etiketa)
   int stanje = VAN_ETIKETE;
   int tip;
 
-  /* HTML je neosetljiv na razliku izmedju malih i velikih slova, dok 
-     to u C-u ne vazi. Zato ce sve etikete biti prevedene u zapis
-     samo malim slovima. */
+  /* HTML je neosetljiv na razliku izmedju malih i velikih slova,
+     dok to u C-u ne vazi. Zato ce sve etikete biti prevedene u
+     zapis samo malim slovima. */
   while ((c = fgetc(f)) != EOF) {
     switch (stanje) {
     case VAN_ETIKETE:

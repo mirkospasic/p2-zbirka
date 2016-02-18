@@ -143,21 +143,21 @@ int main()
   /* Deklaracija 3 promenljive tipa KompleksanBroj */
   KompleksanBroj z1, z2, z;
 
-  /* Ucitava se prvi kompleksni broj, koji se potom ispisuje na 
+  /* Ucitava se prvi kompleksni broj, koji se potom ispisuje na
      standardni izlaz */
   ucitaj_kompleksan_broj(&z1);
   ispisi_kompleksan_broj(z1);
   printf("\n");
 
-  /* Ucitava se drugi kompleksni broj, koji se potom ispisuje na 
+  /* Ucitava se drugi kompleksni broj, koji se potom ispisuje na
      standardni izlaz */
   ucitaj_kompleksan_broj(&z2);
   ispisi_kompleksan_broj(z2);
   printf("\n");
 
-  /* Ucitavase znak na osnovu koga korisnik bira aritmeticku 
-     operaciju koja ce se izvrsiti nad kompleksnim brojevima, a 
-     zatim se vrsi provera da li je unet neki od dozvoljenih 
+  /* Ucitavase znak na osnovu koga korisnik bira aritmeticku
+     operaciju koja ce se izvrsiti nad kompleksnim brojevima, a
+     zatim se vrsi provera da li je unet neki od dozvoljenih
      aritmetickih znakova. */
   getchar();
   printf("Unesite znak (+,-,*): ");

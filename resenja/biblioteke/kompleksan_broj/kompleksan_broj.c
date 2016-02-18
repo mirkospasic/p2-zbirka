@@ -1,7 +1,7 @@
 /* Ukljucuje se zaglavlje za rad sa kompleksnim brojevima, jer je
-   neophodno da bude poznata definicija tipa KompleksanBroj. Takodje, 
-   time su ukljucena zaglavlja standardne biblioteke koja su navedena 
-   u kompleksan_broj.h */
+   neophodno da bude poznata definicija tipa KompleksanBroj.
+   Takodje, time su ukljucena zaglavlja standardne biblioteke koja
+   su navedena u kompleksan_broj.h */
 #include "kompleksan_broj.h"
 
 void ucitaj_kompleksan_broj(KompleksanBroj * z)
@@ -19,11 +19,11 @@ void ispisi_kompleksan_broj(KompleksanBroj z)
 
   /* Razlikuju se dva slucaja: 1) realni deo kompleksnog broja
      razlicit od nule: tada se realni deo ispisuje na standardni
-     izlaz, nakon cega se ispisuje znak + ili - u zavisnosti da li je 
-     imaginarni deo pozitivan ili negativan, a potom i apsolutna
+     izlaz, nakon cega se ispisuje znak + ili - u zavisnosti da li
+     je imaginarni deo pozitivan ili negativan, a potom i apsolutna
      vrednost imaginarnog dela kompleksnog broja 2) realni deo
-     kompleksnog broja je nula: tada se samo ispisuje imaginaran deo, 
-     s tim sto se ukoliko su oba dela nula ispisuje samo 0, bez
+     kompleksnog broja je nula: tada se samo ispisuje imaginaran
+     deo, s tim sto se ukoliko su oba dela nula ispisuje samo 0, bez 
      decimalnih mesta */
   if (z.real != 0) {
     printf("%.2f", z.real);
@@ -110,7 +110,7 @@ KompleksanBroj mnozi(KompleksanBroj z1, KompleksanBroj z2)
 
 float argument(KompleksanBroj z)
 {
-  /* Argument kompleksnog broja z se racuna pozivanjem funkcije atan2
-     iz biblioteke math.h */
+  /* Argument kompleksnog broja z se racuna pozivanjem funkcije
+     atan2 iz biblioteke math.h */
   return atan2(z.imag, z.real);
 }
