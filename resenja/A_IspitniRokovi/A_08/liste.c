@@ -37,7 +37,6 @@ Cvor *pronadji_poslednji(Cvor * glava)
   while (glava->sledeci != NULL)
     glava = glava->sledeci;
   return glava;
-
 }
 
 /* Funkcija dodaje novi cvor na kraj liste. Vraca 1 ukoliko je bilo
@@ -62,5 +61,4 @@ void ispisi_listu(Cvor * glava)
   for (; glava != NULL; glava = glava->sledeci)
     printf("%.2lf ", glava->vrednost);
   putchar('\n');
-
 }

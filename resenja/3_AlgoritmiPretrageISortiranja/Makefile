@@ -70,7 +70,7 @@ all: 3_01.out 3_02.out 3_03.out 3_04.out 3_05.out 3_06.out 3_07.out 3_08.out 3_0
 .PHONY: clean beauty
 
 clean:
-	rm -rf *~ *.out
+	rm -rf *~ *.out ../biblioteke/sortiranje/*~ ../biblioteke/matrica/*~
 
 beauty:
-	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c ../biblioteke/sortiranje/*.[ch]
+	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c ../biblioteke/sortiranje/*.[ch] ../biblioteke/matrica/*.[ch]
