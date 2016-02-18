@@ -56,16 +56,20 @@ int binarna_pretraga_r(int a[], int l, int d, int x)
 int interpolaciona_pretraga_r(int a[], int l, int d, int x)
 {
   int p;
+  /* Ako je trazeni element manji od prvog ili veci od poslednjeg */
   if (x < a[l] || x > a[d])
     return -1;
+  /* Ako je ostao jedan element u delu niza koji se pretrazuje */
   if (a[d] == a[l])
     return l;
   /* Pozicija na kojoj se trazi vrednost x */
   p = l + (d - l) * (x - a[l]) / (a[d] - a[l]);
   if (a[p] == x)
     return p;
+  /* Pretraga sufiksa niza */
   if (a[p] < x)
     return interpolaciona_pretraga_r(a, p + 1, d, x);
+  /* Pretraga prefiksa niza */
   else
     return interpolaciona_pretraga_r(a, l, p - 1, x);
 }
@@ -93,9 +97,14 @@ int main()
     i++;
   }
 
-  /* Rezultati linearne pretrage */
+  /* Rezultati linearnih pretraga */
   printf("Linearna pretraga\n");
   indeks = linearna_pretraga_r1(a, i, x);
+  if (indeks == -1)
+    printf("Element se ne nalazi u nizu.\n");
+  else
+    printf("Pozicija elementa je %d.\n", indeks);
+  indeks = linearna_pretraga_r2(a, i, x);
   if (indeks == -1)
     printf("Element se ne nalazi u nizu.\n");
   else
