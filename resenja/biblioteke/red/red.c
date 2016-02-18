@@ -11,7 +11,7 @@ Cvor *napravi_cvor(Zahtev * zahtev)
   novi->nalog = *zahtev;
   novi->sledeci = NULL;
 
-  /* Vracanje adrese novog cvora */
+  /* Vraca se adresa novog cvora */
   return novi;
 }
 
@@ -35,7 +35,7 @@ void oslobodi_red(Cvor ** pocetak, Cvor ** kraj)
 int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
                 Zahtev * zahtev)
 {
-  /* Kreiranje novog cvora uz proveru uspesnost kreiranja */
+  /* Kreira se novi cvor i proverava se uspesnost kreiranja */
   Cvor *novi = napravi_cvor(zahtev);
   if (novi == NULL)
     return 1;
@@ -51,7 +51,7 @@ int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
     *adresa_kraja = novi;
   }
 
-  /* Vracanje indikatora uspesnog dodavanja */
+  /* Vraca se indikator uspesnog dodavanja */
   return 0;
 }
 
@@ -69,8 +69,8 @@ int skini_sa_reda(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
   if (zahtev != NULL)
     *zahtev = (*adresa_pocetka)->nalog;
 
-  /* Oslobadjanje memorije zauzeta cvorom sa pocetka reda i
-     azuriranje pokazivaca na adresi adresa_pocetka da pokazuje na
+  /* Oslobadja se memorija zauzeta cvorom sa pocetka reda i
+     azurira se pokazivac na adresi adresa_pocetka da pokazuje na
      sledeci cvor u redu. */
   pomocni = *adresa_pocetka;
   *adresa_pocetka = (*adresa_pocetka)->sledeci;
@@ -97,7 +97,7 @@ Zahtev *pocetak_reda(Cvor * pocetak)
 
 void prikazi_red(Cvor * pocetak)
 {
-  /* Prikaz sadrzaj reda od pocetka prema kraju */
+  /* Prikazuje se sadrzaj reda od pocetka prema kraju */
   for (; pocetak != NULL; pocetak = pocetak->sledeci)
     printf("%s %s\n", (pocetak->nalog).jmbg, (pocetak->nalog).opis);
 

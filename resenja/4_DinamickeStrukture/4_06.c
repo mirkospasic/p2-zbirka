@@ -27,9 +27,9 @@ Cvor *objedini(Cvor ** adresa_glave_1, Cvor ** adresa_glave_2)
   if (lista2 == NULL)
     return lista1;
 
-  /* Odredjivanje prvog cvora rezultujuce liste - to je ili prvi
-     cvor liste lista1 ili prvi cvor liste lista2 u zavisnosti od
-     toga koji sadrzi manju vrednost */
+  /* Odredjuje se prvi cvor rezultujuce liste - to je ili prvi cvor
+     liste lista1 ili prvi cvor liste lista2 u zavisnosti od toga
+     koji sadrzi manju vrednost */
   if (lista1->vrednost < lista2->vrednost) {
     rezultujuca = lista1;
     lista1 = lista1->sledeci;
@@ -84,7 +84,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteka u kojima se nalaze elementi listi */
+  /* Otvaraju se datoteke u kojima se nalaze elementi listi */
   FILE *in1 = NULL;
   in1 = fopen(argv[1], "r");
   if (in1 == NULL) {
@@ -124,9 +124,8 @@ int main(int argc, char **argv)
   /* Ispis rezultujuce liste. */
   ispisi_listu(rezultat);
 
-  /* Lista rezultat dobijena je prevezivanjem cvorova polaznih
-     listi. Njenim oslobadjanjem bice oslobodjena sva zauzeta
-     memorija. */
+  /* Lista rezultat dobijena je prevezivanjem cvorova polaznih listi.
+     Njenim oslobadjanjem oslobadja se sva zauzeta memorija. */
   oslobodi_listu(&rezultat);
 
   exit(EXIT_SUCCESS);

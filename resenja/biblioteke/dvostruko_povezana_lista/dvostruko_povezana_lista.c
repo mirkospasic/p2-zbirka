@@ -13,7 +13,7 @@ Cvor *napravi_cvor(int broj)
   novi->vrednost = broj;
   novi->sledeci = NULL;
 
-  /* Vracanje adrese novog cvora */
+  /* Vraca se adresa novog cvora */
   return novi;
 }
 
@@ -38,7 +38,7 @@ void oslobodi_listu(Cvor ** adresa_glave, Cvor ** adresa_kraja)
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, Cvor **
                            adresa_kraja, int broj)
 {
-  /* Kreiranje novog cvora uz proveru uspesnost kreiranja */
+  /* Kreira se novi cvor i proverava se uspesnost kreiranja */
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
     return 1;
@@ -57,14 +57,14 @@ int dodaj_na_pocetak_liste(Cvor ** adresa_glave, Cvor **
   /* Novi cvor je nova glava liste */
   *adresa_glave = novi;
 
-  /* Vracanje indikatora uspesnog dodavanja */
+  /* Vraca se indikator uspesnog dodavanja */
   return 0;
 }
 
 int dodaj_na_kraj_liste(Cvor ** adresa_glave, Cvor ** adresa_kraja,
                         int broj)
 {
-  /* Kreiranje novog cvora uz proveru uspesnost kreiranja */
+  /* Kreira se novi cvor i proverava se uspesnost kreiranja */
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
     return 1;
@@ -84,7 +84,7 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, Cvor ** adresa_kraja,
     *adresa_kraja = novi;
   }
 
-  /* Vracanje indikatora uspesnog dodavanja */
+  /* Vraca se indikator uspesnog dodavanja */
   return 0;
 }
 
@@ -113,7 +113,7 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj)
 
 int dodaj_iza(Cvor * tekuci, int broj)
 {
-  /* Kreiranje novog cvora uz proveru uspesnost kreiranja */
+  /* Kreira se novi cvor i provera se uspesnost kreiranja */
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
     return 1;
@@ -128,7 +128,7 @@ int dodaj_iza(Cvor * tekuci, int broj)
     tekuci->sledeci->prethodni = novi;
   tekuci->sledeci = novi;
 
-  /* Vracanje indikatora uspesnog dodavanja */
+  /* Vraca se indikator uspesnog dodavanja */
   return 0;
 }
 
@@ -137,16 +137,16 @@ int dodaj_sortirano(Cvor ** adresa_glave, Cvor ** adresa_kraja, int
 {
   /* Ako je lista prazna, novi cvor je i prvi i poslednji cvor */
   if (*adresa_glave == NULL) {
-    /* Kreiranje novog cvora uz proveru uspesnost kreiranja */
+    /* Kreira se novi cvor i proverava se uspesnost kreiranja */
     Cvor *novi = napravi_cvor(broj);
     if (novi == NULL)
       return 1;
 
-    /* Azuriranje vrednosti pocetka i kraja liste */
+    /* Azuriraju se vrednosti pocetka i kraja liste */
     *adresa_glave = novi;
     *adresa_kraja = novi;
 
-    /* Vracanje indikatora uspesnog dodavanja */
+    /* Vraca se indikator uspesnog dodavanja */
     return 0;
   }
 
@@ -156,7 +156,7 @@ int dodaj_sortirano(Cvor ** adresa_glave, Cvor ** adresa_kraja, int
     return dodaj_na_pocetak_liste(adresa_glave, adresa_kraja, broj);
   }
 
-  /* Nalazenje cvora iza koga treba uvezati novi cvor */
+  /* Pronazi se cvor iza koga treba uvezati novi cvor */
   Cvor *pomocni = pronadji_mesto_umetanja(*adresa_glave, broj);
   /* Dodaje se novi cvor uz proveru uspesnosti dodavanja */
   if (dodaj_iza(pomocni, broj) == 1)
@@ -171,7 +171,7 @@ int dodaj_sortirano(Cvor ** adresa_glave, Cvor ** adresa_kraja, int
 
 Cvor *pretrazi_listu(Cvor * glava, int broj)
 {
-  /* Obilazenje cvorova liste */
+  /* Obilaze se cvorovi liste */
   for (; glava != NULL; glava = glava->sledeci)
     /* Ako je vrednost tekuceg cvora jednaka zadatom broju, pretraga
        se obustavlja */
@@ -184,7 +184,7 @@ Cvor *pretrazi_listu(Cvor * glava, int broj)
 
 Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
 {
-  /* Obilazenje cvorova liste */
+  /* Obilaze se cvorovi liste */
   /* U uslovu ostanka u petlji, bitan je redosled u konjunkciji */
   for (; glava != NULL && glava->vrednost <= broj;
        glava = glava->sledeci)
@@ -228,7 +228,7 @@ void obrisi_tekuci(Cvor ** adresa_glave, Cvor ** adresa_kraja, Cvor *
   if (tekuci == *adresa_kraja)
     *adresa_kraja = tekuci->prethodni;
 
-  /* Oslobadjanje dinamicki alociranog prostora za cvor tekuci */
+  /* Oslobadja se dinamicki alociran prostor za cvor tekuci */
   free(tekuci);
 }
 
@@ -258,8 +258,8 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, Cvor **
 void ispisi_listu(Cvor * glava)
 {
   putchar('[');
-  /* Ispisivanje vrednosti u cvorovima liste od pocetka prema kraju
-     liste, unutar zagrada */
+  /* Unutar zagrada ispisuju se vrednosti u cvorovima liste od
+     pocetka prema kraju liste */
   for (; glava != NULL; glava = glava->sledeci) {
     printf("%d", glava->vrednost);
     if (glava->sledeci != NULL)
@@ -272,8 +272,8 @@ void ispisi_listu(Cvor * glava)
 void ispisi_listu_unazad(Cvor * kraj)
 {
   putchar('[');
-  /* Ispisivanje vrednosti u cvorovima liste od kraja prema pocetku
-     liste, unutar zagrada */
+  /* Unutar zagrada ispisuju se vrednosti u cvorovima liste od kraja
+     prema pocetku liste */
   for (; kraj != NULL; kraj = kraj->prethodni) {
     printf("%d", kraj->vrednost);
     if (kraj->prethodni != NULL)

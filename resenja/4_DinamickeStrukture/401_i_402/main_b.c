@@ -9,8 +9,8 @@ int main()
   Cvor *glava = NULL;
   int broj;
 
-  /* Testiranje funkcija za dodavanja novog broja na kraj liste */
-  printf("Unesite brojeve (CTRL+D za kraj unosa): ");
+  /* Testira se funkcija za dodavanja novog broja na kraj liste */
+  printf("Unesite brojeve: (za kraj CTRL+D)\n");
   while (scanf("%d", &broj) > 0) {
     /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
        memorije za nov cvor. Memoriju alociranu za cvorove liste
@@ -24,18 +24,18 @@ int main()
     ispisi_listu(glava);
   }
 
-  /* Testiranje funkcije kojom se brise cvor liste */
+  /* Testira se funkcije kojom se brise cvor liste */
   printf("\nUnesite broj koji se brise: ");
   scanf("%d", &broj);
 
-  /* Brisanje cvorova iz liste cije je polje vrednost jednako broju
+  /* Brisu se cvorovi iz liste cije je polje vrednost jednako broju
      procitanom sa ulaza */
   obrisi_cvor(&glava, broj);
 
   printf("Lista nakon brisanja:  ");
   ispisi_listu(glava);
 
-  /* Oslobadjanje memorije zauzete listom */
+  /* Oslobadja se memorija zauzeta listom */
   oslobodi_listu(&glava);
 
   exit(EXIT_SUCCESS);

@@ -15,7 +15,7 @@ Cvor *napravi_cvor(char *etiketa)
   strcpy(novi->etiketa, etiketa);
   novi->sledeci = NULL;
 
-  /* Vracanje adrese novog cvora */
+  /* Vraca se adresa novog cvora */
   return novi;
 }
 
@@ -39,7 +39,7 @@ void oslobodi_stek(Cvor ** adresa_vrha)
 
 int potisni_na_stek(Cvor ** adresa_vrha, char *etiketa)
 {
-  /* Kreiranje novog cvora uz proveru uspesnosti kreiranja */
+  /* Kreira se novi cvor i proverava se uspesnost kreiranja */
   Cvor *novi = napravi_cvor(etiketa);
   if (novi == NULL)
     return 1;
@@ -64,12 +64,12 @@ int skini_sa_steka(Cvor ** adresa_vrha, char *etiketa)
   if (etiketa != NULL)
     strcpy(etiketa, (*adresa_vrha)->etiketa);
 
-  /* Uklanjanje elementa sa vrha steka */
+  /* Element sa vrha steka se uklanja */
   pomocni = *adresa_vrha;
   *adresa_vrha = (*adresa_vrha)->sledeci;
   free(pomocni);
 
-  /* Vracanje indikator uspesno izvrsene radnje */
+  /* Vraca se indikator uspesno izvrsene radnje */
   return 1;
 }
 
@@ -86,7 +86,7 @@ char *vrh_steka(Cvor * vrh)
 
 void prikazi_stek(Cvor * vrh)
 {
-  /* Ispis spisak etiketa na steku od vrha ka dnu. */
+  /* Ispisuje se spisak etiketa na steku od vrha ka dnu. */
   for (; vrh != NULL; vrh = vrh->sledeci)
     printf("<%s>\n", vrh->etiketa);
 }

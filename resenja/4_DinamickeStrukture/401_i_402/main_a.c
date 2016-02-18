@@ -35,7 +35,7 @@ int main()
   else
     printf("Trazeni broj %d je u listi!\n", trazeni->vrednost);
 
-  /* Oslobadjanje memorija zauzete listom */
+  /* Oslobadja se memorija zauzeta listom */
   oslobodi_listu(&glava);
 
   exit(EXIT_SUCCESS);

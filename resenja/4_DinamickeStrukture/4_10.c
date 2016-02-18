@@ -20,7 +20,7 @@ int main(int argc, char **argv)
   printf("Sluzbenik evidentira korisnicke zahteve:\n");
   while (1) {
 
-    /* Ucitavanje JMBG broja */
+    /* Ucitava se JMBG broj */
     printf("\nNovi zahtev [CTRL+D za kraj]\n\tJMBG: ");
     if (scanf("%s", nov_zahtev.jmbg) == EOF)
       break;
@@ -30,14 +30,14 @@ int main(int argc, char **argv)
        ispravan red sa opisom zahteva */
     getchar();
 
-    /* Ucitavanje opisa problema */
+    /* Ucitava se opis problema */
     printf("\tOpis problema: ");
     fgets(nov_zahtev.opis, MAX - 1, stdin);
     /* Ako je poslednji karakter nov red, eliminise se */
     if (nov_zahtev.opis[strlen(nov_zahtev.opis) - 1] == '\n')
       nov_zahtev.opis[strlen(nov_zahtev.opis) - 1] = '\0';
 
-    /* Dodavanje zahteva u red uz proveru uspesnosti dodavanja */
+    /* Dodaje se zahtev u red i proverava se uspesnost dodavanja */
     if (dodaj_u_red(&pocetak, &kraj, &nov_zahtev) == 1) {
       fprintf(stderr,
               "Greska: Neuspesna alokacija memorije za nov cvor\n");

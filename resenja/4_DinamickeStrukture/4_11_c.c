@@ -11,7 +11,7 @@ int main()
   Cvor *trazeni = NULL;
   int broj;
 
-  /* Testiranje funkcije za dodavanje vrednosti u listu tako da ona
+  /* Testira se funkcija za dodavanje vrednosti u listu tako da ona
      bude uredjena neopadajuce */
   printf("Unesite brojeve (CTRL+D za kraj unosa): ");
   while (scanf("%d", &broj) > 0) {
@@ -28,7 +28,7 @@ int main()
     ispisi_listu(glava);
   }
 
-  /* Testiranje funkcije za pretragu liste */
+  /* Testira se funkcija za pretragu liste */
   printf("\nUnesite broj koji se trazi u listi: ");
   scanf("%d", &broj);
 
@@ -39,22 +39,22 @@ int main()
   else
     printf("Trazeni broj %d je u listi!\n", trazeni->vrednost);
 
-  /* Testiranje funkcije za brisanje elemenata iz liste */
+  /* Testira se funkcija za brisanje elemenata iz liste */
   printf("\nUnesite broj koji se brise iz liste: ");
   scanf("%d", &broj);
 
-  /* Brisanje cvorova iz liste cije polje vrednost je jednako broju
+  /* Brisu se cvorovi iz liste cije polje vrednost je jednako broju
      procitanom sa ulaza */
   obrisi_cvor_sortirane_liste(&glava, &kraj, broj);
 
   printf("Lista nakon brisanja: ");
   ispisi_listu(glava);
 
-  /* Ispisivanje liste unazad */
+  /* Ispisuje se lista unazad */
   printf("\nLista ispisana u nazad: ");
   ispisi_listu_unazad(kraj);
 
-  /* Oslobadjanje memorije zauzete za cvorove liste */
+  /* Oslobadja se memorija zauzeta za cvorove liste */
   oslobodi_listu(&glava, &kraj);
 
   exit(EXIT_SUCCESS);

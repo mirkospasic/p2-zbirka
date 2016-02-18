@@ -10,7 +10,7 @@ int main()
   Cvor *kraj = NULL;
   int broj;
 
-  /* Testiranje funkcije za dodavanja novog broja na kraj liste */
+  /* Testira se funkcija za dodavanje novog broja na kraj liste */
   printf("Unesite brojeve (CTRL+D za kraj unosa): ");
   while (scanf("%d", &broj) > 0) {
     /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
@@ -26,22 +26,22 @@ int main()
     ispisi_listu(glava);
   }
 
-  /* Testiranje funkcije za brisanje elemenata iz liste */
+  /* Testira se funkcija za brisanje elemenata iz liste */
   printf("\nUnesite broj koji se brise iz liste: ");
   scanf("%d", &broj);
 
-  /* Brisanje cvorova iz liste cije polje vrednost je jednako broju
-     procitanom sa ulaza. */
+  /* Brisu se cvorovi iz liste cije polje vrednost je jednako broju
+     procitanom sa ulaza */
   obrisi_cvor(&glava, &kraj, broj);
 
   printf("Lista nakon brisanja: ");
   ispisi_listu(glava);
 
-  /* Ispisivanje liste unazad */
+  /* Ispisuje se lista unazad */
   printf("\nLista ispisana u nazad: ");
   ispisi_listu_unazad(kraj);
 
-  /* Oslobadjanje memorije zauzete za cvorove liste */
+  /* Oslobadja se memorija zauzeta za cvorove liste */
   oslobodi_listu(&glava, &kraj);
 
   exit(EXIT_SUCCESS);

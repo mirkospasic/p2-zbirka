@@ -11,7 +11,7 @@ int main(int argc, char **argv)
   int uparene = 1;
   FILE *f = NULL;
 
-  /* Preuzimanje imena datoteke iz komandne linije */
+  /* Ime datoteke se preuzima iz komandne linije. */
   if (argc < 2) {
     fprintf(stderr, "Greska:");
     fprintf(stderr, "Program se poziva sa:\n %s ime_html_datoteke\n",
@@ -19,14 +19,14 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Otvaranje datoteke za citanje */
+  /* Datoteka se otvara za citanje */
   if ((f = fopen(argv[1], "r")) == NULL) {
     fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s.\n",
             argv[1]);
     exit(EXIT_FAILURE);
   }
 
-  /* Citanje etikete po etiketu, sve dok ih ima u datoteci. */
+  /* Cita se etiketa po etiketa, sve dok ih ima u datoteci. */
   while ((tip = uzmi_etiketu(f, etiketa)) != EOF) {
     /* Ako je otvorena etiketa, stavlja se na stek. Izuzetak su
        etikete <br>, <hr> i <meta> koje nemaju sadrzaj, pa ih nije
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
     else {
       printf("Etikete nisu pravilno uparene\n");
       printf("(etiketa <%s> nije zatvorena)\n", vrh_steka(vrh));
-      /* Oslobadjanje memorije zauzete stekom */
+      /* Oslobadja se memorija zauzeta stekom */
       oslobodi_stek(&vrh);
     }
   }

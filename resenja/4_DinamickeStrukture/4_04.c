@@ -29,7 +29,7 @@ Cvor *napravi_cvor(char *broj_indeksa, char *ime, char *prezime)
   strcpy(novi->prezime, prezime);
   novi->sledeci = NULL;
 
-  /* Vracanje adrese novog cvora */
+  /* Vraca se adresa novog cvora */
   return novi;
 }
 
@@ -43,10 +43,10 @@ void oslobodi_listu(Cvor ** adresa_glave)
   /* Rekurzivnim pozivom se oslobadja rep liste */
   oslobodi_listu(&(*adresa_glave)->sledeci);
 
-  /* Oslobadjanje i glave liste */
+  /* Potom se oslobadja i glava liste */
   free(*adresa_glave);
 
-  /* Proglasanje liste praznom */
+  /* Proglasava se lista praznom */
   *adresa_glave = NULL;
 }
 
@@ -55,16 +55,16 @@ void oslobodi_listu(Cvor ** adresa_glave)
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, char *broj_indeksa,
                            char *ime, char *prezime)
 {
-  /* Kreiranje novog cvora uz proveru uspesnost alokacije */
+  /* Kreira se novi cvor i proverava se uspesnost alokacije */
   Cvor *novi = napravi_cvor(broj_indeksa, ime, prezime);
   if (novi == NULL)
     return 1;
 
-  /* Dodavanje novog cvora na pocetak liste */
+  /* Dodaje se novi cvor na pocetak liste */
   novi->sledeci = *adresa_glave;
   *adresa_glave = novi;
 
-  /* Vracanje indikatora uspesnog dodavanja */
+  /* Vraca se indikator uspesnog dodavanja */
   return 0;
 }
 
@@ -85,8 +85,7 @@ Cvor *pretrazi_listu(Cvor * glava, char *broj_indeksa)
   if (glava == NULL)
     return NULL;
 
-  /* Poredjenje trazenog broja indeksa sa brojem indeksa u glavi
-     liste */
+  /* Poredi se trazeni broj indeksa sa brojem indeksa u glavi liste */
   if (!strcmp(glava->broj_indeksa, broj_indeksa))
     return glava;
 
@@ -131,10 +130,10 @@ int main(int argc, char **argv)
       exit(EXIT_FAILURE);
     }
 
-  /* Zatvaranje datoteke, jer vise nije potrebna */
+  /* Datoteka vise nije potrebna i zatvara se. */
   fclose(in);
 
-  /* Ucitavanje indeks po indeks studenata koji se traze u listi. */
+  /* Ucitava se indeks po indeks studenta koji se trazi u listi. */
   while (scanf("%s", broj_indeksa) != EOF) {
     trazeni = pretrazi_listu(glava, broj_indeksa);
     if (trazeni == NULL)
@@ -143,7 +142,7 @@ int main(int argc, char **argv)
       printf("da: %s %s\n", trazeni->ime, trazeni->prezime);
   }
 
-  /* Oslobadjanje memorije zauzete za cvorove liste. */
+  /* Oslobadja se memorija zauzeta za cvorove liste. */
   oslobodi_listu(&glava);
 
   exit(EXIT_SUCCESS);

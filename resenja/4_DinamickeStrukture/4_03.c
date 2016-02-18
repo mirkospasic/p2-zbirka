@@ -26,7 +26,7 @@ Cvor *napravi_cvor(unsigned br, char *etiketa)
   strcpy(novi->etiketa, etiketa);
   novi->sledeci = NULL;
 
-  /* Vracanje adrese novog cvora */
+  /* Vraca se adresa novog cvora */
   return novi;
 }
 
@@ -51,16 +51,16 @@ void oslobodi_listu(Cvor ** adresa_glave)
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, unsigned br,
                            char *etiketa)
 {
-  /* Kreiranje novog cvora uz proveru uspesnost alokacije */
+  /* Kreira se novi cvor i proverava se uspesnost alokacije */
   Cvor *novi = napravi_cvor(br, etiketa);
   if (novi == NULL)
     return 1;
 
-  /* Dodavanje novog cvora na pocetak liste */
+  /* Dodaje se novi cvor na pocetak liste */
   novi->sledeci = *adresa_glave;
   *adresa_glave = novi;
 
-  /* Vracanje indikator uspesnog dodavanja */
+  /* Vraca se indikator uspesnog dodavanja */
   return 0;
 }
 
@@ -70,7 +70,7 @@ Cvor *pretrazi_listu(Cvor * glava, char etiketa[])
 {
   Cvor *tekuci;
 
-  /* Obilazenje liste cvor po cvor */
+  /* Obilazi se cvor po cvor liste */
   for (tekuci = glava; tekuci != NULL; tekuci = tekuci->sledeci)
     /* Ako tekuci cvor sadrzi trazenu etiketu, vraca se njegova
        vrednost */
@@ -93,7 +93,7 @@ void ispisi_listu(Cvor * glava)
 /* Glavni program */
 int main(int argc, char **argv)
 {
-  /* Provera da li je program pozvan sa ispravnim brojem argumenata
+  /* Proverava se da li je program pozvan sa ispravnim brojem argumenata
      komandne linije. */
   if (argc != 2) {
     fprintf(stderr,
@@ -116,17 +116,17 @@ int main(int argc, char **argv)
   Cvor *glava = NULL;
   Cvor *trazeni = NULL;
 
-  /* Citanje datoteke, karakter po karakter, dok se ne procita cela */
+  /* Cita se datoteka, karakter po karakter, dok se ne procita cela */
   while ((c = fgetc(in)) != EOF) {
-    /* Provera da li se pocinje sa citanjem nove etikete */
+    /* Proverava se da li se pocinje sa citanjem nove etikete */
     if (c == '<') {
-      /* Proverava da li se cita zatvarajuca etiketa */
+      /* Proverava se da li se cita zatvarajuca etiketa */
       if ((c = fgetc(in)) == '/') {
         i = 0;
         while ((c = fgetc(in)) != '>')
           procitana[i++] = c;
       }
-      /* Citanje otvarajuca etiketa */
+      /* Cita se otvarajuca etiketa */
       else {
         i = 0;
         procitana[i++] = c;
@@ -152,13 +152,13 @@ int main(int argc, char **argv)
     }
   }
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(in);
 
-  /* Ispisivanje sadrzaja cvorova liste */
+  /* Ispisuje se sadrzaj cvorova liste */
   ispisi_listu(glava);
 
-  /* Oslobadjanje memorije zauzete listom */
+  /* Oslobadja se memorija zauzeta listom */
   oslobodi_listu(&glava);
 
   exit(EXIT_SUCCESS);
