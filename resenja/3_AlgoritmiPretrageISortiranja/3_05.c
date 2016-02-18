@@ -3,6 +3,8 @@
 #include <math.h>
 #include <stdlib.h>
 
+#define MAX 1024
+
 /* Struktura koja opisuje tacku u ravni */
 typedef struct Tacka {
   float x;
@@ -35,7 +37,6 @@ Tacka najbliza_koordinatnom(Tacka t[], int n)
    tacaka t dimenzije n */
 Tacka najbliza_x_osi(Tacka t[], int n)
 {
-
   Tacka najbliza;
   int i;
   najbliza = t[0];
@@ -61,8 +62,6 @@ Tacka najbliza_y_osi(Tacka t[], int n)
   }
   return najbliza;
 }
-
-#define MAX 1024
 
 int main(int argc, char *argv[])
 {

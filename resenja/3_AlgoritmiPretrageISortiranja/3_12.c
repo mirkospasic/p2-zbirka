@@ -106,7 +106,6 @@ int main(int argc, char *argv[])
       printf("%d\n", niz[i]);
   ******************************************************************/
 
-
   /* Sortiranje niza na odgovarajuci nacin */
   if (tip_sortiranja == 0)
     selection_sort(niz, dimenzija);

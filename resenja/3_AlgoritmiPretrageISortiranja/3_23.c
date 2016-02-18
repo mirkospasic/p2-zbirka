@@ -66,7 +66,6 @@ int main()
   long kod;
   int i, n;
   float racun;
-
   FILE *fp = NULL;
 
   /* Otvaranje datoteke */
