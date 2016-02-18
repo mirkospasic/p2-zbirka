@@ -5,7 +5,7 @@
 #define MAX 10
 #define MAX_DUZINA 32
 
-/* Funkcija porenjenja */
+/* Funkcija poredjenja */
 int uporedi_niske(const void *pa, const void *pb)
 {
   return strcmp((char *) pa, (char *) pb);

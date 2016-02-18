@@ -59,7 +59,7 @@ void sort_prezime(Gradjanin a[], int n)
   }
 }
 
-/* Pretraga niza Gradjana */
+/* Pretraga niza gradjana */
 int linearna_pretraga(Gradjanin a[], int n, Gradjanin * x)
 {
   int i;
