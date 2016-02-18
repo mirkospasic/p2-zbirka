@@ -62,7 +62,7 @@ all: 1_01.out 1_02.out 1_03.out 1_05.out 1_06.out 1_07.out 1_08.out 1_09.out 1_1
 .PHONY: clean beauty
 
 clean:
-	rm -rf *~ *.out
+	rm -rf *~ *.out ../biblioteke/stampanje_bitova/*~ ../biblioteke/polinom/*~ ../biblioteke/kompleksan_broj/*~
 
 beauty:
 	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c ../biblioteke/stampanje_bitova/*.[ch] ../biblioteke/polinom/*.[ch] ../biblioteke/kompleksan_broj/*.[ch]

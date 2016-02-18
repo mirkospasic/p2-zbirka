@@ -31,7 +31,7 @@ A_12.out: A_12.c
 .PHONY: clean beauty
 
 clean:
-	rm -rf *~ *.out
+	rm -rf *~ *.out ../biblioteke/stabla/*~ A_08/*~ ../biblioteke/matrica/*~ 
 
 beauty:
 	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c ../biblioteke/stabla/*.[ch] A_08/*.[ch] ../biblioteke/matrica/*.[ch] 
