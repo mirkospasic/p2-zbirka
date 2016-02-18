@@ -4,7 +4,6 @@
    u kompleksan_broj.h */
 #include "kompleksan_broj.h"
 
-
 void ucitaj_kompleksan_broj(KompleksanBroj * z)
 {
   /* Ucitavanje vrednosti sa standardnog ulaza */
@@ -26,7 +25,6 @@ void ispisi_kompleksan_broj(KompleksanBroj z)
      kompleksnog broja je nula: tada se samo ispisuje imaginaran deo, 
      s tim sto se ukoliko su oba dela nula ispisuje samo 0, bez
      decimalnih mesta */
-
   if (z.real != 0) {
     printf("%.2f", z.real);
 
@@ -79,7 +77,6 @@ KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj z2)
      z1 i z2, a imaginaran deo zbir imaginarnih delova kompleksnih
      brojeva z1 i z2 */
   KompleksanBroj z = z1;
-
   z.real += z2.real;
   z.imag += z2.imag;
 
@@ -95,6 +92,7 @@ KompleksanBroj oduzmi(KompleksanBroj z1, KompleksanBroj z2)
   KompleksanBroj z = z1;
   z.real -= z2.real;
   z.imag -= z2.imag;
+
   return z;
 }
 
@@ -104,7 +102,6 @@ KompleksanBroj mnozi(KompleksanBroj z1, KompleksanBroj z2)
      broj ciji se realan i imaginaran deo racunaju po formuli za
      mnozenje kompleksnih brojeva z1 i z2 */
   KompleksanBroj z;
-
   z.real = z1.real * z2.real - z1.imag * z2.imag;
   z.imag = z1.real * z2.imag + z1.imag * z2.real;
 

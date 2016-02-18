@@ -95,7 +95,6 @@ Polinom saberi(const Polinom * p, const Polinom * q)
 
   /* Vraca se dobijeni polinom */
   return rez;
-
 }
 
 Polinom pomnozi(const Polinom * p, const Polinom * q)

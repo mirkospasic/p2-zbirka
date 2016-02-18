@@ -40,10 +40,8 @@ int ortonormirana(int m[][MAX], int n)
   /* Ispituje se uslov normiranosti */
   for (i = 0; i < n; i++) {
     proizvod = 0;
-
     for (j = 0; j < n; j++)
       proizvod += m[i][j] * m[i][j];
-
     if (proizvod != 1)
       return 0;
   }
@@ -51,12 +49,9 @@ int ortonormirana(int m[][MAX], int n)
   /* Ispituje se uslov ortogonalnosti */
   for (i = 0; i < n - 1; i++) {
     for (j = i + 1; j < n; j++) {
-
       proizvod = 0;
-
       for (k = 0; k < n; k++)
         proizvod += m[i][k] * m[j][k];
-
       if (proizvod != 0)
         return 0;
     }

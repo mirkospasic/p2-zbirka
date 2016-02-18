@@ -21,7 +21,6 @@ void ispisi_matricu_spiralno(int a[][MAX_K], int n, int m)
   desno = m - 1;
 
   while (!kraj_ispisa(vrh, dno, levo, desno)) {
-
     for (j = levo; j <= desno; j++)
       printf("%d ", a[vrh][j]);
 

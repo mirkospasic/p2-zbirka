@@ -9,8 +9,8 @@ int binomni_koeficijent(int n, int k)
      bk(n-1,k-1) + bk(n-1,k) koja se moze izvesti iz definicije
      binomnog koeficijenata */
   return (0 < k && k < n) ?
-      binomni_koeficijent(n - 1, k - 1) + binomni_koeficijent(n - 1,
-                                                              k) : 1;
+      binomni_koeficijent(n - 1, k - 1) + 
+      binomni_koeficijent(n - 1, k) : 1;
 }
 
 /******************************************************************

@@ -36,7 +36,6 @@ void ispisi_kompleksan_broj(KompleksanBroj z)
      kompleksnog broja je nula: tada se samo ispisuje imaginaran
      deo, s tim sto se ukoliko su oba dela nula ispisuje samo 0, bez 
      decimalnih mesta */
-
   if (z.real != 0) {
     printf("%.2f", z.real);
 
@@ -53,7 +52,6 @@ void ispisi_kompleksan_broj(KompleksanBroj z)
 
   /* Zavrsava se sa ispisom */
   printf(")");
-
 }
 
 /* Funkcija vraca vrednosti realnog dela kompleksnog broja */
@@ -80,9 +78,7 @@ KompleksanBroj konjugovan(KompleksanBroj z)
 {
   /* Konjugovano kompleksan broj z se dobija tako sto se promeni
      znak imaginarnom delu kompleksnog broja */
-
   KompleksanBroj z1 = z;
-
   z1.imag *= -1;
 
   return z1;
@@ -96,9 +92,7 @@ KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj z2)
      broj ciji je realan deo zbir realnih delova kompleksnih brojeva
      z1 i z2, a imaginaran deo zbir imaginarnih delova kompleksnih
      brojeva z1 i z2 */
-
   KompleksanBroj z = z1;
-
   z.real += z2.real;
   z.imag += z2.imag;
 
@@ -113,9 +107,7 @@ KompleksanBroj oduzmi(KompleksanBroj z1, KompleksanBroj z2)
      broj ciji je realan deo razlika realnih delova kompleksnih
      brojeva z1 i z2, a imaginaran deo razlika imaginarnih delova
      kompleksnih brojeva z1 i z2 */
-
   KompleksanBroj z = z1;
-
   z.real -= z2.real;
   z.imag -= z2.imag;
 
@@ -129,9 +121,7 @@ KompleksanBroj mnozi(KompleksanBroj z1, KompleksanBroj z2)
   /* Rezultat mnozenja dva kompleksna broja z1 i z2 je kompleksan
      broj ciji se realan i imaginaran deo racunaju po formuli za
      mnozenje kompleksnih brojeva z1 i z2 */
-
   KompleksanBroj z;
-
   z.real = z1.real * z2.real - z1.imag * z2.imag;
   z.imag = z1.real * z2.imag + z1.imag * z2.real;
 
@@ -143,7 +133,6 @@ float argument(KompleksanBroj z)
 {
   /* Argument kompleksnog broja z se racuna pozivanjem funkcije
      atan2 iz biblioteke math.h */
-
   return atan2(z.imag, z.real);
 }
 

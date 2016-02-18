@@ -66,12 +66,9 @@ int main()
         }
       }
     }
-
     a[n++] = x;
-
     scanf("%d", &x);
   }
-
   printf("Niz u obrnutom poretku je: ");
   for (n--; n >= 0; n--)
     printf("%d ", a[n]);

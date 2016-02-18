@@ -36,7 +36,6 @@ int main(int argc, char **argv)
   printf("Vrednost polinoma z u tacki %.2f je %.2f\n", x,
          izracunaj(&z, x));
 
-
   /* Racuna se n-ti izvoda polinoma i ispisuje se dobijeni polinoma */
   printf("Unesite izvod polinoma koji zelite:\n");
   scanf("%d", &n);

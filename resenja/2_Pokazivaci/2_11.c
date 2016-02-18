@@ -92,6 +92,7 @@ int main(int argc, char *argv[])
     for (j = 0; j < n; j++)
       scanf("%d", &m[i][j]);
 
+  /* Ispisuju se rezultati izracunavanja */
   printf("Najveci element sporedne dijagonale je %d.\n",
          max_sporedna_dijagonala(m, n));
 

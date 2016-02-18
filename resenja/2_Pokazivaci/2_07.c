@@ -25,7 +25,8 @@ int poredjenje_niski(char *s, char *t)
 int duzina_niske(char *s)
 {
   int i;
-  for (i = 0; *(s + i); i++);
+  for (i = 0; *(s + i); i++)
+    ;
   return i;
 }
 
