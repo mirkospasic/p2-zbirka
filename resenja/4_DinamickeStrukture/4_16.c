@@ -81,7 +81,7 @@ dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
                           telefon);
 
   /* Pretostavka zadatka je da nema istih imena i prezimena u
-     datoteci, da se sledeca naredba nikada i neci izvrsiti */
+     datoteci, pa se sledeca naredba nikada i neci izvrsiti */
   return 0;
 }
 
