@@ -17,6 +17,7 @@ void oslobodi_listu(Cvor ** adresa_glave);
 /* Funkcija pronalazi i vraca pokazivac na poslednji element liste,
    ili NULL kao je lista prazna */
 Cvor *pronadji_poslednji(Cvor * glava);
+
 /* Funkcija dodaje novi cvor na kraj liste. Vraca 1 ukoliko je bilo
    greske pri alokaciji memorije,inace vraca 0. */
 int dodaj_na_kraj_liste(Cvor ** adresa_glave, double broj);

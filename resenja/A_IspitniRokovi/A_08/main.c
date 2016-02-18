@@ -10,7 +10,6 @@ void dodaj_iza(Cvor * tekuci, Cvor * novi)
   tekuci->sledeci = novi;
 }
 
-
 /* Funkcija koja dopunjuje listu na nacin opisan u tekstu zadatka.
    Vraca 1 ukoliko je bilo greske pri alokaciji memorije, inace
    vraca 0. */
@@ -26,9 +25,9 @@ int dopuni_listu(Cvor ** adresa_glave)
      cvor */
   tekuci = *adresa_glave;
   /* Sve dok ima cvorova u listi racuna se aritmeticka sredina
-     vrednosti u susednim cvorovims i kreira cvor sa tom vrednoscu.
-     U slucaju neupele alokacije novog cvora, funkcija vraca 1.
-     Inace, novi cvor se umece izmedju dva cvora za koje racunata
+     vrednosti u susednim cvorovima i kreira cvor sa tom vrednoscu.
+     U slucaju neuspele alokacije novog cvora, funkcija vraca 1.
+     Inace, novi cvor se umece izmedju dva cvora za koje je racunata
      aritmeticka sredina */
   while (tekuci->sledeci != NULL) {
     aritmeticka_sredina =
