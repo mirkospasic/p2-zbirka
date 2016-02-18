@@ -142,7 +142,6 @@ int main(int argc, char *argv[])
           /* I prekida sa izvrsavanjem programa */
           exit(EXIT_FAILURE);
         }
-
       }
       /* Ako postoji dovoljno alocirane memorije, smesta se vec
          procitani karakter */
@@ -190,8 +189,7 @@ int main(int argc, char *argv[])
           exit(EXIT_FAILURE);
         }
       }
-      /* Ako postoji dovoljno memorije, smesta se procitani karakter 
-       */
+      /* Smesta se procitani karakter */
       pesme[i].naslov[j] = c;
       j++;
       /* I nastavlja dalje sa citanjem */
@@ -218,7 +216,7 @@ int main(int argc, char *argv[])
 
   /* Informacija o broju procitanih pesama */
   n = i;
-  /* Zatvaranje nepotrebne datoteke */
+  /* Zatvaranje datoteke */
   fclose(ulaz);
 
   /* Analiza argumenta komandne linije */

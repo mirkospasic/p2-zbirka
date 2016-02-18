@@ -68,21 +68,21 @@ int main()
   float racun;
   FILE *fp = NULL;
 
-  /* Otvaranje datoteke */
+  /* Otvara se datoteka */
   if ((fp = fopen("artikli.txt", "r")) == NULL) {
     fprintf(stderr,
             "Greska: Neuspesno otvaranje datoteke artikli.txt.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje artikala */
+  /* Ucitavaju se artikali */
   i = 0;
   while (fscanf(fp, "%ld %s %s %f", &asortiman[i].kod,
                 asortiman[i].naziv, asortiman[i].proizvodjac,
                 &asortiman[i].cena) == 4)
     i++;
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(fp);
 
   n = i;
@@ -140,7 +140,7 @@ int main()
       if (kod == 0)
         break;
     }
-    /* Stampanje ukupnog racuna trenutnog kupca */
+    /* Stampa se ukupan racun trenutnog kupca */
     printf("\n\tUKUPNO: %.2lf dinara.\n\n", racun);
   }
 
