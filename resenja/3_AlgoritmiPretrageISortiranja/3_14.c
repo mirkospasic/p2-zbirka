@@ -8,7 +8,10 @@
 int najmanje_rastojanje(int a[], int n)
 {
   int i, min;
+  /* Postavlja se najmanje rastojanje na razliku prvog i drugog
+     elementa niza */
   min = a[1] - a[0];
+  /* Za sve ostale susedne elemente proverava se njigova razlika */
   for (i = 2; i < n; i++)
     if (a[i] - a[i - 1] < min)
       min = a[i] - a[i - 1];
