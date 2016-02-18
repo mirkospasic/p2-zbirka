@@ -79,6 +79,10 @@ dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
   if (strcmp(ime_i_prezime, (*adresa_korena)->ime_i_prezime) > 0)
     return dodaj_u_stablo(&(*adresa_korena)->desno, ime_i_prezime,
                           telefon);
+
+  /* Pretostavka zadatka je da nema istih imena i prezimena u
+     datoteci, da se sledeca naredba nikada i neci izvrsiti */
+  return 0;
 }
 
 /* Funkcija koja oslobadja memoriju zauzetu stablom */
