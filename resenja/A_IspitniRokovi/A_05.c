@@ -28,7 +28,7 @@ double povrsina(trougao t)
 
 /* Funkcija poredi dva trougla: ukoliko je povrsina trougla koji je
    prvi argument funkcije manja od povrsine trougla koji je drugi
-   element funkcije funcija vraca 1, ukoliko je veca -1, a ukoliko
+   element funkcije funkcija vraca 1, ukoliko je veca -1, a ukoliko
    su povrsine dva trougla jednake vraca nulu. Dakle, funkcija je
    napisana tako da se moze proslediti funkciji qsort da se niz
    trouglova sortira po povrsini opadajuce. */

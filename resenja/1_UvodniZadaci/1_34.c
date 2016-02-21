@@ -57,7 +57,7 @@ int main()
   /* Proverava se da li je r nenegativan */
   if (r < 0) {
     fprintf(stderr,
-            "Redni broj hipotenuze mora biti veci ili jednak od 0!\n");
+            "Greska: Redni broj hipotenuze mora biti veci ili jednak od 0!\n");
     exit(EXIT_FAILURE);
   }
 

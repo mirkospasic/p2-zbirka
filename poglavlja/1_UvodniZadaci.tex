@@ -426,7 +426,7 @@ Pod rotiranjem bitova ulevo podrazumeva se pomeranje svih bitova za jednu pozici
 \item Napisati funkciju \kckod{unsigned rotiraj\_udesno(unsigned x, unsigned n)} koja vraća broj koji se dobija rotiranjem \argf{n} puta udesno datog celog neoznačenog broja \argf{x}. 
 \item Napisati funkciju \kckod{int rotiraj\_udesno\_oznaceni(int x, unsigned n)} koja vraća broj koji se dobija rotiranjem \argf{n} puta udesno datog celog broja \argf{x}. 
 \end{enumerate}
-Napisati program koji sa standardnog ulaza učitava neoznačene cele brojeve \argf{x} i \argf{n} koji se unose u heksadekasnom formatu, tatim ispisuje binarnu reprezentaciju vrednosti dobijene pozivanjem tri prethodno napisane funkcije sa argumentima  \argf{x} i \argf{n}, a na kraju ispisuje binarnu reprezentaciju vrednosti dobijene pozivanjem funkcije \kckod{rotiraj\_udesno\_oznaceni} za argumente \argf{-x} i \argf{n}.
+Napisati program koji sa standardnog ulaza učitava neoznačene cele brojeve \argf{x} i \argf{n} koji se unose u heksadekasnom formatu, zatim ispisuje binarnu reprezentaciju vrednosti dobijene pozivanjem tri prethodno napisane funkcije sa argumentima  \argf{x} i \argf{n}, a na kraju ispisuje binarnu reprezentaciju vrednosti dobijene pozivanjem funkcije \kckod{rotiraj\_udesno\_oznaceni} za argumente \argf{-x} i \argf{n}.
 %Napisati program koji testira prethodno napisane funkcije za broj \argf{x} i broj \argf{n} koji se unose u heksadekasnom formatu sa standardnog ulaza.
 
 \skrati{3}
@@ -878,7 +878,7 @@ Napisati funkciju koja računa $n$-ti element u nizu $F$
 \skrati{1}
 \item tako da funkcija bude rekurzivna i da koristi navedene rekurentne relacije,
 \skrati{1}
-\item tako da funkcija bude rekurzivna ali da se problemi manje dimenzije rešavaju samo jedan put.
+\item tako da funkcija bude rekurzivna, ali da se problemi manje dimenzije rešavaju samo jedan put.
 \end{enumerate}
 Napisati program koji testira napisane funkcije. Sa standardnog ulaza
 učitati redni broj funkcije koju treba primeniti ('1','2','3'), vrednosti
@@ -1436,7 +1436,7 @@ Napisati rekurzivnu funkciju koja prikazuje sve permutacije skupa $\{1, 2, ... ,
 \begin{Exercise}[label=1_34, difficulty=1]
 Paskalov trougao sadrži brojeve čije se vrednosti računaju tako što svako polje ima vrednost
  zbira dve vrednosti koje su u susedna dva polja iznad. Izuzetak su jedinice na krajevima. Vrednosti
- brojeva Paskalovog trougla odgovaraju binomnim koeficijentima tj.~vrednost polja \argf{(n, k)}, gde je $n$ redni broj hipotenuze, a $k$ redni broj elementa u tom redu (na toj hipotenuzi) odgovara binomnom koeficijentu $\binom{n}{k}$, pri čemu brojanje počinje od nule. Na primer, vrednost polja \argf{(4, 2)} je $6$. 
+ brojeva Paskalovog trougla odgovaraju binomnim koeficijentima, tj.~vrednost polja \argf{(n, k)}, gde je $n$ redni broj hipotenuze, a $k$ redni broj elementa u tom redu (na toj hipotenuzi) odgovara binomnom koeficijentu $\binom{n}{k}$, pri čemu brojanje počinje od nule. Na primer, vrednost polja \argf{(4, 2)} je $6$. 
 \iffalse
 \begin{verbatim}
                1

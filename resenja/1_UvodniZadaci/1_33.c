@@ -12,8 +12,8 @@ void ispisi_niz(int a[], int n)
   printf("\n");
 }
 
-/* Funkcija koja vraca 1 ako se broj x nalazi u nizu a duzine n, a
-   inace 0 */
+/* Funkcija koja vraca 1, ako se broj x nalazi u nizu a duzine n,
+   inace vraca 0 */
 int koriscen(int a[], int n, int x)
 {
   int i;
@@ -78,7 +78,7 @@ int main(void)
   scanf("%d", &n);
   if (n < 0 || n > MAKS_DUZINA_PERMUTACIJE) {
     fprintf(stderr,
-            "Duzina permutacije mora biti broj iz intervala [0, %d]!\n",
+            "Greska: Duzina permutacije mora biti broj iz intervala [0, %d]!\n",
             MAKS_DUZINA_PERMUTACIJE);
     exit(EXIT_FAILURE);
   }

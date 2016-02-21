@@ -7,13 +7,13 @@ unsigned rotiraj_ulevo(int x, unsigned n)
   unsigned bit_najvece_tezine;
 
   /* Maska koja ima samo bit na poziciji najvece tezine postavljen
-     na 1 je neophodna da bi pre pomeranja u levo za 1 bit na
-     poziciji najvece tezine bio sacuvan */
+     na 1, neophodna je da bi pre pomeranja x u levo za 1, bit na
+     poziciji najvece tezine bio sacuvan. */
   unsigned bit_najvece_tezine_maska =
       1 << (sizeof(unsigned) * 8 - 1);
   int i;
 
-  /* n puta se vrsi rotaciju za jedan bit u levo. U svakoj iteraciji
+  /* n puta se vrsi rotacija za jedan bit u levo. U svakoj iteraciji
      se odredi bit na poziciji najvece tezine, a potom se pomera
      binarna reprezentacija trenutne vrednosti promenljive x u levo
      za 1. Nakon toga, bit na poziciji najmanje tezine se postavlja
@@ -40,7 +40,7 @@ unsigned rotiraj_udesno(unsigned x, unsigned n)
      poziciji najmanje tezine dodje do pozicije najvece tezine.
      Zatim, nakon pomeranja binarne reprezentacije trenutne vrednosti
      promenljive x za 1 u desno, bit na poziciji najvece tezine se
-     postaljva na vrednost vec zapamcenog bita koji je bio na poziciji 
+     postavlja na vrednost vec zapamcenog bita koji je bio na poziciji 
      najmanje tezine. */
   for (i = 0; i < n; i++) {
     bit_najmanje_tezine = x & 1;
@@ -64,7 +64,7 @@ int rotiraj_udesno_oznaceni(int x, unsigned n)
      pomeranje i cuva se znak broja. Dakle, razlikuju se dva slucaja
      u zavisnosti od znaka broja x. Nije dovoljno da se ova provera
      izvrsi pre petlje, s obzirom da rotiranjem u desno na poziciju
-     nejvece tezine moze doci i 0 i 1, nezavisno od pocetnog znaka
+     najvece tezine moze doci i 0 i 1, nezavisno od pocetnog znaka
      broja smestenog u promenljivu x. */
   for (i = 0; i < n; i++) {
     bit_najmanje_tezine = x & 1;
@@ -116,7 +116,7 @@ int main()
   printf("x\t\t\t\t= ");
   stampaj_bitove(x);
 
-  /* Testiru se napisane funkcije */
+  /* Testiraju se napisane funkcije */
   printf("rotiraj_ulevo(%x,%u)\t\t= ", x, n);
   stampaj_bitove(rotiraj_ulevo(x, n));
 

@@ -18,8 +18,8 @@ int broj_01(unsigned int n)
      iteraciji pomera u desno pa ce jedini bit koji je postavljen na
      1 biti na svim pozicijama u binarnoj reprezentaciji maske */
   while (maska != 0) {
-    /* Provera da li se na poziciji koju odredjuje maska nalazi 0
-       ili 1 i uveca se odgovarajuci brojac */
+    /* Proverava se da li se na poziciji koju odredjuje maska nalazi
+       0 ili 1 i uvecava se odgovarajuci brojac. */
     if (n & maska) {
       broj_jedinica++;
     } else {

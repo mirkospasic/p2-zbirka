@@ -47,7 +47,7 @@ void prevod(unsigned int x, char s[])
       s[i] = vrednost - 10 + 'A';
     }
 
-    /* Primenljiva x se pomera za 4 bita u desnu stranu i time se u
+    /* Promenljiva x se pomera za 4 bita u desnu stranu i time se u
        narednoj iteraciji posmatraju sledeca 4 bita */
     x = x >> 4;
   }

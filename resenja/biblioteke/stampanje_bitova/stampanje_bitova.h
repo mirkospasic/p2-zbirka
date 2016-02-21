@@ -1,4 +1,4 @@
-#ifndef  _STAMPANJE_BITOVA_H
+#ifndef _STAMPANJE_BITOVA_H
 #define _STAMPANJE_BITOVA_H
 
 #include <stdio.h>

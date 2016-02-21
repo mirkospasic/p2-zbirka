@@ -7,7 +7,6 @@
 /* Maksimalni stepen polinoma */
 #define MAKS_STEPEN 20
 
-
 /* Polinomi se predstavljaju strukturom koja cuva koeficijente
    (koef[i] je koeficijent uz clan x^i) i stepen polinoma */
 typedef struct {
