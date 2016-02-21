@@ -81,9 +81,9 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Provera se opcija kojom je pozvan program, a zatim se ucitavaju
-     reci iz datoteke i broji se koliko njih zadovoljava trazeni
-     uslov */
+  /* Proverava se opcija kojom je pozvan program, a zatim se
+     ucitavaju reci iz datoteke i broji se koliko njih zadovoljava
+     trazeni uslov */
   if (!(poredjenje_niski(*(argv + 3), "-s"))) {
     while (fscanf(in, "%s", rec) != EOF)
       br += sufiks_niske(rec, *(argv + 2));

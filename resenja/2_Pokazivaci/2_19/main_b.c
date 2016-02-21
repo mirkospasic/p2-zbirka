@@ -26,7 +26,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Provera se dimenzija matrice */
+  /* Provera dimenzija matrice */
   if (n <= 0) {
     fprintf(stderr, "Greska: Neodgovarajca dimenzija matrice.\n");
     exit(EXIT_FAILURE);

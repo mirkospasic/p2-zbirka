@@ -19,7 +19,7 @@ void ucitaj_matricu(int **matrica, int n, int m);
    standardnog ulaza */
 void ucitaj_kvadratnu_matricu(int **matrica, int n);
 
-/* Funkcija ispisuje matricu dimenzije n x m na standardnom izlazu */
+/* Funkcija ispisuje matricu dimenzije n x m na standardni izlaz */
 void ispisi_matricu(int **matrica, int n, int m);
 
 /* Funkcija ispisuje kvadratnu matricu dimenzije n na standardnom
