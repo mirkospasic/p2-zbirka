@@ -237,7 +237,8 @@ Napisati biblioteku za rad sa jednostruko povezanim listama koja sadrži sve fun
 \begin{Exercise}[label=4_03]
 Napisati program koji prebrojava pojavljivanja etiketa \kckod{HTML}
 datoteke čije se ime zadaje kao argument komandne linije. Rezultat prebrojavanja 
-ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste koristiti strukturu:
+ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste koristiti strukturu \kckod{Element} koja sadrži neoznačen broj pojavljivanja etiketi, nisku karaktera koja može da prihvati etiketu veličine do $20$ karaktera i pokazivač na sledeći element liste.
+\iffalse
 \begin{ckod} 
  typedef struct _Element
  {
@@ -246,18 +247,7 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
    struct _Element *sledeci;
  } Element;
 \end{ckod}
-
-\begin{miditest}
-\begin{test}{1}
-#\poziv{./a.out datoteka.html}#
-
-#\naslovDat{Datoteka datoteka.html ne postoji.}#
-
-#\naslovIzlazZaGresku#
-#\izlaz{Greska: Neuspesno otvaranje}#
-#\izlaz{datoteke datoteka.html.}#
-\end{test}
-\end{miditest}
+\fi
 
 \begin{miditest}
 \begin{test}{2}
@@ -290,6 +280,18 @@ ispisati na standardni izlaz. Etikete smeštati u listu, a za formiranje liste k
 #\izlaz{html - 2}#
 \end{test2}
 \end{minitest}
+
+\begin{miditest}
+\begin{test}{1}
+#\poziv{./a.out datoteka.html}#
+
+#\naslovDat{Datoteka datoteka.html ne postoji.}#
+
+#\naslovIzlazZaGresku#
+#\izlaz{Greska: Neuspesno otvaranje}#
+#\izlaz{datoteke datoteka.html.}#
+\end{test}
+\end{miditest}
 
 % \begin{miditest}
 % \begin{test}{3}
