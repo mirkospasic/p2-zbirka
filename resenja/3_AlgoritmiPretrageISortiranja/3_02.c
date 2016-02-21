@@ -84,7 +84,7 @@ int main()
   printf("Unesite trazeni broj: ");
   scanf("%d", &x);
 
-  /* Ucitavaju se elemenati niza sve do kraja ulaza - ocekuje se da
+  /* Ucitavaju se elementi niza sve do kraja ulaza - ocekuje se da
      korisnik pritisne CTRL+D za naznaku kraja */
   i = 0;
   printf("Unesite sortiran niz elemenata: ");

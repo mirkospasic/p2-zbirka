@@ -56,16 +56,18 @@ void oslobodi(Pesma * pesme, int n)
 int main(int argc, char *argv[])
 {
   FILE *ulaz;
-  Pesma *pesme;                 /* Pokazivac na deo memorije za
-                                   cuvanje pesama */
-  int alocirano_za_pesme;       /* Broj mesta alociranih za pesme */
-  int i;                        /* Redni broj pesme cije se
-                                   informacije citaju */
-  int n;                        /* Ukupan broj pesama */
+  /* Pokazivac na deo memorije za cuvanje pesama */
+  Pesma *pesme;
+  /* Broj mesta alociranih za pesme */
+  int alocirano_za_pesme;
+  /* Redni broj pesme cije se informacije citaju */
+  int i;
+  /* Ukupan broj pesama */
+  int n;
   int j;
   char c;
-  int alocirano;                /* Broj mesta alociranih za
-                                   propratne informacije o pesmama */
+  /* Broj mesta alociranih za propratne informacije o pesmama */
+  int alocirano;
   int broj_gledanja;
 
   /* Priprema se datoteka za citanje */
@@ -114,11 +116,12 @@ int main(int argc, char *argv[])
 
     /* Ako jeste, nastavlja se sa citanjem pesama ... */
     /* Cita se ime izvodjaca */
-    j = 0;                      /* Pozicija na koju treba smestiti
-                                   procitani karakter */
-    alocirano = 0;              /* Broj alociranih mesta */
-    pesme[i].izvodjac = NULL;   /* Memorija za smestanje procitanih
-                                   karaktera */
+    /* Pozicija na koju treba smestiti procitani karakter */
+    j = 0;
+    /* Broj alociranih mesta */
+    alocirano = 0;
+    /* Memorija za smestanje procitanih karaktera */
+    pesme[i].izvodjac = NULL;
 
     /* Sve do prve beline u liniji (beline koja se nalazi nakon
        imena izvodjaca) citaju se karakteri iz datoteke */
@@ -160,11 +163,12 @@ int main(int argc, char *argv[])
     fgetc(ulaz);
 
     /* Cita se naslov pesme */
-    j = 0;                      /* Pozicija na koju treba smestiti
-                                   procitani karakter */
-    alocirano = 0;              /* Broj alociranih mesta */
-    pesme[i].naslov = NULL;     /* Memorija za smestanje procitanih
-                                   karaktera */
+    /* Pozicija na koju treba smestiti procitani karakter */
+    j = 0;
+    /* Broj alociranih mesta */
+    alocirano = 0;
+    /* Memorija za smestanje procitanih karaktera */
+    pesme[i].naslov = NULL;
 
     /* Sve do zareza (koji se nalazi nakon naslova pesme) citaju se
        karakteri iz datoteke */

@@ -14,7 +14,7 @@ int zbir_vrste(int **a, int v, int m)
 }
 
 /* Funkcija koja sortira vrste matrice (pokazivace na vrste) na
-   osnovu zbira koriscenjem selection sort algoritma */
+   osnovu zbira elemenata koriscenjem selection sort algoritma */
 void sortiraj_vrste(int **a, int n, int m)
 {
   int i, j, min;

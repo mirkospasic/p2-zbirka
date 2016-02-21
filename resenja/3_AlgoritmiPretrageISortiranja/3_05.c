@@ -95,8 +95,8 @@ int main(int argc, char *argv[])
   }
   n = i;
 
-  /* Proverava se koji su dodatni argumenti komandne linije. Ako
-     nema dodatnih argumenata */
+  /* Proverava se koji su dodatni argumenti komandne linije. */
+  /* Ako nema dodatnih argumenata */
   if (argc == 2)
     /* Trazi se najbliza tacka u odnosu na koordinatni pocetak */
     najbliza = najbliza_koordinatnom(tacke, n);

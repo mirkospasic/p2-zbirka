@@ -58,8 +58,8 @@ void sort_zadatke_pa_imena(Student niz[], int n)
   }
 }
 
- /* Funkcija za sortiranje niza struktura po broju casova na kojima
-    su bili opadajuce. Ukoliko neki studenti imaju isti broj casova,
+ /* Funkcija za sortiranje niza struktura opadajuce po broju casova
+    na kojima su bili. Ukoliko neki studenti imaju isti broj casova,
     sortiraju se opadajuce po broju uradjenih zadataka, a ukoliko se
     i po broju zadataka poklapaju, njihovo sortiranje ce biti po
     prezimenu opadajuce. */

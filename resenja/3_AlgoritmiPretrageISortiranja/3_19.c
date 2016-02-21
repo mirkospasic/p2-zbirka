@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
   Tacka tacke[MAX_BR_TACAKA];
   int i, n;
 
-  /* Proverava se broj argumenata komandne linije: ocekuje se ime
+  /* Proverava se broj argumenata komandne linije. Ocekuje se ime
      izvrsnog programa, opcija, ime ulazne datoteke i ime izlazne
      datoteke, tj. 4 argumenta */
   if (argc != 4) {

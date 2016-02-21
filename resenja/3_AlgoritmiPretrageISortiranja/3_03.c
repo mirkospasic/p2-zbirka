@@ -32,7 +32,7 @@ int binarna_pretraga(Student a[], int n, long x)
   while (levi <= desni) {
     /* Racuna se srednja pozicija */
     srednji = (levi + desni) / 2;
-    /* Ako je indeks stutenta na toj poziciji veci od trazenog, tada
+    /* Ako je indeks studenta na toj poziciji veci od trazenog, tada
        se trazeni indeks mora nalaziti u levoj polovini niza */
     if (x < a[srednji].indeks)
       desni = srednji - 1;

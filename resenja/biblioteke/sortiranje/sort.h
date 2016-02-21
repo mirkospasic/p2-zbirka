@@ -34,14 +34,14 @@ void insertion_sort(int a[], int n);
    ovaj postupak ponoviti nad nizom a[0],...,a[n-2], tj. nad prvih
    n-1 elemenata niza bez poslednjeg koji je postavljen na pravu
    poziciju. Nakon toga se isti postupak ponavlja nad sve kracim i
-   kracim prefiksima niza, cime se jedan po jedan istiskuju
-   elemenenti na svoje prave pozicije. */
+   kracim prefiksima niza, cime se jedan po jedan istiskuju elementi
+   na svoje prave pozicije. */
 void bubble_sort(int a[], int n);
 
 /* Selsort: Ovaj algoritam je jednostavno prosirenje sortiranja
    umetanjem koje dopusta direktnu razmenu udaljenih elemenata.
    Prosirenje se sastoji u tome da se kroz algoritam umetanja
-   prolazi vise puta; u prvom prolazu, umesto koraka 1 uzima se neki 
+   prolazi vise puta. U prvom prolazu, umesto koraka 1 uzima se neki 
    korak h koji je manji od n (sto omogucuje razmenu udaljenih
    elemenata) i tako se dobija h-sortiran niz, tj. niz u kome su
    elementi na rastojanju h sortirani, mada susedni elementi to ne
@@ -60,7 +60,7 @@ void shell_sort(int a[], int n);
    d je jednako poslednjem validnom indeksu u nizu. Funkcija niz
    podeli na dve polovine, levu i desnu, koje zatim rekurzivno
    sortira. Od ova dva sortirana podniza, sortiran niz se dobija
-   ucesljavanjem, tj.  istovremenim prolaskom kroz oba niza i izborom
+   ucesljavanjem, tj. istovremenim prolaskom kroz oba niza i izborom
    trenutnog manjeg elementa koji se smesta u pomocni niz. Na kraju
    algoritma, sortirani elementi su u pomocnom nizu, koji se kopira u
    originalni niz. */

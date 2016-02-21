@@ -6,7 +6,7 @@
 
 int main()
 {
-  /* Kod intervala [0, 2] leva granica je 0, a desna 2 */
+  /* Za interval [0, 2] leva granica je 0, a desna 2 */
   double l = 0, d = 2, s;
 
   /* Sve dok se ne pronadje trazena vrednost argumenta */

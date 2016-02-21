@@ -93,7 +93,7 @@
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=3_02]
-  Napisati rekurzivne funkcije algoritama linearne, binarne i
+  Napisati rekurzivne funkcije koje implementiraju algoritme linearne, binarne i
   interpolacione pretrage i program koji ih testira za brojeve koji se
   unose sa standardnog ulaza. Linearnu pretragu implementirati na dva
   načina, svođenjem pretrage na prefiks i na sufiks
@@ -237,7 +237,7 @@
   se koordinate tačaka. U zavisnosti od prisustva opcija komandne
   linije (\kckod{-x} ili \kckod{-y}), pronaći onu koja je najbliža
   $x$, ili $y$ osi, ili koordinatnom početku, ako nije
-  prisutna nijedna opcija. Pretpostaviti da je broj tačaka u datateci
+  prisutna nijedna opcija. Pretpostaviti da je broj tačaka u datoteci
   veći od $0$ i ne veći od $1024$.
   
 \begin{miditest}
@@ -492,7 +492,7 @@ ulaza.
     logaritam koristeći binarnu pretragu.
   \end{enumerate}  
   Napisati program koji testira napisane funkcije. Sa standardnog ulaza učitati 
-  pozitivan ceo broj a na standardni izlaz ispisati njegov logaritam.
+  pozitivan ceo broj, a na standardni izlaz ispisati njegov logaritam.
 
 \begin{minitest}
 \begin{test}{1}
@@ -533,11 +533,11 @@ ulaza.
 %-----------------------------------------------------------------
 \begin{Exercise}[difficulty=1, label=3_11]
   U prvom kvadrantu dato je $1 \leq N \leq 10000$ duži svojim
-  koordinatama (duži mogu da se seku, preklapaju, itd.). Napisati
+  koordinatama. Duži mogu da se seku, preklapaju, itd. Napisati
   program koji pronalazi najmanji ugao $0 \leq \alpha \leq 90^\circ$,
   na dve decimale, takav da je suma dužina duži sa obe strane
-  polupoluprave iz koordinatnog početka pod uglom $\alpha$ jednak
-  (neke duži bivaju presečene, a neke ne). Program prvo učitava broj
+  polupoluprave iz koordinatnog početka pod uglom $\alpha$ jednak.
+  Neke duži bivaju presečene, a neke ne. Program prvo učitava broj
   $N$, a zatim i same koordinate temena duži. \uputstvo{Vršiti
   binarnu pretragu intervala $[0, 90^\circ]$.}
   
@@ -873,7 +873,7 @@ ulaza.
   rezultat. Ako je ona manja od potrebne dužine, funkcija vraća -1 kao
   indikator neuspeha, inače vraća 0. Napisati zatim program koji
   testira ovu funkciju. Nizovi se unose sa standardnog ulaza sve dok
-  se ne unese 0 i može se pretpostaviti da će njihove dimenzije biti
+  se ne unese 0. Može se pretpostaviti da će njihove dimenzije biti
   manje od $256$.
   
 \begin{miditest}
@@ -1041,13 +1041,12 @@ ulaza.
 %-----------------------------------------------------------------
 %-----------------------------------------------------------------
 \begin{Exercise}[label=3_20]
-  Napisati program koji učitava imena i prezimena građana (najviše
-  njih $1000$) iz datoteke \kckod{biracki-spisak.txt} i kreira biračke
+  Napisati program koji učitava imena i prezimena građana iz datoteke \kckod{biracki-spisak.txt} i kreira biračke
   spiskove. Jedan birački spisak je sortiran po imenu građana, a drugi
   po prezimenu. Program treba da ispisuje koliko građana ima isti
-  redni broj u oba biračka spiska. Pretpostaviti da je za ime, odnosno
-  prezime građana dovoljno $15$ karaktera, i da se nijedno ime i
-  prezime ne pojavljuje više od jednom.
+  redni broj u oba biračka spiska. Pretpostaviti da u će u datoteci 
+  biti najviše $1000$ građana, da je za ime, odnosno prezime građana 
+  dovoljno $15$ karaktera, da se nijedno ime i prezime ne pojavljuje više od jednom.
 
 \begin{minitest}
 \begin{test}{1}
@@ -1107,14 +1106,14 @@ typedef struct dete
 } Dete;
 \end{ckod} 
 \fi
-Definisati strukturu koja čuva imena, prezimena i godišta dece. Pretpostaviti da su imena i prezimena niske karaktera koje nisu duže od 30 karaktera.
+Definisati strukturu koja čuva imena, prezimena i godišta dece. 
 Napisati funkciju koja sortira niz dece po godištu, a decu
 istog godišta sortira leksikografski po prezimenu i
 imenu. Napisati program koji učitava podatke o deci koji se nalaze u
 datoteci čije se ime zadaje kao prvi argument komandne linije,
 sortira ih i sortirani niz upisuje u datoteku čije se ime zadaje kao
 drugi argument komandne linije. Pretpostaviti da u ulaznoj datoteci
-nisu zadati podaci o više od $128$ dece.
+nisu zadati podaci o više od $128$ dece i da su imena i prezimena niske karaktera koje nisu duže od 30 karaktera.
   
 \begin{miditest}
 \begin{test}{1}
@@ -1204,7 +1203,7 @@ nisu zadati podaci o više od $128$ dece.
   kasi, a prodavac unošenjem bar-koda kupljenog proizvoda dodaje
   njegovu cenu na ukupan račun. Na kraju, program ispisuje ukupnu
   vrednost svih proizvoda. Sve artikle, zajedno sa bar-kodovima,
-  prozivođačima i cenama učitati iz datoteke
+  proizvođačima i cenama učitati iz datoteke
   \kckod{artikli.txt}. Pretraživanje niza artikala vršiti binarnom
   pretragom.
   
@@ -1370,7 +1369,7 @@ pesama u zavisnosti od argumenata komandne linije na sledeći način:
 \item prisutna je opcija \kckod{-n}, sortiranje se vrši po naslovu
   pesama.
 \end{itemize}
-Na standardnom izlazu ispisati informacije o pesmama sortiranim na opisani
+Na standardni izlaz ispisati informacije o pesmama sortiranim na opisani
 način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
   imena izvođača i naslova pesme.
 
@@ -1520,7 +1519,7 @@ niz. \uputstvo{Imitirati \kckod{selection sort} i u svakom koraku
   elemenata u vrsti. Napisati potom program koji testira ovu
   funkciju. Sa standardnog ulaza se prvo unose dimenzije matrice, a
   zatim redom elementi matrice. Rezultujuću matricu ispisati na
-  standardnom izlazu.  \napomena{Koristiti biblioteku za rad sa
+  standardni izlaz. \napomena{Koristiti biblioteku za rad sa
     celobrojnim matricama iz zadatka \ref{2_19}.}
 
 \begin{miditest}
@@ -1682,7 +1681,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
   niza. Upotrebom funkcije \kckod{qsort} sortirati niz u rastućem
   poretku, sa standardnog ulaza učitati broj koji se traži u nizu, pa
   zatim funkcijama \kckod{bsearch} i \kckod{lfind} utvrditi da li se
-  zadati broj nalazi u nizu. Na standardnom izlazu ispisati
+  zadati broj nalazi u nizu. Na standardni izlaz ispisati
   odgovarajuću poruku.
   
 \begin{miditest}
@@ -1729,7 +1728,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
   celih brojeva (ne veću od 100), a potom i same elemente
   niza. Upotrebom funkcije \kckod{qsort} sortirati niz u rastućem
   poretku prema broju delilaca i tako dobijeni niz odštampati na
-  standardnom izlazu.
+  standardni izlaz.
   
 \begin{minitest}
 \begin{upotreba}{1}
@@ -1786,7 +1785,7 @@ Osoba niz_osoba[]={{"Mika", "Antic"},
    (\kckod{bsearch}) zarad traženja niske unete sa standardnog ulaza,
    a potom traži istu nisku koristeći funkciju \kckod{lfind} u nizu koji je neposredno pre toga
    sortiran po dužini. Rezultate svih sortiranja
-   i pretraga ispisati na standardnom izlazu.
+   i pretraga ispisati na standardni izlaz.
 
    
 \begin{maxitest}
