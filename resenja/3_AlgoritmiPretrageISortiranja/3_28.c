@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include "matrica.h"
 
-/* Funkcija koja odredjuje zbir v-te vrste matrice a koja ima m
-   kolona */
+/* Funkcija odredjuje zbir v-te vrste matrice a sa m kolona */
 int zbir_vrste(int **a, int v, int m)
 {
   int i, zbir = 0;
@@ -38,8 +37,7 @@ void sortiraj_vrste(int **a, int n, int m)
 
 int main(int argc, char *argv[])
 {
-  int **a;
-  int n, m;
+  int **a, n, m;
 
   /* Unos dimenzija matrice */
   printf("Unesite dimenzije matrice: ");
