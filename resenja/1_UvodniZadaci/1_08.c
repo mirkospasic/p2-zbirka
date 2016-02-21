@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "stampanje_bitova.h"
 
-/* Funckija postavlja na nulu n bitova pocev od pozicije p. */
+/* Funkcija postavlja na nulu n bitova pocev od pozicije p. */
 unsigned postavi_0(unsigned x, unsigned n, unsigned p)
 {
 /********************************************************************
@@ -21,7 +21,7 @@ unsigned postavi_0(unsigned x, unsigned n, unsigned p)
   return x & maska;
 }
 
-/* Funckija postavlja na jedinicu n bitova pocev od pozicije p. */
+/* Funkcija postavlja na jedinicu n bitova pocev od pozicije p. */
 unsigned postavi_1(unsigned x, unsigned n, unsigned p)
 {
 
