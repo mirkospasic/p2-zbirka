@@ -64,14 +64,14 @@ void bubble_sort(int a[], int n)
         int temp = a[j];
         a[j] = a[j + 1];
         a[j + 1] = temp;
-        /* Promenljiva ind registruje da je bilo premestanja. Samo u
+        /* Promenljiva ind registruje da je bilo premestanja. Samo u 
            tom slucaju ima smisla ici na sledecu iteraciju, jer ako
            nije bilo premestanja, znaci da su svi elementi vec u
-           dobrom poretku, pa nema potrebe prelaziti na kraci prefiks 
-           niza. Algoritam bi bio korektan i bez ovoga. Sortiranje bi
-           bilo ispravno, ali manje efikasno, jer bi se cesto
-           nepotrebno vrsila mnoga uporedjivanja, kada je vec jasno da 
-           je sortiranje zavrseno. */
+           dobrom poretku, pa nema potrebe prelaziti na kraci
+           prefiks niza. Algoritam bi bio korektan i bez ovoga.
+           Sortiranje bi bilo ispravno, ali manje efikasno, jer bi
+           se cesto nepotrebno vrsila mnoga uporedjivanja, kada je
+           vec jasno da je sortiranje zavrseno. */
         ind = 1;
       }
 }
