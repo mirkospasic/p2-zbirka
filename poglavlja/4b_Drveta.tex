@@ -137,12 +137,12 @@ Napisati program koji izračunava i na standardni izlaz ispisuje broj pojavljiva
 
 %4.zadatak
 \begin{Exercise}[label=4_16]
-U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona međusobno razdvojeni blanko znakom, na primer $Pera\ Peric\ 064/123-4567$.  Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči $KRAJ$, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od $30$ karaktera, kao i da imenik ne sadrži podatke o osobama sa istim imenom i prezimenom.
+U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime osobe, prezime osobe i njen broj telefona međusobno razdvojeni blanko znakom, na primer $Milos\ Peric\ 064/123-4567$.  Napisati program koji korišćenjem binarnog pretraživačkog stabla implementira mapu koja sadrži navedene informacije i koja će omogućiti pretragu brojeva telefona za zadata imena i prezimena. Imena i prezimena se unose sve do unosa reči $KRAJ$, a za svaki od unetih podataka ispisuje se ili broj telefona ili obaveštenje da traženi broj nije u imeniku. Može se pretpostaviti da imena, prezimena i brojevi telefona neće biti duži od $30$ karaktera, kao i da imenik ne sadrži podatke o osobama sa istim imenom i prezimenom.
 
 \begin{miditest}
 \begin{upotreba}{1}
 #\naslovDat{imenik.txt}#  
-#\datoteka{Pera Peric 011/3240-987}#
+#\datoteka{Milos Peric 011/3240-987}#
 #\datoteka{Marko Maric 064/1234-987}#
 #\datoteka{Mirko Maric 011/589-333}#
 #\datoteka{Sanja Savkovic 063/321-098}#
@@ -150,7 +150,7 @@ U svakoj liniji datoteke čije se ime zadaje sa standardnog ulaza nalazi se ime 
           
 #\naslovInt#
 #\izlaz{Unesite ime datoteke:}\ulaz{imenik.txt}#
-#\izlaz{Unesite ime i prezime:}\ulaz{Pera Peric}#	
+#\izlaz{Unesite ime i prezime:}\ulaz{Milos Peric}#	
 #\izlaz{Broj je: 011/3240-987}#
 #\izlaz{Unesite ime i prezime:}\ulaz{Marko Markovic}#
 #\izlaz{Broj nije u imeniku!}#
