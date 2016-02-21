@@ -22,7 +22,7 @@ Cvor *napravi_cvor(char ime[], char prezime[], double uspeh,
                    double matematika, double jezik)
 {
   /* Alocira se memorija za novi cvor i proverava se uspesnost
-     alokacije. */
+     alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -40,9 +40,9 @@ Cvor *napravi_cvor(char ime[], char prezime[], double uspeh,
   return novi;
 }
 
-/* Funkcija koja dodaje cvor sa zadatim vrednostima u stablo -
-   ukoliko je dodavanje uspesno povratna vrednost je 0, u suprotnom
-   povratna vrednost je 1 */
+/* Funkcija koja dodaje cvor sa zadatim vrednostima u stablo.
+   Ukoliko je dodavanje uspesno, povratna vrednost funkcije je 0,
+   dok je u suprotnom povratna vrednost 1 */
 int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
                    double uspeh, double matematika, double jezik)
 {
@@ -57,8 +57,8 @@ int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
          vrednost */
       return 1;
     }
-    /* Inace... */
-    /* Novi cvor se proglasava korenom stabla */
+
+    /* Inace, novi cvor se proglasava korenom stabla */
     *koren = novi_cvor;
 
     /* I vraca se indikator uspesnog dodavanja */
@@ -84,7 +84,6 @@ void oslobodi_stablo(Cvor ** koren)
   if (*koren == NULL)
     return;
 
-  /* Inace ... */
   /* Oslobadja se memorija zauzeta levim podstablom */
   oslobodi_stablo(&(*koren)->levo);
 
@@ -136,13 +135,14 @@ int nisu_polozili(Cvor * koren)
   if (koren == NULL)
     return 0;
 
-  /* Pretraga se vrsi i u levom i u desnom podstablu - ako uslov za
+  /* Pretraga se vrsi i u levom i u desnom podstablu. Ako uslov za
      polaganje nije ispunjen za koreni cvor, broj studenata se
      uvecava za 1 */
   if (koren->matematika + koren->jezik < 10)
     return 1 + nisu_polozili(koren->levo) +
         nisu_polozili(koren->desno);
 
+  /* Inace, nastavlja se prebrojavanje u podstablima */
   return nisu_polozili(koren->levo) + nisu_polozili(koren->desno);
 }
 
@@ -161,7 +161,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Citanje podataka i dodavanje u stablo uz proveru uspesnosti
+  /* Citaju se podaci i dodaju u stablo uz proveru uspesnosti
      dodavanja */
   koren = NULL;
   while (fscanf(in, "%s %s %lf %lf %lf", ime, prezime, &uspeh,
@@ -177,7 +177,7 @@ int main(int argc, char **argv)
     }
   }
 
-  /* Zatvaranje datoteke */
+  /* Zatvara se datoteka */
   fclose(in);
 
   /* Stampaju se prvo podaci o ucenicima koji su polozili prijemni */

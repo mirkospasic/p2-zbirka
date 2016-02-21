@@ -9,20 +9,21 @@
    odnosno 0 ako nisu */
 int identitet(Cvor * koren1, Cvor * koren2)
 {
-  /* Ako su oba stabla prazna, jednaka su */
+  /* Ako su oba stabla prazna, identicna su */
   if (koren1 == NULL && koren2 == NULL)
     return 1;
 
-  /* Ako je jedno stablo prazno, a drugo nije, stabla nisu jednaka */
+  /* Ako je jedno stablo prazno, a drugo nije, stabla nisu identicna 
+   */
   if (koren1 == NULL || koren2 == NULL)
     return 0;
 
-  /* Ako su oba stabla neprazna i u korenu se nalaze razlicite
+  /* Ako su oba stabla neprazna i u korenima se nalaze razlicite
      vrednosti, moze se zakljuciti da se razlikuju */
   if (koren1->broj != koren2->broj)
     return 0;
 
-  /* Inace, proverava se da li vazi jednakost i levih i desnih
+  /* Inace, proverava se da li vazi identitet i levih i desnih
      podstabala */
   return (identitet(koren1->levo, koren2->levo)
           && identitet(koren1->desno, koren2->desno));

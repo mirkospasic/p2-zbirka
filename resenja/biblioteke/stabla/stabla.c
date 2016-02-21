@@ -5,17 +5,17 @@
 Cvor *napravi_cvor(int broj)
 {
   /* Alocira se memorija za novi cvor i proverava se uspesnost
-     alokacije. */
+     alokacije */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
 
-  /* Inicijalizuju se polja novog cvora. */
+  /* Inicijalizuju se polja novog cvora */
   novi->broj = broj;
   novi->levo = NULL;
   novi->desno = NULL;
 
-  /* Vraca se adresa novog cvora. */
+  /* Vraca se adresa novog cvora */
   return novi;
 }
 
@@ -29,12 +29,11 @@ int dodaj_u_stablo(Cvor ** adresa_korena, int broj)
 
     /* Proverava se uspesnost kreiranja */
     if (novi_cvor == NULL) {
-
       /* Ukoliko je doslo do greske, vraca se odgovarajuca vrednost */
       return 1;
     }
-    /* Inace ... */
-    /* Novi cvor se proglasava korenom stabla */
+
+    /* Inace, novi cvor se proglasava korenom stabla */
     *adresa_korena = novi_cvor;
 
     /* I vraca se indikator uspesnosti kreiranja */
@@ -58,24 +57,20 @@ int dodaj_u_stablo(Cvor ** adresa_korena, int broj)
 
 Cvor *pretrazi_stablo(Cvor * koren, int broj)
 {
-
   /* Ako je stablo prazno, vrednost se sigurno ne nalazi u njemu */
   if (koren == NULL)
     return NULL;
 
   /* Ako je trazena vrednost sadrzana u korenu */
   if (koren->broj == broj) {
-
     /* Prekida se pretraga */
     return koren;
   }
 
   /* Inace, ako je broj manji od vrednosti sadrzane u korenu */
   if (broj < koren->broj)
-
     /* Pretraga se nastavlja u levom podstablu */
     return pretrazi_stablo(koren->levo, broj);
-
   else
     /* U suprotnom, pretraga se nastavlja u desnom podstablu */
     return pretrazi_stablo(koren->desno, broj);
@@ -83,7 +78,6 @@ Cvor *pretrazi_stablo(Cvor * koren, int broj)
 
 Cvor *pronadji_najmanji(Cvor * koren)
 {
-
   /* Ako je stablo prazno, prekida se pretraga */
   if (koren == NULL)
     return NULL;
@@ -145,11 +139,11 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
   }
 
   /* Slede podslucajevi vezani za slucaj kada je vrednost u korenu
-     jednaka broju koji se brise (tj. slucaj kada treba obrisati
-     koren) */
+     jednaka broju koji se brise tj. slucaj kada treba obrisati
+     koren */
 
-  /* Ako koren nema sinova, tada se on prosto brise, i rezultat je
-     prazno stablo (vraca se NULL) */
+  /* 1. Ako koren nema sinova, tada se on prosto brise, i rezultat
+     je prazno stablo (vraca se NULL) */
   if ((*adresa_korena)->levo == NULL
       && (*adresa_korena)->desno == NULL) {
     free(*adresa_korena);
@@ -157,8 +151,8 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
     return;
   }
 
-  /* Ako koren ima samo levog sina, tada se brisanje vrsi tako sto
-     se brise koren, a novi koren postaje levi sin */
+  /* 2. Ako koren ima samo levog sina, tada se brisanje vrsi tako
+     sto se brise koren, a novi koren postaje levi sin */
   if ((*adresa_korena)->levo != NULL
       && (*adresa_korena)->desno == NULL) {
     pomocni_cvor = (*adresa_korena)->levo;
@@ -167,8 +161,8 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
     return;
   }
 
-  /* Ako koren ima samo desnog sina, tada se brisanje vrsi tako sto
-     se brise koren, a novi koren postaje desni sin */
+  /* 3. Ako koren ima samo desnog sina, tada se brisanje vrsi tako
+     sto se brise koren, a novi koren postaje desni sin */
   if ((*adresa_korena)->desno != NULL
       && (*adresa_korena)->levo == NULL) {
     pomocni_cvor = (*adresa_korena)->desno;
@@ -177,16 +171,16 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
     return;
   }
 
-  /* Slucaj kada koren ima oba sina - najpre se potrazi sledbenik
-     korena (u smislu poretka) u stablu. To je upravo po vrednosti
-     najmanji cvor u desnom podstablu. On se moze pronaci npr.
-     funkcijom pronadji_najmanji(). Nakon toga se u koren smesti
-     vrednost tog cvora, a u taj cvor se smesti vrednost korena (tj.
-     broj koji se brise).  Zatim se prosto rekurzivno pozove funkcija 
-     za brisanje na desno podstablo. S obzirom da u njemu treba
+  /* 4. Ako koren ima oba sina, najpre se potrazi sledbenik korena
+     (u smislu poretka) u stablu. To je upravo po vrednosti najmanji 
+     cvor u desnom podstablu koji se moze pronaci npr. funkcijom
+     pronadji_najmanji(). Potom se u koren smesti vrednost
+     pronadjenog cvora, a u taj cvor se smesti vrednost korena (tj.
+     broj koji se brise). Zatim se rekurzivno pozove funkcija za
+     brisanje nad desnim podstablom. S obzirom da u njemu treba
      obrisati najmanji element, a on zasigurno ima najvise jednog
-     potomka, jasno je da ce njegovo brisanje biti obavljeno na jedan 
-     od jednostavnijih nacina koji su gore opisani. */
+     potomka, jasno je da ce njegovo brisanje biti obavljeno na
+     jedan od jednostavnijih nacina koji su gore opisani. */
   pomocni_cvor = pronadji_najmanji((*adresa_korena)->desno);
   (*adresa_korena)->broj = pomocni_cvor->broj;
   pomocni_cvor->broj = broj;
@@ -248,7 +242,6 @@ void oslobodi_stablo(Cvor ** adresa_korena)
   if (*adresa_korena == NULL)
     return;
 
-  /* Inace ... */
   /* Oslobadja se memorija zauzeta levim podstablom */
   oslobodi_stablo(&(*adresa_korena)->levo);
 

@@ -18,7 +18,7 @@ typedef struct cvor {
 Cvor *napravi_cvor(char *rec)
 {
   /* Alocira se memorija za novi cvor i proverava se uspesnost
-     alokacije. */
+     alokacije */
   Cvor *novi_cvor = (Cvor *) malloc(sizeof(Cvor));
   if (novi_cvor == NULL)
     return NULL;
@@ -57,8 +57,8 @@ int dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
          vrednost */
       return 1;
     }
-    /* Inace... */
-    /* Novi cvor se proglasava korenom stabla */
+
+    /* Inace, novi cvor se proglasava korenom stabla */
     *adresa_korena = novi_cvor;
 
     /* I vraca se indikator uspesnog dodavanja */
@@ -96,7 +96,6 @@ void oslobodi_stablo(Cvor ** adresa_korena)
   if (*adresa_korena == NULL)
     return;
 
-  /* Inace ... */
   /* Oslobadja se memorija zauzeta levim podstablom */
   oslobodi_stablo(&(*adresa_korena)->levo);
 
@@ -171,7 +170,7 @@ int procitaj_rec(FILE * f, char rec[], int max)
   int i = 0;
 
   /* Sve dok ima mesta za jos jedan karakter u nizu i dokle se god
-     nije stiglo do kraja datoteke... */
+     nije stiglo do kraja datoteke */
   while (i < max - 1 && (c = fgetc(f)) != EOF) {
     /* Proverava se da li je procitani karakter slovo */
     if (isalpha(c))
@@ -193,7 +192,7 @@ int procitaj_rec(FILE * f, char rec[], int max)
   /* Dodaje se na rec terminirajuca nula */
   rec[i] = '\0';
 
-  /* Vraca se 0 ako je procitana rec, tj. EOF u suprotnom */
+  /* Vraca se 0 ako je uspesno procitana rec, tj. EOF u suprotnom */
   return i > 0 ? 0 : EOF;
 }
 
@@ -203,21 +202,21 @@ int main(int argc, char **argv)
   FILE *f;
   char rec[MAX];
 
-  /* Provera da li je navedeno ime datoteke prilikom pokretanja
+  /* Proverava se da li je navedeno ime datoteke prilikom pokretanja
      programa */
   if (argc < 2) {
     fprintf(stderr, "Greska: Nedostaje ime ulazne datoteke!\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Priprema datoteke za citanje */
+  /* Priprema se datoteka za citanje */
   if ((f = fopen(argv[1], "r")) == NULL) {
     fprintf(stderr, "Greska: Neuspesno otvaranje datoteke %s.\n",
             argv[1]);
     exit(EXIT_FAILURE);
   }
 
-  /* Ucitavanje reci iz datoteke i smestanje u binarno stablo
+  /* Ucitavaju se reci iz datoteke i smestaju u binarno stablo
      pretrage uz proveru uspesnosti dodavanja */
   while (procitaj_rec(f, rec, MAX) != EOF) {
     if (dodaj_u_stablo(&koren, rec) == 1) {
@@ -231,13 +230,13 @@ int main(int argc, char **argv)
   fclose(f);
 
   /* Prikazuju se sve reci iz teksta i brojevi njihovih
-     pojavljivanja. */
+     pojavljivanja */
   prikazi_stablo(koren);
 
   /* Pronalazi se najfrekventnija rec */
   max = nadji_najfrekventniju_rec(koren);
 
-  /* Ako takve reci nema... */
+  /* Ako takve reci nema */
   if (max == NULL)
 
     /* Ispisuje se odgovarajuce obavestenje */
@@ -248,7 +247,7 @@ int main(int argc, char **argv)
     printf("Najcesca rec: %s (pojavljuje se %d puta)\n",
            max->rec, max->brojac);
 
-  /* Oslobadja se dinamicki alociran prostor za stablo */
+  /* Oslobadja se memorija zauzeta stablom */
   oslobodi_stablo(&koren);
 
   exit(EXIT_SUCCESS);

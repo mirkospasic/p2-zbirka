@@ -38,8 +38,8 @@ Cvor *napravi_cvor(char ime[], char prezime[], int dan, int mesec)
 
 /* Funkcija koja dodaje novi cvor u stablo. Stablo treba da bude
    uredjeno po datumu - prvo po mesecu, a zatim po danu. Ukoliko je
-   dodavanje uspesno povratna vrednost je 0, u suprotnom povratna
-   vrednost je 1 */
+   dodavanje uspesno povratna vrednost funkcije je 0, u suprotnom
+   povratna vrednost je 1 */
 int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
                    int dan, int mesec)
 {
@@ -54,7 +54,7 @@ int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
          vrednost */
       return 1;
     }
-    /* Inace... Novi cvor se proglasava korenom stabla */
+    /* Inace, novi cvor se proglasava korenom stabla */
     *koren = novi_cvor;
 
     /* I vraca se indikator uspesnog dodavanja */
@@ -75,12 +75,13 @@ int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
 /* Funkcija vrsi pretragu stabla i vraca cvor sa trazenim datumom */
 Cvor *pretrazi(Cvor * koren, int dan, int mesec)
 {
-  /* Stablo je prazno, obustavlja se pretraga */
+  /* Ako je stablo prazno, obustavlja se pretraga */
   if (koren == NULL)
     return NULL;
 
   /* Ako je trazeni datum u korenu */
   if (koren->dan == dan && koren->mesec == mesec)
+    /* Vraca se njegova vrednost */
     return koren;
 
   /* Ako je mesec trazenog datuma manji od meseca sadrzanog u korenu
@@ -103,7 +104,7 @@ Cvor *pretrazi(Cvor * koren, int dan, int mesec)
 /* Funkcija koja pronalazi najmanji datum u stablu */
 Cvor *pronadji_najmanji_datum(Cvor * koren)
 {
-  /* Stablo je prazno, obustavlja se pretraga */
+  /* Ako je stablo prazno, obustavlja se pretraga */
   if (koren == NULL)
     return NULL;
 
@@ -112,7 +113,7 @@ Cvor *pronadji_najmanji_datum(Cvor * koren)
   if (koren->levo == NULL)
     return koren;
   else
-    /* Inace, trazimo manji datum u levom podstablu */
+    /* Inace, trazi se manji datum u levom podstablu */
     return pronadji_najmanji_datum(koren->levo);
 }
 
@@ -146,18 +147,19 @@ void oslobodi_stablo(Cvor ** adresa_korena)
   if (*adresa_korena == NULL)
     return;
 
-  /* Oslobadja se memorija zauzeta levim podstablom (ako postoji) */
+  /* Ako postoji levo podstablo, oslobadja se memorija koju zauzima */
   if ((*adresa_korena)->levo)
     oslobodi_stablo(&(*adresa_korena)->levo);
 
-  /* Oslobadja se memorija zauzeta desnim podstablom (ako postoji) */
+  /* Ako postoji desno podstablo, oslobadja se memorija koju zauzima 
+   */
   if ((*adresa_korena)->desno)
     oslobodi_stablo(&(*adresa_korena)->desno);
 
   /* Oslobadja se memorija zauzeta korenom */
   free(*adresa_korena);
 
-  /* Proglasava se stablo praznim */
+  /* Stablo se proglasava praznim */
   *adresa_korena = NULL;
 }
 
@@ -198,7 +200,7 @@ int main(int argc, char **argv)
       exit(EXIT_FAILURE);
     }
 
-  /* Datoteka se zatvara */
+  /* Zatvara se datoteka */
   fclose(in);
 
   /* Omogucuje se pretraga podataka */
@@ -215,12 +217,12 @@ int main(int argc, char **argv)
     /* Ispisuju se pronadjeni podaci */
 
     /* Ako slavljenik nije pronadjen, to moze znaci da: */
-    /* 1. drvo je prazno */
+    /* 1. Drvo je prazno */
     if (slavljenik == NULL && koren == NULL) {
       printf("Nema podataka o ovom ni o sledecem rodjendanu.\n");
       continue;
     }
-    /* 2. posle datuma koji je unesen, nema podataka u stablu - u
+    /* 2. Posle datuma koji je unesen, nema podataka u stablu - u
        ovom slucaju se pretraga vrsi pocevsi od naredne godine i
        ispisuje se najmanji datum */
     if (slavljenik == NULL) {
