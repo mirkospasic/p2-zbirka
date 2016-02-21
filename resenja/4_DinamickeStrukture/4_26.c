@@ -60,7 +60,7 @@ int hip(Cvor * koren)
     return koren->broj;
   }
 
-  /* Inace... Proverava se svojstvo za levo podstablo */
+  /* Inace, proverava se svojstvo za levo podstablo */
   max_levo = hip(koren->levo);
 
   /* Proverava se svojstvo za desno podstablo */

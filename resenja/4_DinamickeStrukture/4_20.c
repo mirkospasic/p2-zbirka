@@ -77,7 +77,7 @@ int kreiraj_presek(Cvor ** adresa_korena1, Cvor * koren2)
   if (*adresa_korena1 == NULL)
     return 0;
 
-  /* Inace... Kreira se presek levog i desnog podstabla sa drugim
+  /* Inace, kreira se presek levog i desnog podstabla sa drugim
      stablom, tj. iz levog i desnog podstabla prvog stabla brisu se
      svi oni elementi koji ne postoje u drugom stablu */
   int presek_levo = kreiraj_presek(&(*adresa_korena1)->levo, koren2);
@@ -89,7 +89,7 @@ int kreiraj_presek(Cvor ** adresa_korena1, Cvor * koren2)
     if (pretrazi_stablo(koren2, (*adresa_korena1)->broj) == NULL)
       obrisi_element(adresa_korena1, (*adresa_korena1)->broj);
 
-    /* Presek stabala je uspesno kreiran */
+    /* U ovom slucaju je presek stabala uspesno kreiran */
     return 0;
   }
   /* Inece, prijavljuje se da je doslo do greske */
@@ -106,10 +106,9 @@ int kreiraj_razliku(Cvor ** adresa_korena1, Cvor * koren2)
   if (*adresa_korena1 == NULL)
     return 0;
 
-  /* Inace... */
-  /* Kreira se razlika levog i desnog podstabla sa drugim stablom,
-     tj. iz levog i desnog podstabla prvog stabla se brisu svi oni
-     elementi koji postoje i u drugom stablu */
+  /* Inace, kreira se razlika levog i desnog podstabla sa drugim
+     stablom, tj. iz levog i desnog podstabla prvog stabla se brisu
+     svi oni elementi koji postoje i u drugom stablu */
   int razlika_levo =
       kreiraj_razliku(&(*adresa_korena1)->levo, koren2);
   int razlika_desno =

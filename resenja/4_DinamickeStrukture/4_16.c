@@ -20,7 +20,7 @@ typedef struct cvor {
 Cvor *napravi_cvor(char *ime_i_prezime, char *telefon)
 {
   /* Alocira se memorija za novi cvor i proverava se uspesnost
-     alokacije. */
+     alokacije */
   Cvor *novi_cvor = (Cvor *) malloc(sizeof(Cvor));
   if (novi_cvor == NULL)
     return NULL;
@@ -35,9 +35,9 @@ Cvor *napravi_cvor(char *ime_i_prezime, char *telefon)
   return novi_cvor;
 }
 
-/* Funkcija koja dodaje novu osobu i njen broj telefona u stablo -
-   ukoliko je dodavanje uspesno povratna vrednost je 0, u suprotnom
-   povratna vrednost je 1 */
+/* Funkcija koja dodaje novu osobu i njen broj telefona u stablo.
+   Ukoliko je dodavanje uspesno povratna vrednost funkcije je 0, dok 
+   je u suprotnom povratna vrednost 1 */
 int
 dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
                char *telefon)
@@ -52,8 +52,8 @@ dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
          vrednost */
       return 1;
     }
-    /* Inace... */
-    /* Novi cvor se proglasava korenom stabla */
+
+    /* Inace, novi cvor se proglasava korenom stabla */
     *adresa_korena = novi_cvor;
 
     /* I vraca se indikator uspesnog dodavanja */
@@ -62,9 +62,9 @@ dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
 
   /* Ako stablo nije prazno, trazi se odgovarajuca pozicija za novi
      unos. Kako pretragu treba vrsiti po imenu i prezimenu, stablo
-     treba da bude pretrazivacko po ovom polju */
+     treba da bude pretrazivacko po ovom polju.
 
-  /* Ako je zadato ime i prezime leksikografski manje od imena i
+     Ako je zadato ime i prezime leksikografski manje od imena i
      prezimena koje se nalazi u korenu, podaci se dodaju u levo
      podstablo */
   if (strcmp(ime_i_prezime, (*adresa_korena)->ime_i_prezime)
@@ -81,7 +81,7 @@ dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
                           telefon);
 
   /* Pretostavka zadatka je da nema istih imena i prezimena u
-     datoteci, pa se sledeca naredba nikada i neci izvrsiti */
+     datoteci, pa se sledeca naredba nikada neci ni izvrsiti */
   return 0;
 }
 
@@ -92,7 +92,6 @@ void oslobodi_stablo(Cvor ** adresa_korena)
   if (*adresa_korena == NULL)
     return;
 
-  /* Inace ... */
   /* Oslobadja se memorija zauzeta levim podstablom */
   oslobodi_stablo(&(*adresa_korena)->levo);
 
@@ -108,7 +107,7 @@ void oslobodi_stablo(Cvor ** adresa_korena)
 
 /* Funkcija koja ispisuje imenik u leksikografskom poretku */
 /* Napomena: ova funkcija nije trazena u zadatku ali se moze
-   koristiti za proveru da li je stablo lepo kreirano ili ne */
+   koristiti za proveru da li je stablo uspesno kreirano. */
 void prikazi_stablo(Cvor * koren)
 {
   /* Ako je stablo prazno, zavrsava se sa ispisom */
@@ -145,7 +144,7 @@ int procitaj_kontakt(FILE * f, char *ime_i_prezime, char *telefon)
   /* Preskacu se eventualne praznine sa pocetka linije datoteke */
   while ((c = fgetc(f)) != EOF && isspace(c));
 
-  /* Prvo procitano slovo upisuje se u ime i prezime */
+  /* Prvo procitano slovo se upisuje u ime i prezime */
   if (!feof(f))
     ime_i_prezime[i++] = c;
 
@@ -183,7 +182,7 @@ int procitaj_kontakt(FILE * f, char *ime_i_prezime, char *telefon)
   /* Upisuje se terminirajuca nula */
   telefon[i] = '\0';
 
-  /* Vraca se 0 ako je procitan kontakt ili EOF u suprotnom */
+  /* Vraca se 0 ako je uspesno procitan kontakt ili EOF u suprotnom */
   return !feof(f) ? 0 : EOF;
 }
 
@@ -242,7 +241,7 @@ int main(int argc, char **argv)
       exit(EXIT_FAILURE);
     }
 
-  /* Zatvara se datoteka */
+  /* Datoteka se zatvara */
   fclose(f);
 
   /* Omogucava se pretraga imenika */
@@ -255,7 +254,7 @@ int main(int argc, char **argv)
     ime_i_prezime[i] = '\0';
 
     /* Ako je korisnik uneo naznaku za kraj pretrage, obustavlja se
-       funkcionalnost */
+       pretraga */
     if (strcmp(ime_i_prezime, "KRAJ") == 0)
       break;
 
