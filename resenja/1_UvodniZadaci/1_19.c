@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Pomocna funkcija koja izracunava n! * result. Koristi repnu
-   rekurziju. Result je argument u kome se akumulira do tada
+/* Pomocna funkcija koja izracunava n! * rezultat. Koristi repnu
+   rekurziju. rezultat je argument u kome se akumulira do tada
    izracunatu vrednost faktorijela. Kada dodje do izlaza iz
-   rekurzije iz rekurzije potrebno je da vratimo result. */
-int faktorijel_repna(int n, int result)
+   rekurzije iz rekurzije potrebno je da vratimo rezultat. */
+int faktorijel_repna(int n, int rezultat)
 {
   if (n == 0)
-    return result;
+    return rezultat;
 
-  return faktorijel_repna(n - 1, n * result);
+  return faktorijel_repna(n - 1, n * rezultat);
 }
 
 /* U sledecim funkcijama je prikazan postupak oslobadjanja od repne
@@ -20,13 +20,13 @@ int faktorijel_repna(int n, int result)
    naredbama kojima se vrednost argumenta funkcije postavlja na
    vrednost koja bi se prosledjivala rekurzivnom pozivu i
    navodjenjem goto naredbe za vracanje na pocetak tela funkcije. */
-int faktorijel_repna_v1(int n, int result)
+int faktorijel_repna_v1(int n, int rezultat)
 {
 pocetak:
   if (n == 0)
-    return result;
+    return rezultat;
 
-  result = n * result;
+  rezultat = n * rezultat;
   n = n - 1;
   goto pocetak;
 }
@@ -34,14 +34,14 @@ pocetak:
 /* Pisanje bezuslovnih skokova (goto naredbi) nije dobra
    programerska praksa i prethodna funkcija se koristi samo kao
    medjukorak. Sledi iterativno resenje bez bezuslovnih skokova */
-int faktorijel_repna_v2(int n, int result)
+int faktorijel_repna_v2(int n, int rezultat)
 {
   while (n != 0) {
-    result = n * result;
+    rezultat = n * rezultat;
     n = n - 1;
   }
 
-  return result;
+  return rezultat;
 }
 
 /* Prilikom poziva prethodnih funkcija pored prvog argumenta celog
@@ -71,7 +71,7 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Ispisuje se rezultat */
+  /* Ispisuje se rezultat poziva funkcije faktorijel */
   printf("%d! = %d\n", n, faktorijel(n));
 
   exit(EXIT_SUCCESS);
