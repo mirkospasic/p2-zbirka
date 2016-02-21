@@ -1472,7 +1472,7 @@ način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
   Šef u restoranu je neuredan i palačinke koje ispeče ne slaže redom
   po veličini. Konobar pre serviranja mora da sortira palačinke po
   veličini, a jedina operacija koju sme da izvodi je da obrne deo
-  palačinki. Na primer, sledeća slika po kolonama predstavlja
+  palačinki. Na primer, slika \ref{fig:palacinke} po kolonama predstavlja
   naslagane palačinke posle svakog okretanja. Na početku, palačinka
   veličine $2$ je na dnu, iznad nje se redom nalaze najmanja, najveća,
   itd... Na slici crtica predstavlja mesto iznad koga će konobar
@@ -1480,18 +1480,21 @@ način. Uraditi zadatak bez pravljenja pretpostavki o maksimalnoj dužini
   veličine $5$, $4$ i $3$ (prva kolona), i tada će veličine palačinki
   odozdo nagore biti $2$, $1$, $3$, $4$, $5$ (druga kolona). Posle još
   dva okretanja, palačinke će biti složene.
-\begin{ckod}
-    3    5    2    1
-    4    4    1__  2
-    5__  3    3    3
-    1    1    4    4
-    2    2__  5    5
-\end{ckod}
+  \begin{figure}
+\begin{verbatim}
+                        3           5           2           1
+                        4           4           1_          2
+                        5_          3           3           3
+                        1           1           4           4
+                        2           2_          5           5
+\end{verbatim}
+\caption{Zadatak \ref{3_27}}
+\label{fig:palacinke}
+  \end{figure}
 Napisati program koji u najviše $2n-3$ okretanja sortira učitani
 niz. \uputstvo{Imitirati \kckod{selection sort} i u svakom koraku
   dovesti jednu palačinku na svoje mesto korišćenjem najviše dva
   okretanja.}
-
 \begin{maxitest}
 \begin{test}{1}
 #\naslovUlaz#
