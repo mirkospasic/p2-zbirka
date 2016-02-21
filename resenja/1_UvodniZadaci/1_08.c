@@ -24,7 +24,6 @@ unsigned postavi_0(unsigned x, unsigned n, unsigned p)
 /* Funkcija postavlja na jedinicu n bitova pocev od pozicije p. */
 unsigned postavi_1(unsigned x, unsigned n, unsigned p)
 {
-
   /******************************************************************
     Formira se maska kod koje je samo n bitova pocev od pocev od 
     pozicije p jednako 1, a ostali su 0. 
@@ -41,7 +40,6 @@ unsigned postavi_1(unsigned x, unsigned n, unsigned p)
    reprezentaciji broja x. */
 unsigned vrati_bitove(unsigned x, unsigned n, unsigned p)
 {
-
   /******************************************************************
     Kreira se maska kod koje su poslednjih n bitova 1, a ostali su 0.
     Na primer, za n=5 

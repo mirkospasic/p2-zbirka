@@ -56,7 +56,6 @@ double max(double *a, int n)
   return max;
 }
 
-
 int main()
 {
   double a[MAX];

@@ -72,7 +72,6 @@ void sim_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
         zatvorenje[j][i] = 1;
 }
 
-
 /* Funkcija proverava da li je relacija tranzitivna. Relacija je
    tranzitivna ako ispunjava sledece svojstvo: ako je element i u
    relaciji sa elementom j i element j u relaciji sa elementom k,
