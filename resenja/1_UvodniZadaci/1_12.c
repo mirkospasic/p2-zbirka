@@ -29,7 +29,7 @@ int broj_parova(unsigned int x)
     x = x >> 1;
   }
 
-  /* Vraca se dobijena vrednost */
+  /* Vraca se izracunata vrednost */
   return broj_parova;
 }
 

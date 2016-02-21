@@ -7,7 +7,7 @@ kompleksan_broj.c se nalaze njihove definicije.
 Kompilacija programa se najjednostavnije postize naredbom
 gcc -Wall -lm -o kompleksan_broj kompleksan_broj.c main.c 
  
-Kompilacija se moze uraditi i na sledeci nacin:
+Kompilacija se moze uraditi i postupno, na sledeci nacin:
 gcc -Wall -c -o kompleksan_broj.o kompleksan_broj.c
 gcc -Wall -c -o main.o main.c
 gcc -lm -o kompleksan_broj kompleksan_broj.o main.o

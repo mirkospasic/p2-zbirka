@@ -20,7 +20,7 @@ typedef struct {
    se nalazi polinom koji ispisujemo */
 void ispisi(const Polinom * p);
 
-/* Funkcija koja ucitava polinom sa tastature */
+/* Funkcija koja ucitava polinom sa standardnog ulaza */
 Polinom ucitaj();
 
 /* Funkcija racuna i vraca vrednost polinoma p u tacki x Hornerovim

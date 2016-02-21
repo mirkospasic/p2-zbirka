@@ -49,7 +49,7 @@ unsigned vrati_bitove(unsigned x, unsigned n, unsigned p)
 
   /* Najpre se vrednost promenljive x pomera u desno tako da trazeno
      polje bude uz desni kraj. Zatim se maskiraju ostali bitovi, sem
-     zeljenih n i funkcija vraca tako dobijenu vrednost */
+     zeljenih n i funkcija vraca tako izracunatu vrednost */
   return maska & (x >> (p - n + 1));
 }
 
@@ -110,7 +110,7 @@ int main()
   scanf("%u", &y);
 
   /* Ispisuju se binarne reprezentacije broja x i broja koji se
-     dobije kada se primeni funkcija postavi_0 za x, n i p */
+     izracuna primenom funkcije postavi_0 za x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("postavi_0(%10u,%6u,%6u)%16s = ", x, n, p, "");
@@ -118,7 +118,7 @@ int main()
   printf("\n");
 
   /* Ispisuju se binarne reprezentacije broja x i broja koji se
-     dobije kada se primeni funkcija postavi_1 za x, n i p */
+     izracuna primenom funkcije postavi_1 za x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("postavi_1(%10u,%6u,%6u)%16s = ", x, n, p, "");
@@ -126,7 +126,7 @@ int main()
   printf("\n");
 
   /* Ispisuju se binarne reprezentacije broja x i broja koji se
-     dobije kada se primeni funkcija vrati_bitove za x, n i p */
+     izracuna primenom funkcije vrati_bitove za x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("vrati_bitove(%10u,%6u,%6u)%13s = ", x, n, p, "");
@@ -134,7 +134,7 @@ int main()
   printf("\n");
 
   /* Ispisuju se binarne reprezentacije brojeva x, y i broja koji se
-     dobije kada se primeni funkcija postavi_1_n_bitova za x, n, p */
+     izracuna primenom funkcije postavi_1_n_bitova za x, n, p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("y = %10u %36s = ", y, "");
@@ -144,7 +144,7 @@ int main()
   printf("\n");
 
   /* Ispisuju se binarne reprezentacije broja x i broja koji se
-     dobije kada se primeni funkcija invertuj za x, n i p */
+     izracuna primenom funkcije invertuj za x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("invertuj(%10u,%6u,%6u)%17s = ", x, n, p, "");

@@ -26,7 +26,7 @@ unsigned najveci(unsigned x)
     }
   }
 
-  /* Vraca se dobijena vrednost */
+  /* Vraca se izracunata vrednost */
   return rezultat;
 }
 
@@ -52,7 +52,7 @@ unsigned najmanji(unsigned x)
     }
   }
 
-  /* Vraca se dobijena vrednost */
+  /* Vraca se izracunata vrednost */
   return rezultat;
 }
 

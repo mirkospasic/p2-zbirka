@@ -39,7 +39,7 @@ void prevod(unsigned int x, char s[])
        dobija dodavanjem ASCII koda '0'. Ako je vrednost iz opsega
        od 10 do 15 odgovarajuci karakter se dobija tako sto se prvo
        oduzme 10 (time se dobiju vrednosti od 0 do 5) pa se na tako
-       dobijenu vrednost doda ASCII kod 'A' (time se dobija
+       izracunatu vrednost dodaje ASCII kod 'A' (time se dobija
        odgovarajuce slovo 'A', 'B', ... 'F') */
     if (vrednost < 10) {
       s[i] = vrednost + '0';
@@ -67,7 +67,7 @@ int main()
   /* Poziva se funkcija za prevodjenje */
   prevod(x, s);
 
-  /* I stampa se dobijena niska */
+  /* I stampa se formirana niska */
   printf("%s\n", s);
 
   return 0;

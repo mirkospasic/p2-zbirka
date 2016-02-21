@@ -23,7 +23,7 @@ unsigned ogledalo(unsigned x)
     rezultat |= najnizi_bit;
   }
 
-  /* Vraca se dobijena vrednost */
+  /* Vraca se izracunata vrednost */
   return rezultat;
 }
 
@@ -37,7 +37,7 @@ int main()
   /* Ispisuje se njegova binarna reprezentacija */
   stampaj_bitove(broj);
 
-  /* Ispisuje se i binarna reprezentacija broja dobijenog pozivom
+  /* Ispisuje se i binarna reprezentacija broja izracunatog pozivom
      funkcije ogledalo */
   stampaj_bitove(ogledalo(broj));
 

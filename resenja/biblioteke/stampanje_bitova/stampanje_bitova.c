@@ -6,7 +6,7 @@ void stampaj_bitove(unsigned x)
   /* Broj bitova celog broja */
   unsigned velicina = sizeof(unsigned) * 8;
 
-  /* Maska koja se koristi za "ocitavanje" bitova celog broja */
+  /* Maska koja se koristi za ocitavanje bitova celog broja */
   unsigned maska;
 
   /* Pocetna vrednost maske se postavlja na broj ciji binarni zapis
@@ -30,7 +30,7 @@ void stampaj_bitove_short(short x)
   /* Broj bitova celog broja tipa short */
   unsigned velicina = sizeof(short) * 8;
 
-  /* Maska koja se koristi za "ocitavanje" bitova broja tipa short */
+  /* Maska koja se koristi za ocitavanje bitova broja tipa short */
   unsigned short maska;
 
   for (maska = 1 << (velicina - 1); maska != 0; maska >>= 1)
@@ -44,7 +44,7 @@ void stampaj_bitove_char(char x)
   /* Broj bitova karaktera */
   unsigned velicina = sizeof(char) * 8;
 
-  /* Maska koja se koristi za "ocitavanje" bitova jednog karaktera */
+  /* Maska koja se koristi za ocitavanje bitova jednog karaktera */
   unsigned char maska;
 
   for (maska = 1 << (velicina - 1); maska != 0; maska >>= 1)

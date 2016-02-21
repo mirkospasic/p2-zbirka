@@ -24,7 +24,7 @@ unsigned rotiraj_ulevo(int x, unsigned n)
     x = x << 1 | (bit_najvece_tezine ? 1 : 0);
   }
 
-  /* Vraca se dobijena vrednost */
+  /* Vraca se izracunata vrednost */
   return x;
 }
 
@@ -47,7 +47,7 @@ unsigned rotiraj_udesno(unsigned x, unsigned n)
     x = x >> 1 | bit_najmanje_tezine << (sizeof(unsigned) * 8 - 1);
   }
 
-  /* Vraca se dobijena vrednost */
+  /* Vraca se izracunata vrednost */
   return x;
 }
 
@@ -98,7 +98,7 @@ int rotiraj_udesno_oznaceni(int x, unsigned n)
       x = (x >> 1) | bit_najmanje_tezine << (sizeof(int) * 8 - 1);
   }
 
-  /* Vraca se dobijena vrednost */
+  /* Vraca se izracunata vrednost */
   return x;
 }
 
