@@ -36,9 +36,9 @@ void ref_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 }
 
 /* Funkcija proverava da li je relacija simetricna. Relacija je
-   simetricna ako za svaki par elemenata vazi: ako je element "i" u
-   relaciji sa elementom "j", onda je i element "j" u relaciji sa
-   elementom "i". Ovakve matrice su simetricne u odnosu na glavnu
+   simetricna ako za svaki par elemenata vazi: ako je element i u
+   relaciji sa elementom j, onda je i element j u relaciji sa
+   elementom i. Ovakve matrice su simetricne u odnosu na glavnu
    dijagonalu */
 int simetricnost(int m[][MAX], int n)
 {
@@ -74,9 +74,9 @@ void sim_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 
 
 /* Funkcija proverava da li je relacija tranzitivna. Relacija je
-   tranzitivna ako ispunjava sledece svojstvo: ako je element "i" u
-   relaciji sa elementom "j" i element "j" u relaciji sa elementom
-   "k", onda je i element "i" u relaciji sa elementom "k" */
+   tranzitivna ako ispunjava sledece svojstvo: ako je element i u
+   relaciji sa elementom j i element j u relaciji sa elementom k,
+   onda je i element i u relaciji sa elementom k */
 int tranzitivnost(int m[][MAX], int n)
 {
   int i, j, k;
@@ -137,7 +137,7 @@ int main(int argc, char *argv[])
   int pomocna[MAX][MAX];
   int n, i, j;
 
-  /* Provera da li korisnik nije uneo trazene argumente */
+  /* Proverava se da li korisnik nije uneo trazene argumente */
   if (argc < 2) {
     printf("Greska: ");
     printf("Nedovoljan broj argumenata komandne linije.\n");

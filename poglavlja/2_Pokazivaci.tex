@@ -293,7 +293,7 @@ putanju do datoteke za koju treba proveriti koliko reči ima
 zadati sufiks (ili prefiks), koji se zadaje kao drugi argument
 komandne linije. Smatrati da reč ne sadrži više od $100$ karaktera.
 Program je neophodno pozvati sa jednom od opcija
-\kckod{-s} ili \kckod{-p} u zavisnosti od čega treba proveriti
+\kckod{-s} ili \kckod{-p}. U zavisnosti od opcije program proverava
 koliko reči ima zadati sufiks (ili prefiks). U zadatku ne
 koristiti ugrađene funkcije za rad sa niskama, već
 implementirati svoje koristeći pokazivačku sintaksu.
@@ -643,7 +643,7 @@ učitane matrice.
 \linkresenje{2_13}
 \end{Exercise}
 \begin{Answer}[ref=2_13]
-\includecode{resenja/2_Pokazivaci/2_12.c}
+\includecode{resenja/2_Pokazivaci/2_13.c}
 \end{Answer}
 
 \begin{Exercise}[label=2_14]
@@ -752,8 +752,8 @@ Od korisnika sa ulaza tražiti da izabere način realokacije memorije.
 Napisati funkciju koja kao rezultat vraća nisku koja se dobija
 nadovezivanjem dve niske, bez promene njihovog sadržaja.
 Napisati program koji testira rad napisane funkcije. Sa
-standardnog ulaza učitati dve niske karaktera (pretpostaviti da 
-niske nisu duže od $50$ karaktera i da ne sadrže praznine). Na 
+standardnog ulaza učitati dve niske karaktera. Pretpostaviti da 
+niske neće biti duže od $50$ karaktera i da neće sadržati praznine. Na 
 standardni izlaz ispisati nisku koja se dobija njihovim nadovezivanjem. 
 Za rezultujuću nisku dinamički alocirati memoriju.
 
@@ -783,9 +783,8 @@ Za rezultujuću nisku dinamički alocirati memoriju.
 \begin{Exercise}[label=2_18]
 Napisati program koji sa standardnog ulaza učitava matricu
 realnih brojeva. Prvo se učitavaju broj vrsta $n$ i broj kolona
-$m$ matrice (ne praviti nikakve pretpostavke o njihovoj veličini),
-a zatim i elementi matrice. Na standardni izlaz ispisati trag
-matrice.
+$m$ matrice, a zatim i elementi matrice. Na standardni izlaz ispisati trag
+matrice. Ne praviti nikakve pretpostavke o maksimalnoj dimenziji matrice.
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -862,9 +861,8 @@ Napisati biblioteku za rad sa celobrojnim matricama.
 Napisati programe koji testiraju napisanu biblioteku.
 
 \begin{enumerate}
-\item[(1)] Program učitava dimenziju nekvadratne matrice sa
-  standardnog ulaza, a zatim i samu matricu. Potom, matricu upisati u
-  datoteku $matrica.txt$.
+\item[(1)] Sa standardnog ulaza učitati broj vrsta i broj kolona matrice, a zatim i
+  elemente matrice. Nakon toga sadržaj matrice upisati u datoteku $matrica.txt$.
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -893,9 +891,8 @@ Napisati programe koji testiraju napisanu biblioteku.
 \end{upotreba}
 \end{miditest}
 
-\item[(2)] Program prima kao prvi argument komandne linije putanju do
-  datoteke u kojoj se redom nalazi dimenzija kvadratne matrice i sama
-  matrica, koju treba ispisati na standardnom izlazu.
+\item[(2)] Program prima kao prvi argument komandne linije putanju do datoteke u
+  kojoj se, redom, nalaze dimenzija i elementi kvadratne matrice. Zatim učitava matricu i ispisuje je na standardnom izlazu.
   
 \begin{minitest}
 \begin{test}{1}
@@ -1036,7 +1033,7 @@ glavnoj dijagonali ostavlja nepromenjene.
 \end{enumerate}
 Napisati program koji testira ove funkcije za matricu koja se
 učitava iz datoteke čije se ime zadaje kao argument komandne linije. 
-U datoteci se nalazi prvo dimenzija matrice, a zatim redom elementi matrice.
+U datoteci se nalazi prvo dimenzija matrice, a zatim, redom, elementi matrice.
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -1112,7 +1109,7 @@ matricu ispisati na standardni izlaz.
 %\end{Answer}
 \skrati{2}
 \begin{Exercise}[label=2_24]
-Na ulazu se zadaje niz celih brojeva čiji se unos završava nulom.
+Na standardnom ulazu se zadaje niz celih brojeva čiji se unos završava nulom.
 Napisati funkciju koja od zadatog niza formira matricu tako da
 prva vrsta odgovara unetom nizu, a svaka naredna se dobija
 cikličkim pomeranjem elemenata niza za jednu poziciju ulevo.
@@ -1244,10 +1241,10 @@ površine. Pretpostavka je da će mnogougao biti konveksan.
 
 \begin{Exercise}[label=2_27]
 Napisati program koji tabelarno štampa vrednosti proizvoljne realne funkcije sa jednim realnim
-argumentomo, odnosno izračunava i ispisuje vrednosti date funkcije u
+argumentom, odnosno izračunava i ispisuje vrednosti date funkcije u
 $n$ ekvidistantnih tačaka na intervalu $[a, b]$. Realni brojevi
-$a$ i $b$ ($a<b$) kao i ceo broj $n$
-($n \geq 2$) se učitavaju sa standardnog ulaza. Ime funkcije
+$a$ i $b$ ($a<b$), kao i ceo broj $n$
+($n \geq 2$), učitavaju se sa standardnog ulaza. Ime funkcije
 se zadaje kao argument komandne linije (\kckod{sin}, \kckod{cos}, \kckod{tan}, \kckod{atan},
 \kckod{acos}, \kckod{asin}, \kckod{exp}, \kckod{log}, \kckod{log10}, \kckod{sqrt}, \kckod{floor}, \kckod{ceil}, \kckod{sqr}).
 
@@ -1300,9 +1297,9 @@ se zadaje kao argument komandne linije (\kckod{sin}, \kckod{cos}, \kckod{tan}, \
 Napisati funkciju koja izračunava limes funkcije \kckod{f(x)} u   
 tački $a$. Adresa funkcije \kckod{f} čiji se limes računa
 se prenosi kao parametar funkciji za računanje limesa.  Limes se
-računa sledećom aproksimacijom (vrednosti $n$ i $a$ uneti sa
-standardnog ulaza kao i ime funkcije):
+računa sledećom aproksimacijom:
 $$ lim_{x \rightarrow a} f(x) = lim_{n \rightarrow \infty} f(a + \frac{1}{n})$$
+Sa standardnog ulaza uneti ime funkcije i vrednosti $n$ i $a$ .
 
 \begin{miditest}
 \begin{upotreba}{1}

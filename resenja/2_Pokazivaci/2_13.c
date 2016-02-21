@@ -24,7 +24,7 @@ void ispisi_matricu_spiralno(int a[][MAX_K], int n, int m)
     for (j = levo; j <= desno; j++)
       printf("%d ", a[vrh][j]);
 
-    /* Spusta se prvi red */
+    /* Spusta se prvi red za naredni krug ispisa */
     vrh++;
 
     if (kraj_ispisa(vrh, dno, levo, desno))

@@ -21,7 +21,7 @@ int main()
   /* Dinamicki se rezervise prostor za niz vrsta matrice */
   A = (double **) malloc(sizeof(double *) * n);
 
-  /* Provera se da li je uspelo rezervisanje memorije */
+  /* Proverava se da li je uspelo rezervisanje memorije */
   if (A == NULL) {
     fprintf(stderr, "Greska: Neupesna alokacija memorije.\n");
     exit(EXIT_FAILURE);

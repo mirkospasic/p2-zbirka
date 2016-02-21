@@ -3,7 +3,7 @@
 
 #define MAX 100
 
-/* Funkcija obrce elemente niza koriscenjem indekse sintakse */
+/* Funkcija obrce elemente niza koriscenjem indeksne sintakse */
 void obrni_niz_v1(int a[], int n)
 {
   int i, j;
@@ -25,16 +25,15 @@ void obrni_niz_v2(int *a, int n)
   for (prvi = a, poslednji = a + n - 1; prvi < poslednji;) {
     int t = *prvi;
 
-    /* Na adresu na koju pokazuje pokazivac "prvi" postavlja se
+    /* Na adresu na koju pokazuje pokazivac prvi postavlja se
        vrednost koja se nalazi na adresi na koju pokazuje pokazivac
-       "poslednji". Nakon toga se pokazivac "prvi" uvecava za jedan
-       sto za posledicu ima da "prvi" pokazuje na sledeci element u
-       nizu */
+       poslednji. Nakon toga se pokazivac prvi uvecava za jedan sto
+       za posledicu ima da prvi pokazuje na sledeci element u nizu */
     *prvi++ = *poslednji;
 
-    /* Vrednost promenljive "t" se postavlja na adresu na koju
-       pokazuje pokazivac "poslednji". Ovaj pokazivac se zatim
-       umanjuje za jedan, cime pokazivac "poslednji" pokazuje na
+    /* Vrednost promenljive t se postavlja na adresu na koju
+       pokazuje pokazivac poslednji. Ovaj pokazivac se zatim
+       umanjuje za jedan, cime pokazivac poslednji pokazuje na
        element koji mu prethodi u nizu */
     *poslednji-- = t;
   }

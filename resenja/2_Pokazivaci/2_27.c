@@ -5,7 +5,7 @@
 
 /* Funkcija tabela() prihvata granice intervala a i b, broj
    ekvidistantnih tacaka n, kao i pokazivac f koji pokazuje na
-   funkciju koja prihvata double argument, i vraca double vrednost.
+   funkciju koja prihvata double argument i vraca double vrednost.
    Za tako datu funkciju ispisuju se njene vrednosti u intervalu
    [a,b] u n ekvidistantnih tacaka intervala */
 void tabela(double a, double b, int n, double (*fp) (double))
@@ -103,8 +103,8 @@ int main(int argc, char *argv[])
   /* Ispisuje se ime funkcije */
   printf("     x %10s(x)\n", ime_funkcije);
 
-  /* Prosledjuje se funkciji tabela() funkcija zadata kao argument
-     komandne linije */
+  /* Funkciji tabela() se prosledjuje funkcija koja je zadata kao
+     argument komandne linije */
   tabela(a, b, n, fp);
 
   exit(EXIT_SUCCESS);

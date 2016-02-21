@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 
   printf("Broj argumenata komandne linije je %d.\n", argc);
 
-  printf("Kako zelite da ispisete argumente, koriscenjem"
+  printf("Kako zelite da ispisete argumente? Koriscenjem"
          " indeksne ili pokazivacke sintakse (I ili P)? ");
   scanf("%c", &tip_ispisa);
 
@@ -24,11 +24,11 @@ int main(int argc, char *argv[])
     for (; argc > 0; argc--)
       printf("%d %s\n", i - argc, *argv++);
 
-    /* Nakon ove petlje "argc" je jednako nuli a "argv" pokazuje na
+    /* Nakon ove petlje argc je jednako nuli, a argv pokazuje na
        polje u memoriji koje se nalazi iza poslednjeg argumenta
-       komandne linije. Kako je u promenljivoj "i" sacuvana vrednost
+       komandne linije. Kako je u promenljivoj i sacuvana vrednost
        broja argumenta komandne linije to sada moze ponovo da se
-       postavi "argv" da pokazuje na nulti argument komandne linije */
+       postavi argv da pokazuje na nulti argument komandne linije */
     argv = argv - i;
     argc = i;
   }

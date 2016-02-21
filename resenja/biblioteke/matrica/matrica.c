@@ -51,7 +51,7 @@ int **dealociraj_matricu(int **matrica, int n)
 void ucitaj_matricu(int **matrica, int n, int m)
 {
   int i, j;
-  /* Elementi matrice se ucitacaju po vrstama */
+  /* Elementi matrice se ucitavaju po vrstama */
   for (i = 0; i < n; i++)
     for (j = 0; j < m; j++)
       scanf("%d", &matrica[i][j]);
@@ -83,7 +83,7 @@ void ispisi_kvadratnu_matricu(int **matrica, int n)
 int ucitaj_matricu_iz_datoteke(int **matrica, int n, int m, FILE * f)
 {
   int i, j;
-  /* Elementi matrice se ucitacaju po vrstama */
+  /* Elementi matrice se ucitavaju po vrstama */
   for (i = 0; i < n; i++)
     for (j = 0; j < m; j++)
       /* Ako je nemoguce ucitati sledeci element, povratna vrednost
