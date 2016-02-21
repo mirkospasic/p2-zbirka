@@ -8,16 +8,12 @@ int main(int argc, char **argv)
   int n;
 
   /* Unosi se polinom p */
-  printf
-      ("Unesite polinom p (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):\n");
   p = ucitaj();
 
   /* Ispisuje se polinom p */
   ispisi(&p);
 
   /* Unosi se polinom q */
-  printf
-      ("Unesite drugi polinom q (prvo stepen, pa zatim koeficijente od najveceg stepena do nultog):\n");
   q = ucitaj();
 
   /* Polinomi se sabiraju i ispisuje se izracunati zbir */
@@ -36,7 +32,7 @@ int main(int argc, char **argv)
   printf("Vrednost polinoma z u tacki %.2f je %.2f\n", x,
          izracunaj(&z, x));
 
-  /* Racuna se n-ti izvoda polinoma i ispisuje se dobijeni polinoma */
+  /* Racuna se n-ti izvod polinoma i ispisuje se rezultat */
   printf("Unesite izvod polinoma koji zelite:\n");
   scanf("%d", &n);
   r = n_izvod(&r, n);

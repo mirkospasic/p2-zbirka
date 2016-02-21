@@ -22,7 +22,7 @@ gcc -I header_dir -Wall -lm -o kompleksan_broj kompleksan_broj.c
 
 
 #include <stdio.h>
-/* Ukljucuje se zaglavlje neophodno za rad sa kompleksnim brojevima */
+/* Ukljucuje se zaglavlje za rad sa kompleksnim brojevima */
 #include "kompleksan_broj.h"
 
 /* U glavnoj funkciji se za uneti kompleksan broj ispisuje njegov

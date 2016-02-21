@@ -27,13 +27,13 @@ int prebroj_bitove_2(int x)
   int br = 0;
   unsigned broj_pomeranja = sizeof(int) * 8 - 1;
 
-  /* Kako je argument funkcije oznacen ceo broj x naredba x>>=1 bi
-     vrsila aritmeticko pomeranje u desno, tj. popunjavanje bita
-     najvece tezine bitom znaka. U tom slucaju nikad ne bi bio
-     ispunjen uslov x!=0 i program bi bio zarobljen u beskonacnoj
-     petlji. Zbog toga se koristi pomeranje broja x ulevo i maska
-     koja ocitava bit najvece tezine. */
-
+  /* Kako je argument funkcije oznacen ceo broj x naredba x>>=1 
+     vrsi aritmeticko pomeranje u desno, tj. popunjavanje bita
+     najvece tezine bitom znaka. U tom slucaju, za negativnu 
+     vrednost promenljive x, nikad ne bi bio ispunjen uslov 
+     x!=0 i program bi bio zarobljen u beskonacnoj petlji. Zbog 
+     toga se koristi pomeranje broja x ulevo i maska koja 
+     ocitava bit najvece tezine. */
   unsigned maska = 1 << broj_pomeranja;
   for (; x != 0; x <<= 1)
     x & maska ? br++ : 1;

@@ -39,6 +39,9 @@ Polinom ucitaj()
   int i;
   Polinom p;
 
+  printf("Unesite polinom p (prvo stepen, pa zatim koeficijente");
+  printf(" od najveceg stepena do nultog):\n");
+
   /* Ucitava se stepena polinoma */
   scanf("%d", &p.stepen);
 
@@ -59,15 +62,15 @@ Polinom ucitaj()
 
 double izracunaj(const Polinom * p, double x)
 {
-  /* Rezultat se na pocetku inicijalizuje na nulu, a potom se u
-     svakoj iteraciji najpre mnozi sa x, a potom i uvecava za
-     vrednost odgovarajuceg koeficijenta */
-
   /* Primer: Hornerov algoritam za polinom x^4+2x^3+3x^2+2x+1:
      x^4+2x^3+3x^2+2x+1 = (((x+2)*x + 3)*x + 2)*x + 1 */
 
   double rezultat = 0;
   int i = p->stepen;
+
+  /* Rezultat se na pocetku inicijalizuje na nulu, a potom se u
+     svakoj iteraciji najpre mnozi sa x, a potom i uvecava za
+     vrednost odgovarajuceg koeficijenta */
   for (; i >= 0; i--)
     rezultat = rezultat * x + p->koef[i];
   return rezultat;
@@ -75,12 +78,12 @@ double izracunaj(const Polinom * p, double x)
 
 Polinom saberi(const Polinom * p, const Polinom * q)
 {
-  Polinom rez;
+  Polinom r;
   int i;
 
   /* Stepen rezultata ce odgovarati stepenu polinoma sa vecim
      stepenom */
-  rez.stepen = p->stepen > q->stepen ? p->stepen : q->stepen;
+  r.stepen = p->stepen > q->stepen ? p->stepen : q->stepen;
 
   /* Racunaju se svi koeficijenti rezultujuceg polinoma tako sto se
      sabiraju koeficijenti na odgovarajucim pozicijama polinoma koje
@@ -88,13 +91,13 @@ Polinom saberi(const Polinom * p, const Polinom * q)
      od stepena nekog od polaznih polinoma podrazumeva se da je
      koeficijent jednak koeficijentu uz odgovarajuci stepen iz drugog 
      polinoma */
-  for (i = 0; i <= rez.stepen; i++)
-    rez.koef[i] =
+  for (i = 0; i <= r.stepen; i++)
+    r.koef[i] =
         (i > p->stepen ? 0 : p->koef[i]) +
         (i > q->stepen ? 0 : q->koef[i]);
 
-  /* Vraca se dobijeni polinom */
-  return rez;
+  /* Vraca se izracunati polinom */
+  return r;
 }
 
 Polinom pomnozi(const Polinom * p, const Polinom * q)
@@ -120,7 +123,7 @@ Polinom pomnozi(const Polinom * p, const Polinom * q)
     for (j = 0; j <= q->stepen; j++)
       r.koef[i + j] += p->koef[i] * q->koef[j];
 
-  /* Vraca se dobijeni polinom */
+  /* Vraca se izracunati polinom */
   return r;
 }
 
@@ -142,7 +145,7 @@ Polinom izvod(const Polinom * p)
   } else
     r.koef[0] = r.stepen = 0;
 
-  /* Vraca se dobijeni polinom */
+  /* Vraca se izracunati polinom */
   return r;
 }
 

@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
     break;
   }
 
-  /* Upisuje se dobijeni niz u izlaznu datoteku */
+  /* Niz se upisuje u izlaznu datoteku */
   for (i = 0; i < n; i++) {
     fprintf(izlaz, "%d %d\n", tacke[i].x, tacke[i].y);
   }
