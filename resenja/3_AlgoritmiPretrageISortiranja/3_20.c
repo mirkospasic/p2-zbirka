@@ -99,7 +99,7 @@ int main()
 
   /*****************************************************************
     Ovaj deo je iskomentarisan jer se u zadatku ne trazi ispis
-    sortiranih nizova. Koristi je samo u fazi testiranja programa.
+    sortiranih nizova. Koristi se samo u fazi testiranja programa.
 
     printf("Biracki spisak [uredjen prema imenima]:\n");
     for(i=0; i<n; i++)
@@ -110,7 +110,7 @@ int main()
 
   /*****************************************************************
     Ovaj deo je iskomentarisan jer se u zadatku ne trazi ispis
-    sortiranih nizova. Koristi je samo u fazi testiranja programa.
+    sortiranih nizova. Koristi se samo u fazi testiranja programa.
 
     printf("Biracki spisak [uredjen prema prezimenima]:\n");
     for(i=0; i<n; i++)
