@@ -6,7 +6,7 @@
 \begin{Exercise}[label=4_01]
 Napisati biblioteku za rad sa jednostruko povezanom listom čiji čvorovi sadrže cele brojeve. 
 \begin{enumerate}
-\item Definisati strukturu \kckod{Cvor} kojom se predstavlja čvor liste. Čvor treba da sadrži ceo broj \argf{vrednost} i pokazivač na sledeći čvor liste.
+\item Definisati strukturu \kckod{Cvor} kojom se predstavlja čvor liste, a koja sadrži ceo broj \argf{vrednost} i pokazivač na sledeći čvor liste.
 
 \item Napisati funkciju \kckod{Cvor *napravi\_cvor(int broj)} koja kao argument dobija ceo broj, kreira nov čvor liste, inicijalizuje mu polja i vraća njegovu adresu.
 
@@ -567,7 +567,7 @@ drugi argument komandne linije. Rezultujuću listu ispisati na standardni izlaz.
 %=========================================================================
 \begin{Exercise}[label=4_08]
 Sadržaj datoteke je aritmetički izraz koji može sadržati zagrade \{, [ i (. 
-Napisati program koji učitava sadržaj datoteke \kckod{izraz.txt} i korišćenjem steka 
+Napisati program koji učitava sadržaj datoteke \kckod{izraz.txt} i korišćenjem steka (engl.~{\em stack})
 utvrđuje da li su zagrade u aritmetičkom izrazu dobro uparene. Program štampa odgovarajuću poruku na standardni izlaz.
 
 \begin{miditest}
@@ -754,7 +754,7 @@ Službenik redom pregleda zahteve i odlučuje da li zahtev obrađuje odmah ili k
 \kckod{Da li korisnika  vracate na kraj reda?} i ukoliko on da odgovor $Da$, 
 korisnik se stavlja na kraj reda, čime se obrada njegovog zahteva odlaže. Ukoliko odgovor nije $Da$, službenik obrađuje zahtev i podatke o korisniku dopisuje na kraj datoteke \kckod{izvestaj.txt}. Ova datoteka, za svaki obrađen zahtev, sadrži $JMBG$ i zahtev usluženog korisnika.
 Posle svakog $petog$ usluženog korisnika službeniku se nudi mogućnost da prekine sa radom, nevezano od broja korisnika koji i dalje čekaju u redu. 
-\uputstvo{Za čuvanje korisničkih zahteva koristiti red implementiran korišćenjem listi.}
+\uputstvo{Za čuvanje korisničkih zahteva koristiti red (engl.~{\em queue}) implementiran korišćenjem listi.}
 
 \begin{maxitest}
 \begin{upotreba}{1}

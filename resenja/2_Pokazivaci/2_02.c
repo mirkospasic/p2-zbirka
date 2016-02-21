@@ -25,7 +25,7 @@ double proizvod(double *a, int n)
   return p;
 }
 
-/* Funkcija izracunava minimalni element niza */
+/* Funkcija odredjuje minimalni element niza */
 double min(double *a, int n)
 {
   /* Na pocetku, minimalni element je prvi element */
@@ -41,7 +41,7 @@ double min(double *a, int n)
   return min;
 }
 
-/* Funkcija izracunava maksimalni element niza */
+/* Funkcija odredjuje maksimalni element niza */
 double max(double *a, int n)
 {
   /* Na pocetku, maksimalni element je prvi element */
