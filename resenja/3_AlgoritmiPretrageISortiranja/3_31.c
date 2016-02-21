@@ -9,18 +9,26 @@
 int poredi_int(const void *a, const void *b)
 {
   /* Potrebno je konvertovati void pokazivace u int pokazivace koji
-     se zatim dereferenciraju. Vraca se razlika dobijenih int-ova. */
+     se zatim dereferenciraju. */
   int b1 = *((int *) a);
   int b2 = *((int *) b);
 
-  /* Zbog moguceg prekoracenja opsega celih brojeva, oduzimanje
-     b1-b2 treba izbegavati */
+  /* Vrsi se poredjenje ovih vrednosti. */
   if (b1 > b2)
     return 1;
   else if (b1 < b2)
     return -1;
   else
     return 0;
+
+  /**************************************************************
+     Umesto poredjenja, moze se koristiti naredba 
+       return b1 - b2;
+     Ipak, zbog moguceg prekoracenja prilikom oduzimanja, ovakvo
+     resenje se koristi samo onda kada imamo ogranicene vrednosti
+     promenljivih koje poredimo tj. kada ocekujemo da do
+     prekoracenja ne moze da dodje.
+     ************************************************************/
 }
 
 /* Funkcija poredjenja dva cela broja (nerastuci poredak) */

@@ -10,7 +10,7 @@ Napisati biblioteku za rad sa jednostruko povezanom listom čiji čvorovi sadrž
 
 \item Napisati funkciju \kckod{Cvor *napravi\_cvor(int broj)} koja kao argument dobija ceo broj, kreira nov čvor liste, inicijalizuje mu polja i vraća njegovu adresu.
 
- \item Napisati funkciju \kckod{int dodaj\_na\_pocetak\_liste(Cvor ** adresa\_glave, int broj)} koja dodaje novi čvor sa vrednošću \argf{broj} na početak liste, čija glava se nalazi na adresi \argf{adresa\_glave}.
+ \item Napisati funkciju \kckod{int dodaj\_na\_pocetak\_liste(Cvor ** adresa\_glave, int broj)} koja dodaje novi čvor sa vrednošću \argf{broj} na početak liste čija glava se nalazi na adresi \argf{adresa\_glave}.
 
  \item Napisati funkciju \kckod{Cvor *pronadji\_poslednji(Cvor * glava)} koja pronalazi poslednji čvor u listi.
 
@@ -22,7 +22,7 @@ Napisati biblioteku za rad sa jednostruko povezanom listom čiji čvorovi sadrž
 
  \item Napisati funkciju \kckod{int dodaj\_sortirano(Cvor ** adresa\_glave, int broj)} koja dodaje novi elemenat u neopadajuće uređenu listu tako da se očuva postojeće uređenje.
 
- \item Napisati funkciju \kckod{void ispisi\_listu(Cvor * glava)} koja ispisuje čvorove liste uokvirene zagradama [, ] i međusobno razdvojene zapetama.
+ \item Napisati funkciju \kckod{void ispisi\_listu(Cvor * glava)} koja ispisuje vrednosti u čvorovima liste uokvirene zagradama [, ] i međusobno razdvojene zapetama.
 
  \item Napisati funkciju \kckod{Cvor *pretrazi\_listu(Cvor * glava, int broj)} koja proverava da li se u listi nalazi čvor čija je vrednost jednaka argumentu \argf{broj}. Funkcija vraća pokazivač na pronađeni čvor ili $NULL$ ukoliko ga ne pronađe.
 
@@ -36,14 +36,14 @@ Napisati biblioteku za rad sa jednostruko povezanom listom čiji čvorovi sadrž
  \end{enumerate}
 
 Funkcije dodavanja novog elementa u postojeću listu poput, \kckod{dodaj\_na\_pocetak\_liste}, \kckod{dodaj\_na\_kraj\_liste} i \kckod{dodaj\_sortirano}, 
-treba da vrate $0$, ukoliko je sve bilo u redu, odnosno $1$, ukoliko se dogodila greška prilikom alokacije memorije za nov čvor.
+treba da vrate $0$, ako je sve bilo u redu, odnosno $1$, ako se dogodila greška prilikom alokacije memorije za nov čvor.
 \napomena{Sve funkcije za rad sa listom implementirati iterativno.}
 
 Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata koji se unose sa standardnog ulaza.  Unošenje novih brojeva u listu prekida se učitavanjem kraja ulaza (\kckod{EOF}). Svako dodavanje novog broja u listu ispratiti ispisivanjem trenutnog sadržaja liste. 
 
 \begin{enumerate}
 \item[(1)] U programu se učitani celi brojevi dodaju na početak liste. 
-    Unosi se ceo broj koji se traži u unetoj listi i na standardni izlaz se ispisuje rezultat pretrage. 
+    Zatim se unosi ceo broj koji se traži u unetoj listi i na standardni izlaz se ispisuje rezultat pretrage. 
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -95,7 +95,7 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 
 
 \item[(2)] U programu se učitani celi brojevi dodaju na kraj liste. 
-    Unosi se ceo broj čija se sva pojavljivanja u listi brišu. Na standardni izlaz se ispisuje sadržaj liste nakon brisanja.
+    Zatim se unosi ceo broj čija se sva pojavljivanja u listi brišu i na standardni izlaz se ispisuje sadržaj liste nakon brisanja.
 
 \begin{miditest}
 \begin{upotreba}{1}
@@ -225,7 +225,7 @@ Napisati programe koji koriste jednostruko povezanu listu za čuvanje elemenata 
 \skrati{3}
 \begin{Exercise}[label=4_02]
 Napisati biblioteku za rad sa jednostruko povezanim listama koja sadrži sve funkcije iz zadatka \ref{4_01}, ali tako da funkcije budu implementirane rekurzivno. 
-\napomena{Koristiti \kckod{main} programe i test primere iz zadatka \ref{4_01}.}
+\napomena{Koristiti \kckod{main} funkcije i test primere iz zadatka \ref{4_01}.}
 \linkresenje{4_02}
 \end{Exercise}
 \begin{Answer}[ref=4_02]
@@ -323,7 +323,7 @@ Napisati program kome se preko argumenata komandne linije prosleđuje ime datote
 Nakon završenog učitavanja svih podataka o studentima, sa standardnog ulaza unose se, jedan po jedan, indeksi studenata koji se traže u učitanoj listi. 
 Posle svakog unetog indeksa, program ispisuje poruku $da$ ili $ne$, u zavisnosti od toga da li u listi postoji student sa unetim indeksom ili ne. 
 Prekid unosa indeksa se vrši unošenjem karaktera za kraj ulaza (\kckod{EOF}). Poruke o greškama ispisivati na standardni izlaz za greške.
-\uputstvo{Pretpostaviti da je $10$ karaktera dovoljno za zapis indeksa i da je $20$ karaktera maksimalna dužina bilo imena bilo prezimena studenta.}
+Pretpostaviti da je $10$ karaktera dovoljno za zapis indeksa i da je $20$ karaktera maksimalna dužina bilo imena bilo prezimena studenta.
 
 % Dodavanje novog studenta izdvojiti u funkciju \kckod{void dodaj\_na\_pocetak\_liste(Cvor** glava, char* broj\_indeksa, char* ime, char* prezime)}.
 % Napisati rekurzivnu funkciju \kckod{Cvor* pretrazi\_listu(Cvor* glava, char* broj\_indeksa)} 
@@ -748,12 +748,12 @@ Poruke o greškama ispisivati na standardni izlaz za greške.
 %=========================================================================
 \begin{Exercise}[label=4_10]
 Napisati program koji pomaže službeniku u radu na šalteru.
-Službenik najpre evidentira sve korisničke $JMBG$ brojeve (niske koje sadrže po $13$ karaktera) i zahteve (niska koja sadrži najviše $999$ karaktera). 
+Službenik najpre evidentira sve korisničke $JMBG$ brojeve (niske koje sadrže po $13$ karaktera) i zahteve (niske koja sadrže najviše $999$ karaktera). 
 Prijem zahteva korisnika se prekida unošenjem karaktera za kraj ulaza (\kckod{EOF}).
 Službenik redom pregleda zahteve i odlučuje da li zahtev obrađuje odmah ili kasnije. Program mu postavlja pitanje 
 \kckod{Da li korisnika  vracate na kraj reda?} i ukoliko on da odgovor $Da$, 
 korisnik se stavlja na kraj reda, čime se obrada njegovog zahteva odlaže. Ukoliko odgovor nije $Da$, službenik obrađuje zahtev i podatke o korisniku dopisuje na kraj datoteke \kckod{izvestaj.txt}. Ova datoteka, za svaki obrađen zahtev, sadrži $JMBG$ i zahtev usluženog korisnika.
-Posle svakog $petog$ usluženog korisnika, službeniku se nudi mogućnost da prekine sa radom, nevezano od broja korisnika koji i dalje čekaju u redu. 
+Posle svakog $petog$ usluženog korisnika službeniku se nudi mogućnost da prekine sa radom, nevezano od broja korisnika koji i dalje čekaju u redu. 
 \uputstvo{Za čuvanje korisničkih zahteva koristiti red implementiran korišćenjem listi.}
 
 \begin{maxitest}
@@ -841,7 +841,7 @@ Sve funkcije za rad sa listom implementirati iterativno. Zbog efikasnog izvršav
 %=========================================================================
 \begin{Exercise}[difficulty=1,label=4_12]
 Grupa od $n$ plesača na kostimima ima brojeve od $1$ do $n$. 
-Plesači najpre formiraju krug tako da brojevi sa njihovih kostima rastu u smeru kazaljke na satu. Plesač sa brojem $1$ stavlja levu ruku na rame plesača sa brojem $2$, a desnu na svoj kuk i tako redom. Plesač sa brojem $n$ svoju levu ruku spušta na rame plesača sa brojem $1$, a desnu na svoj kuk i tako zatvara krug.
+Plesači najpre formiraju krug tako da brojevi sa njihovih kostimima rastu u smeru kazaljke na satu. Plesač sa brojem $1$ stavlja levu ruku na rame plesača sa brojem $2$, a desnu na svoj kuk i tako redom. Plesač sa brojem $n$ svoju levu ruku spušta na rame plesača sa brojem $1$, a desnu na svoj kuk i tako zatvara krug.
 Svoju plesnu tačku izvode tako što iz formiranog kruga najpre izlazi $k$-ti plesač. 
 Odbrojava se počevši od plesača označenog brojem $1$ u smeru kretanja kazaljke na satu. 
 Preostali plesači obrazuju manji krug tako što $k-1$-vi stavlja ruku na rame $k+1$-og i zatvara krug iz kog opet izlazi $k$-ti plesač. Odbrojavanje sada počinje od
