@@ -15,7 +15,7 @@ int main()
     s = (l + d) / 2;
     /* Ako je apsolutna vrednost kosinusa u ovoj tacki manja od
        zadate tacnosti, prekida se pretraga */
-    if (fabs(cos(s)) < EPS) 
+    if (fabs(cos(s)) < EPS)
       break;
     /* Ako je nula u levom delu intervala, nastavlja se pretraga na
        [l, s] */

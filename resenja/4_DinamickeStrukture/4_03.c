@@ -93,8 +93,8 @@ void ispisi_listu(Cvor * glava)
 /* Glavni program */
 int main(int argc, char **argv)
 {
-  /* Proverava se da li je program pozvan sa ispravnim brojem argumenata
-     komandne linije. */
+  /* Proverava se da li je program pozvan sa ispravnim brojem
+     argumenata komandne linije. */
   if (argc != 2) {
     fprintf(stderr,
             "Greska: Program se poziva sa: ./a.out datoteka.html!\n");

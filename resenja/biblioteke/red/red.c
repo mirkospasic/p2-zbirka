@@ -69,9 +69,9 @@ int skini_sa_reda(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
   if (zahtev != NULL)
     *zahtev = (*adresa_pocetka)->nalog;
 
-  /* Oslobadja se memorija zauzeta cvorom sa pocetka reda i
-     azurira se pokazivac na adresi adresa_pocetka da pokazuje na
-     sledeci cvor u redu. */
+  /* Oslobadja se memorija zauzeta cvorom sa pocetka reda i azurira
+     se pokazivac na adresi adresa_pocetka da pokazuje na sledeci
+     cvor u redu. */
   pomocni = *adresa_pocetka;
   *adresa_pocetka = (*adresa_pocetka)->sledeci;
   free(pomocni);

@@ -171,8 +171,8 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, int broj)
   if ((*adresa_glave)->vrednost == broj) {
     /* Pomocni pokazuje na cvor koji treba da se obrise */
     Cvor *pomocni = *adresa_glave;
-    /* Azurira se pokazivac na glavu da pokazuje na sledeci u listi i 
-       brise se cvor koji je bio glava liste */
+    /* Azurira se pokazivac na glavu da pokazuje na sledeci u listi
+       i brise se cvor koji je bio glava liste */
     *adresa_glave = (*adresa_glave)->sledeci;
     free(pomocni);
   }

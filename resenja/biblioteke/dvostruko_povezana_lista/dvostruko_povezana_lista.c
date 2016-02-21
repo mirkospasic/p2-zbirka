@@ -96,7 +96,7 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj)
 
   /* Pokazivac glava se pomera na sledeci cvor sve dok ne bude
      pokazivala na cvor ciji sledeci cvor ili ne postoji ili ima
-     vrednost vecu ili jednaku od vrednosti novog cvora.*/
+     vrednost vecu ili jednaku od vrednosti novog cvora. */
   /* Zbog izracunavanja izraza u C-u prvi deo konjunkcije mora biti
      provera da li se doslo do poslednjeg cvora liste pre nego sto
      se proveri vrednost u sledecem cvoru jer u slucaju poslednjeg,

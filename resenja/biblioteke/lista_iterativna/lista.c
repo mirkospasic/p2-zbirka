@@ -96,11 +96,11 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj)
 
   /* Pokazivac glava se pomera na sledeci cvor sve dok ne bude
      pokazivao na cvor ciji sledeci ili ne postoji ili ima vrednost
-     vecu ili jednaku vrednosti novog cvora.*/
+     vecu ili jednaku vrednosti novog cvora. */
   /* Zbog izracunavanja izraza u C-u prvi deo konjunkcije mora biti
-     provera da li se doslo do poslednjeg cvora liste pre nego sto se 
-     proveri vrednost u sledecem cvoru, jer u slucaju poslednjeg,
-     sledeci ne postoji, pa ni njegova vrednost. */
+     provera da li se doslo do poslednjeg cvora liste pre nego sto
+     se proveri vrednost u sledecem cvoru, jer u slucaju
+     poslednjeg, sledeci ne postoji, pa ni njegova vrednost. */
   while (glava->sledeci != NULL && glava->sledeci->vrednost < broj)
     glava = glava->sledeci;
 

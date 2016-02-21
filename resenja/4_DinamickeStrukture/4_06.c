@@ -124,8 +124,8 @@ int main(int argc, char **argv)
   /* Ispis rezultujuce liste. */
   ispisi_listu(rezultat);
 
-  /* Lista rezultat dobijena je prevezivanjem cvorova polaznih listi.
-     Njenim oslobadjanjem oslobadja se sva zauzeta memorija. */
+  /* Lista rezultat dobijena je prevezivanjem cvorova polaznih
+     listi. Njenim oslobadjanjem oslobadja se sva zauzeta memorija. */
   oslobodi_listu(&rezultat);
 
   exit(EXIT_SUCCESS);
