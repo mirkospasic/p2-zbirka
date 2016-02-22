@@ -7,10 +7,10 @@
    -lrt zbog funkcije clock_gettime() */
 
 /* Naredne tri funkcije vrse pretragu. Ukoliko se trazeni element
-   pronadje u nizu, one vracaju indeks pozicije na kojoj je
-   element pronadjen. Ovaj indeks je uvek nenegativan. Ako element 
-   nije pronadjen u nizu, funkcije vracaju negativnu vrednost -1,
-   kao indikator neuspesne pretrage. */
+   pronadje u nizu, one vracaju indeks pozicije na kojoj je element 
+   pronadjen. Ovaj indeks je uvek nenegativan. Ako element nije
+   pronadjen u nizu, funkcije vracaju negativnu vrednost -1, kao
+   indikator neuspesne pretrage. */
 
 /* Linearna pretraga: Funkcija pretrazuje niz a[] celih brojeva
    duzine n, trazeci u njemu prvo pojavljivanje elementa x.
