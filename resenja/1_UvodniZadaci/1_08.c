@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "stampanje_bitova.h"
 
-/* Funkcija postavlja na nulu n bitova pocev od pozicije p. */
+/* Funkcija postavlja na nulu n bitova pocev od pozicije p */
 unsigned postavi_0(unsigned x, unsigned n, unsigned p)
 {
 /********************************************************************
@@ -21,7 +21,7 @@ unsigned postavi_0(unsigned x, unsigned n, unsigned p)
   return x & maska;
 }
 
-/* Funkcija postavlja na jedinicu n bitova pocev od pozicije p. */
+/* Funkcija postavlja na jedinicu n bitova pocev od pozicije p */
 unsigned postavi_1(unsigned x, unsigned n, unsigned p)
 {
   /******************************************************************
@@ -37,7 +37,7 @@ unsigned postavi_1(unsigned x, unsigned n, unsigned p)
 
 /* Funkcija vraca celobrojno polje bitova, desno poravnato, koje
    predstavlja n bitova pocev od pozicije p u binarnoj
-   reprezentaciji broja x. */
+   reprezentaciji broja x */
 unsigned vrati_bitove(unsigned x, unsigned n, unsigned p)
 {
   /******************************************************************
@@ -66,7 +66,7 @@ unsigned postavi_1_n_bitova(unsigned x, unsigned n, unsigned p,
 
   /* Kao i kod funkcije postavi_0, i ovde se kreira maska koja ima
      n bitova postavljenih na 0 pocevsi od pozicije p, dok su
-     ostali bitovi 1. */
+     ostali bitovi 1 */
   unsigned srednjih_n_0 = ~(~(~0 << n) << (p - n + 1));
 
   /* U promenljivu x_postavi_0 se smesta vrednost dobijena kada se
@@ -88,7 +88,7 @@ unsigned postavi_1_n_bitova(unsigned x, unsigned n, unsigned p,
    njih n */
 unsigned invertuj(unsigned x, unsigned n, unsigned p)
 {
-  /* Formira se maska sa n jedinica pocev od pozicije p. */
+  /* Formira se maska sa n jedinica pocev od pozicije p */
   unsigned maska = ~(~0 << n) << (p - n + 1);
 
   /* Operator ekskluzivno ili invertuje sve bitove gde je

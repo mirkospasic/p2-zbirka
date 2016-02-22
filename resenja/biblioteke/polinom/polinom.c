@@ -105,8 +105,7 @@ Polinom pomnozi(const Polinom * p, const Polinom * q)
   int i, j;
   Polinom r;
 
-  /* Stepen rezultata ce odgovarati zbiru stepena polaznih polinoma 
-   */
+  /* Stepen rezultata odgovara zbiru stepena polaznih polinoma */
   r.stepen = p->stepen + q->stepen;
   if (r.stepen > MAKS_STEPEN) {
     fprintf(stderr, "Stepen proizvoda polinoma izlazi iz opsega\n");

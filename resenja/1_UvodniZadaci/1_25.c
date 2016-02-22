@@ -36,7 +36,7 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* A zatim i elementi nizova */
+  /* Unose se elementi nizova */
   printf("Unesite elemente prvog niza:");
   for (i = 0; i < n; i++)
     scanf("%d", &a[i]);

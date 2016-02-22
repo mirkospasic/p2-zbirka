@@ -20,7 +20,6 @@ gcc -I header_dir -Wall -lm -o kompleksan_broj kompleksan_broj.c
      main.c 
 ********************************************************************/
 
-
 #include <stdio.h>
 /* Ukljucuje se zaglavlje za rad sa kompleksnim brojevima */
 #include "kompleksan_broj.h"
