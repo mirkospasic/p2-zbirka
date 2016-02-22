@@ -1,9 +1,6 @@
 #ifndef  _POLINOM_H
 #define _POLINOM_H
 
-#include <stdio.h>
-#include <stdlib.h>
-
 /* Maksimalni stepen polinoma */
 #define MAKS_STEPEN 20
 
