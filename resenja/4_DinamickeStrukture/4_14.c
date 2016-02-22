@@ -36,7 +36,6 @@ int main()
   trazeni_cvor = pretrazi_stablo(koren, n);
   if (trazeni_cvor == NULL)
     printf("Broj se ne nalazi u stablu!\n");
-
   else
     printf("Broj se nalazi u stablu!\n");
 

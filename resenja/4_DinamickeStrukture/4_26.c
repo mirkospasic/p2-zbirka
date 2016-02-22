@@ -41,7 +41,7 @@ int kreiraj_hip(Cvor ** adresa_korena)
 /* Funkcija proverava da li je zadato binarno stablo celih
    pozitivnih brojeva hip. Ideja koja ce biti implementirana u
    osnovi ima pronalazenje maksimalne vrednosti levog i maksimalne
-   vrednosti desnog podstabla - ako je vrednost u korenu veca od
+   vrednosti desnog podstabla. Ako je vrednost u korenu veca od
    izracunatih vrednosti, uoceni fragment stabla zadovoljava uslov
    za hip. Zato ce funkcija vracati maksimalne vrednosti iz uocenog
    podstabala ili vrednost -1 ukoliko se zakljuci da stablo nije
@@ -50,7 +50,7 @@ int hip(Cvor * koren)
 {
   int max_levo, max_desno;
 
-  /* Prazno sablo je hip - kao rezultat se vraca 0 kao najmanji
+  /* Prazno sablo je hip. Kao rezultat se vraca 0, kao najmanji
      pozitivan broj */
   if (koren == NULL) {
     return 0;

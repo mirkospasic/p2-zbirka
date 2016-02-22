@@ -48,8 +48,7 @@ dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
     Cvor *novi_cvor = napravi_cvor(ime_i_prezime, telefon);
     /* Proverava se uspesnost kreiranja novog cvora */
     if (novi_cvor == NULL) {
-      /* I ukoliko je doslo do greske, vraca se odgovarajuca
-         vrednost */
+      /* Ako je doslo do greske, vraca se odgovarajuca vrednost */
       return 1;
     }
 
@@ -71,7 +70,6 @@ dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
       < 0)
     return dodaj_u_stablo(&(*adresa_korena)->levo, ime_i_prezime,
                           telefon);
-
   else
     /* Ako je zadato ime i prezime leksikografski vece od imena i
        prezimena sadrzanog u korenu, podaci se dodaju u desno
@@ -126,11 +124,10 @@ void prikazi_stablo(Cvor * koren)
 }
 
 /* Funkcija ucitava sledeci kontakt iz zadate datoteke i upisuje
-   ime i prezime i broj telefona u odgovarajuce nizove. Maksimalna
-   duzina imena i prezimena odredjena je konstantom
-   MAX_IME_PREZIME, a maksimalna duzina broja telefona konstantom
-   MAX_CIFARA. Funkcija vraca EOF ako nema vise kontakata ili 0 u
-   suprotnom. */
+   ime i prezime i broj telefona u odgovarajuce nizove. Vraca EOF
+   ako nema vise kontakata ili 0 u suprotnom. Maksimalna duzina
+   imena i prezimena odredjena je konstantom MAX_IME_PREZIME, a
+   maksimalna duzina broja telefona konstantom MAX_CIFARA.  */
 int procitaj_kontakt(FILE * f, char *ime_i_prezime, char *telefon)
 {
   /* Karakter koji se cita */
@@ -157,7 +154,6 @@ int procitaj_kontakt(FILE * f, char *ime_i_prezime, char *telefon)
   while (i < MAX_IME_I_PREZIME - 1 && (c = fgetc(f)) != EOF) {
     if (!isdigit(c))
       ime_i_prezime[i++] = c;
-
     else if (i > 0)
       break;
   }
@@ -205,7 +201,6 @@ Cvor *pretrazi_imenik(Cvor * koren, char *ime_i_prezime)
      u korenu pretraga se nastavlja levo */
   if (strcmp(ime_i_prezime, koren->ime_i_prezime) < 0)
     return pretrazi_imenik(koren->levo, ime_i_prezime);
-
   else
     /* U suprotnom, pretraga se nastavlja desno */
     return pretrazi_imenik(koren->desno, ime_i_prezime);

@@ -94,7 +94,7 @@ int kreiraj_presek(Cvor ** adresa_korena1, Cvor * koren2)
     /* U ovom slucaju je presek stabala uspesno kreiran */
     return 0;
   }
-  /* Inece, prijavljuje se da je doslo do greske */
+  /* Inace, prijavljuje se da je doslo do greske */
   return 1;
 }
 
@@ -158,8 +158,8 @@ int main()
     }
   }
 
-  /* Kreira se unija skupova: prvo se napravi kopija prvog skupa
-     kako bi se polazni skup mogao iskoristiti i za preostale
+  /* Kreira se unija skupova. Pre svega, napravi se kopija prvog
+     skupa kako bi se polazni skup mogao iskoristiti i za preostale
      operacije */
   if (kopiraj_stablo(skup1, &pomocni_skup) == 1) {
     oslobodi_stablo(&skup1);
@@ -176,10 +176,10 @@ int main()
   putchar('\n');
 
   /* Oslobadja se memorija zauzeta pomocnim skupom sa rezultatom
-     operacije */
+     prethodne operacije */
   oslobodi_stablo(&pomocni_skup);
 
-  /* Kreira se presek skupova: prvo se napravi kopija prvog skupa
+  /* Kreira se presek skupova. Prvo se napravi kopija prvog skupa
      kako bi se polazni skup mogao iskoristiti i za preostale
      operacije */
   if (kopiraj_stablo(skup1, &pomocni_skup) == 1) {
@@ -197,10 +197,10 @@ int main()
   putchar('\n');
 
   /* Oslobadja se memorija zauzeta pomocnim skupom sa rezultatom
-     operacije */
+     prethodne operacije */
   oslobodi_stablo(&pomocni_skup);
 
-  /* Kreira se razlika skupova: prvo se napravi kopija prvog skupa
+  /* Kreira se razlika skupova. Prvo se napravi kopija prvog skupa
      kako bi se polazni skup mogao iskoristiti i za preostale
      operacije */
   if (kopiraj_stablo(skup1, &pomocni_skup) == 1) {
@@ -218,7 +218,7 @@ int main()
   putchar('\n');
 
   /* Oslobadja se memorija zauzeta pomocnim skupom sa rezultatom
-     operacije */
+     prethodne operacije */
   oslobodi_stablo(&pomocni_skup);
 
   /* Oslobadja se memorija zauzeta polaznim skupovima */

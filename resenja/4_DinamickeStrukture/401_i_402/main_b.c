@@ -29,7 +29,7 @@ int main()
   printf("\nUnesite broj koji se brise: ");
   scanf("%d", &broj);
 
-  /* Brisu se cvorovi iz liste koji sadrze uneti broj */
+  /* Brisu se cvorovi liste cija vrednost je jednaka unetom broju */
   obrisi_cvor(&glava, broj);
 
   printf("Lista nakon brisanja:  ");

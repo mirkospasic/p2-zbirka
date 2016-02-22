@@ -43,9 +43,8 @@ Cvor *napravi_cvor(char *rec)
   return novi_cvor;
 }
 
-/* Funkcija koja dodaje novu rec u stablo - ukoliko je dodavanje
-   uspesno povratna vrednost je 0, u suprotnom povratna vrednost je
-   1 */
+/* Funkcija koja dodaje novu rec u stablo. Ako je dodavanje uspesno 
+   povratna vrednost je 0, u suprotnom povratna vrednost je 1. */
 int dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
 {
   /* Ako je stablo prazno */
@@ -54,8 +53,7 @@ int dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
     Cvor *novi_cvor = napravi_cvor(rec);
     /* Proverava se uspesnost kreiranja novog cvora */
     if (novi_cvor == NULL) {
-      /* I ukoliko je doslo do greske, vraca se odgovarajuca
-         vrednost */
+      /* Ako je doslo do greske, vraca se odgovarajuca vrednost */
       return 1;
     }
 
@@ -73,13 +71,11 @@ int dodaj_u_stablo(Cvor ** adresa_korena, char *rec)
      levo podstablo */
   if (strcmp(rec, (*adresa_korena)->rec) < 0)
     return dodaj_u_stablo(&(*adresa_korena)->levo, rec);
-
   else
     /* Ako je rec leksikografski veca od reci u korenu ubacuje se u
        desno podstablo */
   if (strcmp(rec, (*adresa_korena)->rec) > 0)
     return dodaj_u_stablo(&(*adresa_korena)->desno, rec);
-
   else {
     /* Ako je rec jednaka reci u korenu, uvecava se njen broj
        pojavljivanja */
@@ -179,7 +175,6 @@ int procitaj_rec(FILE * f, char rec[], int max)
          mala slova jer program treba da bude neosetljiv na razliku
          izmedju malih i velikih slova */
       rec[i++] = tolower(c);
-
     else
       /* Ako nije, proverava se da li je procitano barem jedno
          slovo nove reci */
@@ -239,10 +234,8 @@ int main(int argc, char **argv)
 
   /* Ako takve reci nema */
   if (max == NULL)
-
     /* Ispisuje se odgovarajuce obavestenje */
     printf("U tekstu nema reci!\n");
-
   else
     /* Inace, ispisuje se broj pojavljivanja reci */
     printf("Najcesca rec: %s (pojavljuje se %d puta)\n",

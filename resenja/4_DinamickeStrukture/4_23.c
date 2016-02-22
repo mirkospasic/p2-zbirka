@@ -17,8 +17,8 @@ int dubina_stabla(Cvor * koren)
   /* Izracunava se dubina desnog podstabla */
   int dubina_desno = dubina_stabla(koren->desno);
 
-  /* Dubina stabla odgovara vecoj od dubina podstabala - 1 se
-     dodaje jer se racuna i koren stabla */
+  /* Dubina stabla odgovara vecoj od dubina podstabala uvecanoj za
+     1, jer se racuna i koren stabla. */
   return dubina_levo >
       dubina_desno ? dubina_levo + 1 : dubina_desno + 1;
 }
@@ -30,7 +30,7 @@ void ispisi_nivo(Cvor * koren, int i)
   if (koren == NULL)
     return;
 
-  /* Ako se stiglo do trazenog nivoa - ispisuje se vrednost */
+  /* Ako se stiglo do trazenog nivoa, ispisuje se vrednost. */
   if (i == 0) {
     printf("%d ", koren->broj);
     return;
