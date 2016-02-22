@@ -90,7 +90,6 @@ void ispisi_listu(Cvor * glava)
     printf("%s - %u\n", glava->etiketa, glava->broj_pojavljivanja);
 }
 
-/* Glavni program */
 int main(int argc, char **argv)
 {
   /* Proverava se da li je program pozvan sa ispravnim brojem

@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "lista.h"
 
-/* 3) Glavni program */
 int main()
 {
   /* Lista je prazna na pocetku */

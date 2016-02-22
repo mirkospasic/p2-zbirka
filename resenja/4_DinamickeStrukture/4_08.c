@@ -26,7 +26,6 @@ void oslobodi_stek(Cvor ** stek)
   *stek = NULL;
 }
 
-/* Glavni program */
 int main()
 {
   /* Stek je na pocetku prazan */

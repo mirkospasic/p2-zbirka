@@ -1,6 +1,5 @@
 #include "stek.h"
 
-/* Glavni program */
 int main(int argc, char **argv)
 {
   /* Na pocetku, stek je prazan i etikete su uparene jer nijedna
