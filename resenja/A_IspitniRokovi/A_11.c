@@ -18,10 +18,11 @@ int najduzi_put(Cvor * koren)
   /* Rekurzivno se izracuna duzina najduzeg puta u levom podstablu */
   najduzi_u_desnom = najduzi_put(koren->desno);
 
-  /* Veca od prethodno izracunatih vrednosti za podstabla se uvecava 
-     za 1 i vraca kao konacan rezultat */
+  /* Veca od prethodno izracunatih vrednosti za podstabla se
+     uvecava za 1 i vraca kao konacan rezultat */
   return 1 + (najduzi_u_levom >
-              najduzi_u_desnom ? najduzi_u_levom : najduzi_u_desnom);
+              najduzi_u_desnom ? najduzi_u_levom :
+              najduzi_u_desnom);
 }
 
 int main()

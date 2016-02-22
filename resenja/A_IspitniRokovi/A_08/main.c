@@ -37,9 +37,9 @@ int dopuni_listu(Cvor ** adresa_glave)
       return 1;
     /* Poziva se funkcija koja umece novi cvor iza tekuceg cvora */
     dodaj_iza(tekuci, novi);
-    /* Tekuci cvor se pomera na narednog u listi (to je novoumetnuti
-       cvor), a zatim jos jednom da bi pokazivao na naredni cvor iz
-       polazne liste */
+    /* Tekuci cvor se pomera na narednog u listi (to je
+       novoumetnuti cvor), a zatim jos jednom da bi pokazivao na
+       naredni cvor iz polazne liste */
     tekuci = tekuci->sledeci;
     tekuci = tekuci->sledeci;
   }
@@ -51,8 +51,8 @@ int main()
   Cvor *glava = NULL;
   double broj;
 
-  /* Dok se ne stigne do kraja ulaza, ucitavaju se elementi i dodaju 
-     se na kraj liste */
+  /* Dok se ne stigne do kraja ulaza, ucitavaju se elementi i
+     dodaju se na kraj liste */
   while (scanf("%lf", &broj) > 0) {
     /* Ako je funkcija vratila 1, onda je bilo greske pri alokaciji
        memorije za nov cvor. Memoriju alociranu za cvorove liste

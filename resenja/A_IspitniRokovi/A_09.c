@@ -22,13 +22,13 @@ int zbir_kolone(int **M, int n, int k)
 
 /* Funkcija proverava da li je kvadrat koji joj se prosledjuje kao
    argument magican. Ukoliko jeste magican funkcija vraca 1, inace
-   0. Argument funkcije zbir ce sadrzati zbir elemenata neke vrste
+   0. Na adresu zbir_magicnog bice upisan zbir elemenata neke vrste
    ili kolone ukoliko je kvadrat magican. */
 int magicni_kvadrat(int **M, int n, int *zbir_magicnog)
 {
   int i, j;
   int zbir = 0, zbir_pom;
-  /* Promenljivu zbir inicijalizujemo na zbir 0-te vreste */
+  /* Promenljivu zbir inicijalizujemo na zbir 0-te vrste */
   zbir = zbir_vrste(M, n, 0);
 
   /* Racunaju se zbirovi u ostalim vrstama i ako neki razlikuje od
@@ -45,8 +45,8 @@ int magicni_kvadrat(int **M, int n, int *zbir_magicnog)
     if (zbir_pom != zbir)
       return 0;
   }
-  /* Inace su zbirovi svih vrsta i kolona jednaki, postavlja se
-     vresnost u zbir_magicnog i funkcija vraca 1 */
+  /* Inace, zbirovi svih vrsta i kolona su jednaki i postavlja se
+     vrednost zbira na adresu zbir_magicnog i funkcija vraca 1. */
   *zbir_magicnog = zbir;
   return 1;
 }

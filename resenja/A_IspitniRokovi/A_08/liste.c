@@ -55,7 +55,8 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, double broj)
   return 0;
 }
 
-/* Funkcija prikazuje elemente liste pocev od glave ka kraju liste. */
+/* Funkcija prikazuje elemente liste pocev od glave ka kraju liste. 
+ */
 void ispisi_listu(Cvor * glava)
 {
   for (; glava != NULL; glava = glava->sledeci)

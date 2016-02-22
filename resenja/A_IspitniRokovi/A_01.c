@@ -3,16 +3,16 @@
 #include <ctype.h>
 #define MAKS 50
 
-/* Funkcija vrsi dinamicku alokaciju memorije potrebne n linija tj.
-   n niski od kojih nijedna nije duza od MAKS karaktera. */
+/* Funkcija vrsi dinamicku alokaciju memorije potrebne za n niski
+   od kojih nijedna nije duza od MAKS karaktera. */
 char **alociranje_memorije(int n)
 {
   char **linije = NULL;
   int i, j;
   /* Alocira se prostor za niz vrsti matrice */
   linije = (char **) malloc(n * sizeof(char *));
-  /* U slucaju neuspesnog otvaranja ispisuje se -1 na stderr i
-     program zavrsava. */
+  /* U slucaju neuspesnog otvaranja ispisuje se -1 na standardni
+     izlaz za greske i program zavrsava. */
   if (linije == NULL)
     return NULL;
   /* Alocira se prostor za svaku vrstu matrice. Niska nije duza od
@@ -32,7 +32,7 @@ char **alociranje_memorije(int n)
   return linije;
 }
 
-/* Funkcija oslobadjaja dinamicki alociranu memoriju */
+/* Funkcija oslobadja dinamicki alociranu memoriju */
 char **oslobadjanje_memorije(char **linije, int n)
 {
   int i;
@@ -61,8 +61,8 @@ int main(int argc, char *argv[])
 
   /* Otvara se datoteka cije ime je navedeno kao argument komandne
      linije neposredno nakon imena programa koji se poziva. U
-     slucaju neuspesnog otvaranja ispisuje se -1 na stderr i program 
-     zavrsava izvrsavanje. */
+     slucaju neuspesnog otvaranja ispisuje se -1 na standardni
+     izlaz za greske i program zavrsava izvrsavanje. */
   ulaz = fopen(argv[1], "r");
   if (ulaz == NULL) {
     fprintf(stderr, "-1\n");
@@ -74,8 +74,8 @@ int main(int argc, char *argv[])
   /* Alociranje memorije na osnovu ucitanog broja linija. */
   linije = alociranje_memorije(n);
 
-  /* U slucaju neuspesne alokacije ispisuje se -1 na stderr i
-     program zavrsava. */
+  /* U slucaju neuspesne alokacije ispisuje se -1 na standardni
+     izlaz za greske i program zavrsava. */
   if (linije == NULL) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);

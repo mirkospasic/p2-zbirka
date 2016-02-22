@@ -26,7 +26,7 @@ int main(int argc, char **argv)
     while (1) {
       p = strstr(p, argv[2]);
 
-      /* Ukoliko nije podniska tj. p je NULL izlazi se iz petlje */
+      /* Ukoliko nije podniska, p je NULL i izlazi se iz petlje */
       if (p == NULL)
         break;
       /* Inace se uvecava brojac */

@@ -9,21 +9,22 @@ unsigned int zamena(unsigned int x)
   /* Deklaracija promenljivih za odgovarajuce maske i pomocne
      promenljive */
   unsigned maska_prvi_bajt, maska_cetvrti_bajt;
-  unsigned maska_prvi_bajt_komplement, maska_cetvrti_bajt_komplement;
+  unsigned maska_prvi_bajt_komplement,
+      maska_cetvrti_bajt_komplement;
   unsigned prvi_bajt, cetvrti_bajt;
   unsigned i;
 
-  /* Maska prvi bajt odgovara broju cija je binarna reprezentacija
-     00000....0000011111111 (8 bitova najmanje tezine su jedinice, a 
-     ostalo su nule) moze se dobiti i tako sto se maska_prvi_bajt
-     postavi na heksadekadnu vrednost FF. Drugi nacin za
-     inicijalizaciju maske maska_prvi_bajt je dodavanjem jedinica sa 
-     desne strane: */
+  /* Maska_prvi_bajt odgovara broju cija je binarna reprezentacija
+     00000....0000011111111 (8 bitova najmanje tezine su jedinice,
+     a ostalo su nule). Moze se dobiti i tako sto se
+     maska_prvi_bajt postavi na heksadekadnu vrednost FF. Drugi
+     nacin za inicijalizaciju maske maska_prvi_bajt je dodavanjem
+     jedinica sa desne strane: */
   maska_prvi_bajt = 1;
   for (i = 1; i < BITOVA_U_BAJTU; i++)
     maska_prvi_bajt = maska_prvi_bajt << 1 | 1;
 
-  /* Maska cetvrti bajt odgovara broju cija je binarna
+  /* Maska_cetvrti_bajt odgovara broju cija je binarna
      reprezentacija 1111111100000....00000 (8 bitova najvece tezine
      su jedinice, a ostalo su nule) i moze se dobiti pomeranjem
      bitova prethodno kreirane maske maska_prvi_bajt tako da
@@ -47,8 +48,8 @@ unsigned int zamena(unsigned int x)
       (maska_prvi_bajt & x) << ((sizeof(unsigned) - 1) *
                                 BITOVA_U_BAJTU);
   /* U promenljivu cetvrti_bajt se smesta broj koji se dobija kada
-     se bitovi cetvrtog bajta broja x pomere udesno, tako da budu na
-     poziciji prvog bajta */
+     se bitovi cetvrtog bajta broja x pomere udesno, tako da budu
+     na poziciji prvog bajta */
   cetvrti_bajt =
       (maska_cetvrti_bajt & x) >> ((sizeof(unsigned) - 1) *
                                    BITOVA_U_BAJTU);

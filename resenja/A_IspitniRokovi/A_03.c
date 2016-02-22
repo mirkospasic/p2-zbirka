@@ -13,8 +13,8 @@ void ucitaj_matricu(int m[][MAKS], int v, int k)
   }
 }
 
-/* Funkcija racuna broj negativnih elemenata u k-oj koloni matrice m
-   koja ima v vrsta */
+/* Funkcija racuna broj negativnih elemenata u k-oj koloni matrice
+   m koja ima v vrsta */
 int broj_negativnih_u_koloni(int m[][MAKS], int v, int k)
 {
   int broj_negativnih = 0;
@@ -41,7 +41,7 @@ int maks_indeks(int m[][MAKS], int v, int k)
   for (j = 0; j < k; j++) {
     /* Racuna se broj negativnih u j-oj koloni */
     broj_negativnih = broj_negativnih_u_koloni(m, v, j);
-    /* Ukoliko broj negativnih u j-toj koloni veci od trenutnog
+    /* Ukoliko broj negativnih u j-oj koloni veci od trenutnog
        maksimalnog, azurira se trenutni maksimalni broj negativnih
        kao i indeks kolone sa maksimalnim brojem negativnih */
     if (maks_broj_negativnih < broj_negativnih) {

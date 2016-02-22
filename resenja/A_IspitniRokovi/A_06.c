@@ -22,7 +22,7 @@ int ucitaj_stablo(Cvor ** koren)
 int prebroj_n(Cvor * koren, int n)
 {
   /* Ukoliko je stablo prazno, rezultat je nula. Takodje, ako je n
-     negativan broj, na tom nivou nema cvorova (rezultat je nula). */
+     negativan broj, na tom nivou nema cvorova i rezultat je nula. */
   if (koren == NULL || n < 0)
     return 0;
   /* Ukoliko je n = 0, na tom nivou je samo koren. Ukoliko ima

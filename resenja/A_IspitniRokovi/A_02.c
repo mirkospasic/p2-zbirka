@@ -7,7 +7,7 @@ int sumiraj_n(Cvor * koren, int n)
   /* Ako je stablo prazno, suma je nula */
   if (koren == NULL)
     return 0;
-  /* Inace ... */
+
   /* Ako je n jednako nula, vraca se broj iz korena */
   if (n == 0)
     return koren->broj;

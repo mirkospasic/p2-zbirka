@@ -69,8 +69,8 @@ int indeks_vrste(float x, float **A, int n, int m)
   int min;
   /* Broj pojavljivanja broja x u vrsti sa indeksom min */
   int min_broj;
-  /* Promenljiva u kojoj ce se racunati broj pojavljivanja broja x u 
-     tekucnoj vrsti */
+  /* Promenljiva u kojoj ce se racunati broj pojavljivanja broja x
+     u tekucnoj vrsti */
   int broj_u_vrsti;
   /* Pomocne promenljive */
   int i;
@@ -116,9 +116,10 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Dimenzije matrice se ucitavaju iz datoteke (prva dva cela broja
-     u datoteci). U slucaju neuspesnog ucitavanja, na standardni
-     izlaz za greske se ispisuje -1 i prekida se program. */
+  /* Dimenzije matrice se ucitavaju iz datoteke (prva dva cela
+     broja u datoteci). U slucaju neuspesnog ucitavanja, na
+     standardni izlaz za greske se ispisuje -1 i prekida se
+     program. */
   if (fscanf(in, "%d %d", &n, &m) == EOF) {
     fprintf(stderr, "-1\n");
     exit(EXIT_FAILURE);

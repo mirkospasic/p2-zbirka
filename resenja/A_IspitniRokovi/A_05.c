@@ -26,7 +26,7 @@ double povrsina(trougao t)
   return sqrt(s * (s - a) * (s - b) * (s - c));
 }
 
-/* Funkcija poredi dva trougla: ukoliko je povrsina trougla koji je
+/* Funkcija poredi dva trougla. Ukoliko je povrsina trougla koji je
    prvi argument funkcije manja od povrsine trougla koji je drugi
    element funkcije funkcija vraca 1, ukoliko je veca -1, a ukoliko
    su povrsine dva trougla jednake vraca nulu. Dakle, funkcija je
@@ -63,7 +63,7 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Dinamicka alokacija memorije: za niz trouglova duzine n
+  /* Dinamicka alokacija memorije za niz trouglova duzine n
      rezervise se memorijski prostor */
   if ((niz = malloc(n * sizeof(trougao))) == NULL) {
     fprintf(stderr, "-1\n");
