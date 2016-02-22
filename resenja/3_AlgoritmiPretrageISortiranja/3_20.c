@@ -14,8 +14,7 @@ typedef struct gr {
 /* Funkcija sortira niz gradjana rastuce po imenima */
 void sort_ime(Gradjanin a[], int n)
 {
-  int i, j;
-  int min;
+  int i, j, min;
   Gradjanin pom;
 
   for (i = 0; i < n - 1; i++) {
@@ -38,8 +37,7 @@ void sort_ime(Gradjanin a[], int n)
 /* Funkcija sortira niz gradjana rastuce po prezimenima */
 void sort_prezime(Gradjanin a[], int n)
 {
-  int i, j;
-  int min;
+  int i, j, min;
   Gradjanin pom;
 
   for (i = 0; i < n - 1; i++) {

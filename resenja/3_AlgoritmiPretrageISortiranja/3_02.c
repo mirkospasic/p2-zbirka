@@ -76,9 +76,7 @@ int interpolaciona_pretraga_r(int a[], int l, int d, int x)
 
 int main()
 {
-  int a[MAX];
-  int x;
-  int i, indeks;
+  int a[MAX], x, i, indeks;
 
   /* Ucitava se trazeni broj */
   printf("Unesite trazeni broj: ");
