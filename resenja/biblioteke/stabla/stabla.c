@@ -29,8 +29,7 @@ int dodaj_u_stablo(Cvor ** adresa_korena, int broj)
 
     /* Proverava se uspesnost kreiranja */
     if (novi_cvor == NULL) {
-      /* Ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
-       */
+      /* Ako je doslo do greske, vraca se odgovarajuca vrednost */
       return 1;
     }
 
@@ -46,10 +45,8 @@ int dodaj_u_stablo(Cvor ** adresa_korena, int broj)
 
   /* Ako je zadata vrednost manja od vrednosti korena */
   if (broj < (*adresa_korena)->broj)
-
     /* Broj se dodaje u levo podstablo */
     return dodaj_u_stablo(&(*adresa_korena)->levo, broj);
-
   else
     /* Inace, broj je veci (ili jednak) od vrednosti u korenu pa se
        dodaje u desno podstablo */

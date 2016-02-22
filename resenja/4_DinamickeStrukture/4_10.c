@@ -19,7 +19,6 @@ int main(int argc, char **argv)
      JMBG broja i opisa potrebne usluge. */
   printf("Sluzbenik evidentira korisnicke zahteve:\n");
   while (1) {
-
     /* Ucitava se JMBG broj */
     printf("\nNovi zahtev [CTRL+D za kraj]\n\tJMBG: ");
     if (scanf("%s", nov_zahtev.jmbg) == EOF)
@@ -89,9 +88,8 @@ int main(int argc, char **argv)
   }
 
   /******************************************************************
-    Usluzivanje korisnika moze da se izvrsi i na sledeci nacin: */
+    Usluzivanje korisnika moze da se izvrsi i na sledeci nacin:    */
   /******************************************************************
-    
     while (skini_sa_reda(&pocetak, &kraj, &nov_zahtev)) {
       printf("\nSledeci je korisnik sa JMBG brojem: %s\n",
             nov_zahtev.jmbg);
@@ -116,6 +114,7 @@ int main(int argc, char **argv)
       }
     }
   *****************************************************************/
+
   /* Datoteka vise nije potrebna i treba je zatvoriti. */
   fclose(izlaz);
 

@@ -43,8 +43,7 @@ int main()
   printf("\nUnesite broj koji se brise iz liste: ");
   scanf("%d", &broj);
 
-  /* Brisu se cvorovi iz liste cije polje vrednost je jednako broju
-     procitanom sa ulaza */
+  /* Brisu se cvorovi liste cija vrednost je jednaka unetom broju */
   obrisi_cvor_sortirane_liste(&glava, &kraj, broj);
 
   printf("Lista nakon brisanja: ");

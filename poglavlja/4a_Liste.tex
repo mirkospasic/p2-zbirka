@@ -819,8 +819,9 @@ Posle svakog $petog$ usluženog korisnika službeniku se nudi mogućnost da prek
 %=========================================================================
 \begin{Exercise}[label=4_11]
 Napisati biblioteku za rad sa dvostruko povezanom listom celih brojeva koja ima iste funkcionalnosti kao biblioteka iz zadatka \ref{4_01}. 
-Dopuniti bibilioteku novim funkcijama.
+Dopuniti bibilioteku novom definicijom cvore i funkcijama.
 \begin{enumerate}
+ \item Definisati strukturu \kckod{Cvor} kojom se predstavlja čvor liste, a koja sadrži ceo broj \argf{vrednost}, pokazivače na sledeći i prethodni čvor liste.
  \item Napisati funkciju \kckod{void obrisi\_tekuci(Cvor ** adresa\_glave, Cvor ** adresa\_kraja, Cvor * tekuci)} koja briše čvor na koji pokazuje pokazivač \argf{tekuci} iz liste čiji se pokazivač na čvor koji je glava liste nalazi na adresi \argf{adresa\_glave} i poslednji čvor liste na adresi \argf{adresa\_kraja}.
  \item Napisati funkciju \kckod{void ispisi\_listu\_unazad(Cvor * kraj)} koja ispisuje sadržaj liste od poslednjeg čvora ka glavi liste.
 \end{enumerate}

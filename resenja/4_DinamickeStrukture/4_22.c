@@ -12,8 +12,8 @@ int broj_cvorova(Cvor * koren)
     return 0;
 
   /* U suprotnom je broj cvorova stabla jednak zbiru broja cvorova
-     u levom podstablu i broja cvorova u desnom podstablu - 1 se
-     dodaje zato sto treba racunati i koren */
+     u levom podstablu, broja cvorova u desnom podstablu i 1, zato
+     sto treba racunati i koren */
   return broj_cvorova(koren->levo) + broj_cvorova(koren->desno) + 1;
 }
 
@@ -111,8 +111,8 @@ int broj_cvorova_na_itom_nivou(Cvor * koren, int i)
   if (koren == NULL)
     return 0;
 
-  /* Ako se stiglo do trazenog nivoa, vraca se 1 - ova vrednost ce
-     kasnije zbog rekurzivnih poziva uvecati broj cvorova za 1 */
+  /* Ako se stiglo do trazenog nivoa, vraca se 1. Ova vrednost ce
+     kasnije zbog rekurzivnih poziva uvecati broj cvorova za 1. */
   if (i == 0)
     return 1;
 
@@ -129,7 +129,7 @@ void ispis_nivo(Cvor * koren, int i)
   if (koren == NULL)
     return;
 
-  /* Ako se stiglo do trazenog nivoa - ispisuje se vrednost */
+  /* Ako se stiglo do trazenog nivoa, ispisuje se vrednost */
   if (i == 0) {
     printf("%d ", koren->broj);
     return;
@@ -186,7 +186,6 @@ int zbir_cvorova_na_itom_nivou(Cvor * koren, int i)
   return zbir_cvorova_na_itom_nivou(koren->levo, i - 1)
       + zbir_cvorova_na_itom_nivou(koren->desno, i - 1);
 }
-
 
 /* k) Funkcija koja izracunava zbir svih vrednosti u stablu koje su
    manje ili jednake od date vrednosti x */

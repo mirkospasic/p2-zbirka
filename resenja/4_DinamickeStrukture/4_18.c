@@ -87,11 +87,11 @@ Cvor *pretrazi(Cvor * koren, int dan, int mesec)
     return koren;
 
   /* Ako je mesec trazenog datuma manji od meseca sadrzanog u
-     korenu ili ako su meseci isti ali je dan trazenog datuma manji 
-     od aktuelnog datuma, pretrazuje se levo podstablo - pre toga
-     se svakako proverava da li leva grana postoji - ako ne postoji
-     treba vratiti prvi sledeci, a to je bas vrednost uocenog korena 
-   */
+     korenu ili ako su meseci isti, ali je dan trazenog datuma
+     manji od aktuelnog datuma, pretrazuje se levo podstablo. Pre
+     toga se svakako proverava da li leva grana postoji. Ako ne
+     postoji treba vratiti prvi sledeci, a to je bas vrednost
+     uocenog korena */
   if (mesec < koren->mesec
       || (mesec == koren->mesec && dan < koren->dan)) {
     if (koren->levo == NULL)
@@ -193,8 +193,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* I stablo se popunjava podacima uz proveru uspesnosti dodavanja 
-   */
+  /* Stablo se popunjava podacima uz proveru uspesnosti dodavanja */
   koren = NULL;
   while (fscanf
          (in, "%s %s %d.%d.", ime, prezime, &dan, &mesec) != EOF)
@@ -211,7 +210,6 @@ int main(int argc, char **argv)
 
   /* Omogucuje se pretraga podataka */
   while (1) {
-
     /* Ucitava se novi datum */
     printf("Unesite datum: ");
     if (scanf("%d.%d.", &dan, &mesec) == EOF)

@@ -2,8 +2,7 @@
 
 Cvor *napravi_cvor(Zahtev * zahtev)
 {
-  /* Alokacija memorije za novi cvor uz proveru uspesnost alokacije 
-   */
+  /* Alokacija memorije za novi cvor uz proveru uspesnosti */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -42,8 +41,7 @@ int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
     return 1;
 
   /* U red se uvek dodaje na kraj. Zbog postojanja pokazivaca na
-     kraj, to je podjednako efikasno kao dodavanje na pocetak liste 
-   */
+     kraj, to je efikasno koliko i dodavanje na pocetak liste */
   if (*adresa_kraja != NULL) {
     (*adresa_kraja)->sledeci = novi;
     *adresa_kraja = novi;

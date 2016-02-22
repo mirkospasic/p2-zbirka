@@ -37,17 +37,15 @@ void oslobodi_red(Cvor ** pocetak, Cvor ** kraj);
 int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
                 Zahtev * zahtev);
 
-/* Funkcija skida sa pocetka reda zahtev. Ako je poslednji argument
-   pokazivac razlicit od NULL, tada se u strukturu na koju on
-   pokazuje upisuje zahtev koji je upravo skinut sa reda dok u
-   suprotnom ne upisuje nista. Vraca 0, ako je red bio prazan ili 1
-   u suprotnom. */
+/* Funkcija skida sa pocetka reda zahtev. Ako je argument zahtev
+   pokazivac razlicit od NULL, u strukturu na koju on pokazuje
+   upisuje se zahtev upravo skinut sa reda, inace se ne upisuje
+   nista. Funkcija vraca 0, ako je red bio prazan, inace vraca 1. */
 int skini_sa_reda(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
                   Zahtev * zahtev);
 
 /* Funkcija vraca pokazivac na strukturu koja sadrzi zahtev
-   korisnika na pocetku reda. Ukoliko je red prazan funkcija vraca
-   NULL. */
+   korisnika na pocetku reda. Ako je red prazan, vraca NULL. */
 Zahtev *pocetak_reda(Cvor * pocetak);
 
 /* Funkcija prikazuje sadrzaj reda. */

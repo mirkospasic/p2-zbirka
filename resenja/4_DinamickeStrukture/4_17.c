@@ -76,7 +76,6 @@ int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
                           matematika, jezik);
 }
 
-
 /* Funkcija kojom se oslobadja memorija zauzeta stablom */
 void oslobodi_stablo(Cvor ** koren)
 {
@@ -99,9 +98,10 @@ void oslobodi_stablo(Cvor ** koren)
 
 
 /* Funkcija ispisuje sadrzaj stabla. Ukoliko je vrednost argumenta
-   polozili jednaka 0 ispisuju se informacije o ucenicima koji nisu
-   polozili prijemni, a ako je vrednost argumenta razlicita od nule,
-   ispisuju se informacije o ucenicima koji su polozili prijemni */
+   polozili jednaka 0, ispisuju se informacije o ucenicima koji
+   nisu polozili prijemni, a ako je vrednost argumenta razlicita od 
+   nule, ispisuju se informacije o ucenicima koji su polozili
+   prijemni. */
 void stampaj(Cvor * koren, int polozili)
 {
   /* Stablo je prazno - prekida se sa ispisom */

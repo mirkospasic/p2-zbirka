@@ -47,8 +47,8 @@ int dodaj_na_pocetak_liste(Cvor ** adresa_glave, Cvor **
   novi->sledeci = *adresa_glave;
 
   /* Ako stara lista nije bila prazna, onda prethodni cvor glave
-     treba da bude novi cvor. Inace, novi cvor je ujedno i pocetni
-     i krajnji */
+     treba da bude novi cvor. Inace, novi cvor je u isto vreme i
+     pocetni i krajnji. */
   if (*adresa_glave != NULL)
     (*adresa_glave)->prethodni = novi;
   else
@@ -70,7 +70,7 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, Cvor ** adresa_kraja,
     return 1;
 
   /* U slucaju prazne liste, glava nove liste je upravo novi cvor i
-     ujedno i cela lista. Azurira se vrednost na koju pokazuju
+     ujedno i cela lista. Azuriraju se vrednosti na koje pokazuju
      adresa_glave i adresa_kraja */
   if (*adresa_glave == NULL) {
     *adresa_glave = novi;
@@ -196,10 +196,9 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
   return NULL;
 }
 
-/* Kod dvostruko povezane liste brisanje odredjenog cvora se moze
-   lako realizovati jer on sadrzi pokazivace na svog sledbenika i
-   prethodnika u listi. U funkciji se bise cvor zadat argumentom
-   tekuci */
+/* Funkcija brise cvor zadat argumentom tekuci. Brisanje odredjenog 
+   cvora dvostruko povezane liste moze se lako realizovati jer cvor
+   sadrzi pokazivace na svog sledbenika i prethodnika u listi. */
 void obrisi_tekuci(Cvor ** adresa_glave, Cvor ** adresa_kraja,
                    Cvor * tekuci)
 {
@@ -218,16 +217,16 @@ void obrisi_tekuci(Cvor ** adresa_glave, Cvor ** adresa_kraja,
     tekuci->sledeci->prethodni = tekuci->prethodni;
 
   /* Ako je glava cvor koji se brise, nova glava liste ce biti
-     sledbenik stare glave */
+     sledbenik stare glave. */
   if (tekuci == *adresa_glave)
     *adresa_glave = tekuci->sledeci;
 
   /* Ako je cvor koji se brise poslednji u listi, azurira se i
-     pokazivac na kraj liste */
+     pokazivac na kraj liste. */
   if (tekuci == *adresa_kraja)
     *adresa_kraja = tekuci->prethodni;
 
-  /* Oslobadja se dinamicki alociran prostor za cvor tekuci */
+  /* Oslobadja se dinamicki alociran prostor za cvor tekuci. */
   free(tekuci);
 }
 
@@ -258,7 +257,7 @@ void ispisi_listu(Cvor * glava)
 {
   putchar('[');
   /* Unutar zagrada ispisuju se vrednosti u cvorovima liste od
-     pocetka prema kraju liste */
+     pocetka prema kraju liste. */
   for (; glava != NULL; glava = glava->sledeci) {
     printf("%d", glava->vrednost);
     if (glava->sledeci != NULL)
@@ -272,7 +271,7 @@ void ispisi_listu_unazad(Cvor * kraj)
 {
   putchar('[');
   /* Unutar zagrada ispisuju se vrednosti u cvorovima liste od
-     kraja prema pocetku liste */
+     kraja prema pocetku liste. */
   for (; kraj != NULL; kraj = kraj->prethodni) {
     printf("%d", kraj->vrednost);
     if (kraj->prethodni != NULL)
