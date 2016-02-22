@@ -43,16 +43,16 @@ void bubble_sort(int a[], int n);
    umetanjem koje dopusta direktnu razmenu udaljenih elemenata.
    Prosirenje se sastoji u tome da se kroz algoritam umetanja
    prolazi vise puta. U prvom prolazu, umesto koraka 1 uzima se
-   neki korak h koji je manji od n (sto omogucuje razmenu
-   udaljenih elemenata) i tako se dobija h-sortiran niz, tj. niz u
-   kome su elementi na rastojanju h sortirani, mada susedni
-   elementi to ne moraju biti. U drugom prolazu kroz isti algoritam 
-   sprovodi se isti postupak ali za manji korak h. Sa prolazima se
-   nastavlja sve do koraka h = 1, u kome se dobija potpuno
-   sortirani niz. Izbor pocetne vrednosti za h, i nacina njegovog
-   smanjivanja menja u nekim slucajevima brzinu algoritma, ali bilo 
-   koja vrednost ce rezultovati ispravnim sortiranjem, pod uslovom
-   da je u poslednjoj iteraciji h imalo vrednost 1. */
+   neki korak h koji je manji od n (sto omogucuje razmenu udaljenih 
+   elemenata) i tako se dobija h-sortiran niz, tj. niz u kome su
+   elementi na rastojanju h sortirani, mada susedni elementi to ne
+   moraju biti. U drugom prolazu kroz isti algoritam sprovodi se
+   isti postupak ali za manji korak h. Sa prolazima se nastavlja
+   sve do koraka h = 1, u kome se dobija potpuno sortirani niz.
+   Izbor pocetne vrednosti za h, i nacina njegovog smanjivanja
+   menja u nekim slucajevima brzinu algoritma, ali bilo koja
+   vrednost ce rezultovati ispravnim sortiranjem, pod uslovom da je 
+   u poslednjoj iteraciji h imalo vrednost 1. */
 void shell_sort(int a[], int n);
 
 /* Merge sort: Funkcija sortira niz celih brojeva a[]

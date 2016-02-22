@@ -91,16 +91,16 @@ int main()
      ce pri kucanju racuna prodavac unositi kod artikla. Prilikom
      kucanja svakog racuna pretrazuje se asortiman, da bi se
      utvrdila cena artikla. Kucanje racuna obuhvata vise pretraga
-     asortimana i cilj je da ta operacija bude sto efikasnija.
-     Zato se koristi algoritam binarne pretrage prilikom
-     pretrazivanja po kodu artikla. Iz tog razloga, potrebno je da
-     asortiman bude sortiran po kodovima i to ce biti uradjeno
-     primenom selection sort algoritma. Sortiranje se vrsi samo
-     jednom na pocetku, ali se zato posle artikli mogu brzo
-     pretrazivati prilikom kucanja proizvoljno puno racuna. Vreme
-     koje se utrosi na sortiranje na pocetku izvrsavanja programa,
-     kasnije se isplati jer se za brojna trazenja artikla umesto
-     linearne moze koristiti efikasnija binarna pretraga. */
+     asortimana i cilj je da ta operacija bude sto efikasnija. Zato 
+     se koristi algoritam binarne pretrage prilikom pretrazivanja
+     po kodu artikla. Iz tog razloga, potrebno je da asortiman bude 
+     sortiran po kodovima i to ce biti uradjeno primenom selection
+     sort algoritma. Sortiranje se vrsi samo jednom na pocetku, ali 
+     se zato posle artikli mogu brzo pretrazivati prilikom kucanja
+     proizvoljno puno racuna. Vreme koje se utrosi na sortiranje na 
+     pocetku izvrsavanja programa, kasnije se isplati jer se za
+     brojna trazenja artikla umesto linearne moze koristiti
+     efikasnija binarna pretraga. */
   selection_sort(asortiman, n);
 
   /* Ispis stanja u prodavnici */

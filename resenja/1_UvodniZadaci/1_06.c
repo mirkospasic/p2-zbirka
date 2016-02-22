@@ -30,7 +30,7 @@ int prebroj_bitove_2(int x)
   /* Kako je argument funkcije oznacen ceo broj x naredba x>>=1
      vrsi aritmeticko pomeranje u desno, tj. popunjavanje bita
      najvece tezine bitom znaka. U tom slucaju, za negativnu
-     vrednost promenljive x, nikad ne bi bio ispunjen uslov x!=0 i 
+     vrednost promenljive x, nikad ne bi bio ispunjen uslov x!=0 i
      program bi bio zarobljen u beskonacnoj petlji. Zbog toga se
      koristi pomeranje broja x ulevo i maska koja ocitava bit
      najvece tezine. */

@@ -55,7 +55,7 @@ void permutacija(int a[], int m, int n)
      moze da se stavi na m-to mesto u nizu (to se radi u petlji).
      Ako ne postoji, funkcija zavrsava sa radom. Ukoliko takav broj 
      postoji, onda se ponovo poziva rekurzivno pronalazenje
-     odgovarajucih permutacija, ali sada sa drugacije postavljenim 
+     odgovarajucih permutacija, ali sada sa drugacije postavljenim
      prefiksom. */
   for (i = 1; i <= n; i++) {
     /* Ako se broj i nije do sada pojavio u permutaciji od 1 do m-1

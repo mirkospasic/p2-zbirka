@@ -105,7 +105,7 @@ void ref_tran_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 {
   int i, j, k;
 
-  /* Odredjuje se refleksivno zatvorenje matrice  */
+  /* Odredjuje se refleksivno zatvorenje matrice */
   ref_zatvorenje(m, n, zatvorenje);
 
   /* Primenom Varsalovog algoritma odredjuje se tranzitivno

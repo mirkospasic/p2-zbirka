@@ -39,7 +39,7 @@ int f_rekurzivna(int n, int a, int b)
    b*F(17), tj. problem F(18) se resava dva puta! Problemi manjih
    dimenzija ce se resavati jos veci broj puta. Resenje za ovaj
    problem je kombinacija rekurzije sa dinamickim programiranjem.
-   Potproblemi se resavaju samo jednom, a njihova resenja se pamte 
+   Potproblemi se resavaju samo jednom, a njihova resenja se pamte
    u memoriji (obicno u nizovima ili matricama), odakle se koriste
    ako tokom resavanja ponovo budu potrebni.
 

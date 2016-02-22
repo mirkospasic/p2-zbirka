@@ -77,8 +77,8 @@ unsigned postavi_1_n_bitova(unsigned x, unsigned n, unsigned p,
   /* U promenlijvu y_pomeri_srednje se smesta vrednost dobijena od
      binarne reprezentacije vrednosti promenljive y cijih je n
      bitova najnize tezine pomera tako da stoje pocev od pozicije
-     p. Ostali bitovi su nule. Sa (y & poslednjih_n_1) postave na
-     0 svi bitovi osim najnizih n */
+     p. Ostali bitovi su nule. Sa (y & poslednjih_n_1) postave na 0 
+     svi bitovi osim najnizih n */
   unsigned y_pomeri_srednje = (y & poslednjih_n_1) << (p - n + 1);
 
   return x_postavi_0 ^ y_pomeri_srednje;
