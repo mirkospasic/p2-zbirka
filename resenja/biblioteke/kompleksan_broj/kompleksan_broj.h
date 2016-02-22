@@ -11,12 +11,6 @@
 #ifndef  _KOMPLEKSAN_BROJ_H
 #define _KOMPLEKSAN_BROJ_H
 
-/* Zaglavlja standardne biblioteke koje sadrze deklaracije funkcija
-   koje se koriste u definicijama funkcija navedenim u
-   kompleksan_broj.c */
-#include <stdio.h>
-#include <math.h>
-
 /* Struktura KompleksanBroj */
 typedef struct {
   float real;
