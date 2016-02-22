@@ -46,7 +46,7 @@ void oslobodi_listu(Cvor ** adresa_glave)
   /* Potom se oslobadja i glava liste */
   free(*adresa_glave);
 
-  /* Proglasava se lista praznom */
+  /* Lista se proglasava praznom */
   *adresa_glave = NULL;
 }
 
@@ -85,7 +85,7 @@ Cvor *pretrazi_listu(Cvor * glava, char *broj_indeksa)
   if (glava == NULL)
     return NULL;
 
-  /* Poredi se trazeni broj indeksa sa brojem indeksa u glavi liste */
+  /* Poredi se trazeni broj indeksa sa indeksom u glavi liste */
   if (!strcmp(glava->broj_indeksa, broj_indeksa))
     return glava;
 
@@ -105,7 +105,7 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* Priprema datoteke za citanje */
+  /* Otvara se datoteka za citanje */
   FILE *in = NULL;
   in = fopen(argv[1], "r");
   if (in == NULL) {

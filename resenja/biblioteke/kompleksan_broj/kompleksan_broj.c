@@ -64,8 +64,8 @@ float moduo(KompleksanBroj z)
 
 KompleksanBroj konjugovan(KompleksanBroj z)
 {
-  /* Konjugovano kompleksan broj se dobija od datog broja z tako sto
-     se promeni znak imaginarnom delu kompleksnog broja */
+  /* Konjugovano kompleksan broj se dobija od datog broja z tako
+     sto se promeni znak imaginarnom delu kompleksnog broja */
   KompleksanBroj z1 = z;
   z1.imag *= -1;
   return z1;
@@ -74,9 +74,9 @@ KompleksanBroj konjugovan(KompleksanBroj z)
 KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj z2)
 {
   /* Rezultat sabiranja dva kompleksna broja z1 i z2 je kompleksan
-     broj ciji je realan deo zbir realnih delova kompleksnih brojeva
-     z1 i z2, a imaginaran deo zbir imaginarnih delova kompleksnih
-     brojeva z1 i z2 */
+     broj ciji je realan deo zbir realnih delova kompleksnih
+     brojeva z1 i z2, a imaginaran deo zbir imaginarnih delova
+     kompleksnih brojeva z1 i z2 */
   KompleksanBroj z = z1;
   z.real += z2.real;
   z.imag += z2.imag;

@@ -19,7 +19,8 @@ int kreiraj_hip(Cvor ** adresa_korena)
     return 1;
   if (((*adresa_korena)->levo->levo = napravi_cvor(17)) == NULL)
     return 1;
-  if (((*adresa_korena)->levo->levo->levo = napravi_cvor(2)) == NULL)
+  if (((*adresa_korena)->levo->levo->levo =
+       napravi_cvor(2)) == NULL)
     return 1;
   if (((*adresa_korena)->levo->levo->desno =
        napravi_cvor(7)) == NULL)

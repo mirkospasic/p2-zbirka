@@ -16,7 +16,8 @@ int main()
        memorije za nov cvor. Memoriju alociranu za cvorove liste
        treba osloboditi pre napustanja programa. */
     if (dodaj_na_kraj_liste(&glava, broj) == 1) {
-      fprintf(stderr, "Greska: Neuspesna alokacija memorije za cvor %d\n", broj);
+      fprintf(stderr,
+              "Greska: Neuspesna alokacija memorije za cvor.\n");
       oslobodi_listu(&glava);
       exit(EXIT_FAILURE);
     }
@@ -28,8 +29,7 @@ int main()
   printf("\nUnesite broj koji se brise: ");
   scanf("%d", &broj);
 
-  /* Brisu se cvorovi iz liste cije je polje vrednost jednako broju
-     procitanom sa ulaza */
+  /* Brisu se cvorovi iz liste koji sadrze uneti broj */
   obrisi_cvor(&glava, broj);
 
   printf("Lista nakon brisanja:  ");

@@ -47,8 +47,8 @@ int dodaj_na_pocetak_liste(Cvor ** adresa_glave, Cvor **
   novi->sledeci = *adresa_glave;
 
   /* Ako stara lista nije bila prazna, onda prethodni cvor glave
-     treba da bude novi cvor. Inace, novi cvor je ujedno i pocetni i
-     krajnji */
+     treba da bude novi cvor. Inace, novi cvor je ujedno i pocetni
+     i krajnji */
   if (*adresa_glave != NULL)
     (*adresa_glave)->prethodni = novi;
   else
@@ -120,9 +120,9 @@ int dodaj_iza(Cvor * tekuci, int broj)
   novi->sledeci = tekuci->sledeci;
   novi->prethodni = tekuci;
 
-  /* Ako tekuci ima sledeceg, onda se sledecem dodeljuje prethodnik,
-     a potom i tekuci dobija novog sledeceg postavljanjem pokazivaca
-     na ispravne adrese */
+  /* Ako tekuci ima sledeceg, onda se sledecem dodeljuje
+     prethodnik, a potom i tekuci dobija novog sledeceg
+     postavljanjem pokazivaca na ispravne adrese */
   if (tekuci->sledeci != NULL)
     tekuci->sledeci->prethodni = novi;
   tekuci->sledeci = novi;
@@ -172,8 +172,8 @@ Cvor *pretrazi_listu(Cvor * glava, int broj)
 {
   /* Obilaze se cvorovi liste */
   for (; glava != NULL; glava = glava->sledeci)
-    /* Ako je vrednost tekuceg cvora jednaka zadatom broju, pretraga
-       se obustavlja */
+    /* Ako je vrednost tekuceg cvora jednaka zadatom broju,
+       pretraga se obustavlja */
     if (glava->vrednost == broj)
       return glava;
 
@@ -187,8 +187,8 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
   /* U uslovu ostanka u petlji, bitan je redosled u konjunkciji */
   for (; glava != NULL && glava->vrednost <= broj;
        glava = glava->sledeci)
-    /* Ako je vrednost tekuceg cvora jednaka zadatom broju, pretraga
-       se obustavlja */
+    /* Ako je vrednost tekuceg cvora jednaka zadatom broju,
+       pretraga se obustavlja */
     if (glava->vrednost == broj)
       return glava;
 
@@ -200,8 +200,8 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
    lako realizovati jer on sadrzi pokazivace na svog sledbenika i
    prethodnika u listi. U funkciji se bise cvor zadat argumentom
    tekuci */
-void obrisi_tekuci(Cvor ** adresa_glave, Cvor ** adresa_kraja, Cvor *
-                   tekuci)
+void obrisi_tekuci(Cvor ** adresa_glave, Cvor ** adresa_kraja,
+                   Cvor * tekuci)
 {
   /* Ako je tekuci NULL pokazivac, nema potrebe za brisanjem */
   if (tekuci == NULL)
@@ -271,8 +271,8 @@ void ispisi_listu(Cvor * glava)
 void ispisi_listu_unazad(Cvor * kraj)
 {
   putchar('[');
-  /* Unutar zagrada ispisuju se vrednosti u cvorovima liste od kraja
-     prema pocetku liste */
+  /* Unutar zagrada ispisuju se vrednosti u cvorovima liste od
+     kraja prema pocetku liste */
   for (; kraj != NULL; kraj = kraj->prethodni) {
     printf("%d", kraj->vrednost);
     if (kraj->prethodni != NULL)

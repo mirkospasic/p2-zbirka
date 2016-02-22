@@ -56,7 +56,8 @@ int main()
   else if (x == 2)
     printf("%d\n", stepen_2(x, k));
   else {
-    fprintf(stderr, "Greska: Neodgovarajuci redni broj funkcije.\n");
+    fprintf(stderr,
+            "Greska: Neodgovarajuci redni broj funkcije.\n");
     exit(EXIT_FAILURE);
   }
 

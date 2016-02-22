@@ -13,8 +13,8 @@ int palindrom(char s[], int n)
     return 1;
 
   /* Da bi niska bila palindrom potrebno je da se poklapaju prvi i
-     poslednji karakter i da je palindrom niska koja nastaje kada se
-     polaznoj nisci otklone prvi i poslednji karakter */
+     poslednji karakter i da je palindrom niska koja nastaje kada
+     se polaznoj nisci otklone prvi i poslednji karakter */
   return (s[n - 1] == s[0]) && palindrom(s + 1, n - 2);
 }
 

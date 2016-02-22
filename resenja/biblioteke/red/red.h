@@ -7,8 +7,8 @@
 #define MAX 1000
 #define JMBG_DUZINA 14
 
-/* Struktura predstavlja zahtev korisnika. Obuhvata JMBG korisnika i
-   opis njegovog zahteva. */
+/* Struktura predstavlja zahtev korisnika. Obuhvata JMBG korisnika
+   i opis njegovog zahteva. */
 typedef struct {
   char jmbg[JMBG_DUZINA];
   char opis[MAX];
@@ -21,19 +21,19 @@ typedef struct cvor {
   struct cvor *sledeci;
 } Cvor;
 
-/* Funkcija kreira novi cvor, inicijalizuje polje nalog na zahtev sa
-   poslate adrese i vraca adresu novog cvora ili NULL ako je doslo do 
-   greske pri alokaciji. Prosledjuje joj se pokazivac na zahtev koji
-   treba smestiti u novi cvor zbog smestanja manjeg podatka na
-   sistemski stek. Pokazivac na strukturu Zahtev je manje velicine u
-   bajtovima(B) u odnosu na strukturu Zahtev. */
+/* Funkcija kreira novi cvor, inicijalizuje polje nalog na zahtev
+   sa poslate adrese i vraca adresu novog cvora ili NULL ako je
+   doslo do greske pri alokaciji. Prosledjuje joj se pokazivac na
+   zahtev koji treba smestiti u novi cvor zbog smestanja manjeg
+   podatka na sistemski stek. Pokazivac na strukturu Zahtev je
+   manje velicine u bajtovima(B) u odnosu na strukturu Zahtev. */
 Cvor *napravi_cvor(Zahtev * zahtev);
 
 /* Funkcija prazni red oslobadjajuci memoriju koji je red zauzimao */
 void oslobodi_red(Cvor ** pocetak, Cvor ** kraj);
 
-/* Funkcija dodaje na kraj reda novi zahtev. Vraca 1 ako je doslo do
-   greske pri alokaciji memorije za novi cvor, inace vraca 0. */
+/* Funkcija dodaje na kraj reda novi zahtev. Vraca 1 ako je doslo
+   do greske pri alokaciji memorije za novi cvor, inace vraca 0. */
 int dodaj_u_red(Cvor ** adresa_pocetka, Cvor ** adresa_kraja,
                 Zahtev * zahtev);
 

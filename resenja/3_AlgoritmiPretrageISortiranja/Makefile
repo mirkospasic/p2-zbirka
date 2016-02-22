@@ -73,4 +73,4 @@ clean:
 	rm -rf *~ *.out ../biblioteke/sortiranje/*~ ../biblioteke/matrica/*~
 
 beauty:
-	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c ../biblioteke/sortiranje/*.[ch] ../biblioteke/matrica/*.[ch]
+	indent -fc1 -fca -kr --no-tabs --line-length68 -i2 *.c ../biblioteke/sortiranje/*.[ch] ../biblioteke/matrica/*.[ch]

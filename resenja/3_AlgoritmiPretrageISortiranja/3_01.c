@@ -13,8 +13,8 @@
    kao indikator neuspesne pretrage. */
 
 /* Linearna pretraga: Funkcija pretrazuje niz a[] celih brojeva
-   duzine n, trazeci u njemu prvo pojavljivanje elementa x. Pretraga
-   se vrsi prostom iteracijom kroz niz. */
+   duzine n, trazeci u njemu prvo pojavljivanje elementa x.
+   Pretraga se vrsi prostom iteracijom kroz niz. */
 int linearna_pretraga(int a[], int n, int x)
 {
   int i;
@@ -65,10 +65,10 @@ int interpolaciona_pretraga(int a[], int n, int x)
   /* Dokle god je indeks levi levo od indeksa desni...  */
   while (levi <= desni) {
     /* Ako je trazeni element manji od pocetnog ili veci od
-       poslednjeg elementa u delu niza a[levi],...,a[desni], tada on
-       nije u tom delu niza. Ova provera je neophodna, da se ne bi
-       dogodilo da se prilikom izracunavanja indeksa srednji izadje
-       izvan opsega indeksa [levi,desni] */
+       poslednjeg elementa u delu niza a[levi],...,a[desni], tada
+       on nije u tom delu niza. Ova provera je neophodna, da se ne
+       bi dogodilo da se prilikom izracunavanja indeksa srednji
+       izadje izvan opsega indeksa [levi,desni] */
     if (x < a[levi] || x > a[desni])
       return -1;
     /* U suprotnom, x je izmedju a[levi] i a[desni], pa ako su
@@ -84,23 +84,23 @@ int interpolaciona_pretraga(int a[], int n, int x)
         levi +
         (int) ((double) (x - a[levi]) / (a[desni] - a[levi]) *
                (desni - levi));
-    /* Napomena: Indeks srednji je uvek izmedju levi i desni, ali ce
-       verovatno biti blize trazenoj vrednosti nego da je prosto uvek 
-       uzimana aritmiticka sredina indeksa levi i desni. Ovo se moze
-       porediti sa pretragom recnika: ako neko trazi rec na slovo
-       'B', sigurno nece da otvori recnik na polovini, vec verovatno
-       negde blize pocetku. */
+    /* Napomena: Indeks srednji je uvek izmedju levi i desni, ali
+       ce verovatno biti blize trazenoj vrednosti nego da je prosto 
+       uvek uzimana aritmiticka sredina indeksa levi i desni. Ovo
+       se moze porediti sa pretragom recnika: ako neko trazi rec na 
+       slovo 'B', sigurno nece da otvori recnik na polovini, vec
+       verovatno negde blize pocetku. */
     /* Ako je element sa indeksom srednji veci od trazenog, tada se
        trazeni element mora nalaziti u levoj polovini niza */
     if (x < a[srednji])
       desni = srednji - 1;
-    /* Ako je element sa indeksom srednji manji od trazenog, tada se
-       trazeni element mora nalaziti u desnoj polovini niza */
+    /* Ako je element sa indeksom srednji manji od trazenog, tada
+       se trazeni element mora nalaziti u desnoj polovini niza */
     else if (x > a[srednji])
       levi = srednji + 1;
     else
-      /* Ako je element sa indeksom srednji jednak trazenom, onda se
-         pretraga zavrsava na poziciji srednji */
+      /* Ako je element sa indeksom srednji jednak trazenom, onda
+         se pretraga zavrsava na poziciji srednji */
       return srednji;
   }
   /* U slucaju neuspesne pretrage vraca se -1 */

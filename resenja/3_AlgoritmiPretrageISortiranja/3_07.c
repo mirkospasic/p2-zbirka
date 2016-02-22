@@ -15,13 +15,14 @@ int main(int argc, char **argv)
 
   /* Ako korisnik nije uneo argument, prijavljuje se greska */
   if (argc != 2) {
-    fprintf(stderr, "Greska: Program se poziva sa %s ime_funkcije\n",
+    fprintf(stderr,
+            "Greska: Program se poziva sa %s ime_funkcije\n",
             argv[0]);
     exit(EXIT_FAILURE);
   }
 
-  /* Niska ime_funkcije sadrzi ime trazene funkcije koja je navedena
-     u komandnoj liniji */
+  /* Niska ime_funkcije sadrzi ime trazene funkcije koja je
+     navedena u komandnoj liniji */
   strcpy(ime_funkcije, argv[1]);
 
   /* Inicijalizuje se pokazivac na funkciju koja se tabelira */
@@ -61,8 +62,8 @@ int main(int argc, char **argv)
   while (1) {
     /* Polovi se interval */
     s = (l + d) / 2;
-    /* Ako je apsolutna vrednost trazene funkcije u ovoj tacki manja
-       od zadate tacnosti, prekida se pretraga */
+    /* Ako je apsolutna vrednost trazene funkcije u ovoj tacki
+       manja od zadate tacnosti, prekida se pretraga */
     if (fabs((*fp) (s)) < epsilon) {
       break;
     }

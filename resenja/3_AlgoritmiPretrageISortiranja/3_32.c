@@ -65,7 +65,8 @@ int main()
   qsort(a, n, sizeof(int), &poredi_po_broju_delilaca);
 
   /* Prikazuje se sortirani niz */
-  printf("Sortirani niz u rastucem poretku prema broju delilaca:\n");
+  printf
+      ("Sortirani niz u rastucem poretku prema broju delilaca:\n");
   for (i = 0; i < n; i++)
     printf("%d ", a[i]);
   putchar('\n');

@@ -32,8 +32,8 @@ int main()
     A[i] = (double *) malloc(sizeof(double) * m);
 
     /* Ukoliko je alokacija neuspesna, pre zavrsetka programa
-       potrebno je osloboditi svih i-1 prethodno alociranih vrsta, i
-       alociran niz pokazivaca */
+       potrebno je osloboditi svih i-1 prethodno alociranih vrsta,
+       i alociran niz pokazivaca */
     if (A[i] == NULL) {
       for (j = 0; j < i; j++)
         free(A[j]);

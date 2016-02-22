@@ -73,8 +73,8 @@ int main()
   FILE *ulaz;
   int i = 0, n;
 
-  /* Niz u koji ce biti smestane reci. Prvi broj oznacava broj reci,
-     a drugi maksimalnu duzinu pojedinacne reci */
+  /* Niz u koji ce biti smestane reci. Prvi broj oznacava broj
+     reci, a drugi maksimalnu duzinu pojedinacne reci */
   char reci[MAX_BR_RECI][MAX_DUZINA_RECI];
 
   /* Otvara se datoteka niske.txt za citanje */

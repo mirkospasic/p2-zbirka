@@ -2,7 +2,7 @@
 
 Cvor *napravi_cvor(char *etiketa)
 {
-  /* Alokacija memorije za novi cvor uz proveru uspesnost alokacije */
+  /* Alokacija memorije za novi cvor uz proveru uspesnosti */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -54,8 +54,8 @@ int skini_sa_steka(Cvor ** adresa_vrha, char *etiketa)
 {
   Cvor *pomocni;
 
-  /* Pokusaj skidanja vrednosti sa praznog steka rezultuje greskom i
-     vraca se 0 */
+  /* Pokusaj skidanja vrednosti sa praznog steka rezultuje greskom
+     i vraca se 0 */
   if (*adresa_vrha == NULL)
     return 0;
 
@@ -129,12 +129,13 @@ int uzmi_etiketu(FILE * f, char *etiketa)
     case U_ETIKETI:
       if (isalpha(c) && i < MAX - 1) {
         /* Ako je procitani karakter slovo i nije prekoracena
-           dozvoljena duzina etikete, procitani karakter se smanjuje
-           i smesta u etiketu */
+           dozvoljena duzina etikete, procitani karakter se
+           smanjuje i smesta u etiketu */
         etiketa[i++] = tolower(c);
       } else {
-        /* Inace, staje se sa citanjem etikete. Korektno se zavrsava
-           niska koja sadrzi procitanu etiketu i vraca se njen tip */
+        /* Inace, staje se sa citanjem etikete. Korektno se
+           zavrsava niska koja sadrzi procitanu etiketu i vraca se
+           njen tip */
         etiketa[i] = '\0';
         return tip;
       }

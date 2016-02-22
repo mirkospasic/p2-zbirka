@@ -32,16 +32,16 @@ int f_rekurzivna(int n, int a, int b)
       b * f_rekurzivna(n - 2, a, b);
 }
 
-/* NAPOMENA: U slucaju da se rekurzijom problem svodi na vise manjih
-   potproblema koji se mogu preklapati, postoji opasnost da se
-   pojedini potproblemi manjih dimenzija resavaju veci broj puta.
-   Npr. F(20) = a*F(19) + b*F(18), a F(19) = a*F(18) + b*F(17), tj.
-   problem F(18) se resava dva puta! Problemi manjih dimenzija ce se
-   resavati jos veci broj puta. Resenje za ovaj problem je
-   kombinacija rekurzije sa dinamickim programiranjem. Potproblemi se 
-   resavaju samo jednom, a njihova resenja se pamte u memoriji
-   (obicno u nizovima ili matricama), odakle se koriste ako tokom
-   resavanja ponovo budu potrebni.
+/* NAPOMENA: U slucaju da se rekurzijom problem svodi na vise
+   manjih potproblema koji se mogu preklapati, postoji opasnost da
+   se pojedini potproblemi manjih dimenzija resavaju veci broj
+   puta. Npr. F(20) = a*F(19) + b*F(18), a F(19) = a*F(18) +
+   b*F(17), tj. problem F(18) se resava dva puta! Problemi manjih
+   dimenzija ce se resavati jos veci broj puta. Resenje za ovaj
+   problem je kombinacija rekurzije sa dinamickim programiranjem.
+   Potproblemi se resavaju samo jednom, a njihova resenja se pamte 
+   u memoriji (obicno u nizovima ili matricama), odakle se koriste
+   ako tokom resavanja ponovo budu potrebni.
 
    U narednoj funkciji vec izracunati clanovi niza se cuvaju u
    statickom nizu celih brojeva, jer se staticki niz ne smesta na
@@ -91,8 +91,8 @@ int main()
   printf("Unesite koji clan niza se racuna:\n");
   scanf("%d", &n);
 
-  /* Na osnovu vrednosti promenljive ind ispisuje se rezultat poziva
-     funkcije f_iterativna, f_rekurzivna ili f_napredna */
+  /* Na osnovu vrednosti promenljive ind ispisuje se rezultat
+     poziva funkcije f_iterativna, f_rekurzivna ili f_napredna */
   if (ind == 0)
     printf("F(%d) = %d\n", n, f_iterativna(n, a, b));
   else if (ind == 1)

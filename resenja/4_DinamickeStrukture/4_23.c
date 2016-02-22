@@ -17,8 +17,8 @@ int dubina_stabla(Cvor * koren)
   /* Izracunava se dubina desnog podstabla */
   int dubina_desno = dubina_stabla(koren->desno);
 
-  /* Dubina stabla odgovara vecoj od dubina podstabala - 1 se dodaje
-     jer se racuna i koren stabla */
+  /* Dubina stabla odgovara vecoj od dubina podstabala - 1 se
+     dodaje jer se racuna i koren stabla */
   return dubina_levo >
       dubina_desno ? dubina_levo + 1 : dubina_desno + 1;
 }

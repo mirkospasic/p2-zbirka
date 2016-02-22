@@ -49,10 +49,11 @@ char *vrh_steka(Cvor * vrh);
 void prikazi_stek(Cvor * vrh);
 
 /* Funkcija iz datoteke kojoj odgovara pokazivac f cita sledecu
-   etiketu, i upisuje je u nisku na koju pokazuje pokazivac etiketa.
-   Vraca EOF u slucaju da se dodje do kraja datoteke pre nego sto se
-   procita etiketa. Vraca OTVORENA, ako je procitana otvorena
-   etiketa, odnosno ZATVORENA, ako je procitana zatvorena etiketa */
+   etiketu, i upisuje je u nisku na koju pokazuje pokazivac
+   etiketa. Vraca EOF u slucaju da se dodje do kraja datoteke pre
+   nego sto se procita etiketa. Vraca OTVORENA, ako je procitana
+   otvorena etiketa, odnosno ZATVORENA, ako je procitana zatvorena
+   etiketa */
 int uzmi_etiketu(FILE * f, char *etiketa);
 
 #endif

@@ -62,7 +62,7 @@ all: 4_01_a.out 4_01_b.out 4_01_c.out 4_02_a.out 4_02_b.out 4_02_c.out 4_03.out 
 .PHONY: clean beauty
 
 clean:
-	rm -rf *~ *.out ../biblioteke/lista_iterativna/*~ ../biblioteke/lista_rekurzivna/*~ ../biblioteke/stek/*~ ../biblioteke/red/*~ ../biblioteke/dvostruko_povezana_lista/*~ ../biblioteke/stabla/*~
+	rm -rf *~ *.out ../biblioteke/lista_iterativna/*~ ../biblioteke/lista_rekurzivna/*~ ../biblioteke/stek/*~ ../biblioteke/red/*~ ../biblioteke/dvostruko_povezana_lista/*~ ../biblioteke/stabla/*~ 401_i_402/*~
 
 beauty:
-	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c ../biblioteke/lista_iterativna/*.[ch] ../biblioteke/lista_rekurzivna/*.[ch] ../biblioteke/stek/*.[ch] ../biblioteke/red/*.[ch] ../biblioteke/dvostruko_povezana_lista/*.[ch] ../biblioteke/stabla/*.[ch] 
+	indent -fc1 -fca -kr --no-tabs --line-length68 -i2 *.c ../biblioteke/lista_iterativna/*.[ch] ../biblioteke/lista_rekurzivna/*.[ch] ../biblioteke/stek/*.[ch] ../biblioteke/red/*.[ch] ../biblioteke/dvostruko_povezana_lista/*.[ch] ../biblioteke/stabla/*.[ch]  401_i_402/*.c

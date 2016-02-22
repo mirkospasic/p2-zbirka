@@ -64,7 +64,8 @@ int main(int argc, char **argv)
      greska */
   if (argc < 4) {
     fprintf(stderr, "Greska: ");
-    fprintf(stderr, "Nedovoljan broj argumenata komandne linije.\n");
+    fprintf(stderr,
+            "Nedovoljan broj argumenata komandne linije.\n");
     fprintf(stderr, "Program se poziva sa\n");
     fprintf(stderr, "%s ime_dat suf/pref -s/-p\n", argv[0]);
     exit(EXIT_FAILURE);
@@ -92,7 +93,8 @@ int main(int argc, char **argv)
   } else if (!(poredjenje_niski(*(argv + 3), "-p"))) {
     while (fscanf(in, "%s", rec) != EOF)
       br += prefiks_niske(rec, *(argv + 2));
-    printf("Broj reci koje pocinju na %s je %d.\n", *(argv + 2), br);
+    printf("Broj reci koje pocinju na %s je %d.\n", *(argv + 2),
+           br);
   }
 
   fclose(in);

@@ -27,8 +27,9 @@ int binarna_pretraga_rekurzivna(Student a[], int levi, int desni,
     return srednji;
   }
   /* Ako je trazeni indeks manji od indeksa studenta na srednjoj
-     poziciji, onda se pretraga nastavlja u levoj polovini niza, jer
-     je poznato da je niz sortiran po indeksu u rastucem poretku. */
+     poziciji, onda se pretraga nastavlja u levoj polovini niza,
+     jer je poznato da je niz sortiran po indeksu u rastucem
+     poretku. */
   if (x < a[srednji].indeks)
     return binarna_pretraga_rekurzivna(a, levi, srednji - 1, x);
   /* Inace ga treba traziti u desnoj polovini */

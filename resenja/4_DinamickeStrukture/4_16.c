@@ -36,8 +36,8 @@ Cvor *napravi_cvor(char *ime_i_prezime, char *telefon)
 }
 
 /* Funkcija koja dodaje novu osobu i njen broj telefona u stablo.
-   Ukoliko je dodavanje uspesno povratna vrednost funkcije je 0, dok 
-   je u suprotnom povratna vrednost 1 */
+   Ukoliko je dodavanje uspesno povratna vrednost funkcije je 0,
+   dok je u suprotnom povratna vrednost 1 */
 int
 dodaj_u_stablo(Cvor ** adresa_korena, char *ime_i_prezime,
                char *telefon)
@@ -125,11 +125,12 @@ void prikazi_stablo(Cvor * koren)
   prikazi_stablo(koren->desno);
 }
 
-/* Funkcija ucitava sledeci kontakt iz zadate datoteke i upisuje ime
-   i prezime i broj telefona u odgovarajuce nizove. Maksimalna duzina
-   imena i prezimena odredjena je konstantom MAX_IME_PREZIME, a
-   maksimalna duzina broja telefona konstantom MAX_CIFARA. Funkcija
-   vraca EOF ako nema vise kontakata ili 0 u suprotnom. */
+/* Funkcija ucitava sledeci kontakt iz zadate datoteke i upisuje
+   ime i prezime i broj telefona u odgovarajuce nizove. Maksimalna
+   duzina imena i prezimena odredjena je konstantom
+   MAX_IME_PREZIME, a maksimalna duzina broja telefona konstantom
+   MAX_CIFARA. Funkcija vraca EOF ako nema vise kontakata ili 0 u
+   suprotnom. */
 int procitaj_kontakt(FILE * f, char *ime_i_prezime, char *telefon)
 {
   /* Karakter koji se cita */
@@ -182,7 +183,8 @@ int procitaj_kontakt(FILE * f, char *ime_i_prezime, char *telefon)
   /* Upisuje se terminirajuca nula */
   telefon[i] = '\0';
 
-  /* Vraca se 0 ako je uspesno procitan kontakt ili EOF u suprotnom */
+  /* Vraca se 0 ako je uspesno procitan kontakt ili EOF u suprotnom 
+   */
   return !feof(f) ? 0 : EOF;
 }
 
@@ -199,8 +201,8 @@ Cvor *pretrazi_imenik(Cvor * koren, char *ime_i_prezime)
   if (strcmp(koren->ime_i_prezime, ime_i_prezime) == 0)
     return koren;
 
-  /* Ako je zadato ime i prezime leksikografski manje od vrednosti u
-     korenu pretraga se nastavlja levo */
+  /* Ako je zadato ime i prezime leksikografski manje od vrednosti
+     u korenu pretraga se nastavlja levo */
   if (strcmp(ime_i_prezime, koren->ime_i_prezime) < 0)
     return pretrazi_imenik(koren->levo, ime_i_prezime);
 

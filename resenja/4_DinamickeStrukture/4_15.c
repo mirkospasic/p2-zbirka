@@ -26,7 +26,8 @@ Cvor *napravi_cvor(char *rec)
   /* Alocira se memorija za zadatu rec: potrebno je rezervisati
      memoriju za svaki karakter reci ukljucujuci i terminirajucu
      nulu */
-  novi_cvor->rec = (char *) malloc((strlen(rec) + 1) * sizeof(char));
+  novi_cvor->rec =
+      (char *) malloc((strlen(rec) + 1) * sizeof(char));
   if (novi_cvor->rec == NULL) {
     free(novi_cvor);
     return NULL;
@@ -110,8 +111,8 @@ void oslobodi_stablo(Cvor ** adresa_korena)
   *adresa_korena = NULL;
 }
 
-/* Funkcija koja pronalazi cvor koji sadrzi najfrekventniju rec (rec
-   sa najvecim brojem pojavljivanja) */
+/* Funkcija koja pronalazi cvor koji sadrzi najfrekventniju rec
+   (rec sa najvecim brojem pojavljivanja) */
 Cvor *nadji_najfrekventniju_rec(Cvor * koren)
 {
   Cvor *max, *max_levo, *max_desno;
@@ -180,8 +181,8 @@ int procitaj_rec(FILE * f, char rec[], int max)
       rec[i++] = tolower(c);
 
     else
-      /* Ako nije, proverava se da li je procitano barem jedno slovo
-         nove reci */
+      /* Ako nije, proverava se da li je procitano barem jedno
+         slovo nove reci */
       /* Ako jeste, prekida se sa citanjem */
     if (i > 0)
       break;
@@ -202,8 +203,8 @@ int main(int argc, char **argv)
   FILE *f;
   char rec[MAX];
 
-  /* Proverava se da li je navedeno ime datoteke prilikom pokretanja
-     programa */
+  /* Proverava se da li je navedeno ime datoteke prilikom
+     pokretanja programa */
   if (argc < 2) {
     fprintf(stderr, "Greska: Nedostaje ime ulazne datoteke!\n");
     exit(EXIT_FAILURE);

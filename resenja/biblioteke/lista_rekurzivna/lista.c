@@ -24,7 +24,7 @@ void oslobodi_listu(Cvor ** adresa_glave)
     return;
 
   /* Ako lista nije prazna, treba osloboditi memoriju. Treba
-     osloboditi rep liste, pre oslobadjanja memorije za glavu liste */
+     osloboditi rep, pre oslobadjanja memorije za glavu liste. */
   oslobodi_listu(&(*adresa_glave)->sledeci);
   /* Nakon oslobodjenog repa, oslobadja se glava liste i azurira se
      glava u pozivajucoj funkciji tako da odgovara praznoj listi */
@@ -54,7 +54,7 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
 
     /* Novi cvor postaje glava liste */
     Cvor *novi = napravi_cvor(broj);
-    /* Ukoliko je bilo greske pri kreiranju novog cvora, vraca se 1 */
+    /* Ako je bilo greske pri kreiranju novog cvora, vraca se 1 */
     if (novi == NULL)
       return 1;
 
@@ -71,8 +71,8 @@ int dodaj_na_kraj_liste(Cvor ** adresa_glave, int broj)
      novi broj se dodaje u rep liste u rekurzivnom pozivu.
      Informaciju o uspesnosti alokacije u rekurzivnom pozivu
      funkcija prosledjuje visem rekurzivnom pozivu koji tu
-     informaciju vraca u rekurzivni poziv iznad, sve dok se ne vrati 
-     u main. Tek je iz main funkcije moguce pristupiti pravom
+     informaciju vraca u rekurzivni poziv iznad, sve dok se ne
+     vrati u main. Tek je iz main funkcije moguce pristupiti pravom 
      pocetku liste i osloboditi je celu, ako ima potrebe. Ako je
      funkcija vratila 0, onda nije bilo greske. */
   return dodaj_na_kraj_liste(&(*adresa_glave)->sledeci, broj);
@@ -86,7 +86,7 @@ int dodaj_sortirano(Cvor ** adresa_glave, int broj)
     /* Novi cvor postaje glava liste */
     Cvor *novi = napravi_cvor(broj);
 
-    /* Ukoliko je bilo greske pri kreiranju novog cvora, vraca se 1 */
+    /* Ako je bilo greske pri kreiranju novog cvora, vraca se 1 */
     if (novi == NULL)
       return 1;
 
@@ -102,8 +102,8 @@ int dodaj_sortirano(Cvor ** adresa_glave, int broj)
   if ((*adresa_glave)->vrednost >= broj)
     return dodaj_na_pocetak_liste(adresa_glave, broj);
 
-  /* Inace, broj treba dodati u rep, tako da rep i sa novim cvorom
-     bude sortirana lista. */
+  /* Inace, broj treba dodati u rep liste, tako da rep i sa novim
+     cvorom bude sortirana lista. */
   return dodaj_sortirano(&(*adresa_glave)->sledeci, broj);
 }
 
@@ -123,8 +123,8 @@ Cvor *pretrazi_listu(Cvor * glava, int broj)
 
 Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
 {
-  /* Trazenog broja nema ako je lista prazna ili ako je broj manji
-     od vrednosti u glavi liste, jer je lista neopadajuce sortirana */
+  /* Trazenog broja nema ako je lista prazna ili broj manji od
+     vrednosti u glavi liste, jer je lista neopadajuce sortirana */
   if (glava == NULL || glava->vrednost > broj)
     return NULL;
 

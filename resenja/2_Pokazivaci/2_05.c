@@ -3,8 +3,8 @@
 
 #define MAX 100
 
-/* Funkcija ispituje da li je niska palindrom, odnosno da li se isto
-   cita spreda i odpozadi */
+/* Funkcija ispituje da li je niska palindrom, odnosno da li se
+   isto cita spreda i odpozadi */
 int palindrom(char *niska)
 {
   int i, j;

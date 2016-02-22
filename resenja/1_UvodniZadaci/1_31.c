@@ -15,8 +15,9 @@ int maks_heksadekadna_cifra(unsigned x)
      njega izbrise poslednja heksadekadna cifra */
   int maks_bez_poslednje_cifre = maks_heksadekadna_cifra(x >> 4);
 
-  return poslednja_cifra > maks_bez_poslednje_cifre ? poslednja_cifra
-      : maks_bez_poslednje_cifre;
+  return poslednja_cifra >
+      maks_bez_poslednje_cifre ? poslednja_cifra :
+      maks_bez_poslednje_cifre;
 }
 
 int main()

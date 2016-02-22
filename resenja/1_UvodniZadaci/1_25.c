@@ -12,9 +12,9 @@ int skalarno(int a[], int b[], int n)
   /* Na osnovu resenja problema dimenzije n-1, resava se problem
      dimenzije n primenom definicije skalarnog proizvoda a*b =
      a[0]*b[0] + a[1]*b[1] +...+ a[n-2]*a[n-2] + a[n-1]*a[n-1]
-     Dakle, skalarni proizvod dva vektora duzine n se dobija kada se 
-     na skalarni proizvod dva vektora duzine n-1 koji se dobiju od
-     polazna dva vektora otklanjanjem poslednjih elemenata, doda
+     Dakle, skalarni proizvod dva vektora duzine n se dobija kada
+     se na skalarni proizvod dva vektora duzine n-1 koji se dobiju 
+     od polazna dva vektora otklanjanjem poslednjih elemenata, doda
      proizvod poslednja dva elementa polaznih vektora. */
   else
     return skalarno(a, b, n - 1) + a[n - 1] * b[n - 1];

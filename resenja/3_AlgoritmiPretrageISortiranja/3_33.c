@@ -63,7 +63,8 @@ int main()
   /* Sortiraju se niske leksikografski. Biblioteckoj funkciji qsort
      prosledjuje se funkcija kojom se zadaje kriterijum poredjenja 2
      niske po duzini */
-  qsort(niske, n, MAX_DUZINA * sizeof(char), &poredi_leksikografski);
+  qsort(niske, n, MAX_DUZINA * sizeof(char),
+        &poredi_leksikografski);
 
   printf("Leksikografski sortirane niske:\n");
   for (i = 0; i < n; i++)

@@ -3,8 +3,8 @@
 /* Glavni program */
 int main(int argc, char **argv)
 {
-  /* Na pocetku, stek je prazan i etikete su uparene jer nijedna jos
-     nije procitana. */
+  /* Na pocetku, stek je prazan i etikete su uparene jer nijedna
+     jos nije procitana. */
   Cvor *vrh = NULL;
   char etiketa[MAX];
   int tip;
@@ -14,7 +14,8 @@ int main(int argc, char **argv)
   /* Ime datoteke se preuzima iz komandne linije. */
   if (argc < 2) {
     fprintf(stderr, "Greska:");
-    fprintf(stderr, "Program se poziva sa:\n %s ime_html_datoteke\n",
+    fprintf(stderr,
+            "Program se poziva sa:\n %s ime_html_datoteke\n",
             argv[0]);
     exit(EXIT_FAILURE);
   }
@@ -45,11 +46,11 @@ int main(int argc, char **argv)
         }
     }
     /* Ako je zatvorena etiketa, tada je uslov dobre uparenosti da
-       je u pitanju zatvaranje etikete koja je poslednja otvorena, a 
-       jos uvek nije zatvorena. Ona se mora nalaziti na vrhu steka.
-       Ako je taj uslov ispunjen, skida se sa steka, jer je upravo
-       zatvorena. U suprotnom, pronadjena je nepravilnost i etikete
-       nisu pravilno uparene. */
+       je u pitanju zatvaranje etikete koja je poslednja otvorena,
+       a jos uvek nije zatvorena. Ona se mora nalaziti na vrhu
+       steka. Ako je taj uslov ispunjen, skida se sa steka, jer je
+       upravo zatvorena. U suprotnom, pronadjena je nepravilnost i
+       etikete nisu pravilno uparene. */
     else if (tip == ZATVORENA) {
       if (vrh_steka(vrh) != NULL
           && strcmp(vrh_steka(vrh), etiketa) == 0)
@@ -71,8 +72,8 @@ int main(int argc, char **argv)
   fclose(f);
 
   /* Ako do sada nije pronadjeno pogresno uparivanje, stek bi
-     trebalo da bude prazan. Ukoliko nije, tada postoje etikete koje 
-     su ostale otvorene */
+     trebalo da bude prazan. Ukoliko nije, tada postoje etikete
+     koje su ostale otvorene */
   if (uparene) {
     if (vrh_steka(vrh) == NULL)
       printf("Etikete su pravilno uparene!\n");

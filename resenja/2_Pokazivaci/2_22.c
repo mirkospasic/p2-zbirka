@@ -82,8 +82,8 @@ float **alociraj_memoriju(int n)
   return m;
 }
 
-/* Funkcija oslobadja memoriju zauzetu kvadratnom matricom dimenzije
-   n x n */
+/* Funkcija oslobadja memoriju zauzetu kvadratnom matricom
+   dimenzije n x n */
 void oslobodi_memoriju(float **m, int n)
 {
   int i;

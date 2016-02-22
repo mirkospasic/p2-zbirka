@@ -170,8 +170,8 @@ int main(int argc, char **argv)
         (&koren, ime, prezime, uspeh, matematika, jezik)
         == 1) {
       fprintf(stderr,
-              "Greska: Neuspelo dodavanje podataka za %s %s.\n", ime,
-              prezime);
+              "Greska: Neuspelo dodavanje podataka za %s %s.\n",
+              ime, prezime);
       oslobodi_stablo(&koren);
       exit(EXIT_FAILURE);
     }

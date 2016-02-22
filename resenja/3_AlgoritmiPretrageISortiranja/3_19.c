@@ -115,8 +115,8 @@ int main(int argc, char *argv[])
   }
 
   /* Sve dok se ne stigne do kraja ulazne datoteke, ucitavaju se
-     koordinate tacaka i smestaju na odgovarajuce pozicije odredjene
-     brojacem i. */
+     koordinate tacaka i smestaju na odgovarajuce pozicije
+     odredjene brojacem i. */
   i = 0;
   while (fscanf(ulaz, "%d %d", &tacke[i].x, &tacke[i].y) != EOF) {
     i++;
@@ -125,8 +125,8 @@ int main(int argc, char *argv[])
   /* Ukupan broj procitanih tacaka */
   n = i;
 
-  /* Analizira se prosledjena opcija. Moguce vrednosti za argv[1] su
-     "-x" ili "-y" ili "-o", pa je argv[1][0] sigurno crtica
+  /* Analizira se prosledjena opcija. Moguce vrednosti za argv[1]
+     su "-x" ili "-y" ili "-o", pa je argv[1][0] sigurno crtica
      (karakter -), a karakter argv[1][1] odredjuje kriterijum
      sortiranja */
   switch (argv[1][1]) {

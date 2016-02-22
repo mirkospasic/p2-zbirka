@@ -64,9 +64,11 @@ int dodaj_u_stablo(Cvor ** koren, char ime[], char prezime[],
   /* Stablo se uredjuje po mesecu, a zatim po danu u okviru istog
      meseca */
   if (mesec < (*koren)->mesec)
-    return dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan, mesec);
+    return dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan,
+                          mesec);
   else if (mesec == (*koren)->mesec && dan < (*koren)->dan)
-    return dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan, mesec);
+    return dodaj_u_stablo(&(*koren)->levo, ime, prezime, dan,
+                          mesec);
   else
     return dodaj_u_stablo(&(*koren)->desno, ime, prezime, dan,
                           mesec);
@@ -84,11 +86,12 @@ Cvor *pretrazi(Cvor * koren, int dan, int mesec)
     /* Vraca se njegova vrednost */
     return koren;
 
-  /* Ako je mesec trazenog datuma manji od meseca sadrzanog u korenu
-     ili ako su meseci isti ali je dan trazenog datuma manji od
-     aktuelnog datuma, pretrazuje se levo podstablo - pre toga se
-     svakako proverava da li leva grana postoji - ako ne postoji
-     treba vratiti prvi sledeci, a to je bas vrednost uocenog korena */
+  /* Ako je mesec trazenog datuma manji od meseca sadrzanog u
+     korenu ili ako su meseci isti ali je dan trazenog datuma manji 
+     od aktuelnog datuma, pretrazuje se levo podstablo - pre toga
+     se svakako proverava da li leva grana postoji - ako ne postoji
+     treba vratiti prvi sledeci, a to je bas vrednost uocenog korena 
+   */
   if (mesec < koren->mesec
       || (mesec == koren->mesec && dan < koren->dan)) {
     if (koren->levo == NULL)
@@ -117,7 +120,8 @@ Cvor *pronadji_najmanji_datum(Cvor * koren)
     return pronadji_najmanji_datum(koren->levo);
 }
 
-/* Funkcija koja za dati dan i mesec odredjuje nisku formata DD.MM. */
+/* Funkcija koja za dati dan i mesec odredjuje nisku formata DD.MM. 
+ */
 void datum_u_nisku(int dan, int mesec, char datum[])
 {
   if (dan < 10) {
@@ -147,12 +151,13 @@ void oslobodi_stablo(Cvor ** adresa_korena)
   if (*adresa_korena == NULL)
     return;
 
-  /* Ako postoji levo podstablo, oslobadja se memorija koju zauzima */
+  /* Ako postoji levo podstablo, oslobadja se memorija koju zauzima 
+   */
   if ((*adresa_korena)->levo)
     oslobodi_stablo(&(*adresa_korena)->levo);
 
-  /* Ako postoji desno podstablo, oslobadja se memorija koju zauzima 
-   */
+  /* Ako postoji desno podstablo, oslobadja se memorija koju
+     zauzima */
   if ((*adresa_korena)->desno)
     oslobodi_stablo(&(*adresa_korena)->desno);
 
@@ -188,14 +193,15 @@ int main(int argc, char **argv)
     exit(EXIT_FAILURE);
   }
 
-  /* I stablo se popunjava podacima uz proveru uspesnosti dodavanja */
+  /* I stablo se popunjava podacima uz proveru uspesnosti dodavanja 
+   */
   koren = NULL;
   while (fscanf
          (in, "%s %s %d.%d.", ime, prezime, &dan, &mesec) != EOF)
     if (dodaj_u_stablo(&koren, ime, prezime, dan, mesec) == 1) {
       fprintf(stderr,
-              "Greska: Neuspelo dodavanje podataka za %s %s.\n", ime,
-              prezime);
+              "Greska: Neuspelo dodavanje podataka za %s %s.\n",
+              ime, prezime);
       oslobodi_stablo(&koren);
       exit(EXIT_FAILURE);
     }

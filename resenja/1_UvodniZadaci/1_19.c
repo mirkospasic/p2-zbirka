@@ -45,15 +45,16 @@ int faktorijel_repna_v2(int n, int rezultat)
 }
 
 /* Prilikom poziva prethodnih funkcija pored prvog argumenta celog
-   broja n, mora da se salje i 1 za vrednost drugog argumenta u kome
-   ce se akumulirati rezultat. Funkcija faktorijel(n) je ovde radi
-   udobnosti korisnika, jer je sasvim prirodno da za faktorijel
-   zahteva samo 1 parametar. Funkcija faktorijel izracunava n!, tako
-   sto odgovarajucoj gore navedenoj funkciji koja zaista racuna
-   faktorijel, salje ispravne argumente i vraca rezultat koju joj ta
-   funkcija vrati. Za testiranje, zameniti u telu funkcije faktorijel
-   poziv faktorijel_repna sa pozivom faktorijel_repna_v1, a zatim sa
-   pozivom funkcije faktorijel_repna_v2. */
+   broja n, mora da se salje i 1 za vrednost drugog argumenta u
+   kome ce se akumulirati rezultat. Funkcija faktorijel(n) je ovde
+   radi udobnosti korisnika, jer je sasvim prirodno da za
+   faktorijel zahteva samo 1 parametar. Funkcija faktorijel
+   izracunava n!, tako sto odgovarajucoj gore navedenoj funkciji
+   koja zaista racuna faktorijel, salje ispravne argumente i vraca
+   rezultat koju joj ta funkcija vrati. Za testiranje, zameniti u
+   telu funkcije faktorijel poziv faktorijel_repna sa pozivom
+   faktorijel_repna_v1, a zatim sa pozivom funkcije
+   faktorijel_repna_v2. */
 int faktorijel(int n)
 {
   return faktorijel_repna(n, 1);

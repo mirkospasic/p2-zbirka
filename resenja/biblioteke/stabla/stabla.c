@@ -29,7 +29,8 @@ int dodaj_u_stablo(Cvor ** adresa_korena, int broj)
 
     /* Proverava se uspesnost kreiranja */
     if (novi_cvor == NULL) {
-      /* Ukoliko je doslo do greske, vraca se odgovarajuca vrednost */
+      /* Ukoliko je doslo do greske, vraca se odgovarajuca vrednost 
+       */
       return 1;
     }
 
@@ -120,10 +121,10 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
   if (*adresa_korena == NULL)
     return;
 
-  /* Ako je vrednost koju treba obrisati manja od vrednosti u korenu
-     stabla, ona se eventualno nalazi u levom podstablu, pa treba
-     rekurzivno primeniti postupak na levo podstablo. Koren ovako
-     modifikovanog stabla je nepromenjen. */
+  /* Ako je vrednost koju treba obrisati manja od vrednosti u
+     korenu stabla, ona se eventualno nalazi u levom podstablu, pa
+     treba rekurzivno primeniti postupak na levo podstablo. Koren
+     ovako modifikovanog stabla je nepromenjen. */
   if (broj < (*adresa_korena)->broj) {
     obrisi_element(&(*adresa_korena)->levo, broj);
     return;
@@ -172,15 +173,16 @@ void obrisi_element(Cvor ** adresa_korena, int broj)
   }
 
   /* 4. Ako koren ima oba sina, najpre se potrazi sledbenik korena
-     (u smislu poretka) u stablu. To je upravo po vrednosti najmanji 
-     cvor u desnom podstablu koji se moze pronaci npr. funkcijom
-     pronadji_najmanji(). Potom se u koren smesti vrednost
-     pronadjenog cvora, a u taj cvor se smesti vrednost korena (tj.
-     broj koji se brise). Zatim se rekurzivno pozove funkcija za
-     brisanje nad desnim podstablom. S obzirom da u njemu treba
-     obrisati najmanji element, a on zasigurno ima najvise jednog
-     potomka, jasno je da ce njegovo brisanje biti obavljeno na
-     jedan od jednostavnijih nacina koji su gore opisani. */
+     (u smislu poretka) u stablu. To je upravo po vrednosti
+     najmanji cvor u desnom podstablu koji se moze pronaci npr.
+     funkcijom pronadji_najmanji(). Potom se u koren smesti
+     vrednost pronadjenog cvora, a u taj cvor se smesti vrednost
+     korena (tj. broj koji se brise). Zatim se rekurzivno pozove
+     funkcija za brisanje nad desnim podstablom. S obzirom da u
+     njemu treba obrisati najmanji element, a on zasigurno ima
+     najvise jednog potomka, jasno je da ce njegovo brisanje biti
+     obavljeno na jedan od jednostavnijih nacina koji su gore
+     opisani. */
   pomocni_cvor = pronadji_najmanji((*adresa_korena)->desno);
   (*adresa_korena)->broj = pomocni_cvor->broj;
   pomocni_cvor->broj = broj;

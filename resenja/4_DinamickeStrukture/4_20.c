@@ -15,7 +15,8 @@ int kopiraj_stablo(Cvor * koren, Cvor ** duplikat)
     return 0;
   }
 
-  /* Duplira se koren stabla i postavlja da bude koren novog stabla */
+  /* Duplira se koren stabla i postavlja da bude koren novog stabla 
+   */
   *duplikat = napravi_cvor(koren->broj);
   if (*duplikat == NULL) {
     return 1;
@@ -37,9 +38,9 @@ int kopiraj_stablo(Cvor * koren, Cvor ** duplikat)
 }
 
 /* Funkcija izracunava uniju dva skupa predstavljena stablima -
-   rezultujuci skup tj. stablo se dobija modifikacijom prvog stabla.
-   Povratna vrednost funkcije je 0 ukoliko je kreiranje unije
-   uspesno, odnosno 1 ukoliko je doslo do greske */
+   rezultujuci skup tj. stablo se dobija modifikacijom prvog
+   stabla. Povratna vrednost funkcije je 0 ukoliko je kreiranje
+   unije uspesno, odnosno 1 ukoliko je doslo do greske */
 int kreiraj_uniju(Cvor ** adresa_korena1, Cvor * koren2)
 {
   /* Ako drugo stablo nije prazno */
@@ -49,8 +50,8 @@ int kreiraj_uniju(Cvor ** adresa_korena1, Cvor * koren2)
       return 1;
     }
 
-    /* 2. Rekurzivno se racuna unija levog i desnog podstabla drugog
-       stabla sa prvim stablom */
+    /* 2. Rekurzivno se racuna unija levog i desnog podstabla
+       drugog stabla sa prvim stablom */
     int unija_levo = kreiraj_uniju(adresa_korena1, koren2->levo);
     int unija_desno = kreiraj_uniju(adresa_korena1, koren2->desno);
 
@@ -68,9 +69,9 @@ int kreiraj_uniju(Cvor ** adresa_korena1, Cvor * koren2)
 }
 
 /* Funkcija izracunava presek dva skupa predstavljana stablima -
-   rezultujuci skup tj. stablo se dobija modifikacijom prvog stabla.
-   Povratna vrednost funkcije je 0 ukoliko je kreiranje preseka
-   uspesno, odnosno 1 ukoliko je doslo do greske */
+   rezultujuci skup tj. stablo se dobija modifikacijom prvog
+   stabla. Povratna vrednost funkcije je 0 ukoliko je kreiranje
+   preseka uspesno, odnosno 1 ukoliko je doslo do greske */
 int kreiraj_presek(Cvor ** adresa_korena1, Cvor * koren2)
 {
   /* Ako je prvo stablo prazno, tada je i rezultat prazno stablo */
@@ -80,7 +81,8 @@ int kreiraj_presek(Cvor ** adresa_korena1, Cvor * koren2)
   /* Inace, kreira se presek levog i desnog podstabla sa drugim
      stablom, tj. iz levog i desnog podstabla prvog stabla brisu se
      svi oni elementi koji ne postoje u drugom stablu */
-  int presek_levo = kreiraj_presek(&(*adresa_korena1)->levo, koren2);
+  int presek_levo =
+      kreiraj_presek(&(*adresa_korena1)->levo, koren2);
   int presek_desno =
       kreiraj_presek(&(*adresa_korena1)->desno, koren2);
   if (presek_levo == 0 && presek_desno == 0) {
@@ -97,9 +99,9 @@ int kreiraj_presek(Cvor ** adresa_korena1, Cvor * koren2)
 }
 
 /* Funkcija izracunava razliku dva skupa predstavljana stablima -
-   rezultujuci skup tj. stablo se dobija modifikacijom prvog stabla.
-   Povratna vrednost funkcije je 0 ukoliko je kreiranje razlike
-   uspesno, odnosno 1 ukoliko je doslo do greske */
+   rezultujuci skup tj. stablo se dobija modifikacijom prvog
+   stabla. Povratna vrednost funkcije je 0 ukoliko je kreiranje
+   razlike uspesno, odnosno 1 ukoliko je doslo do greske */
 int kreiraj_razliku(Cvor ** adresa_korena1, Cvor * koren2)
 {
   /* Ako je prvo stablo prazno, tada je i rezultat prazno stablo */
@@ -114,8 +116,8 @@ int kreiraj_razliku(Cvor ** adresa_korena1, Cvor * koren2)
   int razlika_desno =
       kreiraj_razliku(&(*adresa_korena1)->desno, koren2);
   if (razlika_levo == 0 && razlika_desno == 0) {
-    /* Ako se koren prvog stabla nalazi i u drugom stablu tada se on
-       uklanja se iz prvog stabla */
+    /* Ako se koren prvog stabla nalazi i u drugom stablu tada se
+       on uklanja se iz prvog stabla */
     if (pretrazi_stablo(koren2, (*adresa_korena1)->broj) != NULL)
       obrisi_element(adresa_korena1, (*adresa_korena1)->broj);
 

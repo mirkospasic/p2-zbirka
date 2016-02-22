@@ -61,8 +61,8 @@ int main(int argc, char *argv[])
       if (fscanf(fin1, "%s%s", ime1, prezime1) == EOF)
         kraj1 = 1;
     } else {
-      /* Ime i prezime iz druge datoteke je leksikografski ranije, i
-         biva upisano u izlaznu datoteku */
+      /* Ime i prezime iz druge datoteke je leksikografski ranije,
+         i biva upisano u izlaznu datoteku */
       fprintf(fout, "%s %s\n", ime2, prezime2);
       /* Cita se naredni student iz druge datoteke */
       if (fscanf(fin2, "%s%s", ime2, prezime2) == EOF)

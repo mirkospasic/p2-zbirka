@@ -34,15 +34,15 @@ void insertion_sort(int a[], int n)
 {
   int i, j;
 
-  /* Na pocetku iteracije pretpostavlja se da je niz a[0],...,a[i-1]
-     sortiran */
+  /* Na pocetku iteracije pretpostavlja se da je niz
+     a[0],...,a[i-1] sortiran */
   for (i = 1; i < n; i++) {
-    /* U ovoj petlji se redom potiskuje element a[i] ulevo koliko je
-       potrebno, dok ne zauzme pravo mesto, tako da niz a[0],...a[i]
-       bude sortiran. Indeks j je trenutna pozicija na kojoj se
-       element koji se umece nalazi. Petlja se zavrsava ili kada
-       element dodje do levog kraja (j==0) ili kada se naidje na
-       element a[j-1] koji je manji od a[j]. */
+    /* U ovoj petlji se redom potiskuje element a[i] ulevo koliko
+       je potrebno, dok ne zauzme pravo mesto, tako da niz
+       a[0],...a[i] bude sortiran. Indeks j je trenutna pozicija na 
+       kojoj se element koji se umece nalazi. Petlja se zavrsava
+       ili kada element dodje do levog kraja (j==0) ili kada se
+       naidje na element a[j-1] koji je manji od a[j]. */
     int temp = a[i];
     for (j = i; j > 0 && temp < a[j - 1]; j--)
       a[j] = a[j - 1];
@@ -64,10 +64,10 @@ void bubble_sort(int a[], int n)
         int temp = a[j];
         a[j] = a[j + 1];
         a[j + 1] = temp;
-        /* Promenljiva ind registruje da je bilo premestanja. Samo u 
-           tom slucaju ima smisla ici na sledecu iteraciju, jer ako
-           nije bilo premestanja, znaci da su svi elementi vec u
-           dobrom poretku, pa nema potrebe prelaziti na kraci
+        /* Promenljiva ind registruje da je bilo premestanja. Samo
+           u tom slucaju ima smisla ici na sledecu iteraciju, jer
+           ako nije bilo premestanja, znaci da su svi elementi vec
+           u dobrom poretku, pa nema potrebe prelaziti na kraci
            prefiks niza. Algoritam bi bio korektan i bez ovoga.
            Sortiranje bi bilo ispravno, ali manje efikasno, jer bi
            se cesto nepotrebno vrsila mnoga uporedjivanja, kada je

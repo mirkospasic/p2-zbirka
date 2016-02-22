@@ -11,8 +11,8 @@ typedef struct {
   int broj_gledanja;
 } Pesma;
 
-/* Funkcija za uporedjivanje pesama po broju gledanosti (potrebna za
-   rad qsort funkcije) */
+/* Funkcija za uporedjivanje pesama po broju gledanosti (potrebna
+   za rad qsort funkcije) */
 int uporedi_gledanost(const void *pp1, const void *pp2)
 {
   Pesma *p1 = (Pesma *) pp1;
@@ -94,11 +94,11 @@ int main(int argc, char *argv[])
       ungetc(c, ulaz);
     }
 
-    /* Proverava se da li postoji dovoljno vec alocirane memorije za
-       citanje nove pesme */
+    /* Proverava se da li postoji dovoljno vec alocirane memorije
+       za citanje nove pesme */
     if (alocirano_za_pesme == i) {
-      /* Ako ne, ako je potrosena sva alocirana memorija, alocira se
-         novih KORAK mesta */
+      /* Ako ne, ako je potrosena sva alocirana memorija, alocira
+         se novih KORAK mesta */
       alocirano_za_pesme += KORAK;
       pesme =
           (Pesma *) realloc(pesme,
@@ -107,7 +107,8 @@ int main(int argc, char *argv[])
       /* Proverava se da li je nova memorija uspesno realocirana */
       if (pesme == NULL) {
         /* Ako nije ispisuje se obavestenje */
-        fprintf(stderr, "Greska: Problem sa alokacijom memorije!\n");
+        fprintf(stderr,
+                "Greska: Problem sa alokacijom memorije!\n");
         /* I oslobadja sva memorija zauzeta do ovog koraka */
         oslobodi(pesme, i);
         exit(EXIT_FAILURE);

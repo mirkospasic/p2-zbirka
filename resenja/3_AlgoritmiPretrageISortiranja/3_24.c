@@ -12,8 +12,8 @@ typedef struct {
   int zadaci;
 } Student;
 
-/* Funkcija za sortiranje niza struktura po prezimenu leksikografski
-   rastuce */
+/* Funkcija za sortiranje niza struktura po prezimenu
+   leksikografski rastuce */
 void sort_ime_leksikografski(Student niz[], int n)
 {
   int i, j;

@@ -5,15 +5,15 @@
    duzine n */
 int br_pojave(int x, int a[], int n)
 {
-  /* Izlazak iz rekurzije: za niz duzine jedan broj pojava broja x u
-     nizu je 1 ukoliko je jedini element a[0] bas x ili 0 inace */
+  /* Izlazak iz rekurzije: za niz duzine jedan broj pojava broja x
+     u nizu je 1 ukoliko je jedini element a[0] bas x ili 0 inace */
   if (n == 1)
     return a[0] == x ? 1 : 0;
 
   /* U promenljivu bp se smesta broj pojave broja x u prvih n-1
      elemenata niza a. Ukupan broj pojavljivanja broja x u celom
-     nizu a je jednak bp uvecanom za jedan ukoliko je se na poziciji 
-     n-1 u nizu a nalazi broj x */
+     nizu a je jednak bp uvecanom za jedan ukoliko je se na
+     poziciji n-1 u nizu a nalazi broj x */
   int bp = br_pojave(x, a, n - 1);
   return a[n - 1] == x ? 1 + bp : bp;
 }

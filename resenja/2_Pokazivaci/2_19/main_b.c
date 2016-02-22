@@ -10,7 +10,8 @@ int main(int argc, char **argv)
 
   /* Provera argumenata komandne linije */
   if (argc != 2) {
-    fprintf(stderr, "Greska: Koriscenje programa: %s datoteka\n", argv[0]);
+    fprintf(stderr, "Greska: Koriscenje programa: %s datoteka\n",
+            argv[0]);
     exit(EXIT_FAILURE);
   }
 
@@ -41,7 +42,8 @@ int main(int argc, char **argv)
 
   /* Ucitava se matrica iz datoteke */
   if (ucitaj_kvadratnu_matricu_iz_datoteke(matrica, n, f) != 0) {
-    fprintf(stderr, "Greska: Neuspesno ucitavanje matrice iz datoteke.\n");
+    fprintf(stderr,
+            "Greska: Neuspesno ucitavanje matrice iz datoteke.\n");
     matrica = dealociraj_matricu(matrica, n);
     exit(EXIT_FAILURE);
   }

@@ -38,13 +38,14 @@ int main()
         b = (int *) malloc(alocirano * sizeof(int));
 
         if (b == NULL) {
-          fprintf(stderr, "Greska: Neuspesna alokacija memorije.\n");
+          fprintf(stderr,
+                  "Greska: Neuspesna alokacija memorije.\n");
           free(a);
           exit(EXIT_FAILURE);
         }
 
-        /* Svih n elemenata koji pocinju na adresi a prepisuju se na
-           novu aderesu b */
+        /* Svih n elemenata koji pocinju na adresi a prepisuju se
+           na novu aderesu b */
         for (i = 0; i < n; i++)
           b[i] = a[i];
 
@@ -56,8 +57,8 @@ int main()
         a = b;
       } else if (realokacija == 'R') {
 
-        /* Zbog funkcije realloc je neophodno da i u prvoj iteraciji
-           "a" bude inicijalizovano na NULL */
+        /* Zbog funkcije realloc je neophodno da i u prvoj
+           iteraciji "a" bude inicijalizovano na NULL */
         a = (int *) realloc(a, alocirano * sizeof(int));
         if (a == NULL) {
           fprintf(stderr,

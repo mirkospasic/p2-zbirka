@@ -11,9 +11,9 @@ int broj_cvorova(Cvor * koren)
   if (koren == NULL)
     return 0;
 
-  /* U suprotnom je broj cvorova stabla jednak zbiru broja cvorova u
-     levom podstablu i broja cvorova u desnom podstablu - 1 se dodaje 
-     zato sto treba racunati i koren */
+  /* U suprotnom je broj cvorova stabla jednak zbiru broja cvorova
+     u levom podstablu i broja cvorova u desnom podstablu - 1 se
+     dodaje zato sto treba racunati i koren */
   return broj_cvorova(koren->levo) + broj_cvorova(koren->desno) + 1;
 }
 
@@ -43,7 +43,8 @@ void pozitivni_listovi(Cvor * koren)
     return;
 
   /* Ako je cvor list i sadrzi pozitivnu vrednost */
-  if (koren->levo == NULL && koren->desno == NULL && koren->broj > 0)
+  if (koren->levo == NULL && koren->desno == NULL
+      && koren->broj > 0)
     /* Stampa se */
     printf("%d ", koren->broj);
 
@@ -59,8 +60,8 @@ int zbir_svih_cvorova(Cvor * koren)
   if (koren == NULL)
     return 0;
 
-  /* Inace, zbir cvorova stabla izracunava se kao zbir korena i svih
-     elemenata u podstablima */
+  /* Inace, zbir cvorova stabla izracunava se kao zbir korena i
+     svih elemenata u podstablima */
   return koren->broj + zbir_svih_cvorova(koren->levo) +
       zbir_svih_cvorova(koren->desno);
 }
@@ -72,8 +73,8 @@ Cvor *najveci_element(Cvor * koren)
   if (koren == NULL)
     return NULL;
 
-  /* Zbog prirode pretrazivackog stabla, vrednosti vece od korena se
-     nalaze u desnom podstablu */
+  /* Zbog prirode pretrazivackog stabla, vrednosti vece od korena
+     se nalaze u desnom podstablu */
 
   /* Ako desnog podstabla nema */
   if (koren->desno == NULL)
@@ -97,8 +98,8 @@ int dubina_stabla(Cvor * koren)
   /* Izracunava se dubina desnog podstabla */
   int dubina_desno = dubina_stabla(koren->desno);
 
-  /* Dubina stabla odgovara vecoj od dubina podstabala - 1 se dodaje
-     jer se racuna i koren stabla */
+  /* Dubina stabla odgovara vecoj od dubina podstabala - 1 se
+     dodaje jer se racuna i koren stabla */
   return dubina_levo >
       dubina_desno ? dubina_levo + 1 : dubina_desno + 1;
 }
@@ -180,8 +181,8 @@ int zbir_cvorova_na_itom_nivou(Cvor * koren, int i)
   if (i == 0)
     return koren->broj;
 
-  /* Inace, spustanje se nastavlja za jedan nivo nize i izracunavaju 
-     se sume levog i desnog podstabla */
+  /* Inace, spustanje se nastavlja za jedan nivo nize i
+     izracunavaju se sume levog i desnog podstabla */
   return zbir_cvorova_na_itom_nivou(koren->levo, i - 1)
       + zbir_cvorova_na_itom_nivou(koren->desno, i - 1);
 }

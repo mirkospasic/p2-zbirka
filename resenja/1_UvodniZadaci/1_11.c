@@ -15,11 +15,11 @@ int broj_01(unsigned int n)
   maska = 1 << (sizeof(unsigned int) * 8 - 1);
 
   /* Cilj je proci kroz sve bitove broja x, zato se maska u svakoj
-     iteraciji pomera u desno pa ce jedini bit koji je postavljen na
-     1 biti na svim pozicijama u binarnoj reprezentaciji maske */
+     iteraciji pomera u desno pa ce jedini bit koji je postavljen
+     na 1 biti na svim pozicijama u binarnoj reprezentaciji maske */
   while (maska != 0) {
-    /* Proverava se da li se na poziciji koju odredjuje maska nalazi
-       0 ili 1 i uvecava se odgovarajuci brojac. */
+    /* Proverava se da li se na poziciji koju odredjuje maska
+       nalazi 0 ili 1 i uvecava se odgovarajuci brojac. */
     if (n & maska) {
       broj_jedinica++;
     } else {

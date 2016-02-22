@@ -17,7 +17,8 @@ int main()
        memorije za nov cvor. Memoriju alociranu za cvorove liste
        treba osloboditi pre napustanja programa. */
     if (dodaj_na_pocetak_liste(&glava, broj) == 1) {
-      fprintf(stderr, "Greska: Neuspesna alokacija memorije za cvor.\n");
+      fprintf(stderr,
+              "Greska: Neuspesna alokacija memorije za cvor.\n");
       oslobodi_listu(&glava);
       exit(EXIT_FAILURE);
     }

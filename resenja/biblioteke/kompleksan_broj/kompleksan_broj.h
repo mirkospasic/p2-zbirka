@@ -1,8 +1,9 @@
-/* Zaglavlje kompleksan_broj.h sadrzi definiciju tipa KompleksanBroj 
-   i deklaracije funkcija za rad sa kompleksnim brojevima. Zaglavlje
-   nikada ne treba da sadrzi definicije funkcija. Da bi neki program
-   mogao da koristi ove brojeve i funkcije iz ove biblioteke,
-   neophodno je da ukljuci ovo zaglavlje. */
+/* Zaglavlje kompleksan_broj.h sadrzi definiciju tipa
+   KompleksanBroj i deklaracije funkcija za rad sa kompleksnim
+   brojevima. Zaglavlje nikada ne treba da sadrzi definicije
+   funkcija. Da bi neki program mogao da koristi ove brojeve i
+   funkcije iz ove biblioteke, neophodno je da ukljuci ovo
+   zaglavlje. */
 
 /* Ovim pretprocesorskim direktivama se zakljucava zaglavlje i
    onemogucava se da se sadrzaj zaglavlja vise puta ukljuci. Niska
@@ -21,8 +22,8 @@ typedef struct {
    definisane u kompleksan_broj.c */
 
 /* Funkcija ucitava sa standardnog ulaza realan i imaginara deo
-   kompleksnog broja i smesta ih u strukturu cija je adresa argument
-   funkcije */
+   kompleksnog broja i smesta ih u strukturu cija je adresa
+   argument funkcije */
 void ucitaj_kompleksan_broj(KompleksanBroj * z);
 
 /* Funkcija ispisuje na standardan izlaz zadati kompleksni broj u
@@ -50,8 +51,8 @@ KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj z2);
    argumenata funkcije */
 KompleksanBroj oduzmi(KompleksanBroj z1, KompleksanBroj z2);
 
-/* Funkcija vraca kompleksan broj cija vrednost je jednaka proizvodu
-   argumenata funkcije */
+/* Funkcija vraca kompleksan broj cija vrednost je jednaka
+   proizvodu argumenata funkcije */
 KompleksanBroj mnozi(KompleksanBroj z1, KompleksanBroj z2);
 
 /* Funkcija vraca argument zadatog kompleksnog broja */

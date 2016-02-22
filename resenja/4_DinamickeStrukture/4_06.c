@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "lista.h"
 
-/* Funkcija objedinjuje dve liste ciji se pokazivaci na glave nalaze
-   na adresama adresa_glave_1 i adresa_glave_2 prevezivanjem
+/* Funkcija objedinjuje dve liste ciji se pokazivaci na glave
+   nalaze na adresama adresa_glave_1 i adresa_glave_2 prevezivanjem
    pokazivaca postojecih cvorova listi */
 Cvor *objedini(Cvor ** adresa_glave_1, Cvor ** adresa_glave_2)
 {
@@ -37,14 +37,14 @@ Cvor *objedini(Cvor ** adresa_glave_1, Cvor ** adresa_glave_2)
     rezultujuca = lista2;
     lista2 = lista2->sledeci;
   }
-  /* Kako promenljiva rezultujuca pokazuje na pocetak nove liste, ne
-     sme joj se menjati vrednost. Zato se koristi pokazivac tekuci
-     koji sadrzi adresu trenutnog cvora rezultujuce liste */
+  /* Kako promenljiva rezultujuca pokazuje na pocetak nove liste,
+     ne sme joj se menjati vrednost. Zato se koristi pokazivac
+     tekuci koji sadrzi adresu trenutnog cvora rezultujuce liste */
   tekuci = rezultujuca;
 
   /* U svakoj iteraciji petlje rezultujucoj listi se dodaje novi
      cvor tako da bude uredjena neopadajuce. Pokazivac na listu iz
-     koje se uzima cvor se azurira tako da pokazuje na sledeci cvor */
+     koje se uzima cvor se azurira tako da pokazuje na sledeci. */
   while (lista1 != NULL && lista2 != NULL) {
     if (lista1->vrednost < lista2->vrednost) {
       tekuci->sledeci = lista1;
@@ -80,7 +80,7 @@ int main(int argc, char **argv)
   /* Argumenti komandne linije su neophodni */
   if (argc != 3) {
     fprintf(stderr,
-            "Greska: Program se poziva sa:\n ./a.out dat1.txt dat2.txt\n");
+            "Greska: Program se poziva sa: ./a.out dat1.txt dat2.txt\n");
     exit(EXIT_FAILURE);
   }
 
@@ -125,7 +125,8 @@ int main(int argc, char **argv)
   ispisi_listu(rezultat);
 
   /* Lista rezultat dobijena je prevezivanjem cvorova polaznih
-     listi. Njenim oslobadjanjem oslobadja se sva zauzeta memorija. */
+     listi. Njenim oslobadjanjem oslobadja se sva zauzeta memorija. 
+   */
   oslobodi_listu(&rezultat);
 
   exit(EXIT_SUCCESS);

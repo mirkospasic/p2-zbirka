@@ -18,8 +18,8 @@ int main(int argc, char *argv[])
     for (i = 0; i < argc; i++)
       printf("%d %s\n", i, argv[i]);
   } else if (tip_ispisa == 'P') {
-    /* Ispisuju se argumenti komandne linije koriscenjem pokazivacke
-       sintakse */
+    /* Ispisuju se argumenti komandne linije koriscenjem
+       pokazivacke sintakse */
     i = argc;
     for (; argc > 0; argc--)
       printf("%d %s\n", i - argc, *argv++);

@@ -80,7 +80,8 @@ void ispisi_kvadratnu_matricu(int **matrica, int n)
   ispisi_matricu(matrica, n, n);
 }
 
-int ucitaj_matricu_iz_datoteke(int **matrica, int n, int m, FILE * f)
+int ucitaj_matricu_iz_datoteke(int **matrica, int n, int m,
+                               FILE * f)
 {
   int i, j;
   /* Elementi matrice se ucitavaju po vrstama */
@@ -108,8 +109,8 @@ int upisi_matricu_u_datoteku(int **matrica, int n, int m, FILE * f)
   /* Ispis po vrstama */
   for (i = 0; i < n; i++) {
     for (j = 0; j < m; j++)
-      /* Ako je nemoguce ispisati sledeci element, povratna vrednost
-         funkcije je 1, kao indikator neuspesnog ispisa */
+      /* Ako je nemoguce ispisati sledeci element, povratna
+         vrednost funkcije je 1, kao indikator neuspesnog ispisa */
       if (fprintf(f, "%d ", matrica[i][j]) <= 0)
         return 1;
     fprintf(f, "\n");

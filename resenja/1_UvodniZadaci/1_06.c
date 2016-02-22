@@ -9,10 +9,10 @@ int prebroj_bitove_1(int x)
   unsigned broj_pomeranja = sizeof(unsigned) * 8 - 1;
 
   /* Formiranje se maska cija binarna reprezentacija izgleda
-     100000...0000000, koja sluzi za ocitavanje bita najvece tezine.
-     U svakoj iteraciji maska se pomera u desno za 1 mesto, i ocitava 
-     se sledeci bit. Petlja se zavrsava kada vise nema jedinica tj.
-     kada maska postane nula. */
+     100000...0000000, koja sluzi za ocitavanje bita najvece
+     tezine. U svakoj iteraciji maska se pomera u desno za 1 mesto, 
+     i ocitava se sledeci bit. Petlja se zavrsava kada vise nema
+     jedinica tj. kada maska postane nula. */
   unsigned maska = 1 << broj_pomeranja;
   for (; maska != 0; maska >>= 1)
     x & maska ? br++ : 1;
@@ -27,13 +27,13 @@ int prebroj_bitove_2(int x)
   int br = 0;
   unsigned broj_pomeranja = sizeof(int) * 8 - 1;
 
-  /* Kako je argument funkcije oznacen ceo broj x naredba x>>=1 
+  /* Kako je argument funkcije oznacen ceo broj x naredba x>>=1
      vrsi aritmeticko pomeranje u desno, tj. popunjavanje bita
-     najvece tezine bitom znaka. U tom slucaju, za negativnu 
-     vrednost promenljive x, nikad ne bi bio ispunjen uslov 
-     x!=0 i program bi bio zarobljen u beskonacnoj petlji. Zbog 
-     toga se koristi pomeranje broja x ulevo i maska koja 
-     ocitava bit najvece tezine. */
+     najvece tezine bitom znaka. U tom slucaju, za negativnu
+     vrednost promenljive x, nikad ne bi bio ispunjen uslov x!=0 i 
+     program bi bio zarobljen u beskonacnoj petlji. Zbog toga se
+     koristi pomeranje broja x ulevo i maska koja ocitava bit
+     najvece tezine. */
   unsigned maska = 1 << broj_pomeranja;
   for (; x != 0; x <<= 1)
     x & maska ? br++ : 1;
@@ -49,8 +49,8 @@ int main()
   printf("Unesite broj:\n");
   scanf("%x", &x);
 
-  /* Dozvoljava se korisniku da bira na koji nacin ce biti izracunat
-     broj jedinica u zapisu broja */
+  /* Dozvoljava se korisniku da bira na koji nacin ce biti
+     izracunat broj jedinica u zapisu broja */
   printf("Unesite redni broj funkcije:\n");
   scanf("%d", &i);
 
@@ -63,7 +63,8 @@ int main()
     printf("Poziva se funkcija prebroj_bitove_2\n");
     printf("Broj jedinica u zapisu je %d\n", prebroj_bitove_2(x));
   } else {
-    fprintf(stderr, "Greska: Neodgovarajuci redni broj funkcije.\n");
+    fprintf(stderr,
+            "Greska: Neodgovarajuci redni broj funkcije.\n");
     exit(EXIT_FAILURE);
   }
 

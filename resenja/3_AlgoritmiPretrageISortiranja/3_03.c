@@ -32,8 +32,8 @@ int binarna_pretraga(Student a[], int n, long x)
   while (levi <= desni) {
     /* Racuna se srednja pozicija */
     srednji = (levi + desni) / 2;
-    /* Ako je indeks studenta na toj poziciji veci od trazenog, tada
-       se trazeni indeks mora nalaziti u levoj polovini niza */
+    /* Ako je indeks studenta na toj poziciji veci od trazenog,
+       tada se trazeni indeks mora nalaziti u levoj polovini niza */
     if (x < a[srednji].indeks)
       desni = srednji - 1;
     /* Ako je pak manji od trazenog, tada se on mora nalaziti u
@@ -41,8 +41,8 @@ int binarna_pretraga(Student a[], int n, long x)
     else if (x > a[srednji].indeks)
       levi = srednji + 1;
     else
-      /* Ako je jednak trazenom indeksu x, tada je pronadjen student
-         sa trazenom indeksom na poziciji srednji */
+      /* Ako je jednak trazenom indeksu x, tada je pronadjen
+         student sa trazenom indeksom na poziciji srednji */
       return srednji;
   }
   /* Ako nije pronadjen, vraca se -1 */

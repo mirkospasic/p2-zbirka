@@ -12,8 +12,8 @@ int merge(int *niz1, int dim1, int *niz2, int dim2, int *niz3,
   if (dim3 < dim1 + dim2)
     return -1;
 
-  /* Vrsi se ucesljavanje nizova sve dok se ne dodje do kraja jednog
-     od njih */
+  /* Vrsi se ucesljavanje nizova sve dok se ne dodje do kraja
+     jednog od njih */
   while (i < dim1 && j < dim2) {
     if (niz1[i] < niz2[j])
       niz3[k++] = niz1[i++];

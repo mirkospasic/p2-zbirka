@@ -84,8 +84,8 @@ Cvor *pretrazi_listu(Cvor * glava, char etiketa[])
 /* Funkcija ispisuje sadrzaj liste */
 void ispisi_listu(Cvor * glava)
 {
-  /* Pocevsi od cvora koji je glava lista, ispisuju se sve etikete i
-     broj njihovog pojavljivanja u HTML datoteci. */
+  /* Pocevsi od cvora koji je glava lista, ispisuju se sve etikete
+     i broj njihovog pojavljivanja u HTML datoteci. */
   for (; glava != NULL; glava = glava->sledeci)
     printf("%s - %u\n", glava->etiketa, glava->broj_pojavljivanja);
 }
@@ -97,7 +97,7 @@ int main(int argc, char **argv)
      argumenata komandne linije. */
   if (argc != 2) {
     fprintf(stderr,
-            "Greska: Program se poziva sa: ./a.out datoteka.html!\n");
+            "Greska: Program se poziva sa: ./a.out datoteka.html\n");
     exit(EXIT_FAILURE);
   }
 
@@ -116,7 +116,8 @@ int main(int argc, char **argv)
   Cvor *glava = NULL;
   Cvor *trazeni = NULL;
 
-  /* Cita se datoteka, karakter po karakter, dok se ne procita cela */
+  /* Cita se datoteka, karakter po karakter, dok se ne procita
+     karakter za kraj sadrzaja datoteke. */
   while ((c = fgetc(in)) != EOF) {
     /* Proverava se da li se pocinje sa citanjem nove etikete */
     if (c == '<') {
@@ -136,7 +137,7 @@ int main(int argc, char **argv)
       procitana[i] = '\0';
 
       /* Trazi se procitana etiketa medju postojecim cvorovima
-         liste. Ukoliko ne postoji, dodaje se novi cvor za ucitanu
+         liste. Ako ne postoji, dodaje se novi cvor za ucitanu
          etiketu sa brojem pojavljivanja 1. Inace se uvecava broj
          pojavljivanja etikete. */
       trazeni = pretrazi_listu(glava, procitana);

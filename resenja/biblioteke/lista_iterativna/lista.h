@@ -8,9 +8,10 @@ typedef struct cvor {
   struct cvor *sledeci;
 } Cvor;
 
-/* Funkcija kreira cvor, vrednost novog cvora inicijalizuje na broj,
-   dok pokazivac na sledeci cvor postavlja na NULL. Vraca pokazivac
-   na novokreirani cvor ili NULL ako alokacija nije bila uspesna. */
+/* Funkcija kreira cvor, vrednost novog cvora inicijalizuje na
+   broj, dok pokazivac na sledeci cvor postavlja na NULL. Vraca
+   pokazivac na novokreirani cvor ili NULL ako alokacija nije bila
+   uspesna. */
 Cvor *napravi_cvor(int broj);
 
 /* Funkcija oslobadja dinamicku memoriju zauzetu za cvorove liste
@@ -21,8 +22,8 @@ void oslobodi_listu(Cvor ** adresa_glave);
    greske pri alokaciji memorije, inace vraca 0. */
 int dodaj_na_pocetak_liste(Cvor ** adresa_glave, int broj);
 
-/* Funkcija pronalazi i vraca pokazivac na poslednji cvor liste, ili
-   NULL ukoliko je lista prazna. */
+/* Funkcija pronalazi i vraca pokazivac na poslednji cvor liste,
+   ili NULL ukoliko je lista prazna. */
 Cvor *pronadji_poslednji(Cvor * glava);
 
 /* Funkcija dodaje broj na kraj liste. Vraca 1 ukoliko je bilo
@@ -38,19 +39,19 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj);
 int dodaj_iza(Cvor * tekuci, int broj);
 
 /* Funkcija dodaje broj u sortiranu listu tako da lista ostane
-   sortirana. Vraca 1 ukoliko je bilo greske pri alokaciji memorije,
-   inace vraca 0. */
+   sortirana. Vraca 1 ukoliko je bilo greske pri alokaciji
+   memorije, inace vraca 0. */
 int dodaj_sortirano(Cvor ** adresa_glave, int broj);
 
-/* Funkcija trazi u listi cvor cija je vrednost jednaka datom broju.
-   Vraca pokazivac na cvor liste u kome je sadrzan trazeni broj ili
-   NULL u slucaju da takav cvor ne postoji u listi. */
+/* Funkcija trazi u listi cvor cija je vrednost jednaka datom
+   broju. Vraca pokazivac na cvor liste u kome je sadrzan trazeni
+   broj ili NULL u slucaju da takav cvor ne postoji u listi. */
 Cvor *pretrazi_listu(Cvor * glava, int broj);
 
-/* Funkcija trazi u listi cvor cija je vrednost jednaka datom broju.
-   U pretrazi oslanja se na cinjenicu da je lista koja se pretrazuje
-   neopadajuce sortirana. Vraca pokazivac na cvor liste u kome je
-   sadrzan trazeni broj ili NULL u slucaju da takav cvor ne postoji. */
+/* Funkcija trazi u listi cvor cija je vrednost jednaka datom
+   broju. Vraca pokazivac na cvor liste u kome je sadrzan trazeni
+   broj ili NULL ako da takav cvor ne postoji. U pretrazi oslanja
+   se na cinjenicu se pretrazuje neopadajuce sortirana lista. */
 Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj);
 
 /* Funkcija brise iz liste sve cvorove koji sadrze dati broj.

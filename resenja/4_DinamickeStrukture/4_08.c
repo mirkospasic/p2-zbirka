@@ -43,7 +43,7 @@ int main()
     exit(EXIT_FAILURE);
   }
 
-  /* Cita se datoteka, karakter po karakter, dok se ne procita cela */
+  /* Cita karakter po karakter iz datoteke */
   while ((c = fgetc(ulaz)) != EOF) {
     /* Ako je ucitana otvorena zagrada, stavlja se na stek */
     if (c == '(' || c == '{' || c == '[') {
@@ -78,24 +78,24 @@ int main()
           free(stek);
           stek = pomocni;
         } else {
-          /* Dakle zagrade u izrazu nisu ispravno uparene */
+          /* Dakle, zagrade u izrazu nisu ispravno uparene */
           break;
         }
       }
     }
   }
 
-  /* Procitana je cela datoteka i treba je zatvoriti */
+  /* Procitana je cela datoteka i treba je zatvoriti. */
   fclose(ulaz);
 
   /* Ako je stek prazan i procitana je cela datoteka, zagrade su
-     ispravno uparene */
+     ispravno uparene. */
   if (stek == NULL && c == EOF)
     printf("Zagrade su ispravno uparene.\n");
   else {
-    /* U suprotnom se zakljucuje da zagrade nisu ispravno uparene */
+    /* U suprotnom se zakljucuje da zagrade nisu ispravno uparene. */
     printf("Zagrade nisu ispravno uparene.\n");
-    /* Oslobadja se memorija koja je ostala zauzeta stekom */
+    /* Oslobadja se memorija koja je ostala zauzeta stekom. */
     oslobodi_stek(&stek);
   }
 

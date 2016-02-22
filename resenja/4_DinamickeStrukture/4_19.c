@@ -13,8 +13,8 @@ int identitet(Cvor * koren1, Cvor * koren2)
   if (koren1 == NULL && koren2 == NULL)
     return 1;
 
-  /* Ako je jedno stablo prazno, a drugo nije, stabla nisu identicna 
-   */
+  /* Ako je jedno stablo prazno, a drugo nije, stabla nisu
+     identicna */
   if (koren1 == NULL || koren2 == NULL)
     return 0;
 

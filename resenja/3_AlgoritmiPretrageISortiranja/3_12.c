@@ -63,7 +63,8 @@ int main(int argc, char *argv[])
         tip_niza = 2;
         break;
       default:
-        fprintf(stderr, "Greska: Pogresna opcija -%c\n", argv[i][1]);
+        fprintf(stderr, "Greska: Pogresna opcija -%c\n",
+                argv[i][1]);
         exit(EXIT_SUCCESS);
         break;
       }
@@ -80,10 +81,11 @@ int main(int argc, char *argv[])
   }
 
   /* Elementi niza se odredjuju slucajno, ali vodeci racuna o tipu
-     niza dobijenom iz komandne linije. srand() funkcija obezbedjuje
-     novi seed za pozivanje rand funkcije, i kako generisani niz ne
-     bi uvek bio isti seed je postavljen na tekuce vreme u sekundama
-     od Nove godine 1970. rand()%100 daje brojeve izmedju 0 i 99 */
+     niza dobijenom iz komandne linije. srand() funkcija
+     obezbedjuje novi seed za pozivanje rand funkcije, i kako
+     generisani niz ne bi uvek bio isti seed je postavljen na
+     tekuce vreme u sekundama od Nove godine 1970. rand()%100 daje
+     brojeve izmedju 0 i 99 */
   srand(time(NULL));
   if (tip_niza == 0)
     for (i = 0; i < dimenzija; i++)

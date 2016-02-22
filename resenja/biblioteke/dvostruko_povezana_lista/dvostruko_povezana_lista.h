@@ -9,9 +9,10 @@ typedef struct cvor {
   struct cvor *prethodni;
 } Cvor;
 
-/* Funkcija kreira cvor, vrednost novog cvora inicijalizuje na broj,
-   dok pokazivac na sledeci cvor postavlja na NULL. Vraca pokazivac
-   na novokreirani cvor ili NULL ako alokacija nije bila uspesna. */
+/* Funkcija kreira cvor, vrednost novog cvora inicijalizuje na
+   broj, dok pokazivac na sledeci cvor postavlja na NULL. Vraca
+   pokazivac na novokreirani cvor ili NULL ako alokacija nije bila
+   uspesna. */
 Cvor *napravi_cvor(int broj);
 
 /* Funkcija oslobadja dinamicku memoriju zauzetu za cvorove liste
@@ -38,26 +39,27 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj);
 int dodaj_iza(Cvor * tekuci, int broj);
 
 /* Funkcija dodaje broj u sortiranu listu tako da lista ostane
-   sortirana. Vraca 1 ukoliko je bilo greske pri alokaciji memorije,
-   inace vraca 0. */
+   sortirana. Vraca 1 ukoliko je bilo greske pri alokaciji
+   memorije, inace vraca 0. */
 int dodaj_sortirano(Cvor ** adresa_glave, Cvor ** adresa_kraja, int
                     broj);
 
-/* Funkcija trazi u listi cvor cija je vrednost jednaka datom broju.
-   Vraca pokazivac na cvor liste u kome je sadrzan trazeni broj ili
-   NULL u slucaju da takav cvor ne postoji u listi. */
+/* Funkcija trazi u listi cvor cija je vrednost jednaka datom
+   broju. Vraca pokazivac na cvor liste u kome je sadrzan trazeni
+   broj ili NULL u slucaju da takav cvor ne postoji u listi. */
 Cvor *pretrazi_listu(Cvor * glava, int broj);
 
-/* Funkcija trazi u listi cvor cija je vrednost jednaka datom broju.
-   U pretrazi oslanja se na cinjenicu da je lista koja se pretrazuje
-   neopadajuce sortirana. Vraca pokazivac na cvor liste koji sadrzi
-   trazeni broj ili NULL u slucaju da takav cvor ne postoji. */
+/* Funkcija trazi u listi cvor cija je vrednost jednaka datom
+   broju. U pretrazi oslanja se na cinjenicu da je lista koja se
+   pretrazuje neopadajuce sortirana. Vraca pokazivac na cvor liste
+   koji sadrzi trazeni broj ili NULL u slucaju da takav cvor ne
+   postoji. */
 Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj);
 
 /* Funkcija brise cvor na koji pokazuje pokazivac tekuci u listi
    ciji pokazivac glava se nalazi na adresi adresa_glave. */
-void obrisi_tekuci(Cvor ** adresa_glave, Cvor ** adresa_kraja, Cvor *
-                   tekuci);
+void obrisi_tekuci(Cvor ** adresa_glave, Cvor ** adresa_kraja,
+                   Cvor * tekuci);
 
 /* Funkcija brise iz liste sve cvorove koji sadrze dati broj.
    Azurira pokazivac na glavu liste, koji moze biti promenjen u

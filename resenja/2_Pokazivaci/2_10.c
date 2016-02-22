@@ -4,8 +4,8 @@
 #define MAX 64
 
 /* Funkcija proverava da li je relacija refleksivna. Relacija je
-   refleksivna ako je svaki element u relaciji sa sobom, odnosno ako
-   se u matrici relacije na glavnoj dijagonali nalaze jedinice */
+   refleksivna ako je svaki element u relaciji sa sobom, odnosno
+   ako se u matrici relacije na glavnoj dijagonali nalaze jedinice */
 int refleksivnost(int m[][MAX], int n)
 {
   int i;
@@ -18,8 +18,8 @@ int refleksivnost(int m[][MAX], int n)
   return 1;
 }
 
-/* Funkcija odredjuje refleksivno zatvorenje zadate relacije. Ono je
-   odredjeno matricom koja sadrzi sve elemente polazne matrice
+/* Funkcija odredjuje refleksivno zatvorenje zadate relacije. Ono
+   je odredjeno matricom koja sadrzi sve elemente polazne matrice
    dopunjene jedinicama na glavnoj dijagonali */
 void ref_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 {

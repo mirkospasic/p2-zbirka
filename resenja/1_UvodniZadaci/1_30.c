@@ -15,8 +15,9 @@ int maks_oktalna_cifra(unsigned x)
      izbrise poslednja oktalna cifra */
   int maks_bez_poslednje_cifre = maks_oktalna_cifra(x >> 3);
 
-  return poslednja_cifra > maks_bez_poslednje_cifre ? poslednja_cifra
-      : maks_bez_poslednje_cifre;
+  return poslednja_cifra >
+      maks_bez_poslednje_cifre ? poslednja_cifra :
+      maks_bez_poslednje_cifre;
 }
 
 int main()

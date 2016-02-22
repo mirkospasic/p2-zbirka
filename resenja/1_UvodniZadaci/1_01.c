@@ -10,8 +10,8 @@ typedef struct {
 } KompleksanBroj;
 
 /* Funkcija ucitava sa standardnog ulaza realan i imaginara deo
-   kompleksnog broja i smesta ih u strukturu cija je adresa argument
-   funkcije */
+   kompleksnog broja i smesta ih u strukturu cija je adresa
+   argument funkcije */
 void ucitaj_kompleksan_broj(KompleksanBroj * z)
 {
   /* Ucitava se vrednost sa standardnog ulaza */
@@ -89,9 +89,9 @@ KompleksanBroj konjugovan(KompleksanBroj z)
 KompleksanBroj saberi(KompleksanBroj z1, KompleksanBroj z2)
 {
   /* Rezultat sabiranja dva kompleksna broja z1 i z2 je kompleksan
-     broj ciji je realan deo zbir realnih delova kompleksnih brojeva
-     z1 i z2, a imaginaran deo zbir imaginarnih delova kompleksnih
-     brojeva z1 i z2 */
+     broj ciji je realan deo zbir realnih delova kompleksnih
+     brojeva z1 i z2, a imaginaran deo zbir imaginarnih delova
+     kompleksnih brojeva z1 i z2 */
   KompleksanBroj z = z1;
   z.real += z2.real;
   z.imag += z2.imag;
@@ -114,8 +114,8 @@ KompleksanBroj oduzmi(KompleksanBroj z1, KompleksanBroj z2)
   return z;
 }
 
-/* Funkcija vraca kompleksan broj cija vrednost je jednaka proizvodu
-   argumenata funkcije */
+/* Funkcija vraca kompleksan broj cija vrednost je jednaka
+   proizvodu argumenata funkcije */
 KompleksanBroj mnozi(KompleksanBroj z1, KompleksanBroj z2)
 {
   /* Rezultat mnozenja dva kompleksna broja z1 i z2 je kompleksan

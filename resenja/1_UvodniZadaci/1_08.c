@@ -47,9 +47,10 @@ unsigned vrati_bitove(unsigned x, unsigned n, unsigned p)
   ******************************************************************/
   unsigned maska = ~(~0 << n);
 
-  /* Najpre se vrednost promenljive x pomera u desno tako da trazeno
-     polje bude uz desni kraj. Zatim se maskiraju ostali bitovi, sem
-     zeljenih n i funkcija vraca tako izracunatu vrednost */
+  /* Najpre se vrednost promenljive x pomera u desno tako da
+     trazeno polje bude uz desni kraj. Zatim se maskiraju ostali
+     bitovi, sem zeljenih n i funkcija vraca tako izracunatu
+     vrednost */
   return maska & (x >> (p - n + 1));
 }
 
@@ -59,25 +60,25 @@ unsigned vrati_bitove(unsigned x, unsigned n, unsigned p)
 unsigned postavi_1_n_bitova(unsigned x, unsigned n, unsigned p,
                             unsigned y)
 {
-  /* Kreira se maska kod kod koje su poslednjih n bitova 1, a ostali
-     su 0. */
+  /* Kreira se maska kod kod koje su poslednjih n bitova 1, a
+     ostali su 0. */
   unsigned poslednjih_n_1 = ~(~0 << n);
 
-  /* Kao i kod funkcije postavi_0, i ovde se kreira maska koja ima n
-     bitova postavljenih na 0 pocevsi od pozicije p, dok su ostali
-     bitovi 1. */
+  /* Kao i kod funkcije postavi_0, i ovde se kreira maska koja ima
+     n bitova postavljenih na 0 pocevsi od pozicije p, dok su
+     ostali bitovi 1. */
   unsigned srednjih_n_0 = ~(~(~0 << n) << (p - n + 1));
 
-  /* U promenljivu x_postavi_0 se smesta vrednost dobijena kada se u
-     binarnoj reprezentaciji vrednosti promenljive x postavi na 0 n
-     bitova na pozicijama pocev od p */
+  /* U promenljivu x_postavi_0 se smesta vrednost dobijena kada se
+     u binarnoj reprezentaciji vrednosti promenljive x postavi na 0 
+     n bitova na pozicijama pocev od p */
   unsigned x_postavi_0 = x & srednjih_n_0;
 
   /* U promenlijvu y_pomeri_srednje se smesta vrednost dobijena od
      binarne reprezentacije vrednosti promenljive y cijih je n
-     bitova najnize tezine pomera tako da stoje pocev od pozicije p. 
-     Ostali bitovi su nule. Sa (y & poslednjih_n_1) postave na 0 svi 
-     bitovi osim najnizih n */
+     bitova najnize tezine pomera tako da stoje pocev od pozicije
+     p. Ostali bitovi su nule. Sa (y & poslednjih_n_1) postave na
+     0 svi bitovi osim najnizih n */
   unsigned y_pomeri_srednje = (y & poslednjih_n_1) << (p - n + 1);
 
   return x_postavi_0 ^ y_pomeri_srednje;
@@ -133,9 +134,9 @@ int main()
   stampaj_bitove(vrati_bitove(x, n, p));
   printf("\n");
 
-  /* Ispisuju se binarne reprezentacije brojeva x, y i broja
-     koji se izracunava funkcijom postavi_1_n_bitova sa 
-     argumentima x, n, p */
+  /* Ispisuju se binarne reprezentacije brojeva x, y i broja koji
+     se izracunava funkcijom postavi_1_n_bitova sa argumentima x,
+     n, p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("y = %10u %36s = ", y, "");

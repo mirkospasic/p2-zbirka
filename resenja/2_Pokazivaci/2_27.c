@@ -41,15 +41,16 @@ int main(int argc, char *argv[])
      greska */
   if (argc < 2) {
     fprintf(stderr, "Greska: ");
-    fprintf(stderr, "Nedovoljan broj argumenata komandne linije.\n");
+    fprintf(stderr,
+            "Nedovoljan broj argumenata komandne linije.\n");
     fprintf(stderr,
             "Program se poziva sa %s ime_funkcije iz math.h.\n",
             argv[0]);
     exit(EXIT_FAILURE);
   }
 
-  /* Niska ime_funkcije sadrzi ime trazene funkcije koja je navedena
-     u komandnoj liniji */
+  /* Niska ime_funkcije sadrzi ime trazene funkcije koja je
+     navedena u komandnoj liniji */
   strcpy(ime_funkcije, argv[1]);
 
   /* Inicijalizuje se pokazivac na funkciju koja se tabelira */

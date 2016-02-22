@@ -35,13 +35,13 @@ unsigned rotiraj_udesno(unsigned x, unsigned n)
   int i;
 
   /* n puta se ponavlja rotacija udesno za jedan bit. U svakoj
-     iteraciji se odredjuje bit na poziciji najmanje tezine broja x,
-     zatim tako odredjeni bit se pomera ulevo tako da bit na
+     iteraciji se odredjuje bit na poziciji najmanje tezine broja
+     x, zatim tako odredjeni bit se pomera ulevo tako da bit na
      poziciji najmanje tezine dodje do pozicije najvece tezine.
-     Zatim, nakon pomeranja binarne reprezentacije trenutne vrednosti
-     promenljive x za 1 udesno, bit na poziciji najvece tezine se
-     postavlja na vrednost vec zapamcenog bita koji je bio na poziciji 
-     najmanje tezine. */
+     Zatim, nakon pomeranja binarne reprezentacije trenutne
+     vrednosti promenljive x za 1 udesno, bit na poziciji najvece
+     tezine se postavlja na vrednost vec zapamcenog bita koji je
+     bio na poziciji najmanje tezine. */
   for (i = 0; i < n; i++) {
     bit_najmanje_tezine = x & 1;
     x = x >> 1 | bit_najmanje_tezine << (sizeof(unsigned) * 8 - 1);
@@ -58,14 +58,14 @@ int rotiraj_udesno_oznaceni(int x, unsigned n)
   unsigned bit_najmanje_tezine;
   int i;
 
-  /* U svakoj iteraciji se odredjuje bit na poziciji najmanje tezine
-     i smesta u promenljivu bit_najmanje_tezine. Kako je x oznacen
-     ceo broj, tada se prilikom pomeranja udesno vrsi aritmeticko
-     pomeranje i cuva se znak broja. Dakle, razlikuju se dva slucaja
-     u zavisnosti od znaka broja x. Nije dovoljno da se ova provera
-     izvrsi pre petlje, s obzirom da rotiranjem udesno na poziciju
-     najvece tezine moze doci i 0 i 1, nezavisno od pocetnog znaka
-     broja smestenog u promenljivu x. */
+  /* U svakoj iteraciji se odredjuje bit na poziciji najmanje
+     tezine i smesta u promenljivu bit_najmanje_tezine. Kako je x
+     oznacen ceo broj, tada se prilikom pomeranja udesno vrsi
+     aritmeticko pomeranje i cuva se znak broja. Dakle, razlikuju
+     se dva slucaja u zavisnosti od znaka broja x. Nije dovoljno da 
+     se ova provera izvrsi pre petlje, s obzirom da rotiranjem
+     udesno na poziciju najvece tezine moze doci i 0 i 1, nezavisno 
+     od pocetnog znaka broja smestenog u promenljivu x. */
   for (i = 0; i < n; i++) {
     bit_najmanje_tezine = x & 1;
 

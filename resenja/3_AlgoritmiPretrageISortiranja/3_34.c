@@ -43,9 +43,9 @@ int poredi_duzine(const void *a, const void *b)
 
 /* Ovo je funkcija poredjenja za bsearch. Pokazivac b pokazuje na
    element u nizu sa kojim se poredi, pa njega treba kastovati na
-   char** i dereferencirati, (videti obrazlozenje za prvu funkciju u
-   ovom zadatku, a pokazivac a pokazuje na element koji se trazi. U
-   main funkciji je to x, koji je tipa char*, tako da pokazivac a
+   char** i dereferencirati, (videti obrazlozenje za prvu funkciju
+   u ovom zadatku, a pokazivac a pokazuje na element koji se trazi. 
+   U main funkciji je to x, koji je tipa char*, tako da pokazivac a
    ovde samo treba kastovati i ne dereferencirati. */
 int poredi_leksikografski_b(const void *a, const void *b)
 {
@@ -100,7 +100,8 @@ int main()
   scanf("%s", x);
 
   /* Binarna pretraga */
-  p = bsearch(x, niske, n, sizeof(char *), &poredi_leksikografski_b);
+  p = bsearch(x, niske, n, sizeof(char *),
+              &poredi_leksikografski_b);
   if (p != NULL)
     printf("Niska \"%s\" je pronadjena u nizu na poziciji %ld\n",
            *p, p - niske);

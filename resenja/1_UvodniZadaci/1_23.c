@@ -42,14 +42,15 @@ int main()
   for (i = 0; i < n; i++)
     scanf("%d", &a[i]);
 
-  /* Na osnovu vrednosti promenljive ind ispisuje se rezultat poziva
-     funkcije suma_niza_1, ondosno suma_niza_2 */
+  /* Na osnovu vrednosti promenljive ind ispisuje se rezultat
+     poziva funkcije suma_niza_1, ondosno suma_niza_2 */
   if (ind == 1)
     printf("Suma elemenata je %d\n", suma_niza_1(a, n));
   else if (ind == 2)
     printf("Suma elemenata je %d\n", suma_niza_2(a, n));
   else {
-    fprintf(stderr, "Greska: Neodgovarajuci redni broj funkcije.\n");
+    fprintf(stderr,
+            "Greska: Neodgovarajuci redni broj funkcije.\n");
     exit(EXIT_FAILURE);
   }
 

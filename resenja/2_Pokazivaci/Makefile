@@ -50,8 +50,8 @@ all: 2_01.out 2_02.out 2_03.out 2_04.out 2_05.out 2_06.out 2_07.out 2_08.out 2_0
 .PHONY: clean beauty
 
 clean:
-	rm -rf *~ *.out ../biblioteke/matrica/*~
+	rm -rf *~ *.out ../biblioteke/matrica/*~ 2_19/*~
 
 beauty:
-	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c ../biblioteke/matrica/*.[ch]
+	indent -fc1 -fca -kr --no-tabs --line-length68 -i2 *.c ../biblioteke/matrica/*.[ch] 2_19/*.c
 

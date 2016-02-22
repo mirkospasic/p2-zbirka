@@ -20,8 +20,9 @@ int kreiraj_niz(Cvor * koren, int a[])
   /* Dodaju se u niz elementi iz levog podstabla */
   r = kreiraj_niz(koren->levo, a);
 
-  /* Tekuca vrednost promenljive r je broj elemenata koji su upisani
-     u niz i na osnovu nje se moze odrediti indeks novog elementa */
+  /* Tekuca vrednost promenljive r je broj elemenata koji su
+     upisani u niz i na osnovu nje se moze odrediti indeks novog
+     elementa */
 
   /* Smesta se vrednost iz korena */
   a[r] = koren->broj;

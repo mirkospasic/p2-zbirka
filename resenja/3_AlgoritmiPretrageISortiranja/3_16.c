@@ -3,9 +3,9 @@
 
 #define MAX_DIM 256
 
-/* Funkcija za binarnu pretragu niza vraca 1 ako se element x nalazi
-   u nizu, a 0 inace. Pretpostavlja se da je niz sortiran u rastucem
-   poretku */
+/* Funkcija za binarnu pretragu niza vraca 1 ako se element x
+   nalazi u nizu, a 0 inace. Pretpostavlja se da je niz sortiran u
+   rastucem poretku */
 int binarna_pretraga(int a[], int n, int x)
 {
   int levi = 0, desni = n - 1, srednji;
@@ -43,9 +43,9 @@ int main()
   quick_sort(a, 0, n - 1);
 
   for (i = 0; i < n; i++)
-    /* Za i-ti element niza binarno se pretrazuje da li se u ostatku
-       niza nalazi element koji sabran sa njim ima ucitanu vrednost
-       zbira */
+    /* Za i-ti element niza binarno se pretrazuje da li se u
+       ostatku niza nalazi element koji sabran sa njim ima ucitanu
+       vrednost zbira */
     if (binarna_pretraga(a + i + 1, n - i - 1, zbir - a[i])) {
       printf("da\n");
       return 0;

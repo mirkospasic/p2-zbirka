@@ -4,7 +4,8 @@
 
 Cvor *napravi_cvor(int broj)
 {
-  /* Alokacija memorije za novi cvor uz proveru uspesnosti */
+  /* Alokacija memorije za novi cvor uz proveru uspesnosti
+     alokacije. */
   Cvor *novi = (Cvor *) malloc(sizeof(Cvor));
   if (novi == NULL)
     return NULL;
@@ -55,9 +56,9 @@ Cvor *pronadji_poslednji(Cvor * glava)
     return NULL;
 
   /* Sve dok glava pokazuje na cvor koji ima sledbenika, pokazivac
-     glava se pomera na sledeci cvor. Nakon izlaska iz petlje, glava
-     ce pokazivati na cvor liste koji nema sledbenika, tj. na
-     poslednji cvor liste pa se vraca vrednost pokazivaca glava.
+     glava se pomera na sledeci cvor. Nakon izlaska iz petlje,
+     glava ce pokazivati na cvor liste koji nema sledbenika, tj. na
+     poslednji cvor liste, pa se vraca vrednost pokazivaca glava.
      Pokazivac glava je argument funkcije i njegove promene nece se
      odraziti na vrednost pokazivaca glava u pozivajucoj funkciji. */
   while (glava->sledeci != NULL)
@@ -99,8 +100,8 @@ Cvor *pronadji_mesto_umetanja(Cvor * glava, int broj)
      vecu ili jednaku vrednosti novog cvora. */
   /* Zbog izracunavanja izraza u C-u prvi deo konjunkcije mora biti
      provera da li se doslo do poslednjeg cvora liste pre nego sto
-     se proveri vrednost u sledecem cvoru, jer u slucaju
-     poslednjeg, sledeci ne postoji, pa ni njegova vrednost. */
+     se proveri vrednost u sledecem cvoru, jer u slucaju poslednjeg, 
+     sledeci ne postoji, pa ni njegova vrednost. */
   while (glava->sledeci != NULL && glava->sledeci->vrednost < broj)
     glava = glava->sledeci;
 
@@ -157,8 +158,8 @@ Cvor *pretrazi_listu(Cvor * glava, int broj)
 {
   /* Obilaze se cvorovi liste */
   for (; glava != NULL; glava = glava->sledeci)
-    /* Ako je vrednost tekuceg cvora jednaka zadatom broju, pretraga
-       se obustavlja */
+    /* Ako je vrednost tekuceg cvora jednaka zadatom broju,
+       pretraga se obustavlja */
     if (glava->vrednost == broj)
       return glava;
 
@@ -203,8 +204,7 @@ void obrisi_cvor(Cvor ** adresa_glave, int broj)
     *adresa_glave = pomocni;
   }
 
-  /* Ako je nakon ovog brisanja lista ostala prazna, izlazi se iz
-     funkcije */
+  /* Ako je nakon ovog brisanja lista prazna, vraca se iz funkcije */
   if (*adresa_glave == NULL)
     return;
 
@@ -212,13 +212,13 @@ void obrisi_cvor(Cvor ** adresa_glave, int broj)
      pokazuje na cvor cija je vrednost razlicita od trazenog broja.
      Isto vazi i za sve cvorove levo od tekuceg. Poredi se vrednost
      sledeceg cvora (ako postoji) sa trazenim brojem. Cvor se brise
-     ako je jednak, a ako je razlicit, prelazi se na sledeci cvor.
-     Ovaj postupak se ponavlja dok se ne dodje do poslednjeg cvora. */
+     ako je jednak, a ako je razlicit, prelazi se na sledeci. Ovaj
+     postupak se ponavlja dok se ne dodje do poslednjeg cvora. */
   tekuci = *adresa_glave;
   while (tekuci->sledeci != NULL)
     if (tekuci->sledeci->vrednost == broj) {
-      /* tekuci->sledeci treba obrisati, zbog toga se njegova adresa
-         prvo cuva u promenljivoj pomocni. */
+      /* tekuci->sledeci treba obrisati, zbog toga se njegova
+         adresa prvo cuva u promenljivoj pomocni. */
       pomocni = tekuci->sledeci;
       /* Tekucem se preusmerava pokazivac sledeci, preskakanjem
          njegovog trenutnog sledeceg. Njegov novi sledeci ce biti
@@ -251,8 +251,8 @@ void obrisi_cvor_sortirane_liste(Cvor ** adresa_glave, int broj)
 
   /* Ako je nakon ovog brisanja lista ostala prazna, funkcija se
      prekida. Isto se radi i ukoliko glava liste sadrzi vrednost
-     koja je veca od broja, jer kako je lista sortirana rastuce nema 
-     potrebe broj traziti u repu liste. */
+     koja je veca od broja, jer kako je lista sortirana rastuce
+     nema potrebe broj traziti u repu liste. */
   if (*adresa_glave == NULL || (*adresa_glave)->vrednost > broj)
     return;
 

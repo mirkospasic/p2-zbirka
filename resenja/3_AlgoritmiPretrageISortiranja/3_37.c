@@ -37,8 +37,8 @@ int main()
       printf("%s ", S[i]);
   *****************************************************************/
 
-  /* Ako postoje dve iste niske u nizu, onda ce one nakon sortiranja
-     niza biti jedna do druge */
+  /* Ako postoje dve iste niske u nizu, onda ce one nakon
+     sortiranja niza biti jedna do druge */
   for (i = 0; i < n - 1; i++)
     if (strcmp(S[i], S[i + 1]) == 0) {
       printf("ima\n");

@@ -16,12 +16,13 @@ int main()
 
   /* Provera dimenzija matrice */
   if (n <= 0 || m <= 0) {
-    fprintf(stderr, "Greska: Broj vrsta i broj kolona ne mogu biti negativni brojevi.\n");
+    fprintf(stderr,
+            "Greska: Broj vrsta i broj kolona ne mogu biti negativni brojevi.\n");
     exit(EXIT_FAILURE);
   }
 
-  /* Rezervise se memorijski prostor za matricu i proverava se da li 
-     je memorijski prostor uspesno rezervisan  */
+  /* Rezervise se memorijski prostor za matricu i proverava se da
+     li je memorijski prostor uspesno rezervisan */
   matrica = alociraj_matricu(n, m);
   if (matrica == NULL) {
     fprintf(stderr, "Greska: Neuspesna alokacija matrice.\n");
@@ -41,7 +42,8 @@ int main()
 
   /* Upis matrice u datoteku */
   if (upisi_matricu_u_datoteku(matrica, n, m, f) != 0) {
-    fprintf(stderr, "Greska: Neuspesno upisivanje matrice u datoteku.\n");
+    fprintf(stderr,
+            "Greska: Neuspesno upisivanje matrice u datoteku.\n");
     matrica = dealociraj_matricu(matrica, n);
     exit(EXIT_FAILURE);
   }

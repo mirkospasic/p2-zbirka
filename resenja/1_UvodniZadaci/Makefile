@@ -65,4 +65,4 @@ clean:
 	rm -rf *~ *.out ../biblioteke/stampanje_bitova/*~ ../biblioteke/polinom/*~ ../biblioteke/kompleksan_broj/*~
 
 beauty:
-	indent -fc1 -fca -kr --no-tabs --line-length69 -i2 *.c ../biblioteke/stampanje_bitova/*.[ch] ../biblioteke/polinom/*.[ch] ../biblioteke/kompleksan_broj/*.[ch]
+	indent -fc1 -fca -kr --no-tabs --line-length68 -i2 *.c ../biblioteke/stampanje_bitova/*.[ch] ../biblioteke/polinom/*.[ch] ../biblioteke/kompleksan_broj/*.[ch]

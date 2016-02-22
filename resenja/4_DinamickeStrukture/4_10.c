@@ -15,8 +15,8 @@ int main(int argc, char **argv)
   char odgovor[3];
   int broj_usluzenih = 0;
 
-  /* Sluzbenik evidentira korisnicke zahteve unosenjem njihovog JMBG
-     broja i opisa potrebne usluge. */
+  /* Sluzbenik evidentira korisnicke zahteve unosenjem njihovog
+     JMBG broja i opisa potrebne usluge. */
   printf("Sluzbenik evidentira korisnicke zahteve:\n");
   while (1) {
 

@@ -6,9 +6,9 @@ void ispisi(const Polinom * p)
 {
   int nulaPolinom = 1;
   int i;
-  /* Ispisivanje polinoma pocinje od najviseg stepena ka najnizem da
-     bi polinom bio ispisan na prirodan nacin. Ipisisuju se samo oni
-     koeficijenti koji su razliciti od nule. Ispred pozitivnih
+  /* Ispisivanje polinoma pocinje od najviseg stepena ka najnizem
+     da bi polinom bio ispisan na prirodan nacin. Ipisisuju se samo 
+     oni koeficijenti koji su razliciti od nule. Ispred pozitivnih
      koeficijenata je potrebno ispisati znak + (osim u slucaju
      koeficijenta uz najvisi stepen). */
   for (i = p->stepen; i >= 0; i--) {
@@ -27,8 +27,8 @@ void ispisi(const Polinom * p)
         printf("%.2f", p->koef[i]);
     }
   }
-  /* U slucaju nula polinoma indikator ce imati vrednost 1 i tada se
-     ispisuje nula. */
+  /* U slucaju nula polinoma indikator ce imati vrednost 1 i tada
+     se ispisuje nula. */
   if (nulaPolinom)
     printf("0");
   putchar('\n');
@@ -105,7 +105,8 @@ Polinom pomnozi(const Polinom * p, const Polinom * q)
   int i, j;
   Polinom r;
 
-  /* Stepen rezultata ce odgovarati zbiru stepena polaznih polinoma */
+  /* Stepen rezultata ce odgovarati zbiru stepena polaznih polinoma 
+   */
   r.stepen = p->stepen + q->stepen;
   if (r.stepen > MAKS_STEPEN) {
     fprintf(stderr, "Stepen proizvoda polinoma izlazi iz opsega\n");
@@ -132,9 +133,10 @@ Polinom izvod(const Polinom * p)
   int i;
   Polinom r;
 
-  /* Izvod polinoma ce imati stepen za jedan stepen manji od stepena
-     polaznog polinoma. Ukoliko je stepen polinoma p vec nula, onda
-     je rezultujuci polinom nula (izvod od konstante je nula). */
+  /* Izvod polinoma ce imati stepen za jedan stepen manji od
+     stepena polaznog polinoma. Ukoliko je stepen polinoma p vec
+     nula, onda je rezultujuci polinom nula (izvod od konstante je
+     nula). */
   if (p->stepen > 0) {
     r.stepen = p->stepen - 1;
 
