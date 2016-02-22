@@ -18,17 +18,25 @@ int refleksivnost(int m[][MAX], int n)
   return 1;
 }
 
+/* Funkcija prepisuje sadrzaj matrice original u matricu kopija */
+void kopiraj_matricu(int original[][MAX], int n, int kopija[][MAX])
+{
+  int i, j;
+
+  for (i = 0; i < n; i++)
+    for (j = 0; j < n; j++)
+      kopija[i][j] = original[i][j];
+}
+
 /* Funkcija odredjuje refleksivno zatvorenje zadate relacije. Ono
    je odredjeno matricom koja sadrzi sve elemente polazne matrice
    dopunjene jedinicama na glavnoj dijagonali */
 void ref_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 {
-  int i, j;
+  int i;
 
-  /* Prepisuju se vrednosti elemenata pocetne matrice */
-  for (i = 0; i < n; i++)
-    for (j = 0; j < n; j++)
-      zatvorenje[i][j] = m[i][j];
+  /* Kopiraju se vrednosti elemenata pocetne matrice */
+  kopiraj_matricu(m, n, zatvorenje);
 
   /* Na glavnoj dijagonali se postavljaju jedinice */
   for (i = 0; i < n; i++)
@@ -62,9 +70,8 @@ void sim_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 {
   int i, j;
 
-  for (i = 0; i < n; i++)
-    for (j = 0; j < n; j++)
-      zatvorenje[i][j] = m[i][j];
+  /* Kopiraju se vrednosti elemenata pocetne matrice */
+  kopiraj_matricu(m, n, zatvorenje);
 
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
@@ -98,14 +105,8 @@ void ref_tran_zatvorenje(int m[][MAX], int n, int zatvorenje[][MAX])
 {
   int i, j, k;
 
-  /* Prepisuju se vrednosti elemenata pocetne matrice */
-  for (i = 0; i < n; i++)
-    for (j = 0; j < n; j++)
-      zatvorenje[i][j] = m[i][j];
-
-  /* Odredjuje se reflektivno zatvorenje matrice */
-  for (i = 0; i < n; i++)
-    zatvorenje[i][i] = 1;
+  /* Odredjuje se refleksivno zatvorenje matrice  */
+  ref_zatvorenje(m, n, zatvorenje);
 
   /* Primenom Varsalovog algoritma odredjuje se tranzitivno
      zatvorenje matrice */

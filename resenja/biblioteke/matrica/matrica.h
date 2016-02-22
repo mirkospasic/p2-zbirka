@@ -22,8 +22,8 @@ void ucitaj_kvadratnu_matricu(int **matrica, int n);
 /* Funkcija ispisuje matricu dimenzije n x m na standardni izlaz */
 void ispisi_matricu(int **matrica, int n, int m);
 
-/* Funkcija ispisuje kvadratnu matricu dimenzije n na standardnom
-   izlazu */
+/* Funkcija ispisuje kvadratnu matricu dimenzije n na standardni
+   izlaz */
 void ispisi_kvadratnu_matricu(int **matrica, int n);
 
 /* Funkcija ucitava vec alociranu matricu dimenzije n x m iz

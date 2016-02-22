@@ -6,7 +6,6 @@ int main(int argc, char *argv[])
   char tip_ispisa;
 
   printf("Broj argumenata komandne linije je %d.\n", argc);
-
   printf("Kako zelite da ispisete argumente? Koriscenjem"
          " indeksne ili pokazivacke sintakse (I ili P)? ");
   scanf("%c", &tip_ispisa);

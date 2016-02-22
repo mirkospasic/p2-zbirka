@@ -77,7 +77,6 @@ int main()
 
   printf("Unesite elemente matrice po vrstama:\n");
   ucitaj_matricu(A, n);
-
   printf("Matrica %s ortonormirana.\n",
          ortonormirana(A, n) ? "je" : "nije");
 

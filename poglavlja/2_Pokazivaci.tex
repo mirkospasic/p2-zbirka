@@ -150,7 +150,7 @@ Zadatak rešiti:
 \item korišćenjem pokazivačke sintakse.
 \end{enumerate} 
 \skrati{1}
-Od korisnika sa ulaza tražiti da izabere koje od ova dva
+Od korisnika tražiti da izabere koje od ova dva
 rešenja treba koristiti prilikom ispisa.
 
 \skrati{2}
@@ -704,18 +704,19 @@ ispisati ove brojeve u obrnutom poretku.
 \end{Exercise}
 \begin{Answer}[ref=2_15]
 \includecode{resenja/2_Pokazivaci/2_15.c}
+\ifpdf \else \newpage \fi
 \end{Answer}
 
 \begin{Exercise}[label=2_16]
 Napisati program koji sa standardnog ulaza učitava niz celih
-brojeva. Brojevi se unose sve dok se ne unese nula. Ne praviti
-nikakve pretpostavke o dimenziji niza. Na standardni izlaz
-ispisati ovaj niz brojeva u obrnutom poretku. Zadatak uraditi na dva načina:
+brojeva. Brojevi se unose sve dok se ne unese nula. Na standardni izlaz
+ispisati ovaj niz brojeva u obrnutom poretku. Ne praviti
+nikakve pretpostavke o dimenziji niza. Zadatak uraditi na dva načina:
 \begin{enumerate}
 \item realokaciju memorije niza vršiti korišćenjem \kckod{malloc()} funkcije,
 \item realokaciju memorije niza vršiti korišćenjem \kckod{realloc()} funkcije.
 \end{enumerate}
-Od korisnika sa ulaza tražiti da izabere način realokacije memorije. 
+Od korisnika tražiti da izabere način realokacije memorije. 
 
 \begin{miditest}
 \begin{upotreba}{1}

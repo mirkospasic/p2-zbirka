@@ -78,7 +78,6 @@ int main()
   obrni_niz_v1(a, n);
 
   printf("Nakon obrtanja elemenata, niz je:\n");
-
   for (p = a; p - a < n; p++)
     printf("%d ", *p);
   printf("\n");
@@ -86,7 +85,6 @@ int main()
   obrni_niz_v2(a, n);
 
   printf("Nakon ponovnog obrtanja elemenata, niz je:\n");
-
   for (p = a; p - a < n; p++)
     printf("%d ", *p);
   printf("\n");

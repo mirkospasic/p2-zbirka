@@ -31,7 +31,6 @@ int **alociraj_matricu(int n, int m)
 
 int **alociraj_kvadratnu_matricu(int n)
 {
-  /* Alociranje matrice dimenzije n x n */
   return alociraj_matricu(n, n);
 }
 
@@ -59,7 +58,6 @@ void ucitaj_matricu(int **matrica, int n, int m)
 
 void ucitaj_kvadratnu_matricu(int **matrica, int n)
 {
-  /* Ucitavanje matrice n x n */
   ucitaj_matricu(matrica, n, n);
 }
 
@@ -76,7 +74,6 @@ void ispisi_matricu(int **matrica, int n, int m)
 
 void ispisi_kvadratnu_matricu(int **matrica, int n)
 {
-  /* Ispis matrice n x n */
   ispisi_matricu(matrica, n, n);
 }
 
@@ -99,7 +96,6 @@ int ucitaj_matricu_iz_datoteke(int **matrica, int n, int m,
 int ucitaj_kvadratnu_matricu_iz_datoteke(int **matrica, int n,
                                          FILE * f)
 {
-  /* Ucitavanje matrice n x n iz datoteke */
   return ucitaj_matricu_iz_datoteke(matrica, n, n, f);
 }
 
@@ -123,6 +119,5 @@ int upisi_matricu_u_datoteku(int **matrica, int n, int m, FILE * f)
 int upisi_kvadratnu_matricu_u_datoteku(int **matrica, int n,
                                        FILE * f)
 {
-  /* Ispis matrice n x n u datoteku */
   return upisi_matricu_u_datoteku(matrica, n, n, f);
 }
