@@ -33,12 +33,12 @@ int f_rekurzivna(int n, int a, int b)
 }
 
 /* NAPOMENA: U slucaju da se rekurzijom problem svodi na vise manjih
-   podproblema koji se mogu preklapati, postoji opasnost da se
-   pojedini podproblemi manjih dimenzija resavaju veci broj puta.
+   potproblema koji se mogu preklapati, postoji opasnost da se
+   pojedini potproblemi manjih dimenzija resavaju veci broj puta.
    Npr. F(20) = a*F(19) + b*F(18), a F(19) = a*F(18) + b*F(17), tj.
    problem F(18) se resava dva puta! Problemi manjih dimenzija ce se
    resavati jos veci broj puta. Resenje za ovaj problem je
-   kombinacija rekurzije sa dinamickim programiranjem. Podproblemi se 
+   kombinacija rekurzije sa dinamickim programiranjem. Potproblemi se 
    resavaju samo jednom, a njihova resenja se pamte u memoriji
    (obicno u nizovima ili matricama), odakle se koriste ako tokom
    resavanja ponovo budu potrebni.
@@ -53,12 +53,12 @@ int f_rekurzivna(int n, int a, int b)
    verzija */
 int f_napredna(int n, int a, int b)
 {
-  /* Niz koji cuva resenja podproblema. Kompajler inicijalizuje
-     staticke promenljive na podrazumevane vrednosti. Stoga,
+  /* Niz koji cuva resenja potproblema. Kompajler inicijalizuje
+     staticke promenljive na potrazumevane vrednosti. Stoga,
      elemente celobrojnog niza inicijalizuje na 0 */
   static int f[20];
 
-  /* Ako je podproblem vec ranije resen, koristi se resenje koje je
+  /* Ako je potproblem vec ranije resen, koristi se resenje koje je
      vec izracunato */
   if (f[n] != 0)
     return f[n];

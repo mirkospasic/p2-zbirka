@@ -110,7 +110,7 @@ int main()
   scanf("%u", &y);
 
   /* Ispisuju se binarne reprezentacije broja x i broja koji se
-     izracuna primenom funkcije postavi_0 za x, n i p */
+     izracunava funkcijom postavi_0 sa argumentima x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("postavi_0(%10u,%6u,%6u)%16s = ", x, n, p, "");
@@ -118,7 +118,7 @@ int main()
   printf("\n");
 
   /* Ispisuju se binarne reprezentacije broja x i broja koji se
-     izracuna primenom funkcije postavi_1 za x, n i p */
+     izracunava funkcijom postavi_1 sa argumentima x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("postavi_1(%10u,%6u,%6u)%16s = ", x, n, p, "");
@@ -126,15 +126,16 @@ int main()
   printf("\n");
 
   /* Ispisuju se binarne reprezentacije broja x i broja koji se
-     izracuna primenom funkcije vrati_bitove za x, n i p */
+     izracunava funkcijom vrati_bitove sa argumentima x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("vrati_bitove(%10u,%6u,%6u)%13s = ", x, n, p, "");
   stampaj_bitove(vrati_bitove(x, n, p));
   printf("\n");
 
-  /* Ispisuju se binarne reprezentacije brojeva x, y i broja koji se
-     izracuna primenom funkcije postavi_1_n_bitova za x, n, p */
+  /* Ispisuju se binarne reprezentacije brojeva x, y i broja
+     koji se izracunava funkcijom postavi_1_n_bitova sa 
+     argumentima x, n, p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("y = %10u %36s = ", y, "");
@@ -144,7 +145,7 @@ int main()
   printf("\n");
 
   /* Ispisuju se binarne reprezentacije broja x i broja koji se
-     izracuna primenom funkcije invertuj za x, n i p */
+     izracunava funkcijom invertuj sa argumentima x, n i p */
   printf("x = %10u %36s = ", x, "");
   stampaj_bitove(x);
   printf("invertuj(%10u,%6u,%6u)%17s = ", x, n, p, "");

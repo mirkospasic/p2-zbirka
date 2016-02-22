@@ -14,7 +14,7 @@ int binomni_koeficijent(int n, int k)
 }
 
 /******************************************************************
-  Iterativno izracunavanje datog binomnog koeficijenta
+  Iterativno izracunavanje binomnog koeficijenta
 
   int binomni_koeficijent (int n, int k) {
     int i, j, b;

@@ -39,7 +39,7 @@ int main()
 {
   unsigned int n;
 
-  /* Ucitava se broj */
+  /* Ucitava se neoznacen broj */
   scanf("%u", &n);
 
   /* Ispisuje se rezultat */

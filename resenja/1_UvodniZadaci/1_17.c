@@ -18,8 +18,8 @@ int stepen(int x, int k)
 /********************************************************************
    Resenje logaritamske slozenosti: 
    x^0 =1;  
-   x^k = x * (x^2 )^(k/2) , za neparno k 
-   x^k = (x^2)^(k/2) , za parno k
+   x^k = x * (x^2 )^(k/2) - za neparno k 
+   x^k = (x^2)^(k/2) - za parno k
    Ovom resenju ce biti potrebno manje rekurzivnih poziva da bi
    se doslo do rezultata, i stoga je efikasnije. 
 ********************************************************************/
@@ -28,11 +28,11 @@ int stepen_2(int x, int k)
   if (k == 0)
     return 1;
 
-  /* Ako je stepen paran */
+  /* Ukoliko je stepen k paran */
   if ((k % 2) == 0)
     return stepen_2(x * x, k / 2);
 
-  /* Inace (ukoliko je stepen neparan) */
+  /* Ukoliko je stepen k neparan */
   return x * stepen_2(x * x, k / 2);
 }
 

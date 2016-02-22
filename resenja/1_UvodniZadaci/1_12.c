@@ -37,7 +37,7 @@ int main()
 {
   unsigned int x;
 
-  /* Ucitava se broj */
+  /* Ucitava se neoznacen broj */
   scanf("%u", &x);
 
   /* Ispisuje se rezultat */
