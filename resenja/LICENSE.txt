@@ -10,7 +10,7 @@
 * da se navedu imena autora. Upotreba dela u komercijalne svrhe nije dozvoljena.
 * Prerada, preoblikovanje i upotreba dela u sklopu nekog drugog nije dozvoljena.
 *
-* Autori: Milena Vujosevic Janicic, Jelena Graovac, Ana Spasic,
-*             Mirko Spasic, Andjelka Zecevic, Nina Radojicic
+* Autori: Milena Vujosevic Janicic, Jelena Graovac, Nina Radojicic,
+*             Ana Spasic, Mirko Spasic, Andjelka Zecevic
 ********************************************************************************/
 
