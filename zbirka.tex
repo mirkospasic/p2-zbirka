@@ -3,10 +3,10 @@
 %\documentclass[b5paper]{book}
 
 \newif\ifcrnobelo
-\crnobelotrue   %otkomentarisati za crno-belu varijantu
+%\crnobelotrue   %otkomentarisati za crno-belu varijantu
 
 \newif\ifuboji
-%\ubojitrue       %zakomentarisati za crno-belu varijantu
+\ubojitrue       %zakomentarisati za crno-belu varijantu
 
 \newif\ifrecenzija
 %\recenzijatrue
@@ -15,11 +15,28 @@
 \stampanaverzijatrue
 %\stampanaverzijafalse
 
+\newif\ifelektronskaverzija
+\elektronskaverzijatrue
+
 \ifstampanaverzija
 \documentclass[pdftex,b5paper,twoside]{book}
 \setlength{\textheight}{190mm}
 \setlength{\topmargin}{0mm}
 \fi
+
+\iffalse
+\usepackage{xwatermark}
+\newwatermark*[allpages,color=black!50,angle=45,scale=1]{Elektronsko izdanje (2016)}
+\fi
+
+
+\ifelektronskaverzija
+  \usepackage{draftwatermark}
+  \SetWatermarkText{Elektronsko izdanje (2016)}
+  \SetWatermarkLightness{0.94}
+  \SetWatermarkScale{0.36}
+\fi
+
 
 \ifrecenzija
 \documentclass[a4paper]{book}
@@ -33,8 +50,11 @@
 \input{podesavanja/hyphenation.tex}
 
 \newif\ifpdf
-%\pdftrue       %postaviti na false za izbacivanje linkova na resenja
+\pdftrue       %postaviti na false za izbacivanje linkova na resenja
+
 \usepackage{fancyhdr}
+
+
 
 \begin{document}
 \pagenumbering{roman}
