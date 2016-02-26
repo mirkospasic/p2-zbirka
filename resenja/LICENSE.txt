@@ -1,0 +1,16 @@
+
+/********************************************************************************
+* Ovo delo zaštićeno je licencom Creative Commons CC BY-NC-ND 4.0
+* (Attribution-NonCommercial-NoDerivatives 4.0 International License).
+*
+* Detalji licence mogu se videti na veb-adresi
+* http://creativecommons.org/licenses/by-nc-nd/4.0/.
+*
+* Dozvoljeno je umnožavanje, distribucija i javno saopštavanje dela, pod uslovom
+* da se navedu imena autora. Upotreba dela u komercijalne svrhe nije dozvoljena.
+* Prerada, preoblikovanje i upotreba dela u sklopu nekog drugog nije dozvoljena.
+*
+* Autori: Milena Vujosevic Janicic, Jelena Graovac, Ana Spasic,
+*             Mirko Spasic, Andjelka Zecevic, Nina Radojicic
+********************************************************************************/
+
