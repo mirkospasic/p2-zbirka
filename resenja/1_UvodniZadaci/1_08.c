@@ -60,8 +60,8 @@ unsigned vrati_bitove(unsigned x, unsigned n, unsigned p)
 unsigned postavi_1_n_bitova(unsigned x, unsigned n, unsigned p,
                             unsigned y)
 {
-  /* Kreira se maska kod kod koje su poslednjih n bitova 1, a
-     ostali su 0. */
+  /* Kreira se maska kod koje su poslednjih n bitova 1, a ostali su 
+     0. */
   unsigned poslednjih_n_1 = ~(~0 << n);
 
   /* Kao i kod funkcije postavi_0, i ovde se kreira maska koja ima
