@@ -5,7 +5,7 @@
    celog broja u memoriji. Bitove koji predstavljaju binarnu
    reprezentaciju broja treba ispisati sa leva na desno, tj. od
    bita najvece tezine ka bitu najmanje tezine */
-void stampaj_bitove(unsigned x);
+void stampaj_bitove(int x);
 
 /* Funkcija prikazuje na standardni izlaz binarnu reprezentaciju
    celog broja tipa 'short' u memoriji. */

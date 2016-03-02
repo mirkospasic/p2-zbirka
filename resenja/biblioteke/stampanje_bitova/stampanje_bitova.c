@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include "stampanje_bitova.h"
 
-void stampaj_bitove(unsigned x)
+void stampaj_bitove(int x)
 {
   /* Broj bitova celog broja */
-  unsigned velicina = sizeof(unsigned) * 8;
+  unsigned velicina = sizeof(int) * 8;
 
   /* Maska koja se koristi za ocitavanje bitova celog broja */
   unsigned maska;
