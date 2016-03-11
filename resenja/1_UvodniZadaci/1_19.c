@@ -4,7 +4,7 @@
 /* Pomocna funkcija koja izracunava n! * rezultat. Koristi repnu
    rekurziju. rezultat je argument u kome se akumulira do tada
    izracunatu vrednost faktorijela. Kada dodje do izlaza iz
-   rekurzije iz rekurzije potrebno je da vratimo rezultat. */
+   rekurzije potrebno je da vratimo rezultat. */
 int faktorijel_repna(int n, int rezultat)
 {
   if (n == 0)

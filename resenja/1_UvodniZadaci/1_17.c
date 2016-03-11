@@ -18,8 +18,8 @@ int stepen(int x, int k)
 /********************************************************************
    Resenje logaritamske slozenosti: 
    x^0 =1;  
-   x^k = x * (x^2 )^(k/2) - za neparno k 
-   x^k = (x^2)^(k/2) - za parno k
+   x^k = (x^2)^(k/2) 		  (ako je k parno)
+   x^k = x * (x^2 )^((k-1)/2) (ako je k neparno, k-1 je onda parno)
    Ovom resenju ce biti potrebno manje rekurzivnih poziva da bi
    se doslo do rezultata, i stoga je efikasnije. 
 ********************************************************************/
@@ -51,9 +51,9 @@ int main()
   scanf("%d", &k);
 
   /* Ispisuje se vrednost koju vraca odgovarajuca funkcija */
-  if (x == 1)
+  if (ind == 1)
     printf("%d\n", stepen(x, k));
-  else if (x == 2)
+  else if (ind == 2)
     printf("%d\n", stepen_2(x, k));
   else {
     fprintf(stderr,
