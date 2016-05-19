@@ -30,7 +30,7 @@ int main()
   printf("\nUnesite broj koji se trazi: ");
   scanf("%d", &broj);
 
-  trazeni = pretrazi_listu(glava, broj);
+  trazeni = pretrazi_sortiranu_listu(glava, broj);
   if (trazeni == NULL)
     printf("Broj %d se ne nalazi u listi!\n", broj);
   else

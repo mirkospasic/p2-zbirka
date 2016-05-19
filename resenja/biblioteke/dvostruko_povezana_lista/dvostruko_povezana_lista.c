@@ -12,7 +12,7 @@ Cvor *napravi_cvor(int broj)
   /* Inicijalizacija polja strukture */
   novi->vrednost = broj;
   novi->sledeci = NULL;
-
+  novi->prethodni = NULL;
   /* Vraca se adresa novog cvora */
   return novi;
 }

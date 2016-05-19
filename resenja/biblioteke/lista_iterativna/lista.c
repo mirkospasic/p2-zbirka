@@ -174,7 +174,7 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
      konjunkciji. */
   while (glava != NULL && glava->vrednost < broj)
     glava = glava->sledeci;
-
+  
   /* Iz petlje se moglo izaci na vise nacina. Prvi, tako sto je
      glava->vrednost veca od trazenog broja i tada treba vratiti
      NULL, jer trazen broj nije nadjen medju manjim brojevima pri
@@ -183,10 +183,13 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
      je NULL ili tako sto je glava->vrednost == broj. U oba
      poslednja nacina treba vratiti pokazivac glava bilo da je NULL
      ili pokazivac na konkretan cvor. */
+  if(glava == NULL)
+    return NULL;
+
   if (glava->vrednost > broj)
     return NULL;
-  else
-    return glava;
+  
+  return glava;
 }
 
 void obrisi_cvor(Cvor ** adresa_glave, int broj)
