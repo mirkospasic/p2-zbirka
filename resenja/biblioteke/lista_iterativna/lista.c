@@ -116,7 +116,7 @@ int dodaj_iza(Cvor * tekuci, int broj)
   /* Kreira se novi cvor i proverava se uspesnost kreiranja */
   Cvor *novi = napravi_cvor(broj);
   if (novi == NULL)
-    return 1;
+    return -1;
 
   /* Novi cvor se dodaje iza tekuceg cvora. */
   novi->sledeci = tekuci->sledeci;
@@ -183,10 +183,7 @@ Cvor *pretrazi_sortiranu_listu(Cvor * glava, int broj)
      je NULL ili tako sto je glava->vrednost == broj. U oba
      poslednja nacina treba vratiti pokazivac glava bilo da je NULL
      ili pokazivac na konkretan cvor. */
-  if(glava == NULL)
-    return NULL;
-
-  if (glava->vrednost > broj)
+  if(glava == NULL || glava->vrednost > broj)
     return NULL;
   
   return glava;

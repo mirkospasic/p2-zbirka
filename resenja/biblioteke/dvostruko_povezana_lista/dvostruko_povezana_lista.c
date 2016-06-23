@@ -155,7 +155,7 @@ int dodaj_sortirano(Cvor ** adresa_glave, Cvor ** adresa_kraja, int
     return dodaj_na_pocetak_liste(adresa_glave, adresa_kraja, broj);
   }
 
-  /* Pronazi se cvor iza koga treba uvezati novi cvor */
+  /* Pronalazi se cvor iza koga treba uvezati novi cvor */
   Cvor *pomocni = pronadji_mesto_umetanja(*adresa_glave, broj);
   /* Dodaje se novi cvor uz proveru uspesnosti dodavanja */
   if (dodaj_iza(pomocni, broj) == 1)
